@@ -1,0 +1,1428 @@
+{
+  "ID": "3a2d36eb-ed50-4b63-901d-24daf1f1ad78",
+  "Version": "3.10.0.0",
+  "Name": "Ajali_mbaya_Serious_accident05",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 370,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -633277967,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2093.6494,
+                "Y": 652.3303,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2093.6494,
+                "Y": 652.3303,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -633277967,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.5152,
+                "Y": 1.5152,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.5152,
+                "Y": 1.5152,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -633277967,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -633277967,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "B": 240
+                },
+                "FrameIndex": 305,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "B": 240
+                },
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -30217456,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "move",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "move",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 120,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "move",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "move",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 242,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -30217456,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2896.8469,
+                "Y": 35.6642,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2322.8145,
+                "Y": 32.8373,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1894.1205,
+                "Y": 27.8132,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1854.4691,
+                "Y": 1070.5037,
+                "FrameIndex": 242,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -30217456,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.2853,
+                "Y": 1.2853,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.2853,
+                "Y": 1.2853,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.2853,
+                "Y": 1.2853,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.2853,
+                "Y": 1.2853,
+                "FrameIndex": 242,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -30217456,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 179.4613,
+                "Y": 179.4667,
+                "FrameIndex": 242,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -30217456,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "crash",
+                "FrameIndex": 242,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2005731790,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "move",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "move",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 120,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "move",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 242,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2005731790,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -464.0555,
+                "Y": 12.9492,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -94.3903,
+                "Y": 19.5504,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 299.0423,
+                "Y": 26.8942,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 382.2883,
+                "Y": 704.8434,
+                "FrameIndex": 242,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2005731790,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.3808,
+                "Y": 1.3808,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.3808,
+                "Y": 1.3808,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.3808,
+                "Y": 1.3808,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.3808,
+                "Y": 1.3808,
+                "FrameIndex": 242,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2005731790,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 178.6374,
+                "Y": 178.6374,
+                "FrameIndex": 242,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2133044501,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1319.4913,
+                "Y": 1485.7131,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1319.4917,
+                "Y": 1485.7115,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1319.4913,
+                "Y": 1485.7131,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2133044501,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.2236,
+                "Y": 1.2236,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.9645,
+                "Y": 1.9645,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.2236,
+                "Y": 1.2236,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2133044501,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2133044501,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "B": 240
+                },
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 109,
+                  "G": 79,
+                  "B": 52
+                },
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "B": 240
+                },
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 340,
+          "EndIndex": 370,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleX": -0.0349,
+              "ScaleY": -0.9994
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.1606,
+              "Y": 598.3009
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1063,
+              "Y": 0.3324
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.6667
+            },
+            "LeftMargin": -272.1606,
+            "RightMargin": -267.8394,
+            "TopMargin": 1.6991,
+            "BottomMargin": 598.3009,
+            "Tag": 27,
+            "ActionTag": 972940748,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 119,
+              "G": 122,
+              "B": 124
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.1611,
+              "Y": -3.853
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1063,
+              "Y": -0.0021
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.2778
+            },
+            "LeftMargin": -272.1611,
+            "RightMargin": -267.8389,
+            "TopMargin": 1303.853,
+            "BottomMargin": -3.853,
+            "Tag": 28,
+            "Children": [
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 81,
+                  "G": 84,
+                  "B": 86
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": -0.1728,
+                  "Y": 499.8849
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": -0.0001,
+                  "Y": 0.9998
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.2
+                },
+                "LeftMargin": -0.1728,
+                "RightMargin": 0.1729,
+                "TopMargin": -99.8849,
+                "BottomMargin": 499.8849,
+                "Tag": 29,
+                "ActionTag": 158773767,
+                "Size": {
+                  "X": 3100.0,
+                  "Y": 100.0
+                },
+                "Name": "Panel_3",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": 1227555593,
+            "Size": {
+              "X": 3100.0,
+              "Y": 500.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_tree.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2093.6494,
+              "Y": 652.3303
+            },
+            "Scale": {
+              "ScaleX": 1.5152,
+              "ScaleY": 1.5152
+            },
+            "CColor": {
+              "B": 240
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8178,
+              "Y": 0.3624
+            },
+            "PreSize": {
+              "X": 0.1875,
+              "Y": 0.3483
+            },
+            "LeftMargin": 1853.6494,
+            "RightMargin": 226.3506,
+            "TopMargin": 834.1697,
+            "BottomMargin": 338.8303,
+            "UserData": "\\",
+            "Tag": 39,
+            "ActionTag": -633277967,
+            "Size": {
+              "X": 480.0,
+              "Y": 627.0
+            },
+            "Name": "tree_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_zebracrossing.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 161.5681,
+              "Y": 612.2822
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0631,
+              "Y": 0.3402
+            },
+            "PreSize": {
+              "X": 0.1258,
+              "Y": 0.0728
+            },
+            "LeftMargin": 0.5681,
+            "RightMargin": 2237.4319,
+            "TopMargin": 1122.2178,
+            "BottomMargin": 546.7822,
+            "Tag": 30,
+            "ActionTag": 2126289642,
+            "Size": {
+              "X": 322.0,
+              "Y": 131.0
+            },
+            "Name": "zebracrossing_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_zebracrossing.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 482.1555,
+              "Y": 612.2825
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1883,
+              "Y": 0.3402
+            },
+            "PreSize": {
+              "X": 0.1258,
+              "Y": 0.0728
+            },
+            "LeftMargin": 321.1555,
+            "RightMargin": 1916.8445,
+            "TopMargin": 1122.2175,
+            "BottomMargin": 546.7825,
+            "Tag": 31,
+            "ActionTag": 1767130854,
+            "Size": {
+              "X": 322.0,
+              "Y": 131.0
+            },
+            "Name": "zebracrossing_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_zebracrossing.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 801.2193,
+              "Y": 612.2803
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.313,
+              "Y": 0.3402
+            },
+            "PreSize": {
+              "X": 0.1258,
+              "Y": 0.0728
+            },
+            "LeftMargin": 640.2193,
+            "RightMargin": 1597.7808,
+            "TopMargin": 1122.2197,
+            "BottomMargin": 546.7803,
+            "Tag": 32,
+            "ActionTag": -103358537,
+            "Size": {
+              "X": 322.0,
+              "Y": 131.0
+            },
+            "Name": "zebracrossing_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_zebracrossing.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1120.6675,
+              "Y": 612.282
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4378,
+              "Y": 0.3402
+            },
+            "PreSize": {
+              "X": 0.1258,
+              "Y": 0.0728
+            },
+            "LeftMargin": 959.6675,
+            "RightMargin": 1278.3325,
+            "TopMargin": 1122.218,
+            "BottomMargin": 546.782,
+            "Tag": 33,
+            "ActionTag": 1858347581,
+            "Size": {
+              "X": 322.0,
+              "Y": 131.0
+            },
+            "Name": "zebracrossing_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_zebracrossing.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1437.5105,
+              "Y": 612.2811
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5615,
+              "Y": 0.3402
+            },
+            "PreSize": {
+              "X": 0.1258,
+              "Y": 0.0728
+            },
+            "LeftMargin": 1276.5105,
+            "RightMargin": 961.4895,
+            "TopMargin": 1122.2189,
+            "BottomMargin": 546.7811,
+            "Tag": 34,
+            "ActionTag": -1597871729,
+            "Size": {
+              "X": 322.0,
+              "Y": 131.0
+            },
+            "Name": "zebracrossing_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_zebracrossing.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1754.3544,
+              "Y": 612.2798
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6853,
+              "Y": 0.3402
+            },
+            "PreSize": {
+              "X": 0.1258,
+              "Y": 0.0728
+            },
+            "LeftMargin": 1593.3544,
+            "RightMargin": 644.6456,
+            "TopMargin": 1122.2202,
+            "BottomMargin": 546.7798,
+            "Tag": 35,
+            "ActionTag": -1094549357,
+            "Size": {
+              "X": 322.0,
+              "Y": 131.0
+            },
+            "Name": "zebracrossing_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_zebracrossing.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2073.7976,
+              "Y": 612.2794
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8101,
+              "Y": 0.3402
+            },
+            "PreSize": {
+              "X": 0.1258,
+              "Y": 0.0728
+            },
+            "LeftMargin": 1912.7976,
+            "RightMargin": 325.2024,
+            "TopMargin": 1122.2206,
+            "BottomMargin": 546.7794,
+            "Tag": 36,
+            "ActionTag": -668499621,
+            "Size": {
+              "X": 322.0,
+              "Y": 131.0
+            },
+            "Name": "zebracrossing_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_zebracrossing.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2395.0054,
+              "Y": 612.2803
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9355,
+              "Y": 0.3402
+            },
+            "PreSize": {
+              "X": 0.1258,
+              "Y": 0.0728
+            },
+            "LeftMargin": 2234.0054,
+            "RightMargin": 3.9946,
+            "TopMargin": 1122.2197,
+            "BottomMargin": 546.7803,
+            "Tag": 37,
+            "ActionTag": -516632848,
+            "Size": {
+              "X": 322.0,
+              "Y": 131.0
+            },
+            "Name": "zebracrossing_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_zebracrossing.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -111.162,
+              "Y": 613.3278
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0434,
+              "Y": 0.3407
+            },
+            "PreSize": {
+              "X": 0.1258,
+              "Y": 0.0728
+            },
+            "LeftMargin": -272.162,
+            "RightMargin": 2510.1621,
+            "TopMargin": 1121.1721,
+            "BottomMargin": 547.8278,
+            "Tag": 17,
+            "ActionTag": 1720436660,
+            "Size": {
+              "X": 322.0,
+              "Y": 131.0
+            },
+            "Name": "ajali_zebracrossing_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_zebracrossing.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2666.7197,
+              "Y": 611.6464
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0417,
+              "Y": 0.3398
+            },
+            "PreSize": {
+              "X": 0.1258,
+              "Y": 0.0728
+            },
+            "LeftMargin": 2505.7197,
+            "RightMargin": -267.7197,
+            "TopMargin": 1122.8535,
+            "BottomMargin": 546.1464,
+            "Tag": 18,
+            "ActionTag": -2052061674,
+            "Size": {
+              "X": 322.0,
+              "Y": 131.0
+            },
+            "Name": "ajali_zebracrossing_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ajali_mbaya_Serious_accident/truck.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2896.8469,
+              "Y": 35.6642
+            },
+            "Scale": {
+              "ScaleX": -1.2853,
+              "ScaleY": 1.2853
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1316,
+              "Y": 0.0198
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2896.8469,
+            "RightMargin": -336.8469,
+            "TopMargin": 1764.3358,
+            "BottomMargin": 35.6642,
+            "UserData": "move;drag",
+            "Tag": 391,
+            "ActionTag": -30217456,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "truck",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ajali_mbaya_Serious_accident/car.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -464.0555,
+              "Y": 12.9492
+            },
+            "Scale": {
+              "ScaleX": -1.3808,
+              "ScaleY": 1.3808
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.1813,
+              "Y": 0.0072
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -464.0555,
+            "RightMargin": 3024.0554,
+            "TopMargin": 1787.0508,
+            "BottomMargin": 12.9492,
+            "UserData": "move;drag",
+            "Tag": 758,
+            "ActionTag": -2005731790,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "car",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ajali_mbaya_Serious_accident/ajali_sun.png",
+              "Plist": "Ajali_mbaya_Serious_accident/Ajali_mbaya_Serious_accident.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1319.4913,
+              "Y": 1485.7131
+            },
+            "Scale": {
+              "ScaleX": 1.2236,
+              "ScaleY": 1.2236
+            },
+            "CColor": {
+              "B": 240
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5154,
+              "Y": 0.8254
+            },
+            "PreSize": {
+              "X": 0.1051,
+              "Y": 0.1494
+            },
+            "LeftMargin": 1184.9913,
+            "RightMargin": 1106.0087,
+            "TopMargin": 179.7869,
+            "BottomMargin": 1351.2131,
+            "UserData": "main.sun",
+            "Tag": 1648,
+            "ActionTag": 2133044501,
+            "Size": {
+              "X": 269.0,
+              "Y": 269.0
+            },
+            "Name": "ajali_sun_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Ajali_mbaya_Serious_accident.plist",
+        "Ajali_mbaya_Serious_accident.png",
+        "car.json",
+        "truck.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

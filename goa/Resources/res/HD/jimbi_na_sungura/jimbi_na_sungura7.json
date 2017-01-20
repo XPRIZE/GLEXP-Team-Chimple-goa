@@ -1,0 +1,875 @@
+{
+  "ID": "43552275-a1c7-48a6-a57c-3716a41c1150",
+  "Version": "2.3.4",
+  "Name": "jimbi_na_sungura7",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 365,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1159223338,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "chicken_hen_cock_eat",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "chicken_hen_cock_eat",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 365,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1159223338,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3400.0,
+                "Y": 438.8277,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2392.6858,
+                "Y": 438.8277,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2392.6858,
+                "Y": 438.8277,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1159223338,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1159223338,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 365,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 653,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 227,
+              "G": 243,
+              "B": 242
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -250.0,
+              "Y": -1.1925
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0977,
+              "Y": -0.0007
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -250.0,
+            "RightMargin": -290.0,
+            "TopMargin": 1.1925,
+            "BottomMargin": -1.1925,
+            "Tag": 688,
+            "ActionTag": 2138983246,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/hadithi_hill2.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1536.0728,
+              "Y": 1021.8
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "G": 252,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6,
+              "Y": 0.5677
+            },
+            "PreSize": {
+              "X": 0.6187,
+              "Y": 0.1861
+            },
+            "LeftMargin": 744.0728,
+            "RightMargin": 231.9272,
+            "TopMargin": 610.7,
+            "BottomMargin": 854.3,
+            "Tag": 685,
+            "ActionTag": 2133359644,
+            "Size": {
+              "X": 1584.0,
+              "Y": 335.0
+            },
+            "Name": "hadithi_hill_2_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/hadithi_hill2.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2300.4065,
+              "Y": 1049.2107
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "G": 252,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8986,
+              "Y": 0.5829
+            },
+            "PreSize": {
+              "X": 0.6187,
+              "Y": 0.1861
+            },
+            "LeftMargin": 1508.4065,
+            "RightMargin": -532.4065,
+            "TopMargin": 583.2893,
+            "BottomMargin": 881.7107,
+            "Tag": 684,
+            "ActionTag": 1302009352,
+            "Size": {
+              "X": 1584.0,
+              "Y": 335.0
+            },
+            "Name": "hadithi_hill_2_10_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 232,
+              "G": 207,
+              "B": 84
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.9141,
+              "Y": -1.2738
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.523
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0004,
+              "Y": -0.0007
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -0.9141,
+            "RightMargin": -539.0859,
+            "TopMargin": 1.2738,
+            "BottomMargin": -1.2738,
+            "Tag": 683,
+            "ActionTag": -1123480827,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/jimbi_grass1.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2375.1777,
+              "Y": 469.9781
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9278,
+              "Y": 0.2611
+            },
+            "PreSize": {
+              "X": 0.4574,
+              "Y": 0.5239
+            },
+            "LeftMargin": 1789.6777,
+            "RightMargin": -400.6777,
+            "TopMargin": 858.5219,
+            "BottomMargin": -1.5219,
+            "Tag": 682,
+            "ActionTag": -1375080665,
+            "Size": {
+              "X": 1171.0,
+              "Y": 943.0
+            },
+            "Name": "jimbi_grass_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/jimbi_grass1.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 584.586,
+              "Y": 470.2263
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2284,
+              "Y": 0.2612
+            },
+            "PreSize": {
+              "X": 0.4574,
+              "Y": 0.5239
+            },
+            "LeftMargin": -0.914,
+            "RightMargin": 1389.9141,
+            "TopMargin": 858.2737,
+            "BottomMargin": -1.2737,
+            "Tag": 681,
+            "ActionTag": -1444032616,
+            "Size": {
+              "X": 1171.0,
+              "Y": 943.0
+            },
+            "Name": "jimbi_grass_1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/hadithi_hill2.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 644.543,
+              "Y": 1044.1075
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "G": 252,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2518,
+              "Y": 0.5801
+            },
+            "PreSize": {
+              "X": 0.6187,
+              "Y": 0.1861
+            },
+            "LeftMargin": -147.457,
+            "RightMargin": 1123.457,
+            "TopMargin": 588.3925,
+            "BottomMargin": 876.6075,
+            "Tag": 687,
+            "ActionTag": -219011235,
+            "Size": {
+              "X": 1584.0,
+              "Y": 335.0
+            },
+            "Name": "hadithi_hill_2_10_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/fisi_tree.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 727.8869,
+              "Y": 1128.6073
+            },
+            "Scale": {
+              "ScaleX": 0.8563,
+              "ScaleY": 0.8563
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2843,
+              "Y": 0.627
+            },
+            "PreSize": {
+              "X": 0.3566,
+              "Y": 0.6311
+            },
+            "LeftMargin": 271.3869,
+            "RightMargin": 1375.613,
+            "TopMargin": 103.3927,
+            "BottomMargin": 560.6073,
+            "Tag": 686,
+            "ActionTag": -2100856880,
+            "Size": {
+              "X": 913.0,
+              "Y": 1136.0
+            },
+            "Name": "fisi_tree_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/fahali_house.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2040.9104,
+              "Y": 963.2526
+            },
+            "Scale": {
+              "ScaleX": 0.3519,
+              "ScaleY": 0.3519
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7972,
+              "Y": 0.5351
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 1442.9104,
+            "RightMargin": -78.9104,
+            "TopMargin": 431.2473,
+            "BottomMargin": 557.7526,
+            "Tag": 676,
+            "ActionTag": 302466537,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_3_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/fahali_house.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2396.856,
+              "Y": 945.4774
+            },
+            "Scale": {
+              "ScaleX": 0.3519,
+              "ScaleY": 0.3519
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9363,
+              "Y": 0.5253
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 1798.856,
+            "RightMargin": -434.856,
+            "TopMargin": 449.0226,
+            "BottomMargin": 539.9774,
+            "Tag": 677,
+            "ActionTag": 671952767,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_3_0_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/fahali_house.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2272.2563,
+              "Y": 903.2878
+            },
+            "Scale": {
+              "ScaleX": 0.4039,
+              "ScaleY": 0.4039
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8876,
+              "Y": 0.5018
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 1674.2563,
+            "RightMargin": -310.2563,
+            "TopMargin": 491.2122,
+            "BottomMargin": 497.7878,
+            "Tag": 675,
+            "ActionTag": 1264474749,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_3_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/fahali_house.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1105.7075,
+              "Y": 923.7239
+            },
+            "Scale": {
+              "ScaleX": 0.616,
+              "ScaleY": 0.616
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4319,
+              "Y": 0.5132
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 507.7075,
+            "RightMargin": 856.2925,
+            "TopMargin": 470.7761,
+            "BottomMargin": 518.2239,
+            "Tag": 679,
+            "ActionTag": 1262472331,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_3_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/fahali_house.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 380.5813,
+              "Y": 854.9914
+            },
+            "Scale": {
+              "ScaleX": 0.6379,
+              "ScaleY": 0.6379
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1487,
+              "Y": 0.475
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": -217.4187,
+            "RightMargin": 1581.4187,
+            "TopMargin": 539.5085,
+            "BottomMargin": 449.4914,
+            "Tag": 680,
+            "ActionTag": -189149013,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/fahali_house.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 898.3907,
+              "Y": 805.9463
+            },
+            "Scale": {
+              "ScaleX": 0.8025,
+              "ScaleY": 0.8025
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3509,
+              "Y": 0.4477
+            },
+            "PreSize": {
+              "X": 0.4672,
+              "Y": 0.4506
+            },
+            "LeftMargin": 300.3907,
+            "RightMargin": 1063.6094,
+            "TopMargin": 588.5537,
+            "BottomMargin": 400.4463,
+            "Tag": 678,
+            "ActionTag": -1238317448,
+            "Size": {
+              "X": 1196.0,
+              "Y": 811.0
+            },
+            "Name": "fahali_house_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "jimbi_na_sungura/cock.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3400.0,
+              "Y": 438.8277
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.3281,
+              "Y": 0.2438
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3400.0,
+            "RightMargin": -840.0,
+            "TopMargin": 1361.1724,
+            "BottomMargin": 438.8277,
+            "UserData": "fly;drag",
+            "Tag": 689,
+            "ActionTag": -1159223338,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cock",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "cock.json",
+        "jimbi_na_sungura.plist",
+        "jimbi_na_sungura.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

@@ -1,0 +1,485 @@
+{
+  "ID": "20b19c52-df66-4495-a31c-21366bab148a",
+  "Version": "3.10.0.0",
+  "Name": "9",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 1441,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/box.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6.3765,
+              "Y": 6.3762
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 270.0,
+            "RotationSkewY": 270.0,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -365.1235,
+            "RightMargin": -377.8765,
+            "TopMargin": -378.8762,
+            "BottomMargin": -366.1238,
+            "Tag": 1442,
+            "ActionTag": 124941240,
+            "Size": {
+              "X": 743.0,
+              "Y": 745.0
+            },
+            "Name": "box_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/pig.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -227.0764,
+              "Y": -201.2123
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -311.5764,
+            "RightMargin": 142.5764,
+            "TopMargin": 106.7123,
+            "BottomMargin": -295.7123,
+            "Tag": 1463,
+            "ActionTag": 2019044886,
+            "Size": {
+              "X": 169.0,
+              "Y": 189.0
+            },
+            "Name": "pig_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/sheep.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 213.0622,
+              "Y": -227.2524
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 120.0622,
+            "RightMargin": -306.0622,
+            "TopMargin": 153.7524,
+            "BottomMargin": -300.7524,
+            "Tag": 1464,
+            "ActionTag": -681883108,
+            "Size": {
+              "X": 186.0,
+              "Y": 147.0
+            },
+            "Name": "sheep_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/hen.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 222.2484,
+              "Y": 220.4004
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 134.7484,
+            "RightMargin": -309.7484,
+            "TopMargin": -304.4004,
+            "BottomMargin": 136.4004,
+            "Tag": 1466,
+            "ActionTag": 925325821,
+            "Size": {
+              "X": 175.0,
+              "Y": 168.0
+            },
+            "Name": "hen_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/dog.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9.6632,
+              "Y": 227.3498
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -78.3368,
+            "RightMargin": -97.6632,
+            "TopMargin": -307.3498,
+            "BottomMargin": 147.3498,
+            "Tag": 1487,
+            "ActionTag": -2047984475,
+            "Size": {
+              "X": 176.0,
+              "Y": 160.0
+            },
+            "Name": "dog_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/cow.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 225.9037,
+              "Y": 19.8847
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 133.9037,
+            "RightMargin": -317.9037,
+            "TopMargin": -112.3847,
+            "BottomMargin": -72.6153,
+            "Tag": 1488,
+            "ActionTag": -2081599015,
+            "Size": {
+              "X": 184.0,
+              "Y": 185.0
+            },
+            "Name": "cow_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/pig.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -215.2695,
+              "Y": 223.2848
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -299.7695,
+            "RightMargin": 130.7695,
+            "TopMargin": -317.7848,
+            "BottomMargin": 128.7848,
+            "Tag": 1508,
+            "ActionTag": 1169385755,
+            "Size": {
+              "X": 169.0,
+              "Y": 189.0
+            },
+            "Name": "pig_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/hen.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -5.7338,
+              "Y": -213.2828
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -93.2338,
+            "RightMargin": -81.7662,
+            "TopMargin": 129.2828,
+            "BottomMargin": -297.2828,
+            "Tag": 1509,
+            "ActionTag": -1875088644,
+            "Size": {
+              "X": 175.0,
+              "Y": 168.0
+            },
+            "Name": "hen_5_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/sheep.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 12.1252,
+              "Y": 7.942
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -80.8748,
+            "RightMargin": -105.1252,
+            "TopMargin": -81.442,
+            "BottomMargin": -65.558,
+            "Tag": 1521,
+            "ActionTag": 1162728120,
+            "Size": {
+              "X": 186.0,
+              "Y": 147.0
+            },
+            "Name": "sheep_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "card/cow.png",
+              "Plist": "card/card.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -205.8066,
+              "Y": 15.2928
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -297.8066,
+            "RightMargin": 113.8066,
+            "TopMargin": -107.7928,
+            "BottomMargin": -77.2072,
+            "Tag": 1522,
+            "ActionTag": -1159670796,
+            "Size": {
+              "X": 184.0,
+              "Y": 185.0
+            },
+            "Name": "cow_2_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "card.plist",
+        "card.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

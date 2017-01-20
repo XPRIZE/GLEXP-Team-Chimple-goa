@@ -1,0 +1,356 @@
+{
+  "ID": "6335f98b-f490-4885-acba-e92b43cc84e9",
+  "Version": "2.3.4",
+  "Name": "stackisland",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 57,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "stackisland/stackislandbg.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 111,
+            "ActionTag": -1048587163,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "background",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "stackisland/stackislandmg.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": -1.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": -0.0006
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "TopMargin": 1.0,
+            "BottomMargin": -1.0,
+            "Tag": 126,
+            "ActionTag": 731065174,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "main",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "stackisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 678.9492,
+              "Y": 164.3548
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2652,
+              "Y": 0.0913
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 678.9492,
+            "RightMargin": 1881.0508,
+            "TopMargin": 1635.6453,
+            "BottomMargin": 164.3548,
+            "Tag": 618,
+            "ActionTag": -1302189399,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "stackisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 55.0588,
+              "Y": 272.2853
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0215,
+              "Y": 0.1513
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 55.0588,
+            "RightMargin": 2504.9412,
+            "TopMargin": 1527.7147,
+            "BottomMargin": 272.2853,
+            "Tag": 621,
+            "ActionTag": -1081413298,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "stackisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2259.5647,
+              "Y": 169.6628
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8826,
+              "Y": 0.0943
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2259.5647,
+            "RightMargin": 300.4353,
+            "TopMargin": 1630.3372,
+            "BottomMargin": 169.6628,
+            "Tag": 624,
+            "ActionTag": 1777088315,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "stackisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2802.3076,
+              "Y": 293.5692
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.0947,
+              "Y": 0.1631
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2802.3076,
+            "RightMargin": -242.3076,
+            "TopMargin": 1506.4308,
+            "BottomMargin": 293.5692,
+            "Tag": 627,
+            "ActionTag": 719348006,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "stackisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2824.7666,
+              "Y": 965.8605
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1034,
+              "Y": 0.5366
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2824.7666,
+            "RightMargin": -264.7666,
+            "TopMargin": 834.1395,
+            "BottomMargin": 965.8605,
+            "Tag": 630,
+            "ActionTag": 640419541,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "stackisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1057.3752,
+              "Y": 997.8488
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.413,
+              "Y": 0.5544
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1057.3752,
+            "RightMargin": 1502.6248,
+            "TopMargin": 802.1512,
+            "BottomMargin": 997.8488,
+            "Tag": 633,
+            "ActionTag": -1798322878,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bubble.json",
+        "stackislandbg.json",
+        "stackislandmg.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -1,0 +1,808 @@
+{
+  "ID": "342bc94a-5bcb-428f-ab23-abb55f2768e5",
+  "Version": "3.10.0.0",
+  "Name": "Meno_aina_gani04",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 430,
+        "Speed": 1.0,
+        "ActivedAnimationName": "cloud",
+        "Timelines": [
+          {
+            "ActionTag": -933746779,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "mouthopen",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "mouthopen",
+                "SingleFrameIndex": 140,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 895464718,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 245,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 430,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 895464718,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -546.9031,
+                "Y": 1446.6682,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1562.1401,
+                "Y": 1646.5782,
+                "FrameIndex": 340,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 895464718,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 245,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 240,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 245,
+          "EndIndex": 430,
+          "Name": "cloud",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 103,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 196,
+              "G": 231,
+              "B": 235
+            },
+            "FirstColor": {
+              "R": 247,
+              "G": 249,
+              "B": 181
+            },
+            "EndColor": {
+              "R": 242,
+              "G": 249,
+              "B": 222
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1270.0,
+              "Y": 899.9993
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4961,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -730.0,
+            "RightMargin": -710.0,
+            "TopMargin": 0.0007,
+            "BottomMargin": -0.0007,
+            "Tag": 18,
+            "ActionTag": 1652541791,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 245,
+              "G": 193,
+              "B": 141
+            },
+            "FirstColor": {
+              "R": 245,
+              "G": 216,
+              "B": 165
+            },
+            "EndColor": {
+              "R": 229,
+              "G": 179,
+              "B": 135
+            },
+            "ColorVector": {
+              "ScaleY": -1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1267.2086,
+              "Y": 435.4883
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.4839
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.495,
+              "Y": 0.2419
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -732.7914,
+            "RightMargin": -707.2085,
+            "TopMargin": 464.5117,
+            "BottomMargin": -464.5117,
+            "Tag": 51,
+            "ActionTag": -513502146,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/tree.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 281.4052,
+              "Y": 1349.4327
+            },
+            "Scale": {
+              "ScaleX": 1.6948,
+              "ScaleY": 1.6948
+            },
+            "CColor": {
+              "R": 228,
+              "G": 228,
+              "B": 228
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1099,
+              "Y": 0.7497
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": -123.5948,
+            "RightMargin": 1873.5947,
+            "TopMargin": 106.0673,
+            "BottomMargin": 1004.9327,
+            "Tag": 52,
+            "ActionTag": -744025422,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "tree",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/tree.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2465.8525,
+              "Y": 1384.2008
+            },
+            "Scale": {
+              "ScaleX": 1.6948,
+              "ScaleY": 1.6948
+            },
+            "CColor": {
+              "R": 226,
+              "G": 226,
+              "B": 226
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9632,
+              "Y": 0.769
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 2060.8525,
+            "RightMargin": -310.8525,
+            "TopMargin": 71.2992,
+            "BottomMargin": 1039.7008,
+            "Tag": 53,
+            "ActionTag": -1849922962,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "tree",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/tree.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1436.1914,
+              "Y": 1435.364
+            },
+            "Scale": {
+              "ScaleX": 1.7738,
+              "ScaleY": 1.7738
+            },
+            "CColor": {
+              "R": 224,
+              "G": 224,
+              "B": 224
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.561,
+              "Y": 0.7974
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 1031.1914,
+            "RightMargin": 718.8086,
+            "TopMargin": 20.136,
+            "BottomMargin": 1090.864,
+            "Tag": 54,
+            "ActionTag": -412259913,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "tree",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/tree.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1869.8563,
+              "Y": 1345.829
+            },
+            "Scale": {
+              "ScaleX": 1.6948,
+              "ScaleY": 1.6948
+            },
+            "CColor": {
+              "R": 234,
+              "G": 234,
+              "B": 234
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7304,
+              "Y": 0.7477
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 1464.8563,
+            "RightMargin": 285.1436,
+            "TopMargin": 109.671,
+            "BottomMargin": 1001.329,
+            "Tag": 55,
+            "ActionTag": 493779301,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "tree",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/tree.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 808.2166,
+              "Y": 1313.8524
+            },
+            "Scale": {
+              "ScaleX": 1.6948,
+              "ScaleY": 1.6948
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3157,
+              "Y": 0.7299
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 403.2166,
+            "RightMargin": 1346.7834,
+            "TopMargin": 141.6476,
+            "BottomMargin": 969.3524,
+            "Tag": 56,
+            "ActionTag": 1868150224,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "tree",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/bush.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 222.3269,
+              "Y": 880.708
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0868,
+              "Y": 0.4893
+            },
+            "PreSize": {
+              "X": 0.3848,
+              "Y": 0.2522
+            },
+            "LeftMargin": -270.1731,
+            "RightMargin": 1845.1731,
+            "TopMargin": 692.292,
+            "BottomMargin": 653.708,
+            "Tag": 19,
+            "ActionTag": 509856965,
+            "Size": {
+              "X": 985.0,
+              "Y": 454.0
+            },
+            "Name": "bush",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/bush.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2374.8076,
+              "Y": 902.6846
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9277,
+              "Y": 0.5015
+            },
+            "PreSize": {
+              "X": 0.3848,
+              "Y": 0.2522
+            },
+            "LeftMargin": 1882.3076,
+            "RightMargin": -307.3076,
+            "TopMargin": 670.3154,
+            "BottomMargin": 675.6846,
+            "Tag": 20,
+            "ActionTag": 1250317373,
+            "Size": {
+              "X": 985.0,
+              "Y": 454.0
+            },
+            "Name": "bush",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/bush.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1325.9722,
+              "Y": 921.8718
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.518,
+              "Y": 0.5122
+            },
+            "PreSize": {
+              "X": 0.3848,
+              "Y": 0.2522
+            },
+            "LeftMargin": 833.4722,
+            "RightMargin": 741.5278,
+            "TopMargin": 651.1282,
+            "BottomMargin": 694.8718,
+            "Tag": 21,
+            "ActionTag": -1375711816,
+            "Size": {
+              "X": 985.0,
+              "Y": 454.0
+            },
+            "Name": "bush",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/bush.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1875.9836,
+              "Y": 825.9432
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7328,
+              "Y": 0.4589
+            },
+            "PreSize": {
+              "X": 0.3848,
+              "Y": 0.2522
+            },
+            "LeftMargin": 1383.4836,
+            "RightMargin": 191.5164,
+            "TopMargin": 747.0569,
+            "BottomMargin": 598.9432,
+            "Tag": 22,
+            "ActionTag": 301583634,
+            "Size": {
+              "X": 985.0,
+              "Y": 454.0
+            },
+            "Name": "bush",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/bush.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 756.7875,
+              "Y": 838.736
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2956,
+              "Y": 0.466
+            },
+            "PreSize": {
+              "X": 0.3848,
+              "Y": 0.2522
+            },
+            "LeftMargin": 264.2875,
+            "RightMargin": 1310.7125,
+            "TopMargin": 734.2639,
+            "BottomMargin": 611.736,
+            "Tag": 23,
+            "ActionTag": -365587937,
+            "Size": {
+              "X": 985.0,
+              "Y": 454.0
+            },
+            "Name": "bush",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Meno_aina_gani/cow.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1474.0781,
+              "Y": 782.2476
+            },
+            "Scale": {
+              "ScaleX": 3.4137,
+              "ScaleY": 3.4137
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5758,
+              "Y": 0.4346
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1474.0781,
+            "RightMargin": 1085.9219,
+            "TopMargin": 1017.7524,
+            "BottomMargin": 782.2476,
+            "UserData": "main;cloud",
+            "Tag": 99,
+            "ActionTag": -933746779,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cow",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Meno_aina_gani/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1562.1401,
+              "Y": 1646.5782
+            },
+            "Scale": {
+              "ScaleX": 1.7423,
+              "ScaleY": 1.7423
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6102,
+              "Y": 0.9148
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1562.1401,
+            "RightMargin": 997.8599,
+            "TopMargin": 153.4218,
+            "BottomMargin": 1646.5782,
+            "UserData": "drag;rain",
+            "Tag": 319,
+            "ActionTag": 895464718,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "cloud.json",
+        "cow.json",
+        "Meno_aina_gani.plist",
+        "Meno_aina_gani.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

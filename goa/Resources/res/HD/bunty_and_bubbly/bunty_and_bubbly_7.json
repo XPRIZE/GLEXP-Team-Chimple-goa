@@ -1,0 +1,1989 @@
+{
+  "ID": "13eda5e8-d30a-4dc1-ba71-660630428a69",
+  "Version": "3.10.0.0",
+  "Name": "bunty_and_bubbly_7",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 290,
+        "Speed": 1.0,
+        "ActivedAnimationName": "sandcastle",
+        "Timelines": [
+          {
+            "ActionTag": 538793822,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 538793822,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2081.4797,
+                "Y": -300.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 538793822,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0654,
+                "Y": 0.9648,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 538793822,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1348277643,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 180,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1348277643,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 320.2596,
+                "Y": 940.17,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 916.0159,
+                "Y": 940.17,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1348277643,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.2,
+                "Y": 0.2,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.2,
+                "Y": 0.2,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1348277643,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -138381186,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 949.7152,
+                "Y": 1154.114,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 949.7143,
+                "Y": 1154.1139,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 949.7148,
+                "Y": 1154.1138,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 949.7143,
+                "Y": 1154.1139,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 949.7148,
+                "Y": 1154.1138,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 949.7152,
+                "Y": 1154.114,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -138381186,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -138381186,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 190,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -9.3439,
+                "Y": -9.3508,
+                "FrameIndex": 210,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 7.6855,
+                "Y": 7.6815,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -9.3439,
+                "Y": -9.3508,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 7.6855,
+                "Y": 7.6815,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 180,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 190,
+          "EndIndex": 290,
+          "Name": "sandcastle",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 4753,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 229,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 211,
+              "G": 105,
+              "B": 80
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -276.1326,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1079,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -276.1326,
+            "RightMargin": -263.8674,
+            "Tag": 4853,
+            "ActionTag": 188512919,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1443.7169,
+              "Y": 1534.4043
+            },
+            "Scale": {
+              "ScaleX": 0.2986,
+              "ScaleY": 0.2986
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.564,
+              "Y": 0.8524
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 1303.2169,
+            "RightMargin": 975.7831,
+            "TopMargin": 124.5957,
+            "BottomMargin": 1393.4043,
+            "Tag": 4843,
+            "ActionTag": -132474987,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 319.1661,
+              "Y": 456.9293
+            },
+            "Scale": {
+              "ScaleX": 0.281,
+              "ScaleY": 0.281
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1247,
+              "Y": 0.2538
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 178.6661,
+            "RightMargin": 2100.334,
+            "TopMargin": 1202.0707,
+            "BottomMargin": 315.9293,
+            "Tag": 4844,
+            "ActionTag": 559405388,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 186.3579,
+              "Y": 720.6011
+            },
+            "Scale": {
+              "ScaleX": 0.3636,
+              "ScaleY": 0.3636
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0728,
+              "Y": 0.4003
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 45.8579,
+            "RightMargin": 2233.1421,
+            "TopMargin": 938.3989,
+            "BottomMargin": 579.6011,
+            "Tag": 4845,
+            "ActionTag": -413261885,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 175.0417,
+              "Y": 1263.2327
+            },
+            "Scale": {
+              "ScaleX": 0.6293,
+              "ScaleY": 0.6293
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0684,
+              "Y": 0.7018
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 34.5417,
+            "RightMargin": 2244.4583,
+            "TopMargin": 395.7673,
+            "BottomMargin": 1122.2327,
+            "Tag": 4846,
+            "ActionTag": 1167104445,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 716.2172,
+              "Y": 1270.3566
+            },
+            "Scale": {
+              "ScaleX": 0.4861,
+              "ScaleY": 0.4861
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2798,
+              "Y": 0.7058
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 575.7172,
+            "RightMargin": 1703.2827,
+            "TopMargin": 388.6434,
+            "BottomMargin": 1129.3566,
+            "Tag": 4847,
+            "ActionTag": 402719197,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 206.2781,
+              "Y": 1550.1533
+            },
+            "Scale": {
+              "ScaleX": 0.7431,
+              "ScaleY": 0.7431
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0806,
+              "Y": 0.8612
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 65.7781,
+            "RightMargin": 2213.2219,
+            "TopMargin": 108.8467,
+            "BottomMargin": 1409.1533,
+            "Tag": 4848,
+            "ActionTag": 456963633,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 371.9662,
+              "Y": 1049.4102
+            },
+            "Scale": {
+              "ScaleX": 0.7431,
+              "ScaleY": 0.7431
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1453,
+              "Y": 0.583
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 231.4662,
+            "RightMargin": 2047.5338,
+            "TopMargin": 609.5898,
+            "BottomMargin": 908.4102,
+            "Tag": 4849,
+            "ActionTag": 1529441131,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1023.1237,
+              "Y": 1569.9355
+            },
+            "Scale": {
+              "ScaleX": 0.5825,
+              "ScaleY": 0.5825
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3997,
+              "Y": 0.8722
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 882.6237,
+            "RightMargin": 1396.3762,
+            "TopMargin": 89.0645,
+            "BottomMargin": 1428.9355,
+            "Tag": 4850,
+            "ActionTag": -1739367060,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 583.7578,
+              "Y": 1582.3826
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.228,
+              "Y": 0.8791
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 443.2578,
+            "RightMargin": 1835.7422,
+            "TopMargin": 76.6174,
+            "BottomMargin": 1441.3826,
+            "Tag": 4851,
+            "ActionTag": -726217236,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_wall.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1452.9784,
+              "Y": 893.4466
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5676,
+              "Y": 0.4964
+            },
+            "PreSize": {
+              "X": 0.7801,
+              "Y": 0.8606
+            },
+            "LeftMargin": 454.4784,
+            "RightMargin": 108.5215,
+            "TopMargin": 132.0535,
+            "BottomMargin": 118.9466,
+            "Tag": 4852,
+            "ActionTag": -1626012966,
+            "Size": {
+              "X": 1997.0,
+              "Y": 1549.0
+            },
+            "Name": "wall_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bunty_and_bubbly/girl.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2081.4797,
+              "Y": -300.0
+            },
+            "Scale": {
+              "ScaleX": 1.0654,
+              "ScaleY": 0.9648
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8131,
+              "Y": -0.1667
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2081.4797,
+            "RightMargin": 478.5203,
+            "TopMargin": 2100.0,
+            "BottomMargin": -300.0,
+            "UserData": "hi;drag",
+            "Tag": 4798,
+            "ActionTag": 538793822,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/circle.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1112.2056,
+              "Y": 954.6534
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "G": 217,
+              "B": 195
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4345,
+              "Y": 0.5304
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1012.2056,
+            "RightMargin": 1347.7944,
+            "TopMargin": 745.3467,
+            "BottomMargin": 854.6534,
+            "Tag": 4854,
+            "ActionTag": -1572820165,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "circle_47",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 239,
+              "G": 224,
+              "B": 117
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 311.3159,
+              "Y": 903.5295
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "G": 217,
+              "B": 195
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1216,
+              "Y": 0.502
+            },
+            "PreSize": {
+              "X": 0.3208,
+              "Y": 0.3058
+            },
+            "LeftMargin": 311.3159,
+            "RightMargin": 1427.3087,
+            "TopMargin": 346.0708,
+            "BottomMargin": 903.5295,
+            "Tag": 4855,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 39.676,
+                  "Y": 505.4042
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0483,
+                  "Y": 0.9182
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": -60.324,
+                "RightMargin": 681.6995,
+                "TopMargin": -55.0045,
+                "BottomMargin": 405.4042,
+                "Tag": 4856,
+                "ActionTag": 1350672056,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 68.3721,
+                  "Y": 9.5353
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0832,
+                  "Y": 0.0173
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": -31.6279,
+                "RightMargin": 653.0033,
+                "TopMargin": 440.8644,
+                "BottomMargin": -90.4647,
+                "Tag": 4857,
+                "ActionTag": 1155352182,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 841.3683,
+                  "Y": 478.2743
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.0243,
+                  "Y": 0.869
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 741.3683,
+                "RightMargin": -119.9929,
+                "TopMargin": -27.8746,
+                "BottomMargin": 378.2743,
+                "Tag": 4858,
+                "ActionTag": -1496271851,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 843.9366,
+                  "Y": 326.0596
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.0275,
+                  "Y": 0.5924
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 743.9366,
+                "RightMargin": -122.5612,
+                "TopMargin": 124.3401,
+                "BottomMargin": 226.0596,
+                "Tag": 4859,
+                "ActionTag": -1008332908,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 839.6002,
+                  "Y": 175.5114
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.0222,
+                  "Y": 0.3189
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 739.6002,
+                "RightMargin": -118.2248,
+                "TopMargin": 274.8883,
+                "BottomMargin": 75.5114,
+                "Tag": 4860,
+                "ActionTag": -2043930292,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5109,
+                  "ScaleY": 0.5757
+                },
+                "Position": {
+                  "X": 683.577,
+                  "Y": 33.4351
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8322,
+                  "Y": 0.0607
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 581.397,
+                "RightMargin": 39.9784,
+                "TopMargin": 432.1046,
+                "BottomMargin": -81.7049,
+                "Tag": 4861,
+                "ActionTag": 554402393,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5109,
+                  "ScaleY": 0.5757
+                },
+                "Position": {
+                  "X": 516.7936,
+                  "Y": 20.3866
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6292,
+                  "Y": 0.037
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 414.6136,
+                "RightMargin": 206.7618,
+                "TopMargin": 445.1531,
+                "BottomMargin": -94.7534,
+                "Tag": 4862,
+                "ActionTag": 462780660,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5109,
+                  "ScaleY": 0.5757
+                },
+                "Position": {
+                  "X": 363.0587,
+                  "Y": 3.4364
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.442,
+                  "Y": 0.0062
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 260.8787,
+                "RightMargin": 360.4968,
+                "TopMargin": 462.1033,
+                "BottomMargin": -111.7036,
+                "Tag": 4864,
+                "ActionTag": 1050354695,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0_0_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5109,
+                  "ScaleY": 0.5757
+                },
+                "Position": {
+                  "X": 214.5597,
+                  "Y": 8.6758
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2612,
+                  "Y": 0.0158
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 112.3797,
+                "RightMargin": 508.9957,
+                "TopMargin": 456.8639,
+                "BottomMargin": -106.4642,
+                "Tag": 4865,
+                "ActionTag": 3659449,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0_0_0_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5109,
+                  "ScaleY": 0.5757
+                },
+                "Position": {
+                  "X": 34.7249,
+                  "Y": 154.9811
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0423,
+                  "Y": 0.2816
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": -67.4551,
+                "RightMargin": 688.8306,
+                "TopMargin": 310.5586,
+                "BottomMargin": 39.8411,
+                "Tag": 4866,
+                "ActionTag": -1027064727,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0_0_0_0_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5109,
+                  "ScaleY": 0.5757
+                },
+                "Position": {
+                  "X": 4.2432,
+                  "Y": 273.8527
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0052,
+                  "Y": 0.4976
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": -97.9368,
+                "RightMargin": 719.3123,
+                "TopMargin": 191.687,
+                "BottomMargin": 158.7127,
+                "Tag": 4867,
+                "ActionTag": 1135988592,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0_0_0_0_3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5109,
+                  "ScaleY": 0.5757
+                },
+                "Position": {
+                  "X": 16.4342,
+                  "Y": 423.2084
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.02,
+                  "Y": 0.7689
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": -85.7458,
+                "RightMargin": 707.1212,
+                "TopMargin": 42.3313,
+                "BottomMargin": 308.0684,
+                "Tag": 4868,
+                "ActionTag": -809390067,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0_0_0_0_4",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5109,
+                  "ScaleY": 0.5757
+                },
+                "Position": {
+                  "X": 208.4591,
+                  "Y": 551.2252
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2538,
+                  "Y": 1.0015
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 106.2791,
+                "RightMargin": 515.0963,
+                "TopMargin": -85.6855,
+                "BottomMargin": 436.0852,
+                "Tag": 4869,
+                "ActionTag": 1816966609,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0_0_0_0_5",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5109,
+                  "ScaleY": 0.5757
+                },
+                "Position": {
+                  "X": 406.5773,
+                  "Y": 557.3248
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.495,
+                  "Y": 1.0126
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 304.3973,
+                "RightMargin": 316.9781,
+                "TopMargin": -91.7851,
+                "BottomMargin": 442.1848,
+                "Tag": 4870,
+                "ActionTag": 1261504001,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0_0_0_0_6",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5109,
+                  "ScaleY": 0.5757
+                },
+                "Position": {
+                  "X": 577.2623,
+                  "Y": 563.4205
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7028,
+                  "Y": 1.0237
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 475.0823,
+                "RightMargin": 146.2931,
+                "TopMargin": -97.8807,
+                "BottomMargin": 448.2805,
+                "Tag": 4871,
+                "ActionTag": -686648821,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0_0_0_0_7",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5109,
+                  "ScaleY": 0.5757
+                },
+                "Position": {
+                  "X": 711.3719,
+                  "Y": 548.1807
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.8661,
+                  "Y": 0.996
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 609.1919,
+                "RightMargin": 12.1835,
+                "TopMargin": -82.641,
+                "BottomMargin": 433.0407,
+                "Tag": 4872,
+                "ActionTag": 2119121056,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_0_0_0_0_0_8",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1168.0807,
+                  "Y": -186.3624
+                },
+                "Scale": {
+                  "ScaleX": 0.7144,
+                  "ScaleY": 0.7144
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4221,
+                  "Y": -0.3386
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 1068.0807,
+                "RightMargin": -446.7053,
+                "TopMargin": 636.7621,
+                "BottomMargin": -286.3624,
+                "Tag": 4873,
+                "ActionTag": 901484574,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1080.2782,
+                  "Y": -118.8059
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.3152,
+                  "Y": -0.2159
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 980.2782,
+                "RightMargin": -358.9028,
+                "TopMargin": 569.2056,
+                "BottomMargin": -218.8059,
+                "Tag": 4874,
+                "ActionTag": -869328290,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/circle.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1365.0455,
+                  "Y": -279.4569
+                },
+                "Scale": {
+                  "ScaleX": 0.7144,
+                  "ScaleY": 0.7144
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.6619,
+                  "Y": -0.5077
+                },
+                "PreSize": {
+                  "X": 0.2435,
+                  "Y": 0.3634
+                },
+                "LeftMargin": 1265.0455,
+                "RightMargin": -643.6701,
+                "TopMargin": 729.8566,
+                "BottomMargin": -379.4569,
+                "Tag": 4875,
+                "ActionTag": 1142258682,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "circle_47_0_0_0_1_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -1829623330,
+            "Size": {
+              "X": 821.3754,
+              "Y": 550.3997
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bunty_and_bubbly/girl.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 916.0159,
+              "Y": 940.17
+            },
+            "Scale": {
+              "ScaleX": -0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3578,
+              "Y": 0.5223
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 916.0159,
+            "RightMargin": 1643.9841,
+            "TopMargin": 859.83,
+            "BottomMargin": 940.17,
+            "UserData": "drag",
+            "Tag": 4921,
+            "ActionTag": 1348277643,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl_2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bb2/sandcastle3.png",
+              "Plist": "bunty_and_bubbly/bb2/bb2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 949.7147,
+              "Y": 1154.1138
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 4.2796,
+            "RotationSkewY": 4.2751,
+            "CColor": {
+              "G": 210,
+              "B": 210
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.371,
+              "Y": 0.6412
+            },
+            "PreSize": {
+              "X": 0.1156,
+              "Y": 0.2467
+            },
+            "LeftMargin": 801.7147,
+            "RightMargin": 1462.2854,
+            "TopMargin": 423.8862,
+            "BottomMargin": 932.1138,
+            "UserData": "main.sandcastle",
+            "Tag": 4920,
+            "ActionTag": -138381186,
+            "Size": {
+              "X": 296.0,
+              "Y": 444.0
+            },
+            "Name": "sandcastle_3_86",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bb2/bb2.plist",
+        "bb2/bb2.png",
+        "bunty_and_bubbly.plist",
+        "bunty_and_bubbly.png",
+        "girl.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

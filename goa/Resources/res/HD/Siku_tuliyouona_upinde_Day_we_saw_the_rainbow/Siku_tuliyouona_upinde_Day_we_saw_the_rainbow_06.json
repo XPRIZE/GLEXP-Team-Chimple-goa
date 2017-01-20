@@ -1,0 +1,685 @@
+{
+  "ID": "8f18c5df-e32d-4af6-a48f-dc5091f950d2",
+  "Version": "3.10.0.0",
+  "Name": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow_06",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 300,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -725368576,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 150,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -725368576,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2069.3621,
+                "Y": -152.2357,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2069.3621,
+                "Y": -152.2357,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -725368576,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -725368576,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1546190399,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 150,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1546190399,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 432.246,
+                "Y": -178.0283,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 432.246,
+                "Y": -178.0283,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1546190399,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.0,
+                "Y": 1.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1546190399,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 131,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 248,
+              "G": 146,
+              "B": 0
+            },
+            "EndColor": {
+              "R": 247,
+              "G": 172,
+              "B": 114
+            },
+            "ColorVector": {
+              "ScaleX": 0.225,
+              "ScaleY": -0.9744
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -966.8394,
+              "Y": -160.0016
+            },
+            "Scale": {
+              "ScaleX": 22.9326,
+              "ScaleY": 10.7585
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.3777,
+              "Y": -0.0889
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -966.8394,
+            "RightMargin": 3326.8394,
+            "TopMargin": 1760.0016,
+            "BottomMargin": -160.0016,
+            "Tag": 132,
+            "ActionTag": -261415888,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "sky",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/rainbowinbucket.png",
+              "Plist": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1987.6411,
+              "Y": 920.1402
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7764,
+              "Y": 0.5112
+            },
+            "PreSize": {
+              "X": 0.375,
+              "Y": 0.8861
+            },
+            "LeftMargin": 1507.6411,
+            "RightMargin": 92.3589,
+            "TopMargin": 82.3599,
+            "BottomMargin": 122.6402,
+            "Tag": 133,
+            "ActionTag": -438205541,
+            "Size": {
+              "X": 960.0,
+              "Y": 1595.0
+            },
+            "Name": "rainbowinbucket_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 76,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 0,
+              "G": 0,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1291.6431,
+              "Y": -194.1645
+            },
+            "Scale": {
+              "ScaleX": 0.112,
+              "ScaleY": 11.031
+            },
+            "RotationSkewX": -4.5521,
+            "RotationSkewY": -4.5693,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5045,
+              "Y": -0.1079
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1291.6431,
+            "RightMargin": 1068.3569,
+            "TopMargin": 1794.1646,
+            "BottomMargin": -194.1645,
+            "Tag": 134,
+            "ActionTag": -2109126718,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/rainbowhang.png",
+              "Plist": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 747.0842,
+              "Y": 654.4235
+            },
+            "Scale": {
+              "ScaleX": 0.7435,
+              "ScaleY": 0.7435
+            },
+            "RotationSkewX": -3.6899,
+            "RotationSkewY": -3.6899,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2918,
+              "Y": 0.3636
+            },
+            "PreSize": {
+              "X": 0.3406,
+              "Y": 1.0967
+            },
+            "LeftMargin": 311.0842,
+            "RightMargin": 1376.9158,
+            "TopMargin": 158.5764,
+            "BottomMargin": -332.5765,
+            "Tag": 135,
+            "ActionTag": 497303015,
+            "Size": {
+              "X": 872.0,
+              "Y": 1974.0
+            },
+            "Name": "rainbowhang_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 0,
+              "G": 0,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 10.0004,
+              "Y": 1363.4346
+            },
+            "Scale": {
+              "ScaleX": 0.0614,
+              "ScaleY": 5.6201
+            },
+            "RotationSkewX": 85.5939,
+            "RotationSkewY": 85.5124,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0039,
+              "Y": 0.7575
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 10.0004,
+            "RightMargin": 2349.9995,
+            "TopMargin": 236.5654,
+            "BottomMargin": 1363.4346,
+            "Tag": 136,
+            "ActionTag": -925429252,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 0,
+              "G": 0,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 448.5276,
+              "Y": 1405.3354
+            },
+            "Scale": {
+              "ScaleX": 0.0614,
+              "ScaleY": 0.2294
+            },
+            "RotationSkewX": 174.4639,
+            "RotationSkewY": 174.1789,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1752,
+              "Y": 0.7807
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 448.5276,
+            "RightMargin": 1911.4724,
+            "TopMargin": 194.6646,
+            "BottomMargin": 1405.3354,
+            "Tag": 137,
+            "ActionTag": -277741409,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 0,
+              "G": 0,
+              "B": 0
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 703.5732,
+              "Y": 1423.095
+            },
+            "Scale": {
+              "ScaleX": 0.0614,
+              "ScaleY": 0.2294
+            },
+            "RotationSkewX": 174.4563,
+            "RotationSkewY": 174.176,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2748,
+              "Y": 0.7906
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 703.5732,
+            "RightMargin": 1656.4268,
+            "TopMargin": 176.905,
+            "BottomMargin": 1423.095,
+            "Tag": 138,
+            "ActionTag": 2075584453,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2_0_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/women.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2069.3621,
+              "Y": -152.2357
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8083,
+              "Y": -0.0846
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2069.3621,
+            "RightMargin": 490.6379,
+            "TopMargin": 1952.2357,
+            "BottomMargin": -152.2357,
+            "UserData": "hi;drag",
+            "Tag": 3377,
+            "ActionTag": -725368576,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "women",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 432.246,
+              "Y": -178.0283
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1688,
+              "Y": -0.0989
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 432.246,
+            "RightMargin": 2127.7539,
+            "TopMargin": 1978.0283,
+            "BottomMargin": -178.0283,
+            "UserData": "hi;drag",
+            "Tag": 3734,
+            "ActionTag": -1546190399,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy.json",
+        "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist",
+        "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.png",
+        "women.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

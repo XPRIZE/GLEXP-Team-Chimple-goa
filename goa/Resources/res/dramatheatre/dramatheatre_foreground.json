@@ -1,0 +1,123 @@
+{
+  "ID": "3535ec89-360e-4eef-8615-d8c06805dcbe",
+  "Version": "3.10.0.0",
+  "Name": "dramatheatre_foreground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 413,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dramatheatre/bush.png",
+              "Plist": "dramatheatre/dramatheatre.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4188.2144,
+              "Y": 347.2337
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.636,
+              "Y": 0.1929
+            },
+            "PreSize": {
+              "X": 0.1973,
+              "Y": 0.1394
+            },
+            "LeftMargin": 3935.7144,
+            "RightMargin": -1880.7144,
+            "TopMargin": 1327.2662,
+            "BottomMargin": 221.7337,
+            "Tag": 197,
+            "ActionTag": -1743413969,
+            "Size": {
+              "X": 505.0,
+              "Y": 251.0
+            },
+            "Name": "bush",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dramatheatre/curtain.png",
+              "Plist": "dramatheatre/dramatheatre.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5098.1348,
+              "Y": 898.5178
+            },
+            "Scale": {
+              "ScaleX": 0.9873,
+              "ScaleY": 0.9471
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.9915,
+              "Y": 0.4992
+            },
+            "PreSize": {
+              "X": 1.1285,
+              "Y": 0.7961
+            },
+            "LeftMargin": 3653.6348,
+            "RightMargin": -3982.6348,
+            "TopMargin": 184.9822,
+            "BottomMargin": 182.0178,
+            "Tag": 198,
+            "ActionTag": -1730569458,
+            "Size": {
+              "X": 2889.0,
+              "Y": 1433.0
+            },
+            "Name": "curtain",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "foreground",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "dramatheatre.plist",
+        "dramatheatre.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

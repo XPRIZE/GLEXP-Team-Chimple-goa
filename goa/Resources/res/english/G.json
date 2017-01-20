@@ -1,0 +1,334 @@
+{
+  "ID": "1a6e5fea-f3ac-42bb-a8e1-e25dc58ca604",
+  "Version": "3.10.0.0",
+  "Name": "G",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 91,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "leg_ani/skate_a.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7.2041,
+              "Y": 126.7605
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7.2041,
+            "RightMargin": -7.2041,
+            "TopMargin": -126.7605,
+            "BottomMargin": 126.7605,
+            "Tag": 411,
+            "ActionTag": -1791102512,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "skate_a",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "LabelText": "G",
+            "LabelBMFontFile_CNB": {
+              "Type": "Normal",
+              "Path": "english/baloo_bhai_hdr.fnt",
+              "Plist": ""
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -31.7372,
+              "Y": 292.9069
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 123,
+              "G": 127,
+              "B": 213
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -224.2372,
+            "RightMargin": -160.7628,
+            "TopMargin": -792.9069,
+            "BottomMargin": -207.0931,
+            "Tag": 170,
+            "ActionTag": 391246506,
+            "Size": {
+              "X": 385.0,
+              "Y": 1000.0
+            },
+            "Name": "BitmapFontLabel_1",
+            "ctype": "TextBMFontObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "nose/nose_2.png",
+              "Plist": "alphamon.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 73.8651,
+              "Y": 319.1736
+            },
+            "Scale": {
+              "ScaleX": 0.8133,
+              "ScaleY": 0.918
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -49.6349,
+            "RightMargin": -197.3651,
+            "TopMargin": -377.6736,
+            "BottomMargin": 260.6736,
+            "Tag": 171,
+            "ActionTag": -1709267455,
+            "Size": {
+              "X": 247.0,
+              "Y": 117.0
+            },
+            "Name": "nose_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "mouth_ani/mouth_d.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7.1545,
+              "Y": 198.3366
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7.1545,
+            "RightMargin": -7.1545,
+            "TopMargin": -198.3366,
+            "BottomMargin": 198.3366,
+            "Tag": 187,
+            "ActionTag": -1817614574,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "mouth_d",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "eye_ani/eye_i.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -132.9047,
+              "Y": 433.628
+            },
+            "Scale": {
+              "ScaleX": 0.6032,
+              "ScaleY": 0.6032
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -132.9047,
+            "RightMargin": 132.9047,
+            "TopMargin": -433.628,
+            "BottomMargin": 433.628,
+            "Tag": 194,
+            "ActionTag": -447020432,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "eye_i",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "eye_ani/eye_i.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -9.1286,
+              "Y": 491.1977
+            },
+            "Scale": {
+              "ScaleX": 0.4516,
+              "ScaleY": 0.4516
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -9.1286,
+            "RightMargin": 9.1286,
+            "TopMargin": -491.1977,
+            "BottomMargin": 491.1977,
+            "Tag": 198,
+            "ActionTag": -825797600,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "eye_i",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "eye_ani/eye_i.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 129.163,
+              "Y": 479.5754
+            },
+            "Scale": {
+              "ScaleX": 0.6801,
+              "ScaleY": 0.6801
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 129.163,
+            "RightMargin": -129.163,
+            "TopMargin": -479.5754,
+            "BottomMargin": 479.5754,
+            "Tag": 202,
+            "ActionTag": -594978409,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "eye_i",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../alphamon.plist",
+        "../alphamon.png",
+        "../eye_ani/eye_i.json",
+        "../leg_ani/skate_a.json",
+        "../mouth_ani/mouth_d.json",
+        "baloo_bhai_hdr.fnt",
+        "baloo_bhai_hdr_0.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

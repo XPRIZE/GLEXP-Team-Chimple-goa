@@ -1,0 +1,166 @@
+{
+  "ID": "66596a9e-68f8-4e99-a599-a0e0668a7fe3",
+  "Version": "2.3.4",
+  "Name": "camp_foreground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 236,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/foreground_log.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 981.5845,
+              "Y": 136.5006
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3834,
+              "Y": 0.0533
+            },
+            "PreSize": {
+              "X": 0.275,
+              "Y": 0.0816
+            },
+            "LeftMargin": 629.5845,
+            "RightMargin": 1226.4155,
+            "TopMargin": 2318.9995,
+            "BottomMargin": 32.0006,
+            "Tag": 273,
+            "ActionTag": 922738427,
+            "Size": {
+              "X": 704.0,
+              "Y": 209.0
+            },
+            "Name": "foreground_log_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "camp/camp_bonfire.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4541.0869,
+              "Y": 326.5663
+            },
+            "Scale": {
+              "ScaleX": 2.0,
+              "ScaleY": 2.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.7739,
+              "Y": 0.1276
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4541.0869,
+            "RightMargin": -1981.0869,
+            "TopMargin": 2233.4336,
+            "BottomMargin": 326.5663,
+            "UserData": "bonfire_animation",
+            "Tag": 393,
+            "ActionTag": -308176598,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bonfire_animation",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "camp/camp4/main_pot.png",
+              "Plist": "camp/camp4/camp4.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2963.6431,
+              "Y": 220.6703
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1577,
+              "Y": 0.0862
+            },
+            "PreSize": {
+              "X": 0.2352,
+              "Y": 0.1652
+            },
+            "LeftMargin": 2662.6431,
+            "RightMargin": -704.6431,
+            "TopMargin": 2127.8296,
+            "BottomMargin": 9.1703,
+            "Tag": 158,
+            "ActionTag": -726996271,
+            "Size": {
+              "X": 602.0,
+              "Y": 423.0
+            },
+            "Name": "main_pot_19",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 2560.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "camp_bonfire.json",
+        "camp4/camp4.plist",
+        "camp4/camp4.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

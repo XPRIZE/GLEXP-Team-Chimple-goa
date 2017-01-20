@@ -1,0 +1,1290 @@
+{
+  "ID": "a8fb05cd-f247-46a3-8059-6b02d7ce5960",
+  "Version": "3.10.0.0",
+  "Name": "bunty_and_bubbly_6",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 290,
+        "Speed": 1.0,
+        "ActivedAnimationName": "towel",
+        "Timelines": [
+          {
+            "ActionTag": 1267698080,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1267698080,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2081.4824,
+                "Y": 99.8091,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1500.0,
+                "Y": 99.81,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1267698080,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5755,
+                "Y": 0.5212,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5755,
+                "Y": 0.5212,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1267698080,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1023816695,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1323.1144,
+                "Y": 143.8647,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1323.1144,
+                "Y": 143.8647,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -107.2824,
+                "Y": 1041.5516,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1323.1144,
+                "Y": 143.8647,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1323.1144,
+                "Y": 143.8647,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1023816695,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1023816695,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 361.1511,
+                "Y": 361.1191,
+                "FrameIndex": 140,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -563115470,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubble",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 149,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubble",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 150,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bubble",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -563115470,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1323.2328,
+                "Y": 141.3674,
+                "FrameIndex": 149,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1323.2328,
+                "Y": 141.3674,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1323.2328,
+                "Y": 141.3674,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -563115470,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 149,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -563115470,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 149,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -563115470,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 0,
+                "FrameIndex": 149,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1563898562,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2013.1652,
+                "Y": 607.3422,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 1
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2013.1648,
+                "Y": 607.3429,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2013.1652,
+                "Y": 607.3422,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1563898562,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 1
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 0.6931,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1563898562,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 230,
+                "EasingData": {
+                  "Type": 1
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 260,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 140,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 150,
+          "EndIndex": 220,
+          "Name": "soap",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 230,
+          "EndIndex": 290,
+          "Name": "towel",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 4553,
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 229,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 211,
+              "G": 105,
+              "B": 80
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -255.2764,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0997,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -255.2764,
+            "RightMargin": -284.7236,
+            "Tag": 4707,
+            "ActionTag": -50812522,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_wall.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1452.9784,
+              "Y": 893.4466
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5676,
+              "Y": 0.4964
+            },
+            "PreSize": {
+              "X": 0.7801,
+              "Y": 0.8606
+            },
+            "LeftMargin": 454.4784,
+            "RightMargin": 108.5215,
+            "TopMargin": 132.0535,
+            "BottomMargin": 118.9466,
+            "Tag": 4697,
+            "ActionTag": 1452704680,
+            "Size": {
+              "X": 1997.0,
+              "Y": 1549.0
+            },
+            "Name": "wall_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 583.7578,
+              "Y": 1582.3826
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.228,
+              "Y": 0.8791
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 443.2578,
+            "RightMargin": 1835.7422,
+            "TopMargin": 76.6174,
+            "BottomMargin": 1441.3826,
+            "Tag": 4698,
+            "ActionTag": -1249356483,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1023.1237,
+              "Y": 1569.9355
+            },
+            "Scale": {
+              "ScaleX": 0.5825,
+              "ScaleY": 0.5825
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3997,
+              "Y": 0.8722
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 882.6237,
+            "RightMargin": 1396.3762,
+            "TopMargin": 89.0645,
+            "BottomMargin": 1428.9355,
+            "Tag": 4699,
+            "ActionTag": -1293501140,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 371.9662,
+              "Y": 1049.4102
+            },
+            "Scale": {
+              "ScaleX": 0.7431,
+              "ScaleY": 0.7431
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1453,
+              "Y": 0.583
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 231.4662,
+            "RightMargin": 2047.5338,
+            "TopMargin": 609.5898,
+            "BottomMargin": 908.4102,
+            "Tag": 4700,
+            "ActionTag": -679977969,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 206.2781,
+              "Y": 1550.1533
+            },
+            "Scale": {
+              "ScaleX": 0.7431,
+              "ScaleY": 0.7431
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0806,
+              "Y": 0.8612
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 65.7781,
+            "RightMargin": 2213.2219,
+            "TopMargin": 108.8467,
+            "BottomMargin": 1409.1533,
+            "Tag": 4701,
+            "ActionTag": 2108074932,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 716.2172,
+              "Y": 1270.3566
+            },
+            "Scale": {
+              "ScaleX": 0.4861,
+              "ScaleY": 0.4861
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2798,
+              "Y": 0.7058
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 575.7172,
+            "RightMargin": 1703.2827,
+            "TopMargin": 388.6434,
+            "BottomMargin": 1129.3566,
+            "Tag": 4702,
+            "ActionTag": 1862137799,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 175.0417,
+              "Y": 1263.2327
+            },
+            "Scale": {
+              "ScaleX": 0.6293,
+              "ScaleY": 0.6293
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0684,
+              "Y": 0.7018
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 34.5417,
+            "RightMargin": 2244.4583,
+            "TopMargin": 395.7673,
+            "BottomMargin": 1122.2327,
+            "Tag": 4703,
+            "ActionTag": -1326328839,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 186.3579,
+              "Y": 720.6011
+            },
+            "Scale": {
+              "ScaleX": 0.3636,
+              "ScaleY": 0.3636
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0728,
+              "Y": 0.4003
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 45.8579,
+            "RightMargin": 2233.1421,
+            "TopMargin": 938.3989,
+            "BottomMargin": 579.6011,
+            "Tag": 4704,
+            "ActionTag": 42216810,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 319.1661,
+              "Y": 456.9293
+            },
+            "Scale": {
+              "ScaleX": 0.281,
+              "ScaleY": 0.281
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1247,
+              "Y": 0.2538
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 178.6661,
+            "RightMargin": 2100.334,
+            "TopMargin": 1202.0707,
+            "BottomMargin": 315.9293,
+            "Tag": 4705,
+            "ActionTag": -2057161274,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_pattern3.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1443.7169,
+              "Y": 1534.4043
+            },
+            "Scale": {
+              "ScaleX": 0.2986,
+              "ScaleY": 0.2986
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.564,
+              "Y": 0.8524
+            },
+            "PreSize": {
+              "X": 0.1098,
+              "Y": 0.1567
+            },
+            "LeftMargin": 1303.2169,
+            "RightMargin": 975.7831,
+            "TopMargin": 124.5957,
+            "BottomMargin": 1393.4043,
+            "Tag": 4706,
+            "ActionTag": 348622781,
+            "Size": {
+              "X": 281.0,
+              "Y": 282.0
+            },
+            "Name": "pattern_3_4_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bunty_and_bubbly/girl.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1500.0,
+              "Y": 99.81
+            },
+            "Scale": {
+              "ScaleX": 0.5755,
+              "ScaleY": 0.5212
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5859,
+              "Y": 0.0554
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1500.0,
+            "RightMargin": 1060.0,
+            "TopMargin": 1700.1899,
+            "BottomMargin": 99.81,
+            "UserData": "hi;drag",
+            "Tag": 4652,
+            "ActionTag": 1267698080,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bb2/soap.png",
+              "Plist": "bunty_and_bubbly/bb2/bb2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1323.1144,
+              "Y": 143.8647
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5168,
+              "Y": 0.0799
+            },
+            "PreSize": {
+              "X": 0.0504,
+              "Y": 0.0239
+            },
+            "LeftMargin": 1258.6144,
+            "RightMargin": 1172.3856,
+            "TopMargin": 1634.6353,
+            "BottomMargin": 122.3647,
+            "UserData": "main.soap",
+            "Tag": 4708,
+            "ActionTag": -1023816695,
+            "Size": {
+              "X": 129.0,
+              "Y": 43.0
+            },
+            "Name": "soap_73",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bunty_and_bubbly/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1323.2328,
+              "Y": 141.3674
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5169,
+              "Y": 0.0785
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1323.2328,
+            "RightMargin": 1236.7672,
+            "TopMargin": 1658.6326,
+            "BottomMargin": 141.3674,
+            "Tag": 932,
+            "ActionTag": -563115470,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": " bubble",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bunty_towel.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5336,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 2013.1652,
+              "Y": 607.3422
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.9895
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7864,
+              "Y": 0.3374
+            },
+            "PreSize": {
+              "X": 0.1199,
+              "Y": 0.1678
+            },
+            "LeftMargin": 1849.3523,
+            "RightMargin": 403.6477,
+            "TopMargin": 1192.6577,
+            "BottomMargin": 305.3422,
+            "UserData": "main.towel",
+            "Tag": 1144,
+            "ActionTag": -1563898562,
+            "Size": {
+              "X": 307.0,
+              "Y": 302.0
+            },
+            "Name": "towel_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/bb2/washbasin.png",
+              "Plist": "bunty_and_bubbly/bb2/bb2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2534.4839,
+              "Y": 439.7153
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.99,
+              "Y": 0.2443
+            },
+            "PreSize": {
+              "X": 0.2582,
+              "Y": 0.4839
+            },
+            "LeftMargin": 2203.9839,
+            "RightMargin": -304.9839,
+            "TopMargin": 924.7847,
+            "BottomMargin": 4.2153,
+            "Tag": 1251,
+            "ActionTag": 1491775576,
+            "Size": {
+              "X": 661.0,
+              "Y": 871.0
+            },
+            "Name": "washbasin_3",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bb2/bb2.plist",
+        "bb2/bb2.png",
+        "bubble.json",
+        "bunty_and_bubbly.plist",
+        "bunty_and_bubbly.png",
+        "girl.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

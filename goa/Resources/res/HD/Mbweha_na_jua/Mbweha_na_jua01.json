@@ -1,0 +1,1180 @@
+{
+  "ID": "807a239a-3853-4654-8b4f-9638fec2c4b8",
+  "Version": "3.10.0.0",
+  "Name": "Mbweha_na_jua01",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 400,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -258459453,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1280.0,
+                "Y": -20.0029,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 411209202,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 710.9714,
+                "Y": 85.3774,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 411209202,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.3132,
+                "Y": 0.3132,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2041150955,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2041150955,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2214.9626,
+                "Y": 308.112,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1563.2036,
+                "Y": 250.1179,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1357270901,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 250,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1357270901,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 206.5688,
+                "Y": 183.894,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 623.5742,
+                "Y": 214.2719,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1874192770,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 375,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 400,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1874192770,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1300.0,
+                "Y": 2000.0,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 463.6191,
+                "Y": 1003.4003,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1874192770,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.2,
+                "Y": 0.2,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1874192770,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 250,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 255,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 250,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 255,
+          "EndIndex": 400,
+          "Name": "pigeon",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 593,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 218,
+              "G": 233,
+              "B": 198
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.0,
+              "Y": 899.9998
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
+            "TopMargin": 0.0002,
+            "BottomMargin": -0.0002,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
+            "Tag": 614,
+            "ActionTag": 74044683,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 230,
+              "G": 236,
+              "B": 222
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1279.991,
+              "Y": 1149.9597
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.2929
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.6389
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.009,
+            "RightMargin": -719.991,
+            "TopMargin": -249.9597,
+            "BottomMargin": 249.9597,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
+            "Tag": 627,
+            "ActionTag": 1534980298,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 236,
+              "G": 236,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1279.991,
+              "Y": 1676.9463
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.2929
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.9316
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.009,
+            "RightMargin": -719.991,
+            "TopMargin": -776.9463,
+            "BottomMargin": 776.9463,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
+            "Tag": 628,
+            "ActionTag": -98163229,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 162,
+              "G": 206,
+              "B": 129
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.4556
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
+            "TopMargin": 900.0,
+            "BottomMargin": -900.0,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
+            "Tag": 615,
+            "ActionTag": 1785267002,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 227,
+              "G": 191,
+              "B": 151
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.0,
+              "Y": -20.0029
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.1778
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": -0.0111
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
+            "TopMargin": 920.0029,
+            "BottomMargin": -920.0029,
+            "CallBackType": "Click",
+            "UserData": "main.pigeon",
+            "Tag": 618,
+            "ActionTag": -258459453,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbweha_na_jua/tree_1.png",
+              "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2319.0366,
+              "Y": 669.8922
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9059,
+              "Y": 0.3722
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": 1914.0366,
+            "RightMargin": -164.0366,
+            "TopMargin": 785.6078,
+            "BottomMargin": 325.3922,
+            "Tag": 616,
+            "ActionTag": -259894179,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "tree_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbweha_na_jua/puddle.png",
+              "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 710.9714,
+              "Y": 85.3774
+            },
+            "Scale": {
+              "ScaleX": 0.3132,
+              "ScaleY": 0.3132
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2777,
+              "Y": 0.0474
+            },
+            "PreSize": {
+              "X": 0.3305,
+              "Y": 0.1656
+            },
+            "LeftMargin": 287.9714,
+            "RightMargin": 1426.0286,
+            "TopMargin": 1565.6226,
+            "BottomMargin": -63.6226,
+            "Tag": 617,
+            "ActionTag": 411209202,
+            "Size": {
+              "X": 846.0,
+              "Y": 298.0
+            },
+            "Name": "puddle",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbweha_na_jua/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2214.9626,
+              "Y": 308.112
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8652,
+              "Y": 0.1712
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2214.9626,
+            "RightMargin": 345.0374,
+            "TopMargin": 1491.8879,
+            "BottomMargin": 308.112,
+            "Tag": 629,
+            "ActionTag": 2041150955,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "jackal1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbweha_na_jua/leaf_2.png",
+              "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2017.6143,
+              "Y": 142.5636
+            },
+            "Scale": {
+              "ScaleX": 0.422,
+              "ScaleY": 0.422
+            },
+            "RotationSkewX": -46.6073,
+            "RotationSkewY": -46.6264,
+            "CColor": {
+              "R": 218,
+              "G": 207,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7881,
+              "Y": 0.0792
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 1802.6143,
+            "RightMargin": 327.3857,
+            "TopMargin": 1149.4364,
+            "BottomMargin": -365.4364,
+            "Tag": 620,
+            "ActionTag": 882210122,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbweha_na_jua/leaf_2.png",
+              "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2072.0835,
+              "Y": 198.2592
+            },
+            "Scale": {
+              "ScaleX": 0.422,
+              "ScaleY": 0.422
+            },
+            "RotationSkewX": -33.143,
+            "RotationSkewY": -33.2212,
+            "CColor": {
+              "R": 218,
+              "G": 207,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8094,
+              "Y": 0.1101
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 1857.0835,
+            "RightMargin": 272.9165,
+            "TopMargin": 1093.7407,
+            "BottomMargin": -309.7408,
+            "Tag": 621,
+            "ActionTag": 1309659633,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbweha_na_jua/leaf_2.png",
+              "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2179.7405,
+              "Y": 221.5065
+            },
+            "Scale": {
+              "ScaleX": 0.422,
+              "ScaleY": 0.422
+            },
+            "RotationSkewX": -5.0117,
+            "RotationSkewY": -5.032,
+            "CColor": {
+              "R": 218,
+              "G": 207,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8515,
+              "Y": 0.1231
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 1964.7405,
+            "RightMargin": 165.2595,
+            "TopMargin": 1070.4935,
+            "BottomMargin": -286.4935,
+            "Tag": 622,
+            "ActionTag": -1103355554,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbweha_na_jua/leaf_2.png",
+              "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2424.1011,
+              "Y": 209.2231
+            },
+            "Scale": {
+              "ScaleX": 0.422,
+              "ScaleY": 0.422
+            },
+            "RotationSkewX": -0.4972,
+            "RotationSkewY": -0.5554,
+            "CColor": {
+              "R": 218,
+              "G": 207,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9469,
+              "Y": 0.1162
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 2209.1011,
+            "RightMargin": -79.1011,
+            "TopMargin": 1082.7769,
+            "BottomMargin": -298.7769,
+            "Tag": 623,
+            "ActionTag": -1843982727,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbweha_na_jua/leaf_2.png",
+              "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2501.9878,
+              "Y": 208.6751
+            },
+            "Scale": {
+              "ScaleX": 0.422,
+              "ScaleY": 0.422
+            },
+            "RotationSkewX": 12.8699,
+            "RotationSkewY": 12.8684,
+            "CColor": {
+              "R": 218,
+              "G": 207,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9773,
+              "Y": 0.1159
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 2286.9878,
+            "RightMargin": -156.9878,
+            "TopMargin": 1083.325,
+            "BottomMargin": -299.3249,
+            "Tag": 624,
+            "ActionTag": -1651857748,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbweha_na_jua/leaf_2.png",
+              "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2593.458,
+              "Y": 147.3159
+            },
+            "Scale": {
+              "ScaleX": 0.422,
+              "ScaleY": 0.422
+            },
+            "RotationSkewX": 40.9577,
+            "RotationSkewY": 40.924,
+            "CColor": {
+              "R": 218,
+              "G": 207,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0131,
+              "Y": 0.0818
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 2378.458,
+            "RightMargin": -248.458,
+            "TopMargin": 1144.6841,
+            "BottomMargin": -360.6841,
+            "Tag": 625,
+            "ActionTag": -1829400733,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbweha_na_jua/mound.png",
+              "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2308.2954,
+              "Y": 87.3407
+            },
+            "Scale": {
+              "ScaleX": 0.5004,
+              "ScaleY": 0.5004
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9017,
+              "Y": 0.0485
+            },
+            "PreSize": {
+              "X": 0.393,
+              "Y": 0.2672
+            },
+            "LeftMargin": 1805.2954,
+            "RightMargin": -251.2954,
+            "TopMargin": 1472.1593,
+            "BottomMargin": -153.1593,
+            "Tag": 619,
+            "ActionTag": 1155686119,
+            "Size": {
+              "X": 1006.0,
+              "Y": 481.0
+            },
+            "Name": "mound",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mbweha_na_jua/tree_1.png",
+              "Plist": "Mbweha_na_jua/Mbweha_na_jua.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 236.1482,
+              "Y": 679.571
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0922,
+              "Y": 0.3775
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.3828
+            },
+            "LeftMargin": -168.8518,
+            "RightMargin": 1918.8518,
+            "TopMargin": 775.929,
+            "BottomMargin": 335.071,
+            "Tag": 626,
+            "ActionTag": 917312168,
+            "Size": {
+              "X": 810.0,
+              "Y": 689.0
+            },
+            "Name": "tree_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbweha_na_jua/jackal2.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 206.5688,
+              "Y": 183.894
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0807,
+              "Y": 0.1022
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 206.5688,
+            "RightMargin": 2353.4312,
+            "TopMargin": 1616.106,
+            "BottomMargin": 183.894,
+            "Tag": 639,
+            "ActionTag": -1357270901,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "jackal2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mbweha_na_jua/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1300.0,
+              "Y": 2000.0
+            },
+            "Scale": {
+              "ScaleX": 0.2,
+              "ScaleY": 0.2
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5078,
+              "Y": 1.1111
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1300.0,
+            "RightMargin": 1260.0,
+            "TopMargin": -200.0,
+            "BottomMargin": 2000.0,
+            "Tag": 358,
+            "ActionTag": 1874192770,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "pigeon",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bird.json",
+        "jackal1.json",
+        "jackal2.json",
+        "Mbweha_na_jua.plist",
+        "Mbweha_na_jua.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

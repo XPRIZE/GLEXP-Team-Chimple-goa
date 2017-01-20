@@ -1,0 +1,985 @@
+{
+  "ID": "8f16903d-37aa-4ca4-b337-6d3636e10da2",
+  "Version": "2.3.4",
+  "Name": "jinsi_anansi_alivyopata8",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 385,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1413966783,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1675.1489,
+                "Y": 1328.4741,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1675.1489,
+                "Y": 1328.4741,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1675.1558,
+                "Y": 1328.4758,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1675.1558,
+                "Y": 1328.4758,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1413966783,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.5933,
+                "Y": 0.5933,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5933,
+                "Y": 0.5933,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1413966783,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 265,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1413966783,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "wave",
+                "FrameIndex": 270,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1663252270,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "struggle",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "struggle",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 195,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1663252270,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 998.3879,
+                "Y": 620.782,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 998.3879,
+                "Y": 620.782,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1663252270,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1663252270,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 39.4823,
+                "Y": 39.4796,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 39.4823,
+                "Y": 39.4796,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 699070256,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -44.7388,
+                "Y": -17.9253,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -44.7388,
+                "Y": -17.9253,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -264.7426,
+                "Y": -257.9242,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -44.7388,
+                "Y": -17.9253,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 699070256,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8664,
+                "Y": 0.9286,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 699070256,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 699070256,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 198,
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 385,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 699070256,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "wave",
+                "FrameIndex": 270,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 195,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 265,
+          "Name": "water",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 270,
+          "EndIndex": 385,
+          "Name": "waterwave",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 187,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 144,
+              "G": 193,
+              "B": 58
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -243.2731,
+              "Y": 0.1636
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.095,
+              "Y": 0.0001
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -243.2731,
+            "RightMargin": -296.7268,
+            "TopMargin": -0.1636,
+            "BottomMargin": 0.1636,
+            "Tag": 188,
+            "ActionTag": 52550484,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_anansi_alivyopata/jinsi_rock2.png",
+              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 979.0242,
+              "Y": 1466.7327
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3824,
+              "Y": 0.8149
+            },
+            "PreSize": {
+              "X": 0.1895,
+              "Y": 0.1411
+            },
+            "LeftMargin": 736.5242,
+            "RightMargin": 1338.4758,
+            "TopMargin": 206.2673,
+            "BottomMargin": 1339.7327,
+            "Tag": 190,
+            "ActionTag": 1302785195,
+            "Size": {
+              "X": 485.0,
+              "Y": 254.0
+            },
+            "Name": "jinsi_rock_2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_anansi_alivyopata/jinsi_rock2.png",
+              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1687.7982,
+              "Y": 516.8007
+            },
+            "Scale": {
+              "ScaleX": 0.6685,
+              "ScaleY": 0.6685
+            },
+            "RotationSkewX": 36.0905,
+            "RotationSkewY": 36.1124,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6593,
+              "Y": 0.2871
+            },
+            "PreSize": {
+              "X": 0.1895,
+              "Y": 0.1411
+            },
+            "LeftMargin": 1445.2982,
+            "RightMargin": 629.7018,
+            "TopMargin": 1156.1992,
+            "BottomMargin": 389.8007,
+            "Tag": 191,
+            "ActionTag": 276278745,
+            "Size": {
+              "X": 485.0,
+              "Y": 254.0
+            },
+            "Name": "jinsi_rock_2_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_anansi_alivyopata/jinsi_water3.png",
+              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.289,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1675.1489,
+              "Y": 1328.4741
+            },
+            "Scale": {
+              "ScaleX": 0.5933,
+              "ScaleY": 0.5933
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6544,
+              "Y": 0.738
+            },
+            "PreSize": {
+              "X": 0.2469,
+              "Y": 0.285
+            },
+            "LeftMargin": 1492.4811,
+            "RightMargin": 435.519,
+            "TopMargin": 471.5259,
+            "BottomMargin": 815.4741,
+            "UserData": "main.wave",
+            "Tag": 193,
+            "ActionTag": -1413966783,
+            "Size": {
+              "X": 632.0,
+              "Y": 513.0
+            },
+            "Name": "jinsi_water_3_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_anansi_alivyopata/jinsi_rock2.png",
+              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1697.7836,
+              "Y": 1273.6016
+            },
+            "Scale": {
+              "ScaleX": 0.6685,
+              "ScaleY": 0.6685
+            },
+            "RotationSkewX": 3.1717,
+            "RotationSkewY": 3.2135,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6632,
+              "Y": 0.7076
+            },
+            "PreSize": {
+              "X": 0.1895,
+              "Y": 0.1411
+            },
+            "LeftMargin": 1455.2836,
+            "RightMargin": 619.7164,
+            "TopMargin": 399.3984,
+            "BottomMargin": 1146.6016,
+            "UserData": "main.water",
+            "Tag": 192,
+            "ActionTag": -790155896,
+            "Size": {
+              "X": 485.0,
+              "Y": 254.0
+            },
+            "Name": "jinsi_rock_2_2_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_anansi_alivyopata/jinsi_grass6.png",
+              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1486.9453,
+              "Y": 799.8911
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5808,
+              "Y": 0.4444
+            },
+            "PreSize": {
+              "X": 0.1441,
+              "Y": 0.1589
+            },
+            "LeftMargin": 1302.4453,
+            "RightMargin": 888.5547,
+            "TopMargin": 857.1089,
+            "BottomMargin": 656.8911,
+            "Tag": 194,
+            "ActionTag": 565048085,
+            "Size": {
+              "X": 369.0,
+              "Y": 286.0
+            },
+            "Name": "jinsi_grass_6_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_anansi_alivyopata/jinsi_grass7.png",
+              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 361.5073,
+              "Y": 1529.5997
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1412,
+              "Y": 0.8498
+            },
+            "PreSize": {
+              "X": 0.1848,
+              "Y": 0.1228
+            },
+            "LeftMargin": 125.0073,
+            "RightMargin": 1961.9927,
+            "TopMargin": 159.9003,
+            "BottomMargin": 1419.0997,
+            "Tag": 195,
+            "ActionTag": -480389808,
+            "Size": {
+              "X": 473.0,
+              "Y": 221.0
+            },
+            "Name": "jinsi_grass_7_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_anansi_alivyopata/jinsi_grass7.png",
+              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2078.2466,
+              "Y": 1501.0452
+            },
+            "Scale": {
+              "ScaleX": 0.817,
+              "ScaleY": 0.817
+            },
+            "RotationSkewX": -55.7163,
+            "RotationSkewY": -55.6925,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8118,
+              "Y": 0.8339
+            },
+            "PreSize": {
+              "X": 0.1848,
+              "Y": 0.1228
+            },
+            "LeftMargin": 1841.7466,
+            "RightMargin": 245.2534,
+            "TopMargin": 188.4548,
+            "BottomMargin": 1390.5452,
+            "Tag": 196,
+            "ActionTag": 111493420,
+            "Size": {
+              "X": 473.0,
+              "Y": 221.0
+            },
+            "Name": "jinsi_grass_7_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "jinsi_anansi_alivyopata/spider.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 998.3879,
+              "Y": 620.782
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 39.4823,
+            "RotationSkewY": 39.4796,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.39,
+              "Y": 0.3449
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 998.3879,
+            "RightMargin": 1561.6121,
+            "TopMargin": 1179.218,
+            "BottomMargin": 620.782,
+            "UserData": "struggle",
+            "Tag": 1191,
+            "ActionTag": 1663252270,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "spider",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_anansi_alivyopata/jinsi2/waterwave_1.png",
+              "Plist": "jinsi_anansi_alivyopata/jinsi2/jinsi2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 746.0649,
+              "Y": 531.5679
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2914,
+              "Y": 0.2953
+            },
+            "PreSize": {
+              "X": 0.6227,
+              "Y": 0.595
+            },
+            "LeftMargin": -50.9351,
+            "RightMargin": 1016.9351,
+            "TopMargin": 732.9321,
+            "BottomMargin": -3.9321,
+            "UserData": "main.waterwave",
+            "Tag": 888,
+            "ActionTag": 933986233,
+            "Size": {
+              "X": 1594.0,
+              "Y": 1071.0
+            },
+            "Name": "waterwave_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_anansi_alivyopata/jinsi2/waterwave_2.png",
+              "Plist": "jinsi_anansi_alivyopata/jinsi2/jinsi2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {},
+            "Position": {
+              "X": -44.7388,
+              "Y": -17.9253
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0175,
+              "Y": -0.01
+            },
+            "PreSize": {
+              "X": 0.3801,
+              "Y": 0.4667
+            },
+            "LeftMargin": -44.7388,
+            "RightMargin": 1631.7388,
+            "TopMargin": 977.9253,
+            "BottomMargin": -17.9253,
+            "UserData": "main.waterwave",
+            "Tag": 889,
+            "ActionTag": 699070256,
+            "Size": {
+              "X": 973.0,
+              "Y": 840.0
+            },
+            "Name": "waterwave_2_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "jinsi_anansi_alivyopata.plist",
+        "jinsi_anansi_alivyopata.png",
+        "jinsi2/jinsi2.plist",
+        "jinsi2/jinsi2.png",
+        "spider.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

@@ -1,0 +1,198 @@
+{
+  "ID": "4b31266f-f07c-49b6-848a-faa98797168f",
+  "Version": "2.3.4",
+  "Name": "fire",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 48,
+        "Speed": 1.0,
+        "ActivedAnimationName": "fire",
+        "Timelines": [
+          {
+            "ActionTag": -1478540561,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jinsi_anansi_alivyopata/fire1.png",
+                  "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jinsi_anansi_alivyopata/fire2.png",
+                  "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+                },
+                "FrameIndex": 6,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jinsi_anansi_alivyopata/fire3.png",
+                  "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+                },
+                "FrameIndex": 12,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jinsi_anansi_alivyopata/fire4.png",
+                  "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+                },
+                "FrameIndex": 18,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jinsi_anansi_alivyopata/fire5.png",
+                  "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+                },
+                "FrameIndex": 24,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jinsi_anansi_alivyopata/fire6.png",
+                  "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jinsi_anansi_alivyopata/fire7.png",
+                  "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+                },
+                "FrameIndex": 36,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jinsi_anansi_alivyopata/fire8.png",
+                  "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+                },
+                "FrameIndex": 42,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jinsi_anansi_alivyopata/fire1.png",
+                  "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+                },
+                "FrameIndex": 48,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1478540561,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "fire",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 48,
+          "Name": "fire",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 218,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jinsi_anansi_alivyopata/fire1.png",
+              "Plist": "jinsi_anansi_alivyopata/jinsi_anansi_alivyopata.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -19.4177,
+              "Y": 262.1185
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -178.4177,
+            "RightMargin": -139.5823,
+            "TopMargin": -642.1185,
+            "BottomMargin": -117.8815,
+            "Tag": 242,
+            "FrameEvent": "fire",
+            "ActionTag": -1478540561,
+            "Size": {
+              "X": 318.0,
+              "Y": 760.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "jinsi_anansi_alivyopata.plist",
+        "jinsi_anansi_alivyopata.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

@@ -1,0 +1,904 @@
+{
+  "ID": "bfae61e5-b1d4-483d-86ad-3267bde5b482",
+  "Version": "3.10.0.0",
+  "Name": "pop",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 3,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 248,
+              "G": 198,
+              "B": 101
+            },
+            "EndColor": {
+              "R": 252,
+              "B": 176
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -701.3598,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 19.9498,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.274,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 1.0
+            },
+            "LeftMargin": -701.3598,
+            "RightMargin": 3061.3599,
+            "Tag": 4,
+            "ActionTag": 120337645,
+            "Size": {
+              "X": 200.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/bar.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 581.2205,
+              "Y": 1658.6149
+            },
+            "Scale": {
+              "ScaleX": 1.2,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.227,
+              "Y": 0.9215
+            },
+            "PreSize": {
+              "X": 0.4559,
+              "Y": 0.1539
+            },
+            "LeftMargin": -2.2795,
+            "RightMargin": 1395.2795,
+            "TopMargin": 2.8851,
+            "BottomMargin": 1520.1149,
+            "Tag": 24,
+            "ActionTag": 1451629458,
+            "Size": {
+              "X": 1167.0,
+              "Y": 277.0
+            },
+            "Name": "bar",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/bar.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1978.5074,
+              "Y": 1658.6162
+            },
+            "Scale": {
+              "ScaleX": 1.2,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7729,
+              "Y": 0.9215
+            },
+            "PreSize": {
+              "X": 0.4559,
+              "Y": 0.1539
+            },
+            "LeftMargin": 1395.0074,
+            "RightMargin": -2.0073,
+            "TopMargin": 2.8838,
+            "BottomMargin": 1520.1162,
+            "Tag": 25,
+            "ActionTag": 1628038065,
+            "Size": {
+              "X": 1167.0,
+              "Y": 277.0
+            },
+            "Name": "bar",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain1.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -56.7229,
+              "Y": 498.1728
+            },
+            "Scale": {
+              "ScaleX": 1.1402,
+              "ScaleY": 1.1402
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0222,
+              "Y": 0.2768
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": -281.7229,
+            "RightMargin": 2391.7229,
+            "TopMargin": 916.3272,
+            "BottomMargin": 112.6728,
+            "Tag": 47,
+            "ActionTag": 1269457082,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain1.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 455.4307,
+              "Y": 499.2745
+            },
+            "Scale": {
+              "ScaleX": 1.1402,
+              "ScaleY": 1.1402
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1779,
+              "Y": 0.2774
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 230.4307,
+            "RightMargin": 1879.5693,
+            "TopMargin": 915.2255,
+            "BottomMargin": 113.7745,
+            "Tag": 48,
+            "ActionTag": 1773913603,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain1_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain1.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 847.2961,
+              "Y": 579.7508
+            },
+            "Scale": {
+              "ScaleX": 1.9049,
+              "ScaleY": 1.3441
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.331,
+              "Y": 0.3221
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 622.2961,
+            "RightMargin": 1487.7039,
+            "TopMargin": 834.7492,
+            "BottomMargin": 194.2508,
+            "Tag": 49,
+            "ActionTag": -1067440190,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain1_2_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain1.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1702.9285,
+              "Y": 581.049
+            },
+            "Scale": {
+              "ScaleX": 1.9049,
+              "ScaleY": 1.3441
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6652,
+              "Y": 0.3228
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 1477.9285,
+            "RightMargin": 632.0715,
+            "TopMargin": 833.451,
+            "BottomMargin": 195.549,
+            "Tag": 50,
+            "ActionTag": -1249364436,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain1_2_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain1.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2239.5142,
+              "Y": 493.9003
+            },
+            "Scale": {
+              "ScaleX": 1.1402,
+              "ScaleY": 1.1402
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8748,
+              "Y": 0.2744
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 2014.5142,
+            "RightMargin": 95.4858,
+            "TopMargin": 920.5997,
+            "BottomMargin": 108.4003,
+            "Tag": 51,
+            "ActionTag": -31797501,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain1_2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain1.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2751.6763,
+              "Y": 495.0008
+            },
+            "Scale": {
+              "ScaleX": 1.1402,
+              "ScaleY": 1.1402
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0749,
+              "Y": 0.275
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 2526.6763,
+            "RightMargin": -416.6763,
+            "TopMargin": 919.4992,
+            "BottomMargin": 109.5008,
+            "Tag": 52,
+            "ActionTag": -375656103,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain1_2_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -476.3541,
+              "Y": 375.8332
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1861,
+              "Y": 0.2088
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": -701.3541,
+            "RightMargin": 2811.354,
+            "TopMargin": 1038.6667,
+            "BottomMargin": -9.6668,
+            "Tag": 53,
+            "ActionTag": -1804720037,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -27.493,
+              "Y": 375.2929
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0107,
+              "Y": 0.2085
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": -252.493,
+            "RightMargin": 2362.4929,
+            "TopMargin": 1039.207,
+            "BottomMargin": -10.2071,
+            "Tag": 54,
+            "ActionTag": 185431589,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 346.4537,
+              "Y": 507.8233
+            },
+            "Scale": {
+              "ScaleX": 1.3157,
+              "ScaleY": 1.3157
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1353,
+              "Y": 0.2821
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 121.4537,
+            "RightMargin": 1988.5463,
+            "TopMargin": 906.6767,
+            "BottomMargin": 122.3233,
+            "Tag": 55,
+            "ActionTag": -365312139,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 937.0294,
+              "Y": 507.1123
+            },
+            "Scale": {
+              "ScaleX": 1.3157,
+              "ScaleY": 1.3157
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.366,
+              "Y": 0.2817
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 712.0294,
+            "RightMargin": 1397.9706,
+            "TopMargin": 907.3877,
+            "BottomMargin": 121.6123,
+            "Tag": 56,
+            "ActionTag": -993513320,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1126.8417,
+              "Y": 368.1288
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4402,
+              "Y": 0.2045
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 901.8417,
+            "RightMargin": 1208.1583,
+            "TopMargin": 1046.3712,
+            "BottomMargin": -17.3712,
+            "Tag": 57,
+            "ActionTag": 1008675260,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain_1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1575.702,
+              "Y": 367.5887
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6155,
+              "Y": 0.2042
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 1350.702,
+            "RightMargin": 759.298,
+            "TopMargin": 1046.9113,
+            "BottomMargin": -17.9113,
+            "Tag": 58,
+            "ActionTag": -876965382,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain_1_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1652.7855,
+              "Y": 374.5934
+            },
+            "Scale": {
+              "ScaleX": 1.8755,
+              "ScaleY": 1.0556
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6456,
+              "Y": 0.2081
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 1427.7855,
+            "RightMargin": 682.2145,
+            "TopMargin": 1039.9066,
+            "BottomMargin": -10.9066,
+            "Tag": 59,
+            "ActionTag": 2086198975,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain_1_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2494.6133,
+              "Y": 374.0238
+            },
+            "Scale": {
+              "ScaleX": 1.8755,
+              "ScaleY": 1.0556
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9745,
+              "Y": 0.2078
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 2269.6133,
+            "RightMargin": -159.6133,
+            "TopMargin": 1040.4762,
+            "BottomMargin": -11.4762,
+            "Tag": 60,
+            "ActionTag": 301265395,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain_1_0_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2730.0356,
+              "Y": 373.1143
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0664,
+              "Y": 0.2073
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 2505.0356,
+            "RightMargin": -395.0356,
+            "TopMargin": 1041.3857,
+            "BottomMargin": -12.3857,
+            "Tag": 61,
+            "ActionTag": -2085850412,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain_1_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pop/mountain.png",
+              "Plist": "pop/pop.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3178.8936,
+              "Y": 372.574
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2418,
+              "Y": 0.207
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.4283
+            },
+            "LeftMargin": 2953.8936,
+            "RightMargin": -843.8936,
+            "TopMargin": 1041.926,
+            "BottomMargin": -12.926,
+            "Tag": 62,
+            "ActionTag": -316419252,
+            "Size": {
+              "X": 450.0,
+              "Y": 771.0
+            },
+            "Name": "mountain_1_0_3",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "pop.plist",
+        "pop.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

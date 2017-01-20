@@ -1,0 +1,397 @@
+{
+  "ID": "933e25fe-b92c-4dfc-8ad5-a478d61e0b4a",
+  "Version": "3.10.0.0",
+  "Name": "firestation_foreground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 741,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "firestation/firestation2/cart.png",
+              "Plist": "firestation/firestation2/firestation2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5656.6953,
+              "Y": 472.268
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2096,
+              "Y": 0.2624
+            },
+            "PreSize": {
+              "X": 0.2926,
+              "Y": 0.2956
+            },
+            "LeftMargin": 5282.1953,
+            "RightMargin": -3471.1953,
+            "TopMargin": 1061.7319,
+            "BottomMargin": 206.268,
+            "Tag": 963,
+            "ActionTag": -2111047848,
+            "Size": {
+              "X": 749.0,
+              "Y": 532.0
+            },
+            "Name": "cart",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "firestation/firestation3/screwdriver.png",
+              "Plist": "firestation/firestation3/firestation3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5498.3857,
+              "Y": 325.9279
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.1478,
+              "Y": 0.1811
+            },
+            "PreSize": {
+              "X": 0.0973,
+              "Y": 0.0161
+            },
+            "LeftMargin": 5373.8857,
+            "RightMargin": -3062.8857,
+            "TopMargin": 1459.5721,
+            "BottomMargin": 311.4279,
+            "Tag": 964,
+            "ActionTag": -563562519,
+            "Size": {
+              "X": 249.0,
+              "Y": 29.0
+            },
+            "Name": "screwdriver",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "firestation/firestation2/spanner.png",
+              "Plist": "firestation/firestation2/firestation2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5803.4473,
+              "Y": 324.6484
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.267,
+              "Y": 0.1804
+            },
+            "PreSize": {
+              "X": 0.0531,
+              "Y": 0.02
+            },
+            "LeftMargin": 5735.4473,
+            "RightMargin": -3311.4473,
+            "TopMargin": 1457.3516,
+            "BottomMargin": 306.6484,
+            "Tag": 965,
+            "ActionTag": 808951555,
+            "Size": {
+              "X": 136.0,
+              "Y": 36.0
+            },
+            "Name": "spanner",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "firestation/coat.png",
+              "Plist": "firestation/firestation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5795.0483,
+              "Y": 558.0617
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2637,
+              "Y": 0.31
+            },
+            "PreSize": {
+              "X": 0.0703,
+              "Y": 0.2267
+            },
+            "LeftMargin": 5705.0483,
+            "RightMargin": -3325.0483,
+            "TopMargin": 1037.9382,
+            "BottomMargin": 354.0617,
+            "Tag": 966,
+            "ActionTag": 1419442590,
+            "Size": {
+              "X": 180.0,
+              "Y": 408.0
+            },
+            "Name": "coat",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "firestation/coat.png",
+              "Plist": "firestation/firestation.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5673.0322,
+              "Y": 548.0616
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.216,
+              "Y": 0.3045
+            },
+            "PreSize": {
+              "X": 0.0703,
+              "Y": 0.2267
+            },
+            "LeftMargin": 5583.0322,
+            "RightMargin": -3203.0322,
+            "TopMargin": 1047.9385,
+            "BottomMargin": 344.0616,
+            "Tag": 967,
+            "ActionTag": 1615750093,
+            "Size": {
+              "X": 180.0,
+              "Y": 408.0
+            },
+            "Name": "coat",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "firestation/firestation3/curtain.png",
+              "Plist": "firestation/firestation3/firestation3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7400.4839,
+              "Y": 2316.0537
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.8908,
+              "Y": 1.2867
+            },
+            "PreSize": {
+              "X": 0.1441,
+              "Y": 0.55
+            },
+            "LeftMargin": 7215.9839,
+            "RightMargin": -5024.9839,
+            "TopMargin": -1011.0537,
+            "BottomMargin": 1821.0537,
+            "Tag": 1074,
+            "ActionTag": -100166997,
+            "Size": {
+              "X": 369.0,
+              "Y": 990.0
+            },
+            "Name": "curtain",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "firestation/firestation3/curtain.png",
+              "Plist": "firestation/firestation3/firestation3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7110.8555,
+              "Y": 2320.6733
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7777,
+              "Y": 1.2893
+            },
+            "PreSize": {
+              "X": 0.1441,
+              "Y": 0.55
+            },
+            "LeftMargin": 6926.3555,
+            "RightMargin": -4735.3555,
+            "TopMargin": -1015.6733,
+            "BottomMargin": 1825.6733,
+            "Tag": 1075,
+            "ActionTag": -1969884741,
+            "Size": {
+              "X": 369.0,
+              "Y": 990.0
+            },
+            "Name": "curtain",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "firestation/firestation3/curtain.png",
+              "Plist": "firestation/firestation3/firestation3.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6817.2305,
+              "Y": 2323.7974
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.663,
+              "Y": 1.291
+            },
+            "PreSize": {
+              "X": 0.1441,
+              "Y": 0.55
+            },
+            "LeftMargin": 6632.7305,
+            "RightMargin": -4441.7305,
+            "TopMargin": -1018.7974,
+            "BottomMargin": 1828.7974,
+            "Tag": 1076,
+            "ActionTag": 1186230737,
+            "Size": {
+              "X": 369.0,
+              "Y": 990.0
+            },
+            "Name": "curtain",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "firestation.plist",
+        "firestation.png",
+        "firestation2/firestation2.plist",
+        "firestation2/firestation2.png",
+        "firestation3/firestation3.plist",
+        "firestation3/firestation3.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

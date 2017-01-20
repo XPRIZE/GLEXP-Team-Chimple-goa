@@ -1,0 +1,1565 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "layerfarm",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 124,
+              "G": 223
+            },
+            "FirstColor": {
+              "R": 131,
+              "G": 220,
+              "B": 226
+            },
+            "EndColor": {
+              "R": 223,
+              "G": 241,
+              "B": 237
+            },
+            "ColorVector": {
+              "ScaleX": 0.1045,
+              "ScaleY": 0.9945
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -527.7765,
+              "Y": -1.5232
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2062,
+              "Y": -0.0008
+            },
+            "PreSize": {
+              "X": 1.3672,
+              "Y": 1.0
+            },
+            "LeftMargin": -527.7765,
+            "RightMargin": -412.2236,
+            "TopMargin": 1.5232,
+            "BottomMargin": -1.5232,
+            "Tag": 84,
+            "ActionTag": 736904851,
+            "Size": {
+              "X": 3500.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/sun.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 194.6596,
+              "Y": 1320.9792
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.076,
+              "Y": 0.7339
+            },
+            "PreSize": {
+              "X": 0.148,
+              "Y": 0.2083
+            },
+            "LeftMargin": 5.1596,
+            "RightMargin": 2175.8403,
+            "TopMargin": 291.5208,
+            "BottomMargin": 1133.4792,
+            "Tag": 230,
+            "ActionTag": 1637694250,
+            "Size": {
+              "X": 379.0,
+              "Y": 375.0
+            },
+            "Name": "sun_29",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/cloud2.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.4868,
+              "Y": 1203.4042
+            },
+            "Scale": {
+              "ScaleX": 0.8486,
+              "ScaleY": 0.7826
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1252,
+              "Y": 0.6686
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": -81.5132,
+            "RightMargin": 1837.5132,
+            "TopMargin": 428.5958,
+            "BottomMargin": 1035.4042,
+            "Tag": 229,
+            "ActionTag": 2101473992,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_28",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/cloud1.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2210.679,
+              "Y": 1435.873
+            },
+            "Scale": {
+              "ScaleX": 0.9312,
+              "ScaleY": 0.89
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8635,
+              "Y": 0.7977
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 1768.179,
+            "RightMargin": -93.179,
+            "TopMargin": 198.127,
+            "BottomMargin": 1269.873,
+            "Tag": 228,
+            "ActionTag": 835101680,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_27",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "layerfarm/windmill.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 457.6817,
+              "Y": 382.4915
+            },
+            "Scale": {
+              "ScaleX": 0.4,
+              "ScaleY": 0.4
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1788,
+              "Y": 0.2125
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 457.6817,
+            "RightMargin": 2102.3184,
+            "TopMargin": 1417.5085,
+            "BottomMargin": 382.4915,
+            "Tag": 215,
+            "ActionTag": -540778078,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_2_0",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "layerfarm/windmill.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 603.7655,
+              "Y": 389.1868
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2358,
+              "Y": 0.2162
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 603.7655,
+            "RightMargin": 1956.2345,
+            "TopMargin": 1410.8132,
+            "BottomMargin": 389.1868,
+            "Tag": 207,
+            "ActionTag": 1994308796,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "layerfarm/windmill.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 344.6368,
+              "Y": 359.1092
+            },
+            "Scale": {
+              "ScaleX": 0.3,
+              "ScaleY": 0.3
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1346,
+              "Y": 0.1995
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 344.6368,
+            "RightMargin": 2215.3633,
+            "TopMargin": 1440.8907,
+            "BottomMargin": 359.1092,
+            "Tag": 223,
+            "ActionTag": -2031835511,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_2_0_0",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ladder.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5481
+            },
+            "Position": {
+              "X": 1249.9999,
+              "Y": 262.6185
+            },
+            "Scale": {
+              "ScaleX": 0.9181,
+              "ScaleY": 1.006
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4883,
+              "Y": 0.1459
+            },
+            "PreSize": {
+              "X": 0.1086,
+              "Y": 0.5728
+            },
+            "LeftMargin": 1097.6281,
+            "RightMargin": 1184.3719,
+            "TopMargin": 506.3815,
+            "BottomMargin": 262.6185,
+            "Tag": 93,
+            "ActionTag": -1961919571,
+            "Size": {
+              "X": 278.0,
+              "Y": 1031.0
+            },
+            "Name": "ladder_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/holder.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1237.6716,
+              "Y": 151.7541
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4835,
+              "Y": 0.0843
+            },
+            "PreSize": {
+              "X": 0.2922,
+              "Y": 0.0489
+            },
+            "LeftMargin": 863.6716,
+            "RightMargin": 948.3284,
+            "TopMargin": 1604.2458,
+            "BottomMargin": 107.7541,
+            "Tag": 268,
+            "ActionTag": -377543194,
+            "Size": {
+              "X": 748.0,
+              "Y": 88.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ref.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.139,
+              "ScaleY": -0.5138
+            },
+            "Position": {
+              "X": 1330.1899,
+              "Y": 364.19
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5196,
+              "Y": 0.2023
+            },
+            "PreSize": {
+              "X": 0.0152,
+              "Y": 0.0222
+            },
+            "LeftMargin": 1285.7689,
+            "RightMargin": 1235.2311,
+            "TopMargin": 1375.2581,
+            "BottomMargin": 384.742,
+            "Tag": 16,
+            "ActionTag": 890604680,
+            "Size": {
+              "X": 39.0,
+              "Y": 40.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ref.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.139,
+              "ScaleY": -0.5138
+            },
+            "Position": {
+              "X": 1330.1899,
+              "Y": 514.26
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5196,
+              "Y": 0.2857
+            },
+            "PreSize": {
+              "X": 0.0152,
+              "Y": 0.0222
+            },
+            "LeftMargin": 1285.7689,
+            "RightMargin": 1235.2311,
+            "TopMargin": 1225.188,
+            "BottomMargin": 534.812,
+            "Tag": 18,
+            "ActionTag": -381742852,
+            "Size": {
+              "X": 39.0,
+              "Y": 40.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ref.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.139,
+              "ScaleY": -0.5138
+            },
+            "Position": {
+              "X": 1331.1147,
+              "Y": 664.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.52,
+              "Y": 0.3689
+            },
+            "PreSize": {
+              "X": 0.0152,
+              "Y": 0.0222
+            },
+            "LeftMargin": 1286.6937,
+            "RightMargin": 1234.3063,
+            "TopMargin": 1075.448,
+            "BottomMargin": 684.552,
+            "Tag": 19,
+            "ActionTag": 1217099074,
+            "Size": {
+              "X": 39.0,
+              "Y": 40.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ref.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.139,
+              "ScaleY": -0.5138
+            },
+            "Position": {
+              "X": 1329.4257,
+              "Y": 814.3888
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5193,
+              "Y": 0.4524
+            },
+            "PreSize": {
+              "X": 0.0152,
+              "Y": 0.0222
+            },
+            "LeftMargin": 1285.0046,
+            "RightMargin": 1235.9954,
+            "TopMargin": 925.0592,
+            "BottomMargin": 834.9408,
+            "Tag": 20,
+            "ActionTag": 1571743799,
+            "Size": {
+              "X": 39.0,
+              "Y": 40.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ref.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.139,
+              "ScaleY": -0.5138
+            },
+            "Position": {
+              "X": 1329.4257,
+              "Y": 962.1978
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5193,
+              "Y": 0.5346
+            },
+            "PreSize": {
+              "X": 0.0152,
+              "Y": 0.0222
+            },
+            "LeftMargin": 1285.0046,
+            "RightMargin": 1235.9954,
+            "TopMargin": 777.2502,
+            "BottomMargin": 982.7498,
+            "Tag": 21,
+            "ActionTag": -589291772,
+            "Size": {
+              "X": 39.0,
+              "Y": 40.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ref.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.139,
+              "ScaleY": -0.5138
+            },
+            "Position": {
+              "X": 1329.4257,
+              "Y": 1112.2659
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5193,
+              "Y": 0.6179
+            },
+            "PreSize": {
+              "X": 0.0152,
+              "Y": 0.0222
+            },
+            "LeftMargin": 1285.0046,
+            "RightMargin": 1235.9954,
+            "TopMargin": 627.1821,
+            "BottomMargin": 1132.8179,
+            "Tag": 22,
+            "ActionTag": 1861117885,
+            "Size": {
+              "X": 39.0,
+              "Y": 40.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ref.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.139,
+              "ScaleY": -0.5138
+            },
+            "Position": {
+              "X": 1330.3508,
+              "Y": 1262.0052
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5197,
+              "Y": 0.7011
+            },
+            "PreSize": {
+              "X": 0.0152,
+              "Y": 0.0222
+            },
+            "LeftMargin": 1285.9298,
+            "RightMargin": 1235.0702,
+            "TopMargin": 477.4427,
+            "BottomMargin": 1282.5573,
+            "Tag": 23,
+            "ActionTag": 1503283694,
+            "Size": {
+              "X": 39.0,
+              "Y": 40.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ref.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.139,
+              "ScaleY": -0.5138
+            },
+            "Position": {
+              "X": 1326.3096,
+              "Y": 1412.3706
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5181,
+              "Y": 0.7847
+            },
+            "PreSize": {
+              "X": 0.0152,
+              "Y": 0.0222
+            },
+            "LeftMargin": 1281.8885,
+            "RightMargin": 1239.1115,
+            "TopMargin": 327.0774,
+            "BottomMargin": 1432.9226,
+            "Tag": 25,
+            "ActionTag": -753508524,
+            "Size": {
+              "X": 39.0,
+              "Y": 40.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ref.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.139,
+              "ScaleY": -0.5138
+            },
+            "Position": {
+              "X": 1326.3096,
+              "Y": 1560.1799
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5181,
+              "Y": 0.8668
+            },
+            "PreSize": {
+              "X": 0.0152,
+              "Y": 0.0222
+            },
+            "LeftMargin": 1281.8885,
+            "RightMargin": 1239.1115,
+            "TopMargin": 179.2681,
+            "BottomMargin": 1580.7319,
+            "Tag": 26,
+            "ActionTag": -795915225,
+            "Size": {
+              "X": 39.0,
+              "Y": 40.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ref.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.139,
+              "ScaleY": -0.5138
+            },
+            "Position": {
+              "X": 1326.3096,
+              "Y": 1710.249
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5181,
+              "Y": 0.9501
+            },
+            "PreSize": {
+              "X": 0.0152,
+              "Y": 0.0222
+            },
+            "LeftMargin": 1281.8885,
+            "RightMargin": 1239.1115,
+            "TopMargin": 29.199,
+            "BottomMargin": 1730.801,
+            "Tag": 27,
+            "ActionTag": -2115236860,
+            "Size": {
+              "X": 39.0,
+              "Y": 40.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 239,
+              "G": 239,
+              "B": 239
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -540.478,
+              "Y": 0.8782
+            },
+            "Scale": {
+              "ScaleX": 1.3738,
+              "ScaleY": 0.7234
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2111,
+              "Y": 0.0005
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.1683
+            },
+            "LeftMargin": -540.478,
+            "RightMargin": 540.478,
+            "TopMargin": 1496.1218,
+            "BottomMargin": 0.8782,
+            "Tag": 27,
+            "ActionTag": 1991171411,
+            "Size": {
+              "X": 2560.0,
+              "Y": 303.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/shadow.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1255.629,
+              "Y": 127.8937
+            },
+            "Scale": {
+              "ScaleX": 0.7643,
+              "ScaleY": 0.8555
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4905,
+              "Y": 0.0711
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": 811.629,
+            "RightMargin": 860.371,
+            "TopMargin": 1615.1063,
+            "BottomMargin": 70.8937,
+            "Tag": 38,
+            "ActionTag": 1896608452,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ground.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 671.2808,
+              "Y": 313.5902
+            },
+            "Scale": {
+              "ScaleX": 0.8638,
+              "ScaleY": 0.9773
+            },
+            "CColor": {
+              "R": 50,
+              "G": 180,
+              "B": 53
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2622,
+              "Y": 0.1742
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": -44.7192,
+            "RightMargin": 1172.7192,
+            "TopMargin": 1386.4098,
+            "BottomMargin": 213.5902,
+            "Tag": 58,
+            "ActionTag": 2076542271,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ground.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1886.105,
+              "Y": 297.3433
+            },
+            "Scale": {
+              "ScaleX": 0.8638,
+              "ScaleY": 0.9773
+            },
+            "CColor": {
+              "R": 50,
+              "G": 180,
+              "B": 53
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7368,
+              "Y": 0.1652
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1170.105,
+            "RightMargin": -42.105,
+            "TopMargin": 1402.6567,
+            "BottomMargin": 197.3433,
+            "Tag": 57,
+            "ActionTag": -794289435,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ground.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 179.9376,
+              "Y": 284.2639
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.7813
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0703,
+              "Y": 0.1579
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": -536.0624,
+            "RightMargin": 1664.0624,
+            "TopMargin": 1415.7361,
+            "BottomMargin": 184.2639,
+            "Tag": 54,
+            "ActionTag": -688184357,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/shadow.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 252.347,
+              "Y": 149.713
+            },
+            "Scale": {
+              "ScaleX": 0.6823,
+              "ScaleY": 0.6382
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0986,
+              "Y": 0.0832
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": -191.653,
+            "RightMargin": 1863.653,
+            "TopMargin": 1593.2871,
+            "BottomMargin": 92.713,
+            "Tag": 39,
+            "ActionTag": 163427269,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ground.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1319.0323,
+              "Y": 249.6475
+            },
+            "Scale": {
+              "ScaleX": 0.7567,
+              "ScaleY": 0.6571
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5152,
+              "Y": 0.1387
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 603.0323,
+            "RightMargin": 524.9677,
+            "TopMargin": 1450.3525,
+            "BottomMargin": 149.6475,
+            "Tag": 55,
+            "ActionTag": 962927558,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ground.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2422.9009,
+              "Y": 285.4684
+            },
+            "Scale": {
+              "ScaleX": 0.8638,
+              "ScaleY": 0.9773
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9464,
+              "Y": 0.1586
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1706.9009,
+            "RightMargin": -578.9009,
+            "TopMargin": 1414.5316,
+            "BottomMargin": 185.4684,
+            "Tag": 56,
+            "ActionTag": 997413784,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/shadow.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2281.1997,
+              "Y": 202.9863
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8911,
+              "Y": 0.1128
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": 1837.1997,
+            "RightMargin": -165.1997,
+            "TopMargin": 1540.0137,
+            "BottomMargin": 145.9863,
+            "Tag": 37,
+            "ActionTag": 1077376328,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/ban.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2212.4446,
+              "Y": 396.9583
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8642,
+              "Y": 0.2205
+            },
+            "PreSize": {
+              "X": 0.2832,
+              "Y": 0.2761
+            },
+            "LeftMargin": 1849.9446,
+            "RightMargin": -14.9446,
+            "TopMargin": 1154.5417,
+            "BottomMargin": 148.4583,
+            "Tag": 59,
+            "ActionTag": 1050207535,
+            "Size": {
+              "X": 725.0,
+              "Y": 497.0
+            },
+            "Name": "ban_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/tractor.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 193.1224,
+              "Y": 297.5943
+            },
+            "Scale": {
+              "ScaleX": 0.7269,
+              "ScaleY": 0.67
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0754,
+              "Y": 0.1653
+            },
+            "PreSize": {
+              "X": 0.2539,
+              "Y": 0.2989
+            },
+            "LeftMargin": -131.8776,
+            "RightMargin": 2041.8776,
+            "TopMargin": 1233.4058,
+            "BottomMargin": 28.5943,
+            "Tag": 61,
+            "ActionTag": 1738743887,
+            "Size": {
+              "X": 650.0,
+              "Y": 538.0
+            },
+            "Name": "tractor_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/holder.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1238.356,
+              "Y": 154.275
+            },
+            "Scale": {
+              "ScaleX": 0.841,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4837,
+              "Y": 0.0857
+            },
+            "PreSize": {
+              "X": 0.2922,
+              "Y": 0.0489
+            },
+            "LeftMargin": 864.356,
+            "RightMargin": 947.644,
+            "TopMargin": 1601.7251,
+            "BottomMargin": 110.275,
+            "Tag": 36,
+            "ActionTag": 1879997771,
+            "Size": {
+              "X": 748.0,
+              "Y": 88.0
+            },
+            "Name": "holder_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/chimney.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2240.3945,
+              "Y": 600.2819
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8752,
+              "Y": 0.3335
+            },
+            "PreSize": {
+              "X": 0.0328,
+              "Y": 0.0689
+            },
+            "LeftMargin": 2198.3945,
+            "RightMargin": 277.6055,
+            "TopMargin": 1137.7181,
+            "BottomMargin": 538.2819,
+            "Tag": 40,
+            "ActionTag": 361250311,
+            "Size": {
+              "X": 84.0,
+              "Y": 124.0
+            },
+            "Name": "chimney_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "layerfarm/smoke.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2237.4731,
+              "Y": 657.5181
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.874,
+              "Y": 0.3653
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2237.4731,
+            "RightMargin": 322.5269,
+            "TopMargin": 1142.4819,
+            "BottomMargin": 657.5181,
+            "Tag": 47,
+            "ActionTag": -102748623,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "layerfarm.plist",
+        "layerfarm.png",
+        "smoke.json",
+        "windmill.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

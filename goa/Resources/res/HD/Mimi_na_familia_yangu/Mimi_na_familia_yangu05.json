@@ -1,0 +1,1590 @@
+{
+  "ID": "8c9ec3c2-021d-4cee-942d-4047c1094e8b",
+  "Version": "3.10.0.0",
+  "Name": "Mimi_na_familia_yangu05",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 175,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -402840105,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "eat",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "eat",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 20,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -402840105,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1211.6357,
+                "Y": 957.3091,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -402840105,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.7764,
+                "Y": 1.7764,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1804897884,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "jump",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1804897884,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 608.8027,
+                "Y": 158.0053,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1804897884,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6962,
+                "Y": 0.6962,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1315164907,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 100,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 100,
+                "FrameIndex": 66,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 100,
+                "FrameIndex": 175,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1315164907,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2469.5027,
+                "Y": 104.2731,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1958.6,
+                "Y": 104.27,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 175,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 228,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 187,
+              "G": 217,
+              "B": 249
+            },
+            "FirstColor": {
+              "R": 252,
+              "G": 169,
+              "B": 43
+            },
+            "EndColor": {
+              "R": 231,
+              "G": 92,
+              "B": 17
+            },
+            "ColorVector": {
+              "ScaleY": -1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1289.9991,
+              "Y": 899.9999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5039,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -710.0009,
+            "RightMargin": -729.999,
+            "TopMargin": 0.0001,
+            "BottomMargin": -0.0001,
+            "Tag": 231,
+            "ActionTag": -313789929,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 87,
+              "G": 177,
+              "B": 37
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1294.6128,
+              "Y": 165.3281
+            },
+            "Scale": {
+              "ScaleX": 1.035,
+              "ScaleY": 0.3412
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5057,
+              "Y": 0.0918
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -705.3872,
+            "RightMargin": -734.6128,
+            "TopMargin": 734.6719,
+            "BottomMargin": -734.6719,
+            "Tag": 230,
+            "ActionTag": -417304180,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0_1_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 595.1641,
+              "Y": 786.1191
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -39.2087,
+            "RotationSkewY": -39.2136,
+            "CColor": {
+              "R": 212,
+              "G": 231,
+              "B": 164
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2325,
+              "Y": 0.4367
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 380.1641,
+            "RightMargin": 1749.8359,
+            "TopMargin": 505.8809,
+            "BottomMargin": 278.1191,
+            "Tag": 232,
+            "ActionTag": 1939060055,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1033.0372,
+              "Y": 958.2411
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -3.7866,
+            "RotationSkewY": -3.7831,
+            "CColor": {
+              "R": 216,
+              "G": 240,
+              "B": 157
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4035,
+              "Y": 0.5324
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 818.0372,
+            "RightMargin": 1311.9628,
+            "TopMargin": 333.7589,
+            "BottomMargin": 450.2411,
+            "Tag": 234,
+            "ActionTag": 1731182199,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 853.8113,
+              "Y": 841.5886
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -21.791,
+            "RotationSkewY": -21.791,
+            "CColor": {
+              "R": 235,
+              "B": 184
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3335,
+              "Y": 0.4675
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 638.8113,
+            "RightMargin": 1491.1887,
+            "TopMargin": 450.4114,
+            "BottomMargin": 333.5886,
+            "Tag": 235,
+            "ActionTag": 1032784767,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1605.5713,
+              "Y": 938.574
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -4.8737,
+            "RotationSkewY": -4.8775,
+            "CColor": {
+              "R": 212,
+              "G": 231,
+              "B": 164
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6272,
+              "Y": 0.5214
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 1390.5713,
+            "RightMargin": 739.4287,
+            "TopMargin": 353.426,
+            "BottomMargin": 430.574,
+            "Tag": 236,
+            "ActionTag": -1065389643,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2064.2314,
+              "Y": 833.7765
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 30.5343,
+            "RotationSkewY": 30.5374,
+            "CColor": {
+              "R": 216,
+              "G": 240,
+              "B": 157
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8063,
+              "Y": 0.4632
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 1849.2314,
+            "RightMargin": 280.7686,
+            "TopMargin": 458.2235,
+            "BottomMargin": 325.7765,
+            "Tag": 237,
+            "ActionTag": 913358773,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1801.1699,
+              "Y": 860.1345
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 12.5569,
+            "RotationSkewY": 12.5466,
+            "CColor": {
+              "R": 235,
+              "B": 184
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7036,
+              "Y": 0.4779
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 1586.1699,
+            "RightMargin": 543.8301,
+            "TopMargin": 431.8655,
+            "BottomMargin": 352.1345,
+            "Tag": 238,
+            "ActionTag": 1245946683,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1117.9586,
+              "Y": 833.2988
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -21.6404,
+            "RotationSkewY": -21.6391,
+            "CColor": {
+              "R": 212,
+              "G": 231,
+              "B": 164
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4367,
+              "Y": 0.4629
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 902.9586,
+            "RightMargin": 1227.0414,
+            "TopMargin": 458.7012,
+            "BottomMargin": 325.2988,
+            "Tag": 239,
+            "ActionTag": 625686608,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1587.3663,
+              "Y": 865.1666
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 13.7996,
+            "RotationSkewY": 13.7852,
+            "CColor": {
+              "R": 216,
+              "G": 240,
+              "B": 157
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6201,
+              "Y": 0.4806
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 1372.3663,
+            "RightMargin": 757.6337,
+            "TopMargin": 426.8334,
+            "BottomMargin": 357.1666,
+            "Tag": 240,
+            "ActionTag": -935815510,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1355.9911,
+              "Y": 876.4658
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -4.2072,
+            "RotationSkewY": -4.2212,
+            "CColor": {
+              "R": 235,
+              "B": 184
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5297,
+              "Y": 0.4869
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 1140.9911,
+            "RightMargin": 989.0089,
+            "TopMargin": 415.5342,
+            "BottomMargin": 368.4658,
+            "Tag": 241,
+            "ActionTag": 1764832811,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4315,
+              "ScaleY": 0.4086
+            },
+            "Position": {
+              "X": 300.0,
+              "Y": 280.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 116,
+              "G": 152,
+              "B": 22
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1172,
+              "Y": 0.1556
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 153.29,
+            "RightMargin": 2066.71,
+            "TopMargin": 1450.2148,
+            "BottomMargin": 231.7852,
+            "Tag": 242,
+            "ActionTag": -1232250728,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "grass",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1222.2438,
+              "Y": 267.9963
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 116,
+              "G": 152,
+              "B": 22
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4774,
+              "Y": 0.1489
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 1052.2438,
+            "RightMargin": 1167.7562,
+            "TopMargin": 1473.0037,
+            "BottomMargin": 208.9963,
+            "Tag": 243,
+            "ActionTag": 1672723051,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "grass",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2047.3328,
+              "Y": 400.3269
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 116,
+              "G": 152,
+              "B": 22
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7997,
+              "Y": 0.2224
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 1877.3328,
+            "RightMargin": 342.6672,
+            "TopMargin": 1340.6731,
+            "BottomMargin": 341.3269,
+            "Tag": 244,
+            "ActionTag": -2072221212,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "grass",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2315.5503,
+              "Y": 216.3323
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 116,
+              "G": 152,
+              "B": 22
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9045,
+              "Y": 0.1202
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 2145.5503,
+            "RightMargin": 74.4497,
+            "TopMargin": 1524.6677,
+            "BottomMargin": 157.3323,
+            "Tag": 245,
+            "ActionTag": -492566056,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "grass",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1688.7192,
+              "Y": 59.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 116,
+              "G": 152,
+              "B": 22
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6597,
+              "Y": 0.0328
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 1518.7192,
+            "RightMargin": 701.2808,
+            "TopMargin": 1682.0,
+            "Tag": 246,
+            "ActionTag": 919779641,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "grass",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 555.7977,
+              "Y": 59.0001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 116,
+              "G": 152,
+              "B": 22
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2171,
+              "Y": 0.0328
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 385.7977,
+            "RightMargin": 1834.2023,
+            "TopMargin": 1681.9999,
+            "BottomMargin": 0.0001,
+            "Tag": 247,
+            "ActionTag": -1142872403,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "grass",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2567.8049,
+              "Y": 500.8887
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 116,
+              "G": 152,
+              "B": 22
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.003,
+              "Y": 0.2783
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 2397.8049,
+            "RightMargin": -177.8049,
+            "TopMargin": 1240.1113,
+            "BottomMargin": 441.8887,
+            "Tag": 248,
+            "ActionTag": -1870272494,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "grass",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 169.9995,
+              "Y": 505.5912
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 116,
+              "G": 152,
+              "B": 22
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0664,
+              "Y": 0.2809
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": -0.0005,
+            "RightMargin": 2220.0005,
+            "TopMargin": 1235.4088,
+            "BottomMargin": 446.5912,
+            "Tag": 249,
+            "ActionTag": 2071733124,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "grass",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2568.5115,
+              "Y": 625.8632
+            },
+            "Scale": {
+              "ScaleX": 0.7669,
+              "ScaleY": 0.4733
+            },
+            "RotationSkewX": 31.9889,
+            "RotationSkewY": 31.9242,
+            "CColor": {
+              "R": 216,
+              "G": 240,
+              "B": 157
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0033,
+              "Y": 0.3477
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 2353.5115,
+            "RightMargin": -223.5115,
+            "TopMargin": 666.1367,
+            "BottomMargin": 117.8632,
+            "Tag": 250,
+            "ActionTag": -1635508674,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2295.8696,
+              "Y": 607.0597
+            },
+            "Scale": {
+              "ScaleX": 0.7669,
+              "ScaleY": 0.4733
+            },
+            "RotationSkewX": -36.7531,
+            "RotationSkewY": -36.6547,
+            "CColor": {
+              "R": 216,
+              "G": 240,
+              "B": 157
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8968,
+              "Y": 0.3373
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 2080.8696,
+            "RightMargin": 49.1304,
+            "TopMargin": 684.9403,
+            "BottomMargin": 99.0597,
+            "Tag": 252,
+            "ActionTag": 121837231,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2420.1523,
+              "Y": 644.6025
+            },
+            "Scale": {
+              "ScaleX": 0.7669,
+              "ScaleY": 0.4733
+            },
+            "RotationSkewX": -2.0989,
+            "RotationSkewY": -2.0799,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9454,
+              "Y": 0.3581
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 2205.1523,
+            "RightMargin": -75.1523,
+            "TopMargin": 647.3975,
+            "BottomMargin": 136.6025,
+            "Tag": 253,
+            "ActionTag": -228623431,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 428.7181,
+              "Y": 604.0068
+            },
+            "Scale": {
+              "ScaleX": 0.7669,
+              "ScaleY": 0.4733
+            },
+            "RotationSkewX": 31.9889,
+            "RotationSkewY": 31.9242,
+            "CColor": {
+              "R": 216,
+              "G": 240,
+              "B": 157
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1675,
+              "Y": 0.3356
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 213.7181,
+            "RightMargin": 1916.2819,
+            "TopMargin": 687.9932,
+            "BottomMargin": 96.0068,
+            "Tag": 254,
+            "ActionTag": 220803161,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 156.0728,
+              "Y": 585.1994
+            },
+            "Scale": {
+              "ScaleX": 0.7669,
+              "ScaleY": 0.4733
+            },
+            "RotationSkewX": -36.7517,
+            "RotationSkewY": -36.656,
+            "CColor": {
+              "R": 216,
+              "G": 240,
+              "B": 157
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.061,
+              "Y": 0.3251
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": -58.9272,
+            "RightMargin": 2188.9272,
+            "TopMargin": 706.8005,
+            "BottomMargin": 77.1994,
+            "Tag": 255,
+            "ActionTag": -1303398160,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 280.3548,
+              "Y": 622.7415
+            },
+            "Scale": {
+              "ScaleX": 0.7669,
+              "ScaleY": 0.4733
+            },
+            "RotationSkewX": -2.0989,
+            "RotationSkewY": -2.0799,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1095,
+              "Y": 0.346
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 65.3548,
+            "RightMargin": 2064.6453,
+            "TopMargin": 669.2585,
+            "BottomMargin": 114.7415,
+            "Tag": 256,
+            "ActionTag": -867344092,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/gorilla.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1211.6357,
+              "Y": 957.3091
+            },
+            "Scale": {
+              "ScaleX": 1.7764,
+              "ScaleY": 1.7764
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4733,
+              "Y": 0.5318
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1211.6357,
+            "RightMargin": 1348.3643,
+            "TopMargin": 842.6909,
+            "BottomMargin": 957.3091,
+            "UserData": "eat",
+            "Tag": 10041,
+            "ActionTag": -402840105,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "gorilla",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/chimpanzee.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 608.8027,
+              "Y": 158.0053
+            },
+            "Scale": {
+              "ScaleX": 0.6962,
+              "ScaleY": 0.6962
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2378,
+              "Y": 0.0878
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 608.8027,
+            "RightMargin": 1951.1973,
+            "TopMargin": 1641.9948,
+            "BottomMargin": 158.0053,
+            "UserData": "drag;jump",
+            "Tag": 9732,
+            "ActionTag": -1804897884,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "chimp",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2469.5027,
+              "Y": 104.2731
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9646,
+              "Y": 0.0579
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2469.5027,
+            "RightMargin": 90.4973,
+            "TopMargin": 1695.7269,
+            "BottomMargin": 104.2731,
+            "UserData": "drag;run",
+            "Tag": 9768,
+            "ActionTag": -1315164907,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy.json",
+        "chimpanzee.json",
+        "gorilla.json",
+        "Mimi_na_familia_yangu.plist",
+        "Mimi_na_familia_yangu.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

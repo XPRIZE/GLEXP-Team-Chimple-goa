@@ -1,0 +1,476 @@
+{
+  "ID": "d44f1b77-7476-4047-b7d2-37e7c425912a",
+  "Version": "3.10.0.0",
+  "Name": "Mpirawangumwekundu05",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 355,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -495985767,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "kick",
+                "SingleFrameIndex": 575,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "kick",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "kick",
+                "SingleFrameIndex": 650,
+                "FrameIndex": 110,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 475101287,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 610.0222,
+                "Y": 1440.0374,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -338.5337,
+                "Y": 2142.8882,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -4933.6265,
+                "Y": 5400.0605,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 475101287,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 2.6352,
+                "Y": 2.6352,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.7387,
+                "Y": 2.4198,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.543,
+                "Y": 2.8974,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.6352,
+                "Y": 2.9039,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 475101287,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -52.27,
+                "Y": -52.2617,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -52.2656,
+                "Y": -52.2628,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -52.2661,
+                "Y": -52.2604,
+                "FrameIndex": 110,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -52.2611,
+                "Y": -52.2638,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 475101287,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": true,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": false,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -429032820,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "bounce",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "bounce",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 355,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -429032820,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -732.0989,
+                "Y": 627.1399,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2285.4941,
+                "Y": 633.2834,
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -429032820,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 200,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 355,
+          "Name": "ball",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 546,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 173,
+              "G": 147,
+              "B": 228
+            },
+            "FirstColor": {
+              "R": 133,
+              "G": 164,
+              "B": 254
+            },
+            "EndColor": {
+              "R": 172,
+              "G": 167
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1244.8171,
+              "Y": 896.5447
+            },
+            "Scale": {
+              "ScaleX": 1.3058,
+              "ScaleY": 1.3058
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4863,
+              "Y": 0.4981
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -755.1829,
+            "RightMargin": -684.8171,
+            "TopMargin": 3.4553,
+            "BottomMargin": -3.4553,
+            "Tag": 592,
+            "ActionTag": -1900036560,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mpira_wangu_mwekundu/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3350.0049,
+              "Y": 39.9999
+            },
+            "Scale": {
+              "ScaleX": 7.1539,
+              "ScaleY": 7.1539
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.3086,
+              "Y": 0.0222
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3350.0049,
+            "RightMargin": -790.0049,
+            "TopMargin": 1760.0001,
+            "BottomMargin": 39.9999,
+            "UserData": "main.ball",
+            "Tag": 684,
+            "ActionTag": -495985767,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mpira_wangu_mwekundu/Mpirawangumwekundu_ball.png",
+              "Plist": "Mpira_wangu_mwekundu/Mpira_wangu_mwekundu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 610.0222,
+              "Y": 1440.0374
+            },
+            "Scale": {
+              "ScaleX": 2.6352,
+              "ScaleY": 2.6352
+            },
+            "RotationSkewX": -52.27,
+            "RotationSkewY": -52.2617,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2383,
+              "Y": 0.8
+            },
+            "PreSize": {
+              "X": 0.4969,
+              "Y": 0.7067
+            },
+            "LeftMargin": -25.9778,
+            "RightMargin": 1313.9778,
+            "TopMargin": -276.0374,
+            "BottomMargin": 804.0374,
+            "Tag": 733,
+            "ActionTag": 475101287,
+            "Size": {
+              "X": 1272.0,
+              "Y": 1272.0
+            },
+            "Name": "ball",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mpira_wangu_mwekundu/ball.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -732.0989,
+              "Y": 627.1399
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.286,
+              "Y": 0.3484
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -732.0989,
+            "RightMargin": 3292.0989,
+            "TopMargin": 1172.8601,
+            "BottomMargin": 627.1399,
+            "UserData": "drag;bounce",
+            "Tag": 4019,
+            "ActionTag": -429032820,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ball",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ball.json",
+        "boy.json",
+        "Mpira_wangu_mwekundu.plist",
+        "Mpira_wangu_mwekundu.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -1,0 +1,1181 @@
+{
+  "ID": "0428da30-850a-462a-af7e-6e8005ffd211",
+  "Version": "3.10.0.0",
+  "Name": "Layer1",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 191,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 115,
+              "G": 209,
+              "B": 206
+            },
+            "EndColor": {
+              "R": 199,
+              "B": 253
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2.2726,
+              "Y": -29.1955
+            },
+            "Scale": {
+              "ScaleX": 39.0496,
+              "ScaleY": 9.1
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0009,
+              "Y": -0.0162
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 2.2726,
+            "RightMargin": 2357.7273,
+            "TopMargin": 1629.1956,
+            "BottomMargin": -29.1955,
+            "Tag": 240,
+            "ActionTag": -1133346944,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/windmillpole.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1795.1395,
+              "Y": 698.3151
+            },
+            "Scale": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {
+              "R": 222,
+              "G": 222,
+              "B": 222
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7012,
+              "Y": 0.388
+            },
+            "PreSize": {
+              "X": 0.0301,
+              "Y": 0.5172
+            },
+            "LeftMargin": 1756.6395,
+            "RightMargin": 726.3605,
+            "TopMargin": 636.1848,
+            "BottomMargin": 232.8151,
+            "Tag": 241,
+            "ActionTag": -279475642,
+            "Size": {
+              "X": 77.0,
+              "Y": 931.0
+            },
+            "Name": "windmillpole_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/windmillfan.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1811.1486,
+              "Y": 971.647
+            },
+            "Scale": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {
+              "R": 222,
+              "G": 222,
+              "B": 222
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7075,
+              "Y": 0.5398
+            },
+            "PreSize": {
+              "X": 0.3766,
+              "Y": 0.4917
+            },
+            "LeftMargin": 1329.1486,
+            "RightMargin": 266.8516,
+            "TopMargin": 385.853,
+            "BottomMargin": 529.147,
+            "Tag": 242,
+            "ActionTag": 487268897,
+            "Size": {
+              "X": 964.0,
+              "Y": 885.0
+            },
+            "Name": "windmillfan_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/sun.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2094.7861,
+              "Y": 1308.3062
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8183,
+              "Y": 0.7268
+            },
+            "PreSize": {
+              "X": 0.148,
+              "Y": 0.2083
+            },
+            "LeftMargin": 1905.2861,
+            "RightMargin": 275.7139,
+            "TopMargin": 304.1938,
+            "BottomMargin": 1120.8062,
+            "Tag": 243,
+            "ActionTag": -604130397,
+            "Size": {
+              "X": 379.0,
+              "Y": 375.0
+            },
+            "Name": "sun_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/cloud1.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3046.3096,
+              "Y": 943.9313
+            },
+            "Scale": {
+              "ScaleX": 0.7203,
+              "ScaleY": 0.8408
+            },
+            "CColor": {
+              "R": 250,
+              "G": 250,
+              "B": 250
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.19,
+              "Y": 0.5244
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 2603.8096,
+            "RightMargin": -928.8096,
+            "TopMargin": 690.0687,
+            "BottomMargin": 777.9313,
+            "Tag": 249,
+            "ActionTag": 1532283616,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_4_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/cloud2.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4146.0366,
+              "Y": 1415.3755
+            },
+            "Scale": {
+              "ScaleX": -0.6214,
+              "ScaleY": 0.6094
+            },
+            "CColor": {
+              "R": 250,
+              "G": 250,
+              "B": 250
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6195,
+              "Y": 0.7863
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 3744.0366,
+            "RightMargin": -1988.0366,
+            "TopMargin": 216.6245,
+            "BottomMargin": 1247.3755,
+            "Tag": 251,
+            "ActionTag": -1282864803,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/windmillpole.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3663.564,
+              "Y": 688.4462
+            },
+            "Scale": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "CColor": {
+              "R": 222,
+              "G": 222,
+              "B": 222
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4311,
+              "Y": 0.3825
+            },
+            "PreSize": {
+              "X": 0.0301,
+              "Y": 0.5172
+            },
+            "LeftMargin": 3625.064,
+            "RightMargin": -1142.064,
+            "TopMargin": 646.0537,
+            "BottomMargin": 222.9462,
+            "Tag": 252,
+            "ActionTag": 1819867065,
+            "Size": {
+              "X": 77.0,
+              "Y": 931.0
+            },
+            "Name": "windmillpole_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/windmillfan.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.46,
+              "ScaleY": 0.379
+            },
+            "Position": {
+              "X": 3664.9956,
+              "Y": 906.4684
+            },
+            "Scale": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "RotationSkewX": -31.2684,
+            "RotationSkewY": -31.2684,
+            "CColor": {
+              "R": 222,
+              "G": 222,
+              "B": 222
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4316,
+              "Y": 0.5036
+            },
+            "PreSize": {
+              "X": 0.3766,
+              "Y": 0.4917
+            },
+            "LeftMargin": 3221.5557,
+            "RightMargin": -1625.5557,
+            "TopMargin": 343.9465,
+            "BottomMargin": 571.0533,
+            "Tag": 253,
+            "ActionTag": -776738522,
+            "Size": {
+              "X": 964.0,
+              "Y": 885.0
+            },
+            "Name": "windmillfan_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/windmillpole.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6077.0693,
+              "Y": 572.5622
+            },
+            "Scale": {
+              "ScaleX": 0.55,
+              "ScaleY": 0.55
+            },
+            "CColor": {
+              "R": 222,
+              "G": 222,
+              "B": 222
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.3739,
+              "Y": 0.3181
+            },
+            "PreSize": {
+              "X": 0.0301,
+              "Y": 0.5172
+            },
+            "LeftMargin": 6038.5693,
+            "RightMargin": -3555.5693,
+            "TopMargin": 761.9377,
+            "BottomMargin": 107.0622,
+            "Tag": 254,
+            "ActionTag": 1921866379,
+            "Size": {
+              "X": 77.0,
+              "Y": 931.0
+            },
+            "Name": "windmillpole_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/windmillfan.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4659,
+              "ScaleY": 0.3768
+            },
+            "Position": {
+              "X": 6070.3325,
+              "Y": 816.4644
+            },
+            "Scale": {
+              "ScaleX": 0.55,
+              "ScaleY": 0.55
+            },
+            "RotationSkewX": 32.004,
+            "RotationSkewY": 31.9353,
+            "CColor": {
+              "R": 222,
+              "G": 222,
+              "B": 222
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.3712,
+              "Y": 0.4536
+            },
+            "PreSize": {
+              "X": 0.3766,
+              "Y": 0.4917
+            },
+            "LeftMargin": 5621.2051,
+            "RightMargin": -4025.2051,
+            "TopMargin": 432.0037,
+            "BottomMargin": 482.9964,
+            "Tag": 255,
+            "ActionTag": 572924030,
+            "Size": {
+              "X": 964.0,
+              "Y": 885.0
+            },
+            "Name": "windmillfan_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/cloud1.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4580.8701,
+              "Y": 839.9541
+            },
+            "Scale": {
+              "ScaleX": -0.672,
+              "ScaleY": 0.8408
+            },
+            "CColor": {
+              "R": 250,
+              "G": 250,
+              "B": 250
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7894,
+              "Y": 0.4666
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 4138.3701,
+            "RightMargin": -2463.3701,
+            "TopMargin": 794.0459,
+            "BottomMargin": 673.9541,
+            "Tag": 922,
+            "ActionTag": 312802216,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_4_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/cloud1.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1271.7114,
+              "Y": 1123.8019
+            },
+            "Scale": {
+              "ScaleX": 0.7203,
+              "ScaleY": 0.8408
+            },
+            "CColor": {
+              "R": 250,
+              "G": 250,
+              "B": 250
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4968,
+              "Y": 0.6243
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 829.2114,
+            "RightMargin": 845.7886,
+            "TopMargin": 510.1981,
+            "BottomMargin": 957.8019,
+            "Tag": 923,
+            "ActionTag": 1658804840,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_4_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/cloud2.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6395.9312,
+              "Y": 1285.364
+            },
+            "Scale": {
+              "ScaleX": -0.9945,
+              "ScaleY": 1.0261
+            },
+            "CColor": {
+              "R": 250,
+              "G": 250,
+              "B": 250
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4984,
+              "Y": 0.7141
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 5993.9312,
+            "RightMargin": -4237.9312,
+            "TopMargin": 346.636,
+            "BottomMargin": 1117.364,
+            "Tag": 924,
+            "ActionTag": -724148191,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/cloud2.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7365.9575,
+              "Y": 855.368
+            },
+            "Scale": {
+              "ScaleX": -0.6214,
+              "ScaleY": 0.6094
+            },
+            "CColor": {
+              "R": 250,
+              "G": 250,
+              "B": 250
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.8773,
+              "Y": 0.4752
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 6963.9575,
+            "RightMargin": -5207.9575,
+            "TopMargin": 776.632,
+            "BottomMargin": 687.368,
+            "Tag": 925,
+            "ActionTag": -1740173376,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 37,
+              "G": 203,
+              "B": 29
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -2.4326,
+              "Y": -37.0148
+            },
+            "Scale": {
+              "ScaleX": 39.1364,
+              "ScaleY": 2.702
+            },
+            "CColor": {
+              "R": 252,
+              "G": 252,
+              "B": 252
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.001,
+              "Y": -0.0206
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -2.4326,
+            "RightMargin": 2362.4326,
+            "TopMargin": 1637.0149,
+            "BottomMargin": -37.0148,
+            "Tag": 195,
+            "ActionTag": -1258154877,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_3",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/smallhill.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 561.3408,
+              "Y": 571.4268
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2193,
+              "Y": 0.3175
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": -2.6592,
+            "RightMargin": 1434.6592,
+            "TopMargin": 1149.5732,
+            "BottomMargin": 492.4268,
+            "Tag": 1576,
+            "ActionTag": -280137520,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_185",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/smallhill.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1563.4067,
+              "Y": 564.7677
+            },
+            "Scale": {
+              "ScaleX": 0.8401,
+              "ScaleY": 0.8309
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6107,
+              "Y": 0.3138
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": 999.4067,
+            "RightMargin": 432.5933,
+            "TopMargin": 1156.2323,
+            "BottomMargin": 485.7677,
+            "Tag": 1577,
+            "ActionTag": 1345256260,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_185_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/smallhill.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2488.6577,
+              "Y": 581.4948
+            },
+            "Scale": {
+              "ScaleX": 0.8756,
+              "ScaleY": 1.296
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9721,
+              "Y": 0.3231
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": 1924.6577,
+            "RightMargin": -492.6577,
+            "TopMargin": 1139.5051,
+            "BottomMargin": 502.4948,
+            "Tag": 1579,
+            "ActionTag": 1398529890,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_185_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/smallhill.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3507.4478,
+              "Y": 568.1338
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3701,
+              "Y": 0.3156
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": 2943.4478,
+            "RightMargin": -1511.4478,
+            "TopMargin": 1152.8662,
+            "BottomMargin": 489.1338,
+            "Tag": 1580,
+            "ActionTag": -1020644510,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_185_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/smallhill.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4516.2471,
+              "Y": 554.7727
+            },
+            "Scale": {
+              "ScaleX": 0.846,
+              "ScaleY": 0.8732
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7642,
+              "Y": 0.3082
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": 3952.2471,
+            "RightMargin": -2520.2471,
+            "TopMargin": 1166.2273,
+            "BottomMargin": 475.7727,
+            "Tag": 1581,
+            "ActionTag": -1110834148,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_185_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/smallhill.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5311.2427,
+              "Y": 554.7772
+            },
+            "Scale": {
+              "ScaleX": 0.6506,
+              "ScaleY": 0.7886
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0747,
+              "Y": 0.3082
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": 4747.2427,
+            "RightMargin": -3315.2427,
+            "TopMargin": 1166.2229,
+            "BottomMargin": 475.7772,
+            "Tag": 1582,
+            "ActionTag": -1502804640,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_185_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/smallhill.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6046.1094,
+              "Y": 571.4786
+            },
+            "Scale": {
+              "ScaleX": 0.7394,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.3618,
+              "Y": 0.3175
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": 5482.1094,
+            "RightMargin": -4050.1094,
+            "TopMargin": 1149.5214,
+            "BottomMargin": 492.4786,
+            "Tag": 1583,
+            "ActionTag": -1375552465,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_185_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/smallhill.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6821.0684,
+              "Y": 571.4805
+            },
+            "Scale": {
+              "ScaleX": 0.7216,
+              "ScaleY": 0.9577
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.6645,
+              "Y": 0.3175
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": 6257.0684,
+            "RightMargin": -4825.0684,
+            "TopMargin": 1149.5195,
+            "BottomMargin": 492.4805,
+            "Tag": 1584,
+            "ActionTag": -888686869,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_185_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jasminelevel/smallhill.png",
+              "Plist": "jasminelevel/jasminelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7753.0093,
+              "Y": 561.4602
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.0285,
+              "Y": 0.3119
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": 7189.0093,
+            "RightMargin": -5757.0098,
+            "TopMargin": 1159.5398,
+            "BottomMargin": 482.4602,
+            "Tag": 1585,
+            "ActionTag": 122182016,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_185_6",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "jasminelevel.plist",
+        "jasminelevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

@@ -1,0 +1,2780 @@
+{
+  "ID": "74227d02-9a3a-4627-b8ec-32a846c8dd5d",
+  "Version": "3.10.0.0",
+  "Name": "Millipede",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 85,
+        "Speed": 1.0,
+        "ActivedAnimationName": "crawl",
+        "Timelines": [
+          {
+            "ActionTag": 866307721,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 794.2695,
+                "Y": 68.9633,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 794.2695,
+                "Y": 68.9633,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 794.2695,
+                "Y": 68.9633,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 794.2695,
+                "Y": 68.9633,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 794.2695,
+                "Y": 68.9633,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 794.2695,
+                "Y": 68.9633,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 794.2695,
+                "Y": 68.9633,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 866307721,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 866307721,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 35.355,
+                "Y": 35.355,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 35.355,
+                "Y": 35.355,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 40.4153,
+                "Y": 40.4153,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 41.577,
+                "Y": 41.577,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 40.4153,
+                "Y": 40.4153,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 2
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 35.5693,
+                "Y": 35.5693,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 35.5693,
+                "Y": 35.5693,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 152996336,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 112.4583,
+                "Y": -2.5942,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 112.4583,
+                "Y": -2.5942,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 101.3297,
+                "Y": 14.4697,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 98.2131,
+                "Y": 24.4096,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 101.3297,
+                "Y": 14.4697,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 112.4583,
+                "Y": -2.5942,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 152996336,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 152996336,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -3.2245,
+                "Y": -3.2245,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -3.2245,
+                "Y": -3.2245,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -3.2245,
+                "Y": -3.2245,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -3.2245,
+                "Y": -3.2245,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -3.2245,
+                "Y": -3.2245,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -3.2245,
+                "Y": -3.2245,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 32272066,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 166.2114,
+                "Y": -0.1405,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 166.2114,
+                "Y": -0.1405,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 157.2238,
+                "Y": -22.222,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 168.5839,
+                "Y": -43.3351,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 157.2238,
+                "Y": -22.222,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 166.2114,
+                "Y": -0.1405,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 32272066,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 32272066,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -6.5031,
+                "Y": -6.5031,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -6.5031,
+                "Y": -6.5031,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -6.5031,
+                "Y": -6.5031,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -6.5031,
+                "Y": -6.5031,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -6.5031,
+                "Y": -6.5031,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -6.5031,
+                "Y": -6.5031,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 808140137,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 134.3101,
+                "Y": 8.8793,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 134.3101,
+                "Y": 8.8793,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 131.8325,
+                "Y": -43.1434,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 129.8557,
+                "Y": -71.8782,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 131.8325,
+                "Y": -43.1434,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 134.3101,
+                "Y": 8.8793,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 808140137,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 808140137,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -1.4485,
+                "Y": -1.4485,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.4485,
+                "Y": -1.4485,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.4485,
+                "Y": -1.4485,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.4485,
+                "Y": -1.4485,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.4485,
+                "Y": -1.4485,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -1.4485,
+                "Y": -1.4485,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1448044627,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 193.4304,
+                "Y": -6.1959,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 193.4304,
+                "Y": -6.1959,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 180.4951,
+                "Y": -30.2656,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 160.7337,
+                "Y": -9.3121,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 180.4951,
+                "Y": -30.2656,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 193.4304,
+                "Y": -6.1959,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1448044627,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1448044627,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 5.8696,
+                "Y": 5.8696,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 5.8696,
+                "Y": 5.8696,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 5.8696,
+                "Y": 5.8696,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 5.8696,
+                "Y": 5.8696,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 5.8696,
+                "Y": 5.8696,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 5.8696,
+                "Y": 5.8696,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2558155,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 187.0092,
+                "Y": 28.6184,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 187.0092,
+                "Y": 28.6184,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 170.3554,
+                "Y": 78.8402,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 127.8087,
+                "Y": 94.8391,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 170.3554,
+                "Y": 78.8402,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 187.0092,
+                "Y": 28.6184,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2558155,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2558155,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 6.6857,
+                "Y": 6.6857,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 6.6857,
+                "Y": 6.6857,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 6.6857,
+                "Y": 6.6857,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 6.6857,
+                "Y": 6.6857,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 6.6857,
+                "Y": 6.6857,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 6.6857,
+                "Y": 6.6857,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1972785992,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 188.0537,
+                "Y": 7.8914,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 188.0537,
+                "Y": 7.8914,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 147.6862,
+                "Y": 61.6372,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 118.7756,
+                "Y": 80.8421,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 147.6862,
+                "Y": 61.6372,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 188.0537,
+                "Y": 7.8914,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 188.0537,
+                "Y": 7.8914,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 188.0537,
+                "Y": 7.8914,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 188.0537,
+                "Y": 7.8914,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1972785992,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1972785992,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 6.3493,
+                "Y": 6.3493,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 6.3493,
+                "Y": 6.3493,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 6.3493,
+                "Y": 6.3493,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 6.3493,
+                "Y": 6.3493,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 6.3493,
+                "Y": 6.3493,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 6.3493,
+                "Y": 6.3493,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2147,
+                "Y": 0.2147,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.2147,
+                "Y": 0.2147,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 11.8619,
+                "Y": 11.8619,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -833314099,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 157.1102,
+                "Y": 14.0803,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 157.1102,
+                "Y": 14.0803,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 163.1372,
+                "Y": -12.4479,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 134.8128,
+                "Y": -38.1178,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 163.1372,
+                "Y": -12.4479,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 157.1102,
+                "Y": 14.0803,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 157.1102,
+                "Y": 14.0803,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 157.1102,
+                "Y": 14.0803,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 157.1102,
+                "Y": 14.0803,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -833314099,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -833314099,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -42.1869,
+                "Y": -42.1869,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -42.1869,
+                "Y": -42.1869,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -42.1869,
+                "Y": -42.1869,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -42.1869,
+                "Y": -42.1869,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -42.1869,
+                "Y": -42.1869,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -42.1869,
+                "Y": -42.1869,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -42.1869,
+                "Y": -42.1869,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -52.4502,
+                "Y": -52.4502,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -52.4502,
+                "Y": -52.4502,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1380263422,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 899.3416,
+                "Y": 50.5123,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 899.3416,
+                "Y": 50.5123,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 899.3416,
+                "Y": 50.5123,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 899.3416,
+                "Y": 50.5123,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1380263422,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1380263422,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -143.4191,
+                "Y": -143.4191,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -143.4191,
+                "Y": -143.4191,
+                "FrameIndex": 5,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -143.4191,
+                "Y": -143.4191,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -143.4191,
+                "Y": -143.4191,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1963344740,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 243.6977,
+                "Y": -213.8411,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1963344740,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1963344740,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 268.9465,
+                "Y": 268.9453,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 5,
+          "EndIndex": 65,
+          "Name": "crawl",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Length": 20.0,
+        "Position": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Scale": {
+          "ScaleX": 1.0,
+          "ScaleY": 1.0
+        },
+        "CColor": {},
+        "BlendFunc": {
+          "Src": 770,
+          "Dst": 771
+        },
+        "Tag": 52,
+        "Children": [
+          {
+            "Length": 378.0,
+            "Position": {
+              "X": 420.5969,
+              "Y": -7.0055
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -90.9353,
+            "RotationSkewY": -90.9353,
+            "CColor": {},
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "Tag": 85,
+            "Children": [
+              {
+                "Length": 588.0,
+                "Position": {
+                  "X": 243.6977,
+                  "Y": -213.8411
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "RotationSkewX": 268.9465,
+                "RotationSkewY": 268.9453,
+                "CColor": {},
+                "BlendFunc": {
+                  "Src": 770,
+                  "Dst": 771
+                },
+                "Tag": 64,
+                "Children": [
+                  {
+                    "Length": 200.0,
+                    "Position": {
+                      "X": 794.2695,
+                      "Y": 68.9633
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": 40.4153,
+                    "RotationSkewY": 40.4153,
+                    "CColor": {},
+                    "BlendFunc": {
+                      "Src": 770,
+                      "Dst": 771
+                    },
+                    "Tag": 65,
+                    "Children": [
+                      {
+                        "Length": 106.0,
+                        "Position": {
+                          "X": 210.2891,
+                          "Y": -46.0435
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": 147.999,
+                        "RotationSkewY": 147.999,
+                        "CColor": {},
+                        "BlendFunc": {
+                          "Src": 770,
+                          "Dst": 771
+                        },
+                        "Tag": 86,
+                        "Children": [
+                          {
+                            "FileData": {
+                              "Type": "MarkedSubImage",
+                              "Path": "Kuku_na_Jongoo/caterpillar_eye.png",
+                              "Plist": "Kuku_na_Jongoo/Kuku_na_Jongoo.plist"
+                            },
+                            "BlendFunc": {
+                              "Src": 770,
+                              "Dst": 771
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 38.3204,
+                              "Y": 2.947
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "RotationSkewX": -1.365,
+                            "RotationSkewY": -1.365,
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "PreSize": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "LeftMargin": 9.8204,
+                            "RightMargin": -66.8204,
+                            "TopMargin": -31.447,
+                            "BottomMargin": -25.553,
+                            "Tag": 61,
+                            "ActionTag": -1460115678,
+                            "Size": {
+                              "X": 57.0,
+                              "Y": 57.0
+                            },
+                            "Name": "caterpillar_left_eye",
+                            "ctype": "SpriteObjectData"
+                          }
+                        ],
+                        "ActionTag": 2120051315,
+                        "ZOrder": 24,
+                        "Size": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "Name": "left_eye",
+                        "ctype": "BoneNodeObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "MarkedSubImage",
+                          "Path": "Kuku_na_Jongoo/caterpillar_face.png",
+                          "Plist": "Kuku_na_Jongoo/Kuku_na_Jongoo.plist"
+                        },
+                        "BlendFunc": {
+                          "Src": 770,
+                          "Dst": 771
+                        },
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 218.2508,
+                          "Y": -86.1505
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": -213.365,
+                        "RotationSkewY": 146.6358,
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": -87.2492,
+                        "RightMargin": -523.7508,
+                        "TopMargin": -182.3495,
+                        "BottomMargin": -354.6505,
+                        "Tag": 62,
+                        "ActionTag": 243808590,
+                        "Size": {
+                          "X": 611.0,
+                          "Y": 537.0
+                        },
+                        "Name": "caterpillar_face",
+                        "ctype": "SpriteObjectData"
+                      },
+                      {
+                        "Length": 103.0,
+                        "Position": {
+                          "X": 258.8152,
+                          "Y": -14.0884
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": -14.9296,
+                        "RotationSkewY": -374.9303,
+                        "CColor": {},
+                        "BlendFunc": {
+                          "Src": 770,
+                          "Dst": 771
+                        },
+                        "Tag": 87,
+                        "Children": [
+                          {
+                            "FileData": {
+                              "Type": "MarkedSubImage",
+                              "Path": "Kuku_na_Jongoo/caterpillar_eye.png",
+                              "Plist": "Kuku_na_Jongoo/Kuku_na_Jongoo.plist"
+                            },
+                            "BlendFunc": {
+                              "Src": 770,
+                              "Dst": 771
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 33.5558,
+                              "Y": -4.7945
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "RotationSkewX": -230.0648,
+                            "RotationSkewY": 129.9373,
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "PreSize": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "LeftMargin": 5.0558,
+                            "RightMargin": -62.0558,
+                            "TopMargin": -23.7055,
+                            "BottomMargin": -33.2945,
+                            "Tag": 88,
+                            "ActionTag": 401496102,
+                            "Size": {
+                              "X": 57.0,
+                              "Y": 57.0
+                            },
+                            "Name": "caterpillar_right_eye",
+                            "ctype": "SpriteObjectData"
+                          }
+                        ],
+                        "ActionTag": 764735445,
+                        "ZOrder": 25,
+                        "Size": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "Name": "right_eye",
+                        "ctype": "BoneNodeObjectData"
+                      }
+                    ],
+                    "ActionTag": 866307721,
+                    "ZOrder": 20,
+                    "Size": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Name": "head",
+                    "ctype": "BoneNodeObjectData"
+                  },
+                  {
+                    "Length": 143.0,
+                    "Position": {
+                      "X": 899.3416,
+                      "Y": 50.5123
+                    },
+                    "Scale": {
+                      "ScaleX": 1.0,
+                      "ScaleY": 1.0
+                    },
+                    "RotationSkewX": -143.4191,
+                    "RotationSkewY": -143.4191,
+                    "CColor": {},
+                    "BlendFunc": {
+                      "Src": 1,
+                      "Dst": 771
+                    },
+                    "Tag": 67,
+                    "Children": [
+                      {
+                        "Length": 185.0,
+                        "Position": {
+                          "X": 163.1372,
+                          "Y": -12.4479
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": -42.1869,
+                        "RotationSkewY": -42.1869,
+                        "CColor": {},
+                        "BlendFunc": {
+                          "Src": 1,
+                          "Dst": 771
+                        },
+                        "Tag": 70,
+                        "Children": [
+                          {
+                            "Length": 187.0,
+                            "Position": {
+                              "X": 147.6862,
+                              "Y": 61.6372
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "RotationSkewX": 6.3493,
+                            "RotationSkewY": 6.3493,
+                            "CColor": {},
+                            "BlendFunc": {
+                              "Src": 1,
+                              "Dst": 771
+                            },
+                            "Tag": 71,
+                            "Children": [
+                              {
+                                "Length": 172.0,
+                                "Position": {
+                                  "X": 170.3554,
+                                  "Y": 78.8402
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "RotationSkewX": 6.6857,
+                                "RotationSkewY": 6.6857,
+                                "CColor": {},
+                                "BlendFunc": {
+                                  "Src": 770,
+                                  "Dst": 771
+                                },
+                                "Tag": 72,
+                                "Children": [
+                                  {
+                                    "Length": 145.0,
+                                    "Position": {
+                                      "X": 180.4951,
+                                      "Y": -30.2656
+                                    },
+                                    "Scale": {
+                                      "ScaleX": 1.0,
+                                      "ScaleY": 1.0
+                                    },
+                                    "RotationSkewX": 5.8696,
+                                    "RotationSkewY": 5.8696,
+                                    "CColor": {},
+                                    "BlendFunc": {
+                                      "Src": 770,
+                                      "Dst": 771
+                                    },
+                                    "Tag": 75,
+                                    "Children": [
+                                      {
+                                        "Length": 170.0,
+                                        "Position": {
+                                          "X": 131.8325,
+                                          "Y": -43.1434
+                                        },
+                                        "Scale": {
+                                          "ScaleX": 1.0,
+                                          "ScaleY": 1.0
+                                        },
+                                        "RotationSkewX": -1.4485,
+                                        "RotationSkewY": -1.4485,
+                                        "CColor": {},
+                                        "BlendFunc": {
+                                          "Src": 770,
+                                          "Dst": 771
+                                        },
+                                        "Tag": 79,
+                                        "Children": [
+                                          {
+                                            "Length": 113.0,
+                                            "Position": {
+                                              "X": 157.2238,
+                                              "Y": -22.222
+                                            },
+                                            "Scale": {
+                                              "ScaleX": 1.0,
+                                              "ScaleY": 1.0
+                                            },
+                                            "RotationSkewX": -6.5031,
+                                            "RotationSkewY": -6.5031,
+                                            "CColor": {},
+                                            "BlendFunc": {
+                                              "Src": 770,
+                                              "Dst": 771
+                                            },
+                                            "Tag": 80,
+                                            "Children": [
+                                              {
+                                                "Length": 104.0,
+                                                "Position": {
+                                                  "X": 101.3297,
+                                                  "Y": 14.4697
+                                                },
+                                                "Scale": {
+                                                  "ScaleX": 1.0,
+                                                  "ScaleY": 1.0
+                                                },
+                                                "RotationSkewX": -3.2245,
+                                                "RotationSkewY": -3.2245,
+                                                "CColor": {},
+                                                "BlendFunc": {
+                                                  "Src": 770,
+                                                  "Dst": 771
+                                                },
+                                                "Tag": 81,
+                                                "Children": [
+                                                  {
+                                                    "FileData": {
+                                                      "Type": "MarkedSubImage",
+                                                      "Path": "Kuku_na_Jongoo/caterpillar_body8.png",
+                                                      "Plist": "Kuku_na_Jongoo/Kuku_na_Jongoo.plist"
+                                                    },
+                                                    "BlendFunc": {
+                                                      "Src": 770,
+                                                      "Dst": 771
+                                                    },
+                                                    "AnchorPoint": {
+                                                      "ScaleX": 0.5,
+                                                      "ScaleY": 0.5
+                                                    },
+                                                    "Position": {
+                                                      "X": 83.0551,
+                                                      "Y": -4.8564
+                                                    },
+                                                    "Scale": {
+                                                      "ScaleX": 1.0,
+                                                      "ScaleY": 1.0
+                                                    },
+                                                    "RotationSkewX": -0.1325,
+                                                    "RotationSkewY": -0.1325,
+                                                    "CColor": {},
+                                                    "IconVisible": false,
+                                                    "PrePosition": {
+                                                      "X": 0.0,
+                                                      "Y": 0.0
+                                                    },
+                                                    "PreSize": {
+                                                      "X": 0.0,
+                                                      "Y": 0.0
+                                                    },
+                                                    "LeftMargin": 23.5551,
+                                                    "RightMargin": -142.5551,
+                                                    "TopMargin": -55.1436,
+                                                    "BottomMargin": -64.8564,
+                                                    "Tag": 60,
+                                                    "ActionTag": 1656354685,
+                                                    "Size": {
+                                                      "X": 119.0,
+                                                      "Y": 120.0
+                                                    },
+                                                    "Name": "caterpillar_8_leg",
+                                                    "ctype": "SpriteObjectData"
+                                                  }
+                                                ],
+                                                "ActionTag": 152996336,
+                                                "ZOrder": 6,
+                                                "Size": {
+                                                  "X": 0.0,
+                                                  "Y": 0.0
+                                                },
+                                                "Name": "leg_8",
+                                                "ctype": "BoneNodeObjectData"
+                                              },
+                                              {
+                                                "FileData": {
+                                                  "Type": "MarkedSubImage",
+                                                  "Path": "Kuku_na_Jongoo/caterpillar_body7.png",
+                                                  "Plist": "Kuku_na_Jongoo/Kuku_na_Jongoo.plist"
+                                                },
+                                                "BlendFunc": {
+                                                  "Src": 770,
+                                                  "Dst": 771
+                                                },
+                                                "AnchorPoint": {
+                                                  "ScaleX": 0.5,
+                                                  "ScaleY": 0.5
+                                                },
+                                                "Position": {
+                                                  "X": 85.3455,
+                                                  "Y": -2.3613
+                                                },
+                                                "Scale": {
+                                                  "ScaleX": 1.0,
+                                                  "ScaleY": 1.0
+                                                },
+                                                "RotationSkewX": -3.3589,
+                                                "RotationSkewY": -3.3565,
+                                                "CColor": {},
+                                                "IconVisible": false,
+                                                "PrePosition": {
+                                                  "X": 0.0,
+                                                  "Y": 0.0
+                                                },
+                                                "PreSize": {
+                                                  "X": 0.0,
+                                                  "Y": 0.0
+                                                },
+                                                "LeftMargin": 11.3455,
+                                                "RightMargin": -159.3455,
+                                                "TopMargin": -73.6387,
+                                                "BottomMargin": -78.3613,
+                                                "Tag": 59,
+                                                "ActionTag": 2146587937,
+                                                "Size": {
+                                                  "X": 148.0,
+                                                  "Y": 152.0
+                                                },
+                                                "Name": "caterpillar_7_leg",
+                                                "ctype": "SpriteObjectData"
+                                              }
+                                            ],
+                                            "ActionTag": 32272066,
+                                            "ZOrder": 8,
+                                            "Size": {
+                                              "X": 0.0,
+                                              "Y": 0.0
+                                            },
+                                            "Name": "leg_7",
+                                            "ctype": "BoneNodeObjectData"
+                                          },
+                                          {
+                                            "FileData": {
+                                              "Type": "MarkedSubImage",
+                                              "Path": "Kuku_na_Jongoo/caterpillar_body6.png",
+                                              "Plist": "Kuku_na_Jongoo/Kuku_na_Jongoo.plist"
+                                            },
+                                            "BlendFunc": {
+                                              "Src": 770,
+                                              "Dst": 771
+                                            },
+                                            "AnchorPoint": {
+                                              "ScaleX": 0.5,
+                                              "ScaleY": 0.5
+                                            },
+                                            "Position": {
+                                              "X": 128.1222,
+                                              "Y": -0.4309
+                                            },
+                                            "Scale": {
+                                              "ScaleX": 1.0,
+                                              "ScaleY": 1.0
+                                            },
+                                            "RotationSkewX": -9.8632,
+                                            "RotationSkewY": -9.8599,
+                                            "CColor": {},
+                                            "IconVisible": false,
+                                            "PrePosition": {
+                                              "X": 0.0,
+                                              "Y": 0.0
+                                            },
+                                            "PreSize": {
+                                              "X": 0.0,
+                                              "Y": 0.0
+                                            },
+                                            "LeftMargin": 38.6222,
+                                            "RightMargin": -217.6222,
+                                            "TopMargin": -89.0691,
+                                            "BottomMargin": -89.9309,
+                                            "Tag": 58,
+                                            "ActionTag": -1128352449,
+                                            "Size": {
+                                              "X": 179.0,
+                                              "Y": 179.0
+                                            },
+                                            "Name": "caterpillar_6_leg",
+                                            "ctype": "SpriteObjectData"
+                                          }
+                                        ],
+                                        "ActionTag": 808140137,
+                                        "ZOrder": 10,
+                                        "Size": {
+                                          "X": 0.0,
+                                          "Y": 0.0
+                                        },
+                                        "Name": "leg_6",
+                                        "ctype": "BoneNodeObjectData"
+                                      },
+                                      {
+                                        "FileData": {
+                                          "Type": "MarkedSubImage",
+                                          "Path": "Kuku_na_Jongoo/caterpillar_body5.png",
+                                          "Plist": "Kuku_na_Jongoo/Kuku_na_Jongoo.plist"
+                                        },
+                                        "BlendFunc": {
+                                          "Src": 770,
+                                          "Dst": 771
+                                        },
+                                        "AnchorPoint": {
+                                          "ScaleX": 0.5,
+                                          "ScaleY": 0.5
+                                        },
+                                        "Position": {
+                                          "X": 140.0266,
+                                          "Y": -1.8335
+                                        },
+                                        "Scale": {
+                                          "ScaleX": 1.0,
+                                          "ScaleY": 1.0
+                                        },
+                                        "RotationSkewX": -11.3102,
+                                        "RotationSkewY": -11.3078,
+                                        "CColor": {},
+                                        "IconVisible": false,
+                                        "PrePosition": {
+                                          "X": 0.0,
+                                          "Y": 0.0
+                                        },
+                                        "PreSize": {
+                                          "X": 0.0,
+                                          "Y": 0.0
+                                        },
+                                        "LeftMargin": 41.5266,
+                                        "RightMargin": -238.5266,
+                                        "TopMargin": -97.1665,
+                                        "BottomMargin": -100.8335,
+                                        "Tag": 57,
+                                        "ActionTag": -1381061938,
+                                        "Size": {
+                                          "X": 197.0,
+                                          "Y": 198.0
+                                        },
+                                        "Name": "caterpillar_5_leg",
+                                        "ctype": "SpriteObjectData"
+                                      }
+                                    ],
+                                    "ActionTag": -1448044627,
+                                    "ZOrder": 12,
+                                    "Size": {
+                                      "X": 0.0,
+                                      "Y": 0.0
+                                    },
+                                    "Name": "leg_5",
+                                    "ctype": "BoneNodeObjectData"
+                                  },
+                                  {
+                                    "FileData": {
+                                      "Type": "MarkedSubImage",
+                                      "Path": "Kuku_na_Jongoo/caterpillar_body4.png",
+                                      "Plist": "Kuku_na_Jongoo/Kuku_na_Jongoo.plist"
+                                    },
+                                    "BlendFunc": {
+                                      "Src": 770,
+                                      "Dst": 771
+                                    },
+                                    "AnchorPoint": {
+                                      "ScaleX": 0.5,
+                                      "ScaleY": 0.5
+                                    },
+                                    "Position": {
+                                      "X": 165.5514,
+                                      "Y": -10.8181
+                                    },
+                                    "Scale": {
+                                      "ScaleX": 1.0,
+                                      "ScaleY": 1.0
+                                    },
+                                    "RotationSkewX": -5.4412,
+                                    "RotationSkewY": -5.439,
+                                    "CColor": {},
+                                    "IconVisible": false,
+                                    "PrePosition": {
+                                      "X": 0.0,
+                                      "Y": 0.0
+                                    },
+                                    "PreSize": {
+                                      "X": 0.0,
+                                      "Y": 0.0
+                                    },
+                                    "LeftMargin": 60.5514,
+                                    "RightMargin": -270.5514,
+                                    "TopMargin": -94.6819,
+                                    "BottomMargin": -116.3181,
+                                    "Tag": 56,
+                                    "ActionTag": 420347068,
+                                    "Size": {
+                                      "X": 210.0,
+                                      "Y": 211.0
+                                    },
+                                    "Name": "caterpillar_4_leg",
+                                    "ctype": "SpriteObjectData"
+                                  }
+                                ],
+                                "ActionTag": -2558155,
+                                "ZOrder": 14,
+                                "Size": {
+                                  "X": 0.0,
+                                  "Y": 0.0
+                                },
+                                "Name": "leg_4",
+                                "ctype": "BoneNodeObjectData"
+                              },
+                              {
+                                "FileData": {
+                                  "Type": "MarkedSubImage",
+                                  "Path": "Kuku_na_Jongoo/caterpillar_body3.png",
+                                  "Plist": "Kuku_na_Jongoo/Kuku_na_Jongoo.plist"
+                                },
+                                "BlendFunc": {
+                                  "Src": 1,
+                                  "Dst": 771
+                                },
+                                "AnchorPoint": {
+                                  "ScaleX": 0.5,
+                                  "ScaleY": 0.5
+                                },
+                                "Position": {
+                                  "X": 188.8236,
+                                  "Y": -3.8943
+                                },
+                                "Scale": {
+                                  "ScaleX": 1.0,
+                                  "ScaleY": 1.0
+                                },
+                                "RotationSkewX": 1.2457,
+                                "RotationSkewY": 1.2479,
+                                "CColor": {},
+                                "IconVisible": false,
+                                "PrePosition": {
+                                  "X": 0.0,
+                                  "Y": 0.0
+                                },
+                                "PreSize": {
+                                  "X": 0.0,
+                                  "Y": 0.0
+                                },
+                                "LeftMargin": 71.8236,
+                                "RightMargin": -305.8236,
+                                "TopMargin": -113.1057,
+                                "BottomMargin": -120.8943,
+                                "Tag": 55,
+                                "ActionTag": 1762058918,
+                                "Size": {
+                                  "X": 234.0,
+                                  "Y": 234.0
+                                },
+                                "Name": "caterpillar_3_leg",
+                                "ctype": "SpriteObjectData"
+                              }
+                            ],
+                            "ActionTag": 1972785992,
+                            "ZOrder": 15,
+                            "Size": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "Name": "leg_3",
+                            "ctype": "BoneNodeObjectData"
+                          },
+                          {
+                            "FileData": {
+                              "Type": "MarkedSubImage",
+                              "Path": "Kuku_na_Jongoo/caterpillar_body2.png",
+                              "Plist": "Kuku_na_Jongoo/Kuku_na_Jongoo.plist"
+                            },
+                            "BlendFunc": {
+                              "Src": 1,
+                              "Dst": 771
+                            },
+                            "AnchorPoint": {
+                              "ScaleX": 0.5,
+                              "ScaleY": 0.5
+                            },
+                            "Position": {
+                              "X": 174.5087,
+                              "Y": 4.2311
+                            },
+                            "Scale": {
+                              "ScaleX": 1.0,
+                              "ScaleY": 1.0
+                            },
+                            "RotationSkewX": 7.5951,
+                            "RotationSkewY": 7.5951,
+                            "CColor": {},
+                            "IconVisible": false,
+                            "PrePosition": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "PreSize": {
+                              "X": 0.0,
+                              "Y": 0.0
+                            },
+                            "LeftMargin": 52.0087,
+                            "RightMargin": -297.0087,
+                            "TopMargin": -127.2311,
+                            "BottomMargin": -118.7689,
+                            "Tag": 54,
+                            "ActionTag": -312107725,
+                            "Size": {
+                              "X": 245.0,
+                              "Y": 246.0
+                            },
+                            "Name": "caterpillar_2_leg",
+                            "ctype": "SpriteObjectData"
+                          }
+                        ],
+                        "ActionTag": -833314099,
+                        "ZOrder": 17,
+                        "Size": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "Name": "leg_2",
+                        "ctype": "BoneNodeObjectData"
+                      },
+                      {
+                        "FileData": {
+                          "Type": "MarkedSubImage",
+                          "Path": "Kuku_na_Jongoo/caterpillar_body1.png",
+                          "Plist": "Kuku_na_Jongoo/Kuku_na_Jongoo.plist"
+                        },
+                        "BlendFunc": {
+                          "Src": 1,
+                          "Dst": 771
+                        },
+                        "AnchorPoint": {
+                          "ScaleX": 0.5,
+                          "ScaleY": 0.5
+                        },
+                        "Position": {
+                          "X": 130.7593,
+                          "Y": -3.2913
+                        },
+                        "Scale": {
+                          "ScaleX": 1.0,
+                          "ScaleY": 1.0
+                        },
+                        "RotationSkewX": -34.5919,
+                        "RotationSkewY": -34.5908,
+                        "CColor": {},
+                        "IconVisible": false,
+                        "PrePosition": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "PreSize": {
+                          "X": 0.0,
+                          "Y": 0.0
+                        },
+                        "LeftMargin": -2.2407,
+                        "RightMargin": -263.7593,
+                        "TopMargin": -134.7087,
+                        "BottomMargin": -141.2913,
+                        "Tag": 53,
+                        "ActionTag": 528810077,
+                        "Size": {
+                          "X": 266.0,
+                          "Y": 276.0
+                        },
+                        "Name": "caterpillar_1_leg",
+                        "ctype": "SpriteObjectData"
+                      }
+                    ],
+                    "ActionTag": -1380263422,
+                    "ZOrder": 18,
+                    "Size": {
+                      "X": 0.0,
+                      "Y": 0.0
+                    },
+                    "Name": "leg_1",
+                    "ctype": "BoneNodeObjectData"
+                  }
+                ],
+                "ActionTag": 1963344740,
+                "ZOrder": 19,
+                "Size": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Name": "body",
+                "ctype": "BoneNodeObjectData"
+              }
+            ],
+            "ActionTag": 1290693361,
+            "ZOrder": 23,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "main",
+            "ctype": "BoneNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Skeleton",
+        "ctype": "SkeletonNodeObjectData"
+      },
+      "UsedResources": [
+        "Kuku_na_Jongoo.plist",
+        "Kuku_na_Jongoo.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Skeleton"
+}

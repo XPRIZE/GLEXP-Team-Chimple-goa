@@ -1,0 +1,179 @@
+{
+  "ID": "316d35d6-93d2-4734-9dcb-77c37245f3e0",
+  "Version": "2.3.4",
+  "Name": "rabbit",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 30,
+        "Speed": 1.0,
+        "ActivedAnimationName": "run",
+        "Timelines": [
+          {
+            "ActionTag": 2171609,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jimbi_na_sungura/rabbit_1.png",
+                  "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jimbi_na_sungura/rabbit_2.png",
+                  "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+                },
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jimbi_na_sungura/rabbit_3.png",
+                  "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+                },
+                "FrameIndex": 20,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jimbi_na_sungura/rabbit_1.png",
+                  "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 30,
+          "Name": "run",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 187,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/rabbit_1.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -163.0,
+            "RightMargin": -163.0,
+            "TopMargin": -116.0,
+            "BottomMargin": -116.0,
+            "Tag": 194,
+            "ActionTag": 2171609,
+            "Size": {
+              "X": 326.0,
+              "Y": 232.0
+            },
+            "Name": "Sprite_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jimbi_na_sungura/touch.png",
+              "Plist": "jimbi_na_sungura/jimbi_na_sungura.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2.1124,
+              "Y": -20.1682
+            },
+            "Scale": {
+              "ScaleX": 0.6737,
+              "ScaleY": 0.5594
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -199.8876,
+            "RightMargin": -204.1124,
+            "TopMargin": -181.8318,
+            "BottomMargin": -222.1682,
+            "Tag": 43,
+            "ActionTag": 1742147684,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "jimbi_na_sungura.plist",
+        "jimbi_na_sungura.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

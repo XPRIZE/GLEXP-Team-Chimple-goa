@@ -1,0 +1,123 @@
+{
+  "ID": "162cf7aa-be0d-4c59-8eb3-87519ae2fd6f",
+  "Version": "3.10.0.0",
+  "Name": "barn_house_foreground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 159,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "barn_house/barn_house1/cart1.png",
+              "Plist": "barn_house/barn_house1/barn_house1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1912.5706,
+              "Y": 192.9272
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7471,
+              "Y": 0.1072
+            },
+            "PreSize": {
+              "X": 0.2043,
+              "Y": 0.1828
+            },
+            "LeftMargin": 1651.0706,
+            "RightMargin": 385.9294,
+            "TopMargin": 1442.5728,
+            "BottomMargin": 28.4272,
+            "Tag": 160,
+            "ActionTag": -181874899,
+            "Size": {
+              "X": 523.0,
+              "Y": 329.0
+            },
+            "Name": "cart1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "barn_house/barn_house1/cart.png",
+              "Plist": "barn_house/barn_house1/barn_house1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4050.4819,
+              "Y": 170.4268
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5822,
+              "Y": 0.0947
+            },
+            "PreSize": {
+              "X": 0.1414,
+              "Y": 0.1578
+            },
+            "LeftMargin": 3869.4819,
+            "RightMargin": -1671.4819,
+            "TopMargin": 1487.5732,
+            "BottomMargin": 28.4268,
+            "Tag": 161,
+            "ActionTag": -1239111541,
+            "Size": {
+              "X": 362.0,
+              "Y": 284.0
+            },
+            "Name": "cart_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "barn_house1/barn_house1.plist",
+        "barn_house1/barn_house1.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

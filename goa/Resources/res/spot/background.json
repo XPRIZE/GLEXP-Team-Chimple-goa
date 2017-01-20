@@ -1,0 +1,4131 @@
+{
+  "ID": "f8438457-54b3-44aa-a0ea-6678217bcac9",
+  "Version": "3.10.0.0",
+  "Name": "background",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 10156,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 124,
+              "G": 223
+            },
+            "FirstColor": {
+              "R": 131,
+              "G": 220,
+              "B": 226
+            },
+            "EndColor": {
+              "R": 223,
+              "G": 241,
+              "B": 237
+            },
+            "ColorVector": {
+              "ScaleX": 0.1045,
+              "ScaleY": 0.9945
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": -100.9346,
+              "Y": 1850.2002
+            },
+            "Scale": {
+              "ScaleX": 3.3421,
+              "ScaleY": 0.3208
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0394,
+              "Y": 1.0279
+            },
+            "PreSize": {
+              "X": 1.3672,
+              "Y": 1.0
+            },
+            "LeftMargin": -100.9346,
+            "RightMargin": -839.0654,
+            "TopMargin": -50.2002,
+            "BottomMargin": 50.2002,
+            "Tag": 10203,
+            "ActionTag": 1122250544,
+            "Size": {
+              "X": 3500.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/sun.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1373.8762,
+              "Y": 1636.7161
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5367,
+              "Y": 0.9093
+            },
+            "PreSize": {
+              "X": 0.148,
+              "Y": 0.2083
+            },
+            "LeftMargin": 1184.3762,
+            "RightMargin": 996.6238,
+            "TopMargin": -24.2161,
+            "BottomMargin": 1449.2161,
+            "Tag": 10204,
+            "ActionTag": 621528556,
+            "Size": {
+              "X": 379.0,
+              "Y": 375.0
+            },
+            "Name": "sun_29",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/cloud2.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1600.4329,
+              "Y": 1561.4868
+            },
+            "Scale": {
+              "ScaleX": 0.8486,
+              "ScaleY": 0.7826
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6252,
+              "Y": 0.8675
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 1198.4329,
+            "RightMargin": 557.5671,
+            "TopMargin": 70.5132,
+            "BottomMargin": 1393.4868,
+            "Tag": 10205,
+            "ActionTag": -1722965631,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_28",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/cloud1.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4159.8145,
+              "Y": 1665.1096
+            },
+            "Scale": {
+              "ScaleX": 0.9312,
+              "ScaleY": 0.89
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6249,
+              "Y": 0.9251
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 3717.3145,
+            "RightMargin": -2042.3145,
+            "TopMargin": -31.1096,
+            "BottomMargin": 1499.1096,
+            "Tag": 10206,
+            "ActionTag": 327343863,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_27",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7035.7676,
+              "Y": 1337.1252
+            },
+            "Scale": {
+              "ScaleX": 0.4114,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 50,
+              "G": 180,
+              "B": 53
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7483,
+              "Y": 0.7428
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 6319.7676,
+            "RightMargin": -5191.7676,
+            "TopMargin": 362.8748,
+            "BottomMargin": 1237.1252,
+            "Tag": 10207,
+            "ActionTag": -147166165,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0_0_0_0_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5770.8857,
+              "Y": 1390.2756
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 50,
+              "G": 180,
+              "B": 53
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.2543,
+              "Y": 0.7724
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 5054.8857,
+            "RightMargin": -3926.8857,
+            "TopMargin": 309.7244,
+            "BottomMargin": 1290.2756,
+            "Tag": 10208,
+            "ActionTag": 1470015737,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0_0_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4830.5781,
+              "Y": 1353.3806
+            },
+            "Scale": {
+              "ScaleX": 0.6328,
+              "ScaleY": 0.924
+            },
+            "CColor": {
+              "R": 50,
+              "G": 180,
+              "B": 53
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.8869,
+              "Y": 0.7519
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 4114.5781,
+            "RightMargin": -2986.5781,
+            "TopMargin": 346.6194,
+            "BottomMargin": 1253.3806,
+            "Tag": 10209,
+            "ActionTag": -1926308594,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3598.8098,
+              "Y": 1383.0242
+            },
+            "Scale": {
+              "ScaleX": 0.8638,
+              "ScaleY": 0.9773
+            },
+            "CColor": {
+              "R": 50,
+              "G": 180,
+              "B": 53
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4058,
+              "Y": 0.7683
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 2882.8098,
+            "RightMargin": -1754.8096,
+            "TopMargin": 316.9758,
+            "BottomMargin": 1283.0242,
+            "Tag": 10210,
+            "ActionTag": 733681288,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1106.425,
+              "Y": 1360.386
+            },
+            "Scale": {
+              "ScaleX": 0.8638,
+              "ScaleY": 0.9773
+            },
+            "CColor": {
+              "R": 50,
+              "G": 180,
+              "B": 53
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4322,
+              "Y": 0.7558
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 390.425,
+            "RightMargin": 737.575,
+            "TopMargin": 339.614,
+            "BottomMargin": 1260.386,
+            "Tag": 10211,
+            "ActionTag": 749682169,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2321.2373,
+              "Y": 1344.1396
+            },
+            "Scale": {
+              "ScaleX": 0.8638,
+              "ScaleY": 0.9773
+            },
+            "CColor": {
+              "R": 50,
+              "G": 180,
+              "B": 53
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9067,
+              "Y": 0.7467
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1605.2373,
+            "RightMargin": -477.2373,
+            "TopMargin": 355.8604,
+            "BottomMargin": 1244.1396,
+            "Tag": 10212,
+            "ActionTag": -1701464680,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "spot/windmill.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1039.8821,
+              "Y": 1329.5679
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4062,
+              "Y": 0.7386
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1039.8821,
+            "RightMargin": 1520.1179,
+            "TopMargin": 470.4321,
+            "BottomMargin": 1329.5679,
+            "Tag": 10213,
+            "ActionTag": -1996008734,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "windmill",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "spot/windmill.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2249.3225,
+              "Y": 1234.5
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8786,
+              "Y": 0.6858
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2249.3225,
+            "RightMargin": 310.6775,
+            "TopMargin": 565.5,
+            "BottomMargin": 1234.5,
+            "Tag": 10217,
+            "ActionTag": 626909475,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "windmill",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "spot/windmill.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3540.8591,
+              "Y": 1286.3457
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.3831,
+              "Y": 0.7146
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3540.8591,
+            "RightMargin": -980.8591,
+            "TopMargin": 513.6543,
+            "BottomMargin": 1286.3457,
+            "Tag": 10221,
+            "ActionTag": -470609381,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "windmill",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "spot/windmill.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7481.9424,
+              "Y": 1245.8997
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.9226,
+              "Y": 0.6922
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7481.9424,
+            "RightMargin": -4921.9424,
+            "TopMargin": 554.1003,
+            "BottomMargin": 1245.8997,
+            "Tag": 10225,
+            "ActionTag": 639712640,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "windmill",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "spot/windmill.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6070.6299,
+              "Y": 1278.3538
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.3713,
+              "Y": 0.7102
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6070.6299,
+            "RightMargin": -3510.6299,
+            "TopMargin": 521.6462,
+            "BottomMargin": 1278.3538,
+            "Tag": 10229,
+            "ActionTag": -508751282,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "windmill",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "spot/windmill.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4865.4639,
+              "Y": 1289.7637
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.9006,
+              "Y": 0.7165
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4865.4639,
+            "RightMargin": -2305.4639,
+            "TopMargin": 510.2363,
+            "BottomMargin": 1289.7637,
+            "Tag": 10233,
+            "ActionTag": -1301393179,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "windmill",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 239,
+              "G": 239,
+              "B": 239
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -100.8857,
+              "Y": 0.8763
+            },
+            "Scale": {
+              "ScaleX": 4.5484,
+              "ScaleY": 4.2071
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0394,
+              "Y": 0.0005
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.1683
+            },
+            "LeftMargin": -100.8857,
+            "RightMargin": 100.8857,
+            "TopMargin": 1496.1237,
+            "BottomMargin": 0.8763,
+            "Tag": 10237,
+            "ActionTag": 979235775,
+            "Size": {
+              "X": 2560.0,
+              "Y": 303.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/shadow.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2756.7078,
+              "Y": 1200.9966
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0768,
+              "Y": 0.6672
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": 2312.7078,
+            "RightMargin": -640.7078,
+            "TopMargin": 542.0034,
+            "BottomMargin": 1143.9966,
+            "Tag": 10238,
+            "ActionTag": 210387337,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 615.0872,
+              "Y": 1331.0754
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.7813
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2403,
+              "Y": 0.7395
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": -100.9128,
+            "RightMargin": 1228.9128,
+            "TopMargin": 368.9246,
+            "BottomMargin": 1231.0754,
+            "Tag": 10239,
+            "ActionTag": -1885396048,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1754.1694,
+              "Y": 1296.46
+            },
+            "Scale": {
+              "ScaleX": 0.7567,
+              "ScaleY": 0.6571
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6852,
+              "Y": 0.7203
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1038.1694,
+            "RightMargin": 89.8306,
+            "TopMargin": 403.54,
+            "BottomMargin": 1196.46,
+            "Tag": 10240,
+            "ActionTag": 1669501527,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2858.0249,
+              "Y": 1332.2639
+            },
+            "Scale": {
+              "ScaleX": 0.8638,
+              "ScaleY": 0.9773
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1164,
+              "Y": 0.7401
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 2142.0249,
+            "RightMargin": -1014.0249,
+            "TopMargin": 367.7361,
+            "BottomMargin": 1232.2639,
+            "Tag": 10241,
+            "ActionTag": -1041124447,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4036.2913,
+              "Y": 1324.2009
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5767,
+              "Y": 0.7357
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 3320.2913,
+            "RightMargin": -2192.291,
+            "TopMargin": 375.7991,
+            "BottomMargin": 1224.2009,
+            "Tag": 10242,
+            "ActionTag": -763661168,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5175.168,
+              "Y": 1331.5015
+            },
+            "Scale": {
+              "ScaleX": 0.71,
+              "ScaleY": 0.827
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0215,
+              "Y": 0.7397
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 4459.168,
+            "RightMargin": -3331.168,
+            "TopMargin": 368.4985,
+            "BottomMargin": 1231.5015,
+            "Tag": 10243,
+            "ActionTag": -1342139568,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6282.3809,
+              "Y": 1322.8418
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4541,
+              "Y": 0.7349
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 5566.3809,
+            "RightMargin": -4438.3809,
+            "TopMargin": 377.1582,
+            "BottomMargin": 1222.8418,
+            "Tag": 10244,
+            "ActionTag": 1881521899,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7613.5488,
+              "Y": 1347.437
+            },
+            "Scale": {
+              "ScaleX": 0.9154,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.974,
+              "Y": 0.7486
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 6897.5488,
+            "RightMargin": -5769.5488,
+            "TopMargin": 352.563,
+            "BottomMargin": 1247.437,
+            "Tag": 10245,
+            "ActionTag": 472497817,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/shadow.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6497.6738,
+              "Y": 1173.9841
+            },
+            "Scale": {
+              "ScaleX": 0.9277,
+              "ScaleY": 1.0906
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5382,
+              "Y": 0.6522
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": 6497.6738,
+            "RightMargin": -4825.6738,
+            "TopMargin": 569.0159,
+            "BottomMargin": 1116.9841,
+            "Tag": 10246,
+            "ActionTag": 856018881,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3_0_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/shadow.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5367.2891,
+              "Y": 1208.0811
+            },
+            "Scale": {
+              "ScaleX": 0.6293,
+              "ScaleY": 0.849
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0966,
+              "Y": 0.6712
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": 5367.2891,
+            "RightMargin": -3695.2891,
+            "TopMargin": 534.9189,
+            "BottomMargin": 1151.0811,
+            "Tag": 10247,
+            "ActionTag": 15623490,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/shadow.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4304.0225,
+              "Y": 1238.7285
+            },
+            "Scale": {
+              "ScaleX": 0.5227,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6813,
+              "Y": 0.6882
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": 4304.0225,
+            "RightMargin": -2632.0225,
+            "TopMargin": 504.2715,
+            "BottomMargin": 1181.7285,
+            "Tag": 10248,
+            "ActionTag": -875174297,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/shadow.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1269.97,
+              "Y": 1098.2451
+            },
+            "Scale": {
+              "ScaleX": 0.7855,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4961,
+              "Y": 0.6101
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": 1269.97,
+            "RightMargin": 402.03,
+            "TopMargin": 644.7549,
+            "BottomMargin": 1041.2451,
+            "Tag": 10249,
+            "ActionTag": 1814395345,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/shadow.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 761.5172,
+              "Y": 1130.9067
+            },
+            "Scale": {
+              "ScaleX": 0.6823,
+              "ScaleY": 0.6382
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2975,
+              "Y": 0.6283
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": 317.5172,
+            "RightMargin": 1354.4828,
+            "TopMargin": 612.0933,
+            "BottomMargin": 1073.9067,
+            "Tag": 10250,
+            "ActionTag": -1110889723,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ban.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2687.9414,
+              "Y": 1394.9822
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.05,
+              "Y": 0.775
+            },
+            "PreSize": {
+              "X": 0.2832,
+              "Y": 0.2761
+            },
+            "LeftMargin": 2325.4414,
+            "RightMargin": -490.4414,
+            "TopMargin": 156.5178,
+            "BottomMargin": 1146.4822,
+            "Tag": 10251,
+            "ActionTag": 618312341,
+            "Size": {
+              "X": 725.0,
+              "Y": 497.0
+            },
+            "Name": "ban_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/tractor.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 702.2881,
+              "Y": 1278.7764
+            },
+            "Scale": {
+              "ScaleX": 0.7269,
+              "ScaleY": 0.67
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2743,
+              "Y": 0.7104
+            },
+            "PreSize": {
+              "X": 0.2539,
+              "Y": 0.2989
+            },
+            "LeftMargin": 377.2881,
+            "RightMargin": 1532.7119,
+            "TopMargin": 252.2236,
+            "BottomMargin": 1009.7764,
+            "Tag": 10252,
+            "ActionTag": -1808331349,
+            "Size": {
+              "X": 650.0,
+              "Y": 538.0
+            },
+            "Name": "tractor_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/chimney.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2715.8887,
+              "Y": 1598.2793
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0609,
+              "Y": 0.8879
+            },
+            "PreSize": {
+              "X": 0.0328,
+              "Y": 0.0689
+            },
+            "LeftMargin": 2673.8887,
+            "RightMargin": -197.8887,
+            "TopMargin": 139.7207,
+            "BottomMargin": 1536.2793,
+            "Tag": 10253,
+            "ActionTag": -1338423603,
+            "Size": {
+              "X": 84.0,
+              "Y": 124.0
+            },
+            "Name": "chimney_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "spot/smoke.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2712.9453,
+              "Y": 1655.5518
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.0597,
+              "Y": 0.9198
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2712.9453,
+            "RightMargin": -152.9453,
+            "TopMargin": 144.4482,
+            "BottomMargin": 1655.5518,
+            "Tag": 10254,
+            "ActionTag": -97947880,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "smoke",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/cake1.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1434.6292,
+              "Y": 1142.0569
+            },
+            "Scale": {
+              "ScaleX": 0.6514,
+              "ScaleY": 0.5848
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5604,
+              "Y": 0.6345
+            },
+            "PreSize": {
+              "X": 0.1875,
+              "Y": 0.125
+            },
+            "LeftMargin": 1194.6292,
+            "RightMargin": 885.3708,
+            "TopMargin": 545.4431,
+            "BottomMargin": 1029.5569,
+            "Tag": 10283,
+            "ActionTag": -833794407,
+            "Size": {
+              "X": 480.0,
+              "Y": 225.0
+            },
+            "Name": "cake1_88",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/cake1.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1740.7368,
+              "Y": 1143.2607
+            },
+            "Scale": {
+              "ScaleX": 0.6514,
+              "ScaleY": 0.5848
+            },
+            "CColor": {
+              "G": 233,
+              "B": 233
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.68,
+              "Y": 0.6351
+            },
+            "PreSize": {
+              "X": 0.1875,
+              "Y": 0.125
+            },
+            "LeftMargin": 1500.7368,
+            "RightMargin": 579.2632,
+            "TopMargin": 544.2393,
+            "BottomMargin": 1030.7607,
+            "Tag": 10284,
+            "ActionTag": -357985615,
+            "Size": {
+              "X": 480.0,
+              "Y": 225.0
+            },
+            "Name": "cake1_88_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/cake1.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1589.062,
+              "Y": 1234.1008
+            },
+            "Scale": {
+              "ScaleX": 0.6514,
+              "ScaleY": 0.5848
+            },
+            "CColor": {
+              "R": 234,
+              "G": 234,
+              "B": 234
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6207,
+              "Y": 0.6856
+            },
+            "PreSize": {
+              "X": 0.1875,
+              "Y": 0.125
+            },
+            "LeftMargin": 1349.062,
+            "RightMargin": 730.938,
+            "TopMargin": 453.3992,
+            "BottomMargin": 1121.6008,
+            "Tag": 10285,
+            "ActionTag": 1287006551,
+            "Size": {
+              "X": 480.0,
+              "Y": 225.0
+            },
+            "Name": "cake1_88_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/tree.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6850.5029,
+              "Y": 1528.6272
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.676,
+              "Y": 0.8492
+            },
+            "PreSize": {
+              "X": 0.4348,
+              "Y": 0.4122
+            },
+            "LeftMargin": 6294.0029,
+            "RightMargin": -4847.0029,
+            "TopMargin": -99.6272,
+            "BottomMargin": 1157.6272,
+            "Tag": 10286,
+            "ActionTag": -1608496646,
+            "Size": {
+              "X": 1113.0,
+              "Y": 742.0
+            },
+            "Name": "tree_91",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/tree.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5601.7754,
+              "Y": 1449.4019
+            },
+            "Scale": {
+              "ScaleX": 0.6425,
+              "ScaleY": 0.7202
+            },
+            "CColor": {
+              "R": 227,
+              "G": 227,
+              "B": 227
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.1882,
+              "Y": 0.8052
+            },
+            "PreSize": {
+              "X": 0.4348,
+              "Y": 0.4122
+            },
+            "LeftMargin": 5045.2754,
+            "RightMargin": -3598.2754,
+            "TopMargin": -20.4019,
+            "BottomMargin": 1078.4019,
+            "Tag": 10287,
+            "ActionTag": -352058827,
+            "Size": {
+              "X": 1113.0,
+              "Y": 742.0
+            },
+            "Name": "tree_91_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/windmill.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4509.9121,
+              "Y": 1618.3105
+            },
+            "Scale": {
+              "ScaleX": 0.7708,
+              "ScaleY": 0.7119
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7617,
+              "Y": 0.8991
+            },
+            "PreSize": {
+              "X": 0.332,
+              "Y": 0.6172
+            },
+            "LeftMargin": 4084.9121,
+            "RightMargin": -2374.9121,
+            "TopMargin": -373.8105,
+            "BottomMargin": 1062.8105,
+            "Tag": 10288,
+            "ActionTag": 1984241569,
+            "Size": {
+              "X": 850.0,
+              "Y": 1111.0
+            },
+            "Name": "windmill_132",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 205.1726,
+              "Y": 139.9861
+            },
+            "Scale": {
+              "ScaleX": 0.603,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0801,
+              "Y": 0.0778
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": -362.8274,
+            "RightMargin": 1786.8274,
+            "TopMargin": 1394.0139,
+            "BottomMargin": -126.0139,
+            "Tag": 10289,
+            "ActionTag": -1252668791,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 793.5161,
+              "Y": 148.1734
+            },
+            "Scale": {
+              "ScaleX": 0.603,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.31,
+              "Y": 0.0823
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 225.5161,
+            "RightMargin": 1198.4839,
+            "TopMargin": 1385.8267,
+            "BottomMargin": -117.8266,
+            "Tag": 10290,
+            "ActionTag": 1942562552,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1400.0615,
+              "Y": 152.7244
+            },
+            "Scale": {
+              "ScaleX": -0.585,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5469,
+              "Y": 0.0848
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 832.0615,
+            "RightMargin": 591.9385,
+            "TopMargin": 1381.2756,
+            "BottomMargin": -113.2756,
+            "Tag": 10291,
+            "ActionTag": 1891498124,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1989.5002,
+              "Y": 160.9587
+            },
+            "Scale": {
+              "ScaleX": 0.603,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7771,
+              "Y": 0.0894
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 1421.5002,
+            "RightMargin": 2.4998,
+            "TopMargin": 1373.0413,
+            "BottomMargin": -105.0413,
+            "Tag": 10292,
+            "ActionTag": -107808936,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2585.3547,
+              "Y": 144.8339
+            },
+            "Scale": {
+              "ScaleX": -0.5774,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0099,
+              "Y": 0.0805
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 2017.3547,
+            "RightMargin": -593.3547,
+            "TopMargin": 1389.1661,
+            "BottomMargin": -121.1661,
+            "Tag": 10293,
+            "ActionTag": 985573346,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3195.9958,
+              "Y": 140.367
+            },
+            "Scale": {
+              "ScaleX": -0.5774,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2484,
+              "Y": 0.078
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 2627.9958,
+            "RightMargin": -1203.9958,
+            "TopMargin": 1393.6331,
+            "BottomMargin": -125.633,
+            "Tag": 10294,
+            "ActionTag": -1276135343,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3794.1355,
+              "Y": 139.5644
+            },
+            "Scale": {
+              "ScaleX": 0.5793,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4821,
+              "Y": 0.0775
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 3226.1355,
+            "RightMargin": -1802.1357,
+            "TopMargin": 1394.4355,
+            "BottomMargin": -126.4356,
+            "Tag": 10295,
+            "ActionTag": 133382899,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4403.4473,
+              "Y": 137.0094
+            },
+            "Scale": {
+              "ScaleX": 0.5793,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7201,
+              "Y": 0.0761
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 3835.4473,
+            "RightMargin": -2411.4473,
+            "TopMargin": 1396.9906,
+            "BottomMargin": -128.9906,
+            "Tag": 10296,
+            "ActionTag": -544439249,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5007.0693,
+              "Y": 134.4564
+            },
+            "Scale": {
+              "ScaleX": -0.5643,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.9559,
+              "Y": 0.0747
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 4439.0693,
+            "RightMargin": -3015.0693,
+            "TopMargin": 1399.5436,
+            "BottomMargin": -131.5436,
+            "Tag": 10297,
+            "ActionTag": 408881465,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5629.3535,
+              "Y": 130.9459
+            },
+            "Scale": {
+              "ScaleX": 0.603,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.199,
+              "Y": 0.0727
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 5061.3535,
+            "RightMargin": -3637.3535,
+            "TopMargin": 1403.0541,
+            "BottomMargin": -135.0541,
+            "Tag": 10298,
+            "ActionTag": -979033131,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6228.8691,
+              "Y": 136.6472
+            },
+            "Scale": {
+              "ScaleX": -0.5774,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4332,
+              "Y": 0.0759
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 5660.8691,
+            "RightMargin": -4236.8691,
+            "TopMargin": 1397.3528,
+            "BottomMargin": -129.3528,
+            "Tag": 10299,
+            "ActionTag": -983465193,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6828.6553,
+              "Y": 132.1797
+            },
+            "Scale": {
+              "ScaleX": -0.5774,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.6674,
+              "Y": 0.0734
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 6260.6553,
+            "RightMargin": -4836.6553,
+            "TopMargin": 1401.8203,
+            "BottomMargin": -133.8203,
+            "Tag": 10300,
+            "ActionTag": 1836793694,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7437.6211,
+              "Y": 127.7428
+            },
+            "Scale": {
+              "ScaleX": 0.5793,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.9053,
+              "Y": 0.071
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 6869.6211,
+            "RightMargin": -5445.6211,
+            "TopMargin": 1406.2572,
+            "BottomMargin": -138.2572,
+            "Tag": 10301,
+            "ActionTag": -725937067,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 474.7432,
+              "Y": 904.6015
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1854,
+              "Y": 0.5026
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 474.7432,
+            "RightMargin": 2085.2568,
+            "TopMargin": 895.3985,
+            "BottomMargin": 904.6015,
+            "Tag": 705,
+            "ActionTag": -1341930269,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "1",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 314.6956,
+              "Y": 417.1835
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1229,
+              "Y": 0.2318
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 314.6956,
+            "RightMargin": 2245.3044,
+            "TopMargin": 1382.8165,
+            "BottomMargin": 417.1835,
+            "Tag": 706,
+            "ActionTag": 1408668783,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "2",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 936.699,
+              "Y": 515.3947
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3659,
+              "Y": 0.2863
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 936.699,
+            "RightMargin": 1623.301,
+            "TopMargin": 1284.6052,
+            "BottomMargin": 515.3947,
+            "Tag": 707,
+            "ActionTag": 1853750417,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "3",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1387.7426,
+              "Y": 813.6653
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5421,
+              "Y": 0.452
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1387.7426,
+            "RightMargin": 1172.2574,
+            "TopMargin": 986.3347,
+            "BottomMargin": 813.6653,
+            "Tag": 708,
+            "ActionTag": -166958982,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "4",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1547.7902,
+              "Y": 431.7333
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6046,
+              "Y": 0.2399
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1547.7902,
+            "RightMargin": 1012.2098,
+            "TopMargin": 1368.2667,
+            "BottomMargin": 431.7333,
+            "Tag": 709,
+            "ActionTag": 1799334225,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "5",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2042.483,
+              "Y": 810.0278
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7978,
+              "Y": 0.45
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2042.483,
+            "RightMargin": 517.517,
+            "TopMargin": 989.9722,
+            "BottomMargin": 810.0278,
+            "Tag": 710,
+            "ActionTag": -2085745014,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "6",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2195.2559,
+              "Y": 420.821
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8575,
+              "Y": 0.2338
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2195.2559,
+            "RightMargin": 364.7441,
+            "TopMargin": 1379.179,
+            "BottomMargin": 420.821,
+            "Tag": 711,
+            "ActionTag": 1401022615,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "7",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2871.821,
+              "Y": 744.5538
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.1218,
+              "Y": 0.4136
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2871.821,
+            "RightMargin": -311.821,
+            "TopMargin": 1055.4463,
+            "BottomMargin": 744.5538,
+            "Tag": 712,
+            "ActionTag": 145647137,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "8",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3373.7888,
+              "Y": 1104.6611
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.3179,
+              "Y": 0.6137
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3373.7888,
+            "RightMargin": -813.7888,
+            "TopMargin": 695.3389,
+            "BottomMargin": 1104.6611,
+            "Tag": 713,
+            "ActionTag": 579611605,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "9",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3286.49,
+              "Y": 457.1954
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.2838,
+              "Y": 0.254
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3286.49,
+            "RightMargin": -726.49,
+            "TopMargin": 1342.8046,
+            "BottomMargin": 457.1954,
+            "Tag": 714,
+            "ActionTag": -1175602245,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "10",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3704.7964,
+              "Y": 846.4023
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.4472,
+              "Y": 0.4702
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3704.7964,
+            "RightMargin": -1144.7964,
+            "TopMargin": 953.5977,
+            "BottomMargin": 846.4023,
+            "Tag": 715,
+            "ActionTag": -1144742975,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "11",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4272.2383,
+              "Y": 984.6254
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.6688,
+              "Y": 0.547
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4272.2383,
+            "RightMargin": -1712.2383,
+            "TopMargin": 815.3746,
+            "BottomMargin": 984.6254,
+            "Tag": 716,
+            "ActionTag": 1300210274,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "12",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3908.4937,
+              "Y": 468.1078
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.5268,
+              "Y": 0.2601
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3908.4937,
+            "RightMargin": -1348.4937,
+            "TopMargin": 1331.8922,
+            "BottomMargin": 468.1078,
+            "Tag": 717,
+            "ActionTag": -2000768712,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "13",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4763.2939,
+              "Y": 937.3385
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.8607,
+              "Y": 0.5207
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4763.2939,
+            "RightMargin": -2203.2939,
+            "TopMargin": 862.6615,
+            "BottomMargin": 937.3385,
+            "Tag": 718,
+            "ActionTag": 402212436,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "14",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 4563.2344,
+              "Y": 464.4703
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.7825,
+              "Y": 0.258
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 4563.2344,
+            "RightMargin": -2003.2344,
+            "TopMargin": 1335.5297,
+            "BottomMargin": 464.4703,
+            "Tag": 719,
+            "ActionTag": 1265580175,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "15",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 5345.0986,
+              "Y": 1005.3569
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.0879,
+              "Y": 0.5585
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 5345.0986,
+            "RightMargin": -2785.0986,
+            "TopMargin": 794.6431,
+            "BottomMargin": 1005.3569,
+            "Tag": 720,
+            "ActionTag": 1472132692,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "16",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 5345.0986,
+              "Y": 477.6492
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.0879,
+              "Y": 0.2654
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 5345.0986,
+            "RightMargin": -2785.0986,
+            "TopMargin": 1322.3508,
+            "BottomMargin": 477.6492,
+            "Tag": 721,
+            "ActionTag": -50937857,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "17",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 5807.9238,
+              "Y": 823.6871
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.2687,
+              "Y": 0.4576
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 5807.9238,
+            "RightMargin": -3247.9238,
+            "TopMargin": 976.3129,
+            "BottomMargin": 823.6871,
+            "Tag": 722,
+            "ActionTag": 775830187,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "18",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6305.3535,
+              "Y": 1065.9136
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.463,
+              "Y": 0.5922
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6305.3535,
+            "RightMargin": -3745.3535,
+            "TopMargin": 734.0864,
+            "BottomMargin": 1065.9136,
+            "Tag": 723,
+            "ActionTag": 1707858824,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "19",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6063.127,
+              "Y": 468.9983
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.3684,
+              "Y": 0.2606
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6063.127,
+            "RightMargin": -3503.127,
+            "TopMargin": 1331.0017,
+            "BottomMargin": 468.9983,
+            "Tag": 724,
+            "ActionTag": 1643119342,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "20",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6577.8584,
+              "Y": 719.8757
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.5695,
+              "Y": 0.3999
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6577.8584,
+            "RightMargin": -4017.8584,
+            "TopMargin": 1080.1243,
+            "BottomMargin": 719.8757,
+            "Tag": 725,
+            "ActionTag": -7630301,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "21",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7075.2881,
+              "Y": 914.522
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.7638,
+              "Y": 0.5081
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7075.2881,
+            "RightMargin": -4515.2881,
+            "TopMargin": 885.478,
+            "BottomMargin": 914.522,
+            "Tag": 726,
+            "ActionTag": 927432304,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "22",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7313.1885,
+              "Y": 520.9039
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.8567,
+              "Y": 0.2894
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7313.1885,
+            "RightMargin": -4753.1885,
+            "TopMargin": 1279.0962,
+            "BottomMargin": 520.9039,
+            "Tag": 727,
+            "ActionTag": -1225409932,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "23",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 6837.3867,
+              "Y": 391.1398
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.6709,
+              "Y": 0.2173
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 6837.3867,
+            "RightMargin": -4277.3867,
+            "TopMargin": 1408.8602,
+            "BottomMargin": 391.1398,
+            "Tag": 728,
+            "ActionTag": 79566896,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "24",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8050.5654,
+              "Y": 136.0997
+            },
+            "Scale": {
+              "ScaleX": 0.5793,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.1448,
+              "Y": 0.0756
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 7482.5654,
+            "RightMargin": -6058.5654,
+            "TopMargin": 1397.9003,
+            "BottomMargin": -129.9003,
+            "Tag": 126,
+            "ActionTag": 1786186742,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8675.1084,
+              "Y": 142.3185
+            },
+            "Scale": {
+              "ScaleX": -0.6041,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.3887,
+              "Y": 0.0791
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 8107.1084,
+            "RightMargin": -6683.1084,
+            "TopMargin": 1391.6815,
+            "BottomMargin": -123.6815,
+            "Tag": 127,
+            "ActionTag": 801490269,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0_0_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9288.8232,
+              "Y": 135.0423
+            },
+            "Scale": {
+              "ScaleX": -0.6041,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.6284,
+              "Y": 0.075
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 8720.8232,
+            "RightMargin": -7296.8232,
+            "TopMargin": 1398.9576,
+            "BottomMargin": -130.9577,
+            "Tag": 128,
+            "ActionTag": -954939420,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0_0_0_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9946.5615,
+              "Y": 135.0416
+            },
+            "Scale": {
+              "ScaleX": -0.6041,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.8854,
+              "Y": 0.075
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 9378.5615,
+            "RightMargin": -7954.5615,
+            "TopMargin": 1398.9585,
+            "BottomMargin": -130.9584,
+            "Tag": 129,
+            "ActionTag": -1146803735,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0_0_0_1_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 10586.2949,
+              "Y": 135.0419
+            },
+            "Scale": {
+              "ScaleX": -0.6041,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.1353,
+              "Y": 0.075
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 10018.2949,
+            "RightMargin": -8594.2949,
+            "TopMargin": 1398.9581,
+            "BottomMargin": -130.9581,
+            "Tag": 130,
+            "ActionTag": -977646525,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0_0_0_1_0_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/grass.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11245.0195,
+              "Y": 135.0409
+            },
+            "Scale": {
+              "ScaleX": -0.6041,
+              "ScaleY": 0.6171
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.3926,
+              "Y": 0.075
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 10677.0195,
+            "RightMargin": -9253.0195,
+            "TopMargin": 1398.9591,
+            "BottomMargin": -130.9591,
+            "Tag": 131,
+            "ActionTag": 308303855,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_250_0_0_0_0_0_0_0_1_0_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8836.4971,
+              "Y": 1347.2197
+            },
+            "Scale": {
+              "ScaleX": 0.9154,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.4518,
+              "Y": 0.7485
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 8120.4971,
+            "RightMargin": -6992.4971,
+            "TopMargin": 352.7803,
+            "BottomMargin": 1247.2197,
+            "Tag": 132,
+            "ActionTag": -502461374,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_1_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9865.6367,
+              "Y": 1363.6969
+            },
+            "Scale": {
+              "ScaleX": 0.5734,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.8538,
+              "Y": 0.7576
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 9149.6367,
+            "RightMargin": -8021.6367,
+            "TopMargin": 336.3031,
+            "BottomMargin": 1263.6969,
+            "Tag": 133,
+            "ActionTag": 542231821,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_1_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 10520.8105,
+              "Y": 1317.2842
+            },
+            "Scale": {
+              "ScaleX": 0.3885,
+              "ScaleY": 0.6029
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.1097,
+              "Y": 0.7318
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 9804.8105,
+            "RightMargin": -8676.8105,
+            "TopMargin": 382.7158,
+            "BottomMargin": 1217.2842,
+            "Tag": 134,
+            "ActionTag": 1989508881,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_1_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/ground.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 11152.8008,
+              "Y": 1337.1311
+            },
+            "Scale": {
+              "ScaleX": 0.5734,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 86,
+              "G": 214,
+              "B": 89
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.3566,
+              "Y": 0.7429
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 10436.8008,
+            "RightMargin": -9308.8008,
+            "TopMargin": 362.8689,
+            "BottomMargin": 1237.1311,
+            "Tag": 135,
+            "ActionTag": 1640379046,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_4_1_1_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/shadow.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8722.0205,
+              "Y": 729.0223
+            },
+            "Scale": {
+              "ScaleX": 0.7314,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.407,
+              "Y": 0.405
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": 8722.0205,
+            "RightMargin": -7050.0205,
+            "TopMargin": 1013.9777,
+            "BottomMargin": 672.0223,
+            "Tag": 137,
+            "ActionTag": 399728365,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3_0_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/windmill.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8968.6738,
+              "Y": 1284.7874
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.5034,
+              "Y": 0.7138
+            },
+            "PreSize": {
+              "X": 0.332,
+              "Y": 0.6172
+            },
+            "LeftMargin": 8543.6738,
+            "RightMargin": -6833.6738,
+            "TopMargin": -40.2874,
+            "BottomMargin": 729.2874,
+            "Tag": 136,
+            "ActionTag": 990622174,
+            "Size": {
+              "X": 850.0,
+              "Y": 1111.0
+            },
+            "Name": "windmill_132_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/shadow.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8181.0137,
+              "Y": 854.3232
+            },
+            "Scale": {
+              "ScaleX": 0.891,
+              "ScaleY": 0.6382
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.1957,
+              "Y": 0.4746
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": 7737.0137,
+            "RightMargin": -6065.0137,
+            "TopMargin": 888.6768,
+            "BottomMargin": 797.3232,
+            "Tag": 138,
+            "ActionTag": -1438512608,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/tractor.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8082.1235,
+              "Y": 1088.2369
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.1571,
+              "Y": 0.6046
+            },
+            "PreSize": {
+              "X": 0.2539,
+              "Y": 0.2989
+            },
+            "LeftMargin": 7757.1235,
+            "RightMargin": -5847.123,
+            "TopMargin": 442.7631,
+            "BottomMargin": 819.2369,
+            "Tag": 139,
+            "ActionTag": 502771080,
+            "Size": {
+              "X": 650.0,
+              "Y": 538.0
+            },
+            "Name": "tractor_11_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/shadow.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7904.3457,
+              "Y": 450.0512
+            },
+            "Scale": {
+              "ScaleX": 0.8571,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 89,
+              "G": 145,
+              "B": 90
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.0876,
+              "Y": 0.25
+            },
+            "PreSize": {
+              "X": 0.3469,
+              "Y": 0.0633
+            },
+            "LeftMargin": 7904.3457,
+            "RightMargin": -6232.3457,
+            "TopMargin": 1292.9487,
+            "BottomMargin": 393.0512,
+            "Tag": 140,
+            "ActionTag": 677502801,
+            "Size": {
+              "X": 888.0,
+              "Y": 114.0
+            },
+            "Name": "shadow_3_0_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/cake1.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8084.0195,
+              "Y": 493.8616
+            },
+            "Scale": {
+              "ScaleX": 0.7108,
+              "ScaleY": 0.5848
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.1578,
+              "Y": 0.2744
+            },
+            "PreSize": {
+              "X": 0.1875,
+              "Y": 0.125
+            },
+            "LeftMargin": 7844.0195,
+            "RightMargin": -5764.0195,
+            "TopMargin": 1193.6384,
+            "BottomMargin": 381.3616,
+            "Tag": 141,
+            "ActionTag": 414556224,
+            "Size": {
+              "X": 480.0,
+              "Y": 225.0
+            },
+            "Name": "cake1_88_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/cake1.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8418.0322,
+              "Y": 495.066
+            },
+            "Scale": {
+              "ScaleX": 0.7108,
+              "ScaleY": 0.5848
+            },
+            "CColor": {
+              "G": 233,
+              "B": 233
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.2883,
+              "Y": 0.275
+            },
+            "PreSize": {
+              "X": 0.1875,
+              "Y": 0.125
+            },
+            "LeftMargin": 8178.0322,
+            "RightMargin": -6098.0322,
+            "TopMargin": 1192.434,
+            "BottomMargin": 382.566,
+            "Tag": 142,
+            "ActionTag": 1381410285,
+            "Size": {
+              "X": 480.0,
+              "Y": 225.0
+            },
+            "Name": "cake1_88_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "spot/cake1.png",
+              "Plist": "spot/spot.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8252.5293,
+              "Y": 585.9082
+            },
+            "Scale": {
+              "ScaleX": 0.7108,
+              "ScaleY": 0.5848
+            },
+            "CColor": {
+              "R": 234,
+              "G": 234,
+              "B": 234
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.2236,
+              "Y": 0.3255
+            },
+            "PreSize": {
+              "X": 0.1875,
+              "Y": 0.125
+            },
+            "LeftMargin": 8012.5293,
+            "RightMargin": -5932.5293,
+            "TopMargin": 1101.5918,
+            "BottomMargin": 473.4082,
+            "Tag": 143,
+            "ActionTag": -2107099542,
+            "Size": {
+              "X": 480.0,
+              "Y": 225.0
+            },
+            "Name": "cake1_88_0_0_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "smoke.json",
+        "spot.plist",
+        "spot.png",
+        "windmill.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

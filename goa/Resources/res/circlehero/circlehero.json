@@ -1,0 +1,519 @@
+{
+  "ID": "39bc7136-8e3c-43d7-909e-f672dc9ef1b0",
+  "Version": "2.3.4",
+  "Name": "circlehero",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 70,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 197,
+              "G": 163,
+              "B": 204
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1279.9031,
+              "Y": 899.8846
+            },
+            "Scale": {
+              "ScaleX": 1.7109,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.4999
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -0.0969,
+            "RightMargin": 0.0969,
+            "TopMargin": 0.1155,
+            "BottomMargin": -0.1154,
+            "Tag": 126,
+            "ActionTag": -1903980080,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "circlehero/bgreflection.png",
+              "Plist": "circlehero/circlehero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1244.1244,
+              "Y": 1009.5643
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.486,
+              "Y": 0.5609
+            },
+            "PreSize": {
+              "X": 0.9691,
+              "Y": 0.8761
+            },
+            "LeftMargin": 3.6244,
+            "RightMargin": 75.3755,
+            "TopMargin": 1.9358,
+            "BottomMargin": 221.0643,
+            "Tag": 127,
+            "ActionTag": -1005916592,
+            "Size": {
+              "X": 2481.0,
+              "Y": 1577.0
+            },
+            "Name": "bgreflection",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "circlehero/bgseal.png",
+              "Plist": "circlehero/circlehero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1325.1285,
+              "Y": 540.0718
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5176,
+              "Y": 0.3
+            },
+            "PreSize": {
+              "X": 0.4414,
+              "Y": 0.3611
+            },
+            "LeftMargin": 760.1285,
+            "RightMargin": 669.8715,
+            "TopMargin": 934.9282,
+            "BottomMargin": 215.0718,
+            "Tag": 128,
+            "ActionTag": -1609653898,
+            "Size": {
+              "X": 1130.0,
+              "Y": 650.0
+            },
+            "Name": "bgseal",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "circlehero/bgseal.png",
+              "Plist": "circlehero/circlehero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2329.5881,
+              "Y": 1687.3425
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.91,
+              "Y": 0.9374
+            },
+            "PreSize": {
+              "X": 0.4414,
+              "Y": 0.3611
+            },
+            "LeftMargin": 1764.5881,
+            "RightMargin": -334.5881,
+            "TopMargin": -212.3425,
+            "BottomMargin": 1362.3425,
+            "Tag": 129,
+            "ActionTag": -810891951,
+            "Size": {
+              "X": 1130.0,
+              "Y": 650.0
+            },
+            "Name": "bgseal",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "circlehero/bgseal.png",
+              "Plist": "circlehero/circlehero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 210.1034,
+              "Y": 1451.1537
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0821,
+              "Y": 0.8062
+            },
+            "PreSize": {
+              "X": 0.4414,
+              "Y": 0.3611
+            },
+            "LeftMargin": -354.8966,
+            "RightMargin": 1784.8966,
+            "TopMargin": 23.8463,
+            "BottomMargin": 1126.1537,
+            "Tag": 130,
+            "ActionTag": 516778159,
+            "Size": {
+              "X": 1130.0,
+              "Y": 650.0
+            },
+            "Name": "bgseal",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 0.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 298.2,
+              "Y": 1097.79
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1165,
+              "Y": 0.6099
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 298.2,
+            "RightMargin": 2261.8,
+            "TopMargin": 702.21,
+            "BottomMargin": 1097.79,
+            "Tag": 120,
+            "ActionTag": 2050742675,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "meteor1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 0.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 415.92,
+              "Y": 560.82
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1625,
+              "Y": 0.3116
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 415.92,
+            "RightMargin": 2144.0801,
+            "TopMargin": 1239.1799,
+            "BottomMargin": 560.82,
+            "Tag": 121,
+            "ActionTag": -1039615252,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "meteor2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 0.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 844.72,
+              "Y": 334.81
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.33,
+              "Y": 0.186
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 844.72,
+            "RightMargin": 1715.28,
+            "TopMargin": 1465.1899,
+            "BottomMargin": 334.81,
+            "Tag": 122,
+            "ActionTag": -38723776,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "meteor3",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 0.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1778.9399,
+              "Y": 310.61
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6949,
+              "Y": 0.1726
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1778.9399,
+            "RightMargin": 781.0601,
+            "TopMargin": 1489.39,
+            "BottomMargin": 310.61,
+            "Tag": 123,
+            "ActionTag": 1885713368,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "meteor4",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 0.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2216.3101,
+              "Y": 587.71
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8657,
+              "Y": 0.3265
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2216.3101,
+            "RightMargin": 343.6899,
+            "TopMargin": 1212.29,
+            "BottomMargin": 587.71,
+            "Tag": 124,
+            "ActionTag": 1021187813,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "meteor5",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 0.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2378.1001,
+              "Y": 1078.89
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9289,
+              "Y": 0.5994
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2378.1001,
+            "RightMargin": 181.8999,
+            "TopMargin": 721.11,
+            "BottomMargin": 1078.89,
+            "Tag": 125,
+            "ActionTag": 2021571675,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "meteor6",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1335.7946,
+              "Y": 1037.1431
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5218,
+              "Y": 0.5762
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1335.7946,
+            "RightMargin": 1224.2054,
+            "TopMargin": 762.8569,
+            "BottomMargin": 1037.1431,
+            "Tag": 13,
+            "ActionTag": -554887422,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "stoneman",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "circlehero.plist",
+        "circlehero.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -1,0 +1,1237 @@
+{
+  "ID": "389041d4-342b-4693-965d-1f671c3d53b0",
+  "Version": "3.10.0.0",
+  "Name": "alphamole2_background",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 1023,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 198
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -485.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1895,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.3672,
+              "Y": 1.0
+            },
+            "LeftMargin": -485.0,
+            "RightMargin": -455.0,
+            "Tag": 1024,
+            "ActionTag": 205163056,
+            "Size": {
+              "X": 3500.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_leaf.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -178.7105,
+              "Y": 1574.7642
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0698,
+              "Y": 0.8749
+            },
+            "PreSize": {
+              "X": 0.2398,
+              "Y": 0.2494
+            },
+            "LeftMargin": -485.7105,
+            "RightMargin": 2431.7104,
+            "TopMargin": 0.7358,
+            "BottomMargin": 1350.2642,
+            "Tag": 1025,
+            "ActionTag": -441512929,
+            "Size": {
+              "X": 614.0,
+              "Y": 449.0
+            },
+            "Name": "Play2_leaf_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 0,
+              "G": 224,
+              "B": 224
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -485.0,
+              "Y": 1068.45
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.5195
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1895,
+              "Y": 0.5936
+            },
+            "PreSize": {
+              "X": 1.3672,
+              "Y": 0.2428
+            },
+            "LeftMargin": -485.0,
+            "RightMargin": -455.0,
+            "TopMargin": 294.55,
+            "BottomMargin": 1068.45,
+            "Tag": 1032,
+            "ActionTag": 983207697,
+            "Size": {
+              "X": 3500.0,
+              "Y": 437.0
+            },
+            "Name": "Panel_4",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 232,
+              "B": 159
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -485.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1895,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.3672,
+              "Y": 0.5944
+            },
+            "LeftMargin": -485.0,
+            "RightMargin": -455.0,
+            "TopMargin": 730.0,
+            "Tag": 1031,
+            "ActionTag": -290027823,
+            "Size": {
+              "X": 3500.0,
+              "Y": 1070.0
+            },
+            "Name": "Panel_3",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 142,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 31,
+              "G": 46,
+              "B": 45
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -483.4927,
+              "Y": 1275.88
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1889,
+              "Y": 0.7088
+            },
+            "PreSize": {
+              "X": 1.3672,
+              "Y": 0.0111
+            },
+            "LeftMargin": -483.4927,
+            "RightMargin": -456.5073,
+            "TopMargin": 504.12,
+            "BottomMargin": 1275.88,
+            "Tag": 1030,
+            "ActionTag": -141434658,
+            "Size": {
+              "X": 3500.0,
+              "Y": 20.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 79,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 31,
+              "G": 46,
+              "B": 45
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -485.0,
+              "Y": 1192.88
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1895,
+              "Y": 0.6627
+            },
+            "PreSize": {
+              "X": 1.3672,
+              "Y": 0.0461
+            },
+            "LeftMargin": -485.0,
+            "RightMargin": -455.0,
+            "TopMargin": 524.12,
+            "BottomMargin": 1192.88,
+            "Tag": 1033,
+            "ActionTag": -137428236,
+            "Size": {
+              "X": 3500.0,
+              "Y": 83.0
+            },
+            "Name": "Panel_2_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_Open.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 470.0598,
+              "Y": 723.4401
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1836,
+              "Y": 0.4019
+            },
+            "PreSize": {
+              "X": 0.3137,
+              "Y": 0.3567
+            },
+            "LeftMargin": 68.5598,
+            "RightMargin": 1688.4402,
+            "TopMargin": 755.5598,
+            "BottomMargin": 402.4401,
+            "Tag": 1039,
+            "ActionTag": 223534966,
+            "Size": {
+              "X": 803.0,
+              "Y": 642.0
+            },
+            "VisibleForFrame": false,
+            "Name": "Play2_Hole_Open_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_Open.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1308.4314,
+              "Y": 1064.4384
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5111,
+              "Y": 0.5914
+            },
+            "PreSize": {
+              "X": 0.3137,
+              "Y": 0.3567
+            },
+            "LeftMargin": 906.9314,
+            "RightMargin": 850.0686,
+            "TopMargin": 414.5616,
+            "BottomMargin": 743.4384,
+            "Tag": 1040,
+            "ActionTag": 1998550456,
+            "Size": {
+              "X": 803.0,
+              "Y": 642.0
+            },
+            "VisibleForFrame": false,
+            "Name": "Play2_Hole_Open_11_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_Open.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2071.7241,
+              "Y": 616.0659
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8093,
+              "Y": 0.3423
+            },
+            "PreSize": {
+              "X": 0.3137,
+              "Y": 0.3567
+            },
+            "LeftMargin": 1670.2241,
+            "RightMargin": 86.7759,
+            "TopMargin": 862.9341,
+            "BottomMargin": 295.0659,
+            "Tag": 1042,
+            "ActionTag": 1872805484,
+            "Size": {
+              "X": 803.0,
+              "Y": 642.0
+            },
+            "VisibleForFrame": false,
+            "Name": "Play2_Hole_Open_11_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_base.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 436.3913,
+              "Y": 519.7482
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1705,
+              "Y": 0.2887
+            },
+            "PreSize": {
+              "X": 0.3484,
+              "Y": 0.1578
+            },
+            "LeftMargin": -9.6087,
+            "RightMargin": 1677.6086,
+            "TopMargin": 1280.2517,
+            "BottomMargin": 235.7482,
+            "UserData": "hole1",
+            "Tag": 1858,
+            "ActionTag": 1144126072,
+            "Size": {
+              "X": 892.0,
+              "Y": 284.0
+            },
+            "Name": "hole1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_base.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1278.645,
+              "Y": 882.326
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4995,
+              "Y": 0.4902
+            },
+            "PreSize": {
+              "X": 0.3484,
+              "Y": 0.1578
+            },
+            "LeftMargin": 832.645,
+            "RightMargin": 835.355,
+            "TopMargin": 917.674,
+            "BottomMargin": 598.326,
+            "UserData": "hole2",
+            "Tag": 1860,
+            "ActionTag": -601329018,
+            "Size": {
+              "X": 892.0,
+              "Y": 284.0
+            },
+            "Name": "hole2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_base.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 2051.3044,
+              "Y": 435.0485
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8013,
+              "Y": 0.2417
+            },
+            "PreSize": {
+              "X": 0.3484,
+              "Y": 0.1578
+            },
+            "LeftMargin": 1605.3044,
+            "RightMargin": 62.6956,
+            "TopMargin": 1364.9515,
+            "BottomMargin": 151.0485,
+            "UserData": "hole3",
+            "Tag": 1862,
+            "ActionTag": -601107762,
+            "Size": {
+              "X": 892.0,
+              "Y": 284.0
+            },
+            "Name": "hole3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_1eg.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -40.9991,
+              "Y": 241.1492
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.016,
+              "Y": 0.134
+            },
+            "PreSize": {
+              "X": 0.032,
+              "Y": 0.0394
+            },
+            "LeftMargin": -81.9991,
+            "RightMargin": 2559.999,
+            "TopMargin": 1523.3508,
+            "BottomMargin": 205.6492,
+            "Tag": 1863,
+            "ActionTag": -1911685154,
+            "Size": {
+              "X": 82.0,
+              "Y": 71.0
+            },
+            "Name": "Play2_1eg_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_1star.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 977.0076,
+              "Y": 367.1469
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3816,
+              "Y": 0.204
+            },
+            "PreSize": {
+              "X": 0.0668,
+              "Y": 0.0956
+            },
+            "LeftMargin": 891.5076,
+            "RightMargin": 1497.4924,
+            "TopMargin": 1346.853,
+            "BottomMargin": 281.1469,
+            "Tag": 1864,
+            "ActionTag": 1562899261,
+            "Size": {
+              "X": 171.0,
+              "Y": 172.0
+            },
+            "Name": "Play2_1star_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_2eg.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 827.9421,
+              "Y": 698.8888
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3234,
+              "Y": 0.3883
+            },
+            "PreSize": {
+              "X": 0.032,
+              "Y": 0.0394
+            },
+            "LeftMargin": 786.9421,
+            "RightMargin": 1691.0579,
+            "TopMargin": 1065.6112,
+            "BottomMargin": 663.3888,
+            "Tag": 1865,
+            "ActionTag": 132119313,
+            "Size": {
+              "X": 82.0,
+              "Y": 71.0
+            },
+            "Name": "Play2_2eg_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_2star.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1538.2869,
+              "Y": 604.1761
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6009,
+              "Y": 0.3357
+            },
+            "PreSize": {
+              "X": 0.0516,
+              "Y": 0.0739
+            },
+            "LeftMargin": 1472.2869,
+            "RightMargin": 955.7131,
+            "TopMargin": 1129.324,
+            "BottomMargin": 537.6761,
+            "Tag": 1866,
+            "ActionTag": 407677584,
+            "Size": {
+              "X": 132.0,
+              "Y": 133.0
+            },
+            "Name": "Play2_2star_19",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_2star.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2494.8999,
+              "Y": 187.009
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9746,
+              "Y": 0.1039
+            },
+            "PreSize": {
+              "X": 0.0516,
+              "Y": 0.0739
+            },
+            "LeftMargin": 2428.8999,
+            "RightMargin": -0.8999,
+            "TopMargin": 1546.491,
+            "BottomMargin": 120.509,
+            "Tag": 1867,
+            "ActionTag": -1118514138,
+            "Size": {
+              "X": 132.0,
+              "Y": 133.0
+            },
+            "Name": "Play2_2star_19_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_2eg.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2289.3301,
+              "Y": 168.6148
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8943,
+              "Y": 0.0937
+            },
+            "PreSize": {
+              "X": 0.032,
+              "Y": 0.0394
+            },
+            "LeftMargin": 2248.3301,
+            "RightMargin": 229.6699,
+            "TopMargin": 1595.8853,
+            "BottomMargin": 133.1148,
+            "Tag": 1868,
+            "ActionTag": -107021584,
+            "Size": {
+              "X": 82.0,
+              "Y": 71.0
+            },
+            "Name": "Play2_2eg_21",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_2star.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 10.1174,
+              "Y": 190.0326
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.004,
+              "Y": 0.1056
+            },
+            "PreSize": {
+              "X": 0.0516,
+              "Y": 0.0739
+            },
+            "LeftMargin": -55.8826,
+            "RightMargin": 2483.8826,
+            "TopMargin": 1543.4674,
+            "BottomMargin": 123.5326,
+            "Tag": 1869,
+            "ActionTag": 1528582663,
+            "Size": {
+              "X": 132.0,
+              "Y": 133.0
+            },
+            "Name": "Play2_2star_19_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_2star.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -125.1042,
+              "Y": 744.3008
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0489,
+              "Y": 0.4135
+            },
+            "PreSize": {
+              "X": 0.0516,
+              "Y": 0.0739
+            },
+            "LeftMargin": -191.1042,
+            "RightMargin": 2619.1042,
+            "TopMargin": 989.1992,
+            "BottomMargin": 677.8008,
+            "Tag": 1870,
+            "ActionTag": 94096879,
+            "Size": {
+              "X": 132.0,
+              "Y": 133.0
+            },
+            "Name": "Play2_2star_19_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_2eg.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1093.7754,
+              "Y": 278.5771
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4273,
+              "Y": 0.1548
+            },
+            "PreSize": {
+              "X": 0.032,
+              "Y": 0.0394
+            },
+            "LeftMargin": 1052.7754,
+            "RightMargin": 1425.2246,
+            "TopMargin": 1485.9229,
+            "BottomMargin": 243.0771,
+            "Tag": 1871,
+            "ActionTag": -1198028257,
+            "Size": {
+              "X": 82.0,
+              "Y": 71.0
+            },
+            "Name": "Play2_2eg_18_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_1eg.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1080.2649,
+              "Y": 325.894
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.422,
+              "Y": 0.1811
+            },
+            "PreSize": {
+              "X": 0.032,
+              "Y": 0.0394
+            },
+            "LeftMargin": 1039.2649,
+            "RightMargin": 1438.7351,
+            "TopMargin": 1438.606,
+            "BottomMargin": 290.394,
+            "Tag": 1872,
+            "ActionTag": -2028563406,
+            "Size": {
+              "X": 82.0,
+              "Y": 71.0
+            },
+            "Name": "Play2_1eg_16_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_Close.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2043.5159,
+              "Y": 393.5137
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7982,
+              "Y": 0.2186
+            },
+            "PreSize": {
+              "X": 0.3191,
+              "Y": 0.0489
+            },
+            "LeftMargin": 1635.0159,
+            "RightMargin": 107.9841,
+            "TopMargin": 1362.4863,
+            "BottomMargin": 349.5137,
+            "Tag": 1043,
+            "ActionTag": -1698868559,
+            "Size": {
+              "X": 817.0,
+              "Y": 88.0
+            },
+            "Name": "Play2_Hole_Close_9_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_Close.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.2178,
+              "Y": 841.8904
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5001,
+              "Y": 0.4677
+            },
+            "PreSize": {
+              "X": 0.3191,
+              "Y": 0.0489
+            },
+            "LeftMargin": 871.7178,
+            "RightMargin": 871.2822,
+            "TopMargin": 914.1096,
+            "BottomMargin": 797.8904,
+            "Tag": 1041,
+            "ActionTag": -37579243,
+            "Size": {
+              "X": 817.0,
+              "Y": 88.0
+            },
+            "Name": "Play2_Hole_Close_9_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamole2/Play2_Hole_Close.png",
+              "Plist": "alphamole/alphamole2/alphamole2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 441.8496,
+              "Y": 500.887
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1726,
+              "Y": 0.2783
+            },
+            "PreSize": {
+              "X": 0.3191,
+              "Y": 0.0489
+            },
+            "LeftMargin": 33.3496,
+            "RightMargin": 1709.6504,
+            "TopMargin": 1255.113,
+            "BottomMargin": 456.887,
+            "Tag": 1037,
+            "ActionTag": 511483675,
+            "Size": {
+              "X": 817.0,
+              "Y": 88.0
+            },
+            "Name": "Play2_Hole_Close_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphamole/alphamolelevel/score.png",
+              "Plist": "alphamole/alphamolelevel/alphamolelevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 293.2927,
+              "Y": 1687.0713
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1146,
+              "Y": 0.9373
+            },
+            "PreSize": {
+              "X": 0.1953,
+              "Y": 0.0622
+            },
+            "LeftMargin": 43.2927,
+            "RightMargin": 2016.7073,
+            "TopMargin": 56.9287,
+            "BottomMargin": 1631.0713,
+            "Tag": 334,
+            "ActionTag": 100229634,
+            "Size": {
+              "X": 500.0,
+              "Y": 112.0
+            },
+            "Name": "score_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "alphamole2/alphamole2.plist",
+        "alphamole2/alphamole2.png",
+        "alphamolelevel/alphamolelevel.plist",
+        "alphamolelevel/alphamolelevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

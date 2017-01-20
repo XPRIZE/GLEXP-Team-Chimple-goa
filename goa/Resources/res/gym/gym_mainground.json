@@ -1,0 +1,3969 @@
+{
+  "ID": "cf485df0-e21c-4a5a-8860-f58f602a7f8d",
+  "Version": "3.10.0.0",
+  "Name": "gym_mainground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 135,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/floor.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.3143,
+              "Y": 134.6638
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1251,
+              "Y": 0.0748
+            },
+            "PreSize": {
+              "X": 0.2504,
+              "Y": 0.1517
+            },
+            "LeftMargin": -0.1857,
+            "RightMargin": 1919.1857,
+            "TopMargin": 1528.8362,
+            "BottomMargin": -1.8362,
+            "Tag": 137,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 958.0428,
+                  "Y": 136.4985
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4946,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 637.5428,
+                "RightMargin": -637.5427,
+                "TopMargin": 0.0015,
+                "BottomMargin": -0.0015,
+                "Tag": 138,
+                "ActionTag": -919457574,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 273.0
+                },
+                "Name": "floor_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1592.8733,
+                  "Y": 136.4985
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.485,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1272.3733,
+                "RightMargin": -1272.3733,
+                "TopMargin": 0.0015,
+                "BottomMargin": -0.0015,
+                "Tag": 139,
+                "ActionTag": -31179573,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 273.0
+                },
+                "Name": "floor_3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2232.3457,
+                  "Y": 136.4985
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4826,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1911.8457,
+                "RightMargin": -1911.8457,
+                "TopMargin": 0.0015,
+                "BottomMargin": -0.0015,
+                "Tag": 140,
+                "ActionTag": 1867007832,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 273.0
+                },
+                "Name": "floor_2_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2872.0593,
+                  "Y": 136.4985
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.4806,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2551.5593,
+                "RightMargin": -2551.5593,
+                "TopMargin": 0.0015,
+                "BottomMargin": -0.0015,
+                "Tag": 141,
+                "ActionTag": -1239671098,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 273.0
+                },
+                "Name": "floor_3_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3513.0925,
+                  "Y": 136.4984
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.4806,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3192.5925,
+                "RightMargin": -3192.5925,
+                "TopMargin": 0.0016,
+                "BottomMargin": -0.0016,
+                "Tag": 142,
+                "ActionTag": -18491977,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 273.0
+                },
+                "Name": "floor_2_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4153.9907,
+                  "Y": 136.4985
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.4805,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3833.4907,
+                "RightMargin": -3833.4907,
+                "TopMargin": 0.0015,
+                "BottomMargin": -0.0015,
+                "Tag": 143,
+                "ActionTag": -2125139889,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 273.0
+                },
+                "Name": "floor_3_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4794.4668,
+                  "Y": 136.4985
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.4797,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 4473.9668,
+                "RightMargin": -4473.9668,
+                "TopMargin": 0.0015,
+                "BottomMargin": -0.0015,
+                "Tag": 144,
+                "ActionTag": -5088466,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 273.0
+                },
+                "Name": "floor_2_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 5434.9634,
+                  "Y": 136.4985
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 8.4789,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5114.4634,
+                "RightMargin": -5114.4634,
+                "TopMargin": 0.0015,
+                "BottomMargin": -0.0015,
+                "Tag": 145,
+                "ActionTag": 1657884224,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 273.0
+                },
+                "Name": "floor_3_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6076.5405,
+                  "Y": 136.4985
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 9.4798,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5756.0405,
+                "RightMargin": -5756.0405,
+                "TopMargin": 0.0015,
+                "BottomMargin": -0.0015,
+                "Tag": 146,
+                "ActionTag": 1654897248,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 273.0
+                },
+                "Name": "floor_3_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6718.2217,
+                  "Y": 136.4985
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 10.4808,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 6397.7217,
+                "RightMargin": -6397.7217,
+                "TopMargin": 0.0015,
+                "BottomMargin": -0.0015,
+                "Tag": 147,
+                "ActionTag": 196012454,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 273.0
+                },
+                "Name": "floor_2_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 7359.2969,
+                  "Y": 136.4985
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 11.481,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 7038.7969,
+                "RightMargin": -7038.7969,
+                "TopMargin": 0.0015,
+                "BottomMargin": -0.0015,
+                "Tag": 148,
+                "ActionTag": 359238046,
+                "Size": {
+                  "X": 641.0,
+                  "Y": 273.0
+                },
+                "Name": "floor_3_0_0_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 178934779,
+            "Size": {
+              "X": 641.0,
+              "Y": 273.0
+            },
+            "Name": "floor_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 242,
+              "G": 231,
+              "B": 182
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -1.0581,
+              "Y": 270.9552
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0004,
+              "Y": 0.1505
+            },
+            "PreSize": {
+              "X": 3.0,
+              "Y": 0.8483
+            },
+            "LeftMargin": -1.0581,
+            "RightMargin": -5118.9419,
+            "TopMargin": 2.0448,
+            "BottomMargin": 270.9552,
+            "Tag": 149,
+            "ActionTag": 2128855271,
+            "Size": {
+              "X": 7680.0,
+              "Y": 1527.0
+            },
+            "Name": "wall_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 268.1595,
+              "Y": 1585.2283
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1047,
+              "Y": 0.8807
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 114.1595,
+            "RightMargin": 2137.8406,
+            "TopMargin": 160.2717,
+            "BottomMargin": 1530.7283,
+            "Tag": 150,
+            "ActionTag": -1502041477,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 697.4056,
+              "Y": 1341.6533
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2724,
+              "Y": 0.7454
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 543.4056,
+            "RightMargin": 1708.5945,
+            "TopMargin": 403.8467,
+            "BottomMargin": 1287.1533,
+            "Tag": 151,
+            "ActionTag": -171625274,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1807.9647,
+              "Y": 1620.9169
+            },
+            "Scale": {
+              "ScaleX": 1.6326,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7062,
+              "Y": 0.9005
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 1653.9647,
+            "RightMargin": 598.0353,
+            "TopMargin": 124.5831,
+            "BottomMargin": 1566.4169,
+            "Tag": 152,
+            "ActionTag": -637280155,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1139.0321,
+              "Y": 770.1363
+            },
+            "Scale": {
+              "ScaleX": 0.5783,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4449,
+              "Y": 0.4279
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 985.0321,
+            "RightMargin": 1266.9679,
+            "TopMargin": 975.3637,
+            "BottomMargin": 715.6363,
+            "Tag": 153,
+            "ActionTag": 967409060,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2561.3306,
+              "Y": 1575.4553
+            },
+            "Scale": {
+              "ScaleX": 0.747,
+              "ScaleY": 0.747
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0005,
+              "Y": 0.8753
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 2407.3306,
+            "RightMargin": -155.3306,
+            "TopMargin": 170.0447,
+            "BottomMargin": 1520.9553,
+            "Tag": 154,
+            "ActionTag": 1502854277,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2801.6272,
+              "Y": 1114.3452
+            },
+            "Scale": {
+              "ScaleX": 1.3795,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0944,
+              "Y": 0.6191
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 2647.6272,
+            "RightMargin": -395.6272,
+            "TopMargin": 631.1548,
+            "BottomMargin": 1059.8452,
+            "Tag": 155,
+            "ActionTag": -787995261,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3212.0166,
+              "Y": 1634.2939
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2547,
+              "Y": 0.9079
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 3058.0166,
+            "RightMargin": -806.0166,
+            "TopMargin": 111.2061,
+            "BottomMargin": 1579.7939,
+            "Tag": 156,
+            "ActionTag": -55526465,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_19",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4003.1138,
+              "Y": 536.3335
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5637,
+              "Y": 0.298
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 3849.1138,
+            "RightMargin": -1597.1138,
+            "TopMargin": 1209.1665,
+            "BottomMargin": 481.8335,
+            "Tag": 157,
+            "ActionTag": -401867212,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3718.1421,
+              "Y": 1374.2889
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.4524,
+              "Y": 0.7635
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 3564.1421,
+            "RightMargin": -1312.1421,
+            "TopMargin": 371.2111,
+            "BottomMargin": 1319.7889,
+            "Tag": 158,
+            "ActionTag": 141047957,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_13_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4147.3989,
+              "Y": 1130.7548
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6201,
+              "Y": 0.6282
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 3993.3989,
+            "RightMargin": -1741.3989,
+            "TopMargin": 614.7452,
+            "BottomMargin": 1076.2548,
+            "Tag": 159,
+            "ActionTag": -276075033,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_14_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5257.8428,
+              "Y": 1409.9811
+            },
+            "Scale": {
+              "ScaleX": 1.6326,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0538,
+              "Y": 0.7833
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 5103.8428,
+            "RightMargin": -2851.8428,
+            "TopMargin": 335.5189,
+            "BottomMargin": 1355.4811,
+            "Tag": 160,
+            "ActionTag": -1760670179,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_15_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4589.0229,
+              "Y": 559.2454
+            },
+            "Scale": {
+              "ScaleX": 0.5783,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7926,
+              "Y": 0.3107
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 4435.0229,
+            "RightMargin": -2183.0229,
+            "TopMargin": 1186.2546,
+            "BottomMargin": 504.7454,
+            "Tag": 161,
+            "ActionTag": 1155442254,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_16_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6011.2944,
+              "Y": 1364.5739
+            },
+            "Scale": {
+              "ScaleX": 0.747,
+              "ScaleY": 0.747
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.3482,
+              "Y": 0.7581
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 5857.2944,
+            "RightMargin": -3605.2944,
+            "TopMargin": 380.9261,
+            "BottomMargin": 1310.0739,
+            "Tag": 162,
+            "ActionTag": 1236536553,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_17_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6251.5908,
+              "Y": 903.4246
+            },
+            "Scale": {
+              "ScaleX": 1.3795,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.442,
+              "Y": 0.5019
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 6097.5908,
+            "RightMargin": -3845.5908,
+            "TopMargin": 842.0754,
+            "BottomMargin": 848.9246,
+            "Tag": 163,
+            "ActionTag": -1859237814,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_18_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7212.7705,
+              "Y": 1312.558
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.8175,
+              "Y": 0.7292
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 7058.7705,
+            "RightMargin": -4806.7705,
+            "TopMargin": 432.942,
+            "BottomMargin": 1258.058,
+            "Tag": 164,
+            "ActionTag": -1706078485,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_19_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FlipY": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wall-tile.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7457.8784,
+              "Y": 383.1431
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.9132,
+              "Y": 0.2129
+            },
+            "PreSize": {
+              "X": 0.1203,
+              "Y": 0.0606
+            },
+            "LeftMargin": 7303.8784,
+            "RightMargin": -5051.8784,
+            "TopMargin": 1362.3569,
+            "BottomMargin": 328.6431,
+            "Tag": 165,
+            "ActionTag": -412699323,
+            "Size": {
+              "X": 308.0,
+              "Y": 109.0
+            },
+            "Name": "wall_tile_20_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/floor-up.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 320.3158,
+              "Y": 1050.3148
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1251,
+              "Y": 0.5835
+            },
+            "PreSize": {
+              "X": 0.25,
+              "Y": 0.0272
+            },
+            "LeftMargin": 0.3158,
+            "RightMargin": 1919.6842,
+            "TopMargin": 725.1852,
+            "BottomMargin": 1025.8148,
+            "Tag": 166,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor-up.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1599.5159,
+                  "Y": 24.5024
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4992,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1279.5159,
+                "RightMargin": -1279.5159,
+                "TopMargin": -0.0024,
+                "BottomMargin": 0.0024,
+                "Tag": 168,
+                "ActionTag": 1604202327,
+                "Size": {
+                  "X": 640.0,
+                  "Y": 49.0
+                },
+                "Name": "floor_up_31",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor-up.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 959.7874,
+                  "Y": 24.5011
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4997,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 639.7874,
+                "RightMargin": -639.7874,
+                "TopMargin": -0.0011,
+                "BottomMargin": 0.0011,
+                "Tag": 167,
+                "ActionTag": -851346314,
+                "Size": {
+                  "X": 640.0,
+                  "Y": 49.0
+                },
+                "Name": "floor_up_30",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor-up.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2878.9526,
+                  "Y": 24.5008
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.4984,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2558.9526,
+                "RightMargin": -2558.9526,
+                "TopMargin": -0.0008,
+                "BottomMargin": 0.0008,
+                "Tag": 169,
+                "ActionTag": -1021218942,
+                "Size": {
+                  "X": 640.0,
+                  "Y": 49.0
+                },
+                "Name": "floor_up_31_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor-up.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2239.2329,
+                  "Y": 24.5004
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4988,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1919.2329,
+                "RightMargin": -1919.2329,
+                "TopMargin": -0.0004,
+                "BottomMargin": 0.0004,
+                "Tag": 170,
+                "ActionTag": 770365603,
+                "Size": {
+                  "X": 640.0,
+                  "Y": 49.0
+                },
+                "Name": "floor_up_30_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor-up.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4158.1475,
+                  "Y": 24.5022
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.4971,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3838.1475,
+                "RightMargin": -3838.1475,
+                "TopMargin": -0.0022,
+                "BottomMargin": 0.0022,
+                "Tag": 171,
+                "ActionTag": 861529775,
+                "Size": {
+                  "X": 640.0,
+                  "Y": 49.0
+                },
+                "Name": "floor_up_31_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor-up.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3518.4207,
+                  "Y": 24.5009
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.4975,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3198.4207,
+                "RightMargin": -3198.4207,
+                "TopMargin": -0.0009,
+                "BottomMargin": 0.0009,
+                "Tag": 172,
+                "ActionTag": -489241761,
+                "Size": {
+                  "X": 640.0,
+                  "Y": 49.0
+                },
+                "Name": "floor_up_30_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor-up.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 4797.8623,
+                  "Y": 24.5009
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.4967,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 4477.8623,
+                "RightMargin": -4477.8623,
+                "TopMargin": -0.0009,
+                "BottomMargin": 0.0009,
+                "Tag": 174,
+                "ActionTag": 1063925532,
+                "Size": {
+                  "X": 640.0,
+                  "Y": 49.0
+                },
+                "Name": "floor_up_30_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor-up.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6716.0732,
+                  "Y": 24.5032
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 10.4939,
+                  "Y": 0.5001
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 6396.0732,
+                "RightMargin": -6396.0732,
+                "TopMargin": -0.0032,
+                "BottomMargin": 0.0032,
+                "Tag": 175,
+                "ActionTag": 1318261750,
+                "Size": {
+                  "X": 640.0,
+                  "Y": 49.0
+                },
+                "Name": "floor_up_31_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor-up.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6076.3442,
+                  "Y": 24.502
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 9.4943,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5756.3442,
+                "RightMargin": -5756.3442,
+                "TopMargin": -0.002,
+                "BottomMargin": 0.002,
+                "Tag": 176,
+                "ActionTag": 1063338177,
+                "Size": {
+                  "X": 640.0,
+                  "Y": 49.0
+                },
+                "Name": "floor_up_30_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "gym/floor-up.png",
+                  "Plist": "gym/gym.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 7355.79,
+                  "Y": 24.5013
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 11.4934,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 7035.79,
+                "RightMargin": -7035.79,
+                "TopMargin": -0.0013,
+                "BottomMargin": 0.0013,
+                "Tag": 178,
+                "ActionTag": -4680446,
+                "Size": {
+                  "X": 640.0,
+                  "Y": 49.0
+                },
+                "Name": "floor_up_30_0_1",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 246083543,
+            "Size": {
+              "X": 640.0,
+              "Y": 49.0
+            },
+            "Name": "floor_up_29",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/door.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3842.3066,
+              "Y": 637.9553
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5009,
+              "Y": 0.3544
+            },
+            "PreSize": {
+              "X": 0.2027,
+              "Y": 0.4078
+            },
+            "LeftMargin": 3582.8066,
+            "RightMargin": -1541.8066,
+            "TopMargin": 795.0447,
+            "BottomMargin": 270.9553,
+            "UserData": "canInteract=true,nextScene=city5",
+            "Tag": 179,
+            "ActionTag": 107324063,
+            "Size": {
+              "X": 519.0,
+              "Y": 734.0
+            },
+            "Name": "door_42",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/mirror.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 930.9358,
+              "Y": 625.6761
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3636,
+              "Y": 0.3476
+            },
+            "PreSize": {
+              "X": 0.6402,
+              "Y": 0.3156
+            },
+            "LeftMargin": 111.4358,
+            "RightMargin": 809.5642,
+            "TopMargin": 890.3239,
+            "BottomMargin": 341.6761,
+            "Tag": 180,
+            "ActionTag": 1949567661,
+            "Size": {
+              "X": 1639.0,
+              "Y": 568.0
+            },
+            "Name": "mirror_43",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/mirror.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2655.1663,
+              "Y": 630.2971
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0372,
+              "Y": 0.3502
+            },
+            "PreSize": {
+              "X": 0.6402,
+              "Y": 0.3156
+            },
+            "LeftMargin": 1835.6663,
+            "RightMargin": -914.6663,
+            "TopMargin": 885.7029,
+            "BottomMargin": 346.2971,
+            "Tag": 181,
+            "ActionTag": 1105925676,
+            "Size": {
+              "X": 1639.0,
+              "Y": 568.0
+            },
+            "Name": "mirror_44",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/lockergate.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7482.3774,
+              "Y": 647.4553
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.9228,
+              "Y": 0.3597
+            },
+            "PreSize": {
+              "X": 0.1477,
+              "Y": 0.4183
+            },
+            "LeftMargin": 7293.3774,
+            "RightMargin": -5111.3774,
+            "TopMargin": 776.0447,
+            "BottomMargin": 270.9553,
+            "Tag": 182,
+            "ActionTag": 1390455154,
+            "Size": {
+              "X": 378.0,
+              "Y": 753.0
+            },
+            "Name": "lockergate_45",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/lockergate.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7118.1631,
+              "Y": 647.4554
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7805,
+              "Y": 0.3597
+            },
+            "PreSize": {
+              "X": 0.1477,
+              "Y": 0.4183
+            },
+            "LeftMargin": 6929.1631,
+            "RightMargin": -4747.1631,
+            "TopMargin": 776.0446,
+            "BottomMargin": 270.9554,
+            "Tag": 183,
+            "ActionTag": 564924905,
+            "Size": {
+              "X": 378.0,
+              "Y": 753.0
+            },
+            "Name": "lockergate_46",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/lockergate.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6754.0005,
+              "Y": 647.4532
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.6383,
+              "Y": 0.3597
+            },
+            "PreSize": {
+              "X": 0.1477,
+              "Y": 0.4183
+            },
+            "LeftMargin": 6565.0005,
+            "RightMargin": -4383.0005,
+            "TopMargin": 776.0468,
+            "BottomMargin": 270.9532,
+            "Tag": 184,
+            "ActionTag": 1111971197,
+            "Size": {
+              "X": 378.0,
+              "Y": 753.0
+            },
+            "Name": "lockergate_47",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/woodsteps.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5872.6592,
+              "Y": 650.4546
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.294,
+              "Y": 0.3614
+            },
+            "PreSize": {
+              "X": 0.0973,
+              "Y": 0.4217
+            },
+            "LeftMargin": 5748.1592,
+            "RightMargin": -3437.1592,
+            "TopMargin": 770.0454,
+            "BottomMargin": 270.9546,
+            "Tag": 185,
+            "ActionTag": -364061253,
+            "Size": {
+              "X": 249.0,
+              "Y": 759.0
+            },
+            "Name": "woodsteps_48",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/stand.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 358.5373,
+              "Y": 441.1408
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1401,
+              "Y": 0.2451
+            },
+            "PreSize": {
+              "X": 0.1199,
+              "Y": 0.2378
+            },
+            "LeftMargin": 205.0373,
+            "RightMargin": 2047.9626,
+            "TopMargin": 1144.8591,
+            "BottomMargin": 227.1408,
+            "Tag": 51,
+            "ActionTag": -1530792305,
+            "Size": {
+              "X": 307.0,
+              "Y": 428.0
+            },
+            "Name": "stand_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/dumble-rode.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 355.7531,
+              "Y": 608.498
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.139,
+              "Y": 0.3381
+            },
+            "PreSize": {
+              "X": 0.2,
+              "Y": 0.0544
+            },
+            "LeftMargin": 99.7531,
+            "RightMargin": 1948.2468,
+            "TopMargin": 1142.502,
+            "BottomMargin": 559.498,
+            "Tag": 52,
+            "ActionTag": -605980671,
+            "Size": {
+              "X": 512.0,
+              "Y": 98.0
+            },
+            "Name": "Sprite_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/bench.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2249.8755,
+              "Y": 326.6411
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8789,
+              "Y": 0.1815
+            },
+            "PreSize": {
+              "X": 0.225,
+              "Y": 0.1106
+            },
+            "LeftMargin": 1961.8755,
+            "RightMargin": 22.1245,
+            "TopMargin": 1373.8589,
+            "BottomMargin": 227.1411,
+            "Tag": 53,
+            "ActionTag": 2123627140,
+            "Size": {
+              "X": 576.0,
+              "Y": 199.0
+            },
+            "Name": "bench_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/chest-bench.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 902.9733,
+              "Y": 444.1575
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3527,
+              "Y": 0.2468
+            },
+            "PreSize": {
+              "X": 0.0969,
+              "Y": 0.2706
+            },
+            "LeftMargin": 778.9733,
+            "RightMargin": 1533.0266,
+            "TopMargin": 1112.3425,
+            "BottomMargin": 200.6575,
+            "Tag": 54,
+            "ActionTag": 516911779,
+            "Size": {
+              "X": 248.0,
+              "Y": 487.0
+            },
+            "Name": "Sprite_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/stand-1.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1282.3119,
+              "Y": 447.6405
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5009,
+              "Y": 0.2487
+            },
+            "PreSize": {
+              "X": 0.0207,
+              "Y": 0.245
+            },
+            "LeftMargin": 1255.8119,
+            "RightMargin": 1251.1881,
+            "TopMargin": 1131.8595,
+            "BottomMargin": 227.1405,
+            "Tag": 55,
+            "ActionTag": 1392815196,
+            "Size": {
+              "X": 53.0,
+              "Y": 441.0
+            },
+            "Name": "Sprite_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/stand-1.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1734.0709,
+              "Y": 447.6385
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6774,
+              "Y": 0.2487
+            },
+            "PreSize": {
+              "X": 0.0207,
+              "Y": 0.245
+            },
+            "LeftMargin": 1707.5709,
+            "RightMargin": 799.4291,
+            "TopMargin": 1131.8616,
+            "BottomMargin": 227.1385,
+            "Tag": 56,
+            "ActionTag": 1805142757,
+            "Size": {
+              "X": 53.0,
+              "Y": 441.0
+            },
+            "Name": "Sprite_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/dumble-rode2.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1508.6246,
+              "Y": 622.8884
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5893,
+              "Y": 0.346
+            },
+            "PreSize": {
+              "X": 0.2582,
+              "Y": 0.0706
+            },
+            "LeftMargin": 1178.1246,
+            "RightMargin": 720.8754,
+            "TopMargin": 1113.6116,
+            "BottomMargin": 559.3884,
+            "Tag": 57,
+            "ActionTag": -663362244,
+            "Size": {
+              "X": 661.0,
+              "Y": 127.0
+            },
+            "Name": "Sprite_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/dumble-rode1.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1519.3665,
+              "Y": 197.5351
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5935,
+              "Y": 0.1097
+            },
+            "PreSize": {
+              "X": 0.1746,
+              "Y": 0.0594
+            },
+            "LeftMargin": 1295.8665,
+            "RightMargin": 817.1335,
+            "TopMargin": 1548.9648,
+            "BottomMargin": 144.0351,
+            "Tag": 58,
+            "ActionTag": -1202407903,
+            "Size": {
+              "X": 447.0,
+              "Y": 107.0
+            },
+            "Name": "Sprite_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/dumblegreen.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2249.4106,
+              "Y": 193.6408
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8787,
+              "Y": 0.1076
+            },
+            "PreSize": {
+              "X": 0.0516,
+              "Y": 0.0372
+            },
+            "LeftMargin": 2183.4106,
+            "RightMargin": 244.5894,
+            "TopMargin": 1572.8593,
+            "BottomMargin": 160.1408,
+            "Tag": 59,
+            "ActionTag": -1927562180,
+            "Size": {
+              "X": 132.0,
+              "Y": 67.0
+            },
+            "Name": "dumblegreen_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/dumblepink.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2402.2166,
+              "Y": 193.1408
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9384,
+              "Y": 0.1073
+            },
+            "PreSize": {
+              "X": 0.0516,
+              "Y": 0.0311
+            },
+            "LeftMargin": 2336.2166,
+            "RightMargin": 91.7834,
+            "TopMargin": 1578.8593,
+            "BottomMargin": 165.1408,
+            "Tag": 60,
+            "ActionTag": 833537646,
+            "Size": {
+              "X": 132.0,
+              "Y": 56.0
+            },
+            "Name": "dumblepink_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/dumbleyellow.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2102.542,
+              "Y": 192.9007
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8213,
+              "Y": 0.1072
+            },
+            "PreSize": {
+              "X": 0.0516,
+              "Y": 0.0444
+            },
+            "LeftMargin": 2036.542,
+            "RightMargin": 391.458,
+            "TopMargin": 1567.0994,
+            "BottomMargin": 152.9007,
+            "UserData": "canInteract=true",
+            "Tag": 61,
+            "ActionTag": 1419661217,
+            "Size": {
+              "X": 132.0,
+              "Y": 80.0
+            },
+            "Name": "dumbleyellow_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/stretch-wire.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 301.2381,
+              "Y": 1135.8605
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1177,
+              "Y": 0.631
+            },
+            "PreSize": {
+              "X": 0.1426,
+              "Y": 0.0672
+            },
+            "LeftMargin": 118.7381,
+            "RightMargin": 2076.262,
+            "TopMargin": 603.6395,
+            "BottomMargin": 1075.3605,
+            "Tag": 62,
+            "ActionTag": 66026804,
+            "Size": {
+              "X": 365.0,
+              "Y": 121.0
+            },
+            "Name": "Sprite_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/ball.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 860.414,
+              "Y": 1238.8608
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3361,
+              "Y": 0.6883
+            },
+            "PreSize": {
+              "X": 0.1273,
+              "Y": 0.1817
+            },
+            "LeftMargin": 697.414,
+            "RightMargin": 1536.5859,
+            "TopMargin": 397.6392,
+            "BottomMargin": 1075.3608,
+            "Tag": 63,
+            "ActionTag": 842387307,
+            "Size": {
+              "X": 326.0,
+              "Y": 327.0
+            },
+            "Name": "ball_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/jumping-stand.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1730.0667,
+              "Y": 1140.8606
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6758,
+              "Y": 0.6338
+            },
+            "PreSize": {
+              "X": 0.2113,
+              "Y": 0.0728
+            },
+            "LeftMargin": 1459.5667,
+            "RightMargin": 559.4333,
+            "TopMargin": 593.6394,
+            "BottomMargin": 1075.3606,
+            "Tag": 64,
+            "ActionTag": -1772272211,
+            "Size": {
+              "X": 541.0,
+              "Y": 131.0
+            },
+            "Name": "Sprite_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/hanger.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2407.3628,
+              "Y": 1622.2744
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9404,
+              "Y": 0.9013
+            },
+            "PreSize": {
+              "X": 0.0395,
+              "Y": 0.1956
+            },
+            "LeftMargin": 2356.8628,
+            "RightMargin": 102.1372,
+            "TopMargin": 1.7256,
+            "BottomMargin": 1446.2744,
+            "Tag": 65,
+            "ActionTag": -830096099,
+            "Size": {
+              "X": 101.0,
+              "Y": 352.0
+            },
+            "Name": "hanger_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/hanger.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2660.6768,
+              "Y": 1621.2975
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0393,
+              "Y": 0.9007
+            },
+            "PreSize": {
+              "X": 0.0395,
+              "Y": 0.1956
+            },
+            "LeftMargin": 2610.1768,
+            "RightMargin": -151.1768,
+            "TopMargin": 2.7025,
+            "BottomMargin": 1445.2975,
+            "Tag": 66,
+            "ActionTag": 766731994,
+            "Size": {
+              "X": 101.0,
+              "Y": 352.0
+            },
+            "Name": "hanger_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/cycle.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3125.0952,
+              "Y": 1248.8596
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2207,
+              "Y": 0.6938
+            },
+            "PreSize": {
+              "X": 0.1168,
+              "Y": 0.1928
+            },
+            "LeftMargin": 2975.5952,
+            "RightMargin": -714.5952,
+            "TopMargin": 377.6404,
+            "BottomMargin": 1075.3596,
+            "Tag": 67,
+            "ActionTag": 960553136,
+            "Size": {
+              "X": 299.0,
+              "Y": 347.0
+            },
+            "Name": "cycle_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/cycle1.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3909.7339,
+              "Y": 1282.3588
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.5272,
+              "Y": 0.7124
+            },
+            "PreSize": {
+              "X": 0.1215,
+              "Y": 0.23
+            },
+            "LeftMargin": 3754.2339,
+            "RightMargin": -1505.2339,
+            "TopMargin": 310.6412,
+            "BottomMargin": 1075.3588,
+            "Tag": 68,
+            "ActionTag": 109831960,
+            "Size": {
+              "X": 311.0,
+              "Y": 414.0
+            },
+            "Name": "cycle1_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/cardiomachine1.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4523.0459,
+              "Y": 1274.1133
+            },
+            "Scale": {
+              "ScaleX": 1.6155,
+              "ScaleY": 1.6155
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7668,
+              "Y": 0.7078
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.1389
+            },
+            "LeftMargin": 4350.5459,
+            "RightMargin": -2135.5459,
+            "TopMargin": 400.8867,
+            "BottomMargin": 1149.1133,
+            "Tag": 69,
+            "ActionTag": -566851103,
+            "Size": {
+              "X": 345.0,
+              "Y": 250.0
+            },
+            "Name": "cardiomachine1_19",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/apple.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7501.9531,
+              "Y": 1214.9514
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.9305,
+              "Y": 0.675
+            },
+            "PreSize": {
+              "X": 0.0285,
+              "Y": 0.0572
+            },
+            "LeftMargin": 7465.4531,
+            "RightMargin": -4978.4531,
+            "TopMargin": 533.5486,
+            "BottomMargin": 1163.4514,
+            "UserData": "canInteract=true",
+            "Tag": 70,
+            "ActionTag": 1073956275,
+            "Size": {
+              "X": 73.0,
+              "Y": 103.0
+            },
+            "Name": "apple_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/bottle.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7578.0859,
+              "Y": 1247.4391
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.9602,
+              "Y": 0.693
+            },
+            "PreSize": {
+              "X": 0.0246,
+              "Y": 0.0911
+            },
+            "LeftMargin": 7546.5859,
+            "RightMargin": -5049.5859,
+            "TopMargin": 470.5609,
+            "BottomMargin": 1165.4391,
+            "Tag": 71,
+            "ActionTag": 662532250,
+            "Size": {
+              "X": 63.0,
+              "Y": 164.0
+            },
+            "Name": "bottle_21",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/smalltable.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7538.5151,
+              "Y": 1127.3597
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.9447,
+              "Y": 0.6263
+            },
+            "PreSize": {
+              "X": 0.0746,
+              "Y": 0.0578
+            },
+            "LeftMargin": 7443.0151,
+            "RightMargin": -5074.0151,
+            "TopMargin": 620.6403,
+            "BottomMargin": 1075.3597,
+            "Tag": 72,
+            "ActionTag": 1778707312,
+            "Size": {
+              "X": 191.0,
+              "Y": 104.0
+            },
+            "Name": "smalltable_22",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/boxing-bag1.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6708.5933,
+              "Y": 1544.9606
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.6205,
+              "Y": 0.8583
+            },
+            "PreSize": {
+              "X": 0.0574,
+              "Y": 0.2789
+            },
+            "LeftMargin": 6635.0933,
+            "RightMargin": -4222.0933,
+            "TopMargin": 4.0394,
+            "BottomMargin": 1293.9606,
+            "Tag": 73,
+            "ActionTag": 1921215910,
+            "Size": {
+              "X": 147.0,
+              "Y": 502.0
+            },
+            "Name": "Sprite_23",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/boxingpunch.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6914.2861,
+              "Y": 1145.3622
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7009,
+              "Y": 0.6363
+            },
+            "PreSize": {
+              "X": 0.041,
+              "Y": 0.0778
+            },
+            "LeftMargin": 6861.7861,
+            "RightMargin": -4406.7861,
+            "TopMargin": 584.6378,
+            "BottomMargin": 1075.3622,
+            "Tag": 74,
+            "ActionTag": 1867380302,
+            "Size": {
+              "X": 105.0,
+              "Y": 140.0
+            },
+            "Name": "boxingpunch_24",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/boxingpunch.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4601,
+              "ScaleY": 0.5149
+            },
+            "Position": {
+              "X": 7048.2163,
+              "Y": 1147.4518
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7532,
+              "Y": 0.6375
+            },
+            "PreSize": {
+              "X": 0.041,
+              "Y": 0.0778
+            },
+            "LeftMargin": 6999.9058,
+            "RightMargin": -4544.9058,
+            "TopMargin": 584.6343,
+            "BottomMargin": 1075.3657,
+            "Tag": 75,
+            "ActionTag": -1546335445,
+            "Size": {
+              "X": 105.0,
+              "Y": 140.0
+            },
+            "Name": "boxingpunch_25",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/weight1.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6392.3037,
+              "Y": 1155.3593
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.497,
+              "Y": 0.6419
+            },
+            "PreSize": {
+              "X": 0.0406,
+              "Y": 0.0889
+            },
+            "LeftMargin": 6340.3037,
+            "RightMargin": -3884.3037,
+            "TopMargin": 564.6407,
+            "BottomMargin": 1075.3593,
+            "Tag": 76,
+            "ActionTag": 45622010,
+            "Size": {
+              "X": 104.0,
+              "Y": 160.0
+            },
+            "Name": "weight1_26",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/weight1.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6274.6733,
+              "Y": 1155.359
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.451,
+              "Y": 0.6419
+            },
+            "PreSize": {
+              "X": 0.0406,
+              "Y": 0.0889
+            },
+            "LeftMargin": 6222.6733,
+            "RightMargin": -3766.6733,
+            "TopMargin": 564.641,
+            "BottomMargin": 1075.359,
+            "Tag": 77,
+            "ActionTag": 1415556613,
+            "Size": {
+              "X": 104.0,
+              "Y": 160.0
+            },
+            "Name": "weight1_27",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/wire.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6066.4844,
+              "Y": 1529.1366
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.3697,
+              "Y": 0.8495
+            },
+            "PreSize": {
+              "X": 0.0426,
+              "Y": 0.2433
+            },
+            "LeftMargin": 6011.9844,
+            "RightMargin": -3560.9844,
+            "TopMargin": 51.8634,
+            "BottomMargin": 1310.1366,
+            "Tag": 78,
+            "ActionTag": 268912283,
+            "Size": {
+              "X": 109.0,
+              "Y": 438.0
+            },
+            "Name": "wire_28",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/weight.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6763.6572,
+              "Y": 192.9558
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.6421,
+              "Y": 0.1072
+            },
+            "PreSize": {
+              "X": 0.0645,
+              "Y": 0.0867
+            },
+            "LeftMargin": 6681.1572,
+            "RightMargin": -4286.1572,
+            "TopMargin": 1529.0442,
+            "BottomMargin": 114.9558,
+            "Tag": 80,
+            "ActionTag": 280735006,
+            "Size": {
+              "X": 165.0,
+              "Y": 156.0
+            },
+            "Name": "weight_30",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/weight.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6945.3223,
+              "Y": 192.9556
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.713,
+              "Y": 0.1072
+            },
+            "PreSize": {
+              "X": 0.0645,
+              "Y": 0.0867
+            },
+            "LeftMargin": 6862.8223,
+            "RightMargin": -4467.8223,
+            "TopMargin": 1529.0444,
+            "BottomMargin": 114.9556,
+            "Tag": 81,
+            "ActionTag": -160578372,
+            "Size": {
+              "X": 165.0,
+              "Y": 156.0
+            },
+            "Name": "weight_31",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/watertank.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6406.8994,
+              "Y": 464.9552
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5027,
+              "Y": 0.2583
+            },
+            "PreSize": {
+              "X": 0.0582,
+              "Y": 0.2156
+            },
+            "LeftMargin": 6332.3994,
+            "RightMargin": -3921.3994,
+            "TopMargin": 1141.0448,
+            "BottomMargin": 270.9552,
+            "Tag": 82,
+            "ActionTag": 1768265661,
+            "Size": {
+              "X": 149.0,
+              "Y": 388.0
+            },
+            "Name": "watertank_32",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/boxing-bag.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6235.8906,
+              "Y": 779.4879
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4359,
+              "Y": 0.433
+            },
+            "PreSize": {
+              "X": 0.0516,
+              "Y": 0.2772
+            },
+            "LeftMargin": 6169.8906,
+            "RightMargin": -3741.8906,
+            "TopMargin": 771.0121,
+            "BottomMargin": 529.9879,
+            "Tag": 83,
+            "ActionTag": -1887985891,
+            "Size": {
+              "X": 132.0,
+              "Y": 499.0
+            },
+            "Name": "Sprite_33",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/ball.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5562.1006,
+              "Y": 206.9722
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.1727,
+              "Y": 0.115
+            },
+            "PreSize": {
+              "X": 0.1273,
+              "Y": 0.1817
+            },
+            "LeftMargin": 5399.1006,
+            "RightMargin": -3165.1006,
+            "TopMargin": 1429.5278,
+            "BottomMargin": 43.4722,
+            "Tag": 84,
+            "ActionTag": 47879229,
+            "Size": {
+              "X": 326.0,
+              "Y": 327.0
+            },
+            "Name": "ball_34",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/cardiomachine2.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4484.5522,
+              "Y": 461.7332
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7518,
+              "Y": 0.2565
+            },
+            "PreSize": {
+              "X": 0.3059,
+              "Y": 0.2894
+            },
+            "LeftMargin": 4093.0522,
+            "RightMargin": -2316.0522,
+            "TopMargin": 1077.7668,
+            "BottomMargin": 201.2332,
+            "Tag": 85,
+            "ActionTag": 1247170927,
+            "Size": {
+              "X": 783.0,
+              "Y": 521.0
+            },
+            "Name": "cardiomachine2_35",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/cardiomachine.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3095.1135,
+              "Y": 436.5978
+            },
+            "Scale": {
+              "ScaleX": 1.1935,
+              "ScaleY": 1.1935
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.209,
+              "Y": 0.2426
+            },
+            "PreSize": {
+              "X": 0.1605,
+              "Y": 0.195
+            },
+            "LeftMargin": 2889.6135,
+            "RightMargin": -740.6135,
+            "TopMargin": 1187.9022,
+            "BottomMargin": 261.0978,
+            "Tag": 86,
+            "ActionTag": 1734255851,
+            "Size": {
+              "X": 411.0,
+              "Y": 351.0
+            },
+            "Name": "cardiomachine_36",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.1491,
+              "Y": -0.1915
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.0001,
+              "Y": -0.0001
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -0.1491,
+            "RightMargin": 2560.1492,
+            "TopMargin": 1800.1915,
+            "BottomMargin": -0.1915,
+            "UserData": "left ",
+            "Tag": 174,
+            "ActionTag": 550225822,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "left",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7679.0908,
+              "Y": -0.378
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.9996,
+              "Y": -0.0002
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7679.0908,
+            "RightMargin": -5119.0908,
+            "TopMargin": 1800.3781,
+            "BottomMargin": -0.378,
+            "UserData": "right ",
+            "Tag": 175,
+            "ActionTag": 870906214,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "right",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3414.1135,
+              "Y": 164.7058
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.3336,
+              "Y": 0.0915
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3414.1135,
+            "RightMargin": -854.1135,
+            "TopMargin": 1635.2942,
+            "BottomMargin": 164.7058,
+            "UserData": "canInteract=true,fileName=chimple_skeleton.csb  ",
+            "Tag": 176,
+            "ActionTag": -472810101,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Hero",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2664.8262,
+              "Y": 163.7668
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.0409,
+              "Y": 0.091
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2664.8262,
+            "RightMargin": -104.8262,
+            "TopMargin": 1636.2332,
+            "BottomMargin": 163.7668,
+            "UserData": "canInteract=true,fileName=guru_skeleton.csb ",
+            "Tag": 177,
+            "ActionTag": -1120389923,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "guru",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 7265.9863,
+              "Y": 1108.3544
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 2.8383,
+              "Y": 0.6158
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 7265.9863,
+            "RightMargin": -4705.9863,
+            "TopMargin": 691.6456,
+            "BottomMargin": 1108.3544,
+            "UserData": "canInteract=true,fileName=trainer_skeleton.csb",
+            "Tag": 179,
+            "ActionTag": 1114490276,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "trainer",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "gym/woodsteps.png",
+              "Plist": "gym/gym.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4996.2368,
+              "Y": 649.9884
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.9517,
+              "Y": 0.3611
+            },
+            "PreSize": {
+              "X": 0.0973,
+              "Y": 0.4217
+            },
+            "LeftMargin": 4871.7368,
+            "RightMargin": -2560.7368,
+            "TopMargin": 770.5116,
+            "BottomMargin": 270.4884,
+            "Tag": 180,
+            "ActionTag": -1132833654,
+            "Size": {
+              "X": 249.0,
+              "Y": 759.0
+            },
+            "Name": "woodsteps_48_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "scene",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "gym.plist",
+        "gym.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

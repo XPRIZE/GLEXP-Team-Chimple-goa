@@ -1,0 +1,955 @@
+{
+  "ID": "b82576ea-5c5d-4849-8e63-77bf54999ff1",
+  "Version": "3.10.0.0",
+  "Name": "croc",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 240,
+        "Speed": 1.0,
+        "ActivedAnimationName": "mouthopen",
+        "Timelines": [
+          {
+            "ActionTag": 716073856,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 246,
+                  "G": 246,
+                  "B": 246
+                },
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 171408117,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 246,
+                  "G": 246,
+                  "B": 246
+                },
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 187952014,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "crocodile",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 532484712,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 514.6194,
+                "Y": 57.064,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 514.6194,
+                "Y": 57.064,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 514.6194,
+                "Y": 57.064,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 514.6194,
+                "Y": 57.064,
+                "FrameIndex": 125,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 514.6194,
+                "Y": 57.064,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 514.6194,
+                "Y": 57.064,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 514.6194,
+                "Y": 57.064,
+                "FrameIndex": 225,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 532484712,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -2.5292,
+                "Y": -2.5261,
+                "FrameIndex": 25,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 3.0299,
+                "Y": 3.0314,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -2.5292,
+                "Y": -2.5261,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 3.0299,
+                "Y": 3.0314,
+                "FrameIndex": 125,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -2.5292,
+                "Y": -2.5261,
+                "FrameIndex": 175,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 3.0299,
+                "Y": 3.0314,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 532484712,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.5,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.5,
+                "FrameIndex": 75,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.5,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.5,
+                "FrameIndex": 225,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2139500381,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -339.85,
+                "Y": 75.9819,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2139500381,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 0.5,
+                "Y": 0.5,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2051137840,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -233.169,
+                "Y": 51.885,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -233.1693,
+                "Y": 34.8462,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -233.17,
+                "Y": 34.8462,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2051137840,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 10.3311,
+                "Y": 10.3306,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -2.1241,
+                "Y": -2.1252,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2051137840,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 0.3329,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 681915300,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -284.55,
+                "Y": 128.4006,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -820429268,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -72.7688,
+                "Y": 29.7235,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -72.7691,
+                "Y": 29.7235,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -72.77,
+                "Y": 29.7235,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -820429268,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 12.6258,
+                "Y": 12.6265,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.6872,
+                "Y": -0.6861,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -820429268,
+            "Property": "AnchorPoint",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 0.8987,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -820429268,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 240,
+                  "G": 240,
+                  "B": 240
+                },
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 240,
+          "Name": "mouthopen",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 889,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/crocodilelegs.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -77.6277,
+              "Y": -37.0083
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 246,
+              "G": 246,
+              "B": 246
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -113.6277,
+            "RightMargin": 41.6277,
+            "TopMargin": -27.9917,
+            "BottomMargin": -102.0083,
+            "Tag": 899,
+            "ActionTag": 716073856,
+            "Size": {
+              "X": 72.0,
+              "Y": 130.0
+            },
+            "Name": "crocodilelegs_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/crocodilelegs.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 429.4095,
+              "Y": -31.2124
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 246,
+              "G": 246,
+              "B": 246
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 393.4095,
+            "RightMargin": -465.4095,
+            "TopMargin": -33.7876,
+            "BottomMargin": -96.2124,
+            "Tag": 893,
+            "ActionTag": 171408117,
+            "Size": {
+              "X": 72.0,
+              "Y": 130.0
+            },
+            "Name": "crocodilelegs_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/crocodilebody.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.659,
+              "ScaleY": 1.9806
+            },
+            "Position": {
+              "X": 331.4974,
+              "Y": 332.9836
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -177.2506,
+            "RightMargin": -594.7494,
+            "TopMargin": -161.3786,
+            "BottomMargin": -13.6214,
+            "Tag": 890,
+            "FrameEvent": "crocodile",
+            "ActionTag": 187952014,
+            "Size": {
+              "X": 772.0,
+              "Y": 175.0
+            },
+            "Name": "crocodilebody_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/crocodiletail.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 514.6194,
+              "Y": 57.064
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -2.5292,
+            "RotationSkewY": -2.5261,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 514.6194,
+            "RightMargin": -1075.6194,
+            "TopMargin": -114.064,
+            "BottomMargin": 0.064,
+            "Tag": 895,
+            "ActionTag": 532484712,
+            "Size": {
+              "X": 561.0,
+              "Y": 114.0
+            },
+            "Name": "crocodiletail_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/crocodileuteeth.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -339.85,
+              "Y": 75.9819
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -508.35,
+            "RightMargin": 171.35,
+            "TopMargin": -136.9819,
+            "BottomMargin": 14.9819,
+            "Tag": 896,
+            "ActionTag": 2139500381,
+            "Size": {
+              "X": 337.0,
+              "Y": 122.0
+            },
+            "Name": "crocodileuteeth_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/crocodilelteeth.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.3329
+            },
+            "Position": {
+              "X": -233.169,
+              "Y": 51.885
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 10.3311,
+            "RotationSkewY": 10.3306,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -501.169,
+            "RightMargin": 233.169,
+            "TopMargin": -72.5651,
+            "BottomMargin": 41.5651,
+            "Tag": 894,
+            "ActionTag": 2051137840,
+            "Size": {
+              "X": 268.0,
+              "Y": 31.0
+            },
+            "Name": "crocodilelteeth_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/crocodileheadujaw.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -284.55,
+              "Y": 128.4006
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -509.05,
+            "RightMargin": 60.05,
+            "TopMargin": -251.9006,
+            "BottomMargin": 4.9006,
+            "Tag": 898,
+            "ActionTag": 681915300,
+            "Size": {
+              "X": 449.0,
+              "Y": 247.0
+            },
+            "Name": "crocodileheadujaw_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/crocodileheadljaw.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.8987
+            },
+            "Position": {
+              "X": -72.7688,
+              "Y": 29.7235
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 12.6258,
+            "RotationSkewY": 12.6265,
+            "CColor": {
+              "R": 240,
+              "G": 240,
+              "B": 240
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -520.7688,
+            "RightMargin": 72.7688,
+            "TopMargin": -37.2197,
+            "BottomMargin": -36.7803,
+            "Tag": 897,
+            "ActionTag": -820429268,
+            "Size": {
+              "X": 448.0,
+              "Y": 74.0
+            },
+            "Name": "crocodileheadljaw_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/crocodilelegs.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 16.953,
+              "Y": -39.1095
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -19.047,
+            "RightMargin": -52.953,
+            "TopMargin": -25.8905,
+            "BottomMargin": -104.1095,
+            "Tag": 900,
+            "ActionTag": 1499885441,
+            "Size": {
+              "X": 72.0,
+              "Y": 130.0
+            },
+            "Name": "crocodilelegs_4_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Meno_aina_gani/crocodilelegs.png",
+              "Plist": "Meno_aina_gani/Meno_aina_gani.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 510.8738,
+              "Y": -32.8034
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 474.8738,
+            "RightMargin": -546.8738,
+            "TopMargin": -32.1966,
+            "BottomMargin": -97.8034,
+            "Tag": 901,
+            "ActionTag": -1947771625,
+            "Size": {
+              "X": 72.0,
+              "Y": 130.0
+            },
+            "Name": "crocodilelegs_4_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Meno_aina_gani.plist",
+        "Meno_aina_gani.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

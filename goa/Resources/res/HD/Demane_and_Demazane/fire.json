@@ -1,0 +1,233 @@
+{
+  "ID": "4b31266f-f07c-49b6-848a-faa98797168f",
+  "Version": "3.10.0.0",
+  "Name": "fire",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 42,
+        "Speed": 1.0,
+        "ActivedAnimationName": "fire",
+        "Timelines": [
+          {
+            "ActionTag": 721530909,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Demane_and_Demazane/d2/fire1.png",
+                  "Plist": "Demane_and_Demazane/d2/d2.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Demane_and_Demazane/d2/fire2.png",
+                  "Plist": "Demane_and_Demazane/d2/d2.plist"
+                },
+                "FrameIndex": 6,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Demane_and_Demazane/d2/fire3.png",
+                  "Plist": "Demane_and_Demazane/d2/d2.plist"
+                },
+                "FrameIndex": 12,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Demane_and_Demazane/d2/fire4.png",
+                  "Plist": "Demane_and_Demazane/d2/d2.plist"
+                },
+                "FrameIndex": 18,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Demane_and_Demazane/d2/fire5.png",
+                  "Plist": "Demane_and_Demazane/d2/d2.plist"
+                },
+                "FrameIndex": 24,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Demane_and_Demazane/d2/fire6.png",
+                  "Plist": "Demane_and_Demazane/d2/d2.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Demane_and_Demazane/d2/fire7.png",
+                  "Plist": "Demane_and_Demazane/d2/d2.plist"
+                },
+                "FrameIndex": 36,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Demane_and_Demazane/d2/fire8.png",
+                  "Plist": "Demane_and_Demazane/d2/d2.plist"
+                },
+                "FrameIndex": 42,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 721530909,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "fire",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 48,
+          "Name": "fire",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 218,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Demane_and_Demazane/d2/fire1.png",
+              "Plist": "Demane_and_Demazane/d2/d2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5637,
+              "ScaleY": 0.4503
+            },
+            "Position": {
+              "X": 17.4418,
+              "Y": 308.759
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -161.8148,
+            "RightMargin": -156.1852,
+            "TopMargin": -726.531,
+            "BottomMargin": -33.469,
+            "Tag": 890,
+            "FrameEvent": "fire",
+            "ActionTag": 721530909,
+            "Size": {
+              "X": 318.0,
+              "Y": 760.0
+            },
+            "Name": "Sprite_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Demane_and_Demazane/d2/touch.png",
+              "Plist": "Demane_and_Demazane/d2/d2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -1.3302,
+              "Y": 359.5505
+            },
+            "Scale": {
+              "ScaleX": 0.9085,
+              "ScaleY": 2.0779
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -203.3302,
+            "RightMargin": -200.6698,
+            "TopMargin": -561.5505,
+            "BottomMargin": 157.5505,
+            "Tag": 11104,
+            "ActionTag": -7108717,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "d2/d2.plist",
+        "d2/d2.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

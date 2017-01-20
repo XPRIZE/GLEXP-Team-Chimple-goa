@@ -1,0 +1,278 @@
+{
+  "ID": "dbc9eef9-bdce-47ad-886b-1473c7859db2",
+  "Version": "3.10.0.0",
+  "Name": "trailer",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 35,
+        "Speed": 1.0,
+        "ActivedAnimationName": "balldrop",
+        "Timelines": [
+          {
+            "ActionTag": -1238600095,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 11.937,
+                "Y": 85.9466,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1238600095,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0053,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -17.4475,
+                "Y": -17.4422,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -383430420,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -15.4953,
+                "Y": 85.9467,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -383430420,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": -0.0017,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 17.5812,
+                "Y": 17.5797,
+                "FrameIndex": 35,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -694512507,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -0.8729,
+                "Y": 96.5333,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 35,
+          "Name": "balldrop",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 17,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "drophero/trailer.png",
+              "Plist": "drophero/drophero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.1018,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 11.937,
+              "Y": 85.9466
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewY": 0.0053,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -0.5844,
+            "RightMargin": -122.4156,
+            "TopMargin": -85.9466,
+            "BottomMargin": -119.0534,
+            "Tag": 19,
+            "ActionTag": -1238600095,
+            "Size": {
+              "X": 123.0,
+              "Y": 205.0
+            },
+            "Name": "trailer",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "drophero/trailer.png",
+              "Plist": "drophero/drophero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.8871,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": -15.4953,
+              "Y": 85.9467
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewY": -0.0017,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -124.6086,
+            "RightMargin": 1.6086,
+            "TopMargin": -85.9467,
+            "BottomMargin": -119.0533,
+            "Tag": 20,
+            "ActionTag": -383430420,
+            "Size": {
+              "X": 123.0,
+              "Y": 205.0
+            },
+            "Name": "trailer",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "drophero/piston.png",
+              "Plist": "drophero/drophero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -0.8729,
+              "Y": 96.5333
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -24.8729,
+            "RightMargin": -23.1271,
+            "TopMargin": -120.5333,
+            "BottomMargin": 72.5333,
+            "Tag": 21,
+            "ActionTag": -694512507,
+            "Size": {
+              "X": 48.0,
+              "Y": 48.0
+            },
+            "Name": "piston",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "drophero.plist",
+        "drophero.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

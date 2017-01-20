@@ -1,0 +1,283 @@
+{
+  "ID": "ec03e610-d2d7-40b7-839b-928f4cfaf5af",
+  "Version": "3.10.0.0",
+  "Name": "wildebeest",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 145,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": -1252147776,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jungle/junglec/lion-06.png",
+                  "Plist": "jungle/junglec/junglec.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jungle/junglec/lion-06.png",
+                  "Plist": "jungle/junglec/junglec.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jungle/junglec/lion-07.png",
+                  "Plist": "jungle/junglec/junglec.plist"
+                },
+                "FrameIndex": 35,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jungle/junglec/lion-06.png",
+                  "Plist": "jungle/junglec/junglec.plist"
+                },
+                "FrameIndex": 55,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jungle/junglec/lion-06.png",
+                  "Plist": "jungle/junglec/junglec.plist"
+                },
+                "FrameIndex": 120,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jungle/junglec/lion-07.png",
+                  "Plist": "jungle/junglec/junglec.plist"
+                },
+                "FrameIndex": 125,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jungle/junglec/lion-06.png",
+                  "Plist": "jungle/junglec/junglec.plist"
+                },
+                "FrameIndex": 145,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -103042803,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jungle/junglec/zebra-10d.png",
+                  "Plist": "jungle/junglec/junglec.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jungle/junglec/zebra-10.png",
+                  "Plist": "jungle/junglec/junglec.plist"
+                },
+                "FrameIndex": 65,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "jungle/junglec/zebra-10d.png",
+                  "Plist": "jungle/junglec/junglec.plist"
+                },
+                "FrameIndex": 95,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 25,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jungle/junglec/wildebeest-16.png",
+              "Plist": "jungle/junglec/junglec.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -283.0,
+            "RightMargin": -283.0,
+            "TopMargin": -206.0,
+            "BottomMargin": -206.0,
+            "Tag": 27,
+            "ActionTag": 932096810,
+            "Size": {
+              "X": 566.0,
+              "Y": 412.0
+            },
+            "Name": "Sprite_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jungle/junglec/lion-06.png",
+              "Plist": "jungle/junglec/junglec.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4.7103,
+              "Y": 23.4776
+            },
+            "Scale": {
+              "ScaleX": 0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -74.7897,
+            "RightMargin": -84.2103,
+            "TopMargin": -54.4776,
+            "BottomMargin": -7.5224,
+            "Tag": 28,
+            "ActionTag": -1252147776,
+            "Size": {
+              "X": 159.0,
+              "Y": 62.0
+            },
+            "Name": "Sprite_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "jungle/junglec/zebra-10d.png",
+              "Plist": "jungle/junglec/junglec.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8.3686,
+              "Y": -127.7746
+            },
+            "Scale": {
+              "ScaleX": 0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -46.6314,
+            "RightMargin": -63.3686,
+            "TopMargin": 111.2746,
+            "BottomMargin": -144.2746,
+            "Tag": 29,
+            "ActionTag": -103042803,
+            "Size": {
+              "X": 110.0,
+              "Y": 33.0
+            },
+            "Name": "Sprite_4",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "junglec/junglec.plist",
+        "junglec/junglec.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

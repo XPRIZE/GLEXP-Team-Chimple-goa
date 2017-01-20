@@ -1,0 +1,1631 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "layerisland",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 124,
+              "G": 223
+            },
+            "FirstColor": {
+              "R": 160,
+              "G": 230,
+              "B": 234
+            },
+            "EndColor": {
+              "R": 199,
+              "G": 242,
+              "B": 233
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -500.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1953,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.3672,
+              "Y": 1.0
+            },
+            "LeftMargin": -500.0,
+            "RightMargin": -440.0,
+            "Tag": 84,
+            "ActionTag": 736904851,
+            "Size": {
+              "X": 3500.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/bg.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 480.4725,
+              "Y": 564.1115
+            },
+            "Scale": {
+              "ScaleX": 1.39,
+              "ScaleY": 1.39
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1877,
+              "Y": 0.3134
+            },
+            "PreSize": {
+              "X": 0.5523,
+              "Y": 0.1822
+            },
+            "LeftMargin": -226.5275,
+            "RightMargin": 1372.5275,
+            "TopMargin": 1071.8884,
+            "BottomMargin": 400.1115,
+            "Tag": 22,
+            "ActionTag": -954310622,
+            "Size": {
+              "X": 1414.0,
+              "Y": 328.0
+            },
+            "Name": "bg_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 162,
+              "G": 194,
+              "B": 167
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -499.8977,
+              "Y": 242.9459
+            },
+            "Scale": {
+              "ScaleX": 1.3673,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1953,
+              "Y": 0.135
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.1111
+            },
+            "LeftMargin": -499.8977,
+            "RightMargin": 499.8977,
+            "TopMargin": 1357.0541,
+            "BottomMargin": 242.9459,
+            "Tag": 28,
+            "ActionTag": 727441744,
+            "Size": {
+              "X": 2560.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_3",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/bg.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2427.7117,
+              "Y": 1162.2235
+            },
+            "Scale": {
+              "ScaleX": 0.81,
+              "ScaleY": 0.81
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9483,
+              "Y": 0.6457
+            },
+            "PreSize": {
+              "X": 0.5523,
+              "Y": 0.1822
+            },
+            "LeftMargin": 1720.7117,
+            "RightMargin": -574.7117,
+            "TopMargin": 473.7765,
+            "BottomMargin": 998.2235,
+            "Tag": 26,
+            "ActionTag": 628031015,
+            "Size": {
+              "X": 1414.0,
+              "Y": 328.0
+            },
+            "Name": "bg_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/bg.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 68.0659,
+              "Y": 1545.1653
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0266,
+              "Y": 0.8584
+            },
+            "PreSize": {
+              "X": 0.5523,
+              "Y": 0.1822
+            },
+            "LeftMargin": -638.9341,
+            "RightMargin": 1784.9341,
+            "TopMargin": 90.8347,
+            "BottomMargin": 1381.1653,
+            "Tag": 25,
+            "ActionTag": 345155799,
+            "Size": {
+              "X": 1414.0,
+              "Y": 328.0
+            },
+            "Alpha": 127,
+            "Name": "bg_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/bg.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 527.6745,
+              "Y": 1279.5115
+            },
+            "Scale": {
+              "ScaleX": 1.45,
+              "ScaleY": 1.45
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2061,
+              "Y": 0.7108
+            },
+            "PreSize": {
+              "X": 0.5523,
+              "Y": 0.1822
+            },
+            "LeftMargin": -179.3255,
+            "RightMargin": 1325.3254,
+            "TopMargin": 356.4885,
+            "BottomMargin": 1115.5115,
+            "Tag": 24,
+            "ActionTag": 2067312475,
+            "Size": {
+              "X": 1414.0,
+              "Y": 328.0
+            },
+            "Alpha": 127,
+            "Name": "bg_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/bg.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2019.9949,
+              "Y": 733.8446
+            },
+            "Scale": {
+              "ScaleX": 1.39,
+              "ScaleY": 1.39
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7891,
+              "Y": 0.4077
+            },
+            "PreSize": {
+              "X": 0.5523,
+              "Y": 0.1822
+            },
+            "LeftMargin": 1312.9949,
+            "RightMargin": -166.9949,
+            "TopMargin": 902.1554,
+            "BottomMargin": 569.8446,
+            "Tag": 23,
+            "ActionTag": -2136577195,
+            "Size": {
+              "X": 1414.0,
+              "Y": 328.0
+            },
+            "Alpha": 127,
+            "Name": "bg_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/bg.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2291.8242,
+              "Y": 1306.524
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8952,
+              "Y": 0.7258
+            },
+            "PreSize": {
+              "X": 0.5523,
+              "Y": 0.1822
+            },
+            "LeftMargin": 1584.8242,
+            "RightMargin": -438.8242,
+            "TopMargin": 329.476,
+            "BottomMargin": 1142.524,
+            "Tag": 21,
+            "ActionTag": -654394572,
+            "Size": {
+              "X": 1414.0,
+              "Y": 328.0
+            },
+            "Name": "bg_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ladder.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5481
+            },
+            "Position": {
+              "X": 1250.0,
+              "Y": 262.6184
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4883,
+              "Y": 0.1459
+            },
+            "PreSize": {
+              "X": 0.1234,
+              "Y": 0.5561
+            },
+            "LeftMargin": 1076.8004,
+            "RightMargin": 1167.1996,
+            "TopMargin": 536.3816,
+            "BottomMargin": 262.6184,
+            "Tag": 93,
+            "ActionTag": -1961919571,
+            "Size": {
+              "X": 316.0,
+              "Y": 1001.0
+            },
+            "Name": "ladder_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ref.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1205.4139,
+              "Y": 162.9401
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4709,
+              "Y": 0.0905
+            },
+            "PreSize": {
+              "X": 0.7816,
+              "Y": 0.0228
+            },
+            "LeftMargin": 204.9139,
+            "RightMargin": 354.0859,
+            "TopMargin": 1616.5599,
+            "BottomMargin": 142.4401,
+            "Tag": 15,
+            "ActionTag": 1602232714,
+            "Size": {
+              "X": 2001.0,
+              "Y": 41.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ref.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1221.6055,
+              "Y": 303.6319
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4772,
+              "Y": 0.1687
+            },
+            "PreSize": {
+              "X": 0.7816,
+              "Y": 0.0228
+            },
+            "LeftMargin": 221.1055,
+            "RightMargin": 337.8945,
+            "TopMargin": 1475.8682,
+            "BottomMargin": 283.1319,
+            "Tag": 16,
+            "ActionTag": 890604680,
+            "Size": {
+              "X": 2001.0,
+              "Y": 41.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ref.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1221.6055,
+              "Y": 453.6938
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4772,
+              "Y": 0.2521
+            },
+            "PreSize": {
+              "X": 0.7816,
+              "Y": 0.0228
+            },
+            "LeftMargin": 221.1055,
+            "RightMargin": 337.8945,
+            "TopMargin": 1325.8062,
+            "BottomMargin": 433.1938,
+            "Tag": 18,
+            "ActionTag": -381742852,
+            "Size": {
+              "X": 2001.0,
+              "Y": 41.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ref.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1222.5325,
+              "Y": 603.4257
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4776,
+              "Y": 0.3352
+            },
+            "PreSize": {
+              "X": 0.7816,
+              "Y": 0.0228
+            },
+            "LeftMargin": 222.0325,
+            "RightMargin": 336.9675,
+            "TopMargin": 1176.0742,
+            "BottomMargin": 582.9257,
+            "Tag": 19,
+            "ActionTag": 1217099074,
+            "Size": {
+              "X": 2001.0,
+              "Y": 41.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ref.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1220.8433,
+              "Y": 753.8119
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4769,
+              "Y": 0.4188
+            },
+            "PreSize": {
+              "X": 0.7816,
+              "Y": 0.0228
+            },
+            "LeftMargin": 220.3433,
+            "RightMargin": 338.6567,
+            "TopMargin": 1025.6881,
+            "BottomMargin": 733.3119,
+            "Tag": 20,
+            "ActionTag": 1571743799,
+            "Size": {
+              "X": 2001.0,
+              "Y": 41.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ref.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1220.8433,
+              "Y": 901.6188
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4769,
+              "Y": 0.5009
+            },
+            "PreSize": {
+              "X": 0.7816,
+              "Y": 0.0228
+            },
+            "LeftMargin": 220.3433,
+            "RightMargin": 338.6567,
+            "TopMargin": 877.8812,
+            "BottomMargin": 881.1188,
+            "Tag": 21,
+            "ActionTag": -589291772,
+            "Size": {
+              "X": 2001.0,
+              "Y": 41.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ref.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1220.8433,
+              "Y": 1051.6929
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4769,
+              "Y": 0.5843
+            },
+            "PreSize": {
+              "X": 0.7816,
+              "Y": 0.0228
+            },
+            "LeftMargin": 220.3433,
+            "RightMargin": 338.6567,
+            "TopMargin": 727.8071,
+            "BottomMargin": 1031.1929,
+            "Tag": 22,
+            "ActionTag": 1861117885,
+            "Size": {
+              "X": 2001.0,
+              "Y": 41.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ref.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1221.7712,
+              "Y": 1201.4354
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4773,
+              "Y": 0.6675
+            },
+            "PreSize": {
+              "X": 0.7816,
+              "Y": 0.0228
+            },
+            "LeftMargin": 221.2712,
+            "RightMargin": 337.7288,
+            "TopMargin": 578.0646,
+            "BottomMargin": 1180.9354,
+            "Tag": 23,
+            "ActionTag": 1503283694,
+            "Size": {
+              "X": 2001.0,
+              "Y": 41.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ref.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1217.7317,
+              "Y": 1351.8057
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4757,
+              "Y": 0.751
+            },
+            "PreSize": {
+              "X": 0.7816,
+              "Y": 0.0228
+            },
+            "LeftMargin": 217.2317,
+            "RightMargin": 341.7683,
+            "TopMargin": 427.6943,
+            "BottomMargin": 1331.3057,
+            "Tag": 25,
+            "ActionTag": -753508524,
+            "Size": {
+              "X": 2001.0,
+              "Y": 41.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ref.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1217.7317,
+              "Y": 1499.6145
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4757,
+              "Y": 0.8331
+            },
+            "PreSize": {
+              "X": 0.7816,
+              "Y": 0.0228
+            },
+            "LeftMargin": 217.2317,
+            "RightMargin": 341.7683,
+            "TopMargin": 279.8855,
+            "BottomMargin": 1479.1145,
+            "Tag": 26,
+            "ActionTag": -795915225,
+            "Size": {
+              "X": 2001.0,
+              "Y": 41.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/ref.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1217.7317,
+              "Y": 1649.6799
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4757,
+              "Y": 0.9165
+            },
+            "PreSize": {
+              "X": 0.7816,
+              "Y": 0.0228
+            },
+            "LeftMargin": 217.2317,
+            "RightMargin": 341.7683,
+            "TopMargin": 129.8201,
+            "BottomMargin": 1629.1799,
+            "Tag": 27,
+            "ActionTag": -2115236860,
+            "Size": {
+              "X": 2001.0,
+              "Y": 41.0
+            },
+            "VisibleForFrame": false,
+            "Name": "ref_7_0_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/pant.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -185.2574,
+              "Y": 430.7294
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0724,
+              "Y": 0.2393
+            },
+            "PreSize": {
+              "X": 0.1004,
+              "Y": 0.1611
+            },
+            "LeftMargin": -313.7574,
+            "RightMargin": 2616.7573,
+            "TopMargin": 1224.2706,
+            "BottomMargin": 285.7294,
+            "Tag": 30,
+            "ActionTag": -231100794,
+            "Size": {
+              "X": 257.0,
+              "Y": 290.0
+            },
+            "Name": "pant_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/grass.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -35.9412,
+              "Y": 416.6795
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.014,
+              "Y": 0.2315
+            },
+            "PreSize": {
+              "X": 0.0914,
+              "Y": 0.1389
+            },
+            "LeftMargin": -152.9412,
+            "RightMargin": 2478.9412,
+            "TopMargin": 1258.3206,
+            "BottomMargin": 291.6795,
+            "Tag": 29,
+            "ActionTag": -905382227,
+            "Size": {
+              "X": 234.0,
+              "Y": 250.0
+            },
+            "Name": "grass_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/pant.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2388.4973,
+              "Y": 418.0593
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.933,
+              "Y": 0.2323
+            },
+            "PreSize": {
+              "X": 0.1004,
+              "Y": 0.1611
+            },
+            "LeftMargin": 2259.9973,
+            "RightMargin": 43.0027,
+            "TopMargin": 1236.9407,
+            "BottomMargin": 273.0593,
+            "Tag": 31,
+            "ActionTag": 1495751110,
+            "Size": {
+              "X": 257.0,
+              "Y": 290.0
+            },
+            "Name": "pant_8_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/grass.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2267.4905,
+              "Y": 410.902
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8857,
+              "Y": 0.2283
+            },
+            "PreSize": {
+              "X": 0.0914,
+              "Y": 0.1389
+            },
+            "LeftMargin": 2150.4905,
+            "RightMargin": 175.5095,
+            "TopMargin": 1264.098,
+            "BottomMargin": 285.902,
+            "Tag": 32,
+            "ActionTag": -817317429,
+            "Size": {
+              "X": 234.0,
+              "Y": 250.0
+            },
+            "Name": "grass_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 211,
+              "G": 183,
+              "B": 100
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -499.8325,
+              "Y": 0.3823
+            },
+            "Scale": {
+              "ScaleX": 1.3672,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1952,
+              "Y": 0.0002
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.1683
+            },
+            "LeftMargin": -499.8325,
+            "RightMargin": 499.8325,
+            "TopMargin": 1496.6177,
+            "BottomMargin": 0.3823,
+            "Tag": 27,
+            "ActionTag": 1991171411,
+            "Size": {
+              "X": 2560.0,
+              "Y": 303.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/pant.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2578.0283,
+              "Y": 428.9452
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.007,
+              "Y": 0.2383
+            },
+            "PreSize": {
+              "X": 0.1004,
+              "Y": 0.1611
+            },
+            "LeftMargin": 2449.5283,
+            "RightMargin": -146.5283,
+            "TopMargin": 1226.0548,
+            "BottomMargin": 283.9452,
+            "Tag": 33,
+            "ActionTag": 2111863860,
+            "Size": {
+              "X": 257.0,
+              "Y": 290.0
+            },
+            "Name": "pant_8_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/grass.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2418.9175,
+              "Y": 406.1404
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9449,
+              "Y": 0.2256
+            },
+            "PreSize": {
+              "X": 0.0914,
+              "Y": 0.1389
+            },
+            "LeftMargin": 2301.9175,
+            "RightMargin": 24.0825,
+            "TopMargin": 1268.8596,
+            "BottomMargin": 281.1404,
+            "Tag": 34,
+            "ActionTag": -1781118687,
+            "Size": {
+              "X": 234.0,
+              "Y": 250.0
+            },
+            "Name": "grass_7_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/pant.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 232.4104,
+              "Y": 414.8448
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0908,
+              "Y": 0.2305
+            },
+            "PreSize": {
+              "X": 0.1004,
+              "Y": 0.1611
+            },
+            "LeftMargin": 103.9104,
+            "RightMargin": 2199.0896,
+            "TopMargin": 1240.1553,
+            "BottomMargin": 269.8448,
+            "Tag": 35,
+            "ActionTag": -2106837341,
+            "Size": {
+              "X": 257.0,
+              "Y": 290.0
+            },
+            "Name": "pant_8_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/grass.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 111.4045,
+              "Y": 407.687
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0435,
+              "Y": 0.2265
+            },
+            "PreSize": {
+              "X": 0.0914,
+              "Y": 0.1389
+            },
+            "LeftMargin": -5.5955,
+            "RightMargin": 2331.5955,
+            "TopMargin": 1267.313,
+            "BottomMargin": 282.687,
+            "Tag": 36,
+            "ActionTag": -233229864,
+            "Size": {
+              "X": 234.0,
+              "Y": 250.0
+            },
+            "Name": "grass_7_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/pant.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 421.9415,
+              "Y": 425.7311
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1648,
+              "Y": 0.2365
+            },
+            "PreSize": {
+              "X": 0.1004,
+              "Y": 0.1611
+            },
+            "LeftMargin": 293.4415,
+            "RightMargin": 2009.5585,
+            "TopMargin": 1229.2689,
+            "BottomMargin": 280.7311,
+            "Tag": 37,
+            "ActionTag": 701945770,
+            "Size": {
+              "X": 257.0,
+              "Y": 290.0
+            },
+            "Name": "pant_8_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/grass.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 262.8312,
+              "Y": 402.9247
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1027,
+              "Y": 0.2238
+            },
+            "PreSize": {
+              "X": 0.0914,
+              "Y": 0.1389
+            },
+            "LeftMargin": 145.8312,
+            "RightMargin": 2180.1687,
+            "TopMargin": 1272.0753,
+            "BottomMargin": 277.9247,
+            "Tag": 38,
+            "ActionTag": 64446434,
+            "Size": {
+              "X": 234.0,
+              "Y": 250.0
+            },
+            "Name": "grass_7_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "layerisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 211.8287,
+              "Y": 485.8788
+            },
+            "Scale": {
+              "ScaleX": 2.0,
+              "ScaleY": 2.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0827,
+              "Y": 0.2699
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 211.8287,
+            "RightMargin": 2348.1714,
+            "TopMargin": 1314.1212,
+            "BottomMargin": 485.8788,
+            "Tag": 94,
+            "ActionTag": 884432511,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "layerisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2268.8713,
+              "Y": 453.504
+            },
+            "Scale": {
+              "ScaleX": 2.0,
+              "ScaleY": 2.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8863,
+              "Y": 0.2519
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2268.8713,
+            "RightMargin": 291.1287,
+            "TopMargin": 1346.496,
+            "BottomMargin": 453.504,
+            "Tag": 97,
+            "ActionTag": 72399882,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "layerisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1205.4363,
+              "Y": 299.003
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4709,
+              "Y": 0.1661
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1205.4363,
+            "RightMargin": 1354.5637,
+            "TopMargin": 1500.9971,
+            "BottomMargin": 299.003,
+            "Tag": 100,
+            "ActionTag": 676832806,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble_2",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerisland/base.png",
+              "Plist": "layerisland/layerisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1240.2572,
+              "Y": 214.0049
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4845,
+              "Y": 0.1189
+            },
+            "PreSize": {
+              "X": 0.1918,
+              "Y": 0.0828
+            },
+            "LeftMargin": 994.7572,
+            "RightMargin": 1074.2428,
+            "TopMargin": 1511.4951,
+            "BottomMargin": 139.5049,
+            "Tag": 87,
+            "ActionTag": 224703839,
+            "Size": {
+              "X": 491.0,
+              "Y": 149.0
+            },
+            "Name": "base_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bubble.json",
+        "layerisland.plist",
+        "layerisland.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

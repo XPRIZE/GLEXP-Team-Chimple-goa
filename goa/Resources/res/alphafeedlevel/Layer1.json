@@ -1,0 +1,608 @@
+{
+  "ID": "0428da30-850a-462a-af7e-6e8005ffd211",
+  "Version": "3.10.0.0",
+  "Name": "Layer1",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 191,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 115,
+              "G": 209,
+              "B": 206
+            },
+            "EndColor": {
+              "R": 199,
+              "B": 253
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2.2726,
+              "Y": -29.1955
+            },
+            "Scale": {
+              "ScaleX": 39.0496,
+              "ScaleY": 9.1
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0009,
+              "Y": -0.0162
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 2.2726,
+            "RightMargin": 2357.7273,
+            "TopMargin": 1629.1956,
+            "BottomMargin": -29.1955,
+            "Tag": 240,
+            "ActionTag": -1133346944,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphafeedlevel/sun.png",
+              "Plist": "alphafeedlevel/alphafeedlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 729.5161,
+              "Y": 1392.8002
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.285,
+              "Y": 0.7738
+            },
+            "PreSize": {
+              "X": 0.148,
+              "Y": 0.2083
+            },
+            "LeftMargin": 540.0161,
+            "RightMargin": 1640.9839,
+            "TopMargin": 219.6998,
+            "BottomMargin": 1205.3002,
+            "Tag": 243,
+            "ActionTag": -604130397,
+            "Size": {
+              "X": 379.0,
+              "Y": 375.0
+            },
+            "Name": "sun_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphafeedlevel/cloud1.png",
+              "Plist": "alphafeedlevel/alphafeedlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5309,
+              "ScaleY": 0.5135
+            },
+            "Position": {
+              "X": 2549.834,
+              "Y": 828.4131
+            },
+            "Scale": {
+              "ScaleX": 0.7135,
+              "ScaleY": 0.9143
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.996,
+              "Y": 0.4602
+            },
+            "PreSize": {
+              "X": 0.3457,
+              "Y": 0.1844
+            },
+            "LeftMargin": 2079.9736,
+            "RightMargin": -404.9736,
+            "TopMargin": 810.0604,
+            "BottomMargin": 657.9396,
+            "Tag": 249,
+            "ActionTag": 1532283616,
+            "Size": {
+              "X": 885.0,
+              "Y": 332.0
+            },
+            "Name": "cloud1_4_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphafeedlevel/cloud2.png",
+              "Plist": "alphafeedlevel/alphafeedlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4410.6201,
+              "Y": 885.75
+            },
+            "Scale": {
+              "ScaleX": -0.6214,
+              "ScaleY": 0.6094
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7229,
+              "Y": 0.4921
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 4008.6201,
+            "RightMargin": -2252.6201,
+            "TopMargin": 746.25,
+            "BottomMargin": 717.75,
+            "Tag": 251,
+            "ActionTag": -1282864803,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphafeedlevel/ground.png",
+              "Plist": "alphafeedlevel/alphafeedlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1505.8169,
+              "Y": 681.6575
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 50,
+              "G": 124,
+              "B": 36
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5882,
+              "Y": 0.3787
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 789.8169,
+            "RightMargin": 338.1831,
+            "TopMargin": 1018.3425,
+            "BottomMargin": 581.6575,
+            "Tag": 346,
+            "ActionTag": -559236441,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphafeedlevel/ground.png",
+              "Plist": "alphafeedlevel/alphafeedlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3451.2979,
+              "Y": 683.8303
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 50,
+              "G": 124,
+              "B": 36
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3482,
+              "Y": 0.3799
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 2735.2979,
+            "RightMargin": -1607.2979,
+            "TopMargin": 1016.1697,
+            "BottomMargin": 583.8303,
+            "Tag": 401,
+            "ActionTag": -743751971,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 239,
+              "G": 239,
+              "B": 239
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 10.046,
+              "Y": 588.343
+            },
+            "Scale": {
+              "ScaleX": 38.9997,
+              "ScaleY": 3.0659
+            },
+            "CColor": {
+              "R": 50,
+              "G": 124,
+              "B": 36
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0039,
+              "Y": 0.3269
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 10.046,
+            "RightMargin": 2349.9541,
+            "TopMargin": 1211.657,
+            "BottomMargin": 388.343,
+            "Tag": 422,
+            "ActionTag": -717319193,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_9",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphafeedlevel/ground.png",
+              "Plist": "alphafeedlevel/alphafeedlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5349.2778,
+              "Y": 690.9014
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.239
+            },
+            "CColor": {
+              "R": 50,
+              "G": 124,
+              "B": 36
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0896,
+              "Y": 0.3838
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 4633.2778,
+            "RightMargin": -3505.2778,
+            "TopMargin": 1009.0986,
+            "BottomMargin": 590.9014,
+            "Tag": 424,
+            "ActionTag": -308166968,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphafeedlevel/ground.png",
+              "Plist": "alphafeedlevel/alphafeedlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7069.187,
+              "Y": 664.9827
+            },
+            "Scale": {
+              "ScaleX": 0.7807,
+              "ScaleY": 0.8634
+            },
+            "CColor": {
+              "R": 50,
+              "G": 124,
+              "B": 36
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7614,
+              "Y": 0.3694
+            },
+            "PreSize": {
+              "X": 0.5594,
+              "Y": 0.1111
+            },
+            "LeftMargin": 6353.187,
+            "RightMargin": -5225.187,
+            "TopMargin": 1035.0173,
+            "BottomMargin": 564.9827,
+            "Tag": 425,
+            "ActionTag": -1983704200,
+            "Size": {
+              "X": 1432.0,
+              "Y": 200.0
+            },
+            "Name": "ground_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphafeedlevel/cloud2.png",
+              "Plist": "alphafeedlevel/alphafeedlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4420.623,
+              "Y": 875.7502
+            },
+            "Scale": {
+              "ScaleX": -0.7352,
+              "ScaleY": 0.7285
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.7268,
+              "Y": 0.4865
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 4018.623,
+            "RightMargin": -2262.623,
+            "TopMargin": 756.2498,
+            "BottomMargin": 707.7502,
+            "Tag": 1231,
+            "ActionTag": 1275141993,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphafeedlevel/cloud2.png",
+              "Plist": "alphafeedlevel/alphafeedlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5903.208,
+              "Y": 942.9543
+            },
+            "Scale": {
+              "ScaleX": -0.7281,
+              "ScaleY": 0.7626
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.3059,
+              "Y": 0.5239
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 5501.208,
+            "RightMargin": -3745.208,
+            "TopMargin": 689.0457,
+            "BottomMargin": 774.9543,
+            "Tag": 1232,
+            "ActionTag": 884903242,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphafeedlevel/cloud2.png",
+              "Plist": "alphafeedlevel/alphafeedlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1584.1627,
+              "Y": 975.8463
+            },
+            "Scale": {
+              "ScaleX": -0.785,
+              "ScaleY": 0.8307
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6188,
+              "Y": 0.5421
+            },
+            "PreSize": {
+              "X": 0.3141,
+              "Y": 0.1867
+            },
+            "LeftMargin": 1182.1627,
+            "RightMargin": 573.8373,
+            "TopMargin": 656.1537,
+            "BottomMargin": 807.8463,
+            "Tag": 1233,
+            "ActionTag": 272142313,
+            "Size": {
+              "X": 804.0,
+              "Y": 336.0
+            },
+            "Name": "cloud2_5_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "alphafeedlevel.plist",
+        "alphafeedlevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

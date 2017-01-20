@@ -1,0 +1,269 @@
+{
+  "ID": "4f33e7e2-92a2-4709-8cf2-f2f0d56c9cc6",
+  "Version": "3.10.0.0",
+  "Name": "rainbow",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 85,
+        "Speed": 1.0,
+        "ActivedAnimationName": "pop",
+        "Timelines": [
+          {
+            "ActionTag": 888121895,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -667.2388,
+                "Y": 693.8086,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -867.2456,
+                "Y": 693.8109,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -667.2388,
+                "Y": 693.8086,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 888121895,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.6071,
+                "Y": 1.6071,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.0833,
+                "Y": 2.0833,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.6071,
+                "Y": 1.6071,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -682967215,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 682.731,
+                "Y": 693.8086,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 882.7429,
+                "Y": 693.8109,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 682.731,
+                "Y": 693.8086,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -682967215,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.6071,
+                "Y": 1.6071,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.0833,
+                "Y": 2.0833,
+                "FrameIndex": 45,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.6071,
+                "Y": 1.6071,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 85,
+          "Name": "pop",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 2666,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/rainbow.png",
+              "Plist": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -667.2388,
+              "Y": 693.8086
+            },
+            "Scale": {
+              "ScaleX": 1.6071,
+              "ScaleY": 1.6071
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -1087.2388,
+            "RightMargin": 247.2388,
+            "TopMargin": -1117.8086,
+            "BottomMargin": 269.8086,
+            "Tag": 2735,
+            "ActionTag": 888121895,
+            "Size": {
+              "X": 840.0,
+              "Y": 848.0
+            },
+            "Name": "rainbow_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/rainbow.png",
+              "Plist": "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow/Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 682.731,
+              "Y": 693.8086
+            },
+            "Scale": {
+              "ScaleX": 1.6071,
+              "ScaleY": 1.6071
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 262.731,
+            "RightMargin": -1102.731,
+            "TopMargin": -1117.8086,
+            "BottomMargin": 269.8086,
+            "Tag": 2736,
+            "ActionTag": -682967215,
+            "Size": {
+              "X": 840.0,
+              "Y": 848.0
+            },
+            "Name": "rainbow_4_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.plist",
+        "Siku_tuliyouona_upinde_Day_we_saw_the_rainbow.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

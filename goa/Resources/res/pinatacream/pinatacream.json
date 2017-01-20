@@ -1,0 +1,5824 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "2.3.4",
+  "Name": "pinatacream",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "G": 243,
+              "B": 238
+            },
+            "EndColor": {
+              "G": 230,
+              "B": 202
+            },
+            "ColorVector": {
+              "ScaleX": 0.1045,
+              "ScaleY": 0.9945
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -385.7039,
+              "Y": -0.1812
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1507,
+              "Y": -0.0001
+            },
+            "PreSize": {
+              "X": 1.3,
+              "Y": 1.0
+            },
+            "LeftMargin": -385.7039,
+            "RightMargin": -382.2961,
+            "TopMargin": 0.1812,
+            "BottomMargin": -0.1812,
+            "Tag": 5,
+            "ActionTag": -1251111501,
+            "Size": {
+              "X": 3328.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 217,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 230,
+              "B": 202
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -381.7128,
+              "Y": 301.1401
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1491,
+              "Y": 0.1673
+            },
+            "PreSize": {
+              "X": 1.3,
+              "Y": 0.1111
+            },
+            "LeftMargin": -381.7128,
+            "RightMargin": -386.2871,
+            "TopMargin": 1298.8599,
+            "BottomMargin": 301.1401,
+            "Tag": 17,
+            "ActionTag": 1912787402,
+            "Size": {
+              "X": 3328.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/board.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1340.6086,
+              "Y": 394.9862
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5237,
+              "Y": 0.2194
+            },
+            "PreSize": {
+              "X": 0.3004,
+              "Y": 0.0739
+            },
+            "LeftMargin": 956.1086,
+            "RightMargin": 834.8914,
+            "TopMargin": 1338.5138,
+            "BottomMargin": 328.4862,
+            "Tag": 25,
+            "ActionTag": -577168126,
+            "Size": {
+              "X": 769.0,
+              "Y": 133.0
+            },
+            "Name": "board",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 524.473,
+              "Y": 388.8471
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2049,
+              "Y": 0.216
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": 280.973,
+            "RightMargin": 1792.027,
+            "TopMargin": 1167.6528,
+            "BottomMargin": 145.3471,
+            "Tag": 6,
+            "ActionTag": -2119476429,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2727.3794,
+              "Y": 1394.4121
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0654,
+              "Y": 0.7747
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": 2483.8794,
+            "RightMargin": -410.8794,
+            "TopMargin": 162.0879,
+            "BottomMargin": 1150.9121,
+            "Tag": 7,
+            "ActionTag": 1429545216,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 571.3376,
+              "Y": 1429.3918
+            },
+            "Scale": {
+              "ScaleX": 0.7821,
+              "ScaleY": 0.7821
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2232,
+              "Y": 0.7941
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": 327.8376,
+            "RightMargin": 1745.1624,
+            "TopMargin": 127.1082,
+            "BottomMargin": 1185.8918,
+            "Tag": 9,
+            "ActionTag": -2042991563,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2093.8489,
+              "Y": 231.9517
+            },
+            "Scale": {
+              "ScaleX": 0.7821,
+              "ScaleY": 0.7821
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8179,
+              "Y": 0.1289
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": 1850.3489,
+            "RightMargin": 222.6511,
+            "TopMargin": 1324.5483,
+            "BottomMargin": -11.5483,
+            "Tag": 10,
+            "ActionTag": 1024223185,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 146.8765,
+              "Y": 951.67
+            },
+            "Scale": {
+              "ScaleX": 0.4824,
+              "ScaleY": 0.4824
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0574,
+              "Y": 0.5287
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": -96.6235,
+            "RightMargin": 2169.6235,
+            "TopMargin": 604.8301,
+            "BottomMargin": 708.17,
+            "Tag": 11,
+            "ActionTag": -16910332,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1060.3005,
+              "Y": 853.6347
+            },
+            "Scale": {
+              "ScaleX": 0.4824,
+              "ScaleY": 0.4824
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4142,
+              "Y": 0.4742
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": 816.8005,
+            "RightMargin": 1256.1995,
+            "TopMargin": 702.8652,
+            "BottomMargin": 610.1347,
+            "Tag": 12,
+            "ActionTag": -889608877,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1085.4153,
+              "Y": 1485.8508
+            },
+            "Scale": {
+              "ScaleX": 0.4824,
+              "ScaleY": 0.4824
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.424,
+              "Y": 0.8255
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": 841.9153,
+            "RightMargin": 1231.0847,
+            "TopMargin": 70.6492,
+            "BottomMargin": 1242.3508,
+            "Tag": 13,
+            "ActionTag": -1872120432,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2098.2703,
+              "Y": 1042.2878
+            },
+            "Scale": {
+              "ScaleX": 0.4824,
+              "ScaleY": 0.4824
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8196,
+              "Y": 0.579
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": 1854.7703,
+            "RightMargin": 218.2297,
+            "TopMargin": 514.2122,
+            "BottomMargin": 798.7878,
+            "Tag": 14,
+            "ActionTag": 1702087682,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2003.4802,
+              "Y": 1504.9187
+            },
+            "Scale": {
+              "ScaleX": 0.7821,
+              "ScaleY": 0.7821
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7826,
+              "Y": 0.8361
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": 1759.9802,
+            "RightMargin": 313.0198,
+            "TopMargin": 51.5813,
+            "BottomMargin": 1261.4187,
+            "Tag": 15,
+            "ActionTag": 46178168,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2598.0496,
+              "Y": 523.8388
+            },
+            "Scale": {
+              "ScaleX": 0.4824,
+              "ScaleY": 0.4824
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0149,
+              "Y": 0.291
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": 2354.5496,
+            "RightMargin": -281.5496,
+            "TopMargin": 1032.6611,
+            "BottomMargin": 280.3388,
+            "Tag": 16,
+            "ActionTag": 1916606472,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.349,
+              "ScaleY": 0.5122
+            },
+            "Position": {
+              "X": -196.9482,
+              "Y": 249.2416
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0769,
+              "Y": 0.1385
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": -366.9112,
+            "RightMargin": 2439.9111,
+            "TopMargin": 1313.1998,
+            "BottomMargin": -0.1998,
+            "Tag": 21,
+            "ActionTag": 835064228,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/bg.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 12.2977,
+              "Y": 1549.4016
+            },
+            "Scale": {
+              "ScaleX": 0.4824,
+              "ScaleY": 0.4824
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0048,
+              "Y": 0.8608
+            },
+            "PreSize": {
+              "X": 0.1902,
+              "Y": 0.2706
+            },
+            "LeftMargin": -231.2023,
+            "RightMargin": 2304.2024,
+            "TopMargin": 7.0984,
+            "BottomMargin": 1305.9016,
+            "Tag": 22,
+            "ActionTag": 386394148,
+            "Size": {
+              "X": 487.0,
+              "Y": 487.0
+            },
+            "Name": "bg_1_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/peppermint.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 15,
+            "Scale9Width": 378,
+            "Scale9Height": 363,
+            "AnchorPoint": {
+              "ScaleX": 0.6269,
+              "ScaleY": 0.8208
+            },
+            "Position": {
+              "X": 1061.441,
+              "Y": 433.5794
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -5.4004,
+            "RotationSkewY": -5.4037,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4146,
+              "Y": 0.2409
+            },
+            "PreSize": {
+              "X": 0.1594,
+              "Y": 0.2183
+            },
+            "LeftMargin": 805.6658,
+            "RightMargin": 1346.3342,
+            "TopMargin": 1295.995,
+            "BottomMargin": 111.005,
+            "Tag": 23,
+            "ActionTag": -635814300,
+            "Size": {
+              "X": 408.0,
+              "Y": 393.0
+            },
+            "Name": "left",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/peppermint.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "Scale9OriginX": 34,
+            "Scale9OriginY": 48,
+            "Scale9Width": 340,
+            "Scale9Height": 297,
+            "AnchorPoint": {
+              "ScaleX": 0.6394,
+              "ScaleY": 0.8315
+            },
+            "Position": {
+              "X": 1606.1765,
+              "Y": 431.6142
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 6.9342,
+            "RotationSkewY": 6.9324,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6274,
+              "Y": 0.2398
+            },
+            "PreSize": {
+              "X": 0.1594,
+              "Y": 0.2183
+            },
+            "LeftMargin": 1345.3013,
+            "RightMargin": 806.6987,
+            "TopMargin": 1302.1653,
+            "BottomMargin": 104.8347,
+            "Tag": 24,
+            "ActionTag": 1150223785,
+            "Size": {
+              "X": 408.0,
+              "Y": 393.0
+            },
+            "Name": "right",
+            "ctype": "ImageViewObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy1.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2551.2874,
+              "Y": 296.4504
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9966,
+              "Y": 0.1647
+            },
+            "PreSize": {
+              "X": 0.0902,
+              "Y": 0.1383
+            },
+            "LeftMargin": 2435.7874,
+            "RightMargin": -106.7874,
+            "TopMargin": 1379.0496,
+            "BottomMargin": 171.9504,
+            "Tag": 32,
+            "ActionTag": 282341821,
+            "Size": {
+              "X": 231.0,
+              "Y": 249.0
+            },
+            "Name": "candy1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy10.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2778.635,
+              "Y": 1216.9174
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -47.7061,
+            "RotationSkewY": -47.6567,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0854,
+              "Y": 0.6761
+            },
+            "PreSize": {
+              "X": 0.0754,
+              "Y": 0.1006
+            },
+            "LeftMargin": 2682.135,
+            "RightMargin": -315.135,
+            "TopMargin": 492.5826,
+            "BottomMargin": 1126.4174,
+            "Tag": 33,
+            "ActionTag": -1166485526,
+            "Size": {
+              "X": 193.0,
+              "Y": 181.0
+            },
+            "Name": "candy10_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy11.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2779.948,
+              "Y": 598.7975
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0859,
+              "Y": 0.3327
+            },
+            "PreSize": {
+              "X": 0.0754,
+              "Y": 0.1006
+            },
+            "LeftMargin": 2683.448,
+            "RightMargin": -316.448,
+            "TopMargin": 1110.7025,
+            "BottomMargin": 508.2975,
+            "Tag": 34,
+            "ActionTag": 1840149993,
+            "Size": {
+              "X": 193.0,
+              "Y": 181.0
+            },
+            "Name": "candy11_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy12.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 2.535,
+              "ScaleY": 0.0536
+            },
+            "Position": {
+              "X": 2487.6724,
+              "Y": 78.313
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9717,
+              "Y": 0.0435
+            },
+            "PreSize": {
+              "X": 0.0637,
+              "Y": 0.0772
+            },
+            "LeftMargin": 2074.4673,
+            "RightMargin": 322.5327,
+            "TopMargin": 1590.1375,
+            "BottomMargin": 70.8626,
+            "Tag": 35,
+            "ActionTag": 79908067,
+            "Size": {
+              "X": 163.0,
+              "Y": 139.0
+            },
+            "Name": "candy12_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy13.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.3759,
+              "ScaleY": 0.5368
+            },
+            "Position": {
+              "X": 1474.6305,
+              "Y": 1695.9158
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.576,
+              "Y": 0.9422
+            },
+            "PreSize": {
+              "X": 0.059,
+              "Y": 0.0867
+            },
+            "LeftMargin": 813.8696,
+            "RightMargin": 1595.1304,
+            "TopMargin": 31.8251,
+            "BottomMargin": 1612.1749,
+            "Tag": 36,
+            "ActionTag": 1006031850,
+            "Size": {
+              "X": 151.0,
+              "Y": 156.0
+            },
+            "Name": "candy13_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy14.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4312,
+              "ScaleY": 0.4477
+            },
+            "Position": {
+              "X": 69.1478,
+              "Y": 1674.4565
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 138.3269,
+            "RotationSkewY": 138.3052,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.027,
+              "Y": 0.9303
+            },
+            "PreSize": {
+              "X": 0.0719,
+              "Y": 0.0489
+            },
+            "LeftMargin": -10.193,
+            "RightMargin": 2386.1931,
+            "TopMargin": 76.941,
+            "BottomMargin": 1635.059,
+            "Tag": 37,
+            "ActionTag": 1963509992,
+            "Size": {
+              "X": 184.0,
+              "Y": 88.0
+            },
+            "Name": "candy14_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy15.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -35.2382,
+              "Y": 717.3368
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0138,
+              "Y": 0.3985
+            },
+            "PreSize": {
+              "X": 0.0715,
+              "Y": 0.0489
+            },
+            "LeftMargin": -126.7382,
+            "RightMargin": 2503.7383,
+            "TopMargin": 1038.6632,
+            "BottomMargin": 673.3368,
+            "Tag": 38,
+            "ActionTag": -1032241592,
+            "Size": {
+              "X": 183.0,
+              "Y": 88.0
+            },
+            "Name": "candy15_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy16.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2774.9783,
+              "Y": 1613.0027
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.084,
+              "Y": 0.8961
+            },
+            "PreSize": {
+              "X": 0.0617,
+              "Y": 0.1217
+            },
+            "LeftMargin": 2695.9783,
+            "RightMargin": -293.9783,
+            "TopMargin": 77.4973,
+            "BottomMargin": 1503.5027,
+            "Tag": 39,
+            "ActionTag": 617783665,
+            "Size": {
+              "X": 158.0,
+              "Y": 219.0
+            },
+            "Name": "candy16_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy17.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 697.0328,
+              "Y": 164.9662
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -63.5546,
+            "RotationSkewY": -63.5605,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2723,
+              "Y": 0.0916
+            },
+            "PreSize": {
+              "X": 0.0617,
+              "Y": 0.1217
+            },
+            "LeftMargin": 618.0328,
+            "RightMargin": 1783.9673,
+            "TopMargin": 1525.5338,
+            "BottomMargin": 55.4662,
+            "Tag": 40,
+            "ActionTag": 158868489,
+            "Size": {
+              "X": 158.0,
+              "Y": 219.0
+            },
+            "Name": "candy17_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": -71.2009,
+              "Y": 983.5181
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0278,
+              "Y": 0.5464
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -300.2269,
+            "RightMargin": 2811.2268,
+            "TopMargin": 786.4694,
+            "BottomMargin": 964.5306,
+            "Tag": 41,
+            "ActionTag": 2068896548,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 345.0027,
+              "Y": 213.1587
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1348,
+              "Y": 0.1184
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 122.0478,
+            "RightMargin": 2388.9521,
+            "TopMargin": 1490.0663,
+            "BottomMargin": 260.9337,
+            "Tag": 42,
+            "ActionTag": -969128945,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy2.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -172.7477,
+              "Y": 1383.6077
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -62.9536,
+            "RotationSkewY": -62.9517,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0675,
+              "Y": 0.7687
+            },
+            "PreSize": {
+              "X": 0.0715,
+              "Y": 0.1694
+            },
+            "LeftMargin": -264.2477,
+            "RightMargin": 2641.2478,
+            "TopMargin": 263.8923,
+            "BottomMargin": 1231.1077,
+            "Tag": 43,
+            "ActionTag": 444009374,
+            "Size": {
+              "X": 183.0,
+              "Y": 305.0
+            },
+            "Name": "candy2_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": -124.8665,
+              "Y": 333.0716
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0488,
+              "Y": 0.185
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -83.8094,
+            "RightMargin": 2594.8093,
+            "TopMargin": 1306.4241,
+            "BottomMargin": 444.576,
+            "Tag": 44,
+            "ActionTag": 987103052,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy3.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.8899
+            },
+            "Position": {
+              "X": -323.2906,
+              "Y": 933.5917
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1263,
+              "Y": 0.5187
+            },
+            "PreSize": {
+              "X": 0.0699,
+              "Y": 0.1072
+            },
+            "LeftMargin": -323.2906,
+            "RightMargin": 2704.2905,
+            "TopMargin": 845.1591,
+            "BottomMargin": 761.8409,
+            "Tag": 45,
+            "ActionTag": 374568482,
+            "Size": {
+              "X": 179.0,
+              "Y": 193.0
+            },
+            "Name": "candy3_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy4.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 367.3755,
+              "Y": 198.3463
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1435,
+              "Y": 0.1102
+            },
+            "PreSize": {
+              "X": 0.0699,
+              "Y": 0.1072
+            },
+            "LeftMargin": 277.8755,
+            "RightMargin": 2103.1245,
+            "TopMargin": 1505.1537,
+            "BottomMargin": 101.8463,
+            "Tag": 46,
+            "ActionTag": -1487323956,
+            "Size": {
+              "X": 179.0,
+              "Y": 193.0
+            },
+            "Name": "candy4_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy5.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5333,
+              "ScaleY": 0.2114
+            },
+            "Position": {
+              "X": -141.4594,
+              "Y": 188.153
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 38.5883,
+            "RotationSkewY": 38.5883,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0553,
+              "Y": 0.1045
+            },
+            "PreSize": {
+              "X": 0.098,
+              "Y": 0.0617
+            },
+            "LeftMargin": -275.3177,
+            "RightMargin": 2584.3176,
+            "TopMargin": 1524.3124,
+            "BottomMargin": 164.6876,
+            "Tag": 47,
+            "ActionTag": -1906448026,
+            "Size": {
+              "X": 251.0,
+              "Y": 111.0
+            },
+            "Name": "candy5_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy6.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2757.4277,
+              "Y": 861.9246
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0771,
+              "Y": 0.4788
+            },
+            "PreSize": {
+              "X": 0.0977,
+              "Y": 0.0633
+            },
+            "LeftMargin": 2632.4277,
+            "RightMargin": -322.4277,
+            "TopMargin": 881.0754,
+            "BottomMargin": 804.9246,
+            "Tag": 48,
+            "ActionTag": 1006756551,
+            "Size": {
+              "X": 250.0,
+              "Y": 114.0
+            },
+            "Name": "candy6_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy7.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 11.861,
+              "ScaleY": 0.0246
+            },
+            "Position": {
+              "X": 5030.2651,
+              "Y": 46.3199
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.9649,
+              "Y": 0.0257
+            },
+            "PreSize": {
+              "X": 0.0773,
+              "Y": 0.0944
+            },
+            "LeftMargin": 2681.7871,
+            "RightMargin": -319.7871,
+            "TopMargin": 1587.8621,
+            "BottomMargin": 42.1379,
+            "Tag": 49,
+            "ActionTag": 81744736,
+            "Size": {
+              "X": 198.0,
+              "Y": 170.0
+            },
+            "Name": "candy7_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy8.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 2.2202,
+              "ScaleY": 0.341
+            },
+            "Position": {
+              "X": 121.6636,
+              "Y": 531.7667
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0475,
+              "Y": 0.2954
+            },
+            "PreSize": {
+              "X": 0.0637,
+              "Y": 0.0617
+            },
+            "LeftMargin": -240.229,
+            "RightMargin": 2637.229,
+            "TopMargin": 1195.0842,
+            "BottomMargin": 493.9157,
+            "Tag": 50,
+            "ActionTag": 1416985417,
+            "Size": {
+              "X": 163.0,
+              "Y": 111.0
+            },
+            "Name": "candy8_19",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy9.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.3355,
+              "ScaleY": 5.0299
+            },
+            "Position": {
+              "X": -348.8564,
+              "Y": 2160.2822
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1363,
+              "Y": 1.2002
+            },
+            "PreSize": {
+              "X": 0.0633,
+              "Y": 0.0622
+            },
+            "LeftMargin": -294.5054,
+            "RightMargin": 2692.5054,
+            "TopMargin": 91.0667,
+            "BottomMargin": 1596.9333,
+            "Tag": 51,
+            "ActionTag": -445222916,
+            "Size": {
+              "X": 162.0,
+              "Y": 112.0
+            },
+            "Name": "candy9_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 102.7179,
+              "Y": 1551.6359
+            },
+            "Scale": {
+              "ScaleX": 0.9889,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0401,
+              "Y": 0.862
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -126.3081,
+            "RightMargin": 2637.3081,
+            "TopMargin": 218.3517,
+            "BottomMargin": 1532.6483,
+            "Tag": 52,
+            "ActionTag": -722465391,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": -333.4207,
+              "Y": 25.2011
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1302,
+              "Y": 0.014
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -292.3636,
+            "RightMargin": 2803.3635,
+            "TopMargin": 1614.2946,
+            "BottomMargin": 136.7055,
+            "Tag": 53,
+            "ActionTag": 1542800788,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": -85.6332,
+              "Y": 596.2087
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0335,
+              "Y": 0.3312
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -308.5881,
+            "RightMargin": 2819.5881,
+            "TopMargin": 1107.0164,
+            "BottomMargin": 643.9837,
+            "Tag": 54,
+            "ActionTag": 2088130329,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 523.6349,
+              "Y": 598.5496
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2045,
+              "Y": 0.3325
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 300.68,
+            "RightMargin": 2210.3201,
+            "TopMargin": 1104.6753,
+            "BottomMargin": 646.3246,
+            "Tag": 55,
+            "ActionTag": -1540702182,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 1400.574,
+              "Y": 1620.6942
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5471,
+              "Y": 0.9004
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1177.6191,
+            "RightMargin": 1333.3809,
+            "TopMargin": 82.5308,
+            "BottomMargin": 1668.4692,
+            "Tag": 56,
+            "ActionTag": 683546795,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 2444.7986,
+              "Y": 601.8903
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.955,
+              "Y": 0.3344
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2215.7727,
+            "RightMargin": 295.2273,
+            "TopMargin": 1168.0972,
+            "BottomMargin": 582.9028,
+            "Tag": 57,
+            "ActionTag": 2135724609,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 2391.1279,
+              "Y": -48.5585
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.934,
+              "Y": -0.027
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2432.1851,
+            "RightMargin": 78.8149,
+            "TopMargin": 1688.0541,
+            "BottomMargin": 62.9459,
+            "Tag": 58,
+            "ActionTag": 769481048,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 2430.3594,
+              "Y": 214.577
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9494,
+              "Y": 0.1192
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2207.4045,
+            "RightMargin": 303.5955,
+            "TopMargin": 1488.6479,
+            "BottomMargin": 262.352,
+            "Tag": 59,
+            "ActionTag": -1866302698,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 3039.6343,
+              "Y": 216.917
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1874,
+              "Y": 0.1205
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2816.6794,
+            "RightMargin": -305.6794,
+            "TopMargin": 1486.308,
+            "BottomMargin": 264.692,
+            "Tag": 60,
+            "ActionTag": 1167236799,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 45.0689,
+              "Y": 1268.3478
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.42,
+            "RotationSkewY": -91.3989,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0176,
+              "Y": 0.7046
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -183.9571,
+            "RightMargin": 2694.957,
+            "TopMargin": 501.6398,
+            "BottomMargin": 1249.3602,
+            "Tag": 61,
+            "ActionTag": -432698404,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 2922.9312,
+              "Y": 1372.7697
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.4338,
+            "RotationSkewY": -91.3989,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1418,
+              "Y": 0.7626
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2963.9883,
+            "RightMargin": -452.9883,
+            "TopMargin": 266.726,
+            "BottomMargin": 1484.274,
+            "Tag": 62,
+            "ActionTag": 2126038091,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 2658.9463,
+              "Y": 1405.5116
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.4268,
+            "RotationSkewY": -91.3989,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0387,
+              "Y": 0.7808
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2435.9915,
+            "RightMargin": 75.0085,
+            "TopMargin": 297.7134,
+            "BottomMargin": 1453.2866,
+            "Tag": 63,
+            "ActionTag": -1285497659,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 415.2662,
+              "Y": 1872.4832
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.427,
+            "RotationSkewY": -91.3989,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1622,
+              "Y": 1.0403
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 192.3113,
+            "RightMargin": 2318.6887,
+            "TopMargin": -169.2582,
+            "BottomMargin": 1920.2582,
+            "Tag": 64,
+            "ActionTag": 1255068750,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy1.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2413.708,
+              "Y": 1637.6765
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9429,
+              "Y": 0.9098
+            },
+            "PreSize": {
+              "X": 0.0902,
+              "Y": 0.1383
+            },
+            "LeftMargin": 2298.208,
+            "RightMargin": 30.792,
+            "TopMargin": 37.8235,
+            "BottomMargin": 1513.1765,
+            "Tag": 65,
+            "ActionTag": -1763471250,
+            "Size": {
+              "X": 231.0,
+              "Y": 249.0
+            },
+            "Name": "candy1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy6.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1499.2094,
+              "Y": 1663.584
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -28.3169,
+            "RotationSkewY": -28.3169,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5856,
+              "Y": 0.9242
+            },
+            "PreSize": {
+              "X": 0.0977,
+              "Y": 0.0633
+            },
+            "LeftMargin": 1374.2094,
+            "RightMargin": 935.7906,
+            "TopMargin": 79.416,
+            "BottomMargin": 1606.584,
+            "Tag": 66,
+            "ActionTag": -579874687,
+            "Size": {
+              "X": 250.0,
+              "Y": 114.0
+            },
+            "Name": "candy6_17_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 1979.8149,
+              "Y": 1646.2312
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7734,
+              "Y": 0.9146
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1750.7889,
+            "RightMargin": 760.2111,
+            "TopMargin": 123.7563,
+            "BottomMargin": 1627.2437,
+            "Tag": 67,
+            "ActionTag": 1761376256,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 1922.5702,
+              "Y": 1581.4519
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.751,
+              "Y": 0.8786
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1963.6273,
+            "RightMargin": 547.3727,
+            "TopMargin": 58.0437,
+            "BottomMargin": 1692.9563,
+            "Tag": 68,
+            "ActionTag": 216003220,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 2750.2163,
+              "Y": 1543.8824
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0743,
+              "Y": 0.8577
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2521.1904,
+            "RightMargin": -10.1904,
+            "TopMargin": 226.1051,
+            "BottomMargin": 1524.8949,
+            "Tag": 69,
+            "ActionTag": 1139719399,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 2022.5007,
+              "Y": 1786.52
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.427,
+            "RotationSkewY": -91.3989,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.79,
+              "Y": 0.9925
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1799.5459,
+            "RightMargin": 711.4541,
+            "TopMargin": -83.295,
+            "BottomMargin": 1834.295,
+            "Tag": 70,
+            "ActionTag": -1702130730,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 2699.9551,
+              "Y": 334.5507
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0547,
+              "Y": 0.1859
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2741.0122,
+            "RightMargin": -230.0122,
+            "TopMargin": 1304.9449,
+            "BottomMargin": 446.0551,
+            "Tag": 71,
+            "ActionTag": -1642183960,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 2789.5469,
+              "Y": 112.4627
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0897,
+              "Y": 0.0625
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2560.521,
+            "RightMargin": -49.521,
+            "TopMargin": 1657.5248,
+            "BottomMargin": 93.4752,
+            "Tag": 72,
+            "ActionTag": -2076278060,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 2115.7722,
+              "Y": 57.2715
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8265,
+              "Y": 0.0318
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1886.7462,
+            "RightMargin": 624.2538,
+            "TopMargin": 1712.7161,
+            "BottomMargin": 38.284,
+            "Tag": 73,
+            "ActionTag": -295165513,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 2933.5381,
+              "Y": 277.2784
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1459,
+              "Y": 0.154
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2710.5833,
+            "RightMargin": -199.5833,
+            "TopMargin": 1425.9465,
+            "BottomMargin": 325.0534,
+            "Tag": 74,
+            "ActionTag": -1780015258,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 102.0126,
+              "Y": 437.6134
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0398,
+              "Y": 0.2431
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 77.5126,
+            "RightMargin": 2433.4873,
+            "TopMargin": 1337.8866,
+            "BottomMargin": 413.1134,
+            "Tag": 75,
+            "ActionTag": -1818120804,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -282.6091,
+              "Y": 411.5363
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1104,
+              "Y": 0.2286
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -307.1091,
+            "RightMargin": 2818.1091,
+            "TopMargin": 1363.9637,
+            "BottomMargin": 387.0363,
+            "Tag": 79,
+            "ActionTag": 237397821,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -135.2235,
+              "Y": 1059.2388
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0528,
+              "Y": 0.5885
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -159.7235,
+            "RightMargin": 2670.7234,
+            "TopMargin": 716.2612,
+            "BottomMargin": 1034.7388,
+            "Tag": 80,
+            "ActionTag": -1961553238,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -76.99,
+              "Y": 1389.7827
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0301,
+              "Y": 0.7721
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -101.49,
+            "RightMargin": 2612.49,
+            "TopMargin": 385.7173,
+            "BottomMargin": 1365.2827,
+            "Tag": 81,
+            "ActionTag": -2103324748,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 266.245,
+              "Y": 1748.0978
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.104,
+              "Y": 0.9712
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 241.745,
+            "RightMargin": 2269.2549,
+            "TopMargin": 27.4022,
+            "BottomMargin": 1723.5978,
+            "Tag": 82,
+            "ActionTag": -2120081697,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 761.4832,
+              "Y": 1739.5605
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2975,
+              "Y": 0.9664
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 736.9832,
+            "RightMargin": 1774.0168,
+            "TopMargin": 35.9395,
+            "BottomMargin": 1715.0605,
+            "Tag": 83,
+            "ActionTag": 1517082529,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1676.1127,
+              "Y": 1748.6362
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6547,
+              "Y": 0.9715
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1651.6127,
+            "RightMargin": 859.3873,
+            "TopMargin": 26.8638,
+            "BottomMargin": 1724.1362,
+            "Tag": 86,
+            "ActionTag": -23637325,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2286.8142,
+              "Y": 1738.6362
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8933,
+              "Y": 0.9659
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2262.3142,
+            "RightMargin": 248.6858,
+            "TopMargin": 36.8638,
+            "BottomMargin": 1714.1362,
+            "Tag": 88,
+            "ActionTag": -329259700,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2866.8286,
+              "Y": 1715.48
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1199,
+              "Y": 0.953
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2842.3286,
+            "RightMargin": -331.3286,
+            "TopMargin": 60.02,
+            "BottomMargin": 1690.98,
+            "Tag": 89,
+            "ActionTag": 2121665671,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2888.5261,
+              "Y": 1341.5476
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1283,
+              "Y": 0.7453
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2864.0261,
+            "RightMargin": -353.0261,
+            "TopMargin": 433.9524,
+            "BottomMargin": 1317.0476,
+            "Tag": 90,
+            "ActionTag": 1460313362,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2888.2952,
+              "Y": 966.1576
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1282,
+              "Y": 0.5368
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2863.7952,
+            "RightMargin": -352.7952,
+            "TopMargin": 809.3424,
+            "BottomMargin": 941.6576,
+            "Tag": 91,
+            "ActionTag": 1464810513,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2566.5271,
+              "Y": 570.3068
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0025,
+              "Y": 0.3168
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2542.0271,
+            "RightMargin": -31.0271,
+            "TopMargin": 1205.1931,
+            "BottomMargin": 545.8068,
+            "Tag": 92,
+            "ActionTag": 1778177847,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2903.915,
+              "Y": 187.6316
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1343,
+              "Y": 0.1042
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2879.415,
+            "RightMargin": -368.415,
+            "TopMargin": 1587.8684,
+            "BottomMargin": 163.1316,
+            "Tag": 93,
+            "ActionTag": -2052560027,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2286.9038,
+              "Y": 89.938
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8933,
+              "Y": 0.05
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2262.4038,
+            "RightMargin": 248.5962,
+            "TopMargin": 1685.562,
+            "BottomMargin": 65.438,
+            "Tag": 94,
+            "ActionTag": -1037987051,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": -119.6394,
+              "Y": 1746.5482
+            },
+            "Scale": {
+              "ScaleX": 0.9889,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0467,
+              "Y": 0.9703
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -348.6654,
+            "RightMargin": 2859.6653,
+            "TopMargin": 23.4393,
+            "BottomMargin": 1727.5607,
+            "Tag": 95,
+            "ActionTag": -1350316450,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": -203.2049,
+              "Y": 1739.71
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.4269,
+            "RotationSkewY": -91.398,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0794,
+              "Y": 0.9665
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -426.1598,
+            "RightMargin": 2937.1597,
+            "TopMargin": -36.485,
+            "BottomMargin": 1787.485,
+            "Tag": 96,
+            "ActionTag": 310634900,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_0_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -352.2266,
+              "Y": 1615.3268
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1376,
+              "Y": 0.8974
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -376.7266,
+            "RightMargin": 2887.7266,
+            "TopMargin": 160.1732,
+            "BottomMargin": 1590.8268,
+            "Tag": 97,
+            "ActionTag": 1610555809,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": -364.5414,
+              "Y": 1127.0303
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1424,
+              "Y": 0.6261
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -323.4843,
+            "RightMargin": 2834.4844,
+            "TopMargin": 512.4653,
+            "BottomMargin": 1238.5347,
+            "Tag": 98,
+            "ActionTag": 1588558598,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": -231.1626,
+              "Y": 554.778
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0903,
+              "Y": 0.3082
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -190.1055,
+            "RightMargin": 2701.1055,
+            "TopMargin": 1084.7175,
+            "BottomMargin": 666.2824,
+            "Tag": 99,
+            "ActionTag": 993029798,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": -374.5032,
+              "Y": 167.5925
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1463,
+              "Y": 0.0931
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -333.4461,
+            "RightMargin": 2844.446,
+            "TopMargin": 1471.9031,
+            "BottomMargin": 279.0969,
+            "Tag": 100,
+            "ActionTag": 1262309904,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_3_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 78.2826,
+              "Y": -10.1097
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0306,
+              "Y": -0.0056
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -144.6723,
+            "RightMargin": 2655.6724,
+            "TopMargin": 1713.3347,
+            "BottomMargin": 37.6653,
+            "Tag": 101,
+            "ActionTag": 1454539083,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 421.5938,
+              "Y": -78.5891
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1647,
+              "Y": -0.0437
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 462.6509,
+            "RightMargin": 2048.3491,
+            "TopMargin": 1718.0847,
+            "BottomMargin": 32.9153,
+            "Tag": 102,
+            "ActionTag": 597369459,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_3_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 563.2258,
+              "Y": 120.9307
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.22,
+              "Y": 0.0672
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 538.7258,
+            "RightMargin": 1972.2742,
+            "TopMargin": 1654.5693,
+            "BottomMargin": 96.4307,
+            "Tag": 103,
+            "ActionTag": -2124465861,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 1076.1057,
+              "Y": -7.3137
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4204,
+              "Y": -0.0041
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 853.1508,
+            "RightMargin": 1657.8491,
+            "TopMargin": 1710.5387,
+            "BottomMargin": 40.4613,
+            "Tag": 104,
+            "ActionTag": 1886185282,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 2229.3528,
+              "Y": -11.9275
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8708,
+              "Y": -0.0066
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2006.3979,
+            "RightMargin": 504.6021,
+            "TopMargin": 1715.1525,
+            "BottomMargin": 35.8475,
+            "Tag": 105,
+            "ActionTag": 1088768636,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 2.074,
+              "ScaleY": -5.413
+            },
+            "Position": {
+              "X": 2711.1484,
+              "Y": -238.8086
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.059,
+              "Y": -0.1327
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2609.5225,
+            "RightMargin": -98.5225,
+            "TopMargin": 1724.5715,
+            "BottomMargin": 26.4284,
+            "Tag": 106,
+            "ActionTag": 1254454343,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_0_0_0_0_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 3090.8506,
+              "Y": -26.7331
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2074,
+              "Y": -0.0149
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2867.8958,
+            "RightMargin": -356.8958,
+            "TopMargin": 1729.9581,
+            "BottomMargin": 21.0419,
+            "Tag": 107,
+            "ActionTag": 1775897298,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 2855.4512,
+              "Y": 1025.1472
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.4338,
+            "RotationSkewY": -91.3989,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1154,
+              "Y": 0.5695
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2896.5083,
+            "RightMargin": -385.5083,
+            "TopMargin": 614.3484,
+            "BottomMargin": 1136.6516,
+            "Tag": 108,
+            "ActionTag": -2035247130,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 2697.3674,
+              "Y": 1696.2334
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.4338,
+            "RotationSkewY": -91.3989,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0537,
+              "Y": 0.9424
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2738.4246,
+            "RightMargin": -227.4246,
+            "TopMargin": -56.7378,
+            "BottomMargin": 1807.7378,
+            "Tag": 109,
+            "ActionTag": -1027362364,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 2232.7368,
+              "Y": 1959.2178
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.4268,
+            "RotationSkewY": -91.3989,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8722,
+              "Y": 1.0885
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2009.782,
+            "RightMargin": 501.218,
+            "TopMargin": -255.9927,
+            "BottomMargin": 2006.9928,
+            "Tag": 110,
+            "ActionTag": 543791622,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 2372.8159,
+              "Y": 1851.2949
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.4268,
+            "RotationSkewY": -91.3989,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9269,
+              "Y": 1.0285
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2149.8611,
+            "RightMargin": 361.1389,
+            "TopMargin": -148.0699,
+            "BottomMargin": 1899.0699,
+            "Tag": 111,
+            "ActionTag": -1182599179,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 2955.7476,
+              "Y": 1823.7563
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.4268,
+            "RotationSkewY": -91.3989,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1546,
+              "Y": 1.0132
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2732.7927,
+            "RightMargin": -221.7927,
+            "TopMargin": -120.5314,
+            "BottomMargin": 1871.5314,
+            "Tag": 112,
+            "ActionTag": 258810790,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_1_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 133.6857,
+              "Y": 1610.5444
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0522,
+              "Y": 0.8947
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 174.7428,
+            "RightMargin": 2336.2573,
+            "TopMargin": 28.9512,
+            "BottomMargin": 1722.0488,
+            "Tag": 113,
+            "ActionTag": 2009031753,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 367.53,
+              "Y": 1621.6956
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1436,
+              "Y": 0.9009
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 408.5871,
+            "RightMargin": 2102.4128,
+            "TopMargin": 17.8,
+            "BottomMargin": 1733.2,
+            "Tag": 114,
+            "ActionTag": -1019864658,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_3_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 992.6602,
+              "Y": 1601.1204
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3878,
+              "Y": 0.8895
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1033.7173,
+            "RightMargin": 1477.2827,
+            "TopMargin": 38.3752,
+            "BottomMargin": 1712.6248,
+            "Tag": 115,
+            "ActionTag": -1778537214,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_3_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 1291.7205,
+              "Y": 1610.5085
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5046,
+              "Y": 0.8947
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1332.7776,
+            "RightMargin": 1178.2224,
+            "TopMargin": 28.9871,
+            "BottomMargin": 1722.0129,
+            "Tag": 116,
+            "ActionTag": -377483870,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_3_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": -89.2022,
+              "Y": 1948.7144
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.4269,
+            "RotationSkewY": -91.3985,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0348,
+              "Y": 1.0826
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -312.1571,
+            "RightMargin": 2823.1572,
+            "TopMargin": -245.4894,
+            "BottomMargin": 1996.4894,
+            "Tag": 117,
+            "ActionTag": 1893331478,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_0_1_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": -118.2813,
+              "Y": 1288.5671
+            },
+            "Scale": {
+              "ScaleX": 0.9889,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -34.5395,
+            "RotationSkewY": -34.54,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0462,
+              "Y": 0.7159
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -347.3073,
+            "RightMargin": 2858.3074,
+            "TopMargin": 481.4204,
+            "BottomMargin": 1269.5796,
+            "Tag": 118,
+            "ActionTag": 294047464,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -235.4592,
+              "Y": 1048.5999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -34.5402,
+            "RotationSkewY": -34.5509,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.092,
+              "Y": 0.5826
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -259.9592,
+            "RightMargin": 2770.9592,
+            "TopMargin": 726.9001,
+            "BottomMargin": 1024.0999,
+            "Tag": 119,
+            "ActionTag": -879131846,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 167.5034,
+              "Y": 1320.1842
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -34.5395,
+            "RotationSkewY": -34.5427,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0654,
+              "Y": 0.7334
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 208.5605,
+            "RightMargin": 2302.4395,
+            "TopMargin": 319.3114,
+            "BottomMargin": 1431.6886,
+            "Tag": 120,
+            "ActionTag": 620360076,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_3_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": -207.8422,
+              "Y": 1472.3489
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -125.9729,
+            "RotationSkewY": -125.9466,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0812,
+              "Y": 0.818
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -430.7971,
+            "RightMargin": 2941.7971,
+            "TopMargin": 230.8761,
+            "BottomMargin": 1520.1239,
+            "Tag": 121,
+            "ActionTag": -23224282,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_0_1_0_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": -195.1071,
+              "Y": 237.0627
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 167.7815,
+            "RotationSkewY": 167.7798,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0762,
+              "Y": 0.1317
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -418.062,
+            "RightMargin": 2929.062,
+            "TopMargin": 1466.1624,
+            "BottomMargin": 284.8377,
+            "Tag": 122,
+            "ActionTag": -1104228668,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 289.4948,
+              "Y": 219.3155
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 167.7798,
+            "RotationSkewY": 167.7808,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1131,
+              "Y": 0.1218
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 330.5519,
+            "RightMargin": 2180.448,
+            "TopMargin": 1420.1802,
+            "BottomMargin": 330.8199,
+            "Tag": 123,
+            "ActionTag": 953438396,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 89.8838,
+              "Y": 69.125
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 167.7811,
+            "RotationSkewY": 167.7838,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0351,
+              "Y": 0.0384
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 65.3838,
+            "RightMargin": 2445.6162,
+            "TopMargin": 1706.375,
+            "BottomMargin": 44.625,
+            "Tag": 124,
+            "ActionTag": 230621873,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 2523.563,
+              "Y": 1430.8188
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 53.8688,
+            "RotationSkewY": 53.8924,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9858,
+              "Y": 0.7949
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2564.6201,
+            "RightMargin": -53.6201,
+            "TopMargin": 208.6768,
+            "BottomMargin": 1542.3232,
+            "Tag": 125,
+            "ActionTag": -340968676,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy19.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.5501,
+              "ScaleY": -0.975
+            },
+            "Position": {
+              "X": 2614.9514,
+              "Y": 1208.3634
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 53.8688,
+            "RotationSkewY": 53.8924,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0215,
+              "Y": 0.6713
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2391.9966,
+            "RightMargin": 119.0034,
+            "TopMargin": 494.8616,
+            "BottomMargin": 1256.1384,
+            "Tag": 126,
+            "ActionTag": -1681626418,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy19_11_0_1_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy21.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2635.397,
+              "Y": 1677.557
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 53.8688,
+            "RotationSkewY": 53.8924,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0295,
+              "Y": 0.932
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2610.897,
+            "RightMargin": -99.897,
+            "TopMargin": 97.943,
+            "BottomMargin": 1653.057,
+            "Tag": 127,
+            "ActionTag": 766458318,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy21_44_0_0_0_0_0_0_0_0_0_0_0_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy20.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": -0.8379,
+              "ScaleY": -2.2756
+            },
+            "Position": {
+              "X": 1907.4828,
+              "Y": 1683.5376
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -91.434,
+            "RotationSkewY": -91.3989,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7451,
+              "Y": 0.9353
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1948.5399,
+            "RightMargin": 562.4601,
+            "TopMargin": -44.042,
+            "BottomMargin": 1795.042,
+            "Tag": 128,
+            "ActionTag": 1384583584,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy20_13_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 2962.2139,
+              "Y": 1753.3749
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1571,
+              "Y": 0.9741
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2733.188,
+            "RightMargin": -222.188,
+            "TopMargin": 16.6127,
+            "BottomMargin": 1734.3873,
+            "Tag": 129,
+            "ActionTag": -1002237451,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": -66.5936,
+              "Y": 59.1877
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.026,
+              "Y": 0.0329
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": -295.6196,
+            "RightMargin": 2806.6196,
+            "TopMargin": 1710.7998,
+            "BottomMargin": 40.2002,
+            "Tag": 130,
+            "ActionTag": 1845600586,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 367.8178,
+              "Y": 39.3642
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1437,
+              "Y": 0.0219
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 138.7918,
+            "RightMargin": 2372.2083,
+            "TopMargin": 1730.6233,
+            "BottomMargin": 20.3767,
+            "Tag": 131,
+            "ActionTag": -2088930355,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 735.4213,
+              "Y": 312.3056
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2873,
+              "Y": 0.1735
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 506.3953,
+            "RightMargin": 2004.6047,
+            "TopMargin": 1457.6819,
+            "BottomMargin": 293.3181,
+            "Tag": 132,
+            "ActionTag": 1698203436,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_2_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 871.1722,
+              "Y": 68.4873
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3403,
+              "Y": 0.038
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 642.1462,
+            "RightMargin": 1868.8538,
+            "TopMargin": 1701.5002,
+            "BottomMargin": 49.4998,
+            "Tag": 133,
+            "ActionTag": -1912606915,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_2_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 1217.1638,
+              "Y": 48.6633
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4755,
+              "Y": 0.027
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 988.1378,
+            "RightMargin": 1522.8622,
+            "TopMargin": 1721.3242,
+            "BottomMargin": 29.6758,
+            "Tag": 134,
+            "ActionTag": 332811852,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_2_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 2584.8872,
+              "Y": 38.6638
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0097,
+              "Y": 0.0215
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2355.8613,
+            "RightMargin": 155.1387,
+            "TopMargin": 1731.3237,
+            "BottomMargin": 19.6763,
+            "Tag": 135,
+            "ActionTag": 1249240228,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_2_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 2260.8596,
+              "Y": 323.3947
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8831,
+              "Y": 0.1797
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2031.8336,
+            "RightMargin": 479.1663,
+            "TopMargin": 1446.5928,
+            "BottomMargin": 304.4072,
+            "Tag": 136,
+            "ActionTag": -1110476617,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_2_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 3060.7349,
+              "Y": 729.9459
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1956,
+              "Y": 0.4055
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2831.709,
+            "RightMargin": -320.709,
+            "TopMargin": 1040.0415,
+            "BottomMargin": 710.9584,
+            "Tag": 137,
+            "ActionTag": -924768544,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_2_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 3053.0498,
+              "Y": 448.794
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1926,
+              "Y": 0.2493
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2824.0239,
+            "RightMargin": -313.0239,
+            "TopMargin": 1321.1935,
+            "BottomMargin": 429.8065,
+            "Tag": 138,
+            "ActionTag": -1301664719,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_2_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 2858.3108,
+              "Y": 1319.0493
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1165,
+              "Y": 0.7328
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 2629.2849,
+            "RightMargin": -118.2849,
+            "TopMargin": 450.9382,
+            "BottomMargin": 1300.0618,
+            "Tag": 139,
+            "ActionTag": -1452833352,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_2_0_0_0_0_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 2111.6343,
+              "Y": 1758.0519
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8249,
+              "Y": 0.9767
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1882.6083,
+            "RightMargin": 628.3917,
+            "TopMargin": 11.9357,
+            "BottomMargin": 1739.0643,
+            "Tag": 140,
+            "ActionTag": -903872754,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 1473.2225,
+              "Y": 1744.1208
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5755,
+              "Y": 0.969
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 1244.1965,
+            "RightMargin": 1266.8035,
+            "TopMargin": 25.8667,
+            "BottomMargin": 1725.1333,
+            "Tag": 141,
+            "ActionTag": -1467822118,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1_1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 823.0238,
+              "Y": 1763.5935
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3215,
+              "Y": 0.9798
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 593.9978,
+            "RightMargin": 1917.0022,
+            "TopMargin": 6.394,
+            "BottomMargin": 1744.606,
+            "Tag": 142,
+            "ActionTag": -307968625,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1_1_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 703.3412,
+              "Y": 1698.5771
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2747,
+              "Y": 0.9437
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 474.3152,
+            "RightMargin": 2036.6848,
+            "TopMargin": 71.4104,
+            "BottomMargin": 1679.5896,
+            "Tag": 143,
+            "ActionTag": 1385404665,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1_1_1_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/candy18.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 4.674,
+              "ScaleY": 0.3875
+            },
+            "Position": {
+              "X": 398.9628,
+              "Y": 1663.0275
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1558,
+              "Y": 0.9239
+            },
+            "PreSize": {
+              "X": 0.0191,
+              "Y": 0.0272
+            },
+            "LeftMargin": 169.9368,
+            "RightMargin": 2341.0632,
+            "TopMargin": 106.9601,
+            "BottomMargin": 1644.0399,
+            "Tag": 144,
+            "ActionTag": -801211572,
+            "Size": {
+              "X": 49.0,
+              "Y": 49.0
+            },
+            "Name": "candy18_10_1_1_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/targeta.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 501.0686,
+              "Y": 1157.9557
+            },
+            "Scale": {
+              "ScaleX": 1.0005,
+              "ScaleY": 1.0005
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1957,
+              "Y": 0.6433
+            },
+            "PreSize": {
+              "X": 0.1844,
+              "Y": 0.33
+            },
+            "LeftMargin": 265.0686,
+            "RightMargin": 1822.9314,
+            "TopMargin": 345.0443,
+            "BottomMargin": 860.9557,
+            "Tag": 27,
+            "ActionTag": -166082309,
+            "Size": {
+              "X": 472.0,
+              "Y": 594.0
+            },
+            "Name": "targeta",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/targetb.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1361.0642,
+              "Y": 1151.8911
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5317,
+              "Y": 0.6399
+            },
+            "PreSize": {
+              "X": 0.1891,
+              "Y": 0.3228
+            },
+            "LeftMargin": 1119.0642,
+            "RightMargin": 956.9358,
+            "TopMargin": 357.6089,
+            "BottomMargin": 861.3911,
+            "Tag": 28,
+            "ActionTag": -1196832947,
+            "Size": {
+              "X": 484.0,
+              "Y": 581.0
+            },
+            "Name": "targetb",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "pinatacream/targetc.png",
+              "Plist": "pinatacream/pinatacream.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2176.8269,
+              "Y": 1154.9026
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8503,
+              "Y": 0.6416
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3228
+            },
+            "LeftMargin": 1937.3269,
+            "RightMargin": 143.6731,
+            "TopMargin": 354.5974,
+            "BottomMargin": 864.4026,
+            "Tag": 29,
+            "ActionTag": -268109170,
+            "Size": {
+              "X": 479.0,
+              "Y": 581.0
+            },
+            "Name": "targetc",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "pinatacream.plist",
+        "pinatacream.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

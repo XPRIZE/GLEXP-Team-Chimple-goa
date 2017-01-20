@@ -1,0 +1,273 @@
+{
+  "ID": "0e9cb700-5e82-4594-8347-45d380e7e821",
+  "Version": "3.10.0.0",
+  "Name": "puff",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 66,
+        "Speed": 1.0,
+        "ActivedAnimationName": "puff",
+        "Timelines": [
+          {
+            "ActionTag": -1387867761,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff1.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff2.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 6,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff3.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 12,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff4.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 18,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff5.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 24,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff6.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff7.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 36,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff8.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 42,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff9.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 48,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff10.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 54,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff11.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "bunty_and_bubbly/puff12.png",
+                  "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+                },
+                "FrameIndex": 66,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1387867761,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "puff",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 66,
+          "Name": "puff",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 729,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/puff1.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -185.5,
+            "RightMargin": -185.5,
+            "TopMargin": -163.5,
+            "BottomMargin": -163.5,
+            "Tag": 730,
+            "FrameEvent": "puff",
+            "ActionTag": -1387867761,
+            "Size": {
+              "X": 371.0,
+              "Y": 327.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bunty_and_bubbly/touch.png",
+              "Plist": "bunty_and_bubbly/bunty_and_bubbly.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0005,
+              "Y": 4.1727
+            },
+            "Scale": {
+              "ScaleX": 0.9174,
+              "ScaleY": 0.8554
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -201.9995,
+            "RightMargin": -202.0005,
+            "TopMargin": -206.1727,
+            "BottomMargin": -197.8273,
+            "Tag": 62,
+            "ActionTag": -2060313989,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bunty_and_bubbly.plist",
+        "bunty_and_bubbly.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

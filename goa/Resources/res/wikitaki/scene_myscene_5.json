@@ -1,0 +1,169 @@
+{
+  "ID": "b2383825-28df-4b97-8586-775963b41c8d",
+  "Version": "3.10.0.0",
+  "Name": "scene5",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 23,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/scene_mybg5.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 904.1541,
+              "Y": 884.7792
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5023,
+              "Y": 0.4915
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 4.1541,
+            "RightMargin": -4.1541,
+            "TopMargin": 15.2208,
+            "BottomMargin": -15.2208,
+            "Tag": 24,
+            "ActionTag": -1090850655,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "bg5_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/shop1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1217.2324,
+              "Y": 1002.7175
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6762,
+              "Y": 0.5571
+            },
+            "PreSize": {
+              "X": 0.4328,
+              "Y": 0.5489
+            },
+            "LeftMargin": 827.7324,
+            "RightMargin": 193.2676,
+            "TopMargin": 303.2825,
+            "BottomMargin": 508.7175,
+            "Tag": 26,
+            "ActionTag": 1130459496,
+            "Size": {
+              "X": 779.0,
+              "Y": 988.0
+            },
+            "Name": "shop1_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/shop2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 464.7972,
+              "Y": 939.7712
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2582,
+              "Y": 0.5221
+            },
+            "PreSize": {
+              "X": 0.5306,
+              "Y": 0.6367
+            },
+            "LeftMargin": -12.7028,
+            "RightMargin": 857.7028,
+            "TopMargin": 287.2288,
+            "BottomMargin": 366.7712,
+            "Tag": 27,
+            "ActionTag": -1385647622,
+            "Size": {
+              "X": 955.0,
+              "Y": 1146.0
+            },
+            "Name": "shop2_4",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/scene_mybg5.png",
+        "bg/shop1.png",
+        "bg/shop2.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -1,0 +1,305 @@
+{
+  "ID": "84114acd-ebbf-4973-8965-344adaa7d85a",
+  "Version": "2.3.4",
+  "Name": "foreground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 156,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/bus.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 829.6279,
+              "Y": 682.8615
+            },
+            "Scale": {
+              "ScaleX": 0.6446,
+              "ScaleY": 0.6446
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3241,
+              "Y": 0.3794
+            },
+            "PreSize": {
+              "X": 0.4504,
+              "Y": 0.2122
+            },
+            "LeftMargin": 253.1279,
+            "RightMargin": 1153.8721,
+            "TopMargin": 926.1385,
+            "BottomMargin": 491.8615,
+            "Tag": 340,
+            "ActionTag": 1618421607,
+            "Size": {
+              "X": 1153.0,
+              "Y": 382.0
+            },
+            "Name": "bus_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/car.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3578.3987,
+              "Y": 570.6207
+            },
+            "Scale": {
+              "ScaleX": 0.5198,
+              "ScaleY": 0.5198
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3978,
+              "Y": 0.317
+            },
+            "PreSize": {
+              "X": 0.3984,
+              "Y": 0.3011
+            },
+            "LeftMargin": 3068.3987,
+            "RightMargin": -1528.3987,
+            "TopMargin": 958.3793,
+            "BottomMargin": 299.6207,
+            "Tag": 341,
+            "ActionTag": 986483389,
+            "Size": {
+              "X": 1020.0,
+              "Y": 542.0
+            },
+            "Name": "car_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/bus.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9174.5029,
+              "Y": 684.4873
+            },
+            "Scale": {
+              "ScaleX": 0.6531,
+              "ScaleY": 0.6531
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.5838,
+              "Y": 0.3803
+            },
+            "PreSize": {
+              "X": 0.4504,
+              "Y": 0.2122
+            },
+            "LeftMargin": 8598.0029,
+            "RightMargin": -7191.0029,
+            "TopMargin": 924.5127,
+            "BottomMargin": 493.4873,
+            "Tag": 398,
+            "ActionTag": -307138885,
+            "Size": {
+              "X": 1153.0,
+              "Y": 382.0
+            },
+            "Name": "bus_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/auto.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6227.3232,
+              "Y": 591.3466
+            },
+            "Scale": {
+              "ScaleX": 0.5556,
+              "ScaleY": 0.5556
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4325,
+              "Y": 0.3285
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.28
+            },
+            "LeftMargin": 5822.3232,
+            "RightMargin": -4072.3232,
+            "TopMargin": 956.6534,
+            "BottomMargin": 339.3466,
+            "Tag": 489,
+            "ActionTag": 1375329195,
+            "Size": {
+              "X": 810.0,
+              "Y": 504.0
+            },
+            "Name": "auto_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/bus.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 16265.7607,
+              "Y": 684.4915
+            },
+            "Scale": {
+              "ScaleX": 0.6531,
+              "ScaleY": 0.6531
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 6.3538,
+              "Y": 0.3803
+            },
+            "PreSize": {
+              "X": 0.4504,
+              "Y": 0.2122
+            },
+            "LeftMargin": 15689.2607,
+            "RightMargin": -14282.2617,
+            "TopMargin": 924.5085,
+            "BottomMargin": 493.4915,
+            "Tag": 370,
+            "ActionTag": 829612802,
+            "Size": {
+              "X": 1153.0,
+              "Y": 382.0
+            },
+            "Name": "bus_5_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owllevel/auto.png",
+              "Plist": "owllevel/owllevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13003.3047,
+              "Y": 699.7606
+            },
+            "Scale": {
+              "ScaleX": 0.5556,
+              "ScaleY": 0.5556
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.0794,
+              "Y": 0.3888
+            },
+            "PreSize": {
+              "X": 0.3164,
+              "Y": 0.28
+            },
+            "LeftMargin": 12598.3047,
+            "RightMargin": -10848.3047,
+            "TopMargin": 848.2394,
+            "BottomMargin": 447.7606,
+            "Tag": 371,
+            "ActionTag": 73631149,
+            "Size": {
+              "X": 810.0,
+              "Y": 504.0
+            },
+            "Name": "auto_15_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "owllevel.plist",
+        "owllevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

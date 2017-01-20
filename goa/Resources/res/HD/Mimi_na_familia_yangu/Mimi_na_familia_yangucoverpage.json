@@ -1,0 +1,1485 @@
+{
+  "ID": "f08e96da-6d5e-4dd5-b207-1c5f604dfa64",
+  "Version": "3.10.0.0",
+  "Name": "Mimi_na_familia_yangucoverpage",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": -167085484,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -167085484,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 658.0635,
+                "Y": 256.8879,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -990604394,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "eat",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1657915301,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1657915301,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1717.655,
+                "Y": 298.1779,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1735005356,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -526895044,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1660.4268,
+                "Y": 756.7593,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 13131,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 187,
+              "G": 217,
+              "B": 249
+            },
+            "FirstColor": {
+              "R": 213,
+              "G": 105,
+              "B": 215
+            },
+            "EndColor": {
+              "R": 185,
+              "G": 70,
+              "B": 234
+            },
+            "ColorVector": {
+              "ScaleX": 0.0,
+              "ScaleY": -1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1289.9955,
+              "Y": 1049.9971
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.8333
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5039,
+              "Y": 0.5833
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -710.0045,
+            "RightMargin": -729.9956,
+            "TopMargin": -149.9971,
+            "BottomMargin": 149.9971,
+            "Tag": 13632,
+            "ActionTag": 282124458,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 127,
+              "G": 224,
+              "B": 73
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1294.6128,
+              "Y": 165.3281
+            },
+            "Scale": {
+              "ScaleX": 1.035,
+              "ScaleY": 0.3412
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5057,
+              "Y": 0.0918
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -705.3872,
+            "RightMargin": -734.6128,
+            "TopMargin": 734.6719,
+            "BottomMargin": -734.6719,
+            "Tag": 13631,
+            "ActionTag": -882181662,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0_1_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 108,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 213,
+              "G": 131,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2594.594,
+              "Y": 849.9561
+            },
+            "Scale": {
+              "ScaleX": -0.3027,
+              "ScaleY": 0.0828
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0135,
+              "Y": 0.4722
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": 594.594,
+            "RightMargin": -2034.5938,
+            "TopMargin": 50.0439,
+            "BottomMargin": -50.0439,
+            "Tag": 13614,
+            "ActionTag": 1224367427,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0_0_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 108,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 213,
+              "G": 131,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2305.4714,
+              "Y": 979.9585
+            },
+            "Scale": {
+              "ScaleX": -0.3027,
+              "ScaleY": 0.0828
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9006,
+              "Y": 0.5444
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": 305.4714,
+            "RightMargin": -1745.4717,
+            "TopMargin": -79.9585,
+            "BottomMargin": 79.9585,
+            "Tag": 13615,
+            "ActionTag": -455474115,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 108,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 213,
+              "G": 131,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 749.9802,
+              "Y": 1599.973
+            },
+            "Scale": {
+              "ScaleX": 0.305,
+              "ScaleY": 0.0939
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.293,
+              "Y": 0.8889
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -1250.0198,
+            "RightMargin": -189.9802,
+            "TopMargin": -699.9731,
+            "BottomMargin": 699.973,
+            "Tag": 13616,
+            "ActionTag": 893257615,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 108,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 213,
+              "G": 131,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2164.5725,
+              "Y": 1735.4944
+            },
+            "Scale": {
+              "ScaleX": -0.3027,
+              "ScaleY": 0.0717
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8455,
+              "Y": 0.9642
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": 164.5725,
+            "RightMargin": -1604.5723,
+            "TopMargin": -835.4944,
+            "BottomMargin": 835.4944,
+            "Tag": 13617,
+            "ActionTag": 1919964805,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 108,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 213,
+              "G": 131,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 725.4546,
+              "Y": 1189.9589
+            },
+            "Scale": {
+              "ScaleX": -0.3027,
+              "ScaleY": 0.0828
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2834,
+              "Y": 0.6611
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -1274.5454,
+            "RightMargin": -165.4546,
+            "TopMargin": -289.959,
+            "BottomMargin": 289.9589,
+            "Tag": 13618,
+            "ActionTag": -1532999490,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 108,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 213,
+              "G": 131,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2069.9883,
+              "Y": 1339.9504
+            },
+            "Scale": {
+              "ScaleX": 0.305,
+              "ScaleY": 0.0939
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8086,
+              "Y": 0.7444
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": 69.9883,
+            "RightMargin": -1509.9883,
+            "TopMargin": -439.9504,
+            "BottomMargin": 439.9504,
+            "Tag": 13619,
+            "ActionTag": -2051634838,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 108,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 213,
+              "G": 131,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 220.0168,
+              "Y": 1725.485
+            },
+            "Scale": {
+              "ScaleX": 0.305,
+              "ScaleY": 0.0828
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0859,
+              "Y": 0.9586
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -1779.9832,
+            "RightMargin": 339.9832,
+            "TopMargin": -825.4849,
+            "BottomMargin": 825.485,
+            "Tag": 13620,
+            "ActionTag": -1110594006,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 108,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 213,
+              "G": 131,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2409.9756,
+              "Y": 1495.4923
+            },
+            "Scale": {
+              "ScaleX": 0.305,
+              "ScaleY": 0.0828
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9414,
+              "Y": 0.8308
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": 409.9756,
+            "RightMargin": -1849.9756,
+            "TopMargin": -595.4922,
+            "BottomMargin": 595.4923,
+            "Tag": 13621,
+            "ActionTag": 1084218353,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0_1_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 108,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 213,
+              "G": 131,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 200.0173,
+              "Y": 1089.9535
+            },
+            "Scale": {
+              "ScaleX": 0.305,
+              "ScaleY": 0.0828
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0781,
+              "Y": 0.6055
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -1799.9827,
+            "RightMargin": 359.9827,
+            "TopMargin": -189.9535,
+            "BottomMargin": 189.9535,
+            "Tag": 13622,
+            "ActionTag": 665090547,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0_1_4",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 108,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 213,
+              "G": 131,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 184,
+              "G": 225,
+              "B": 80
+            },
+            "EndColor": {
+              "R": 162,
+              "G": 222,
+              "B": 62
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 605.4341,
+              "Y": 979.9553
+            },
+            "Scale": {
+              "ScaleX": -0.3027,
+              "ScaleY": 0.0828
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2365,
+              "Y": 0.5444
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -1394.5659,
+            "RightMargin": -45.4341,
+            "TopMargin": -79.9553,
+            "BottomMargin": 79.9553,
+            "Tag": 13623,
+            "ActionTag": 711295289,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0_0_0_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4315,
+              "ScaleY": 0.4086
+            },
+            "Position": {
+              "X": 300.0,
+              "Y": 280.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 183,
+              "G": 219,
+              "B": 83
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1172,
+              "Y": 0.1556
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 153.29,
+            "RightMargin": 2066.71,
+            "TopMargin": 1450.2148,
+            "BottomMargin": 231.7852,
+            "Tag": 13624,
+            "ActionTag": 599364656,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "Miminafamiliayangu_grass_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1222.2438,
+              "Y": 267.9963
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 183,
+              "G": 219,
+              "B": 83
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4774,
+              "Y": 0.1489
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 1052.2438,
+            "RightMargin": 1167.7562,
+            "TopMargin": 1473.0037,
+            "BottomMargin": 208.9963,
+            "Tag": 13625,
+            "ActionTag": -662740867,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "Miminafamiliayangu_grass_11_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2047.3328,
+              "Y": 400.3269
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 183,
+              "G": 219,
+              "B": 83
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7997,
+              "Y": 0.2224
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 1877.3328,
+            "RightMargin": 342.6672,
+            "TopMargin": 1340.6731,
+            "BottomMargin": 341.3269,
+            "Tag": 13626,
+            "ActionTag": -142291534,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "Miminafamiliayangu_grass_11_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2315.5503,
+              "Y": 216.3323
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 183,
+              "G": 219,
+              "B": 83
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9045,
+              "Y": 0.1202
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 2145.5503,
+            "RightMargin": 74.4497,
+            "TopMargin": 1524.6677,
+            "BottomMargin": 157.3323,
+            "Tag": 13627,
+            "ActionTag": 1052436075,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "Miminafamiliayangu_grass_11_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1688.7192,
+              "Y": 59.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 183,
+              "G": 219,
+              "B": 83
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6597,
+              "Y": 0.0328
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 1518.7192,
+            "RightMargin": 701.2808,
+            "TopMargin": 1682.0,
+            "Tag": 13628,
+            "ActionTag": 1060820553,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "Miminafamiliayangu_grass_11_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 555.7977,
+              "Y": 59.0001
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 183,
+              "G": 219,
+              "B": 83
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2171,
+              "Y": 0.0328
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 385.7977,
+            "RightMargin": 1834.2023,
+            "TopMargin": 1681.9999,
+            "BottomMargin": 0.0001,
+            "Tag": 13629,
+            "ActionTag": 1771473111,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "Miminafamiliayangu_grass_11_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mimi_na_familia_yangu/Miminafamiliayangu_grass.png",
+              "Plist": "Mimi_na_familia_yangu/Mimi_na_familia_yangu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 728.2371,
+              "Y": 474.8744
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 183,
+              "G": 219,
+              "B": 83
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2845,
+              "Y": 0.2638
+            },
+            "PreSize": {
+              "X": 0.1328,
+              "Y": 0.0656
+            },
+            "LeftMargin": 558.2371,
+            "RightMargin": 1661.7629,
+            "TopMargin": 1266.1256,
+            "BottomMargin": 415.8744,
+            "Tag": 13630,
+            "ActionTag": -1762604197,
+            "Size": {
+              "X": 340.0,
+              "Y": 118.0
+            },
+            "Name": "Miminafamiliayangu_grass_11_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/animal_animation.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 658.0635,
+              "Y": 256.8879
+            },
+            "Scale": {
+              "ScaleX": 0.5291,
+              "ScaleY": 0.5291
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2571,
+              "Y": 0.1427
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 658.0635,
+            "RightMargin": 1901.9365,
+            "TopMargin": 1543.1121,
+            "BottomMargin": 256.8879,
+            "Tag": 13340,
+            "ActionTag": -167085484,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_4",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/gorilla.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1289.9528,
+              "Y": 559.2617
+            },
+            "Scale": {
+              "ScaleX": 0.7309,
+              "ScaleY": 0.7309
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5039,
+              "Y": 0.3107
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1289.9528,
+            "RightMargin": 1270.0472,
+            "TopMargin": 1240.7383,
+            "BottomMargin": 559.2617,
+            "Tag": 13336,
+            "ActionTag": -990604394,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_5",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/turtle.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1717.655,
+              "Y": 298.1779
+            },
+            "Scale": {
+              "ScaleX": -0.5071,
+              "ScaleY": 0.5071
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.671,
+              "Y": 0.1657
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1717.655,
+            "RightMargin": 842.345,
+            "TopMargin": 1501.8221,
+            "BottomMargin": 298.1779,
+            "Tag": 13328,
+            "ActionTag": 1657915301,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_6",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/snake.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1949.9885,
+              "Y": 175.6581
+            },
+            "Scale": {
+              "ScaleX": 0.4316,
+              "ScaleY": 0.4316
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7617,
+              "Y": 0.0976
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1949.9885,
+            "RightMargin": 610.0115,
+            "TopMargin": 1624.3419,
+            "BottomMargin": 175.6581,
+            "Tag": 13317,
+            "ActionTag": -1586673600,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_7",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/chimpanzee.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 897.1696,
+              "Y": 86.6199
+            },
+            "Scale": {
+              "ScaleX": 0.3273,
+              "ScaleY": 0.3273
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3505,
+              "Y": 0.0481
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 897.1696,
+            "RightMargin": 1662.8304,
+            "TopMargin": 1713.3801,
+            "BottomMargin": 86.6199,
+            "Tag": 13281,
+            "ActionTag": -477813210,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_3",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1248.7526,
+              "Y": 46.6177
+            },
+            "Scale": {
+              "ScaleX": 0.4316,
+              "ScaleY": 0.4316
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4878,
+              "Y": 0.0259
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1248.7526,
+            "RightMargin": 1311.2474,
+            "TopMargin": 1753.3823,
+            "BottomMargin": 46.6177,
+            "Tag": 13235,
+            "ActionTag": 1735005356,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mimi_na_familia_yangu/bird.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1660.4268,
+              "Y": 756.7593
+            },
+            "Scale": {
+              "ScaleX": 0.1703,
+              "ScaleY": 0.1703
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6486,
+              "Y": 0.4204
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1660.4268,
+            "RightMargin": 899.5732,
+            "TopMargin": 1043.2407,
+            "BottomMargin": 756.7593,
+            "Tag": 13132,
+            "ActionTag": -526895044,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_2",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "animal_animation.json",
+        "bird.json",
+        "boy.json",
+        "chimpanzee.json",
+        "gorilla.json",
+        "Mimi_na_familia_yangu.plist",
+        "Mimi_na_familia_yangu.png",
+        "snake.json",
+        "turtle.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

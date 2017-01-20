@@ -1,0 +1,4400 @@
+{
+    "baseSkin": {
+        "body": "body_male"
+    },    
+    "skinChoices": [
+        {
+            "name": "shirt",
+            "cIcon": "icons/shirt_onclick.png",
+            "icon": "icons/shirt.png",
+            "items": [
+                {
+                    "icon": "human/shirts/Housewife_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "arm_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "arm_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "housewife_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/austronaut_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "astronaut_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "astronaut_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "astronaut_shirt_sleave_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "astronaut_coat_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "astronaut_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/barber_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "barber_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "barber_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "barber_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "barber_coat",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/boss_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "boss_coat_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "boss_coat_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "boss_coat_sleave_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "boss_coat_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "boss_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "boss_coat",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/captain_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "captain_coat_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "captain_coat_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "captain_shirt_sleave_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "captain_coat_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "captain_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/chef_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "chef_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "chef_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "chef_shirt_sleave_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "chef_shirt_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "chef_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/conductor_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "conductor_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "conductor_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "conductor_shirt_sleave_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "conductor_shirt_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "conductor_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "conductor_coat",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/cowboy_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "cowboy_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "cowboy_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "cowboy_shirt_sleave_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "cowboy_shirt_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "cowboy_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/cricketer_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "cricketer_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "cricketer_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "cricketer_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/designer_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "designer_coat_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "designer_coat_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "designer_coat_sleave_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "designer_coat_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "designer_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "designer_coat",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/doctor_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "doctor_coat_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "doctor_coat_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "doctor_coat_sleave_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "doctor_coat_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "doctor_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "doctor_coat",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/employe_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "employe_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "employe_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "employe_coat_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "employe_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/engineer_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "engineer_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "engineer_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "engineer_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "engineer_coat",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/farmer_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "farmer_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "farmer_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "farmer_shirt_sleave_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "farmer_shirt_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "farmer_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/fireman_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "fireman_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "fireman_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "fireman_shirt_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "fireman_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/footballer_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "arm_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "footballer_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "footballer_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/lawyer_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "lawyer_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "lawyer_coat_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "lawyer_coat_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "lawyer_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "lawyer_coat",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/motu_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "motu_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "motu_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "motu_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/musician_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "arm_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "arm_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "musician_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/nurs_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "nurse_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "nurse_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "nurse_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/painter_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "painter_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "painter_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "painter_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/photographer_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "photographer_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "photographer_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "photographer_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "photographer_coat",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/police_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "police_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "police_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "police_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/priest_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "priest_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "priest_coat_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "priest_shirt_sleave_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "priest_coat_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "priest_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/scientist_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "scientist_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "scientist_coat_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "scientist_coat_sleave_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "scientist_coat_sleave_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "scientist_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "scientist_coat",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/singer_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "singer_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "singer_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "singer_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "singer_coat",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/soccer_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "soccer_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "soccer_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "soccer_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/soldier_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "soldier_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "soldier_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "soldier_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/teacher_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "teacher_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "teacher_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "teacher_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "teacher_coat",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shirts/watchman_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "watchman_shirt_sleave_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "watchman_shirt_sleave_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "watchman_shirt",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "icons/none.png",
+                    "skins": [
+                        {
+                            "skin": "arm_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "arm_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "body",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "hand_accessories",
+            "cIcon": "icons/hand_access_onclick.png",
+            "icon": "icons/hand_access.png",
+            "items": [
+                {
+                    "icon": "human/hand gear/tattoo_tribal_upper.png",
+                    "skins": [
+                        {
+                            "skin": "tattoo_tribal_upper",
+                            "bone": "arm_upper_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/tattoo_skull.png",
+                    "skins": [
+                        {
+                            "skin": "tattoo_skull",
+                            "bone": "arm_upper_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/tattoo_chain_lower.png",
+                    "skins": [
+                        {
+                            "skin": "tattoo_chain_lower",
+                            "bone": "arm_upper_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/biceps_yellow.png",
+                    "skins": [
+                        {
+                            "skin": "biceps_yellow",
+                            "bone": "arm_upper_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/biceps_red.png",
+                    "skins": [
+                        {
+                            "skin": "biceps_red",
+                            "bone": "arm_upper_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/biceps_navyblue.png",
+                    "skins": [
+                        {
+                            "skin": "biceps_navyblue",
+                            "bone": "arm_upper_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/biceps_green.png",
+                    "skins": [
+                        {
+                            "skin": "biceps_green",
+                            "bone": "arm_upper_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/biceps_blue.png",
+                    "skins": [
+                        {
+                            "skin": "biceps_blue",
+                            "bone": "arm_upper_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/musician_tattoo.png",
+                    "skins": [
+                        {
+                            "skin": "musician_tattoo",
+                            "bone": "arm_upper_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/wristband_blue.png",
+                    "skins": [
+                        {
+                            "skin": "wristband_blue",
+                            "bone": "arm_lower_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/wristband_green.png",
+                    "skins": [
+                        {
+                            "skin": "wristband_green",
+                            "bone": "arm_lower_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/wristband_navyblue.png",
+                    "skins": [
+                        {
+                            "skin": "wristband_navyblue",
+                            "bone": "arm_lower_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/wristband_red.png",
+                    "skins": [
+                        {
+                            "skin": "wristband_red",
+                            "bone": "arm_lower_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/wristband_yellow.png",
+                    "skins": [
+                        {
+                            "skin": "wristband_yellow",
+                            "bone": "arm_lower_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/watch_casual.png",
+                    "skins": [
+                        {
+                            "skin": "watch_casual",
+                            "bone": "arm_lower_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/watch_gold.png",
+                    "skins": [
+                        {
+                            "skin": "watch_gold",
+                            "bone": "arm_lower_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/watch_pink.png",
+                    "skins": [
+                        {
+                            "skin": "watch_pink",
+                            "bone": "arm_lower_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/watch_steel.png",
+                    "skins": [
+                        {
+                            "skin": "watch_steel",
+                            "bone": "arm_lower_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/tattoo_tribal_lower.png",
+                    "skins": [
+                        {
+                            "skin": "tattoo_tribal_lower",
+                            "bone": "arm_lower_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hand gear/tattoo_chain_lower.png",
+                    "skins": [
+                        {
+                            "skin": "tattoo_chain_lower",
+                            "bone": "arm_lower_accessories_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "icons/none.png",
+                    "skins": [
+                        {
+                            "skin": "arm_lower_accessories_left",
+                            "bone": "arm_lower_accessories_left"
+                        },
+                         {
+                            "skin": "arm_lower_accessories_right",
+                            "bone": "arm_lower_accessories_right"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "hair",
+            "cIcon": "icons/hair_style_2_onclick.png",
+            "icon": "icons/hair_style_2.png",
+            "items": [
+                {
+                    "icon": "human/hair_thumbnail/hair_businessman_cut_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "hair_Business_man_cut",
+                            "bone": "hair"
+                        },
+                        {
+                            "skin": "hair_back",
+                            "bone": "hair_back"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hair_thumbnail/hair_highandtighttwo_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "hair_high_and_tight_two",
+                            "bone": "hair"
+                        },
+                        {
+                            "skin": "hair_back",
+                            "bone": "hair_back"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hair_thumbnail/hair_curtained_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "hair_curtained_hair",
+                            "bone": "hair"
+                        },
+                        {
+                            "skin": "hair_back",
+                            "bone": "hair_back"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hair_thumbnail/hair_highandtight_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "hair_high_and_tight",
+                            "bone": "hair"
+                        },
+                        {
+                            "skin": "hair_back",
+                            "bone": "hair_back"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hair_thumbnail/hair_mohawk_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "hair_mohawk",
+                            "bone": "hair"
+                        },
+                        {
+                            "skin": "hair_back",
+                            "bone": "hair_back"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hair_thumbnail/hair_curl_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "hair_curl",
+                            "bone": "hair"
+                        },
+                        {
+                            "skin": "hair_back",
+                            "bone": "hair_back"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hair_thumbnail/hair_bun_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "hair_bun",
+                            "bone": "hair"
+                        },
+                        {
+                            "skin": "hair_back",
+                            "bone": "hair_back"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hair_thumbnail/hair_femalelong_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "hair_female_front",
+                            "bone": "hair"
+                        },
+                        {
+                            "skin": "hair_female_back_long",
+                            "bone": "hair_back"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/hair_thumbnail/hair_burr_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "hair_burr",
+                            "bone": "hair"
+                        },
+                        {
+                            "skin": "hair_back",
+                            "bone": "hair_back"
+                        }
+                    ]
+                },
+                {
+                    "icon": "icons/none.png",
+                    "skins": [
+                        {
+                            "skin": "hair",
+                            "bone": "hair"
+                        },
+                        {
+                            "skin": "hair_back",
+                            "bone": "hair_back"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "beard_and_mustache",
+            "cIcon": "icons/beard_onclick.png",
+            "icon": "icons/beard.png",
+            "items": [
+                {
+                    "icon": "human/beard and mustache/beard_baba_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "beard_baba",
+                            "bone": "beard_n_mustache"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/beard and mustache/beard_soulpatch_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "beard_soalpatch",
+                            "bone": "beard_n_mustache"
+                        }
+                     ]
+                },
+                {
+                    "icon": "human/beard and mustache/beard_chinstrap_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "beard_chin_strap",
+                            "bone": "beard_n_mustache"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/beard and mustache/beard_french_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "beard_french",
+                            "bone": "beard_n_mustache"
+                        }
+                     ]
+                },
+                {
+                    "icon": "human/beard and mustache/beard_goatee_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "beard_goatee",
+                            "bone": "beard_n_mustache"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/beard and mustache/beard_motu_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "beard_motu",
+                            "bone": "beard_n_mustache"
+                        }
+                     ]
+                },
+                {
+                    "icon": "human/beard and mustache/beard_trimmed_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "beard_trimmed",
+                            "bone": "beard_n_mustache"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/beard and mustache/beard_moustache_barber_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "moustache_barber",
+                            "bone": "beard_n_mustache"
+                        }
+                     ]
+                },
+                {
+                    "icon": "human/beard and mustache/beard_chinese_moustche_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "moustche_chinese",
+                            "bone": "beard_n_mustache"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/beard and mustache/beard_muttonchops_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "mutton_chops",
+                            "bone": "beard_n_mustache"
+                        }
+                     ]
+                },
+                {
+                    "icon": "icons/none.png",
+                    "skins": [
+                        {
+                            "skin": "beard_n_mustache",
+                            "bone": "beard_n_mustache"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "goggles",
+            "cIcon": "icons/glasses_onclick.png",
+            "icon": "icons/glasses.png",
+            "items": [
+                 {
+                    "icon": "human/goggles/scientist_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "scientist_goggles",
+                            "bone": "goggles"
+                        }
+                    ]
+                },
+                 {
+                    "icon": "human/goggles/3d_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "3d_goggles",
+                            "bone": "goggles"
+                        }
+                    ]
+                },
+                 {
+                    "icon": "human/goggles/aviator_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "aviator_goggles",
+                            "bone": "goggles"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/eye_patch.png",
+                    "skins": [
+                        {
+                            "skin": "eye_patch",
+                            "bone": "goggles"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/frameless_sunglasses.png",
+                    "skins": [
+                        {
+                            "skin": "frameless_sunglasses",
+                            "bone": "goggles"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/half_frame_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "half_frame_goggles",
+                            "bone": "goggles"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/rectangle_frame_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "rectangle_frame_goggles",
+                            "bone": "goggles"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/square_frame_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "square_frame_goggles",
+                            "bone": "goggles"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/goggles/x_sports_goggles.png",
+                    "skins": [
+                        {
+                            "skin": "x_sports_goggles",
+                            "bone": "goggles"
+                        }
+                    ]
+                },
+                {
+                    "icon": "costume/painter/painter_shirt.png",
+                    "skins": [
+                        {
+                            "skin": "round_framed_specks",
+                            "bone": "goggles"
+                        }
+                    ]
+                },
+                {
+                    "icon": "icons/none.png",
+                    "skins": [
+                        {
+                            "skin": "goggles",
+                            "bone": "goggles"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "eyes",
+            "cIcon": "icons/eyes_onclick.png",
+            "icon": "icons/eyes.png",
+            "items": [
+                 {
+                    "icon": "human/eyecolor/boygreen.png",
+                    "skins": [
+                        {
+                            "skin": "eye_green_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_green_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/boydarkbrown.png",
+                    "skins": [
+                        {
+                            "skin": "eye_darkbrown_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_darkbrown_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/boyhazelgreen.png",
+                    "skins": [
+                        {
+                            "skin": "eye_hazelgreen_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_hazelgreen_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/boylightblue.png",
+                    "skins": [
+                        {
+                            "skin": "eye_lightblue_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_lightblue_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/boylightbrown.png",
+                    "skins": [
+                        {
+                            "skin": "eye_lightbrown_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_lightbrown_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/boynavyblue.png",
+                    "skins": [
+                        {
+                            "skin": "eye_navyblue_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_navyblue_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/boypink.png",
+                    "skins": [
+                        {
+                            "skin": "eye_pink_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_pink_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/boypurple.png",
+                    "skins": [
+                        {
+                            "skin": "eye_purple_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_purple_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_boy_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_boy_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_boy_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_boy_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/girlgreen.png",
+                    "skins": [
+                        {
+                            "skin": "eye_green_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_green_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/girldarkbrown.png",
+                    "skins": [
+                        {
+                            "skin": "eye_darkbrown_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_darkbrown_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/girlhazelgreen.png",
+                    "skins": [
+                        {
+                            "skin": "eye_hazelgreen_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_hazelgreen_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/girllightblue.png",
+                    "skins": [
+                        {
+                            "skin": "eye_lightblue_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_lightblue_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/girllightbrown.png",
+                    "skins": [
+                        {
+                            "skin": "eye_lightbrown_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_lightbrown_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/girlnavyblue.png",
+                    "skins": [
+                        {
+                            "skin": "eye_navyblue_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_navyblue_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/girlpink.png",
+                    "skins": [
+                        {
+                            "skin": "eye_pink_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_pink_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/eyecolor/girlpurple.png",
+                    "skins": [
+                        {
+                            "skin": "eye_purple_right",
+                            "bone": "eye_inner_right"
+                        },
+                         {
+                            "skin": "eye_purple_left",
+                            "bone": "eye_inner_left"
+                        },
+                        {
+                            "skin": "eye_girl_outer_right",
+                            "bone": "eye_outer_right"
+                        },
+                         {
+                            "skin": "eye_girl_outer_left",
+                            "bone": "eye_outer_left"
+                        },
+                        {
+                            "skin": "eyebrow_girl_right",
+                            "bone": "eyebrow_right"
+                        },
+                         {
+                            "skin": "eyebrow_girl_left",
+                            "bone": "eyebrow_left"
+                        }
+                    ]
+                }                
+            ]
+        },
+        {
+           "name": "neck_accessories",
+           "cIcon": "icons/scarf_onclick.png",
+           "icon": "icons/scarf.png",
+           "items": [
+               {
+                   "icon": "human/neck gear/bowtie_thumbnail.png",
+                   "skins": [
+                       {
+                           "skin": "barber_tie",
+                           "bone": "neck_accessories"
+                       }
+                   ]
+               },
+              {
+                   "icon": "human/neck gear/camera_neck.png",
+                   "skins": [
+                       {
+                           "skin": "camera_neck",
+                           "bone": "neck_accessories"
+                       }
+                   ]
+               },
+               {
+                   "icon": "human/neck gear/scarf_thumbnails.png",
+                   "skins": [
+                       {
+                           "skin": "cowboy_scarf",
+                           "bone": "neck_accessories"
+                       }
+                   ]
+               },
+               {
+                   "icon": "human/neck gear/diamond_neck.png",
+                   "skins": [
+                       {
+                           "skin": "diamond_neck",
+                           "bone": "neck_accessories"
+                       }
+                   ]
+               },
+               {
+                   "icon": "human/neck gear/lawyernecktie_thumbnails.png",
+                   "skins": [
+                       {
+                           "skin": "lawyer_tie",
+                           "bone": "neck_accessories"
+                       }
+                   ]
+               },
+               {
+                   "icon": "human/neck gear/neckless_neck.png",
+                   "skins": [
+                       {
+                           "skin": "neckless_neck",
+                           "bone": "neck_accessories"
+                       }
+                   ]
+               },
+               {
+                   "icon": "human/neck gear/pearl_neck.png",
+                   "skins": [
+                       {
+                           "skin": "pearl_neck",
+                           "bone": "neck_accessories"
+                       }
+                   ]
+               },
+               {
+                   "icon": "human/neck gear/pendant_neck.png",
+                   "skins": [
+                       {
+                           "skin": "pendant_neck",
+                           "bone": "neck_accessories"
+                       }
+                   ]
+               },
+               {
+                   "icon": "human/neck gear/holyscarf_thumbnails.png",
+                   "skins": [
+                       {
+                           "skin": "Priest_scarf",
+                           "bone": "neck_accessories"
+                       }
+                   ]
+               },
+               {
+                   "icon": "human/neck gear/stethoscope_neck.png",
+                   "skins": [
+                       {
+                           "skin": "stethoscope",
+                           "bone": "neck_accessories"
+                       }
+                   ]
+               },
+               {
+                    "icon": "icons/none.png",
+                    "skins": [
+                        {
+                            "skin": "neck_accessories",
+                            "bone": "neck_accessories"
+                        }
+                    ]
+                }
+           ]              
+        },                  
+        {
+            "name": "hat",
+            "cIcon": "icons/hat_onclick.png",
+            "icon": "icons/hat.png",
+            "items": [
+                {
+                    "icon": "human/head gear/painter_cap.png",
+                    "skins": [
+                        {
+                            "skin": "painter_cap",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/head gear/side_cap.png",
+                    "skins": [
+                        {
+                            "skin": "side_cap",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/top_hat.png",
+                    "skins": [
+                        {
+                            "skin": "top_hat",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/astronaut_helmet.png",
+                    "skins": [
+                        {
+                            "skin": "astronaut_helmet",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/captain_cap.png",
+                    "skins": [
+                        {
+                            "skin": "captain_cap",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/farmer_hat.png",
+                    "skins": [
+                        {
+                            "skin": "farmer_hat",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/chef_hat.png",
+                    "skins": [
+                        {
+                            "skin": "chef_hat",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/cowboy_hat.png",
+                    "skins": [
+                        {
+                            "skin": "cowboy_hat",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/cricket_helmet.png",
+                    "skins": [
+                        {
+                            "skin": "cricket_helmet",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/engineer_helmet.png",
+                    "skins": [
+                        {
+                            "skin": "engineer_helmet",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/fireman_hat.png",
+                    "skins": [
+                        {
+                            "skin": "fireman_hat",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/football_helmet.png",
+                    "skins": [
+                        {
+                            "skin": "football_helmet",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/police_cap.png",
+                    "skins": [
+                        {
+                            "skin": "police_cap",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/soldier_cap-02.png",
+                    "skins": [
+                        {
+                            "skin": "soldier_cap",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/watchman_cap.png",
+                    "skins": [
+                        {
+                            "skin": "watchman_cap",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/barber_cap.png",
+                    "skins": [
+                        {
+                            "skin": "barber_cap",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "human/head gear/housewife_turban.png",
+                    "skins": [
+                        {
+                            "skin": "housewife_turban",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                    
+                },
+                {
+                    "icon": "icons/none.png",
+                    "skins": [
+                        {
+                            "skin": "head_accessories",
+                            "bone": "head_accessories"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "shoes",
+            "cIcon": "icons/shoes_onclick.png",
+            "icon": "icons/shoes.png",
+            "items": [
+                {
+                    "icon": "human/shoes/motu_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "motu_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "motu_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/painter_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "painter_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "painter_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/doctor_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "doctor_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "doctor_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/farmer_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "farmer_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "farmer_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/photographer_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "photographer_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "photographer_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/police_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "police_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "police_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/scientist_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "scientist_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "scientist_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/singer_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "singer_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "singer_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/soccer_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "soccer_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "soccer_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                         {
+                            "skin": "soccer_socks_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "soccer_socks_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/soldier_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "soldier_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "solidier_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/watchman_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "watchman_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "watchman_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/austronaut_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "astronaut_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "astronaut_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/barber_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "barber_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "barber_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/boss_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "boss_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "boss_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/captain_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "captain_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "captain_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/chef_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "chef_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "chef_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/conductor_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "conductor_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "conductor_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/cowboy_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "cowboy_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "cowboy_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "cowboy_shoe_upper_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "cowboy_shoe_upper_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/cricketer_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "cricketer_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "cricketer_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "cricketer_shinguard_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "cricketer_shinguard_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/designer_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "designer_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "designer_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/employe_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "employe_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "employe_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/priest_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "engineer_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "engineer_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/fireman_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "fireman_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "fireman_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "fireman_shoe_upper_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "fireman_shoe_upper_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/lawyer_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "lawyer_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "lawyer_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/musician_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "musician_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "musician_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/nurs_shoe.png",
+                    "skins": [
+                        {
+                            "skin": "nurse_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "nurse_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/footballer_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "footballer_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "footballer_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "footballer_socks_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "footballer_socks_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/teacher_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "teacher_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "teacher_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/shoes/priest_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "priest_shoe_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "priest_shoe_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                },
+                {
+                    "icon": "icons/none.png",
+                    "skins": [
+                        {
+                            "skin": "leg_foot_left",
+                            "bone": "leg_foot_left"
+                        },
+                        {
+                            "skin": "leg_foot_right",
+                            "bone": "leg_foot_right"
+                        },
+                        {
+                            "skin": "leg_accessories_left",
+                            "bone": "leg_accessories_left"
+                        },
+                         {
+                            "skin": "leg_accessories_right",
+                            "bone": "leg_accessories_right"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "pants",
+            "cIcon": "icons/pant_onclick.png",
+            "icon": "icons/pant.png",
+            "items": [
+                {
+                    "icon": "human/pants/painter_pant.png",
+                    "skins": [
+                        {
+                            "skin": "painter_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "painter_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "painter_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "painter_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "painter_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/motu_pant_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "motu_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "motu_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "motu_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "motu_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "motu_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/austronaut_pant_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "astronaut_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "astronaut_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "astronaut_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "astronaut_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "astronaut_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/barber_pant_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "barber_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "barber_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "barber_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "barber_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "barber_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/boss_pant_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "boss_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "boss_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "boss_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "boss_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "boss_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/captain_pant.png",
+                    "skins": [
+                        {
+                            "skin": "captain_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "captain_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "captain_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "captain_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "captain_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/chef_pant.png",
+                    "skins": [
+                        {
+                            "skin": "chef_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "chef_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "chef_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "chef_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "chef_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/conductor_pant.png",
+                    "skins": [
+                        {
+                            "skin": "conductor_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "conductor_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "conductor_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "conductor_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "conductor_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/cowboy_pant_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "cowboy_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "cowboy_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "cowboy_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "cowboy_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "cowboy_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/cricketer_pant_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "cricketer_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "cricketer_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "cricketer_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "cricketer_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "cricketer_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/designer_pant.png",
+                    "skins": [
+                        {
+                            "skin": "designer_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "designer_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "designer_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "designer_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "designer_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/doctor_pant.png",
+                    "skins": [
+                        {
+                            "skin": "doctor_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "doctor_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "doctor_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "doctor_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "doctor_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/employe_pant.png",
+                    "skins": [
+                        {
+                            "skin": "employe_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "employe_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "employe_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "employe_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "employe_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/engineer_shoes_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "engineer_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "engineer_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "engineer_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "engineer_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "engineer_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/farmer_pant.png",
+                    "skins": [
+                        {
+                            "skin": "farmer_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "farmer_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "farmer_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "farmer_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "farmer_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/fireman_pant.png",
+                    "skins": [
+                        {
+                            "skin": "fireman_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "fireman_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "fireman_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "fireman_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "fireman_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/footballer_pant_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "footballer_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "footballer_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "footballer_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "footballer_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "footballer_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/lawyer_pant_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "lawyer_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "lawyer_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "lawyer_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "lawyer_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "lawyer_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/musician_pant.png",
+                    "skins": [
+                        {
+                            "skin": "musician_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "musician_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "musician_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "musician_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "musician_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/police_pant.png",
+                    "skins": [
+                        {
+                            "skin": "nurse_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "nurse_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "nurse_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "nurse_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "nurse_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/photographer_pant.png",
+                    "skins": [
+                        {
+                            "skin": "photographer_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "photographer_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "photographer_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "photographer_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "photographer_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/police_pant.png",
+                    "skins": [
+                        {
+                            "skin": "police_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "police_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "police_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "police_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "police_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/priest_pant_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "priest_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "priest_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "priest_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "priest_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "priest_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/scientist_pant.png",
+                    "skins": [
+                        {
+                            "skin": "scientist_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "scientist_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "scientist_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "scientist_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "scientist_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/singer_pant.png",
+                    "skins": [
+                        {
+                            "skin": "singer_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "singer_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "singer_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "singer_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "singer_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/soccer_pant.png",
+                    "skins": [
+                        {
+                            "skin": "soccer_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "soccer_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "soccer_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "soccer_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "soccer_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/soldier_pant.png",
+                    "skins": [
+                        {
+                            "skin": "soldier_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "soldier_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "soldier_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "soldier_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "soldier_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/teacher_pant_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "teacher_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "teacher_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "teacher_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "teacher_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "teacher_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "human/pants/watchman_pant.png",
+                    "skins": [
+                        {
+                            "skin": "watchman_pant_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "watchman_pant_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "watchman_pant_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "watchman_pant_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "watchman_pant_hip",
+                            "bone": "hip"
+                        }
+                    ]
+                },
+                {
+                    "icon": "icons/none.png",
+                    "skins": [
+                        {
+                            "skin": "leg_lower_right",
+                            "bone": "leg_lower_right"
+                        },
+                        {
+                            "skin": "leg_lower_left",
+                            "bone": "leg_lower_left"
+                        },
+                        {
+                            "skin": "leg_upper_right",
+                            "bone": "leg_upper_right"
+                        },
+                        {
+                            "skin": "leg_upper_left",
+                            "bone": "leg_upper_left"
+                        },
+                        {
+                            "skin": "hip",
+                            "bone": "hip"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "skinColor",
+            "cIcon": "icons/skin_tone_onclick.png",
+            "icon": "icons/skin_tone.png",
+            "items": [
+                {
+                    "icon": "human/skincolor/black.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#a37462"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/blue.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#96c1ed"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/brightpink.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#ffe0de"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/brown.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/fairpink.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#f9e9dc"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/green.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#84d37d"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/grey.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#9d9ba5"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/orange.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#ed773b"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/paleblack.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#d6aea1"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/palebrown.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#ddc6b6"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/palewhite.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#f7eac9"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/purple.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#bd6dbf"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/red.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#ef3a3a"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/tannedwhite.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#eab0b0"
+                    }
+                },
+                {
+                    "icon": "human/skincolor/yellow.png",
+                    "colorSkins": {
+                        "skins": "bodySkin",
+                        "color": "#ede43a"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "hairColor",
+            "cIcon": "icons/hair_color_onclick.png",
+            "icon": "icons/hair_color.png",
+            "items": [
+                {
+                    "icon": "human/haircolor/red.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#d62b2b"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/pink.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#d82acb"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/purple.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#9839b7"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/indigo.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#7d38ba"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/green.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#5da032"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/blonde.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#fcfc7e"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/goldenblonde.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#d3b020"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/ginger.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#e86b2d"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/lightbrown.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#8c5438"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/darkbrown.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#664f42"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/grey.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#969696"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/darkgrey.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#424241"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/black.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#282828"
+                    }
+                },
+                {
+                    "icon": "human/haircolor/burgundy.png",
+                    "colorSkins": {
+                        "skins": "hairSkin",
+                        "color": "#8e1635"
+                    }
+                }
+            ]
+        }      
+    ],
+    "skinNameMaps": {
+         "astronaut": {
+            "arm_upper_right": "astronaut_shirt_sleave_upper_right",
+            "arm_upper_left": "astronaut_shirt_sleave_upper_left",
+            "arm_lower_right":"astronaut_shirt_sleave_lower_right",
+            "arm_lower_left":"astronaut_coat_sleave_lower_left",
+            "arm_hand_right":"astronaut_glove_right",
+            "arm_hand_left":"astronaut_glove_left_0",
+            "hair": "hair",
+            "body": "astronaut_shirt",
+            "leg_foot_right": "astronaut_shoe_right",
+            "leg_foot_left": "astronaut_shoe_left",
+            "leg_lower_right": "astronaut_pant_lower_right",
+            "leg_lower_left": "astronaut_pant_lower_left",
+            "leg_upper_left": "astronaut_pant_upper_left",
+            "leg_upper_right": "astronaut_pant_upper_right",
+            "hip": "astronaut_pant_hip",
+            "head_accessories":"astronaut_helmet"
+        },
+         "barber": {
+            "arm_upper_right": "barber_shirt_sleave_upper_right",
+            "arm_upper_left": "barber_shirt_sleave_upper_left",
+            "hair": "hair_curtained_hair",
+            "body": "barber_shirt",
+            "leg_foot_right": "barber_shoe_right",
+            "leg_foot_left": "barber_shoe_left",
+            "leg_lower_right": "barber_pant_lower_right",
+            "leg_lower_left": "barber_pant_lower_left",
+            "leg_upper_left": "barber_pant_upper_left",
+            "leg_upper_right": "barber_pant_upper_right",
+            "hip": "barber_pant_hip",
+            "body_accessories":"barber_coat",
+            "neck_accessories":"barber_tie",
+            "head_accessories":"head_accessories",
+            "beard_n_mustache":"moustache_barber"
+        },
+         "boss": {
+            "arm_upper_right": "boss_coat_sleave_upper_right",
+            "arm_upper_left": "boss_coat_sleave_upper_left",
+            "arm_lower_right":"boss_coat_sleave_lower_right",
+            "arm_lower_left":"boss_coat_sleave_lower_left",
+            "arm_hand_right":"astronaut_glove_right",
+            "arm_hand_left":"astronaut_glove_left_0",
+            "hair": "hair_Business_man_cut",
+            "body": "boss_shirt",
+            "leg_foot_right": "boss_shoe_right",
+            "leg_foot_left": "boss_shoe_left",
+            "leg_lower_right": "boss_pant_lower_right",
+            "leg_lower_left": "boss_pant_lower_left",
+            "leg_upper_left": "boss_pant_upper_left",
+            "leg_upper_right": "boss_pant_upper_right",
+            "hip": "boss_pant_hip",
+            "body_accessories":"boss_coat"
+            },
+            
+        "captain": {
+            "arm_upper_right": "captain_coat_sleave_upper_right",
+            "arm_upper_left": "captain_coat_sleave_upper_left",
+            "arm_lower_right":"captain_shirt_sleave_lower_right",
+            "arm_lower_left":"captain_coat_sleave_lower_left",
+            "hair": "hair_curtained_hair",
+            "body": "captain_shirt",
+            "leg_foot_right": "captain_shoe_right",
+            "leg_foot_left": "captain_shoe_left",
+            "leg_lower_right": "captain_pant_lower_right",
+            "leg_lower_left": "captain_pant_lower_left",
+            "leg_upper_left": "captain_pant_upper_left",
+            "leg_upper_right": "captain_pant_upper_right",
+            "hip": "captain_pant_hip",
+            "body_accessories":"captain_coat",
+            "head_accessories":"captain_cap"
+            },
+            
+        "chef": {
+            "arm_upper_right": "chef_shirt_sleave_upper_right",
+            "arm_upper_left": "chef_shirt_sleave_upper_left",
+            "arm_lower_right":"chef_shirt_sleave_lower_right",
+            "arm_lower_left":"chef_shirt_sleave_lower_left",
+            "hair": "hair_burr",
+            "body": "chef_shirt",
+            "leg_foot_right": "chef_shoe_right",
+            "leg_foot_left": "chef_shoe_left",
+            "leg_lower_right": "chef_pant_lower_right",
+            "leg_lower_left": "chef_pant_lower_left",
+            "leg_upper_left": "chef_pant_upper_left",
+            "leg_upper_right": "chef_pant_upper_right",
+            "hip": "chef_pant_hip",
+            "head_accessories":"chef_hat"
+            },
+            
+       "conductor": {
+            "arm_upper_right": "conductor_shirt_sleave_upper_right",
+            "arm_upper_left": "conductor_shirt_sleave_upper_left",
+            "arm_lower_right":"conductor_shirt_sleave_lower_right",
+            "arm_lower_left":"conductor_shirt_sleave_lower_left",
+            "hair": "hair_curtained_hair",
+            "body": "conductor_shirt",
+            "leg_foot_right": "conductor_shoe_right",
+            "leg_foot_left": "conductor_shoe_left",
+            "leg_lower_right": "conductor_pant_lower_right",
+            "leg_lower_left": "conductor_pant_lower_left",
+            "leg_upper_left": "conductor_pant_upper_left",
+            "leg_upper_right": "conductor_pant_upper_right",
+            "hip": "conductor_pant_hip",
+            "body_accessories":"conductor_coat"
+            },
+            
+         "cowboy": {
+            "arm_upper_right": "cowboy_shirt_sleave_upper_right",
+            "arm_upper_left": "cowboy_shirt_sleave_upper_left",
+            "arm_lower_right":"cowboy_shirt_sleave_lower_right",
+            "arm_lower_left":"cowboy_shirt_sleave_lower_left",
+            "hair": "hair_curtained_hair",
+            "body": "cowboy_shirt",
+            "leg_foot_right": "cowboy_shoe_right",
+            "leg_foot_left": "cowboy_shoe_left",
+            "leg_lower_right": "cowboy_pant_lower_right",
+            "leg_lower_left": "cowboy_pant_lower_left",
+            "leg_upper_left": "cowboy_pant_upper_left",
+            "leg_upper_right": "cowboy_pant_upper_right",
+            "hip": "cowboy_pant_hip",
+            "head_accessories":"cowboy_hat",
+            "neck_accessories":"cowboy_scarf",
+            "beard_n_mustache" : "beard_soalpatch"
+            },
+            
+        "cricketer": {
+            "arm_upper_right": "cricketer_shirt_sleave_upper_right",
+            "arm_upper_left": "cricketer_shirt_sleave_upper_left",
+            "hair": "hair_curtained_hair",
+            "body": "cricketer_shirt",
+            "leg_foot_right": "cricketer_shoe_right",
+            "leg_foot_left": "cricketer_shoe_left",
+            "leg_lower_right": "cricketer_pant_lower_right",
+            "leg_lower_left": "cricketer_pant_lower_left",
+            "leg_upper_left": "cricketer_pant_upper_left",
+            "leg_upper_right": "cricketer_pant_upper_right",
+            "leg_accessories_left":"cricketer_shinguard_left",
+            "leg_accessories_right":"cricketer_shinguard_right",
+            "hip": "cricketer_pant_hip",
+            "head_accessories":"cricket_helmet"
+            },        
+             
+        "designer": {
+            "arm_upper_right": "designer_coat_sleave_upper_right",
+            "arm_upper_left": "designer_coat_sleave_upper_left",
+            "arm_lower_right":"designer_coat_sleave_lower_right",
+            "arm_lower_left":"designer_coat_sleave_lower_left",
+            "hair": "hair_curtained_hair",
+            "body": "designer_shirt",
+            "leg_foot_right": "designer_shoe_right",
+            "leg_foot_left": "designer_shoe_left",
+            "leg_lower_right": "designer_pant_lower_right",
+            "leg_lower_left": "designer_pant_lower_left",
+            "leg_upper_left": "designer_pant_upper_left",
+            "leg_upper_right": "designer_pant_upper_right",
+            "hip": "designer_pant_hip",
+            "body_accessories":"designer_coat",
+            "beard_n_mustache" : "beard_french"
+            },  
+            
+        "doctor": {
+            "arm_upper_right": "doctor_coat_sleave_upper_right",
+            "arm_upper_left": "doctor_coat_sleave_upper_left",
+            "arm_lower_right":"doctor_coat_sleave_lower_right",
+            "arm_lower_left":"doctor_coat_sleave_lower_left",
+            "hair": "hair_Business_man_cut",
+            "body": "doctor_shirt",
+            "leg_foot_right": "doctor_shoe_right",
+            "leg_foot_left": "doctor_shoe_left",
+            "leg_lower_right": "doctor_pant_lower_right",
+            "leg_lower_left": "doctor_pant_lower_left",
+            "leg_upper_left": "doctor_pant_upper_left",
+            "leg_upper_right": "doctor_pant_upper_right",
+            "hip": "doctor_pant_hip",
+            "body_accessories":"doctor_coat",
+            "neck_accessories": "stethoscope"
+        },   
+        
+       "employe": {
+            "arm_upper_right": "employe_shirt_sleave_upper_right",
+            "arm_upper_left": "employe_shirt_sleave_upper_left",
+            "arm_lower_right":"employe_coat_sleave_lower_right",
+            "arm_lower_left":"employe_coat_sleave_lower_left",
+            "hair": "hair_Business_man_cut",
+            "body": "employe_shirt",
+            "leg_foot_right": "employe_shoe_right",
+            "leg_foot_left": "employe_shoe_left",
+            "leg_lower_right": "employe_pant_lower_right",
+            "leg_lower_left": "employe_pant_lower_left",
+            "leg_upper_left": "employe_pant_upper_left",
+            "leg_upper_right": "employe_pant_upper_right",
+            "hip": "employe_pant_hip",
+            "body_accessories":"employe_coat"
+        },  
+        
+      "engineer": {
+            "arm_upper_right": "engineer_shirt_sleave_upper_right",
+            "arm_upper_left": "engineer_shirt_sleave_upper_left",
+            "hair": "hair_Business_man_cut",
+            "body": "engineer_shirt",
+            "leg_foot_right": "engineer_shoe_right",
+            "leg_foot_left": "engineer_shoe_left",
+            "leg_lower_right": "engineer_pant_lower_right",
+            "leg_lower_left": "engineer_pant_lower_left",
+            "leg_upper_left": "engineer_pant_upper_left",
+            "leg_upper_right": "engineer_pant_upper_right",
+            "hip": "engineer_pant_hip",
+            "body_accessories":"engineer_coat",
+            "head_accessories":"engineer_helmet"
+        }, 
+      
+      "farmer": {
+            "arm_upper_right": "farmer_shirt_sleave_upper_right",
+            "arm_upper_left": "farmer_shirt_sleave_upper_left",
+            "arm_lower_right":"farmer_shirt_sleave_lower_right",
+            "arm_lower_left":"farmer_shirt_sleave_lower_left",
+            "hair": "hair_curtained_hair",
+            "body": "farmer_shirt",
+            "leg_foot_right": "farmer_shoe_right",
+            "leg_foot_left": "farmer_shoe_left",
+            "leg_lower_right": "farmer_pant_lower_right",
+            "leg_lower_left": "farmer_pant_lower_left",
+            "leg_upper_left": "farmer_pant_upper_left",
+            "leg_upper_right": "farmer_pant_upper_right",
+            "hip": "farmer_pant_hip",
+            "body_accessories":"farmer_coat"
+         },
+         
+      "fireman": {
+            "arm_upper_right": "fireman_shirt_sleave_upper_right",
+            "arm_upper_left": "fireman_shirt_sleave_upper_left",
+            "arm_lower_right":"fireman_shirt_sleave_lower_right",
+            "arm_lower_left":"fireman_shirt_sleave_lower_left",
+            "hair": "hair_bold",
+            "body": "fireman_shirt",
+            "leg_foot_right": "fireman_shoe_right",
+            "leg_foot_left": "fireman_shoe_left",
+            "leg_lower_right": "fireman_pant_lower_right",
+            "leg_lower_left": "fireman_pant_lower_left",
+            "leg_upper_left": "fireman_pant_upper_left",
+            "leg_upper_right": "fireman_pant_upper_right",
+            "hip": "fireman_pant_hip",
+            "head_accessories":"fireman_hat",
+            "leg_accessories_left": "fireman_shoe_upper_left",
+            "leg_accessories_right": "fireman_shoe_upper_right"
+         },            
+      "footballer": {
+            "arm_upper_right": "footballer_shirt_sleave_upper_right",
+            "arm_upper_left": "footballer_shirt_sleave_upper_left",
+            "hair": "hair_bold",
+            "body": "footballer_shirt",
+            "leg_foot_right": "footballer_shoe_right",
+            "leg_foot_left": "footballer_shoe_left",
+            "leg_lower_right": "footballer_pant_lower_right",
+            "leg_lower_left": "footballer_pant_lower_left",
+            "leg_upper_left": "footballer_pant_upper_left",
+            "leg_upper_right": "footballer_pant_upper_right",
+            "hip": "footballer_pant_hip",
+            "head_accessories":"football_helmet",
+            "leg_accessories_left": "footballer_socks_left",
+            "leg_accessories_right": "footballer_socks_right",
+            "beard_n_mustache" : "beard_baba"
+         },  
+         
+      "lawyer": {
+            "arm_upper_right": "lawyer_shirt_sleave_upper_right",
+            "arm_upper_left": "lawyer_coat_sleave_upper_left",
+            "arm_lower_right":"fireman_shirt_sleave_lower_right",
+            "arm_lower_left":"lawyer_coat_sleave_lower_left",
+            "hair": "hair_curtained_hair",
+            "body": "lawyer_shirt",
+            "leg_foot_right": "lawyer_shoe_right",
+            "leg_foot_left": "lawyer_shoe_left",
+            "leg_lower_right": "lawyer_pant_lower_right",
+            "leg_lower_left": "lawyer_pant_lower_left",
+            "leg_upper_left": "lawyer_pant_upper_left",
+            "leg_upper_right": "lawyer_pant_upper_right",
+            "hip": "lawyer_pant_hip",
+            "body_accessories":"lawyer_coat",
+            "neck_accessories":"lawyer_tie",
+            "beard_n_mustache" : "beard_trimmed"
+        },                               
+            
+        "motu": {
+            "arm_upper_right": "motu_shirt_sleave_upper_right",
+            "arm_upper_left": "motu_shirt_sleave_upper_left",
+            "hair": "hair_curl",
+            "body": "motu_shirt",
+            "leg_foot_right": "motu_shoe_right",
+            "leg_foot_left": "motu_shoe_left",
+            "leg_lower_right": "motu_pant_lower_right",
+            "leg_lower_left": "motu_pant_lower_left",
+            "leg_upper_left": "motu_pant_upper_left",
+            "leg_upper_right": "motu_pant_upper_right",
+            "hip": "motu_pant_hip"
+        },
+        
+      "musician": {
+            "arm_upper_right": "arm_upper_right",
+            "arm_upper_left": "arm_upper_left",
+            "arm_upper_accessories_left":"musician_tattoo",
+            "arm_upper_accessories_right":"musician_tattoo",
+            "hair": "hair_mohawk",
+            "body": "musician_shirt",
+            "leg_foot_right": "musician_shoe_right",
+            "leg_foot_left": "musician_shoe_left",
+            "leg_lower_right": "musician_pant_lower_right",
+            "leg_lower_left": "musician_pant_lower_left",
+            "leg_upper_left": "musician_pant_upper_left",
+            "leg_upper_right": "musician_pant_upper_right",
+            "hip": "musician_pant_hip",
+            "beard_n_mustache" : "beard_goatee"
+        }, 
+        
+    "nurse": {
+            "arm_upper_right": "nurse_shirt_sleave_upper_right",
+            "arm_upper_left": "nurse_shirt_sleave_upper_left",
+            "hair": "hair_curtained_hair",
+            "mouth":"nurse_mask",
+            "body": "nurse_shirt",
+            "leg_foot_right": "nurse_shoe_right",
+            "leg_foot_left": "nurse_shoe_left",
+            "leg_lower_right": "nurse_pant_lower_right",
+            "leg_lower_left": "nurse_pant_lower_left",
+            "leg_upper_left": "nurse_pant_upper_left",
+            "leg_upper_right": "nurse_pant_upper_right",
+            "hip": "nurse_pant_hip"
+        },    
+        
+        "painter": {
+            "arm_upper_right": "painter_shirt_sleave_upper_right",
+            "arm_upper_left": "painter_shirt_sleave_upper_left",
+            "hair": "hair_curl",
+            "body": "painter_shirt",
+            "leg_foot_right": "painter_shoe_right",
+            "leg_foot_left": "painter_shoe_left",
+            "leg_lower_right": "painter_pant_lower_right",
+            "leg_lower_left": "painter_pant_lower_left",
+            "leg_upper_left": "painter_pant_upper_left",
+            "leg_upper_right": "painter_pant_upper_right",
+            "hip": "painter_pant_hip",
+            "head_accessories":"head_accessories",
+            "body_accessories":"painter_coat"
+        },
+         
+     "photographer": {
+            "arm_upper_right": "photographer_shirt_sleave_upper_right",
+            "arm_upper_left": "photographer_shirt_sleave_upper_left",
+            "hair": "hair_curtained_hair",
+            "body": "photographer_shirt",
+            "leg_foot_right": "photographer_shoe_right",
+            "leg_foot_left": "photographer_shoe_left",
+            "leg_lower_right": "photographer_pant_lower_right",
+            "leg_lower_left": "photographer_pant_lower_left",
+            "leg_upper_left": "photographer_pant_upper_left",
+            "leg_upper_right": "photographer_pant_upper_right",
+            "hip": "photographer_pant_hip",
+            "body_accessories":"photographer_coat",
+            "beard_n_mustache" : "beard_french",
+            "neck_accessories": "camera_neck"
+        },
+        
+      "police": {
+            "arm_upper_right": "police_shirt_sleave_upper_right",
+            "arm_upper_left": "police_shirt_sleave_upper_left",
+            "hair": "hair_bold",
+            "body": "police_shirt",
+            "leg_foot_right": "police_shoe_right",
+            "leg_foot_left": "police_shoe_left",
+            "leg_lower_right": "police_pant_lower_right",
+            "leg_lower_left": "police_pant_lower_left",
+            "leg_upper_left": "police_pant_upper_left",
+            "leg_upper_right": "police_pant_upper_right",
+            "hip": "police_pant_hip",
+            "body_accessories":"police_coat",
+            "head_accessories":"police_cap"
+        },
+     
+      "priest": {
+            "arm_upper_right": "priest_shirt_sleave_upper_right",
+            "arm_upper_left": "priest_coat_sleave_upper_left",
+            "arm_lower_right":"priest_shirt_sleave_lower_right",
+            "arm_lower_left":"priest_coat_sleave_lower_left",
+            "hair": "hair_Business_man_cut",
+            "body": "priest_shirt",
+            "leg_foot_right": "priest_shoe_right",
+            "leg_foot_left": "priest_shoe_left",
+            "leg_lower_right": "priest_pant_lower_right",
+            "leg_lower_left": "priest_pant_lower_left",
+            "leg_upper_left": "priest_pant_upper_left",
+            "leg_upper_right": "priest_pant_upper_right",
+            "hip": "priest_pant_hip",
+            "neck_accessories":"Priest_scarf",
+            "beard_n_mustache" : "beard_french"
+        },   
+      
+         "scientist": {
+            "arm_upper_right": "scientist_coat_sleave_upper_right",
+            "arm_upper_left": "scientist_coat_sleave_upper_left",
+            "arm_lower_right":"scientist_coat_sleave_lower_right",
+            "arm_lower_left":"scientist_coat_sleave_lower_left",
+            "hair": "hair_curtained_hair",
+            "body": "scientist_shirt",
+            "leg_foot_right": "scientist_shoe_right",
+            "leg_foot_left": "scientist_shoe_left",
+            "leg_lower_right": "scientist_pant_lower_right",
+            "leg_lower_left": "scientist_pant_lower_left",
+            "leg_upper_left": "scientist_pant_upper_left",
+            "leg_upper_right": "scientist_pant_upper_right",
+            "hip": "scientist_pant_hip",
+            "body_accessories":"scientist_coat",
+            "goggles":"scientist_goggles",
+            "arm_hand_left":"scientist_glouse_left",
+            "arm_hand_right":"scientist_glouse_right",
+             "beard_n_mustache" : "beard_trimmed"
+        },
+     "singer": {
+            "arm_upper_right": "singer_shirt_sleave_upper_right",
+            "arm_upper_left": "singer_shirt_sleave_upper_left",
+            "hair": "hair_curtained_hair",
+            "body": "singer_shirt",
+            "leg_foot_right": "singer_shoe_right",
+            "leg_foot_left": "singer_shoe_left",
+            "leg_lower_right": "singer_pant_lower_right",
+            "leg_lower_left": "singer_pant_lower_left",
+            "leg_upper_left": "singer_pant_upper_left",
+            "leg_upper_right": "singer_pant_upper_right",
+            "hip": "singer_pant_hip",
+            "body_accessories":"singer_coat",
+            "beard_n_mustache" : "beard_soalpatch"
+           },
+           
+        "teacher": {
+            "arm_upper_right": "teacher_shirt_sleave_upper_right",
+            "arm_upper_left": "teacher_shirt_sleave_upper_left",
+            "hair": "hair_bun",
+            "body": "teacher_shirt",
+            "leg_foot_right": "teacher_shoe_right",
+            "leg_foot_left": "teacher_shoe_left",
+            "leg_lower_right": "teacher_pant_lower_right",
+            "leg_lower_left": "teacher_pant_lower_left",
+            "leg_upper_left": "teacher_pant_upper_left",
+            "leg_upper_right": "teacher_pant_upper_right",
+            "hip": "teacher_pant_hip",
+            "body_accessories":"teacher_coat"
+        },     
+         "soccer": {
+            "arm_upper_right": "soccer_shirt_sleave_upper_right",
+            "arm_upper_left": "soccer_shirt_sleave_upper_left",
+            "hair": "hair_mohawk",
+            "body": "soccer_shirt",
+            "leg_foot_right": "soccer_shoe_right",
+            "leg_foot_left": "soccer_shoe_left",
+            "leg_upper_right": "soccer_pant_upper_right",
+            "leg_upper_left": "soccer_pant_upper_left",
+            "leg_accessories_right":"soccer_socks_right",
+            "leg_accessories_left":"soccer_socks_left",
+            "hip": "soccer_pant_hip",
+            "beard_n_mustache" : "beard_soalpatch"
+        },
+         "soldier": {
+            "arm_upper_right": "soldier_shirt_sleave_upper_right",
+            "arm_upper_left": "soldier_shirt_sleave_upper_left",
+            "hair": "hair_bold",
+            "body": "soldier_shirt",
+            "leg_foot_right": "solidier_shoe_right",
+            "leg_foot_left": "soldier_shoe_left",
+            "leg_lower_right": "soldier_pant_lower_right",
+            "leg_lower_left": "soldier_pant_lower_left",
+            "leg_upper_left": "soldier_pant_upper_left",
+            "leg_upper_right": "soldier_pant_upper_right",
+            "hip": "soldier_pant_hip",
+            "head_accessories":"soldier_cap"
+        },
+        "watchman": {
+            "arm_upper_right": "watchman_shirt_sleave_upper_right",
+            "arm_upper_left": "watchman_shirt_sleave_upper_left",
+            "hair": "hair_bold",
+            "body": "watchman_shirt",
+            "leg_foot_right": "watchman_shoe_right",
+            "leg_foot_left": "watchman_shoe_left",
+            "leg_lower_right": "watchman_pant_lower_right",
+            "leg_lower_left": "watchman_pant_lower_left",
+            "leg_upper_left": "watchman_pant_upper_left",
+            "leg_upper_right": "watchman_pant_upper_right",
+            "hip": "watchman_pant_hip",
+            "head_accessories":"watchman_cap"
+        }
+    },
+    "colorSkins": {
+        "bodySkin": {
+            "face": "face",
+            "hand_palm_right": "hand_palm_right",
+            "hand_palm_left": "hand_palm_left",
+            "hand_upper_right": "hand_upper_right",
+            "hand_upper_left": "hand_upper_left",
+            "body_male": "body",
+            "nose": "nose",
+            "mouth" : "mouth",
+            "neck": "neck",
+            "ear_round" : "ear",
+            "arm_lower_left" : "arm_lower_left",
+            "arm_upper_left": "arm_upper_left",
+            "arm_lower_right" : "arm_lower_right",
+            "arm_upper_right": "arm_upper_right",
+            "leg_foot_left": "leg_foot_left",
+            "leg_lower_left" : "leg_lower_left",
+            "leg_upper_left": "leg_upper_left",
+            "leg_foot_right" : "leg_foot_right",
+            "leg_lower_right": "leg_lower_right",
+            "leg_upper_right" : "leg_upper_right",
+            "arm_hand_left" : "arm_hand_left",
+            "arm_hand_right" : "arm_hand_right",
+            "hip" : "hip"
+        },
+        "hairSkin": {
+            "hair_female_back_long": "hair_back",
+            "hair_Business_man_cut": "hair",
+            "hair_high_and_tight_two": "hair",
+            "hair_curtained_hair": "hair",
+            "hair_high_and_tight": "hair",
+            "hair_mohawk": "hair",
+            "hair_curl": "hair",
+            "hair_bun": "hair",
+            "hair_female_front": "hair",
+            "hair_burr": "hair",
+            "beard_baba": "beard_n_mustache",
+            "beard_soalpatch": "beard_n_mustache",
+            "beard_chin_strap": "beard_n_mustache",
+            "beard_french": "beard_n_mustache",
+            "beard_goatee": "beard_n_mustache",
+            "beard_motu": "beard_n_mustache",
+            "beard_trimmed": "beard_n_mustache",
+            "moustache_barber": "beard_n_mustache",
+            "moustche_chinese": "beard_n_mustache",
+            "mutton_chops": "beard_n_mustache",
+            "eyebrow_boy_right": "eyebrow_right",
+            "eyebrow_girl_right": "eyebrow_right",
+            "eyebrow_boy_left": "eyebrow_left",
+            "eyebrow_girl_left": "eyebrow_left"       
+        }
+    },
+    "animations": [
+        {
+          "icon": "icons/walk.png",
+          "name": "walk"
+        },
+        {
+          "icon": "icons/run.png",
+          "name": "run"  
+        },
+        {
+          "icon": "icons/blink.png",
+          "name": "blink"
+        },
+        {
+          "icon": "icons/waving.png",
+          "name": "hi"  
+        },
+         {
+          "icon": "icons/jumping.png",
+          "name": "hop"  
+        }
+    ]
+}

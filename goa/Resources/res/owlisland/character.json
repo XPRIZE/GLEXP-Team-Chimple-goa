@@ -1,0 +1,375 @@
+{
+  "ID": "5e8f8866-ed04-4835-88a2-e08989673e42",
+  "Version": "3.10.0.0",
+  "Name": "character",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 125,
+        "Speed": 1.0,
+        "ActivedAnimationName": "fly",
+        "Timelines": [
+          {
+            "ActionTag": -251899725,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hhand.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -963756585,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hhand.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -90967188,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hero1.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hero2.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 15,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hero3.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hero4.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hero5.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 60,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hwrong1.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 65,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hwrong2.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 80,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hwrong3.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 95,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hwrong4.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 110,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/hwrong5.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "FrameIndex": 125,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 60,
+          "Name": "fly",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 65,
+          "EndIndex": 125,
+          "Name": "pick",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 147,
+        "Children": [
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/hhand.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -49.4659,
+              "Y": -113.7656
+            },
+            "Scale": {
+              "ScaleX": 1.21,
+              "ScaleY": 1.21
+            },
+            "RotationSkewX": 67.8727,
+            "RotationSkewY": 67.8704,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -189.4659,
+            "RightMargin": -90.5341,
+            "TopMargin": 50.7656,
+            "BottomMargin": -176.7656,
+            "Tag": 155,
+            "ActionTag": -251899725,
+            "Size": {
+              "X": 280.0,
+              "Y": 126.0
+            },
+            "Name": "Sprite_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/hhand.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 47.0928,
+              "Y": -108.9264
+            },
+            "Scale": {
+              "ScaleX": 1.21,
+              "ScaleY": 1.21
+            },
+            "RotationSkewX": 67.8728,
+            "RotationSkewY": 67.8704,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -92.9072,
+            "RightMargin": -187.0928,
+            "TopMargin": 45.9264,
+            "BottomMargin": -171.9264,
+            "Tag": 53,
+            "ActionTag": -963756585,
+            "Size": {
+              "X": 280.0,
+              "Y": 126.0
+            },
+            "Name": "Sprite_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/hero3.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -200.0,
+            "RightMargin": -200.0,
+            "TopMargin": -260.5,
+            "BottomMargin": -260.5,
+            "Tag": 154,
+            "ActionTag": -90967188,
+            "Size": {
+              "X": 400.0,
+              "Y": 521.0
+            },
+            "Name": "Sprite_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/white.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -2.473,
+              "Y": -323.9784
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -78.973,
+            "RightMargin": -74.027,
+            "TopMargin": 257.4784,
+            "BottomMargin": -390.4784,
+            "Tag": 54,
+            "ActionTag": -884096358,
+            "Size": {
+              "X": 153.0,
+              "Y": 133.0
+            },
+            "Name": "white_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "owlisland.plist",
+        "owlisland.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

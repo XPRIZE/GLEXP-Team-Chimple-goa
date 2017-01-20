@@ -1,0 +1,529 @@
+{
+  "ID": "730b2521-31dd-4ced-84f1-5e0a6c281594",
+  "Version": "3.10.0.0",
+  "Name": "dropherobg",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": -1378339328,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1306.026,
+                "Y": 1223.6194,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 12,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 197,
+              "G": 163,
+              "B": 204
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1279.9967,
+              "Y": 899.9995
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.9531,
+              "Y": 1.0
+            },
+            "LeftMargin": -1220.0033,
+            "RightMargin": -1219.9966,
+            "TopMargin": 0.0005,
+            "BottomMargin": -0.0005,
+            "Tag": 21,
+            "ActionTag": 2031804064,
+            "Size": {
+              "X": 5000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "drophero/bgreflection.png",
+              "Plist": "drophero/drophero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1240.9713,
+              "Y": 1041.8303
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4848,
+              "Y": 0.5788
+            },
+            "PreSize": {
+              "X": 0.9691,
+              "Y": 0.8761
+            },
+            "LeftMargin": 0.4713,
+            "RightMargin": 78.5288,
+            "TopMargin": -30.3303,
+            "BottomMargin": 253.3303,
+            "Tag": 22,
+            "ActionTag": 183728182,
+            "Size": {
+              "X": 2481.0,
+              "Y": 1577.0
+            },
+            "Name": "bgreflection",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "drophero/bgseal.png",
+              "Plist": "drophero/drophero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1329.9584,
+              "Y": 565.834
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5195,
+              "Y": 0.3144
+            },
+            "PreSize": {
+              "X": 0.4414,
+              "Y": 0.3611
+            },
+            "LeftMargin": 764.9584,
+            "RightMargin": 665.0416,
+            "TopMargin": 909.166,
+            "BottomMargin": 240.834,
+            "Tag": 23,
+            "ActionTag": 2006877426,
+            "Size": {
+              "X": 1130.0,
+              "Y": 650.0
+            },
+            "Name": "bgseal",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "drophero/bgseal.png",
+              "Plist": "drophero/drophero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 439.3246,
+              "Y": 1722.4846
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 90.0,
+            "RotationSkewY": 90.0,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1716,
+              "Y": 0.9569
+            },
+            "PreSize": {
+              "X": 0.4414,
+              "Y": 0.3611
+            },
+            "LeftMargin": -125.6754,
+            "RightMargin": 1555.6754,
+            "TopMargin": -247.4846,
+            "BottomMargin": 1397.4846,
+            "Tag": 24,
+            "ActionTag": -511880385,
+            "Size": {
+              "X": 1130.0,
+              "Y": 650.0
+            },
+            "Name": "bgseal",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "drophero/bgseal.png",
+              "Plist": "drophero/drophero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2319.7974,
+              "Y": 1695.0005
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9062,
+              "Y": 0.9417
+            },
+            "PreSize": {
+              "X": 0.4414,
+              "Y": 0.3611
+            },
+            "LeftMargin": 1754.7974,
+            "RightMargin": -324.7974,
+            "TopMargin": -220.0005,
+            "BottomMargin": 1370.0005,
+            "Tag": 25,
+            "ActionTag": -791603135,
+            "Size": {
+              "X": 1130.0,
+              "Y": 650.0
+            },
+            "Name": "bgseal",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 173,
+              "G": 136,
+              "B": 180
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1277.1656,
+              "Y": 99.9999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4989,
+              "Y": 0.0556
+            },
+            "PreSize": {
+              "X": 1.9531,
+              "Y": 0.1111
+            },
+            "LeftMargin": -1222.8344,
+            "RightMargin": -1217.1655,
+            "TopMargin": 1600.0001,
+            "BottomMargin": -0.0001,
+            "Tag": 27,
+            "ActionTag": 966348346,
+            "Size": {
+              "X": 5000.0,
+              "Y": 200.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "drophero/bgreflection.png",
+              "Plist": "drophero/drophero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -1089.0349,
+              "Y": 741.8273
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.4254,
+              "Y": 0.4121
+            },
+            "PreSize": {
+              "X": 0.9691,
+              "Y": 0.8761
+            },
+            "LeftMargin": -2329.5349,
+            "RightMargin": 2408.5349,
+            "TopMargin": 269.6727,
+            "BottomMargin": -46.6727,
+            "Tag": 28,
+            "ActionTag": 1875320680,
+            "Size": {
+              "X": 2481.0,
+              "Y": 1577.0
+            },
+            "Name": "bgreflection",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "drophero/bgreflection.png",
+              "Plist": "drophero/drophero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4127.1587,
+              "Y": 1050.342
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.6122,
+              "Y": 0.5835
+            },
+            "PreSize": {
+              "X": 0.9691,
+              "Y": 0.8761
+            },
+            "LeftMargin": 2886.6587,
+            "RightMargin": -2807.6587,
+            "TopMargin": -38.842,
+            "BottomMargin": 261.842,
+            "Tag": 29,
+            "ActionTag": -416047279,
+            "Size": {
+              "X": 2481.0,
+              "Y": 1577.0
+            },
+            "Name": "bgreflection",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "drophero/board.png",
+              "Plist": "drophero/drophero.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.0074,
+              "Y": 1653.9929
+            },
+            "Scale": {
+              "ScaleX": 2.3595,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.9189
+            },
+            "PreSize": {
+              "X": 0.3438,
+              "Y": 0.225
+            },
+            "LeftMargin": 840.0074,
+            "RightMargin": 839.9926,
+            "TopMargin": -56.4929,
+            "BottomMargin": 1451.4929,
+            "Tag": 14,
+            "ActionTag": 1196733196,
+            "Size": {
+              "X": 880.0,
+              "Y": 405.0
+            },
+            "Name": "board",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 113,
+              "G": 107,
+              "B": 119
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1306.026,
+              "Y": 1223.6194
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5102,
+              "Y": 0.6798
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 0.0167
+            },
+            "LeftMargin": -693.974,
+            "RightMargin": -746.0259,
+            "TopMargin": 561.3806,
+            "BottomMargin": 1208.6194,
+            "Tag": 33,
+            "ActionTag": -1378339328,
+            "Size": {
+              "X": 4000.0,
+              "Y": 30.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "drophero.plist",
+        "drophero.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

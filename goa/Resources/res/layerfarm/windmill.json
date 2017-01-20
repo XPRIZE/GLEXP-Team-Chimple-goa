@@ -1,0 +1,183 @@
+{
+  "ID": "44eb2c32-8993-4f5c-845a-0758d2b9b738",
+  "Version": "3.10.0.0",
+  "Name": "windmill",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 285,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": -1957472353,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -2.7134,
+                "Y": 599.1378,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1957472353,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1957472353,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 360.0,
+                "Y": 360.0,
+                "FrameIndex": 285,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 203,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/windmillpole.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -0.3987,
+              "Y": 306.1976
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -25.8987,
+            "RightMargin": -25.1013,
+            "TopMargin": -611.1976,
+            "BottomMargin": 1.1976,
+            "Tag": 204,
+            "ActionTag": 1542463541,
+            "Size": {
+              "X": 51.0,
+              "Y": 610.0
+            },
+            "Name": "windmillpole_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "layerfarm/windmillfan.png",
+              "Plist": "layerfarm/layerfarm.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4601,
+              "ScaleY": 0.3799
+            },
+            "Position": {
+              "X": -2.7134,
+              "Y": 599.1378
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 245.0526,
+            "RotationSkewY": 245.0526,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -275.5818,
+            "RightMargin": -317.4181,
+            "TopMargin": -937.079,
+            "BottomMargin": 392.079,
+            "Tag": 205,
+            "ActionTag": -1957472353,
+            "Size": {
+              "X": 593.0,
+              "Y": 545.0
+            },
+            "Name": "windmillfan_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "layerfarm.plist",
+        "layerfarm.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

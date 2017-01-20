@@ -1,0 +1,164 @@
+{
+  "ID": "87d4f8a1-ec35-432a-932e-8281fafaa061",
+  "Version": "2.3.4",
+  "Name": "meteor",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 36,
+        "Speed": 1.0,
+        "ActivedAnimationName": "blast",
+        "Timelines": [
+          {
+            "ActionTag": -1802116410,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "ballooncandy/candyblast1.png",
+                  "Plist": "ballooncandy/ballooncandy.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "ballooncandy/candyblast1.png",
+                  "Plist": "ballooncandy/ballooncandy.plist"
+                },
+                "FrameIndex": 6,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "ballooncandy/candyblast1.png",
+                  "Plist": "ballooncandy/ballooncandy.plist"
+                },
+                "FrameIndex": 12,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "ballooncandy/candyblast2.png",
+                  "Plist": "ballooncandy/ballooncandy.plist"
+                },
+                "FrameIndex": 18,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "ballooncandy/candyblast3.png",
+                  "Plist": "ballooncandy/ballooncandy.plist"
+                },
+                "FrameIndex": 24,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "ballooncandy/candyblast4.png",
+                  "Plist": "ballooncandy/ballooncandy.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "ballooncandy/candyblast5.png",
+                  "Plist": "ballooncandy/ballooncandy.plist"
+                },
+                "FrameIndex": 36,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 36,
+          "Name": "blast",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 66,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "ballooncandy/candyblast3.png",
+              "Plist": "ballooncandy/ballooncandy.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -226.5,
+            "RightMargin": -226.5,
+            "TopMargin": -228.0,
+            "BottomMargin": -228.0,
+            "Tag": 67,
+            "ActionTag": -1802116410,
+            "Size": {
+              "X": 453.0,
+              "Y": 456.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ballooncandy.plist",
+        "ballooncandy.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

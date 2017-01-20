@@ -1,0 +1,124 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "candy_jumping_numbers",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 234,
+              "G": 148,
+              "B": 154
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.3,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1017,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 2.3438,
+              "Y": 1.0
+            },
+            "LeftMargin": -260.3,
+            "RightMargin": -3179.7002,
+            "Tag": 27,
+            "ActionTag": 316427545,
+            "Size": {
+              "X": 6000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "candy_jumping_numbers/land.png",
+              "Plist": "candy_jumping_numbers/candy_jumping_numbers.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 196.3597,
+              "Y": 915.6476
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0767,
+              "Y": 0.5087
+            },
+            "PreSize": {
+              "X": 0.1555,
+              "Y": 1.1344
+            },
+            "LeftMargin": -2.6403,
+            "RightMargin": 2164.6404,
+            "TopMargin": -136.6476,
+            "BottomMargin": -105.3524,
+            "Tag": 28,
+            "ActionTag": -1227550577,
+            "Size": {
+              "X": 398.0,
+              "Y": 2042.0
+            },
+            "Name": "land_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "candy_jumping_numbers.plist",
+        "candy_jumping_numbers.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

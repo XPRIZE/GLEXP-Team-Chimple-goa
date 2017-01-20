@@ -1,0 +1,884 @@
+{
+  "ID": "d2b49c43-0116-40ba-8854-b2b95f851e06",
+  "Version": "3.10.0.0",
+  "Name": "Mtoto_wa_Tembo_Mdadisi13",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 485,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 602177677,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1280.2998,
+                "Y": 851.7369,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -258850780,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "bend",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 55,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "bend",
+                "SingleFrameIndex": 160,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -665945863,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -665945863,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 3097.6313,
+                "Y": 1061.3555,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2207.9541,
+                "Y": 1049.4377,
+                "FrameIndex": 485,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -665945863,
+            "Property": "VisibleForFrame",
+            "Frames": [
+              {
+                "Value": false,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              },
+              {
+                "Value": true,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "BoolFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 200,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 205,
+          "EndIndex": 485,
+          "Name": "turtle",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 4480,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 220,
+              "G": 129,
+              "B": 177
+            },
+            "FirstColor": {
+              "R": 246,
+              "B": 177
+            },
+            "EndColor": {
+              "G": 221,
+              "B": 169
+            },
+            "ColorVector": {
+              "ScaleY": -1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1314.1548,
+              "Y": 1093.0574
+            },
+            "Scale": {
+              "ScaleX": 1.2145,
+              "ScaleY": 1.2145
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5133,
+              "Y": 0.6073
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -685.8452,
+            "RightMargin": -754.1548,
+            "TopMargin": -193.0574,
+            "BottomMargin": 193.0574,
+            "Tag": 4524,
+            "ActionTag": 810308345,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 170,
+              "G": 229,
+              "B": 235
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1308.9697,
+              "Y": 344.5476
+            },
+            "Scale": {
+              "ScaleX": 1.2145,
+              "ScaleY": 1.2145
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5113,
+              "Y": 0.1914
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 0.5556
+            },
+            "LeftMargin": -691.0303,
+            "RightMargin": -748.9697,
+            "TopMargin": 955.4524,
+            "BottomMargin": -155.4524,
+            "Tag": 4523,
+            "ActionTag": 1437658482,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1000.0
+            },
+            "Name": "Panel_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "G": 202,
+              "B": 72
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.2998,
+              "Y": 851.7369
+            },
+            "Scale": {
+              "ScaleX": 1.2049,
+              "ScaleY": 0.2454
+            },
+            "RotationSkewX": -3.5648,
+            "RotationSkewY": -3.4938,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5001,
+              "Y": 0.4732
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -719.7002,
+            "RightMargin": -720.2998,
+            "TopMargin": 48.2632,
+            "BottomMargin": -48.2631,
+            "Tag": 4522,
+            "ActionTag": 602177677,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_0_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/elephant.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 833.8028,
+              "Y": 1119.6296
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.3257,
+              "Y": 0.622
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 833.8028,
+            "RightMargin": 1726.1973,
+            "TopMargin": 680.3704,
+            "BottomMargin": 1119.6296,
+            "UserData": "drag;run",
+            "Tag": 4510,
+            "ActionTag": -258850780,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "elephant",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/turtle.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3097.6313,
+              "Y": 1061.3555
+            },
+            "Scale": {
+              "ScaleX": -1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.21,
+              "Y": 0.5896
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3097.6313,
+            "RightMargin": -537.6313,
+            "TopMargin": 738.6445,
+            "BottomMargin": 1061.3555,
+            "Tag": 6261,
+            "ActionTag": -665945863,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "VisibleForFrame": false,
+            "Name": "turtle",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/croc.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2348.9683,
+              "Y": 49.0697
+            },
+            "Scale": {
+              "ScaleX": 1.7422,
+              "ScaleY": 1.7422
+            },
+            "RotationSkewX": 5.0003,
+            "RotationSkewY": 4.9953,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9176,
+              "Y": 0.0273
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2348.9683,
+            "RightMargin": 211.0317,
+            "TopMargin": 1750.9303,
+            "BottomMargin": 49.0697,
+            "UserData": "drag;crocwalk",
+            "Tag": 4489,
+            "ActionTag": -752212706,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "croc",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 579.8184,
+              "Y": 694.3486
+            },
+            "Scale": {
+              "ScaleX": 0.4869,
+              "ScaleY": 0.4869
+            },
+            "RotationSkewX": -0.0934,
+            "RotationSkewY": -0.0934,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2265,
+              "Y": 0.3857
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 364.8184,
+            "RightMargin": 1765.1816,
+            "TopMargin": 597.6514,
+            "BottomMargin": 186.3486,
+            "UserData": "main.turtle",
+            "Tag": 4484,
+            "ActionTag": 1184379270,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 788.9318,
+              "Y": 598.5294
+            },
+            "Scale": {
+              "ScaleX": 0.4869,
+              "ScaleY": 0.4869
+            },
+            "RotationSkewX": 48.7965,
+            "RotationSkewY": 48.7965,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3082,
+              "Y": 0.3325
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 573.9318,
+            "RightMargin": 1556.0681,
+            "TopMargin": 693.4706,
+            "BottomMargin": 90.5294,
+            "UserData": "main.turtle",
+            "Tag": 4485,
+            "ActionTag": 42495669,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 761.814,
+              "Y": 765.0259
+            },
+            "Scale": {
+              "ScaleX": 0.4869,
+              "ScaleY": 0.4869
+            },
+            "RotationSkewX": 33.947,
+            "RotationSkewY": 33.947,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2976,
+              "Y": 0.425
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 546.814,
+            "RightMargin": 1583.186,
+            "TopMargin": 526.9741,
+            "BottomMargin": 257.0259,
+            "UserData": "main.turtle",
+            "Tag": 4486,
+            "ActionTag": 1750075986,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 333.3819,
+              "Y": 692.9346
+            },
+            "Scale": {
+              "ScaleX": 0.3748,
+              "ScaleY": 0.3748
+            },
+            "RotationSkewX": 0.6671,
+            "RotationSkewY": 0.6998,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1302,
+              "Y": 0.385
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 118.3819,
+            "RightMargin": 2011.6182,
+            "TopMargin": 599.0654,
+            "BottomMargin": 184.9346,
+            "UserData": "main.turtle",
+            "Tag": 4487,
+            "ActionTag": 1786106505,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 206.619,
+              "Y": 718.2357
+            },
+            "Scale": {
+              "ScaleX": 0.5012,
+              "ScaleY": 0.5012
+            },
+            "RotationSkewX": -25.426,
+            "RotationSkewY": -25.4462,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0807,
+              "Y": 0.399
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": -8.381,
+            "RightMargin": 2138.3809,
+            "TopMargin": 573.7643,
+            "BottomMargin": 210.2357,
+            "UserData": "main.turtle",
+            "Tag": 4488,
+            "ActionTag": -1766807002,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_mound.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 503.0012,
+              "Y": 513.9888
+            },
+            "Scale": {
+              "ScaleX": 0.5956,
+              "ScaleY": 0.5956
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1965,
+              "Y": 0.2855
+            },
+            "PreSize": {
+              "X": 0.393,
+              "Y": 0.2672
+            },
+            "LeftMargin": 0.0012,
+            "RightMargin": 1553.9988,
+            "TopMargin": 1045.5112,
+            "BottomMargin": 273.4888,
+            "UserData": "main.turtle",
+            "Tag": 4483,
+            "ActionTag": -472909606,
+            "Size": {
+              "X": 1006.0,
+              "Y": 481.0
+            },
+            "Name": "mound",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 853.8246,
+              "Y": 518.0233
+            },
+            "Scale": {
+              "ScaleX": 0.4869,
+              "ScaleY": 0.4869
+            },
+            "RotationSkewX": 52.9994,
+            "RotationSkewY": 53.0094,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3335,
+              "Y": 0.2878
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 638.8246,
+            "RightMargin": 1491.1754,
+            "TopMargin": 773.9767,
+            "BottomMargin": 10.0233,
+            "UserData": "main.turtle",
+            "Tag": 4482,
+            "ActionTag": 1484597734,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 83.2587,
+              "Y": 595.825
+            },
+            "Scale": {
+              "ScaleX": 0.5012,
+              "ScaleY": 0.5012
+            },
+            "RotationSkewX": -38.6684,
+            "RotationSkewY": -38.656,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0325,
+              "Y": 0.331
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": -131.7413,
+            "RightMargin": 2261.7412,
+            "TopMargin": 696.175,
+            "BottomMargin": 87.825,
+            "UserData": "main.turtle",
+            "Tag": 4481,
+            "ActionTag": 223892699,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 229,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 170,
+              "G": 229,
+              "B": 235
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1308.9697,
+              "Y": -201.9814
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5113,
+              "Y": -0.1122
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 0.5556
+            },
+            "LeftMargin": -691.0303,
+            "RightMargin": -748.9697,
+            "TopMargin": 1501.9814,
+            "BottomMargin": -701.9814,
+            "Tag": 4525,
+            "ActionTag": -1658046751,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1000.0
+            },
+            "Name": "Panel_0_0",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "croc.json",
+        "elephant.json",
+        "Mtoto_wa_Tembo_Mdadisi.plist",
+        "Mtoto_wa_Tembo_Mdadisi.png",
+        "turtle.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

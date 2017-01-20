@@ -1,0 +1,2206 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "owlisland",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 39,
+              "G": 183,
+              "B": 200
+            },
+            "EndColor": {
+              "R": 19,
+              "G": 92,
+              "B": 143
+            },
+            "ColorVector": {
+              "ScaleX": -0.0872,
+              "ScaleY": -0.9962
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": -0.4122
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": -0.0002
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "TopMargin": 0.4122,
+            "BottomMargin": -0.4122,
+            "Tag": 40,
+            "ActionTag": -1093423166,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "background",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/downbar.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -10.3969,
+              "Y": 241.5879
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0041,
+              "Y": 0.1342
+            },
+            "PreSize": {
+              "X": 0.2031,
+              "Y": 0.2694
+            },
+            "LeftMargin": -270.3969,
+            "RightMargin": 2310.397,
+            "TopMargin": 1315.9121,
+            "BottomMargin": -0.9121,
+            "Tag": 41,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/downbar.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 769.8544,
+                  "Y": 242.0004
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4805,
+                  "Y": 0.499
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 509.8544,
+                "RightMargin": -509.8544,
+                "TopMargin": 0.4996,
+                "BottomMargin": -0.4996,
+                "Tag": 42,
+                "ActionTag": -1827387921,
+                "Size": {
+                  "X": 520.0,
+                  "Y": 485.0
+                },
+                "Name": "downbar_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/downbar.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1281.6691,
+                  "Y": 241.9998
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4647,
+                  "Y": 0.499
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1021.6691,
+                "RightMargin": -1021.6691,
+                "TopMargin": 0.5002,
+                "BottomMargin": -0.5002,
+                "Tag": 43,
+                "ActionTag": 1962836674,
+                "Size": {
+                  "X": 520.0,
+                  "Y": 485.0
+                },
+                "Name": "downbar_3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/downbar.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1791.7467,
+                  "Y": 241.9998
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4457,
+                  "Y": 0.499
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1531.7467,
+                "RightMargin": -1531.7466,
+                "TopMargin": 0.5002,
+                "BottomMargin": -0.5002,
+                "Tag": 44,
+                "ActionTag": -1395941096,
+                "Size": {
+                  "X": 520.0,
+                  "Y": 485.0
+                },
+                "Name": "downbar_4",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/downbar.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2302.8347,
+                  "Y": 242.0009
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.4285,
+                  "Y": 0.499
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2042.8347,
+                "RightMargin": -2042.8347,
+                "TopMargin": 0.4991,
+                "BottomMargin": -0.4991,
+                "Tag": 45,
+                "ActionTag": 1525395406,
+                "Size": {
+                  "X": 520.0,
+                  "Y": 485.0
+                },
+                "Name": "downbar_5",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/downbar.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2812.9148,
+                  "Y": 242.0009
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.4095,
+                  "Y": 0.499
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2552.9148,
+                "RightMargin": -2552.9148,
+                "TopMargin": 0.4991,
+                "BottomMargin": -0.4991,
+                "Tag": 46,
+                "ActionTag": -441034280,
+                "Size": {
+                  "X": 520.0,
+                  "Y": 485.0
+                },
+                "Name": "downbar_6",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/downbar.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3324.7217,
+                  "Y": 241.9999
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.3937,
+                  "Y": 0.499
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3064.7217,
+                "RightMargin": -3064.7217,
+                "TopMargin": 0.5001,
+                "BottomMargin": -0.5001,
+                "Tag": 47,
+                "ActionTag": 1870923805,
+                "Size": {
+                  "X": 520.0,
+                  "Y": 485.0
+                },
+                "Name": "downbar_7",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/plant.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 281.6246,
+                  "Y": 751.0183
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5416,
+                  "Y": 1.5485
+                },
+                "PreSize": {
+                  "X": 0.4942,
+                  "Y": 0.5979
+                },
+                "LeftMargin": 153.1246,
+                "RightMargin": 109.8754,
+                "TopMargin": -411.0183,
+                "BottomMargin": 606.0183,
+                "Tag": 165,
+                "ActionTag": 537233626,
+                "Size": {
+                  "X": 257.0,
+                  "Y": 290.0
+                },
+                "Name": "plant_16",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/grass.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 132.0866,
+                  "Y": 726.5159
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.254,
+                  "Y": 1.498
+                },
+                "PreSize": {
+                  "X": 0.45,
+                  "Y": 0.4701
+                },
+                "LeftMargin": 15.0866,
+                "RightMargin": 270.9134,
+                "TopMargin": -355.5159,
+                "BottomMargin": 612.5159,
+                "Tag": 164,
+                "ActionTag": 5563196,
+                "Size": {
+                  "X": 234.0,
+                  "Y": 228.0
+                },
+                "Name": "grass_15",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/plant.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2907.1265,
+                  "Y": 736.9293
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.5906,
+                  "Y": 1.5194
+                },
+                "PreSize": {
+                  "X": 0.4942,
+                  "Y": 0.5979
+                },
+                "LeftMargin": 2778.6265,
+                "RightMargin": -2515.6265,
+                "TopMargin": -396.9293,
+                "BottomMargin": 591.9293,
+                "Tag": 166,
+                "ActionTag": -1464149937,
+                "Size": {
+                  "X": 257.0,
+                  "Y": 290.0
+                },
+                "Name": "plant_16_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/grass.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2757.5972,
+                  "Y": 712.4331
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.3031,
+                  "Y": 1.4689
+                },
+                "PreSize": {
+                  "X": 0.45,
+                  "Y": 0.4701
+                },
+                "LeftMargin": 2640.5972,
+                "RightMargin": -2354.5972,
+                "TopMargin": -341.4331,
+                "BottomMargin": 598.4331,
+                "Tag": 167,
+                "ActionTag": -1539570937,
+                "Size": {
+                  "X": 234.0,
+                  "Y": 228.0
+                },
+                "Name": "grass_15_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -1604582286,
+            "Size": {
+              "X": 520.0,
+              "Y": 485.0
+            },
+            "Name": "downbar_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/plant3.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1491.4854,
+              "Y": 729.2048
+            },
+            "Scale": {
+              "ScaleX": 0.61,
+              "ScaleY": 0.61
+            },
+            "RotationSkewX": 3.1662,
+            "RotationSkewY": 3.2065,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5826,
+              "Y": 0.4051
+            },
+            "PreSize": {
+              "X": 0.059,
+              "Y": 0.2367
+            },
+            "LeftMargin": 1415.9854,
+            "RightMargin": 993.0146,
+            "TopMargin": 857.7952,
+            "BottomMargin": 516.2048,
+            "Tag": 68,
+            "ActionTag": 1208913951,
+            "Size": {
+              "X": 151.0,
+              "Y": 426.0
+            },
+            "Name": "plant3_12_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/plant2.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1554.7955,
+              "Y": 676.6556
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 26.8669,
+            "RotationSkewY": 26.8841,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6073,
+              "Y": 0.3759
+            },
+            "PreSize": {
+              "X": 0.0434,
+              "Y": 0.1
+            },
+            "LeftMargin": 1499.2955,
+            "RightMargin": 949.7045,
+            "TopMargin": 1033.3445,
+            "BottomMargin": 586.6556,
+            "Tag": 67,
+            "ActionTag": 5171172,
+            "Size": {
+              "X": 111.0,
+              "Y": 180.0
+            },
+            "Name": "plant2_11_0_0_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/plant2.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1468.1224,
+              "Y": 679.544
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 26.8669,
+            "RotationSkewY": 26.8841,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5735,
+              "Y": 0.3775
+            },
+            "PreSize": {
+              "X": 0.0434,
+              "Y": 0.1
+            },
+            "LeftMargin": 1412.6224,
+            "RightMargin": 1036.3776,
+            "TopMargin": 1030.4561,
+            "BottomMargin": 589.544,
+            "Tag": 66,
+            "ActionTag": 2029471823,
+            "Size": {
+              "X": 111.0,
+              "Y": 180.0
+            },
+            "Name": "plant2_11_0_0_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/plant2.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1375.6703,
+              "Y": 685.3219
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -6.0965,
+            "RotationSkewY": -6.0753,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5374,
+              "Y": 0.3807
+            },
+            "PreSize": {
+              "X": 0.0434,
+              "Y": 0.1
+            },
+            "LeftMargin": 1320.1703,
+            "RightMargin": 1128.8297,
+            "TopMargin": 1024.6781,
+            "BottomMargin": 595.3219,
+            "Tag": 65,
+            "ActionTag": 2035328662,
+            "Size": {
+              "X": 111.0,
+              "Y": 180.0
+            },
+            "Name": "plant2_11_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/plant2.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1379.4441,
+              "Y": 862.4457
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -13.1448,
+            "RotationSkewY": -13.1236,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5388,
+              "Y": 0.4791
+            },
+            "PreSize": {
+              "X": 0.0434,
+              "Y": 0.1
+            },
+            "LeftMargin": 1323.9441,
+            "RightMargin": 1125.0559,
+            "TopMargin": 847.5543,
+            "BottomMargin": 772.4457,
+            "Tag": 64,
+            "ActionTag": -1761971097,
+            "Size": {
+              "X": 111.0,
+              "Y": 180.0
+            },
+            "Name": "plant2_11_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/plant2.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1279.0122,
+              "Y": 708.5273
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 26.8669,
+            "RotationSkewY": 26.8841,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4996,
+              "Y": 0.3936
+            },
+            "PreSize": {
+              "X": 0.0434,
+              "Y": 0.1
+            },
+            "LeftMargin": 1223.5122,
+            "RightMargin": 1225.4878,
+            "TopMargin": 1001.4727,
+            "BottomMargin": 618.5273,
+            "Tag": 63,
+            "ActionTag": -65160366,
+            "Size": {
+              "X": 111.0,
+              "Y": 180.0
+            },
+            "Name": "plant2_11_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/plant3.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1384.5852,
+              "Y": 788.0934
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 26.8669,
+            "RotationSkewY": 26.8841,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5409,
+              "Y": 0.4378
+            },
+            "PreSize": {
+              "X": 0.059,
+              "Y": 0.2367
+            },
+            "LeftMargin": 1309.0852,
+            "RightMargin": 1099.9148,
+            "TopMargin": 798.9066,
+            "BottomMargin": 575.0934,
+            "Tag": 62,
+            "ActionTag": 1894599658,
+            "Size": {
+              "X": 151.0,
+              "Y": 426.0
+            },
+            "Name": "plant3_12_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/plant2.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1212.9382,
+              "Y": 699.3358
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4738,
+              "Y": 0.3885
+            },
+            "PreSize": {
+              "X": 0.0434,
+              "Y": 0.1
+            },
+            "LeftMargin": 1157.4382,
+            "RightMargin": 1291.5618,
+            "TopMargin": 1010.6642,
+            "BottomMargin": 609.3358,
+            "Tag": 61,
+            "ActionTag": -492011932,
+            "Size": {
+              "X": 111.0,
+              "Y": 180.0
+            },
+            "Name": "plant2_11_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/plant3.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1271.1372,
+              "Y": 818.0354
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4965,
+              "Y": 0.4545
+            },
+            "PreSize": {
+              "X": 0.059,
+              "Y": 0.2367
+            },
+            "LeftMargin": 1195.6372,
+            "RightMargin": 1213.3628,
+            "TopMargin": 768.9646,
+            "BottomMargin": 605.0354,
+            "Tag": 60,
+            "ActionTag": -137435689,
+            "Size": {
+              "X": 151.0,
+              "Y": 426.0
+            },
+            "Name": "plant3_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/plant4.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1106.8481,
+              "Y": 863.7511
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 11.5843,
+            "RotationSkewY": 11.5808,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4324,
+              "Y": 0.4799
+            },
+            "PreSize": {
+              "X": 0.1227,
+              "Y": 0.2978
+            },
+            "LeftMargin": 949.8481,
+            "RightMargin": 1296.1519,
+            "TopMargin": 668.2489,
+            "BottomMargin": 595.7511,
+            "Tag": 75,
+            "ActionTag": -209222435,
+            "Size": {
+              "X": 314.0,
+              "Y": 536.0
+            },
+            "Name": "plant4_23",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/plant2.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1271.1392,
+              "Y": 818.0327
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4965,
+              "Y": 0.4545
+            },
+            "PreSize": {
+              "X": 0.0434,
+              "Y": 0.1
+            },
+            "LeftMargin": 1215.6392,
+            "RightMargin": 1233.3608,
+            "TopMargin": 891.9673,
+            "BottomMargin": 728.0327,
+            "Tag": 59,
+            "ActionTag": -79299880,
+            "Size": {
+              "X": 111.0,
+              "Y": 180.0
+            },
+            "Name": "plant2_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 243,
+              "G": 183,
+              "B": 70
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -265.9705,
+              "Y": 479.1163
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1039,
+              "Y": 0.2662
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.0761
+            },
+            "LeftMargin": -265.9705,
+            "RightMargin": -274.0295,
+            "TopMargin": 1183.8837,
+            "BottomMargin": 479.1163,
+            "Tag": 171,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross1.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -58.7642,
+                  "Y": 88.4907
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": -0.019,
+                  "Y": 0.6459
+                },
+                "PreSize": {
+                  "X": 0.1203,
+                  "Y": 0.7445
+                },
+                "LeftMargin": -245.2642,
+                "RightMargin": 2972.2642,
+                "TopMargin": -2.4907,
+                "BottomMargin": 37.4907,
+                "Tag": 173,
+                "ActionTag": -1627315411,
+                "Size": {
+                  "X": 373.0,
+                  "Y": 102.0
+                },
+                "Name": "zebracross1_14",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross2.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 186.9414,
+                  "Y": 85.0716
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0603,
+                  "Y": 0.621
+                },
+                "PreSize": {
+                  "X": 0.1203,
+                  "Y": 0.7445
+                },
+                "LeftMargin": 0.4414,
+                "RightMargin": 2726.5586,
+                "TopMargin": 0.9284,
+                "BottomMargin": 34.0716,
+                "Tag": 174,
+                "ActionTag": 1771591954,
+                "Size": {
+                  "X": 373.0,
+                  "Y": 102.0
+                },
+                "Name": "zebracross2_15",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross3.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5131,
+                  "ScaleY": 0.5241
+                },
+                "Position": {
+                  "X": 622.8436,
+                  "Y": 70.3958
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2009,
+                  "Y": 0.5138
+                },
+                "PreSize": {
+                  "X": 0.1519,
+                  "Y": 1.0073
+                },
+                "LeftMargin": 381.1735,
+                "RightMargin": 2247.8264,
+                "TopMargin": 0.93,
+                "BottomMargin": -1.93,
+                "Tag": 176,
+                "ActionTag": 1789021811,
+                "Size": {
+                  "X": 471.0,
+                  "Y": 138.0
+                },
+                "Name": "zebracross4_17",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross4.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5106,
+                  "ScaleY": 0.4988
+                },
+                "Position": {
+                  "X": 911.8987,
+                  "Y": 66.9132
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2942,
+                  "Y": 0.4884
+                },
+                "PreSize": {
+                  "X": 0.1174,
+                  "Y": 1.0073
+                },
+                "LeftMargin": 726.0403,
+                "RightMargin": 2009.9597,
+                "TopMargin": 0.9212,
+                "BottomMargin": -1.9212,
+                "Tag": 177,
+                "ActionTag": -703764745,
+                "Size": {
+                  "X": 364.0,
+                  "Y": 138.0
+                },
+                "Name": "zebracross5_18",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross5.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1185.2783,
+                  "Y": 69.782
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3823,
+                  "Y": 0.5094
+                },
+                "PreSize": {
+                  "X": 0.0832,
+                  "Y": 1.0073
+                },
+                "LeftMargin": 1056.2783,
+                "RightMargin": 1785.7217,
+                "TopMargin": -1.782,
+                "BottomMargin": 0.782,
+                "Tag": 178,
+                "ActionTag": 1429512092,
+                "Size": {
+                  "X": 258.0,
+                  "Y": 138.0
+                },
+                "Name": "zebracross6_19",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross6.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.4565,
+                  "ScaleY": 0.4736
+                },
+                "Position": {
+                  "X": 1469.1133,
+                  "Y": 63.4306
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4739,
+                  "Y": 0.463
+                },
+                "PreSize": {
+                  "X": 0.0577,
+                  "Y": 1.0073
+                },
+                "LeftMargin": 1387.3998,
+                "RightMargin": 1533.6002,
+                "TopMargin": 0.9262,
+                "BottomMargin": -1.9262,
+                "Tag": 179,
+                "ActionTag": 1108565430,
+                "Size": {
+                  "X": 179.0,
+                  "Y": 138.0
+                },
+                "Name": "zebracross7_20",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross3.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2812.9385,
+                  "Y": 67.2297
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9074,
+                  "Y": 0.4907
+                },
+                "PreSize": {
+                  "X": 0.1519,
+                  "Y": 1.0073
+                },
+                "LeftMargin": 2577.4385,
+                "RightMargin": 51.5615,
+                "TopMargin": 0.7703,
+                "BottomMargin": -1.7703,
+                "Tag": 183,
+                "ActionTag": -660408679,
+                "Size": {
+                  "X": 471.0,
+                  "Y": 138.0
+                },
+                "Name": "zebracross3_24",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross2.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2998.1843,
+                  "Y": 89.5657
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 0.9706
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.9672,
+                  "Y": 0.6538
+                },
+                "PreSize": {
+                  "X": 0.1203,
+                  "Y": 0.7445
+                },
+                "LeftMargin": 2811.6843,
+                "RightMargin": -84.6843,
+                "TopMargin": -3.5657,
+                "BottomMargin": 38.5657,
+                "Tag": 184,
+                "ActionTag": -1670691667,
+                "Size": {
+                  "X": 373.0,
+                  "Y": 102.0
+                },
+                "Name": "zebracross2_25",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross1.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3203.4414,
+                  "Y": 86.1668
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.0334,
+                  "Y": 0.629
+                },
+                "PreSize": {
+                  "X": 0.1203,
+                  "Y": 0.7445
+                },
+                "LeftMargin": 3016.9414,
+                "RightMargin": -289.9414,
+                "TopMargin": -0.1668,
+                "BottomMargin": 35.1668,
+                "Tag": 185,
+                "ActionTag": 2060770298,
+                "Size": {
+                  "X": 373.0,
+                  "Y": 102.0
+                },
+                "Name": "zebracross1_26",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross5.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1792.6755,
+                  "Y": 70.5816
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5783,
+                  "Y": 0.5152
+                },
+                "PreSize": {
+                  "X": 0.0832,
+                  "Y": 1.0073
+                },
+                "LeftMargin": 1663.6755,
+                "RightMargin": 1178.3245,
+                "TopMargin": -2.5816,
+                "BottomMargin": 1.5816,
+                "Tag": 136,
+                "ActionTag": -581216828,
+                "Size": {
+                  "X": 258.0,
+                  "Y": 138.0
+                },
+                "Name": "zebracross5_22_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross4.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2118.9609,
+                  "Y": 70.93
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6835,
+                  "Y": 0.5177
+                },
+                "PreSize": {
+                  "X": 0.1174,
+                  "Y": 1.0073
+                },
+                "LeftMargin": 1936.9609,
+                "RightMargin": 799.0391,
+                "TopMargin": -2.93,
+                "BottomMargin": 1.93,
+                "Tag": 137,
+                "ActionTag": -716716303,
+                "Size": {
+                  "X": 364.0,
+                  "Y": 138.0
+                },
+                "Name": "zebracross4_23_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross3.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2473.0388,
+                  "Y": 67.1351
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7978,
+                  "Y": 0.49
+                },
+                "PreSize": {
+                  "X": 0.1519,
+                  "Y": 1.0073
+                },
+                "LeftMargin": 2237.5388,
+                "RightMargin": 391.4612,
+                "TopMargin": 0.8649,
+                "BottomMargin": -1.8649,
+                "Tag": 138,
+                "ActionTag": 1033125824,
+                "Size": {
+                  "X": 471.0,
+                  "Y": 138.0
+                },
+                "Name": "zebracross3_24_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "owlisland/zebracross3.png",
+                  "Plist": "owlisland/owlisland.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5131,
+                  "ScaleY": 0.5241
+                },
+                "Position": {
+                  "X": 348.3849,
+                  "Y": 72.6123
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.1124,
+                  "Y": 0.53
+                },
+                "PreSize": {
+                  "X": 0.1519,
+                  "Y": 1.0073
+                },
+                "LeftMargin": 106.7148,
+                "RightMargin": 2522.2852,
+                "TopMargin": -1.2865,
+                "BottomMargin": 0.2865,
+                "Tag": 140,
+                "ActionTag": -2096176236,
+                "Size": {
+                  "X": 471.0,
+                  "Y": 138.0
+                },
+                "Name": "zebracross4_17_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 200,
+                  "G": 142,
+                  "B": 43
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "TouchEnable": true,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 0.1343,
+                  "Y": 0.0049
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.1971
+                },
+                "LeftMargin": 0.1343,
+                "RightMargin": -0.1343,
+                "TopMargin": 109.9951,
+                "BottomMargin": 0.0049,
+                "Tag": 186,
+                "ActionTag": 141234613,
+                "Size": {
+                  "X": 3100.0,
+                  "Y": 27.0
+                },
+                "Name": "Panel_121",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": 1505592531,
+            "Size": {
+              "X": 3100.0,
+              "Y": 137.0
+            },
+            "Name": "zebracross",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 201,
+              "G": 117,
+              "B": 41
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 783.0357,
+              "Y": 1650.6555
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3059,
+              "Y": 0.917
+            },
+            "PreSize": {
+              "X": 0.3906,
+              "Y": 0.0833
+            },
+            "LeftMargin": 783.0357,
+            "RightMargin": 776.9644,
+            "TopMargin": -0.6555,
+            "BottomMargin": 1650.6555,
+            "Tag": 205,
+            "ActionTag": 1035752130,
+            "Size": {
+              "X": 1000.0,
+              "Y": 150.0
+            },
+            "Name": "greenbar",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 128,
+              "G": 76,
+              "B": 31
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 1652.8038
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.9182
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.0833
+            },
+            "TopMargin": -2.8038,
+            "BottomMargin": 1652.8038,
+            "Tag": 204,
+            "ActionTag": 2011088144,
+            "Size": {
+              "X": 2560.0,
+              "Y": 150.0
+            },
+            "Name": "orangebar",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/bg.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2120.771,
+              "Y": 892.5672
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8284,
+              "Y": 0.4959
+            },
+            "PreSize": {
+              "X": 0.5527,
+              "Y": 0.1822
+            },
+            "LeftMargin": 1413.271,
+            "RightMargin": -268.271,
+            "TopMargin": 743.4329,
+            "BottomMargin": 728.5672,
+            "Tag": 158,
+            "ActionTag": -1028418575,
+            "Size": {
+              "X": 1415.0,
+              "Y": 328.0
+            },
+            "Name": "bg_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/bg.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2117.1846,
+              "Y": 1391.7222
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.827,
+              "Y": 0.7732
+            },
+            "PreSize": {
+              "X": 0.5527,
+              "Y": 0.1822
+            },
+            "LeftMargin": 1409.6846,
+            "RightMargin": -264.6846,
+            "TopMargin": 244.2778,
+            "BottomMargin": 1227.7222,
+            "Tag": 159,
+            "ActionTag": -394817363,
+            "Size": {
+              "X": 1415.0,
+              "Y": 328.0
+            },
+            "Name": "bg_11_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/bg.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 440.3581,
+              "Y": 1062.2844
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.172,
+              "Y": 0.5902
+            },
+            "PreSize": {
+              "X": 0.5527,
+              "Y": 0.1822
+            },
+            "LeftMargin": -267.1419,
+            "RightMargin": 1412.1418,
+            "TopMargin": 573.7156,
+            "BottomMargin": 898.2844,
+            "Tag": 160,
+            "ActionTag": 1314781800,
+            "Size": {
+              "X": 1415.0,
+              "Y": 328.0
+            },
+            "Name": "bg_11_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "owlisland/bg.png",
+              "Plist": "owlisland/owlisland.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 436.7708,
+              "Y": 1561.4463
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1706,
+              "Y": 0.8675
+            },
+            "PreSize": {
+              "X": 0.5527,
+              "Y": 0.1822
+            },
+            "LeftMargin": -270.7292,
+            "RightMargin": 1415.7292,
+            "TopMargin": 74.5537,
+            "BottomMargin": 1397.4463,
+            "Tag": 161,
+            "ActionTag": 577611133,
+            "Size": {
+              "X": 1415.0,
+              "Y": 328.0
+            },
+            "Name": "bg_11_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "owlisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 3.0942,
+              "Y": 702.5761
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0012,
+              "Y": 0.3903
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 3.0942,
+            "RightMargin": 2556.9058,
+            "TopMargin": 1097.4238,
+            "BottomMargin": 702.5761,
+            "Tag": 168,
+            "ActionTag": 1730261167,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "owlisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2411.5039,
+              "Y": 730.3905
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.942,
+              "Y": 0.4058
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2411.5039,
+            "RightMargin": 148.4961,
+            "TopMargin": 1069.6095,
+            "BottomMargin": 730.3905,
+            "Tag": 171,
+            "ActionTag": -1946176644,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "owlisland/bubble.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1295.8772,
+              "Y": 673.9759
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -13.5977,
+            "RotationSkewY": -13.6122,
+            "CColor": {
+              "R": 191,
+              "G": 191,
+              "B": 191
+            },
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5062,
+              "Y": 0.3744
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1295.8772,
+            "RightMargin": 1264.1228,
+            "TopMargin": 1126.0242,
+            "BottomMargin": 673.9759,
+            "Tag": 72,
+            "ActionTag": 775576795,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Alpha": 153,
+            "Name": "bubble",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bubble.json",
+        "owlisland.plist",
+        "owlisland.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

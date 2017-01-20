@@ -1,0 +1,1615 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "cardraw",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 204,
+              "G": 242,
+              "B": 47
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -271.8412,
+              "Y": -1.9967
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1062,
+              "Y": -0.0011
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -271.8412,
+            "RightMargin": -268.1587,
+            "TopMargin": 1.9967,
+            "BottomMargin": -1.9967,
+            "Tag": 140,
+            "ActionTag": -1371234360,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw/grass.png",
+              "Plist": "cardraw/cardraw.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -46.7828,
+              "Y": 1585.3806
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0251
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0183,
+              "Y": 0.8808
+            },
+            "PreSize": {
+              "X": 0.1758,
+              "Y": 0.25
+            },
+            "LeftMargin": -271.7828,
+            "RightMargin": 2381.7827,
+            "TopMargin": -10.3806,
+            "BottomMargin": 1360.3806,
+            "Tag": 5,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 674.1136,
+                  "Y": 225.2184
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.498,
+                  "Y": 0.5005
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 449.1136,
+                "RightMargin": -449.1136,
+                "TopMargin": -0.2184,
+                "BottomMargin": 0.2184,
+                "Tag": 6,
+                "ActionTag": 1876035527,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1104.2914,
+                  "Y": 225.2184
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.454,
+                  "Y": 0.5005
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 879.2914,
+                "RightMargin": -879.2914,
+                "TopMargin": -0.2184,
+                "BottomMargin": 0.2184,
+                "Tag": 7,
+                "ActionTag": 836191197,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1552.7375,
+                  "Y": 225.8853
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4505,
+                  "Y": 0.502
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1327.7375,
+                "RightMargin": -1327.7375,
+                "TopMargin": -0.8853,
+                "BottomMargin": 0.8853,
+                "Tag": 8,
+                "ActionTag": -1545029993,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1945.9386,
+                  "Y": 225.2184
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.3243,
+                  "Y": 0.5005
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1720.9386,
+                "RightMargin": -1720.9385,
+                "TopMargin": -0.2184,
+                "BottomMargin": 0.2184,
+                "Tag": 9,
+                "ActionTag": 686309739,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2394.3843,
+                  "Y": 225.2184
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.3209,
+                  "Y": 0.5005
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2169.3843,
+                "RightMargin": -2169.3843,
+                "TopMargin": -0.2184,
+                "BottomMargin": 0.2184,
+                "Tag": 10,
+                "ActionTag": 1097037925,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2824.5471,
+                  "Y": 225.2213
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.2768,
+                  "Y": 0.5005
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2599.5471,
+                "RightMargin": -2599.5471,
+                "TopMargin": -0.2213,
+                "BottomMargin": 0.2213,
+                "Tag": 11,
+                "ActionTag": 1571804180,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3272.9883,
+                  "Y": 225.8853
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.2733,
+                  "Y": 0.502
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3047.9883,
+                "RightMargin": -3047.9883,
+                "TopMargin": -0.8853,
+                "BottomMargin": 0.8853,
+                "Tag": 12,
+                "ActionTag": -1565001808,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 225.9234,
+                  "Y": -216.4482
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5021,
+                  "Y": -0.481
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 0.9234,
+                "RightMargin": -0.9234,
+                "TopMargin": 441.4482,
+                "BottomMargin": -441.4482,
+                "Tag": 13,
+                "ActionTag": 2147436224,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 674.3722,
+                  "Y": -216.4468
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4986,
+                  "Y": -0.481
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 449.3722,
+                "RightMargin": -449.3722,
+                "TopMargin": 441.4468,
+                "BottomMargin": -441.4468,
+                "Tag": 14,
+                "ActionTag": -1710377605,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1104.5471,
+                  "Y": -216.4468
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4545,
+                  "Y": -0.481
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 879.5471,
+                "RightMargin": -879.5471,
+                "TopMargin": 441.4468,
+                "BottomMargin": -441.4468,
+                "Tag": 15,
+                "ActionTag": 1787694048,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1552.9956,
+                  "Y": -215.7812
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4511,
+                  "Y": -0.4795
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1327.9956,
+                "RightMargin": -1327.9956,
+                "TopMargin": 440.7812,
+                "BottomMargin": -440.7812,
+                "Tag": 16,
+                "ActionTag": -1351261273,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1946.1934,
+                  "Y": -216.4468
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.3249,
+                  "Y": -0.481
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1721.1934,
+                "RightMargin": -1721.1934,
+                "TopMargin": 441.4468,
+                "BottomMargin": -441.4468,
+                "Tag": 17,
+                "ActionTag": -889875899,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2394.636,
+                  "Y": -216.4468
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.3214,
+                  "Y": -0.481
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2169.636,
+                "RightMargin": -2169.636,
+                "TopMargin": 441.4468,
+                "BottomMargin": -441.4468,
+                "Tag": 18,
+                "ActionTag": -1512437038,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2824.8008,
+                  "Y": -216.4452
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.2773,
+                  "Y": -0.481
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2599.8008,
+                "RightMargin": -2599.8008,
+                "TopMargin": 441.4452,
+                "BottomMargin": -441.4452,
+                "Tag": 19,
+                "ActionTag": 1356299851,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3273.2358,
+                  "Y": -215.7812
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.2739,
+                  "Y": -0.4795
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3048.2358,
+                "RightMargin": -3048.2358,
+                "TopMargin": 440.7812,
+                "BottomMargin": -440.7812,
+                "Tag": 20,
+                "ActionTag": -758466765,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 225.0695,
+                  "Y": -657.6385
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5002,
+                  "Y": -1.4614
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 0.0695,
+                "RightMargin": -0.0695,
+                "TopMargin": 882.6385,
+                "BottomMargin": -882.6385,
+                "Tag": 21,
+                "ActionTag": 2091153554,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 673.5193,
+                  "Y": -657.6385
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4967,
+                  "Y": -1.4614
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 448.5193,
+                "RightMargin": -448.5193,
+                "TopMargin": 882.6385,
+                "BottomMargin": -882.6385,
+                "Tag": 22,
+                "ActionTag": 1802539989,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1103.6941,
+                  "Y": -657.6378
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4527,
+                  "Y": -1.4614
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 878.6941,
+                "RightMargin": -878.6941,
+                "TopMargin": 882.6378,
+                "BottomMargin": -882.6378,
+                "Tag": 23,
+                "ActionTag": -1145815992,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_0_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1552.1376,
+                  "Y": -656.9728
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4492,
+                  "Y": -1.4599
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1327.1376,
+                "RightMargin": -1327.1376,
+                "TopMargin": 881.9728,
+                "BottomMargin": -881.9728,
+                "Tag": 24,
+                "ActionTag": -474370580,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_0_2",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1945.3405,
+                  "Y": -657.6385
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.323,
+                  "Y": -1.4614
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1720.3405,
+                "RightMargin": -1720.3403,
+                "TopMargin": 882.6385,
+                "BottomMargin": -882.6385,
+                "Tag": 25,
+                "ActionTag": -1674243488,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_1_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2393.7825,
+                  "Y": -657.6385
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.3195,
+                  "Y": -1.4614
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2168.7825,
+                "RightMargin": -2168.7825,
+                "TopMargin": 882.6385,
+                "BottomMargin": -882.6385,
+                "Tag": 26,
+                "ActionTag": -584687303,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_1_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2823.9487,
+                  "Y": -657.6367
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.2754,
+                  "Y": -1.4614
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2598.9487,
+                "RightMargin": -2598.9487,
+                "TopMargin": 882.6367,
+                "BottomMargin": -882.6367,
+                "Tag": 27,
+                "ActionTag": 420920574,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_0_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3272.3904,
+                  "Y": -656.9728
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.272,
+                  "Y": -1.4599
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3047.3904,
+                "RightMargin": -3047.3904,
+                "TopMargin": 881.9728,
+                "BottomMargin": -881.9728,
+                "Tag": 28,
+                "ActionTag": -1062361196,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_0_0_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 225.3292,
+                  "Y": -1099.304
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5007,
+                  "Y": -2.4429
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 0.3292,
+                "RightMargin": -0.3292,
+                "TopMargin": 1324.304,
+                "BottomMargin": -1324.304,
+                "Tag": 29,
+                "ActionTag": 585301091,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_2_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 673.7779,
+                  "Y": -1099.3032
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4973,
+                  "Y": -2.4429
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 448.7779,
+                "RightMargin": -448.7779,
+                "TopMargin": 1324.3032,
+                "BottomMargin": -1324.3032,
+                "Tag": 30,
+                "ActionTag": -268649070,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_2_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1103.9531,
+                  "Y": -1099.3022
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4532,
+                  "Y": -2.4429
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 878.9531,
+                "RightMargin": -878.9531,
+                "TopMargin": 1324.3022,
+                "BottomMargin": -1324.3022,
+                "Tag": 31,
+                "ActionTag": -493374374,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_0_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1552.3986,
+                  "Y": -1098.6375
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4498,
+                  "Y": -2.4414
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1327.3986,
+                "RightMargin": -1327.3986,
+                "TopMargin": 1323.6375,
+                "BottomMargin": -1323.6375,
+                "Tag": 32,
+                "ActionTag": -1779640220,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_0_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1945.5966,
+                  "Y": -1099.3022
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.3235,
+                  "Y": -2.4429
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1720.5966,
+                "RightMargin": -1720.5967,
+                "TopMargin": 1324.3022,
+                "BottomMargin": -1324.3022,
+                "Tag": 33,
+                "ActionTag": 1085431447,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_1_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2394.0405,
+                  "Y": -1099.3022
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 5.3201,
+                  "Y": -2.4429
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2169.0405,
+                "RightMargin": -2169.0405,
+                "TopMargin": 1324.3022,
+                "BottomMargin": -1324.3022,
+                "Tag": 34,
+                "ActionTag": -1797461134,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_1_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2824.2029,
+                  "Y": -1099.3013
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 6.276,
+                  "Y": -2.4429
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2599.2029,
+                "RightMargin": -2599.2029,
+                "TopMargin": 1324.3013,
+                "BottomMargin": -1324.3013,
+                "Tag": 35,
+                "ActionTag": -1691233066,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_1_0_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "cardraw/grass.png",
+                  "Plist": "cardraw/cardraw.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3272.6411,
+                  "Y": -1098.6375
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 7.2725,
+                  "Y": -2.4414
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 3047.6411,
+                "RightMargin": -3047.6411,
+                "TopMargin": 1323.6375,
+                "BottomMargin": -1323.6375,
+                "Tag": 36,
+                "ActionTag": 842437267,
+                "Size": {
+                  "X": 450.0,
+                  "Y": 450.0
+                },
+                "Name": "grass_2_0_0_0_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -1086391781,
+            "Size": {
+              "X": 450.0,
+              "Y": 450.0
+            },
+            "Name": "grass_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw/car.png",
+              "Plist": "cardraw/cardraw.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 322.2189,
+              "Y": 171.8812
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1259,
+              "Y": 0.0955
+            },
+            "PreSize": {
+              "X": 0.0797,
+              "Y": 0.1761
+            },
+            "LeftMargin": 220.2189,
+            "RightMargin": 2135.781,
+            "TopMargin": 1469.6188,
+            "BottomMargin": 13.3812,
+            "Tag": 141,
+            "ActionTag": -1988309208,
+            "Size": {
+              "X": 204.0,
+              "Y": 317.0
+            },
+            "Name": "car_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw/house.png",
+              "Plist": "cardraw/cardraw.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2072.7087,
+              "Y": 242.0655
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8097,
+              "Y": 0.1345
+            },
+            "PreSize": {
+              "X": 0.2738,
+              "Y": 0.2561
+            },
+            "LeftMargin": 1722.2087,
+            "RightMargin": 136.7913,
+            "TopMargin": 1327.4346,
+            "BottomMargin": 11.5655,
+            "Tag": 142,
+            "ActionTag": -1309486340,
+            "Size": {
+              "X": 701.0,
+              "Y": 461.0
+            },
+            "Name": "house_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "cardraw.plist",
+        "cardraw.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

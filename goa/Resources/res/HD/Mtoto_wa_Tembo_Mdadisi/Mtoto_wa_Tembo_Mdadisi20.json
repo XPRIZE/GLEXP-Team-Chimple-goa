@@ -1,0 +1,1659 @@
+{
+  "ID": "cd80c629-4640-4d17-9e1d-28d319d65400",
+  "Version": "3.10.0.0",
+  "Name": "Mtoto_wa_Tembo_Mdadisi20",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 280,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -441954486,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -441954486,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2007249933,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1269.9912,
+                "Y": 46.6617,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1269.9912,
+                "Y": 46.6617,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2007249933,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 0.7909,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2007249933,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0341,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1290679479,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "sun",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 155,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1290679479,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1272.8666,
+                "Y": 2155.6729,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1151.1794,
+                "Y": 1542.2509,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1143078020,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 155,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 250,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1143078020,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 465.0008,
+                "Y": 1542.0172,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 829.9207,
+                "Y": 1522.9922,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1143078020,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 221,
+                  "G": 231,
+                  "B": 251
+                },
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 240,
+                  "G": 245
+                },
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 349435553,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 155,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "rain",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 250,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 349435553,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1889.3517,
+                "Y": 1353.7766,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1484.5437,
+                "Y": 1405.9287,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 349435553,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 221,
+                  "G": 231,
+                  "B": 251
+                },
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 240,
+                  "G": 245
+                },
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 208038279,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1269.9912,
+                "Y": -175.369,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1269.9912,
+                "Y": -175.369,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 208038279,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 0.7909,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 208038279,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0341,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1737284809,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 365,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "trunklift2",
+                "SingleFrameIndex": 365,
+                "FrameIndex": 25,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "trunklift2",
+                "SingleFrameIndex": 440,
+                "FrameIndex": 150,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "trunklift2",
+                "SingleFrameIndex": 365,
+                "FrameIndex": 155,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1737284809,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1490.7683,
+                "Y": 413.8517,
+                "FrameIndex": 150,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -229199818,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1259.9912,
+                "Y": -358.3831,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -229199818,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 0.7909,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -229199818,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0315,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 150,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 155,
+          "EndIndex": 280,
+          "Name": "rain",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 1324,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 220,
+              "G": 129,
+              "B": 177
+            },
+            "FirstColor": {
+              "R": 249,
+              "G": 254
+            },
+            "EndColor": {
+              "R": 218,
+              "G": 254
+            },
+            "ColorVector": {
+              "ScaleY": -1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.0,
+              "Y": 899.9999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -720.0,
+            "RightMargin": -720.0,
+            "TopMargin": 0.0001,
+            "BottomMargin": -0.0001,
+            "Tag": 1476,
+            "ActionTag": -441954486,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 236,
+              "G": 184,
+              "B": 108
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1269.9912,
+              "Y": 46.6617
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.7909
+            },
+            "RotationSkewY": 0.0341,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4961,
+              "Y": 0.0259
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -730.0088,
+            "RightMargin": -709.9912,
+            "TopMargin": 853.3383,
+            "BottomMargin": -853.3383,
+            "Tag": 1559,
+            "ActionTag": -2007249933,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_0_0_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/sun.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1272.8666,
+              "Y": 2155.6729
+            },
+            "Scale": {
+              "ScaleX": 0.7451,
+              "ScaleY": 0.7451
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4972,
+              "Y": 1.1976
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1272.8666,
+            "RightMargin": 1287.1334,
+            "TopMargin": -355.6729,
+            "BottomMargin": 2155.6729,
+            "UserData": "drag;sun",
+            "Tag": 7461,
+            "ActionTag": -1290679479,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "sun",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 465.0008,
+              "Y": 1542.0172
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 221,
+              "G": 231,
+              "B": 251
+            },
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1816,
+              "Y": 0.8567
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 465.0008,
+            "RightMargin": 2094.9993,
+            "TopMargin": 257.9828,
+            "BottomMargin": 1542.0172,
+            "UserData": "drag;rain",
+            "Tag": 7464,
+            "ActionTag": -1143078020,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1889.3517,
+              "Y": 1353.7766
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 221,
+              "G": 231,
+              "B": 251
+            },
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.738,
+              "Y": 0.7521
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1889.3517,
+            "RightMargin": 670.6483,
+            "TopMargin": 446.2234,
+            "BottomMargin": 1353.7766,
+            "UserData": "drag;rain",
+            "Tag": 7472,
+            "ActionTag": 349435553,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 108,
+              "G": 175,
+              "B": 236
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1269.9912,
+              "Y": -175.369
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.7909
+            },
+            "RotationSkewY": 0.0341,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4961,
+              "Y": -0.0974
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -730.0088,
+            "RightMargin": -709.9912,
+            "TopMargin": 1075.369,
+            "BottomMargin": -1075.369,
+            "Tag": 1475,
+            "ActionTag": 208038279,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2280.4812,
+              "Y": 871.7879
+            },
+            "Scale": {
+              "ScaleX": 0.3952,
+              "ScaleY": 0.3952
+            },
+            "RotationSkewX": -0.1062,
+            "RotationSkewY": -0.115,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8908,
+              "Y": 0.4843
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 2065.4812,
+            "RightMargin": 64.5188,
+            "TopMargin": 420.2122,
+            "BottomMargin": 363.7879,
+            "UserData": "main.rain",
+            "Tag": 7448,
+            "ActionTag": 146033989,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2450.2136,
+              "Y": 794.0136
+            },
+            "Scale": {
+              "ScaleX": 0.3952,
+              "ScaleY": 0.3952
+            },
+            "RotationSkewX": 48.8008,
+            "RotationSkewY": 48.8132,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9571,
+              "Y": 0.4411
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 2235.2136,
+            "RightMargin": -105.2136,
+            "TopMargin": 497.9863,
+            "BottomMargin": 286.0136,
+            "UserData": "main.rain",
+            "Tag": 7449,
+            "ActionTag": 319822274,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2428.2034,
+              "Y": 929.1542
+            },
+            "Scale": {
+              "ScaleX": 0.3952,
+              "ScaleY": 0.3952
+            },
+            "RotationSkewX": 33.9502,
+            "RotationSkewY": 34.0017,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9485,
+              "Y": 0.5162
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 2213.2034,
+            "RightMargin": -83.2034,
+            "TopMargin": 362.8458,
+            "BottomMargin": 421.1542,
+            "UserData": "main.rain",
+            "Tag": 7450,
+            "ActionTag": -367654146,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2080.4568,
+              "Y": 870.6403
+            },
+            "Scale": {
+              "ScaleX": 0.3042,
+              "ScaleY": 0.3042
+            },
+            "RotationSkewX": 0.6437,
+            "RotationSkewY": 0.7242,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8127,
+              "Y": 0.4837
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 1865.4568,
+            "RightMargin": 264.5432,
+            "TopMargin": 421.3596,
+            "BottomMargin": 362.6403,
+            "UserData": "main.rain",
+            "Tag": 7451,
+            "ActionTag": 279918828,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1977.5657,
+              "Y": 891.1769
+            },
+            "Scale": {
+              "ScaleX": 0.4068,
+              "ScaleY": 0.4068
+            },
+            "RotationSkewX": -25.3539,
+            "RotationSkewY": -25.4271,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7725,
+              "Y": 0.4951
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 1762.5657,
+            "RightMargin": 367.4343,
+            "TopMargin": 400.8231,
+            "BottomMargin": 383.1769,
+            "UserData": "main.rain",
+            "Tag": 7452,
+            "ActionTag": 1450658605,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_mound.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2218.1321,
+              "Y": 725.3936
+            },
+            "Scale": {
+              "ScaleX": 0.4834,
+              "ScaleY": 0.4834
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8665,
+              "Y": 0.403
+            },
+            "PreSize": {
+              "X": 0.393,
+              "Y": 0.2672
+            },
+            "LeftMargin": 1715.1321,
+            "RightMargin": -161.1321,
+            "TopMargin": 834.1064,
+            "BottomMargin": 484.8936,
+            "UserData": "main.rain",
+            "Tag": 7447,
+            "ActionTag": -188330653,
+            "Size": {
+              "X": 1006.0,
+              "Y": 481.0
+            },
+            "Name": "mound",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2502.8845,
+              "Y": 728.6688
+            },
+            "Scale": {
+              "ScaleX": 0.3952,
+              "ScaleY": 0.3952
+            },
+            "RotationSkewX": 53.0098,
+            "RotationSkewY": 53.0983,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9777,
+              "Y": 0.4048
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 2287.8845,
+            "RightMargin": -157.8845,
+            "TopMargin": 563.3312,
+            "BottomMargin": 220.6688,
+            "UserData": "main.rain",
+            "Tag": 7446,
+            "ActionTag": 20800004,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1877.4431,
+              "Y": 791.8195
+            },
+            "Scale": {
+              "ScaleX": 0.4068,
+              "ScaleY": 0.4068
+            },
+            "RotationSkewX": -38.7269,
+            "RotationSkewY": -38.641,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7334,
+              "Y": 0.4399
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 1662.4431,
+            "RightMargin": 467.5569,
+            "TopMargin": 500.1804,
+            "BottomMargin": 283.8195,
+            "UserData": "main.rain",
+            "Tag": 7445,
+            "ActionTag": 311826505,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 279.8098,
+              "Y": 918.793
+            },
+            "Scale": {
+              "ScaleX": 0.4869,
+              "ScaleY": 0.4869
+            },
+            "RotationSkewX": -0.0862,
+            "RotationSkewY": -0.0934,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1093,
+              "Y": 0.5104
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 64.8098,
+            "RightMargin": 2065.1902,
+            "TopMargin": 373.207,
+            "BottomMargin": 410.793,
+            "UserData": "main.rain",
+            "Tag": 7456,
+            "ActionTag": 660303917,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_5_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 488.9221,
+              "Y": 822.975
+            },
+            "Scale": {
+              "ScaleX": 0.4869,
+              "ScaleY": 0.4869
+            },
+            "RotationSkewX": 48.7762,
+            "RotationSkewY": 48.7864,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.191,
+              "Y": 0.4572
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 273.9221,
+            "RightMargin": 1856.0779,
+            "TopMargin": 469.025,
+            "BottomMargin": 314.975,
+            "UserData": "main.rain",
+            "Tag": 7457,
+            "ActionTag": -1301355159,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 461.8069,
+              "Y": 989.471
+            },
+            "Scale": {
+              "ScaleX": 0.4869,
+              "ScaleY": 0.4869
+            },
+            "RotationSkewX": 33.957,
+            "RotationSkewY": 33.967,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1804,
+              "Y": 0.5497
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 246.8069,
+            "RightMargin": 1883.1931,
+            "TopMargin": 302.5291,
+            "BottomMargin": 481.471,
+            "UserData": "main.rain",
+            "Tag": 7458,
+            "ActionTag": 953436928,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 33.3743,
+              "Y": 917.3795
+            },
+            "Scale": {
+              "ScaleX": 0.3748,
+              "ScaleY": 0.3748
+            },
+            "RotationSkewX": 0.6345,
+            "RotationSkewY": 0.6998,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.013,
+              "Y": 0.5097
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": -181.6257,
+            "RightMargin": 2311.6257,
+            "TopMargin": 374.6205,
+            "BottomMargin": 409.3795,
+            "UserData": "main.rain",
+            "Tag": 7459,
+            "ActionTag": -1321273310,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -93.3875,
+              "Y": 942.6804
+            },
+            "Scale": {
+              "ScaleX": 0.5012,
+              "ScaleY": 0.5012
+            },
+            "RotationSkewX": -25.4307,
+            "RotationSkewY": -25.4366,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0365,
+              "Y": 0.5237
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": -308.3875,
+            "RightMargin": 2438.3875,
+            "TopMargin": 349.3196,
+            "BottomMargin": 434.6804,
+            "UserData": "main.rain",
+            "Tag": 7460,
+            "ActionTag": -2107501173,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_mound.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 202.9934,
+              "Y": 738.4321
+            },
+            "Scale": {
+              "ScaleX": 0.5956,
+              "ScaleY": 0.5956
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0793,
+              "Y": 0.4102
+            },
+            "PreSize": {
+              "X": 0.393,
+              "Y": 0.2672
+            },
+            "LeftMargin": -300.0066,
+            "RightMargin": 1854.0066,
+            "TopMargin": 821.0679,
+            "BottomMargin": 497.9321,
+            "UserData": "main.rain",
+            "Tag": 7455,
+            "ActionTag": 1822574030,
+            "Size": {
+              "X": 1006.0,
+              "Y": 481.0
+            },
+            "Name": "mound_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 553.8171,
+              "Y": 742.4684
+            },
+            "Scale": {
+              "ScaleX": 0.4869,
+              "ScaleY": 0.4869
+            },
+            "RotationSkewX": 53.0094,
+            "RotationSkewY": 53.0094,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2163,
+              "Y": 0.4125
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": 338.8171,
+            "RightMargin": 1791.1829,
+            "TopMargin": 549.5316,
+            "BottomMargin": 234.4684,
+            "UserData": "main.rain",
+            "Tag": 7454,
+            "ActionTag": 671388122,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/Miminafamiliayangu_leaf2.png",
+              "Plist": "Mtoto_wa_Tembo_Mdadisi/Mtoto_wa_Tembo_Mdadisi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -216.7465,
+              "Y": 820.2698
+            },
+            "Scale": {
+              "ScaleX": 0.5012,
+              "ScaleY": 0.5012
+            },
+            "RotationSkewX": -38.6843,
+            "RotationSkewY": -38.662,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0847,
+              "Y": 0.4557
+            },
+            "PreSize": {
+              "X": 0.168,
+              "Y": 0.5644
+            },
+            "LeftMargin": -431.7465,
+            "RightMargin": 2561.7466,
+            "TopMargin": 471.7302,
+            "BottomMargin": 312.2698,
+            "UserData": "main.rain",
+            "Tag": 7453,
+            "ActionTag": -1790178373,
+            "Size": {
+              "X": 430.0,
+              "Y": 1016.0
+            },
+            "Name": "leaf_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mtoto_wa_Tembo_Mdadisi/elephant.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1490.7683,
+              "Y": 413.8517
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5823,
+              "Y": 0.2299
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1490.7683,
+            "RightMargin": 1069.2317,
+            "TopMargin": 1386.1483,
+            "BottomMargin": 413.8517,
+            "UserData": "drag;run",
+            "Tag": 1478,
+            "ActionTag": 1737284809,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "elephant",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 126,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 121,
+              "G": 175,
+              "B": 224
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1259.9912,
+              "Y": -358.3831
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.7909
+            },
+            "RotationSkewY": 0.0315,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4922,
+              "Y": -0.1991
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -740.0088,
+            "RightMargin": -699.9912,
+            "TopMargin": 1258.3831,
+            "BottomMargin": -1258.3831,
+            "Tag": 1477,
+            "ActionTag": -229199818,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_0_0_0",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "cloud.json",
+        "elephant.json",
+        "Mtoto_wa_Tembo_Mdadisi.plist",
+        "Mtoto_wa_Tembo_Mdadisi.png",
+        "sun.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

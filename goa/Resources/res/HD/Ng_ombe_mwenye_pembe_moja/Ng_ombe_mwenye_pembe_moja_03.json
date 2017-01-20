@@ -1,0 +1,762 @@
+{
+  "ID": "2392c5be-116a-42f1-a63f-3a5cc71c8799",
+  "Version": "3.10.0.0",
+  "Name": "Ng_ombe_mwenye_pembe_moja_03",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 300,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -2110888385,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2110888385,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -1456.7271,
+                "Y": 525.9723,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 928.6749,
+                "Y": 461.4187,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 928.6749,
+                "Y": 461.4187,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2110888385,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.7,
+                "Y": 0.7,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.6,
+                "Y": 0.6,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.6,
+                "Y": 0.6,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2110888385,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1376236418,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "Walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 205,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1376236418,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -1003.1465,
+                "Y": 469.9379,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1491.7263,
+                "Y": 424.2628,
+                "FrameIndex": 205,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1376236418,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1376236418,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 179,
+              "G": 215
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -565.8773,
+              "Y": 1043.6506
+            },
+            "Scale": {
+              "ScaleX": 18.4671,
+              "ScaleY": 3.8582
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.221,
+              "Y": 0.5798
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -565.8773,
+            "RightMargin": 2925.8774,
+            "TopMargin": 556.3494,
+            "BottomMargin": 1043.6506,
+            "Tag": 171,
+            "ActionTag": 693864193,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_mwenye_pembe_moja/sun.png",
+              "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1929.9939,
+              "Y": 1529.9998
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7539,
+              "Y": 0.85
+            },
+            "PreSize": {
+              "X": 0.2043,
+              "Y": 0.2883
+            },
+            "LeftMargin": 1668.4939,
+            "RightMargin": 368.5061,
+            "TopMargin": 10.5002,
+            "BottomMargin": 1270.4998,
+            "Tag": 2003,
+            "ActionTag": -611890609,
+            "Size": {
+              "X": 523.0,
+              "Y": 519.0
+            },
+            "Name": "sun_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 36,
+              "G": 154,
+              "B": 14
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -587.613,
+              "Y": 0.0715
+            },
+            "Scale": {
+              "ScaleX": 18.5862,
+              "ScaleY": 5.4462
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2295,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -587.613,
+            "RightMargin": 2947.613,
+            "TopMargin": 1599.9285,
+            "BottomMargin": 0.0715,
+            "Tag": 172,
+            "ActionTag": -114095691,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_mwenye_pembe_moja/bush.png",
+              "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 583.9064,
+              "Y": 800.712
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 215,
+              "G": 215,
+              "B": 215
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2281,
+              "Y": 0.4448
+            },
+            "PreSize": {
+              "X": 0.307,
+              "Y": 0.1533
+            },
+            "LeftMargin": 190.9064,
+            "RightMargin": 1583.0936,
+            "TopMargin": 861.288,
+            "BottomMargin": 662.712,
+            "Tag": 196,
+            "ActionTag": 841638049,
+            "Size": {
+              "X": 786.0,
+              "Y": 276.0
+            },
+            "Name": "bush_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_mwenye_pembe_moja/bush.png",
+              "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4853,
+              "ScaleY": 0.4255
+            },
+            "Position": {
+              "X": 1986.7261,
+              "Y": 899.1339
+            },
+            "Scale": {
+              "ScaleX": 0.5798,
+              "ScaleY": 0.8108
+            },
+            "CColor": {
+              "R": 215,
+              "G": 215,
+              "B": 215
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7761,
+              "Y": 0.4995
+            },
+            "PreSize": {
+              "X": 0.307,
+              "Y": 0.1533
+            },
+            "LeftMargin": 1605.2803,
+            "RightMargin": 168.7197,
+            "TopMargin": 742.3041,
+            "BottomMargin": 781.6959,
+            "Tag": 197,
+            "ActionTag": 418347442,
+            "Size": {
+              "X": 786.0,
+              "Y": 276.0
+            },
+            "Name": "bush_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_mwenye_pembe_moja/smallhill.png",
+              "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -48.0817,
+              "Y": 1152.6088
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 193,
+              "G": 193,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0188,
+              "Y": 0.6403
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": -612.0817,
+            "RightMargin": 2044.0818,
+            "TopMargin": 568.3912,
+            "BottomMargin": 1073.6088,
+            "Tag": 198,
+            "ActionTag": 146312197,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_mwenye_pembe_moja/smallhill.png",
+              "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 916.5301,
+              "Y": 1130.4716
+            },
+            "Scale": {
+              "ScaleX": 0.9441,
+              "ScaleY": 0.8464
+            },
+            "CColor": {
+              "R": 193,
+              "G": 193,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.358,
+              "Y": 0.628
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": 352.5301,
+            "RightMargin": 1079.47,
+            "TopMargin": 590.5284,
+            "BottomMargin": 1051.4716,
+            "Tag": 199,
+            "ActionTag": 488975838,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_mwenye_pembe_moja/smallhill.png",
+              "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1685.9215,
+              "Y": 1134.9941
+            },
+            "Scale": {
+              "ScaleX": 0.6386,
+              "ScaleY": 0.7543
+            },
+            "CColor": {
+              "R": 193,
+              "G": 193,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6586,
+              "Y": 0.6306
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": 1121.9215,
+            "RightMargin": 310.0786,
+            "TopMargin": 586.0059,
+            "BottomMargin": 1055.9941,
+            "Tag": 200,
+            "ActionTag": 1838328351,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_3_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Ng_ombe_mwenye_pembe_moja/smallhill.png",
+              "Plist": "Ng_ombe_mwenye_pembe_moja/Ng_ombe_mwenye_pembe_moja.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2569.0293,
+              "Y": 1154.3909
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 193,
+              "G": 193,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0035,
+              "Y": 0.6413
+            },
+            "PreSize": {
+              "X": 0.4406,
+              "Y": 0.0878
+            },
+            "LeftMargin": 2005.0293,
+            "RightMargin": -573.0293,
+            "TopMargin": 566.6091,
+            "BottomMargin": 1075.3909,
+            "Tag": 201,
+            "ActionTag": 1939881710,
+            "Size": {
+              "X": 1128.0,
+              "Y": 158.0
+            },
+            "Name": "smallhill_3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ng_ombe_mwenye_pembe_moja/boy_1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -1456.7271,
+              "Y": 525.9723
+            },
+            "Scale": {
+              "ScaleX": -0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.569,
+              "Y": 0.2922
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -1456.7271,
+            "RightMargin": 4016.7271,
+            "TopMargin": 1274.0277,
+            "BottomMargin": 525.9723,
+            "UserData": "walk;drag",
+            "Tag": 2565,
+            "ActionTag": -2110888385,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Ng_ombe_mwenye_pembe_moja/cowonehorn.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -1003.1465,
+              "Y": 469.9379
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.3919,
+              "Y": 0.2611
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -1003.1465,
+            "RightMargin": 3563.1465,
+            "TopMargin": 1330.0621,
+            "BottomMargin": 469.9379,
+            "UserData": "walk;drag",
+            "Tag": 2531,
+            "ActionTag": 1376236418,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cow",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy_1.json",
+        "cowonehorn.json",
+        "Ng_ombe_mwenye_pembe_moja.plist",
+        "Ng_ombe_mwenye_pembe_moja.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

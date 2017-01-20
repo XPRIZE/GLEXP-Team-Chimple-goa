@@ -1,0 +1,179 @@
+{
+  "ID": "3f6195fc-90b5-4402-be58-3b404c540b13",
+  "Version": "2.3.4",
+  "Name": "bird2",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 30,
+        "Speed": 1.0,
+        "ActivedAnimationName": "bird2",
+        "Timelines": [
+          {
+            "ActionTag": -1392117631,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "hadithi_kumhusu_wangari/bird1.png",
+                  "Plist": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "hadithi_kumhusu_wangari/bird3.png",
+                  "Plist": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist"
+                },
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "hadithi_kumhusu_wangari/bird2.png",
+                  "Plist": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist"
+                },
+                "FrameIndex": 20,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "hadithi_kumhusu_wangari/bird1.png",
+                  "Plist": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 30,
+          "Name": "bird2",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 3445,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "hadithi_kumhusu_wangari/bird2.png",
+              "Plist": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -15.8798,
+              "Y": 3.6089
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -56.3798,
+            "RightMargin": -24.6202,
+            "TopMargin": -66.1089,
+            "BottomMargin": -58.8911,
+            "Tag": 3446,
+            "ActionTag": -1392117631,
+            "Size": {
+              "X": 81.0,
+              "Y": 125.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "hadithi_kumhusu_wangari/touch.png",
+              "Plist": "hadithi_kumhusu_wangari/hadithi_kumhusu_wangari.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -16.2961,
+              "Y": 4.7078
+            },
+            "Scale": {
+              "ScaleX": 0.2349,
+              "ScaleY": 0.3342
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -218.2961,
+            "RightMargin": -185.7039,
+            "TopMargin": -206.7078,
+            "BottomMargin": -197.2922,
+            "Tag": 1524,
+            "ActionTag": -1604468369,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "hadithi_kumhusu_wangari.plist",
+        "hadithi_kumhusu_wangari.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

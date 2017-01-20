@@ -1,0 +1,148 @@
+{
+  "ID": "7c4ed902-d84f-4fd3-b8cf-4ff04c6390c7",
+  "Version": "3.10.0.0",
+  "Name": "squirrel",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 45,
+        "Speed": 1.0,
+        "ActivedAnimationName": "squirrel",
+        "Timelines": [
+          {
+            "ActionTag": -842662795,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/squirrel_1.png",
+                  "Plist": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/squirrel_2.png",
+                  "Plist": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist"
+                },
+                "FrameIndex": 15,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/squirrel_3.png",
+                  "Plist": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/squirrel_1.png",
+                  "Plist": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist"
+                },
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -842662795,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "squirrel",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 45,
+          "Name": "squirrel",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 26,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/squirrel_1.png",
+              "Plist": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -173.0,
+            "RightMargin": -173.0,
+            "TopMargin": -95.5,
+            "BottomMargin": -95.5,
+            "Tag": 27,
+            "FrameEvent": "squirrel",
+            "ActionTag": -842662795,
+            "Size": {
+              "X": 346.0,
+              "Y": 191.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist",
+        "../Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

@@ -1,0 +1,154 @@
+{
+  "ID": "771a24f3-8e2c-47e7-90fa-f48e7c7e52ad",
+  "Version": "3.10.0.0",
+  "Name": "rabbit",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 45,
+        "Speed": 1.0,
+        "ActivedAnimationName": "rabbit",
+        "Timelines": [
+          {
+            "ActionTag": 217781265,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/rabbit_1.png",
+                  "Plist": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/rabbit_2.png",
+                  "Plist": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist"
+                },
+                "FrameIndex": 15,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/rabbit_3.png",
+                  "Plist": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist"
+                },
+                "FrameIndex": 30,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/rabbit_1.png",
+                  "Plist": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist"
+                },
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 217781265,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "rabbit",
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              },
+              {
+                "Value": "",
+                "FrameIndex": 45,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 45,
+          "Name": "rabbit",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 24,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/rabbit_1.png",
+              "Plist": "Kato_Mwakili_na_Shida_Kubwa/Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -163.0,
+            "RightMargin": -163.0,
+            "TopMargin": -116.0,
+            "BottomMargin": -116.0,
+            "Tag": 25,
+            "FrameEvent": "rabbit",
+            "ActionTag": 217781265,
+            "Size": {
+              "X": 326.0,
+              "Y": 232.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.plist",
+        "../Kato_Mwakili_na_Shida_Kubwa_1/Kato_Mwakili_na_Shida_Kubwa_1.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

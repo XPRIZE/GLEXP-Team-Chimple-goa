@@ -1,0 +1,881 @@
+{
+  "ID": "2f09cf4f-5462-41ef-a6ae-f3fc9dc8eaa8",
+  "Version": "3.10.0.0",
+  "Name": "Vayu_Upepo_Vayu_the_wind_02",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 410,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1105623298,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blow",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1105623298,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1350.4918,
+                "Y": 662.5197,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1795848360,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blow",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "blow",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 250,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1795848360,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1154.1411,
+                "Y": -520.9214,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1154.1411,
+                "Y": -520.9214,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1795848360,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.3,
+                "Y": 1.3,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.3,
+                "Y": 1.3,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1795848360,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1795848360,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 373452339,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 577.1485,
+                "Y": -142.3163,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 577.1485,
+                "Y": -142.3163,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 373452339,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 2.6439,
+                "Y": 2.6439,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.6439,
+                "Y": 2.6439,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 373452339,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 373452339,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 335,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 240,
+                  "G": 108,
+                  "B": 108
+                },
+                "FrameIndex": 355,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 191,
+                  "G": 191,
+                  "B": 191
+                },
+                "FrameIndex": 381,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 410,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 900846749,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 672.6954,
+                "Y": 124.6105,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 672.6954,
+                "Y": 124.6105,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 672.6954,
+                "Y": 124.6105,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 672.6954,
+                "Y": 124.6105,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 900846749,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 2.4491,
+                "Y": 2.4491,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.4491,
+                "Y": 2.4491,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 2.4491,
+                "Y": 2.4491,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 900846749,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 250,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 900846749,
+            "Property": "Alpha",
+            "Frames": [
+              {
+                "Value": 255,
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              },
+              {
+                "Value": 255,
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "IntFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 900846749,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 255,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 0,
+                  "B": 0
+                },
+                "FrameIndex": 270,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "B": 0
+                },
+                "FrameIndex": 290,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 0,
+                  "G": 128,
+                  "B": 0
+                },
+                "FrameIndex": 308,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 330,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 250,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 255,
+          "EndIndex": 330,
+          "Name": "cup",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 335,
+          "EndIndex": 410,
+          "Name": "table",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 3858,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -257.1394,
+              "Y": -208.568
+            },
+            "Scale": {
+              "ScaleX": 15.3499,
+              "ScaleY": 10.7999
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1004,
+              "Y": -0.1159
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -257.1394,
+            "RightMargin": 2617.1394,
+            "TopMargin": 1808.568,
+            "BottomMargin": -208.568,
+            "Tag": 3859,
+            "ActionTag": 1798569345,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vayu_Upepo_Vayu_the_wind/wall.png",
+              "Plist": "Vayu_Upepo_Vayu_the_wind/Vayu_Upepo_Vayu_the_wind.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 256.4287,
+              "Y": 1154.9175
+            },
+            "Scale": {
+              "ScaleX": 3.4777,
+              "ScaleY": 2.4701
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1002,
+              "Y": 0.6416
+            },
+            "PreSize": {
+              "X": 0.2172,
+              "Y": 0.3783
+            },
+            "LeftMargin": -21.5713,
+            "RightMargin": 2025.5713,
+            "TopMargin": 304.5825,
+            "BottomMargin": 814.4175,
+            "Tag": 4399,
+            "ActionTag": 1154140602,
+            "Size": {
+              "X": 556.0,
+              "Y": 681.0
+            },
+            "Name": "wall_498",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vayu_Upepo_Vayu_the_wind/wallb.png",
+              "Plist": "Vayu_Upepo_Vayu_the_wind/Vayu_Upepo_Vayu_the_wind.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2000.6514,
+              "Y": 1154.9413
+            },
+            "Scale": {
+              "ScaleX": 3.4777,
+              "ScaleY": 2.4701
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7815,
+              "Y": 0.6416
+            },
+            "PreSize": {
+              "X": 0.2172,
+              "Y": 0.3828
+            },
+            "LeftMargin": 1722.6514,
+            "RightMargin": 281.3486,
+            "TopMargin": 300.5587,
+            "BottomMargin": 810.4413,
+            "Tag": 4396,
+            "ActionTag": -1858458852,
+            "Size": {
+              "X": 556.0,
+              "Y": 689.0
+            },
+            "Name": "wallb_495",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Vayu_Upepo_Vayu_the_wind/wind_char.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1350.4918,
+              "Y": 662.5197
+            },
+            "Scale": {
+              "ScaleX": -1.8373,
+              "ScaleY": 1.8373
+            },
+            "RotationSkewX": -21.2048,
+            "RotationSkewY": -21.2012,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5275,
+              "Y": 0.3681
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1350.4918,
+            "RightMargin": 1209.5082,
+            "TopMargin": 1137.4802,
+            "BottomMargin": 662.5197,
+            "UserData": "drag;blow",
+            "Tag": 4400,
+            "ActionTag": -1105623298,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "windchar",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vayu_Upepo_Vayu_the_wind/chair.png",
+              "Plist": "Vayu_Upepo_Vayu_the_wind/Vayu_Upepo_Vayu_the_wind.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1274.4745,
+              "Y": 115.7162
+            },
+            "Scale": {
+              "ScaleX": 1.4261,
+              "ScaleY": 1.6548
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4978,
+              "Y": 0.0643
+            },
+            "PreSize": {
+              "X": 0.1324,
+              "Y": 0.1817
+            },
+            "LeftMargin": 1104.9745,
+            "RightMargin": 1116.0255,
+            "TopMargin": 1520.7838,
+            "BottomMargin": -47.7838,
+            "Tag": 4395,
+            "ActionTag": -771736213,
+            "Size": {
+              "X": 339.0,
+              "Y": 327.0
+            },
+            "Name": "chair_494",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Vayu_Upepo_Vayu_the_wind/girl1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1154.1411,
+              "Y": -520.9214
+            },
+            "Scale": {
+              "ScaleX": 1.3,
+              "ScaleY": 1.3
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4508,
+              "Y": -0.2894
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1154.1411,
+            "RightMargin": 1405.8589,
+            "TopMargin": 2320.9214,
+            "BottomMargin": -520.9214,
+            "UserData": "hi",
+            "Tag": 4701,
+            "ActionTag": -1795848360,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vayu_Upepo_Vayu_the_wind/table.png",
+              "Plist": "Vayu_Upepo_Vayu_the_wind/Vayu_Upepo_Vayu_the_wind.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 577.1485,
+              "Y": -142.3163
+            },
+            "Scale": {
+              "ScaleX": 2.6439,
+              "ScaleY": 2.6439
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2254,
+              "Y": -0.0791
+            },
+            "PreSize": {
+              "X": 0.2656,
+              "Y": 0.1378
+            },
+            "LeftMargin": 237.1485,
+            "RightMargin": 1642.8516,
+            "TopMargin": 1818.3163,
+            "BottomMargin": -266.3163,
+            "UserData": "main.table",
+            "Tag": 3860,
+            "ActionTag": 373452339,
+            "Size": {
+              "X": 680.0,
+              "Y": 248.0
+            },
+            "Name": "table_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vayu_Upepo_Vayu_the_wind/glass.png",
+              "Plist": "Vayu_Upepo_Vayu_the_wind/Vayu_Upepo_Vayu_the_wind.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 672.6954,
+              "Y": 124.6105
+            },
+            "Scale": {
+              "ScaleX": 2.4491,
+              "ScaleY": 2.4491
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2628,
+              "Y": 0.0692
+            },
+            "PreSize": {
+              "X": 0.0441,
+              "Y": 0.0544
+            },
+            "LeftMargin": 616.1954,
+            "RightMargin": 1830.8047,
+            "TopMargin": 1626.3895,
+            "BottomMargin": 75.6105,
+            "UserData": "main.cup",
+            "Tag": 4394,
+            "ActionTag": 900846749,
+            "Size": {
+              "X": 113.0,
+              "Y": 98.0
+            },
+            "Name": "cup",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "girl1.json",
+        "Vayu_Upepo_Vayu_the_wind.plist",
+        "Vayu_Upepo_Vayu_the_wind.png",
+        "wind_char.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

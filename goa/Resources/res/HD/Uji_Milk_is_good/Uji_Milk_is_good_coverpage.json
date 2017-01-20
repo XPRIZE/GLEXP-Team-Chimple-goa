@@ -1,0 +1,235 @@
+{
+  "ID": "390d1c2b-7f46-4afc-b325-4c84bc5b73e2",
+  "Version": "3.10.0.0",
+  "Name": "Uji_Milk_is_good_coverpage",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": 1012641689,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1012641689,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 610.2048,
+                "Y": -605.2287,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1012641689,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -1.5,
+                "Y": 1.5,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1012641689,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 9365,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -180.2922,
+              "Y": -65.6144
+            },
+            "Scale": {
+              "ScaleX": 14.7537,
+              "ScaleY": 10.4536
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0704,
+              "Y": -0.0365
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -180.2922,
+            "RightMargin": 2540.2922,
+            "TopMargin": 1665.6144,
+            "BottomMargin": -65.6144,
+            "Tag": 9366,
+            "ActionTag": -1584434745,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Uji_Milk_is_good/Cow.png",
+              "Plist": "Uji_Milk_is_good/Uji_Milk_is_good.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2096.2788,
+              "Y": 658.8
+            },
+            "Scale": {
+              "ScaleX": 1.1069,
+              "ScaleY": 1.1069
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8189,
+              "Y": 0.366
+            },
+            "PreSize": {
+              "X": 0.8039,
+              "Y": 0.9
+            },
+            "LeftMargin": 1067.2788,
+            "RightMargin": -565.2788,
+            "TopMargin": 331.2,
+            "BottomMargin": -151.2,
+            "Tag": 9367,
+            "ActionTag": 612584309,
+            "Size": {
+              "X": 2058.0,
+              "Y": 1620.0
+            },
+            "Name": "Cow_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Uji_Milk_is_good/boy_2.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 610.2048,
+              "Y": -605.2287
+            },
+            "Scale": {
+              "ScaleX": -1.5,
+              "ScaleY": 1.5
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2384,
+              "Y": -0.3362
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 610.2048,
+            "RightMargin": 1949.7952,
+            "TopMargin": 2405.2288,
+            "BottomMargin": -605.2287,
+            "UserData": "hi",
+            "Tag": 9368,
+            "ActionTag": 1012641689,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy_2.json",
+        "Uji_Milk_is_good.plist",
+        "Uji_Milk_is_good.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

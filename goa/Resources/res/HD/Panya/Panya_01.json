@@ -1,0 +1,1420 @@
+{
+  "ID": "73c53db5-5fdb-4332-a95e-44e8868dcce0",
+  "Version": "3.10.0.0",
+  "Name": "Panya_01",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 749,
+        "Speed": 1.0,
+        "ActivedAnimationName": "sun",
+        "Timelines": [
+          {
+            "ActionTag": 620150520,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 841.5495,
+                "Y": 1481.4625,
+                "FrameIndex": 660,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 620150520,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 659,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 660,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.25,
+                "Y": 1.25,
+                "FrameIndex": 690,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8,
+                "Y": 0.8,
+                "FrameIndex": 700,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.15,
+                "Y": 1.15,
+                "FrameIndex": 710,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9,
+                "Y": 0.9,
+                "FrameIndex": 720,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.07,
+                "Y": 1.07,
+                "FrameIndex": 730,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.95,
+                "Y": 0.95,
+                "FrameIndex": 738,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.02,
+                "Y": 1.02,
+                "FrameIndex": 744,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 749,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 620150520,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "hop",
+                "FrameIndex": 690,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1065567082,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -404.2841,
+                "Y": -15.7503,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1065567082,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 17.1126,
+                "Y": 2.7566,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1065567082,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1319866465,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 504,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 505,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1319866465,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2341.7441,
+                "Y": 105.9405,
+                "FrameIndex": 505,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1537.6714,
+                "Y": 319.4528,
+                "FrameIndex": 650,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -662030545,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2340.2112,
+                "Y": 106.91,
+                "FrameIndex": 453,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -662030545,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7241,
+                "Y": 0.7333,
+                "FrameIndex": 453,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -662030545,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -13.0271,
+                "Y": -13.0014,
+                "FrameIndex": 453,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 208735491,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 378,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 380,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "bite",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 439,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 484,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 497,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 208735491,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 144.6885,
+                "Y": 525.3197,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 259.3809,
+                "Y": 565.8937,
+                "FrameIndex": 439,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 259.3809,
+                "Y": 565.8937,
+                "FrameIndex": 484,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 144.6885,
+                "Y": 525.3197,
+                "FrameIndex": 497,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 208735491,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -40.9227,
+                "Y": -41.047,
+                "FrameIndex": 380,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -5.2617,
+                "Y": -5.3409,
+                "FrameIndex": 439,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -5.2617,
+                "Y": -5.3409,
+                "FrameIndex": 484,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -40.9227,
+                "Y": -41.047,
+                "FrameIndex": 497,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1587589769,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 282.092,
+                "Y": 494.6512,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1587589769,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -77.8869,
+                "Y": -77.8619,
+                "FrameIndex": 65,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 705188118,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "eat",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 195,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "node",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 370,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 705188118,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1825.224,
+                "Y": 558.2299,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 950.1777,
+                "Y": 586.1127,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 950.1777,
+                "Y": 586.1127,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 705188118,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 705188118,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 195,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -114508701,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1530.8257,
+                "Y": 322.5612,
+                "FrameIndex": 650,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -114508701,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7025,
+                "Y": 0.6317,
+                "FrameIndex": 650,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -114508701,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": -12.8633,
+                "Y": -12.9592,
+                "FrameIndex": 650,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 370,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 380,
+          "EndIndex": 497,
+          "Name": "ant",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 505,
+          "EndIndex": 650,
+          "Name": "stone",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 659,
+          "EndIndex": 749,
+          "Name": "sun",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -405.444,
+              "Y": 522.6619
+            },
+            "Scale": {
+              "ScaleX": 17.1331,
+              "ScaleY": 6.51
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1584,
+              "Y": 0.2904
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -405.444,
+            "RightMargin": 2765.4441,
+            "TopMargin": 1077.3381,
+            "BottomMargin": 522.6619,
+            "Tag": 94,
+            "ActionTag": 1402038807,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/sun.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 841.5495,
+              "Y": 1481.4625
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3287,
+              "Y": 0.823
+            },
+            "PreSize": {
+              "X": 0.2043,
+              "Y": 0.2883
+            },
+            "LeftMargin": 580.0495,
+            "RightMargin": 1456.9504,
+            "TopMargin": 59.0375,
+            "BottomMargin": 1221.9625,
+            "UserData": "main.sun",
+            "Tag": 95,
+            "ActionTag": 620150520,
+            "Size": {
+              "X": 523.0,
+              "Y": 519.0
+            },
+            "Name": "sun_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Panya/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2042.5317,
+              "Y": 1517.5317
+            },
+            "Scale": {
+              "ScaleX": 1.3,
+              "ScaleY": 1.3
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7979,
+              "Y": 0.8431
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2042.5317,
+            "RightMargin": 517.4683,
+            "TopMargin": 282.4683,
+            "BottomMargin": 1517.5317,
+            "UserData": "blast",
+            "Tag": 3923,
+            "ActionTag": 552744013,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Panya/cloud.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1496.0481,
+              "Y": 1295.1326
+            },
+            "Scale": {
+              "ScaleX": -1.3,
+              "ScaleY": 1.3
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5844,
+              "Y": 0.7195
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1496.0481,
+            "RightMargin": 1063.9519,
+            "TopMargin": 504.8674,
+            "BottomMargin": 1295.1326,
+            "UserData": "blast",
+            "Tag": 3980,
+            "ActionTag": 583915964,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "cloud",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 133,
+              "G": 91,
+              "B": 49
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -404.2841,
+              "Y": -15.7503
+            },
+            "Scale": {
+              "ScaleX": 17.1126,
+              "ScaleY": 2.7566
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1579,
+              "Y": -0.0088
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -404.2841,
+            "RightMargin": 2764.2842,
+            "TopMargin": 1615.7502,
+            "BottomMargin": -15.7503,
+            "Tag": 89,
+            "ActionTag": 1065567082,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/grass.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 188.676,
+              "Y": 739.9968
+            },
+            "Scale": {
+              "ScaleX": 1.0617,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0737,
+              "Y": 0.4111
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": -379.324,
+            "RightMargin": 1803.324,
+            "TopMargin": 794.0032,
+            "BottomMargin": 473.9968,
+            "Tag": 91,
+            "ActionTag": -1989013394,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/grass.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1279.969,
+              "Y": 743.1401
+            },
+            "Scale": {
+              "ScaleX": 1.0617,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.4129
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 711.969,
+            "RightMargin": 712.031,
+            "TopMargin": 790.8599,
+            "BottomMargin": 477.1401,
+            "Tag": 92,
+            "ActionTag": 473572504,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/grass.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2409.8118,
+              "Y": 744.7087
+            },
+            "Scale": {
+              "ScaleX": -1.0879,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9413,
+              "Y": 0.4137
+            },
+            "PreSize": {
+              "X": 0.4437,
+              "Y": 0.2956
+            },
+            "LeftMargin": 1841.8118,
+            "RightMargin": -417.8118,
+            "TopMargin": 789.2913,
+            "BottomMargin": 478.7087,
+            "Tag": 93,
+            "ActionTag": 1658928886,
+            "Size": {
+              "X": 1136.0,
+              "Y": 532.0
+            },
+            "Name": "grass_2_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Panya/ant.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2341.7441,
+              "Y": 105.9405
+            },
+            "Scale": {
+              "ScaleX": 0.25,
+              "ScaleY": 0.25
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.9147,
+              "Y": 0.0589
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2341.7441,
+            "RightMargin": 218.2559,
+            "TopMargin": 1694.0594,
+            "BottomMargin": 105.9405,
+            "Tag": 4122,
+            "ActionTag": 1319866465,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "ant",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/stone.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2340.2112,
+              "Y": 106.91
+            },
+            "Scale": {
+              "ScaleX": 0.7241,
+              "ScaleY": 0.7333
+            },
+            "RotationSkewX": -13.0271,
+            "RotationSkewY": -13.0014,
+            "CColor": {
+              "G": 208,
+              "B": 172
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9141,
+              "Y": 0.0594
+            },
+            "PreSize": {
+              "X": 0.1551,
+              "Y": 0.1594
+            },
+            "LeftMargin": 2141.7112,
+            "RightMargin": 21.2888,
+            "TopMargin": 1549.59,
+            "BottomMargin": -36.59,
+            "UserData": "main.stone",
+            "Tag": 96,
+            "ActionTag": -662030545,
+            "Size": {
+              "X": 397.0,
+              "Y": 287.0
+            },
+            "Name": "stone_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/stone.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 864.7325,
+              "Y": 65.3035
+            },
+            "Scale": {
+              "ScaleX": 0.4054,
+              "ScaleY": 0.4004
+            },
+            "RotationSkewX": -13.0032,
+            "RotationSkewY": -13.008,
+            "CColor": {
+              "G": 208,
+              "B": 172
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3378,
+              "Y": 0.0363
+            },
+            "PreSize": {
+              "X": 0.1551,
+              "Y": 0.1594
+            },
+            "LeftMargin": 666.2325,
+            "RightMargin": 1496.7676,
+            "TopMargin": 1591.1965,
+            "BottomMargin": -78.1965,
+            "Tag": 97,
+            "ActionTag": -1372878429,
+            "Size": {
+              "X": 397.0,
+              "Y": 287.0
+            },
+            "Name": "stone_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Panya/ant.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 144.6885,
+              "Y": 525.3197
+            },
+            "Scale": {
+              "ScaleX": -0.2,
+              "ScaleY": 0.2
+            },
+            "RotationSkewX": -40.9227,
+            "RotationSkewY": -41.047,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0565,
+              "Y": 0.2918
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 144.6885,
+            "RightMargin": 2415.3115,
+            "TopMargin": 1274.6803,
+            "BottomMargin": 525.3197,
+            "Tag": 4064,
+            "ActionTag": 208735491,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "ant",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/eatenapple.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 282.092,
+              "Y": 494.6512
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -77.8869,
+            "RotationSkewY": -77.8619,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1102,
+              "Y": 0.2748
+            },
+            "PreSize": {
+              "X": 0.1316,
+              "Y": 0.3578
+            },
+            "LeftMargin": 113.592,
+            "RightMargin": 2109.408,
+            "TopMargin": 983.3488,
+            "BottomMargin": 172.6512,
+            "UserData": "main.ant",
+            "Tag": 676,
+            "ActionTag": -1587589769,
+            "Size": {
+              "X": 337.0,
+              "Y": 644.0
+            },
+            "Name": "eatenapple_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Panya/rat1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1825.224,
+              "Y": 558.2299
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.713,
+              "Y": 0.3101
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1825.224,
+            "RightMargin": 734.776,
+            "TopMargin": 1241.77,
+            "BottomMargin": 558.2299,
+            "UserData": "walk;drag",
+            "Tag": 76,
+            "ActionTag": 705188118,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "rat",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/stone.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 431.3428,
+              "Y": 285.1047
+            },
+            "Scale": {
+              "ScaleX": 0.5967,
+              "ScaleY": 0.7211
+            },
+            "RotationSkewX": -12.9623,
+            "RotationSkewY": -12.9617,
+            "CColor": {
+              "G": 208,
+              "B": 172
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1685,
+              "Y": 0.1584
+            },
+            "PreSize": {
+              "X": 0.1551,
+              "Y": 0.1594
+            },
+            "LeftMargin": 232.8428,
+            "RightMargin": 1930.1572,
+            "TopMargin": 1371.3953,
+            "BottomMargin": 141.6047,
+            "Tag": 90,
+            "ActionTag": 1099821673,
+            "Size": {
+              "X": 397.0,
+              "Y": 287.0
+            },
+            "Name": "stone_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Panya/stone.png",
+              "Plist": "Panya/Panya.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1530.8257,
+              "Y": 322.5612
+            },
+            "Scale": {
+              "ScaleX": 0.7025,
+              "ScaleY": 0.6317
+            },
+            "RotationSkewX": -12.8633,
+            "RotationSkewY": -12.9592,
+            "CColor": {
+              "G": 208,
+              "B": 172
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.598,
+              "Y": 0.1792
+            },
+            "PreSize": {
+              "X": 0.1551,
+              "Y": 0.1594
+            },
+            "LeftMargin": 1332.3257,
+            "RightMargin": 830.6743,
+            "TopMargin": 1333.9387,
+            "BottomMargin": 179.0612,
+            "UserData": "main.stone",
+            "Tag": 98,
+            "ActionTag": -114508701,
+            "Size": {
+              "X": 397.0,
+              "Y": 287.0
+            },
+            "Name": "stone_1_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ant.json",
+        "cloud.json",
+        "Panya.plist",
+        "Panya.png",
+        "rat1.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

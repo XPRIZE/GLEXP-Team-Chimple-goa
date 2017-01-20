@@ -1,0 +1,138 @@
+{
+  "ID": "4ed25d95-bca4-42dc-87ff-d7b3bb7ddab8",
+  "Version": "3.10.0.0",
+  "Name": "star",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 90,
+        "Speed": 1.0,
+        "Timelines": [
+          {
+            "ActionTag": -1727994919,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -0.7206,
+                "Y": -5.182,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -0.7206,
+                "Y": -5.182,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1727994919,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.8641,
+                "Y": 0.8641,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.5652,
+                "Y": 0.5652,
+                "FrameIndex": 40,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.8641,
+                "Y": 0.8641,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 11332,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kijana_Palinyang_Young_Palinyang/star.png",
+              "Plist": "Kijana_Palinyang_Young_Palinyang/Kijana_Palinyang_Young_Palinyang.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -0.7206,
+              "Y": -5.182
+            },
+            "Scale": {
+              "ScaleX": 0.8223,
+              "ScaleY": 0.8223
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -75.2206,
+            "RightMargin": -73.7794,
+            "TopMargin": -69.318,
+            "BottomMargin": -79.682,
+            "Tag": 11333,
+            "ActionTag": -1727994919,
+            "Size": {
+              "X": 149.0,
+              "Y": 149.0
+            },
+            "Name": "star_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Kijana_Palinyang_Young_Palinyang.plist",
+        "Kijana_Palinyang_Young_Palinyang.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

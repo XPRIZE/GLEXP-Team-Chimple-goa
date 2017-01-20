@@ -1,0 +1,124 @@
+{
+  "ID": "1c665d65-ba64-411b-a013-1a78530d0f3e",
+  "Version": "3.10.0.0",
+  "Name": "bird",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 20,
+        "Speed": 1.0,
+        "ActivedAnimationName": "bird",
+        "Timelines": [
+          {
+            "ActionTag": -1604757461,
+            "Property": "FileData",
+            "Frames": [
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/bird_1.png",
+                  "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+                },
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/bird_2.png",
+                  "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+                },
+                "FrameIndex": 10,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              },
+              {
+                "TextureFile": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/bird_1.png",
+                  "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+                },
+                "FrameIndex": 20,
+                "Tween": false,
+                "ctype": "TextureFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 20,
+          "Name": "bird",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 560,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/bird_1.png",
+              "Plist": "Kuhesabu_wanyama_Counting/Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -23.0,
+            "RightMargin": -23.0,
+            "TopMargin": -23.0,
+            "BottomMargin": -23.0,
+            "Tag": 561,
+            "ActionTag": -1604757461,
+            "Size": {
+              "X": 227.0,
+              "Y": 164.0
+            },
+            "Name": "Sprite_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.plist",
+        "Kuhesabu_wanyama_Counting_2/Kuhesabu_wanyama_Counting_2.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

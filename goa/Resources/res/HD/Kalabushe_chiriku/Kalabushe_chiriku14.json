@@ -1,0 +1,1509 @@
+{
+  "ID": "27757829-d934-497f-b179-f91f627d4ff3",
+  "Version": "2.3.4",
+  "Name": "Kalabushe_chiriku14",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 420,
+        "Speed": 1.0,
+        "ActivedAnimationName": "bush",
+        "Timelines": [
+          {
+            "ActionTag": -777257407,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1292.8865,
+                "Y": 463.2729,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1292.8865,
+                "Y": 463.2729,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1292.8865,
+                "Y": 463.2729,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -777257407,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.95,
+                "Y": 1.0,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -777257407,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 370,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -3.0,
+                "FrameIndex": 395,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 420,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -777257407,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bush",
+                "FrameIndex": 370,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -609736390,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "fly",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 220,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "-- ALL --",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 365,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -609736390,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1826.8518,
+                "Y": 1085.5029,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 334.8639,
+                "Y": 1936.5541,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -609736390,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7,
+                "Y": 0.7,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.7,
+                "Y": 0.7,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -609736390,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1451540515,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2296.4304,
+                "Y": 715.687,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2296.4304,
+                "Y": 715.687,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2296.4304,
+                "Y": 715.687,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1451540515,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.94,
+                "Y": 1.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.92,
+                "Y": 1.0,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.94,
+                "Y": 1.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1451540515,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -4.0,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1451540515,
+            "Property": "FrameEvent",
+            "Frames": [
+              {
+                "Value": "bush",
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "EventFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1807302213,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2292.3057,
+                "Y": 671.3262,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2292.312,
+                "Y": 671.3264,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2292.3057,
+                "Y": 671.3262,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1807302213,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.9964,
+                "Y": 1.0,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1807302213,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -3.0,
+                "FrameIndex": 220,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -61699379,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "hi",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 185,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -61699379,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -460.1703,
+                "Y": 317.81,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 2122.4504,
+                "Y": 307.672,
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -61699379,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": -0.7,
+                "Y": 0.7,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.7,
+                "Y": 0.7,
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -61699379,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 185,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 185,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 200,
+          "EndIndex": 365,
+          "Name": "butterfly",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 370,
+          "EndIndex": 420,
+          "Name": "bush",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 229,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 212,
+              "G": 235,
+              "B": 245
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -249.2474,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0974,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -249.2474,
+            "RightMargin": -290.7527,
+            "Tag": 231,
+            "ActionTag": 1641671618,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 144,
+              "G": 178,
+              "B": 121
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -239.2435,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.5304
+            },
+            "RotationSkewX": -0.0692,
+            "RotationSkewY": -0.0695,
+            "CColor": {
+              "R": 151,
+              "G": 195,
+              "B": 131
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0935,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -239.2435,
+            "RightMargin": -300.7566,
+            "Tag": 238,
+            "ActionTag": -948133427,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_2_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2263.4331,
+              "Y": 1050.446
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 151,
+              "G": 195,
+              "B": 131
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8842,
+              "Y": 0.5836
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": 1754.9331,
+            "RightMargin": -211.9331,
+            "TopMargin": 451.054,
+            "BottomMargin": 751.946,
+            "Tag": 232,
+            "ActionTag": 1505985740,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 186.782,
+              "Y": 1070.575
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 151,
+              "G": 195,
+              "B": 131
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.073,
+              "Y": 0.5948
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": -321.718,
+            "RightMargin": 1864.718,
+            "TopMargin": 430.925,
+            "BottomMargin": 772.075,
+            "Tag": 233,
+            "ActionTag": 1036671369,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 508.8628,
+              "Y": 1011.8918
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 151,
+              "G": 195,
+              "B": 131
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1988,
+              "Y": 0.5622
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": 0.3628,
+            "RightMargin": 1542.6372,
+            "TopMargin": 489.6082,
+            "BottomMargin": 713.3918,
+            "Tag": 234,
+            "ActionTag": -49508872,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 961.7214,
+              "Y": 1004.1838
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 128,
+              "G": 172,
+              "B": 108
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3757,
+              "Y": 0.5579
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": 453.2214,
+            "RightMargin": 1089.7786,
+            "TopMargin": 497.3162,
+            "BottomMargin": 705.6838,
+            "Tag": 236,
+            "ActionTag": -15411427,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1321.1727,
+              "Y": 1031.6244
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 151,
+              "G": 195,
+              "B": 131
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5161,
+              "Y": 0.5731
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": 812.6727,
+            "RightMargin": 730.3273,
+            "TopMargin": 469.8756,
+            "BottomMargin": 733.1244,
+            "Tag": 237,
+            "ActionTag": -1634093096,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1_0_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2308.7585,
+              "Y": 809.4125
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 128,
+              "G": 172,
+              "B": 108
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9019,
+              "Y": 0.4497
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": 1800.2585,
+            "RightMargin": -257.2585,
+            "TopMargin": 692.0875,
+            "BottomMargin": 510.9125,
+            "Tag": 1490,
+            "ActionTag": -1691077007,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.0
+            },
+            "Position": {
+              "X": 1292.8865,
+              "Y": 463.2729
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 128,
+              "G": 172,
+              "B": 108
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.505,
+              "Y": 0.2574
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": 275.8865,
+            "RightMargin": 1267.1135,
+            "TopMargin": 739.7271,
+            "BottomMargin": 463.2729,
+            "UserData": "main.bush",
+            "Tag": 1491,
+            "FrameEvent": "bush",
+            "ActionTag": -777257407,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1_0_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -188.6025,
+              "Y": 743.4893
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 128,
+              "G": 172,
+              "B": 108
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0737,
+              "Y": 0.413
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": -697.1025,
+            "RightMargin": 2240.1025,
+            "TopMargin": 758.0107,
+            "BottomMargin": 444.9893,
+            "Tag": 1492,
+            "ActionTag": 577532081,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2754.2476,
+              "Y": 1098.1443
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 128,
+              "G": 172,
+              "B": 108
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0759,
+              "Y": 0.6101
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": 2245.7476,
+            "RightMargin": -702.7476,
+            "TopMargin": 403.3557,
+            "BottomMargin": 799.6443,
+            "Tag": 243,
+            "ActionTag": -406977492,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2959.8152,
+              "Y": 810.5624
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 128,
+              "G": 172,
+              "B": 108
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1562,
+              "Y": 0.4503
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": 2451.3152,
+            "RightMargin": -908.3152,
+            "TopMargin": 690.9376,
+            "BottomMargin": 512.0624,
+            "Tag": 1930,
+            "ActionTag": -280117339,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kalabushe_chiriku/butterfly.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 334.8639,
+              "Y": 1936.5541
+            },
+            "Scale": {
+              "ScaleX": 0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1308,
+              "Y": 1.0759
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 334.8639,
+            "RightMargin": 2225.1362,
+            "TopMargin": -136.5541,
+            "BottomMargin": 1936.5541,
+            "Tag": 2077,
+            "ActionTag": -609736390,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "butterfly",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.0
+            },
+            "Position": {
+              "X": 2296.4304,
+              "Y": 715.687
+            },
+            "Scale": {
+              "ScaleX": 0.94,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 128,
+              "G": 172,
+              "B": 108
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.897,
+              "Y": 0.3976
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": 1279.4304,
+            "RightMargin": 263.5696,
+            "TopMargin": 487.313,
+            "BottomMargin": 715.687,
+            "UserData": "main.butterfly",
+            "Tag": 5619,
+            "ActionTag": -1451540515,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1_0_0_0_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_bushes_shadow.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.2733
+            },
+            "Position": {
+              "X": 2292.3057,
+              "Y": 671.3262
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 128,
+              "G": 172,
+              "B": 108
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8954,
+              "Y": 0.373
+            },
+            "PreSize": {
+              "X": 0.3973,
+              "Y": 0.3317
+            },
+            "LeftMargin": 1275.3057,
+            "RightMargin": 267.6943,
+            "TopMargin": 694.834,
+            "BottomMargin": 508.1661,
+            "UserData": "main.butterfly",
+            "Tag": 5618,
+            "ActionTag": 1807302213,
+            "Size": {
+              "X": 1017.0,
+              "Y": 597.0
+            },
+            "Name": "jinsi_bushes_shadow_1_0_0_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_grass3.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 678.6066,
+              "Y": 554.7567
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 0.1993,
+            "RotationSkewY": 0.1993,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2651,
+              "Y": 0.3082
+            },
+            "PreSize": {
+              "X": 0.7234,
+              "Y": 0.0939
+            },
+            "LeftMargin": -247.3934,
+            "RightMargin": 955.3933,
+            "TopMargin": 1160.7433,
+            "BottomMargin": 470.2567,
+            "Tag": 239,
+            "ActionTag": -494247379,
+            "Size": {
+              "X": 1852.0,
+              "Y": 169.0
+            },
+            "Name": "jinsi_grass_3_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kalabushe_chiriku/jinsi_grass3.png",
+              "Plist": "Kalabushe_chiriku/Kalabushe_chiriku.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1858.1096,
+              "Y": 566.8563
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 0.2028,
+            "RotationSkewY": 0.1993,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7258,
+              "Y": 0.3149
+            },
+            "PreSize": {
+              "X": 0.7234,
+              "Y": 0.0939
+            },
+            "LeftMargin": 932.1096,
+            "RightMargin": -224.1096,
+            "TopMargin": 1148.6437,
+            "BottomMargin": 482.3563,
+            "Tag": 240,
+            "ActionTag": 1973121621,
+            "Size": {
+              "X": 1852.0,
+              "Y": 169.0
+            },
+            "Name": "jinsi_grass_3_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 226,
+              "G": 184,
+              "B": 80
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -236.884,
+              "Y": -42.0299
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.306
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0925,
+              "Y": -0.0233
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -236.884,
+            "RightMargin": -303.116,
+            "TopMargin": 42.0299,
+            "BottomMargin": -42.0299,
+            "Tag": 242,
+            "ActionTag": -183762674,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_2_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kalabushe_chiriku/man.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2122.4504,
+              "Y": 307.672
+            },
+            "Scale": {
+              "ScaleX": -0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8291,
+              "Y": 0.1709
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2122.4504,
+            "RightMargin": 437.5496,
+            "TopMargin": 1492.328,
+            "BottomMargin": 307.672,
+            "UserData": "hi;drag",
+            "Tag": 759,
+            "ActionTag": -61699379,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "man",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "butterfly.json",
+        "Kalabushe_chiriku.plist",
+        "Kalabushe_chiriku.png",
+        "man.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

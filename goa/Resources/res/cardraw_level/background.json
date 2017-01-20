@@ -1,0 +1,580 @@
+{
+  "ID": "a7418b21-0950-4a1e-b889-8ed65257eab6",
+  "Version": "2.3.4",
+  "Name": "background",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 482,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 120,
+              "G": 200,
+              "B": 199
+            },
+            "FirstColor": {
+              "R": 130,
+              "G": 235
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleX": -0.0175,
+              "ScaleY": 0.9998
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.5583,
+              "Y": 600.0768
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0002,
+              "Y": 0.3334
+            },
+            "PreSize": {
+              "X": 3.75,
+              "Y": 0.6667
+            },
+            "LeftMargin": 0.5583,
+            "RightMargin": -7040.5586,
+            "TopMargin": -0.0768,
+            "BottomMargin": 600.0768,
+            "Tag": 483,
+            "ActionTag": -900696572,
+            "Size": {
+              "X": 9600.0,
+              "Y": 1200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/cloud.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 373.5008,
+              "Y": 1675.8514
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1459,
+              "Y": 0.931
+            },
+            "PreSize": {
+              "X": 0.2242,
+              "Y": 0.0489
+            },
+            "LeftMargin": 86.5008,
+            "RightMargin": 1899.4993,
+            "TopMargin": 80.1486,
+            "BottomMargin": 1631.8514,
+            "Tag": 493,
+            "ActionTag": -2003770590,
+            "Size": {
+              "X": 574.0,
+              "Y": 88.0
+            },
+            "Name": "cloud_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/cloud.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1322.8707,
+              "Y": 1459.327
+            },
+            "Scale": {
+              "ScaleX": 0.7389,
+              "ScaleY": 0.7389
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5167,
+              "Y": 0.8107
+            },
+            "PreSize": {
+              "X": 0.2242,
+              "Y": 0.0489
+            },
+            "LeftMargin": 1035.8707,
+            "RightMargin": 950.1293,
+            "TopMargin": 296.673,
+            "BottomMargin": 1415.327,
+            "Tag": 494,
+            "ActionTag": 351614184,
+            "Size": {
+              "X": 574.0,
+              "Y": 88.0
+            },
+            "Name": "cloud_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/cloud.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2194.7883,
+              "Y": 1604.2313
+            },
+            "Scale": {
+              "ScaleX": 0.9816,
+              "ScaleY": 0.4529
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8573,
+              "Y": 0.8912
+            },
+            "PreSize": {
+              "X": 0.2242,
+              "Y": 0.0489
+            },
+            "LeftMargin": 1907.7883,
+            "RightMargin": 78.2117,
+            "TopMargin": 151.7687,
+            "BottomMargin": 1560.2313,
+            "Tag": 495,
+            "ActionTag": -1951812872,
+            "Size": {
+              "X": 574.0,
+              "Y": 88.0
+            },
+            "Name": "cloud_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/sun.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2831.1641,
+              "Y": 1306.1698
+            },
+            "Scale": {
+              "ScaleX": 2.0211,
+              "ScaleY": 2.0211
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1059,
+              "Y": 0.7256
+            },
+            "PreSize": {
+              "X": 0.0562,
+              "Y": 0.08
+            },
+            "LeftMargin": 2759.1641,
+            "RightMargin": -343.1641,
+            "TopMargin": 421.8302,
+            "BottomMargin": 1234.1698,
+            "Tag": 496,
+            "ActionTag": -133400124,
+            "Size": {
+              "X": 144.0,
+              "Y": 144.0
+            },
+            "Name": "sun_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/cloud.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3060.6494,
+              "Y": 1652.7448
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1956,
+              "Y": 0.9182
+            },
+            "PreSize": {
+              "X": 0.2242,
+              "Y": 0.0489
+            },
+            "LeftMargin": 2773.6494,
+            "RightMargin": -787.6494,
+            "TopMargin": 103.2552,
+            "BottomMargin": 1608.7448,
+            "Tag": 16,
+            "ActionTag": 1023526062,
+            "Size": {
+              "X": 574.0,
+              "Y": 88.0
+            },
+            "Name": "cloud_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/cloud.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 4180.4819,
+              "Y": 1519.5037
+            },
+            "Scale": {
+              "ScaleX": 0.7678,
+              "ScaleY": 0.7678
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.633,
+              "Y": 0.8442
+            },
+            "PreSize": {
+              "X": 0.2242,
+              "Y": 0.0489
+            },
+            "LeftMargin": 3893.4819,
+            "RightMargin": -1907.4819,
+            "TopMargin": 236.4963,
+            "BottomMargin": 1475.5037,
+            "Tag": 17,
+            "ActionTag": 1658561957,
+            "Size": {
+              "X": 574.0,
+              "Y": 88.0
+            },
+            "Name": "cloud_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/cloud.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5253.5088,
+              "Y": 1372.8828
+            },
+            "Scale": {
+              "ScaleX": 1.6038,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.0522,
+              "Y": 0.7627
+            },
+            "PreSize": {
+              "X": 0.2242,
+              "Y": 0.0489
+            },
+            "LeftMargin": 4966.5088,
+            "RightMargin": -2980.5088,
+            "TopMargin": 383.1172,
+            "BottomMargin": 1328.8828,
+            "Tag": 18,
+            "ActionTag": -1042968896,
+            "Size": {
+              "X": 574.0,
+              "Y": 88.0
+            },
+            "Name": "cloud_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/cloud.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6313.1733,
+              "Y": 1572.8196
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4661,
+              "Y": 0.8738
+            },
+            "PreSize": {
+              "X": 0.2242,
+              "Y": 0.0489
+            },
+            "LeftMargin": 6026.1733,
+            "RightMargin": -4040.1733,
+            "TopMargin": 183.1804,
+            "BottomMargin": 1528.8196,
+            "Tag": 19,
+            "ActionTag": 633864481,
+            "Size": {
+              "X": 574.0,
+              "Y": 88.0
+            },
+            "Name": "cloud_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/cloud.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7020.4824,
+              "Y": 1549.4976
+            },
+            "Scale": {
+              "ScaleX": 0.7678,
+              "ScaleY": 0.7678
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7424,
+              "Y": 0.8608
+            },
+            "PreSize": {
+              "X": 0.2242,
+              "Y": 0.0489
+            },
+            "LeftMargin": 6733.4824,
+            "RightMargin": -4747.4824,
+            "TopMargin": 206.5024,
+            "BottomMargin": 1505.4976,
+            "Tag": 76,
+            "ActionTag": -2033478616,
+            "Size": {
+              "X": 574.0,
+              "Y": 88.0
+            },
+            "Name": "cloud_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/cloud.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 8093.4976,
+              "Y": 1402.8613
+            },
+            "Scale": {
+              "ScaleX": 1.6038,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.1615,
+              "Y": 0.7794
+            },
+            "PreSize": {
+              "X": 0.2242,
+              "Y": 0.0489
+            },
+            "LeftMargin": 7806.4976,
+            "RightMargin": -5820.498,
+            "TopMargin": 353.1387,
+            "BottomMargin": 1358.8613,
+            "Tag": 77,
+            "ActionTag": 1306051845,
+            "Size": {
+              "X": 574.0,
+              "Y": 88.0
+            },
+            "Name": "cloud_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "cardraw_level/cloud.png",
+              "Plist": "cardraw_level/cardraw_level.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 9153.166,
+              "Y": 1602.7986
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 3.5755,
+              "Y": 0.8904
+            },
+            "PreSize": {
+              "X": 0.2242,
+              "Y": 0.0489
+            },
+            "LeftMargin": 8866.166,
+            "RightMargin": -6880.166,
+            "TopMargin": 153.2014,
+            "BottomMargin": 1558.7986,
+            "Tag": 78,
+            "ActionTag": 465439102,
+            "Size": {
+              "X": 574.0,
+              "Y": 88.0
+            },
+            "Name": "cloud_4_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "cardraw_level.plist",
+        "cardraw_level.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

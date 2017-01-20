@@ -1,0 +1,972 @@
+{
+  "ID": "494fc191-3b34-423c-a488-e53ecc61acae",
+  "Version": "3.10.0.0",
+  "Name": "Magozwe_9",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 100,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 2109231056,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 555.6091,
+                "Y": 732.7959,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 555.6091,
+                "Y": 732.7959,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 555.6091,
+                "Y": 732.7959,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2109231056,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2109231056,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 33.0014,
+                "Y": 32.9985,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 32.0,
+                "Y": 31.9971,
+                "FrameIndex": 50,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 33.0014,
+                "Y": 32.9985,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 488849020,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "sit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "sit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 488849020,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1077.0477,
+                "Y": 224.0537,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1077.0477,
+                "Y": 224.0537,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 488849020,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.73,
+                "Y": 0.73,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.73,
+                "Y": 0.73,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 488849020,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 100,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 46,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 155,
+              "G": 133,
+              "B": 121
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "Tag": 47,
+            "ActionTag": -59320052,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 89,
+              "G": 74,
+              "B": 66
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.2111
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "TopMargin": 1420.0,
+            "Tag": 49,
+            "ActionTag": 644967427,
+            "Size": {
+              "X": 3100.0,
+              "Y": 380.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_brick.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 150.0,
+              "Y": 1289.9999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0586,
+              "Y": 0.7167
+            },
+            "PreSize": {
+              "X": 0.1617,
+              "Y": 0.1006
+            },
+            "LeftMargin": -57.0,
+            "RightMargin": 2203.0,
+            "TopMargin": 419.5001,
+            "BottomMargin": 1199.4999,
+            "Tag": 48,
+            "ActionTag": -1972496206,
+            "Size": {
+              "X": 414.0,
+              "Y": 181.0
+            },
+            "Name": "Magozwe_brick_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_brick.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 561.2427,
+              "Y": 750.1604
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2192,
+              "Y": 0.4168
+            },
+            "PreSize": {
+              "X": 0.1617,
+              "Y": 0.1006
+            },
+            "LeftMargin": 354.2427,
+            "RightMargin": 1791.7573,
+            "TopMargin": 959.3396,
+            "BottomMargin": 659.6604,
+            "Tag": 50,
+            "ActionTag": -1056876976,
+            "Size": {
+              "X": 414.0,
+              "Y": 181.0
+            },
+            "Name": "Magozwe_brick_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_brick.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 748.5533,
+              "Y": 1031.6016
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2924,
+              "Y": 0.5731
+            },
+            "PreSize": {
+              "X": 0.1617,
+              "Y": 0.1006
+            },
+            "LeftMargin": 541.5533,
+            "RightMargin": 1604.4468,
+            "TopMargin": 677.8984,
+            "BottomMargin": 941.1016,
+            "Tag": 51,
+            "ActionTag": 1001341567,
+            "Size": {
+              "X": 414.0,
+              "Y": 181.0
+            },
+            "Name": "Magozwe_brick_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_brick.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 873.0777,
+              "Y": 1519.2363
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.341,
+              "Y": 0.844
+            },
+            "PreSize": {
+              "X": 0.1617,
+              "Y": 0.1006
+            },
+            "LeftMargin": 666.0777,
+            "RightMargin": 1479.9224,
+            "TopMargin": 190.2637,
+            "BottomMargin": 1428.7363,
+            "Tag": 52,
+            "ActionTag": 1845028033,
+            "Size": {
+              "X": 414.0,
+              "Y": 181.0
+            },
+            "Name": "Magozwe_brick_1_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_brick.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 20.9725,
+              "Y": 951.4854
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0082,
+              "Y": 0.5286
+            },
+            "PreSize": {
+              "X": 0.1617,
+              "Y": 0.1006
+            },
+            "LeftMargin": -186.0275,
+            "RightMargin": 2332.0276,
+            "TopMargin": 758.0146,
+            "BottomMargin": 860.9854,
+            "Tag": 53,
+            "ActionTag": -968465202,
+            "Size": {
+              "X": 414.0,
+              "Y": 181.0
+            },
+            "Name": "Magozwe_brick_1_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_brick.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1141.9014,
+              "Y": 550.6656
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4461,
+              "Y": 0.3059
+            },
+            "PreSize": {
+              "X": 0.1617,
+              "Y": 0.1006
+            },
+            "LeftMargin": 934.9014,
+            "RightMargin": 1211.0986,
+            "TopMargin": 1158.8345,
+            "BottomMargin": 460.1656,
+            "Tag": 54,
+            "ActionTag": -420309221,
+            "Size": {
+              "X": 414.0,
+              "Y": 181.0
+            },
+            "Name": "Magozwe_brick_1_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_brick.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1366.0859,
+              "Y": 1168.8761
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5336,
+              "Y": 0.6494
+            },
+            "PreSize": {
+              "X": 0.1617,
+              "Y": 0.1006
+            },
+            "LeftMargin": 1159.0859,
+            "RightMargin": 986.9141,
+            "TopMargin": 540.6239,
+            "BottomMargin": 1078.3761,
+            "Tag": 55,
+            "ActionTag": -242136707,
+            "Size": {
+              "X": 414.0,
+              "Y": 181.0
+            },
+            "Name": "Magozwe_brick_1_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_brick.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1841.6272,
+              "Y": 1576.4841
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7194,
+              "Y": 0.8758
+            },
+            "PreSize": {
+              "X": 0.1617,
+              "Y": 0.1006
+            },
+            "LeftMargin": 1634.6272,
+            "RightMargin": 511.3728,
+            "TopMargin": 133.0159,
+            "BottomMargin": 1485.9841,
+            "Tag": 56,
+            "ActionTag": 1293105523,
+            "Size": {
+              "X": 414.0,
+              "Y": 181.0
+            },
+            "Name": "Magozwe_brick_1_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_brick.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1841.6172,
+              "Y": 808.8127
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7194,
+              "Y": 0.4493
+            },
+            "PreSize": {
+              "X": 0.1617,
+              "Y": 0.1006
+            },
+            "LeftMargin": 1634.6172,
+            "RightMargin": 511.3828,
+            "TopMargin": 900.6873,
+            "BottomMargin": 718.3127,
+            "Tag": 57,
+            "ActionTag": 22736159,
+            "Size": {
+              "X": 414.0,
+              "Y": 181.0
+            },
+            "Name": "Magozwe_brick_1_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_brick.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2249.2271,
+              "Y": 1114.5212
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8786,
+              "Y": 0.6192
+            },
+            "PreSize": {
+              "X": 0.1617,
+              "Y": 0.1006
+            },
+            "LeftMargin": 2042.2271,
+            "RightMargin": 103.7729,
+            "TopMargin": 594.9788,
+            "BottomMargin": 1024.0212,
+            "Tag": 58,
+            "ActionTag": -55496776,
+            "Size": {
+              "X": 414.0,
+              "Y": 181.0
+            },
+            "Name": "Magozwe_brick_1_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_brick.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2473.4104,
+              "Y": 611.7982
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9662,
+              "Y": 0.3399
+            },
+            "PreSize": {
+              "X": 0.1617,
+              "Y": 0.1006
+            },
+            "LeftMargin": 2266.4104,
+            "RightMargin": -120.4104,
+            "TopMargin": 1097.7018,
+            "BottomMargin": 521.2982,
+            "Tag": 59,
+            "ActionTag": -941396466,
+            "Size": {
+              "X": 414.0,
+              "Y": 181.0
+            },
+            "Name": "Magozwe_brick_1_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_characterhand.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 555.6091,
+              "Y": 732.7959
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 33.0014,
+            "RotationSkewY": 32.9985,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.217,
+              "Y": 0.4071
+            },
+            "PreSize": {
+              "X": 0.1234,
+              "Y": 0.1033
+            },
+            "LeftMargin": 555.6091,
+            "RightMargin": 1688.3909,
+            "TopMargin": 974.2041,
+            "BottomMargin": 639.7959,
+            "Tag": 1160,
+            "ActionTag": 2109231056,
+            "Size": {
+              "X": 316.0,
+              "Y": 186.0
+            },
+            "Name": "Magozwe_characterhand_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_character.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 419.0751,
+              "Y": 767.1976
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1637,
+              "Y": 0.4262
+            },
+            "PreSize": {
+              "X": 0.2289,
+              "Y": 0.5933
+            },
+            "LeftMargin": 126.0751,
+            "RightMargin": 1847.9249,
+            "TopMargin": 498.8025,
+            "BottomMargin": 233.1976,
+            "Tag": 1159,
+            "ActionTag": -1965152170,
+            "Size": {
+              "X": 586.0,
+              "Y": 1068.0
+            },
+            "Name": "Magozwe_character_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Magozwe/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1077.0477,
+              "Y": 224.0537
+            },
+            "Scale": {
+              "ScaleX": 0.73,
+              "ScaleY": 0.73
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4207,
+              "Y": 0.1245
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1077.0477,
+            "RightMargin": 1482.9523,
+            "TopMargin": 1575.9463,
+            "BottomMargin": 224.0537,
+            "UserData": "sit:drag",
+            "Tag": 2354,
+            "ActionTag": 488849020,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy.json",
+        "Magozwe.plist",
+        "Magozwe.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

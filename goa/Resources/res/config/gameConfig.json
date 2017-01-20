@@ -1,0 +1,16 @@
+[  
+   {  
+      "pop":{  
+         "multiPlayer":true,
+         "isJSGame":true,
+         "script":"src/start/pop.js"
+      }
+   },
+   {  
+      "cat":{  
+         "multiPlayer":true,
+         "isJSGame":false,
+         "script":"src/NonJSGameLauncher.js"
+      }
+   }    
+]

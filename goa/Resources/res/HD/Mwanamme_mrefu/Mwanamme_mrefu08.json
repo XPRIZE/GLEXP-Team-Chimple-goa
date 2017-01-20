@@ -1,0 +1,399 @@
+{
+  "ID": "61afd210-aba8-41b9-ab77-801e8b495669",
+  "Version": "2.3.4",
+  "Name": "Mwanamme_mrefu08",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 345,
+        "Speed": 1.0,
+        "ActivedAnimationName": "jackal",
+        "Timelines": [
+          {
+            "ActionTag": -2042731198,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1591.7811,
+                "Y": 377.0925,
+                "FrameIndex": 155,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1518.4131,
+                "Y": 870.0577,
+                "FrameIndex": 245,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1518.41,
+                "Y": 870.0577,
+                "FrameIndex": 280,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1577.9082,
+                "Y": 379.8174,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1165601320,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "sleep",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "sleep",
+                "SingleFrameIndex": 170,
+                "FrameIndex": 150,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1165601320,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1183.3958,
+                "Y": 800.8168,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1165601320,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.6,
+                "Y": 0.6,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1165601320,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 5.6862,
+                "Y": 5.721,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 150,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 155,
+          "EndIndex": 345,
+          "Name": "jackal",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 292,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 208,
+              "G": 175,
+              "B": 139
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1279.9988,
+              "Y": 1039.9746
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3333,
+              "Y": 1.625
+            },
+            "PreSize": {
+              "X": 4.1667,
+              "Y": 2.8125
+            },
+            "LeftMargin": -720.0012,
+            "RightMargin": -2319.9988,
+            "TopMargin": -1299.9746,
+            "BottomMargin": 139.9746,
+            "Tag": 316,
+            "ActionTag": -444519184,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_mrefu/jackal1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1591.7811,
+              "Y": 377.0925
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.6581,
+              "Y": 0.5892
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1591.7811,
+            "RightMargin": -631.7811,
+            "TopMargin": 262.9075,
+            "BottomMargin": 377.0925,
+            "Tag": 1132,
+            "ActionTag": -2042731198,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "jackal",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 195,
+              "G": 146,
+              "B": 92
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1279.9993,
+              "Y": 120.0041
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.4667
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3333,
+              "Y": 0.1875
+            },
+            "PreSize": {
+              "X": 4.1667,
+              "Y": 2.8125
+            },
+            "LeftMargin": -720.0007,
+            "RightMargin": -2319.9993,
+            "TopMargin": -380.0041,
+            "BottomMargin": -779.9959,
+            "Tag": 315,
+            "ActionTag": -899601500,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Mwanamme_mrefu/bed1.png",
+              "Plist": "Mwanamme_mrefu/Mwanamme_mrefu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1308.8796,
+              "Y": 480.5137
+            },
+            "Scale": {
+              "ScaleX": 1.5189,
+              "ScaleY": 1.4432
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3634,
+              "Y": 0.7508
+            },
+            "PreSize": {
+              "X": 1.4083,
+              "Y": 0.9625
+            },
+            "LeftMargin": 632.8796,
+            "RightMargin": -1024.8796,
+            "TopMargin": -148.5137,
+            "BottomMargin": 172.5137,
+            "Tag": 314,
+            "ActionTag": -651761993,
+            "Size": {
+              "X": 1352.0,
+              "Y": 616.0
+            },
+            "Name": "bed1_30",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Mwanamme_mrefu/man.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1183.3958,
+              "Y": 800.8168
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "RotationSkewX": 5.6862,
+            "RotationSkewY": 5.721,
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 1.2327,
+              "Y": 1.2513
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1183.3958,
+            "RightMargin": -223.3958,
+            "TopMargin": -160.8168,
+            "BottomMargin": 800.8168,
+            "Tag": 293,
+            "ActionTag": -1165601320,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "man",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "jackal1.json",
+        "man.json",
+        "Mwanamme_mrefu.plist",
+        "Mwanamme_mrefu.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

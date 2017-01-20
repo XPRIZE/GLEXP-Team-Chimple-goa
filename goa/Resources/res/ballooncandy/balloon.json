@@ -1,0 +1,124 @@
+{
+  "ID": "d9832d33-62e0-4f11-8445-940978cfc7f7",
+  "Version": "2.3.4",
+  "Name": "balloon",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 20,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "ballooncandy/balloon1.png",
+              "Plist": "ballooncandy/ballooncandy.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1.6261,
+              "Y": 40.2468
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -177.8739,
+            "RightMargin": -181.1261,
+            "TopMargin": -358.2468,
+            "BottomMargin": -277.7532,
+            "Tag": 21,
+            "ActionTag": 1590913938,
+            "Size": {
+              "X": 359.0,
+              "Y": 636.0
+            },
+            "Name": "balloon1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "ballooncandy/touch.png",
+              "Plist": "ballooncandy/ballooncandy.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.7052,
+              "Y": 211.0769
+            },
+            "Scale": {
+              "ScaleX": 1.8305,
+              "ScaleY": 1.1661
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -201.2948,
+            "RightMargin": -202.7052,
+            "TopMargin": -413.0769,
+            "BottomMargin": 9.0769,
+            "Tag": 22,
+            "ActionTag": -11670686,
+            "Size": {
+              "X": 404.0,
+              "Y": 404.0
+            },
+            "VisibleForFrame": false,
+            "Name": "touch",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ballooncandy.plist",
+        "ballooncandy.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

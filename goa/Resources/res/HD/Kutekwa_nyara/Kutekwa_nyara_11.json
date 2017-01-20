@@ -1,0 +1,770 @@
+{
+  "ID": "377b2fd3-b51f-4d93-907a-ffd4911ea690",
+  "Version": "3.10.0.0",
+  "Name": "Kutekwa_nyara_11",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 200,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1841021618,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 101,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "run",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 200,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1841021618,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2172.2466,
+                "Y": 254.9599,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 218.9666,
+                "Y": 229.9624,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 218.9666,
+                "Y": 229.9624,
+                "FrameIndex": 101,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1942.9673,
+                "Y": 218.0889,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1841021618,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.67,
+                "Y": 0.67,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.67,
+                "Y": 0.67,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.67,
+                "Y": 0.67,
+                "FrameIndex": 101,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -0.67,
+                "Y": 0.67,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1841021618,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 101,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 200,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 200,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 134,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 139,
+              "G": 94,
+              "B": 48
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -597.8318,
+              "Y": 17.5067
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2335,
+              "Y": 0.0097
+            },
+            "PreSize": {
+              "X": 0.4785,
+              "Y": 1.0
+            },
+            "LeftMargin": -597.8318,
+            "RightMargin": 1932.8318,
+            "TopMargin": -17.5067,
+            "BottomMargin": 17.5067,
+            "Tag": 142,
+            "ActionTag": 7086287,
+            "Size": {
+              "X": 1225.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 117,
+              "G": 76,
+              "B": 41
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 630.3661,
+              "Y": 1083.5999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2462,
+              "Y": 0.602
+            },
+            "PreSize": {
+              "X": 0.8637,
+              "Y": 0.405
+            },
+            "LeftMargin": 630.3661,
+            "RightMargin": -281.3662,
+            "TopMargin": -12.5999,
+            "BottomMargin": 1083.5999,
+            "Tag": 141,
+            "ActionTag": -1469431976,
+            "Size": {
+              "X": 2211.0,
+              "Y": 729.0
+            },
+            "Name": "Panel_3",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 96,
+              "G": 57,
+              "B": 19
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -598.4598,
+              "Y": -489.1127
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 37.9957,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2338,
+              "Y": -0.2717
+            },
+            "PreSize": {
+              "X": 1.1719,
+              "Y": 1.1111
+            },
+            "LeftMargin": -598.4598,
+            "RightMargin": 158.4597,
+            "TopMargin": 289.1127,
+            "BottomMargin": -489.1127,
+            "Tag": 140,
+            "ActionTag": 1822191130,
+            "Size": {
+              "X": 3000.0,
+              "Y": 2000.0
+            },
+            "Name": "Panel_4",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kutekwa_nyara/Kwa_door.png",
+              "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1702.5227,
+              "Y": 1441.4752
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.665,
+              "Y": 0.8008
+            },
+            "PreSize": {
+              "X": 0.2168,
+              "Y": 0.41
+            },
+            "LeftMargin": 1425.0227,
+            "RightMargin": 579.9773,
+            "TopMargin": -10.4752,
+            "BottomMargin": 1072.4752,
+            "Tag": 139,
+            "ActionTag": 1777868500,
+            "Size": {
+              "X": 555.0,
+              "Y": 738.0
+            },
+            "Name": "Kwa_door_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kutekwa_nyara/Kutekwa_character3.png",
+              "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1202.0964,
+              "Y": 1094.4128
+            },
+            "Scale": {
+              "ScaleX": 1.51,
+              "ScaleY": 1.51
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4696,
+              "Y": 0.608
+            },
+            "PreSize": {
+              "X": 0.066,
+              "Y": 0.2444
+            },
+            "LeftMargin": 1117.5964,
+            "RightMargin": 1273.4036,
+            "TopMargin": 485.5872,
+            "BottomMargin": 874.4128,
+            "Tag": 1950,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/eye_outer_right.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 65.9592,
+                  "Y": 380.5351
+                },
+                "Scale": {
+                  "ScaleX": 0.22,
+                  "ScaleY": 0.22
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.3903,
+                  "Y": 0.8649
+                },
+                "PreSize": {
+                  "X": 0.5562,
+                  "Y": 0.2409
+                },
+                "LeftMargin": 18.9592,
+                "RightMargin": 56.0408,
+                "TopMargin": 6.4649,
+                "BottomMargin": 327.5351,
+                "Tag": 737,
+                "ActionTag": -656574656,
+                "Size": {
+                  "X": 94.0,
+                  "Y": 106.0
+                },
+                "Name": "eye_outer_right_63_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/eye_inner_right.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 70.3627,
+                  "Y": 385.1572
+                },
+                "Scale": {
+                  "ScaleX": 0.22,
+                  "ScaleY": 0.22
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.4163,
+                  "Y": 0.8754
+                },
+                "PreSize": {
+                  "X": 0.2485,
+                  "Y": 0.0955
+                },
+                "LeftMargin": 49.3627,
+                "RightMargin": 77.6373,
+                "TopMargin": 33.8428,
+                "BottomMargin": 364.1572,
+                "Tag": 736,
+                "ActionTag": -1720529498,
+                "Size": {
+                  "X": 42.0,
+                  "Y": 42.0
+                },
+                "Name": "eye_inner_right_62_1",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/eye_outer_right.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 100.6738,
+                  "Y": 380.0344
+                },
+                "Scale": {
+                  "ScaleX": 0.22,
+                  "ScaleY": 0.22
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5957,
+                  "Y": 0.8637
+                },
+                "PreSize": {
+                  "X": 0.5562,
+                  "Y": 0.2409
+                },
+                "LeftMargin": 53.6738,
+                "RightMargin": 21.3262,
+                "TopMargin": 6.9656,
+                "BottomMargin": 327.0344,
+                "Tag": 738,
+                "ActionTag": 1276455523,
+                "Size": {
+                  "X": 94.0,
+                  "Y": 106.0
+                },
+                "Name": "eye_outer_right_63_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Kutekwa_nyara/eye_inner_right.png",
+                  "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 105.0772,
+                  "Y": 384.6566
+                },
+                "Scale": {
+                  "ScaleX": 0.22,
+                  "ScaleY": 0.22
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.6218,
+                  "Y": 0.8742
+                },
+                "PreSize": {
+                  "X": 0.2485,
+                  "Y": 0.0955
+                },
+                "LeftMargin": 84.0772,
+                "RightMargin": 42.9228,
+                "TopMargin": 34.3434,
+                "BottomMargin": 363.6566,
+                "Tag": 739,
+                "ActionTag": -1471161741,
+                "Size": {
+                  "X": 42.0,
+                  "Y": 42.0
+                },
+                "Name": "eye_inner_right_62_1_0",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -841347657,
+            "Size": {
+              "X": 169.0,
+              "Y": 440.0
+            },
+            "Name": "Kutekwa_character_3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kutekwa_nyara/Kwa_table.png",
+              "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 981.4401,
+              "Y": 700.8468
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3834,
+              "Y": 0.3894
+            },
+            "PreSize": {
+              "X": 0.2109,
+              "Y": 0.2156
+            },
+            "LeftMargin": 711.4401,
+            "RightMargin": 1308.5598,
+            "TopMargin": 905.1532,
+            "BottomMargin": 506.8468,
+            "Tag": 144,
+            "ActionTag": -2121235994,
+            "Size": {
+              "X": 540.0,
+              "Y": 388.0
+            },
+            "Name": "Kwa_table_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Kutekwa_nyara/Kutekwa_character2.png",
+              "Plist": "Kutekwa_nyara/Kutekwa_nyara.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2152.9895,
+              "Y": 1153.8411
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.841,
+              "Y": 0.641
+            },
+            "PreSize": {
+              "X": 0.2438,
+              "Y": 0.3944
+            },
+            "LeftMargin": 1840.9895,
+            "RightMargin": 95.0105,
+            "TopMargin": 291.1589,
+            "BottomMargin": 798.8411,
+            "Tag": 1951,
+            "ActionTag": 1702002088,
+            "Size": {
+              "X": 624.0,
+              "Y": 710.0
+            },
+            "Name": "Kutekwa_character_2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Kutekwa_nyara/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2172.2466,
+              "Y": 254.9599
+            },
+            "Scale": {
+              "ScaleX": 0.67,
+              "ScaleY": 0.67
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8485,
+              "Y": 0.1416
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2172.2466,
+            "RightMargin": 387.7534,
+            "TopMargin": 1545.04,
+            "BottomMargin": 254.9599,
+            "UserData": "run:drag",
+            "Tag": 1952,
+            "ActionTag": -1841021618,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy.json",
+        "Kutekwa_nyara.plist",
+        "Kutekwa_nyara.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

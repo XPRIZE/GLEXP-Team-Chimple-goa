@@ -1,0 +1,863 @@
+{
+  "ID": "de6a03c5-1cbf-4fe4-a626-5175b3709501",
+  "Version": "3.10.0.0",
+  "Name": "Akai_amefurahi_Happy_Akai06",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 365,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 56694108,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1278.0222,
+                "Y": 927.3995,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1278.0222,
+                "Y": 927.3995,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1278.0222,
+                "Y": 927.3995,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 56694108,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.1039,
+                "Y": 1.1039,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1039,
+                "Y": 1.1039,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1039,
+                "Y": 1.1039,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 56694108,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 56694108,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 325,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {
+                  "G": 164,
+                  "B": 54
+                },
+                "FrameIndex": 345,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              },
+              {
+                "Alpha": 255,
+                "Color": {},
+                "FrameIndex": 365,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1107466729,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 80,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 160,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "walk",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 240,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1107466729,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 2278.3945,
+                "Y": 82.7175,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1898.7805,
+                "Y": 132.0456,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1469.8389,
+                "Y": 177.084,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1072.6062,
+                "Y": 206.0086,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1107466729,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1107466729,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 80,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 160,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 240,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 320,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 325,
+          "EndIndex": 365,
+          "Name": "desk",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 71,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 201,
+              "G": 196,
+              "B": 115
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.6426,
+              "Y": -4.67
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1065,
+              "Y": -0.0026
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.2778
+            },
+            "LeftMargin": -272.6426,
+            "RightMargin": -267.3574,
+            "TopMargin": 1304.67,
+            "BottomMargin": -4.67,
+            "Tag": 72,
+            "ActionTag": -38235664,
+            "Size": {
+              "X": 3100.0,
+              "Y": 500.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 239,
+              "G": 204,
+              "B": 106
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -272.6453,
+              "Y": 493.9364
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1065,
+              "Y": 0.2744
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.7222
+            },
+            "LeftMargin": -272.6453,
+            "RightMargin": -267.3547,
+            "TopMargin": 6.0636,
+            "BottomMargin": 493.9364,
+            "Tag": 73,
+            "ActionTag": -485514053,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1300.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Akai_amefurahi_Happy_Akai/akai_rack.png",
+              "Plist": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1278.0222,
+              "Y": 927.3995
+            },
+            "Scale": {
+              "ScaleX": 1.1039,
+              "ScaleY": 1.1039
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4992,
+              "Y": 0.5152
+            },
+            "PreSize": {
+              "X": 0.6773,
+              "Y": 0.4817
+            },
+            "LeftMargin": 411.0222,
+            "RightMargin": 414.9778,
+            "TopMargin": 439.1006,
+            "BottomMargin": 493.8995,
+            "UserData": "main.desk",
+            "Tag": 74,
+            "ActionTag": 56694108,
+            "Size": {
+              "X": 1734.0,
+              "Y": 867.0
+            },
+            "Name": "rack_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Akai_amefurahi_Happy_Akai/akai_shoe.png",
+              "Plist": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1912.3029,
+              "Y": 1111.442
+            },
+            "Scale": {
+              "ScaleX": 1.1039,
+              "ScaleY": 1.1039
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.747,
+              "Y": 0.6175
+            },
+            "PreSize": {
+              "X": 0.0895,
+              "Y": 0.1428
+            },
+            "LeftMargin": 1797.8029,
+            "RightMargin": 533.1971,
+            "TopMargin": 560.058,
+            "BottomMargin": 982.942,
+            "UserData": "drag",
+            "Tag": 75,
+            "ActionTag": -707204078,
+            "Size": {
+              "X": 229.0,
+              "Y": 257.0
+            },
+            "Name": "shoe_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Akai_amefurahi_Happy_Akai/akai_shoe1.png",
+              "Plist": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1078.9406,
+              "Y": 681.47
+            },
+            "Scale": {
+              "ScaleX": 1.1039,
+              "ScaleY": 1.1039
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4215,
+              "Y": 0.3786
+            },
+            "PreSize": {
+              "X": 0.116,
+              "Y": 0.0672
+            },
+            "LeftMargin": 930.4406,
+            "RightMargin": 1332.5594,
+            "TopMargin": 1058.03,
+            "BottomMargin": 620.97,
+            "UserData": "drag",
+            "Tag": 76,
+            "ActionTag": -274464508,
+            "Size": {
+              "X": 297.0,
+              "Y": 121.0
+            },
+            "Name": "shoe1_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Akai_amefurahi_Happy_Akai/akai_shoe2.png",
+              "Plist": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 662.2777,
+              "Y": 668.8446
+            },
+            "Scale": {
+              "ScaleX": 1.1039,
+              "ScaleY": 1.1039
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2587,
+              "Y": 0.3716
+            },
+            "PreSize": {
+              "X": 0.0969,
+              "Y": 0.0644
+            },
+            "LeftMargin": 538.2777,
+            "RightMargin": 1773.7223,
+            "TopMargin": 1073.1554,
+            "BottomMargin": 610.8446,
+            "UserData": "drag",
+            "Tag": 77,
+            "ActionTag": -2010902082,
+            "Size": {
+              "X": 248.0,
+              "Y": 116.0
+            },
+            "Name": "shoe2_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Akai_amefurahi_Happy_Akai/akai_shoe3.png",
+              "Plist": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1495.5955,
+              "Y": 700.4099
+            },
+            "Scale": {
+              "ScaleX": 1.1039,
+              "ScaleY": 1.1039
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5842,
+              "Y": 0.3891
+            },
+            "PreSize": {
+              "X": 0.1051,
+              "Y": 0.1022
+            },
+            "LeftMargin": 1361.0955,
+            "RightMargin": 929.9045,
+            "TopMargin": 1007.5901,
+            "BottomMargin": 608.4099,
+            "UserData": "drag",
+            "Tag": 78,
+            "ActionTag": 833654241,
+            "Size": {
+              "X": 269.0,
+              "Y": 184.0
+            },
+            "Name": "shoe3_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Akai_amefurahi_Happy_Akai/akai_shoe4.png",
+              "Plist": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1905.944,
+              "Y": 653.0622
+            },
+            "Scale": {
+              "ScaleX": 1.1039,
+              "ScaleY": 1.1039
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7445,
+              "Y": 0.3628
+            },
+            "PreSize": {
+              "X": 0.1129,
+              "Y": 0.0678
+            },
+            "LeftMargin": 1761.444,
+            "RightMargin": 509.5562,
+            "TopMargin": 1085.9377,
+            "BottomMargin": 592.0622,
+            "UserData": "drag",
+            "Tag": 79,
+            "ActionTag": -990217448,
+            "Size": {
+              "X": 289.0,
+              "Y": 122.0
+            },
+            "Name": "shoe4_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Akai_amefurahi_Happy_Akai/akai_shoe5.png",
+              "Plist": "Akai_amefurahi_Happy_Akai/Akai_amefurahi_Happy_Akai.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1091.5658,
+              "Y": 1047.6272
+            },
+            "Scale": {
+              "ScaleX": 1.1039,
+              "ScaleY": 1.1039
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4264,
+              "Y": 0.582
+            },
+            "PreSize": {
+              "X": 0.1086,
+              "Y": 0.0572
+            },
+            "LeftMargin": 952.5658,
+            "RightMargin": 1329.4342,
+            "TopMargin": 700.8728,
+            "BottomMargin": 996.1272,
+            "UserData": "drag",
+            "Tag": 80,
+            "ActionTag": 697071846,
+            "Size": {
+              "X": 278.0,
+              "Y": 103.0
+            },
+            "Name": "shoe5_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Akai_amefurahi_Happy_Akai/girl.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 654.7261,
+              "Y": 270.9684
+            },
+            "Scale": {
+              "ScaleX": -0.8653,
+              "ScaleY": 0.8653
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2558,
+              "Y": 0.1505
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 654.7261,
+            "RightMargin": 1905.2739,
+            "TopMargin": 1529.0316,
+            "BottomMargin": 270.9684,
+            "UserData": "walk;drag",
+            "Tag": 2674,
+            "ActionTag": 797108382,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "girl",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Akai_amefurahi_Happy_Akai/girl_1.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2278.3945,
+              "Y": 82.7175
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.89,
+              "Y": 0.046
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2278.3945,
+            "RightMargin": 281.6055,
+            "TopMargin": 1717.2825,
+            "BottomMargin": 82.7175,
+            "UserData": "walk;drag",
+            "Tag": 2715,
+            "ActionTag": 1107466729,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "mother",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Akai_amefurahi_Happy_Akai.plist",
+        "Akai_amefurahi_Happy_Akai.png",
+        "girl.json",
+        "girl_1.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

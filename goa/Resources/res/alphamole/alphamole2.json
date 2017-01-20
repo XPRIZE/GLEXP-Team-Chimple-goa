@@ -1,0 +1,73 @@
+{
+  "ID": "67150393-aa6c-4bee-9c30-3f06dc9e40d7",
+  "Version": "3.10.0.0",
+  "Name": "alphamole2",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 898,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "alphamole/alphamole2_background.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 295.6144,
+              "Y": 26.2768
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1155,
+              "Y": 0.0146
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 295.6144,
+            "RightMargin": -295.6143,
+            "TopMargin": -26.2769,
+            "BottomMargin": 26.2768,
+            "Tag": 137,
+            "ActionTag": 927277009,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "alphamole2_background.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

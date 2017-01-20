@@ -1,0 +1,717 @@
+{
+  "ID": "4d1697aa-b577-4968-ac05-d37e83f350cb",
+  "Version": "2.3.4",
+  "Name": "frontground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 177,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 63,
+              "G": 166,
+              "B": 210
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0298,
+              "Y": -0.0044
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 8.5938,
+              "Y": 0.25
+            },
+            "LeftMargin": 0.0298,
+            "RightMargin": -19440.0293,
+            "TopMargin": 1350.0044,
+            "BottomMargin": -0.0044,
+            "Tag": 243,
+            "ActionTag": 639020564,
+            "Size": {
+              "X": 22000.0,
+              "Y": 450.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/boat.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 674.084,
+              "Y": 412.0486
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2633,
+              "Y": 0.2289
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3317
+            },
+            "LeftMargin": 434.584,
+            "RightMargin": 1646.416,
+            "TopMargin": 1089.4514,
+            "BottomMargin": 113.5486,
+            "Tag": 277,
+            "ActionTag": -1823653712,
+            "Size": {
+              "X": 479.0,
+              "Y": 597.0
+            },
+            "Name": "boat_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/boat1.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3369.9907,
+              "Y": 396.1263
+            },
+            "Scale": {
+              "ScaleX": 1.2317,
+              "ScaleY": 1.2317
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.3164,
+              "Y": 0.2201
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3317
+            },
+            "LeftMargin": 3130.4907,
+            "RightMargin": -1049.4907,
+            "TopMargin": 1105.3737,
+            "BottomMargin": 97.6263,
+            "Tag": 282,
+            "ActionTag": 156974857,
+            "Size": {
+              "X": 479.0,
+              "Y": 597.0
+            },
+            "Name": "boat1_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/boat2.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 5523.5586,
+              "Y": 487.6764
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.1576,
+              "Y": 0.2709
+            },
+            "PreSize": {
+              "X": 0.327,
+              "Y": 0.3317
+            },
+            "LeftMargin": 5105.0586,
+            "RightMargin": -3382.0586,
+            "TopMargin": 1013.8236,
+            "BottomMargin": 189.1764,
+            "Tag": 283,
+            "ActionTag": 1799557679,
+            "Size": {
+              "X": 837.0,
+              "Y": 597.0
+            },
+            "Name": "boat2_21",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/lasthill.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6506.0571,
+              "Y": 296.9487
+            },
+            "Scale": {
+              "ScaleX": 1.0942,
+              "ScaleY": 1.0942
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.5414,
+              "Y": 0.165
+            },
+            "PreSize": {
+              "X": 0.3945,
+              "Y": 0.2989
+            },
+            "LeftMargin": 6001.0571,
+            "RightMargin": -4451.0571,
+            "TopMargin": 1234.0513,
+            "BottomMargin": 27.9487,
+            "Tag": 721,
+            "ActionTag": 848419565,
+            "Size": {
+              "X": 1010.0,
+              "Y": 538.0
+            },
+            "Name": "lasthill_65",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/lasthill.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7608.5088,
+              "Y": 297.0394
+            },
+            "Scale": {
+              "ScaleX": 1.0942,
+              "ScaleY": 1.0942
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.9721,
+              "Y": 0.165
+            },
+            "PreSize": {
+              "X": 0.3945,
+              "Y": 0.2989
+            },
+            "LeftMargin": 7103.5088,
+            "RightMargin": -5553.5088,
+            "TopMargin": 1233.9606,
+            "BottomMargin": 28.0394,
+            "Tag": 722,
+            "ActionTag": 618590219,
+            "Size": {
+              "X": 1010.0,
+              "Y": 538.0
+            },
+            "Name": "lasthill_66",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/cat.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 7049.7002,
+              "Y": 834.5137
+            },
+            "Scale": {
+              "ScaleX": 1.0942,
+              "ScaleY": 1.0942
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.7538,
+              "Y": 0.4636
+            },
+            "PreSize": {
+              "X": 0.1137,
+              "Y": 0.2811
+            },
+            "LeftMargin": 6904.2002,
+            "RightMargin": -4635.2002,
+            "TopMargin": 712.4863,
+            "BottomMargin": 581.5137,
+            "Tag": 723,
+            "ActionTag": -469007712,
+            "Size": {
+              "X": 291.0,
+              "Y": 506.0
+            },
+            "Name": "cat_67",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/boat.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 10806.9824,
+              "Y": 496.7057
+            },
+            "Scale": {
+              "ScaleX": 1.2505,
+              "ScaleY": 1.2505
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 4.2215,
+              "Y": 0.2759
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3317
+            },
+            "LeftMargin": 10567.4824,
+            "RightMargin": -8486.4824,
+            "TopMargin": 1004.7943,
+            "BottomMargin": 198.2057,
+            "Tag": 724,
+            "ActionTag": 78416026,
+            "Size": {
+              "X": 479.0,
+              "Y": 597.0
+            },
+            "Name": "boat_68",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/boat2.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 15608.541,
+              "Y": 425.9623
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 6.0971,
+              "Y": 0.2366
+            },
+            "PreSize": {
+              "X": 0.327,
+              "Y": 0.3317
+            },
+            "LeftMargin": 15190.041,
+            "RightMargin": -13467.041,
+            "TopMargin": 1075.5377,
+            "BottomMargin": 127.4623,
+            "Tag": 743,
+            "ActionTag": -170930409,
+            "Size": {
+              "X": 837.0,
+              "Y": 597.0
+            },
+            "Name": "boat2_83",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/boat1.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 18496.8594,
+              "Y": 480.027
+            },
+            "Scale": {
+              "ScaleX": 1.167,
+              "ScaleY": 1.167
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 7.2253,
+              "Y": 0.2667
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3317
+            },
+            "LeftMargin": 18257.3594,
+            "RightMargin": -16176.3594,
+            "TopMargin": 1021.473,
+            "BottomMargin": 181.527,
+            "Tag": 744,
+            "ActionTag": -347676501,
+            "Size": {
+              "X": 479.0,
+              "Y": 597.0
+            },
+            "Name": "boat1_84",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/boat.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 20279.2383,
+              "Y": 433.0174
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 7.9216,
+              "Y": 0.2406
+            },
+            "PreSize": {
+              "X": 0.1871,
+              "Y": 0.3317
+            },
+            "LeftMargin": 20039.7383,
+            "RightMargin": -17958.7383,
+            "TopMargin": 1068.4827,
+            "BottomMargin": 134.5174,
+            "Tag": 767,
+            "ActionTag": 1636655117,
+            "Size": {
+              "X": 479.0,
+              "Y": 597.0
+            },
+            "Name": "boat_103",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/lasthill.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13444.4062,
+              "Y": 304.6964
+            },
+            "Scale": {
+              "ScaleX": 1.1123,
+              "ScaleY": 1.1123
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.2517,
+              "Y": 0.1693
+            },
+            "PreSize": {
+              "X": 0.3945,
+              "Y": 0.2989
+            },
+            "LeftMargin": 12939.4062,
+            "RightMargin": -11389.4062,
+            "TopMargin": 1226.3036,
+            "BottomMargin": 35.6964,
+            "Tag": 782,
+            "ActionTag": -852435796,
+            "Size": {
+              "X": 1010.0,
+              "Y": 538.0
+            },
+            "Name": "lasthill_116",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/lasthill.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 14566.9805,
+              "Y": 304.8969
+            },
+            "Scale": {
+              "ScaleX": 1.1123,
+              "ScaleY": 1.1123
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.6902,
+              "Y": 0.1694
+            },
+            "PreSize": {
+              "X": 0.3945,
+              "Y": 0.2989
+            },
+            "LeftMargin": 14061.9805,
+            "RightMargin": -12511.9805,
+            "TopMargin": 1226.103,
+            "BottomMargin": 35.8969,
+            "Tag": 783,
+            "ActionTag": -1315305769,
+            "Size": {
+              "X": 1010.0,
+              "Y": 538.0
+            },
+            "Name": "lasthill_117",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/lasthill1.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 21447.0234,
+              "Y": 993.1836
+            },
+            "Scale": {
+              "ScaleX": 1.099,
+              "ScaleY": 1.099
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 8.3777,
+              "Y": 0.5518
+            },
+            "PreSize": {
+              "X": 0.3945,
+              "Y": 1.0006
+            },
+            "LeftMargin": 20942.0234,
+            "RightMargin": -19392.0234,
+            "TopMargin": -93.6836,
+            "BottomMargin": 92.6836,
+            "Tag": 784,
+            "ActionTag": 1451622870,
+            "Size": {
+              "X": 1010.0,
+              "Y": 1801.0
+            },
+            "Name": "lasthill1_118",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "dashlevel/cat1.png",
+              "Plist": "dashlevel/dashlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13936.3037,
+              "Y": 833.9042
+            },
+            "Scale": {
+              "ScaleX": 1.1123,
+              "ScaleY": 1.1123
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.4439,
+              "Y": 0.4633
+            },
+            "PreSize": {
+              "X": 0.1133,
+              "Y": 0.2794
+            },
+            "LeftMargin": 13791.3037,
+            "RightMargin": -11521.3037,
+            "TopMargin": 714.5958,
+            "BottomMargin": 582.4042,
+            "Tag": 785,
+            "ActionTag": -1301668158,
+            "Size": {
+              "X": 290.0,
+              "Y": 503.0
+            },
+            "Name": "cat1_119",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "dashlevel.plist",
+        "dashlevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

@@ -1,0 +1,425 @@
+{
+  "ID": "b6106b78-4f38-4899-98bf-0b00ff3fd435",
+  "Version": "3.10.0.0",
+  "Name": "box_2",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 105,
+        "Speed": 1.0,
+        "ActivedAnimationName": "pop",
+        "Timelines": [
+          {
+            "ActionTag": 299913515,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 33.2237,
+                "Y": 26.5108,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 20.4734,
+                "Y": 143.085,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 33.2237,
+                "Y": 26.5108,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 237.2278,
+                "Y": 21.0464,
+                "FrameIndex": 105,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1355498779,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -99.3908,
+                "Y": -74.9264,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -99.3908,
+                "Y": -74.9264,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1355498779,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.1763,
+                "Y": 0.8983,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.1763,
+                "Y": 0.8983,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -386540952,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -112.1761,
+                "Y": 75.4174,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -112.1761,
+                "Y": 75.4174,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -386540952,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.308,
+                "Y": 0.2399,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.308,
+                "Y": 0.2399,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -386540952,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": -0.0117,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": -74.9528,
+                "Y": -74.9664,
+                "FrameIndex": 55,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": -0.0117,
+                "FrameIndex": 60,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 55,
+          "Name": "pop",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 60,
+          "EndIndex": 105,
+          "Name": "pop2",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 0,
+          "EndIndex": 30,
+          "Name": "pop3",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 3697,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Wapi_kigoe_changu_Where_is_my_bat/park for seceneditor-32.png",
+              "Plist": "Wapi_kigoe_changu_Where_is_my_bat/Wapi_kigoe_changu_Where_is_my_bat.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 33.2237,
+              "Y": 26.5108
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -19.7763,
+            "RightMargin": -86.2237,
+            "TopMargin": -113.5108,
+            "BottomMargin": -60.4892,
+            "Tag": 3699,
+            "ActionTag": 299913515,
+            "Size": {
+              "X": 106.0,
+              "Y": 174.0
+            },
+            "Name": "Sprite_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 205,
+              "G": 140,
+              "B": 55
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -99.3908,
+              "Y": -74.9264
+            },
+            "Scale": {
+              "ScaleX": 1.1763,
+              "ScaleY": 0.8983
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -99.3908,
+            "RightMargin": -100.6092,
+            "TopMargin": -125.0736,
+            "BottomMargin": -74.9264,
+            "Tag": 3695,
+            "ActionTag": 1355498779,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "box_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 134,
+              "G": 104,
+              "B": 70
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -112.1761,
+              "Y": 75.4174
+            },
+            "Scale": {
+              "ScaleX": 1.308,
+              "ScaleY": 0.2399
+            },
+            "RotationSkewY": -0.0117,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -112.1761,
+            "RightMargin": -87.8239,
+            "TopMargin": -275.4174,
+            "BottomMargin": 75.4174,
+            "Tag": 3696,
+            "ActionTag": -386540952,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "box_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Wapi_kigoe_changu_Where_is_my_bat/eyebrow_boy.png",
+              "Plist": "Wapi_kigoe_changu_Where_is_my_bat/Wapi_kigoe_changu_Where_is_my_bat.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 19.7153,
+              "Y": 24.3919
+            },
+            "Scale": {
+              "ScaleX": 2.3672,
+              "ScaleY": 3.1484
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -35.2847,
+            "RightMargin": -74.7153,
+            "TopMargin": -56.3919,
+            "BottomMargin": -7.6081,
+            "Tag": 996,
+            "ActionTag": 804305651,
+            "Size": {
+              "X": 110.0,
+              "Y": 64.0
+            },
+            "Alpha": 0,
+            "Name": "eyebrow_boy_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Wapi_kigoe_changu_Where_is_my_bat.plist",
+        "Wapi_kigoe_changu_Where_is_my_bat.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

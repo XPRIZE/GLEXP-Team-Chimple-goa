@@ -1,0 +1,375 @@
+{
+  "ID": "a35df2e5-3026-4bd8-8327-aa733613a1ab",
+  "Version": "3.10.0.0",
+  "Name": "Vitu_ninavyojua_Things_I_know_02",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 300,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 747771889,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "blink",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 300,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 747771889,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1074.9929,
+                "Y": 1018.7871,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1074.9929,
+                "Y": 1018.7871,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 747771889,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 747771889,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 300,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 300,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 281,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 144,
+              "G": 188,
+              "B": 230
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -1087.1676,
+              "Y": -447.1817
+            },
+            "Scale": {
+              "ScaleX": 25.4922,
+              "ScaleY": 11.65
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.4247,
+              "Y": -0.2484
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -1087.1676,
+            "RightMargin": 3447.1675,
+            "TopMargin": 2047.1816,
+            "BottomMargin": -447.1817,
+            "Tag": 299,
+            "ActionTag": 800989102,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -1127.1821,
+              "Y": -1657.178
+            },
+            "Scale": {
+              "ScaleX": 25.4922,
+              "ScaleY": 11.65
+            },
+            "CColor": {
+              "R": 230,
+              "G": 196,
+              "B": 112
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.4403,
+              "Y": -0.9207
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -1127.1821,
+            "RightMargin": 3487.1821,
+            "TopMargin": 3257.178,
+            "BottomMargin": -1657.178,
+            "Tag": 918,
+            "ActionTag": 509769882,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/cloud1.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 140.377,
+              "Y": 1567.3601
+            },
+            "Scale": {
+              "ScaleX": 6.7647,
+              "ScaleY": 6.7647
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0548,
+              "Y": 0.8708
+            },
+            "PreSize": {
+              "X": 0.0664,
+              "Y": 0.0283
+            },
+            "LeftMargin": 55.377,
+            "RightMargin": 2334.623,
+            "TopMargin": 207.1399,
+            "BottomMargin": 1541.8601,
+            "Tag": 919,
+            "ActionTag": -1506963336,
+            "Size": {
+              "X": 170.0,
+              "Y": 51.0
+            },
+            "Name": "cloud_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Vitu_ninavyojua_Things_I_know/cloud1.png",
+              "Plist": "Vitu_ninavyojua_Things_I_know/Vitu_ninavyojua_Things_I_know.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2180.3711,
+              "Y": 1527.3591
+            },
+            "Scale": {
+              "ScaleX": 6.7647,
+              "ScaleY": 6.7647
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8517,
+              "Y": 0.8485
+            },
+            "PreSize": {
+              "X": 0.0664,
+              "Y": 0.0283
+            },
+            "LeftMargin": 2095.3711,
+            "RightMargin": 294.6289,
+            "TopMargin": 247.1409,
+            "BottomMargin": 1501.8591,
+            "Tag": 920,
+            "ActionTag": 774631908,
+            "Size": {
+              "X": 170.0,
+              "Y": 51.0
+            },
+            "Name": "cloud_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Vitu_ninavyojua_Things_I_know/camel.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1074.9929,
+              "Y": 1018.7871
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4199,
+              "Y": 0.566
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1074.9929,
+            "RightMargin": 1485.0071,
+            "TopMargin": 781.2129,
+            "BottomMargin": 1018.7871,
+            "UserData": "walk;drag",
+            "Tag": 290,
+            "ActionTag": 747771889,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "camel",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "camel.json",
+        "Vitu_ninavyojua_Things_I_know.plist",
+        "Vitu_ninavyojua_Things_I_know.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

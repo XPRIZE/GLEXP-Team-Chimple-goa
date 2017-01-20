@@ -1,0 +1,361 @@
+{
+  "ID": "317c0108-e3c3-444c-9ed6-8962424cb0c1",
+  "Version": "3.10.0.0",
+  "Name": "circlebackground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 192,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 218,
+              "G": 239,
+              "B": 237
+            },
+            "FirstColor": {},
+            "EndColor": {
+              "R": 147,
+              "G": 215,
+              "B": 235
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 5.0152,
+              "Y": 1.0
+            },
+            "RightMargin": -10279.0,
+            "Tag": 197,
+            "Children": [
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 2,
+                "SingleColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "FirstColor": {
+                  "R": 20,
+                  "G": 74,
+                  "B": 146
+                },
+                "EndColor": {
+                  "R": 81,
+                  "G": 199,
+                  "B": 234
+                },
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0,
+                  "Y": 0.0
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 0.7544
+                },
+                "TopMargin": 442.0,
+                "Tag": 10,
+                "ActionTag": 532187416,
+                "Size": {
+                  "X": 12839.0,
+                  "Y": 1358.0
+                },
+                "Name": "Panel_1",
+                "ctype": "PanelObjectData"
+              }
+            ],
+            "ActionTag": -2031035358,
+            "Size": {
+              "X": 12839.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "circleislandlevel/water.png",
+              "Plist": "circleislandlevel/circleislandlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1283.1958,
+              "Y": 1343.29
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5012,
+              "Y": 0.7463
+            },
+            "PreSize": {
+              "X": 1.0035,
+              "Y": 0.1039
+            },
+            "LeftMargin": -1.3042,
+            "RightMargin": -7.6958,
+            "TopMargin": 363.21,
+            "BottomMargin": 1249.79,
+            "Tag": 11,
+            "Children": [
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "circleislandlevel/water.png",
+                  "Plist": "circleislandlevel/circleislandlevel.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 3849.583,
+                  "Y": 94.2473
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4985,
+                  "Y": 0.504
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2565.083,
+                "RightMargin": -2565.083,
+                "TopMargin": -0.7473,
+                "BottomMargin": 0.7473,
+                "Tag": 12,
+                "ActionTag": -1832710247,
+                "Size": {
+                  "X": 2569.0,
+                  "Y": 187.0
+                },
+                "Name": "water_1_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "circleislandlevel/water.png",
+                  "Plist": "circleislandlevel/circleislandlevel.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 6418.7739,
+                  "Y": 93.4488
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4985,
+                  "Y": 0.4997
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 5134.2739,
+                "RightMargin": -5134.2739,
+                "TopMargin": 0.0512,
+                "BottomMargin": -0.0512,
+                "Tag": 13,
+                "ActionTag": -1172040726,
+                "Size": {
+                  "X": 2569.0,
+                  "Y": 187.0
+                },
+                "Name": "water_1_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "circleislandlevel/water.png",
+                  "Plist": "circleislandlevel/circleislandlevel.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 8987.4824,
+                  "Y": 93.2949
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4984,
+                  "Y": 0.4989
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 7702.9824,
+                "RightMargin": -7702.9824,
+                "TopMargin": 0.2051,
+                "BottomMargin": -0.2051,
+                "Tag": 14,
+                "ActionTag": 1938364561,
+                "Size": {
+                  "X": 2569.0,
+                  "Y": 187.0
+                },
+                "Name": "water_1_0_0_0",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "circleislandlevel/water.png",
+                  "Plist": "circleislandlevel/circleislandlevel.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 11556.1904,
+                  "Y": 94.0293
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.4983,
+                  "Y": 0.5028
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 10271.6904,
+                "RightMargin": -10271.6904,
+                "TopMargin": -0.5293,
+                "BottomMargin": 0.5293,
+                "Tag": 15,
+                "ActionTag": 807124156,
+                "Size": {
+                  "X": 2569.0,
+                  "Y": 187.0
+                },
+                "Name": "water_1_0_0_1",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 1336097624,
+            "Size": {
+              "X": 2569.0,
+              "Y": 187.0
+            },
+            "Name": "water_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "circleislandlevel.plist",
+        "circleislandlevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

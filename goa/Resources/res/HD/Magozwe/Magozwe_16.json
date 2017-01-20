@@ -1,0 +1,1322 @@
+{
+  "ID": "9ee1e2fc-242d-443f-90c4-2ef7c13d0590",
+  "Version": "3.10.0.0",
+  "Name": "Magozwe_16",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 100,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -803392321,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "sit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "NoLoopAction",
+                "CurrentAniamtionName": "sit",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 100,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -803392321,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1446.3834,
+                "Y": 485.2444,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 1446.3834,
+                "Y": 485.2444,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -803392321,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.66,
+                "Y": 0.66,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.66,
+                "Y": 0.66,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -803392321,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 100,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 100,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 147,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 217,
+              "G": 243,
+              "B": 248
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "Tag": 148,
+            "ActionTag": -220036411,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 151,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -3.2252,
+              "Y": 1264.8896
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0013,
+              "Y": 0.7027
+            },
+            "PreSize": {
+              "X": 0.0391,
+              "Y": 0.2778
+            },
+            "LeftMargin": -3.2252,
+            "RightMargin": 2463.2251,
+            "TopMargin": 35.1104,
+            "BottomMargin": 1264.8896,
+            "Tag": 150,
+            "ActionTag": 818764427,
+            "Size": {
+              "X": 100.0,
+              "Y": 500.0
+            },
+            "Name": "Panel_2_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 151,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -102.4948,
+              "Y": 1224.29
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.04,
+              "Y": 0.6802
+            },
+            "PreSize": {
+              "X": 0.0391,
+              "Y": 0.2778
+            },
+            "LeftMargin": -102.4948,
+            "RightMargin": 2562.4949,
+            "TopMargin": 75.71,
+            "BottomMargin": 1224.29,
+            "Tag": 149,
+            "ActionTag": 1990269849,
+            "Size": {
+              "X": 100.0,
+              "Y": 500.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -107.2399,
+              "Y": 1275.4819
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0419,
+              "Y": 0.7086
+            },
+            "PreSize": {
+              "X": 0.1562,
+              "Y": 0.1111
+            },
+            "LeftMargin": -107.2399,
+            "RightMargin": 2267.24,
+            "TopMargin": 324.5181,
+            "BottomMargin": 1275.4819,
+            "Tag": 151,
+            "ActionTag": -948353407,
+            "Size": {
+              "X": 400.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_4",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 151,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 332.1989,
+              "Y": 1275.7207
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1298,
+              "Y": 0.7087
+            },
+            "PreSize": {
+              "X": 0.0391,
+              "Y": 0.2778
+            },
+            "LeftMargin": 332.1989,
+            "RightMargin": 2127.801,
+            "TopMargin": 24.2793,
+            "BottomMargin": 1275.7207,
+            "Tag": 152,
+            "ActionTag": -501238353,
+            "Size": {
+              "X": 100.0,
+              "Y": 500.0
+            },
+            "Name": "Panel_2_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 151,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 97.0179,
+              "Y": 1169.6506
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0379,
+              "Y": 0.6498
+            },
+            "PreSize": {
+              "X": 0.0391,
+              "Y": 0.2778
+            },
+            "LeftMargin": 97.0179,
+            "RightMargin": 2362.9822,
+            "TopMargin": 130.3494,
+            "BottomMargin": 1169.6506,
+            "Tag": 153,
+            "ActionTag": 1537083868,
+            "Size": {
+              "X": 100.0,
+              "Y": 500.0
+            },
+            "Name": "Panel_2_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 194,
+              "G": 181,
+              "B": 155
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 294.4212,
+              "Y": 899.8469
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.115,
+              "Y": 0.4999
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.5
+            },
+            "LeftMargin": 294.4212,
+            "RightMargin": -294.4211,
+            "TopMargin": 0.1531,
+            "BottomMargin": 899.8469,
+            "Tag": 154,
+            "ActionTag": 1042475022,
+            "Size": {
+              "X": 2560.0,
+              "Y": 900.0
+            },
+            "Name": "Panel_7",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 168,
+              "G": 154,
+              "B": 128
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 293.4546,
+              "Y": 537.4003
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1146,
+              "Y": 0.2986
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.3056
+            },
+            "LeftMargin": 293.4546,
+            "RightMargin": -293.4546,
+            "TopMargin": 712.5996,
+            "BottomMargin": 537.4003,
+            "Tag": 155,
+            "ActionTag": 622589179,
+            "Size": {
+              "X": 2560.0,
+              "Y": 550.0
+            },
+            "Name": "Panel_8",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Kwa_window.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1186.7097,
+              "Y": 1278.6414
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4636,
+              "Y": 0.7104
+            },
+            "PreSize": {
+              "X": 0.2523,
+              "Y": 0.4094
+            },
+            "LeftMargin": 863.7097,
+            "RightMargin": 1050.2903,
+            "TopMargin": 152.8586,
+            "BottomMargin": 910.1414,
+            "Tag": 156,
+            "ActionTag": -394924833,
+            "Size": {
+              "X": 646.0,
+              "Y": 737.0
+            },
+            "Name": "Kwa_window_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Kwa_door.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2220.1729,
+              "Y": 1043.7114
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8673,
+              "Y": 0.5798
+            },
+            "PreSize": {
+              "X": 0.2168,
+              "Y": 0.41
+            },
+            "LeftMargin": 1942.6729,
+            "RightMargin": 62.3271,
+            "TopMargin": 387.2886,
+            "BottomMargin": 674.7114,
+            "Tag": 157,
+            "ActionTag": -554231052,
+            "Size": {
+              "X": 555.0,
+              "Y": 738.0
+            },
+            "Name": "Kwa_door_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 141,
+              "G": 198,
+              "B": 63
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.3611
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "TopMargin": 1150.0,
+            "Tag": 160,
+            "ActionTag": 300845479,
+            "Size": {
+              "X": 3100.0,
+              "Y": 650.0
+            },
+            "Name": "Panel_11",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 139,
+              "G": 94,
+              "B": 60
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1763.0287,
+              "Y": 573.3889
+            },
+            "Scale": {
+              "ScaleX": 4.4758,
+              "ScaleY": 0.4975
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6887,
+              "Y": 0.3185
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1763.0287,
+            "RightMargin": 596.9713,
+            "TopMargin": 1026.6111,
+            "BottomMargin": 573.3889,
+            "Tag": 159,
+            "ActionTag": 1455383783,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_4_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 117,
+              "G": 76,
+              "B": 41
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1760.7869,
+              "Y": 654.2988
+            },
+            "Scale": {
+              "ScaleX": 4.4758,
+              "ScaleY": 0.0996
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6878,
+              "Y": 0.3635
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1760.7869,
+            "RightMargin": 599.2131,
+            "TopMargin": 945.7012,
+            "BottomMargin": 654.2988,
+            "Tag": 158,
+            "ActionTag": -374608613,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_4_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 139,
+              "G": 94,
+              "B": 60
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1654.2269,
+              "Y": 475.447
+            },
+            "Scale": {
+              "ScaleX": 5.5828,
+              "ScaleY": 0.4975
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6462,
+              "Y": 0.2641
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1654.2269,
+            "RightMargin": 705.7731,
+            "TopMargin": 1124.553,
+            "BottomMargin": 475.447,
+            "Tag": 162,
+            "ActionTag": 1902877862,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_4_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Kuku_grass.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1178.0419,
+              "Y": 707.8561
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4602,
+              "Y": 0.3933
+            },
+            "PreSize": {
+              "X": 0.3453,
+              "Y": 0.1811
+            },
+            "LeftMargin": 736.0419,
+            "RightMargin": 939.9581,
+            "TopMargin": 929.1439,
+            "BottomMargin": 544.8561,
+            "Tag": 169,
+            "ActionTag": 265672823,
+            "Size": {
+              "X": 884.0,
+              "Y": 326.0
+            },
+            "Name": "Kuku_grass_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Kuku_grass.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 424.4587,
+              "Y": 814.8113
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1658,
+              "Y": 0.4527
+            },
+            "PreSize": {
+              "X": 0.3453,
+              "Y": 0.1811
+            },
+            "LeftMargin": -17.5413,
+            "RightMargin": 1693.5413,
+            "TopMargin": 822.1887,
+            "BottomMargin": 651.8113,
+            "Tag": 168,
+            "ActionTag": -788422133,
+            "Size": {
+              "X": 884.0,
+              "Y": 326.0
+            },
+            "Name": "Kuku_grass_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 117,
+              "G": 76,
+              "B": 41
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1651.4329,
+              "Y": 556.3575
+            },
+            "Scale": {
+              "ScaleX": 5.5828,
+              "ScaleY": 0.0996
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6451,
+              "Y": 0.3091
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": 1651.4329,
+            "RightMargin": 708.5671,
+            "TopMargin": 1043.6426,
+            "BottomMargin": 556.3575,
+            "Tag": 161,
+            "ActionTag": -1879014126,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_4_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 151,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 193.3334,
+              "Y": 1275.728
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0755,
+              "Y": 0.7087
+            },
+            "PreSize": {
+              "X": 0.0391,
+              "Y": 0.2778
+            },
+            "LeftMargin": 193.3334,
+            "RightMargin": 2266.6665,
+            "TopMargin": 24.272,
+            "BottomMargin": 1275.728,
+            "Tag": 163,
+            "ActionTag": -1425667621,
+            "Size": {
+              "X": 100.0,
+              "Y": 500.0
+            },
+            "Name": "Panel_2_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 249,
+              "G": 237,
+              "B": 133
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1241.4365,
+              "Y": 299.5418
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4849,
+              "Y": 0.1664
+            },
+            "PreSize": {
+              "X": 0.2047,
+              "Y": 0.1378
+            },
+            "LeftMargin": 1241.4365,
+            "RightMargin": 794.5635,
+            "TopMargin": 1252.4583,
+            "BottomMargin": 299.5418,
+            "Tag": 165,
+            "ActionTag": 1574571678,
+            "Size": {
+              "X": 524.0,
+              "Y": 248.0
+            },
+            "Name": "Panel_15_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 249,
+              "G": 237,
+              "B": 133
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -6.3553,
+              "Y": 300.107
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0025,
+              "Y": 0.1667
+            },
+            "PreSize": {
+              "X": 0.4891,
+              "Y": 0.2072
+            },
+            "LeftMargin": -6.3553,
+            "RightMargin": 1314.3553,
+            "TopMargin": 1126.8931,
+            "BottomMargin": 300.107,
+            "Tag": 164,
+            "ActionTag": 399764000,
+            "Size": {
+              "X": 1252.0,
+              "Y": 373.0
+            },
+            "Name": "Panel_15",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 117,
+              "G": 76,
+              "B": 41
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1245.4336,
+              "Y": 519.1395
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4865,
+              "Y": 0.2884
+            },
+            "PreSize": {
+              "X": 0.2047,
+              "Y": 0.0167
+            },
+            "LeftMargin": 1245.4336,
+            "RightMargin": 790.5664,
+            "TopMargin": 1250.8605,
+            "BottomMargin": 519.1395,
+            "Tag": 167,
+            "ActionTag": 381245255,
+            "Size": {
+              "X": 524.0,
+              "Y": 30.0
+            },
+            "Name": "Panel_15_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 117,
+              "G": 76,
+              "B": 41
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -8.4036,
+              "Y": 645.0204
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0033,
+              "Y": 0.3583
+            },
+            "PreSize": {
+              "X": 0.4891,
+              "Y": 0.0167
+            },
+            "LeftMargin": -8.4036,
+            "RightMargin": 1316.4036,
+            "TopMargin": 1124.9796,
+            "BottomMargin": 645.0204,
+            "Tag": 166,
+            "ActionTag": -1069481630,
+            "Size": {
+              "X": 1252.0,
+              "Y": 30.0
+            },
+            "Name": "Panel_15_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Magozwe/Magozwe_character.png",
+              "Plist": "Magozwe/Magozwe.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 733.1765,
+              "Y": 688.1406
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2864,
+              "Y": 0.3823
+            },
+            "PreSize": {
+              "X": 0.2289,
+              "Y": 0.5933
+            },
+            "LeftMargin": 440.1765,
+            "RightMargin": 1533.8235,
+            "TopMargin": 577.8594,
+            "BottomMargin": 154.1406,
+            "Tag": 5608,
+            "ActionTag": -1922735351,
+            "Size": {
+              "X": 586.0,
+              "Y": 1068.0
+            },
+            "Name": "Magozwe_character_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Magozwe/boy.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1446.3834,
+              "Y": 485.2444
+            },
+            "Scale": {
+              "ScaleX": 0.66,
+              "ScaleY": 0.66
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.565,
+              "Y": 0.2696
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1446.3834,
+            "RightMargin": 1113.6166,
+            "TopMargin": 1314.7556,
+            "BottomMargin": 485.2444,
+            "UserData": "sit:drag",
+            "Tag": 5609,
+            "ActionTag": -803392321,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "boy",
+            "ctype": "ProjectNodeObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "boy.json",
+        "Magozwe.plist",
+        "Magozwe.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
