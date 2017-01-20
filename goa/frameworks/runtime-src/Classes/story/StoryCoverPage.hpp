@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include "../menu/MenuContext.h"
 #include "cocos2d.h"
-#include "RPGConfig.h"
+#include "../hero/RPGConfig.h"
 #include "../menu/MenuContext.h"
 #include "../lang/LangUtil.h"
 #include "editor-support/cocostudio/CocoStudio.h"

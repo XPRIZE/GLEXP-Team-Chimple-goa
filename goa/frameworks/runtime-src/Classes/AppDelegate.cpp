@@ -1,13 +1,13 @@
 #include "AppDelegate.h"
 
 #include <time.h>
-#include "MapScene.h"
-#include "StartMenuScene.h"
-#include "ScrollableGameMapScene.hpp"
+#include "menu/MapScene.h"
+#include "menu/StartMenuScene.h"
+#include "menu/ScrollableGameMapScene.hpp"
 #include "lang/SafariAnalyticsManager.h"
-#include "PhotoCaptureScene.hpp"
+#include "misc/PhotoCaptureScene.hpp"
 #include "menu/Introduction.hpp"
-#include "SplashScene.hpp"
+#include "splash/SplashScene.hpp"
 
 #include "audio/include/SimpleAudioEngine.h"
 #include "scripting/js-bindings/auto/jsb_cocos2dx_3d_auto.hpp"

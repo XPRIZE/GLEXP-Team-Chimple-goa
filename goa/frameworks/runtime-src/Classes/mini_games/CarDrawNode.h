@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "../LipiTKNode.h"
+#include "../ext/LipiTKNode.h"
 
 class CarDraw;
 class carDrawNode : public LipiTKNode

@@ -7,7 +7,7 @@
 //
 
 #include "StoryPlaying.hpp"
-#include "../util/lib/LTKStringUtil.h"
+#include "../ext/util/lib/LTKStringUtil.h"
 #include "../lang/TextGenerator.h"
 #include "QuestionHandler.h"
 

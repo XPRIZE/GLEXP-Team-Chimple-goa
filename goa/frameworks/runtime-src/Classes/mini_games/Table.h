@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "../Calculator.h"
+#include "../util/Calculator.h"
 
 
 class Table : public cocos2d::Layer

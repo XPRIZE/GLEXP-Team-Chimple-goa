@@ -1,7 +1,7 @@
 
 #include "TreasureHuntNode.h"
 #include "TreasureHunt.h"
-#include "../WordSceneLipiTKNode.h"
+#include "../ext/WordSceneLipiTKNode.h"
 
 USING_NS_CC;
 

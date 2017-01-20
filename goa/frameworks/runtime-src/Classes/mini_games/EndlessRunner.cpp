@@ -1,7 +1,7 @@
 #include "EndlessRunner.h"
 #include <vector>
 #include "SpriteCreate.h"
-#include "StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
 
 #define COCOS2D_DEBUG 1

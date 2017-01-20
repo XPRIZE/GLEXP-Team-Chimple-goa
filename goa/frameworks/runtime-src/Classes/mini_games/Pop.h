@@ -5,7 +5,7 @@
 #include "../lang/TextGenerator.h"
 #include "../puzzle/WordScene.h"
 #include "../menu/MenuContext.h"
-#include "../GameScene.h"
+#include "../menu/GameScene.h"
 
 using namespace cocos2d;
 

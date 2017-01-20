@@ -7,7 +7,7 @@
 
 #include "DoorNode.h"
 #include "Door.h"
-#include "../WordSceneLipiTKNode.h"
+#include "../ext/WordSceneLipiTKNode.h"
 
 USING_NS_CC;
 

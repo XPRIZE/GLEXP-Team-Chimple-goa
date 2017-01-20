@@ -6,7 +6,7 @@
 #include "../menu/MenuContext.h"
 #include "../puzzle/Alphabet.h"
 #include "SimpleAudioEngine.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
 
 class PatchTheWall : public cocos2d::Layer

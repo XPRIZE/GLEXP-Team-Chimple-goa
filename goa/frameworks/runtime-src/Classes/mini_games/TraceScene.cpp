@@ -10,7 +10,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
 #include "../lang/LangUtil.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 
 
 

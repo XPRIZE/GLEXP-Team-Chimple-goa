@@ -7,7 +7,7 @@
 //
 
 #include "PegWord.h"
-#include "../GameScene.h"
+#include "../menu/GameScene.h"
 #include "../lang/TextGenerator.h"
 
 USING_NS_CC;

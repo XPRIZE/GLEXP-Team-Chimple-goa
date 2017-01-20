@@ -6,7 +6,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../menu/MenuContext.h"
 #include "../lang/SafariAnalyticsManager.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "ui/CocosGUI.h"
 #include <string>
 #include <sstream>

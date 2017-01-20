@@ -3,11 +3,11 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
-#include "Calculator.h"
+#include "../util/Calculator.h"
 
 using namespace cocos2d;
 using namespace std;

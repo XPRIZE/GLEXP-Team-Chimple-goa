@@ -4,7 +4,7 @@
 #include "cocos2d.h"
 #include "../lang/TextGenerator.h"
 #include "../puzzle/WordScene.h"
-#include "../GameScene.h"
+#include "../menu/GameScene.h"
 #include "../mini_games/Baja.h"
 
 class BajaWordScene : public WordScene

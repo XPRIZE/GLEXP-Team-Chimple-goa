@@ -13,7 +13,7 @@
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "../WordSceneLipiTKNode.h"
+#include "../ext/WordSceneLipiTKNode.h"
 
 class carDrawNode;
 class CarDraw : public cocos2d::Layer

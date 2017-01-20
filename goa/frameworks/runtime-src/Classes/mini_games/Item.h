@@ -3,7 +3,7 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
-#include "Calculator.h"
+#include "../util/Calculator.h"
 
 
 class Item : public cocos2d::Layer

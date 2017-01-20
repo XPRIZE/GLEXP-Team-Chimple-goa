@@ -8,7 +8,7 @@
 #include "../alphamon/Alphamon.h"
 #include "../puzzle/CharGenerator.h"
 #include "../lang/LangUtil.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "ui/UIVideoPlayer.h"
 #include "../menu/HelpLayer.h"
 

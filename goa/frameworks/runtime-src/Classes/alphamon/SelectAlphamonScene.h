@@ -10,7 +10,7 @@
 #define SelectAlphamonScene_h
 
 #include "cocos2d.h"
-#include "StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "Alphamon.h"
 
 class SelectAlphamon : public cocos2d::ui::ScrollView {

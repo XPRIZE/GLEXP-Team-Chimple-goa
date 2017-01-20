@@ -7,13 +7,13 @@
 //
 
 #include "ScoreBoardContext.h"
-#include "../HelloWorldScene.h"
-#include "../ScrollableGameMapScene.hpp"
+#include "../hero/HelloWorldScene.h"
+#include "../menu/ScrollableGameMapScene.hpp"
 #include "LevelMenu.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
-#include "../MapScene.h"
-#include "../menu/LevelHelpScene.h"
+#include "MapScene.h"
+#include "LevelHelpScene.h"
 #include "../story/ScrollableCatalogue.hpp"
 
 USING_NS_CC;

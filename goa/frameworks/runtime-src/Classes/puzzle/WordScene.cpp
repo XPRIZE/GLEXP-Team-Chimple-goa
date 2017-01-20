@@ -8,11 +8,11 @@
 #include <algorithm>
 #include <string>
 #include "WordScene.h"
-#include "../GameScene.h"
+#include "../menu/GameScene.h"
 #include "../lang/TextGenerator.h"
 #include "GraphemeGrid.h"
 #include "Grapheme.h"
-#include "../WordSceneLipiTKNode.h"
+#include "../ext/WordSceneLipiTKNode.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonText.h"
 

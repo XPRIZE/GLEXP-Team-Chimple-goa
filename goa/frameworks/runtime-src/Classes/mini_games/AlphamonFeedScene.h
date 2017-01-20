@@ -8,7 +8,7 @@
 #include "../menu/MenuContext.h"
 #include "SimpleAudioEngine.h"
 #include "ui/UIVideoPlayer.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 
 class AlphamonFeed : public cocos2d::Layer
 {

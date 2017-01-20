@@ -11,7 +11,7 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
 
 class Trace : public cocos2d::Layer {

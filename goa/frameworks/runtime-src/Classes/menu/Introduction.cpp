@@ -9,7 +9,7 @@
 #include "Introduction.hpp"
 #include "../lang/LangUtil.h"
 #include "AudioEngine.h"
-#include "../ScrollableGameMapScene.hpp"
+#include "../menu/ScrollableGameMapScene.hpp"
 
 USING_NS_CC;
 using namespace experimental;

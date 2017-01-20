@@ -8,14 +8,14 @@
 
 #include <stdio.h>
 #include "cocos2d.h"
-#include "../RPGConfig.h"
+#include "../hero/RPGConfig.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "editor-support/cocostudio/CCComExtensionData.h"
 #include "ui/UIWidget.h"
 #include "ui/GUIExport.h"
 #include "extensions/cocos-ext.h"
-#include "../ScrollableGameMapScene.hpp"
-#include "../StartMenuScene.h"
+#include "ScrollableGameMapScene.hpp"
+#include "StartMenuScene.h"
 
 #ifndef ScoreBoardContext_h
 #define ScoreBoardContext_h

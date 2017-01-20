@@ -3,12 +3,12 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
-#include "../WordSceneLipiTKNode.h"
+#include "../ext/WordSceneLipiTKNode.h"
 #include "BlastLetterNode.h"
 
 using namespace cocos2d;

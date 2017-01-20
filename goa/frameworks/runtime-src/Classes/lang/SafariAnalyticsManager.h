@@ -8,7 +8,7 @@
 
 #include <stdio.h>
 #include <time.h>
-#include "../sqlite3.h"
+#include "../sqlite3/sqlite3.h"
 #include "cocos2d.h"
 
 #define ANALYTICS_CONNECTION_URL "res/analytics.db3"

@@ -8,7 +8,7 @@
 
 #include "LevelHelpScene.h"
 #include "MenuContext.h"
-#include "../GameScene.h"
+#include "../menu/GameScene.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "ui/CocosGUI.h"
 #include "platform/CCFileUtils.h"

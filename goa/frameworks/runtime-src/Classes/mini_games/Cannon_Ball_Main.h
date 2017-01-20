@@ -10,7 +10,7 @@
 #include "../puzzle/CharGenerator.h"
 #include "SimpleAudioEngine.h"
 #include "../lang/SafariAnalyticsManager.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
 
 class MainGame : public cocos2d::Layer

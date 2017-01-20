@@ -8,7 +8,7 @@
 
 #include <math.h>
 #include "DuelScene.h"
-#include "../GameScene.h"
+#include "../menu/GameScene.h"
 #include "../AppDelegate.h"
 #include "../alphamon/HPMeter.h"
 #include "AlphabetGrid.h"
@@ -19,7 +19,7 @@
 #include "../menu/MenuContext.h"
 #include "ui/CocosGUI.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
 
 USING_NS_CC;

@@ -10,7 +10,7 @@
 #include "../puzzle/CharGenerator.h"
 #include "SimpleAudioEngine.h"
 #include "../lang/SafariAnalyticsManager.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "../lang/TextGenerator.h"
 #include "ui/CocosGUI.h"
 #include "../menu/HelpLayer.h"

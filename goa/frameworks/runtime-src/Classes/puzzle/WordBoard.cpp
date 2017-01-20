@@ -7,7 +7,7 @@
 //
 
 #include "WordBoard.h"
-#include "../GameScene.h"
+#include "../menu/GameScene.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 
 USING_NS_CC;

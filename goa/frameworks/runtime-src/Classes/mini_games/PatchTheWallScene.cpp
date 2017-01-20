@@ -4,7 +4,7 @@
 #include "../puzzle/Alphabet.h"
 #include "../lang/LangUtil.h"
 #include "SimpleAudioEngine.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "string.h"
 
 USING_NS_CC;

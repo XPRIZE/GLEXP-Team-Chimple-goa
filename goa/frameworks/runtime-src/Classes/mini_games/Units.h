@@ -4,11 +4,11 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
 #include "../menu/HelpLayer.h"
-#include "Calculator.h"
+#include "../util/Calculator.h"
 
 using namespace cocos2d;
 

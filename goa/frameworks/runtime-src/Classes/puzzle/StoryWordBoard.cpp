@@ -7,13 +7,13 @@
 //
 
 #include "StoryWordBoard.hpp"
-#include "../GameScene.h"
+#include "../menu/GameScene.h"
 #include "scripting/js-bindings/manual/ScriptingCore.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "../lang/TextGenerator.h"
 #include "GraphemeGrid.h"
 #include "Grapheme.h"
-#include "CopyRight.hpp"
+#include "../story/CopyRight.hpp"
 
 
 USING_NS_CC;

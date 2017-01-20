@@ -18,7 +18,7 @@
 #include "../lang/SafariAnalyticsManager.h"
 #include "../mini_games/Dash.h"
 #include "../mini_games/EndlessRunner.h"
-#include "../Calculator.h"
+#include "../util/Calculator.h"
 
 #define GAME_MAP_MENU "GameMapScene"
 #define HELP_MENU "HelpScene"

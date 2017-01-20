@@ -14,7 +14,7 @@
 #include "cocos2d.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ui/CocosGUI.h"
-#include "StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "external/json/document.h"
 
 #define STORY_NUMBER_OF_BUTTONS_ROWS 3

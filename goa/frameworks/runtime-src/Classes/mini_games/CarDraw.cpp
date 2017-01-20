@@ -7,7 +7,7 @@
 //
 
 #include "CarDraw.h"
-#include "../WordSceneLipiTKNode.h"
+#include "../ext/WordSceneLipiTKNode.h"
 #include "CarDrawNode.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabel.h"

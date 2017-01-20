@@ -2,11 +2,11 @@
 #define __SMASHTHEROCK_SCENE_H__
 
 #include "cocos2d.h"
-#include "SkeletonCharacter.h"
+#include "../hero/character/SkeletonCharacter.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../menu/MenuContext.h"
 #include "SimpleAudioEngine.h" 
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #include "../puzzle/Alphabet.h"
 
 class SmashTheRock : public cocos2d::Layer

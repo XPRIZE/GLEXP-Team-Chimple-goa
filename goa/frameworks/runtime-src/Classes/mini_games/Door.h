@@ -10,7 +10,7 @@
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "../WordSceneLipiTKNode.h"
+#include "../ext/WordSceneLipiTKNode.h"
 
 class DoorNode;
 class Door : public cocos2d::Layer

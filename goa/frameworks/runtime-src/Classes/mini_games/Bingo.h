@@ -5,7 +5,7 @@
 #include "cocos2d.h"
 #include "../lang/TextGenerator.h"
 #include "../puzzle/WordScene.h"
-#include "../GameScene.h"
+#include "../menu/GameScene.h"
 #include "../effects/FShake.h"
 #include "../menu/MenuContext.h"
 #include "../menu/HelpLayer.h"

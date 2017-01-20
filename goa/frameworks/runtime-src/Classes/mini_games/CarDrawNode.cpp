@@ -9,7 +9,7 @@
 
 #include "carDrawNode.h"
 #include "CarDraw.h"
-#include "../WordSceneLipiTKNode.h"
+#include "../ext/WordSceneLipiTKNode.h"
 
 USING_NS_CC;
 

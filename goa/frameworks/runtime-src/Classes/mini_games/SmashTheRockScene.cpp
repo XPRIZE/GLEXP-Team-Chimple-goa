@@ -9,7 +9,7 @@
 #include "../lang/LangUtil.h"
 #include "../menu/HelpLayer.h"
 
-#include "../StartMenuScene.h"
+#include "../menu/StartMenuScene.h"
 #define COCOS2D_DEBUG 1
 
 USING_NS_CC;

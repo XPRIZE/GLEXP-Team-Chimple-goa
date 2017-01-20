@@ -7,7 +7,7 @@
 //
 
 #include "Spirograph.h"
-#include "../GameScene.h"
+#include "../menu/GameScene.h"
 
 USING_NS_CC;
 

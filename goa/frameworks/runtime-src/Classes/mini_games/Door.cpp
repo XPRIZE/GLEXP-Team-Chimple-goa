@@ -4,7 +4,7 @@
 //
 
 #include "Door.h"
-#include "../WordSceneLipiTKNode.h"
+#include "../ext/WordSceneLipiTKNode.h"
 #include "DoorNode.h"
 #include "../lang/TextGenerator.h"
 #include "../menu/HelpLayer.h"

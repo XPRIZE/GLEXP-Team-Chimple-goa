@@ -9,7 +9,6 @@
 #include "Table.h"
 #include "../menu/HelpLayer.h"
 #include "../effects/FShake.h"
-#include "../Calculator.h"
 #include "../util/CommonLabel.h"
 
 USING_NS_CC;

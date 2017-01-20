@@ -4,8 +4,8 @@
 #include "cocos2d.h"
 #include "../lang/TextGenerator.h"
 #include "../puzzle/WordScene.h"
-#include "../GameScene.h"
-#include "StartMenuScene.h"
+#include "../menu/GameScene.h"
+#include "../menu/StartMenuScene.h"
 
 class Wembley : public WordScene
 {

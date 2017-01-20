@@ -1,5 +1,5 @@
 #include "TreasureHunt.h"
-#include "../WordSceneLipiTKNode.h"
+#include "../ext/WordSceneLipiTKNode.h"
 #include "TreasureHuntNode.h"
 #include "../util/CommonText.h"
 #include "AlphabetWriting.h"

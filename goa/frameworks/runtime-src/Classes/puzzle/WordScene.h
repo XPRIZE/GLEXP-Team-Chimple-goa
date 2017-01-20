@@ -14,7 +14,7 @@
 #include "../menu/HelpLayer.h"
 #include "GraphemeGrid.h"
 #include "Grapheme.h"
-#include "../RPGConfig.h"
+#include "../hero/RPGConfig.h"
 
 class WordSceneLipiTKNode;
 class WordScene : public cocos2d::Node {
