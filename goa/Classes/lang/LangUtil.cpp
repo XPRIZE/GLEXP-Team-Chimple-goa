@@ -25,10 +25,10 @@ LangUtil::~LangUtil() {
 
 LangUtil* LangUtil::getInstance() {
     if(!_instance) {
-        _instance = new EnglishUtil();
-        Data moData = FileUtils::getInstance()->getDataFromFile("res/english/eng.mo");
-//        _instance = new SwahiliUtil();
-//        Data moData = FileUtils::getInstance()->getDataFromFile("res/swahili/swa.mo");
+        // _instance = new EnglishUtil();
+        // Data moData = FileUtils::getInstance()->getDataFromFile("res/english/eng.mo");
+       _instance = new SwahiliUtil();
+       Data moData = FileUtils::getInstance()->getDataFromFile("res/swahili/swa.mo");
         I18N::I18nUtils::getInstance()->removeAllMO();
         I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
     }

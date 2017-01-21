@@ -39,11 +39,11 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "LTKLogger.h"
-#include "LTKMacros.h"
-#include "LTKErrorsList.h"
-#include "LTKOSUtil.h"
-#include "LTKOSUtilFactory.h"
+#include "ext/util/logger/logger.h"
+#include "ext/LTKMacros.h"
+#include "ext/LTKErrorsList.h"
+#include "ext/LTKOSUtil.h"
+#include "ext/LTKOSUtilFactory.h"
 LTKLoggerInterface* LTKLogger::loggerInstance = NULL;
 
 /**********************************************************************************

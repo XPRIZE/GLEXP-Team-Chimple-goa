@@ -55,19 +55,19 @@
  ************************************************************************/
 
 #include "LTKImageWriter.h"
-#include "LTKChannel.h"
-#include "LTKTraceFormat.h"
-#include "LTKTrace.h"
-#include "LTKTraceGroup.h"
-#include "LTKInkFileReader.h"
-#include "LTKCaptureDevice.h"
-#include "LTKPreprocessorInterface.h"
-#include "LTKErrors.h"
-#include "LTKErrorsList.h"
-#include "LTKScreenContext.h"
-#include "LTKLoggerUtil.h"
+#include "ext/LTKChannel.h"
+#include "ext/LTKTraceFormat.h"
+#include "ext/LTKTrace.h"
+#include "ext/LTKTraceGroup.h"
+#include "ext/util/lib/LTKInkFileReader.h"
+#include "ext/LTKCaptureDevice.h"
+#include "ext/LTKPreprocessorInterface.h"
+#include "ext/util/lib/LTKErrors.h"
+#include "ext/LTKErrorsList.h"
+#include "ext/LTKScreenContext.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
 
-#include "LTKException.h"
+#include "ext/LTKException.h"
 
 
 using namespace std;

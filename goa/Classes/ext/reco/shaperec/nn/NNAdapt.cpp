@@ -29,11 +29,11 @@
 
 #include "NNShapeRecognizer.h"
 #include "NNAdapt.h"
-#include "LTKLoggerUtil.h"
-#include "LTKConfigFileReader.h"
-#include "LTKErrors.h"
-#include "LTKErrorsList.h"
-#include "LTKPreprocDefaults.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
+#include "ext/util/lib/LTKConfigFileReader.h"
+#include "ext/util/lib/LTKErrors.h"
+#include "ext/LTKErrorsList.h"
+#include "ext/LTKPreprocDefaults.h"
 
 #define ALPHA_MORPH -0.1
 

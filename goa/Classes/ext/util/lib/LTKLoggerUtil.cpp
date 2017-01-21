@@ -40,14 +40,14 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "LTKLoggerUtil.h"
-#include "LTKOSUtil.h"
-#include "LTKOSUtilFactory.h"
-#include "LTKLogger.h"
-#include "LTKMacros.h"
-#include "LTKErrors.h"
-#include "LTKErrorsList.h"
-#include "logger.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
+#include "ext/LTKOSUtil.h"
+#include "ext/LTKOSUtilFactory.h"
+#include "ext/util/logger/logger.h"
+#include "ext/LTKMacros.h"
+#include "ext/util/lib/LTKErrors.h"
+#include "ext/LTKErrorsList.h"
+#include "ext/util/logger/logger.h"
 
 #ifdef _WIN32
 #include <windows.h>

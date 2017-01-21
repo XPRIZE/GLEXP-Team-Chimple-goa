@@ -40,7 +40,7 @@
 #ifndef _LTK_ERRORS_H__
 #define _LTK_ERRORS_H__
 
-#include "LTKInc.h"
+#include "ext/LTKInc.h"
 
 //extern int errorCode; // Error code, which will set for the error occurence.
 

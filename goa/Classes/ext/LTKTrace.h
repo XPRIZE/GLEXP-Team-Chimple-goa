@@ -45,8 +45,8 @@
 #ifndef __LTKTRACE_H
 #define __LTKTRACE_H
 
-#include "LTKTypes.h"
-#include "LTKTraceFormat.h"
+#include "ext/LTKTypes.h"
+#include "ext/LTKTraceFormat.h"
 
 class LTKTraceFormat;
 

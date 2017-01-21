@@ -41,22 +41,22 @@
 #ifndef __LTKShapeRecognizer_H
 #define __LTKShapeRecognizer_H
 
-#include "LTKInc.h"
+#include "ext/LTKInc.h"
 
-#include "LTKTraceGroup.h"
+#include "ext/LTKTraceGroup.h"
 
 #include "LTKShapeRecoResult.h"
 
-#include "LTKScreenContext.h"
+#include "ext/LTKScreenContext.h"
 
-#include "LTKCaptureDevice.h"
+#include "ext/LTKCaptureDevice.h"
 
-#include "LTKShapeRecoConfig.h"
+#include "ext/LTKShapeRecoConfig.h"
 
-#include "LTKMacros.h"
+#include "ext/LTKMacros.h"
 
 
-#include "LTKShapeFeatureMacros.h"
+#include "ext/LTKShapeFeatureMacros.h"
 /**
  * @class LTKShapeRecognizer
  * <p> This is an abstract class. This class will have to be derived by each of the shape recognizers

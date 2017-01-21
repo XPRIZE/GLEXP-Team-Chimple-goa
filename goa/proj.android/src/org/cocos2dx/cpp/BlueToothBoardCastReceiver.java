@@ -1,4 +1,4 @@
-package org.cocos2dx.javascript;
+package org.cocos2dx.cpp;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -8,7 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import org.chimple.goa.R;
-import org.cocos2dx.javascript.AppActivity;
+import org.cocos2dx.cpp.AppActivity;
 /**
  * Created by Shyamal.Upadhyaya on 28/09/16.
  */

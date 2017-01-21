@@ -41,9 +41,9 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "LTKException.h"
-#include "LTKErrors.h"
-#include "LTKMacros.h"
+#include "ext/LTKException.h"
+#include "ext/util/lib/LTKErrors.h"
+#include "ext/LTKMacros.h"
 
 /******************************************************************************
 * AUTHOR		: Balaji R.

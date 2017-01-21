@@ -43,15 +43,15 @@
  *
  ************************************************************************/
  
-#include "LTKCheckSumGenerate.h"
-#include "LTKMacros.h"
-#include "LTKLoggerUtil.h"
-#include "LTKConfigFileReader.h"
-#include "LTKException.h"
+#include "ext/util/lib/LTKCheckSumGenerate.h"
+#include "ext/LTKMacros.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
+#include "ext/util/lib/LTKConfigFileReader.h"
+#include "ext/LTKException.h"
 
-#include "LTKOSUtil.h"
+#include "ext/LTKOSUtil.h"
 
-#include "LTKOSUtilFactory.h"
+#include "ext/LTKOSUtilFactory.h"
 
 /*****************************************************************************
 * AUTHOR		: Vijayakumara M

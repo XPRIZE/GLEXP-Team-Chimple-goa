@@ -46,8 +46,8 @@
 #ifndef __LTKSCREENCONTEXT_H
 #define __LTKSCREENCONTEXT_H
 
-#include "LTKInc.h"
-#include "LTKTypes.h"
+#include "ext/LTKInc.h"
+#include "ext/LTKTypes.h"
 
  
  /**

@@ -39,32 +39,32 @@
  * Deepu V.     14 Sept 2005    Added unipen file reading function
  *                              that reads annotation.
 ************************************************************************/
-#include "LTKChannel.h"
+#include "ext/LTKChannel.h"
 
-#include "LTKTraceFormat.h"
+#include "ext/LTKTraceFormat.h"
 
-#include "LTKTrace.h"
+#include "ext/LTKTrace.h"
 
-#include "LTKTraceGroup.h"
+#include "ext/LTKTraceGroup.h"
 
-#include "LTKCaptureDevice.h"
+#include "ext/LTKCaptureDevice.h"
 
-#include "LTKScreenContext.h"
+#include "ext/LTKScreenContext.h"
 
-#include "LTKStringUtil.h"
+#include "ext/util/lib/LTKStringUtil.h"
 
-#include "LTKInc.h"
+#include "ext/LTKInc.h"
 
-#include "LTKException.h"
+#include "ext/LTKException.h"
 
-#include "LTKMacros.h"
+#include "ext/LTKMacros.h"
 
-#include "LTKErrors.h"
+#include "ext/util/lib/LTKErrors.h"
 
-#include "LTKErrorsList.h"
+#include "ext/LTKErrorsList.h"
 
-#include "LTKLoggerUtil.h"
-#include "LTKInkFileReader.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
+#include "ext/util/lib/LTKInkFileReader.h"
 
 /**********************************************************************************
 * AUTHOR		: Balaji R.

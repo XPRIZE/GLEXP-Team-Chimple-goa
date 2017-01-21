@@ -28,11 +28,11 @@
  ************************************************************************/
 // pointFloat.cpp : Defines the entry point for the DLL application.
 
-#include "PointFloat.h"
+#include "ext/reco/shaperec/featureextractor/pointfloat/PointFloat.h"
 #include "PointFloatShapeFeatureExtractor.h"
-#include "LTKShapeFeatureExtractor.h"
+#include "ext/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractor.h"
 #include "PointFloatShapeFeature.h"
-#include "LTKErrors.h"
+#include "ext/util/lib/LTKErrors.h"
 
 
 //#ifdef _WIN32

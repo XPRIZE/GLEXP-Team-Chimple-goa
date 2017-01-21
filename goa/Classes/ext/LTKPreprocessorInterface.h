@@ -29,7 +29,7 @@
 #ifndef __LTKPREPROCESSORINTERFACE_H
 #define __LTKPREPROCESSORINTERFACE_H
 
-#include "LTKTraceGroup.h"
+#include "ext/LTKTraceGroup.h"
 
 class LTKPreprocessorInterface;
 

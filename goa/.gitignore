@@ -58,44 +58,44 @@ Thumbs.db
 #.LSOverride#
 
 # Generated files in the Android project #
-frameworks/runtime-src/proj.android/libs/armeabi/*
-frameworks/runtime-src/proj.android/libs/armeabi-v7a/*
-frameworks/runtime-src/proj.android/libs/x86/*
-frameworks/runtime-src/proj.android/obj/*
+proj.android/libs/armeabi/*
+proj.android/libs/armeabi-v7a/*
+proj.android/libs/x86/*
+proj.android/obj/*
 
-frameworks/runtime-src/proj.android/build/
-frameworks/runtime-src/proj.android/gen/*
-frameworks/runtime-src/proj.android/bin/*
-frameworks/runtime-src/proj.android/assets/*
+proj.android/build/
+proj.android/gen/*
+proj.android/bin/*
+proj.android/assets/*
 
-frameworks/runtime-src/proj.android/.gradle/*
-frameworks/runtime-src/proj.android/.idea/*
-frameworks/runtime-src/proj.android/*.iml
-frameworks/runtime-src/proj.android/local.properties
+proj.android/.gradle/*
+proj.android/.idea/*
+proj.android/*.iml
+proj.android/local.properties
 
-frameworks/runtime-src/proj.android/libraries/*/build/
-frameworks/runtime-src/proj.android/libraries/*/gen/*
-frameworks/runtime-src/proj.android/libraries/*/bin/*
-frameworks/runtime-src/proj.android/libraries/*/.idea/*
-frameworks/runtime-src/proj.android/libraries/*/*.iml
-frameworks/runtime-src/proj.android/libraries/*/local.properties
+proj.android/libraries/*/build/
+proj.android/libraries/*/gen/*
+proj.android/libraries/*/bin/*
+proj.android/libraries/*/.idea/*
+proj.android/libraries/*/*.iml
+proj.android/libraries/*/local.properties
 
 
 # Generated files in the Android studio project #
-frameworks/runtime-src/proj.android-studio/**/*
-frameworks/runtime-src/proj.android-studio/app/*
-frameworks/runtime-src/proj.android-studio/app/project.properties
-frameworks/runtime-src/proj.android-studio/build.gradle
-frameworks/runtime-src/proj.android-studio/gradle/wrapper/gradle-wrapper.properties
-frameworks/runtime-src/proj.android-studio/gradlew
-frameworks/runtime-src/proj.android/project.properties
+proj.android-studio/**/*
+proj.android-studio/app/*
+proj.android-studio/app/project.properties
+proj.android-studio/build.gradle
+proj.android-studio/gradle/wrapper/gradle-wrapper.properties
+proj.android-studio/gradlew
+proj.android/project.properties
 
-frameworks/runtime-src/proj.android/libraries/*/build/
-frameworks/runtime-src/proj.android/libraries/*/gen/*
-frameworks/runtime-src/proj.android/libraries/*/bin/*
-frameworks/runtime-src/proj.android/libraries/*/.idea/*
-frameworks/runtime-src/proj.android/libraries/*/*.iml
-frameworks/runtime-src/proj.android/libraries/*/local.properties
+proj.android/libraries/*/build/
+proj.android/libraries/*/gen/*
+proj.android/libraries/*/bin/*
+proj.android/libraries/*/.idea/*
+proj.android/libraries/*/*.iml
+proj.android/libraries/*/local.properties
 
 **/platform/android/java/bin/*
 **/platform/android/java/gen/*
@@ -110,8 +110,8 @@ frameworks/runtime-src/proj.android/libraries/*/local.properties
 *.tlog
 *.idb
 *.pdb
-frameworks/runtime-src/proj.win32/*.db
-frameworks/runtime-src/proj.win32/*.opendb
+proj.win32/*.db
+proj.win32/*.opendb
 **/*.vssettings
 
 # Generated documentation, it can be regenerated using doxygen #

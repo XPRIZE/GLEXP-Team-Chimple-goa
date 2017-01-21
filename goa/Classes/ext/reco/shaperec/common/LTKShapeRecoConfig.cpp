@@ -49,14 +49,14 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "LTKShapeRecoConfig.h"
-#include "LTKErrorsList.h"
-#include "LTKLoggerUtil.h"
-#include "LTKErrors.h"
-#include "LTKShapeRecoConfig.h"
-#include "LTKException.h"
-#include "LTKConfigFileReader.h"
-#include "LTKMacros.h"
+#include "ext/LTKShapeRecoConfig.h"
+#include "ext/LTKErrorsList.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
+#include "ext/util/lib/LTKErrors.h"
+#include "ext/LTKShapeRecoConfig.h"
+#include "ext/LTKException.h"
+#include "ext/util/lib/LTKConfigFileReader.h"
+#include "ext/LTKMacros.h"
 
 /**********************************************************************************
 * AUTHOR		: Balaji R.

@@ -40,9 +40,9 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "preprocessing.h"
-#include "LTKException.h"
-#include "LTKErrors.h"
+#include "ext/reco/shaperec/preprocessing/preprocessing.h"
+#include "ext/LTKException.h"
+#include "ext/util/lib/LTKErrors.h"
 
 //#ifdef _WIN32
 //#include <windows.h>

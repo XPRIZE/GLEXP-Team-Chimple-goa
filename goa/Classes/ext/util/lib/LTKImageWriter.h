@@ -41,10 +41,10 @@
 
 #include <limits>
 #include <math.h>
-#include "LTKInc.h"
-#include "LTKMacros.h"
-#include "LTKTypes.h"
-#include "LTKLoggerUtil.h"
+#include "ext/LTKInc.h"
+#include "ext/LTKMacros.h"
+#include "ext/LTKTypes.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
 
 #ifdef _WIN32
 #include <windows.h>

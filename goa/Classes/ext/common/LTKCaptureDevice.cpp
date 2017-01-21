@@ -47,12 +47,12 @@
  * Author		Date			Description of change
  *****************************************************************************/
 
-#include "../LTKCaptureDevice.h"
-#include "LTKErrorsList.h"
-#include "LTKLoggerUtil.h"
-#include "LTKMacros.h"
-#include "LTKException.h"
-#include "LTKErrors.h"
+#include "ext/LTKCaptureDevice.h"
+#include "ext/LTKErrorsList.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
+#include "ext/LTKMacros.h"
+#include "ext/LTKException.h"
+#include "ext/util/lib/LTKErrors.h"
 
 /******************************************************************************
 * AUTHOR		: Balaji R.

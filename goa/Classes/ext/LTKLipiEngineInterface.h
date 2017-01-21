@@ -42,7 +42,7 @@
 #ifndef __LIPIENGINEINTERFACE_H_
 #define __LIPIENGINEINTERFACE_H_
 
-#include "LTKShapeRecognizer.h"
+#include "ext/LTKShapeRecognizer.h"
 #include "LTKWordRecognizer.h"
 #include "LTKRecognitionContext.h"
 

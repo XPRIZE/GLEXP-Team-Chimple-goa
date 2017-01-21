@@ -45,9 +45,9 @@
 #ifndef __LTKRECOGNITIONCONTEXT_H 
 #define __LTKRECOGNITIONCONTEXT_H
 
-#include "LTKTypes.h"
-#include "LTKCaptureDevice.h"
-#include "LTKScreenContext.h"
+#include "ext/LTKTypes.h"
+#include "ext/LTKCaptureDevice.h"
+#include "ext/LTKScreenContext.h"
 
 class LTKTrace;
 class LTKTraceGroup;

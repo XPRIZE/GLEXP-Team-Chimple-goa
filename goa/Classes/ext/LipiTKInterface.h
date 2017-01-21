@@ -11,7 +11,7 @@
 
 #define SHAPEREC_ALPHANUM "SHAPEREC_ALPHANUM"
 
-#include "LTKShapeRecognizer.h"
+#include "ext/LTKShapeRecognizer.h"
 #include "LTKLipiEngineInterface.h"
 #include "Stroke.hpp"
 #include "LipiTKResult.h"

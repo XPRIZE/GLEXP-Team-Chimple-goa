@@ -40,7 +40,7 @@
 #ifndef LTKVERSIONCOMPATIBILITYCHECK_H
 #define LTKVERSIONCOMPATIBILITYCHECK_H
 
-#include "LTKInc.h"
+#include "ext/LTKInc.h"
 
 /**
 * @ingroup util

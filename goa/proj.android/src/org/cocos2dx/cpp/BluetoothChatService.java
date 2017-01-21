@@ -1,4 +1,4 @@
-package org.cocos2dx.javascript;
+package org.cocos2dx.cpp;
 
 import java.io.IOException;
 import java.io.InputStream;

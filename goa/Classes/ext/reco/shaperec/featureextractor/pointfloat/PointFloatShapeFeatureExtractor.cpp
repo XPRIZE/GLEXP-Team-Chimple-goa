@@ -39,16 +39,16 @@
 
 #include "PointFloatShapeFeatureExtractor.h"
 #include "PointFloatShapeFeature.h"
-#include "LTKTraceGroup.h"
-#include "LTKTrace.h"
-#include "LTKChannel.h"
-#include "LTKTraceFormat.h"
-#include "LTKConfigFileReader.h"
-#include "LTKMacros.h"
-#include "LTKPreprocDefaults.h"
-#include "LTKException.h"
-#include "LTKErrors.h"
-#include "LTKLoggerUtil.h"
+#include "ext/LTKTraceGroup.h"
+#include "ext/LTKTrace.h"
+#include "ext/LTKChannel.h"
+#include "ext/LTKTraceFormat.h"
+#include "ext/util/lib/LTKConfigFileReader.h"
+#include "ext/LTKMacros.h"
+#include "ext/LTKPreprocDefaults.h"
+#include "ext/LTKException.h"
+#include "ext/util/lib/LTKErrors.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
 
 
 /**********************************************************************************

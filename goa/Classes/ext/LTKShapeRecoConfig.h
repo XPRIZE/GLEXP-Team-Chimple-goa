@@ -41,7 +41,7 @@
 #ifndef __LTKSHAPERECOCONFIG_H
 #define __LTKSHAPERECOCONFIG_H
 
-#include "LTKTypes.h"
+#include "ext/LTKTypes.h"
 
 /**
  * @class LTKShapeRecoConfig

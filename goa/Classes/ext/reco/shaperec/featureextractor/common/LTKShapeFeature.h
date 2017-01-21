@@ -39,12 +39,12 @@
 
 #ifndef __LTKSHAPEFEATURE_H
 #define __LTKSHAPEFEATURE_H
-#include "LTKTypes.h"
-#include "LTKException.h"
-#include "LTKErrorsList.h"
-#include "LTKMacros.h"
-#include "LTKErrors.h"
-#include "LTKShapeFeatureMacros.h"
+#include "ext/LTKTypes.h"
+#include "ext/LTKException.h"
+#include "ext/LTKErrorsList.h"
+#include "ext/LTKMacros.h"
+#include "ext/util/lib/LTKErrors.h"
+#include "ext/LTKShapeFeatureMacros.h"
 
 /**
  * \defgroup feature_extractor The feature extractor module

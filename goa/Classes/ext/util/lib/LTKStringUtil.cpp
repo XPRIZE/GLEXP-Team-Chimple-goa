@@ -39,9 +39,9 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "LTKStringUtil.h"
-#include "LTKMacros.h"
-#include "LTKLoggerUtil.h"
+#include "ext/util/lib/LTKStringUtil.h"
+#include "ext/LTKMacros.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
 #include <sstream>
 
 /**********************************************************************************

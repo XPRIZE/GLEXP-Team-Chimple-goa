@@ -40,7 +40,7 @@
 #ifndef __LTKSTRINGTOKENIZER_H
 #define __LTKSTRINGTOKENIZER_H
 
-#include "LTKInc.h"
+#include "ext/LTKInc.h"
 
 /**
 * @ingroup util

@@ -38,39 +38,39 @@
  * Author       Date            Description of change
  ************************************************************************/
 
-#include "LTKConfigFileReader.h"
+#include "ext/util/lib/LTKConfigFileReader.h"
 
 #include "NNShapeRecognizer.h"
 
-#include "LTKPreprocDefaults.h"
+#include "ext/LTKPreprocDefaults.h"
 
-#include "LTKHierarchicalClustering.h"
+#include "ext/util/lib/LTKHierarchicalClustering.h"
 
-#include "LTKPreprocessorInterface.h"
+#include "ext/LTKPreprocessorInterface.h"
 
-#include "LTKShapeFeatureExtractorFactory.h"
+#include "ext/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractorFactory.h"
 
-#include "LTKShapeFeatureExtractor.h"
+#include "ext/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractor.h"
 
-#include "LTKShapeFeature.h"
+#include "ext/reco/shaperec/featureextractor/common/LTKShapeFeature.h"
 
-#include "LTKVersionCompatibilityCheck.h"
+#include "ext/util/lib/LTKVersionCompatibilityCheck.h"
 
-#include "LTKInkFileWriter.h"
-#include "LTKOSUtil.h"
-#include "LTKOSUtilFactory.h"
-#include "LTKClassifierDefaults.h"
+#include "ext/util/lib/LTKInkFileWriter.h"
+#include "ext/LTKOSUtil.h"
+#include "ext/LTKOSUtilFactory.h"
+#include "ext/LTKClassifierDefaults.h"
 #include "NNAdapt.h"
-#include "LTKLoggerUtil.h"
-#include "LTKShapeRecoUtil.h"
-#include "LTKTraceGroup.h"
-#include "LTKErrors.h"
-#include "LTKShapeSample.h"
-#include "LTKException.h"
-#include "LTKErrorsList.h"
-#include "LTKStringUtil.h"
-#include "LTKDynamicTimeWarping.h"
-#include "preprocessing.h" /* Android port - added this header file as a funtion is called
+#include "ext/util/lib/LTKLoggerUtil.h"
+#include "ext/LTKShapeRecoUtil.h"
+#include "ext/LTKTraceGroup.h"
+#include "ext/util/lib/LTKErrors.h"
+#include "ext/reco/shaperec/common/LTKShapeSample.h"
+#include "ext/LTKException.h"
+#include "ext/LTKErrorsList.h"
+#include "ext/util/lib/LTKStringUtil.h"
+#include "ext/util/lib/LTKDynamicTimeWarping.h"
+#include "ext/reco/shaperec/preprocessing/preprocessing.h" /* Android port - added this header file as a funtion is called
 directly from preprocessing.cpp */
 
 /**********************************************************************************

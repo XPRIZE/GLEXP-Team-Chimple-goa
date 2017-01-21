@@ -73,35 +73,35 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "LTKTypes.h"
+#include "ext/LTKTypes.h"
 
-#include "LTKPreprocessor.h"
+#include "ext/LTKPreprocessor.h"
 
-#include "LTKStringUtil.h"
+#include "ext/util/lib/LTKStringUtil.h"
 
-#include "LTKLoggerUtil.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
 
-#include "LTKPreprocDefaults.h"
+#include "ext/LTKPreprocDefaults.h"
 
-#include "LTKTraceGroup.h"
+#include "ext/LTKTraceGroup.h"
 
-#include "LTKShapeRecoConfig.h"
+#include "ext/LTKShapeRecoConfig.h"
 
-#include "LTKInkUtils.h"
+#include "ext/util/lib/LTKInkUtils.h"
 
-#include "LTKTrace.h"
+#include "ext/LTKTrace.h"
 
-#include "LTKErrors.h"
+#include "ext/util/lib/LTKErrors.h"
 
-#include "LTKErrorsList.h"
+#include "ext/LTKErrorsList.h"
 
-#include "LTKConfigFileReader.h"
+#include "ext/util/lib/LTKConfigFileReader.h"
 
-#include "LTKException.h"
+#include "ext/LTKException.h"
 
-#include "LTKChannel.h"
+#include "ext/LTKChannel.h"
 
-#include "LTKClassifierDefaults.h"
+#include "ext/LTKClassifierDefaults.h"
 
 /**********************************************************************************
 * AUTHOR		: Balaji R.

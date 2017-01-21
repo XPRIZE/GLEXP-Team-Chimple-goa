@@ -40,8 +40,8 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "LTKShapeFeatureExtractor.h"
-#include "LTKErrorsList.h"
+#include "ext/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractor.h"
+#include "ext/LTKErrorsList.h"
 
 /**********************************************************************************
 * AUTHOR		: Tarun Madan

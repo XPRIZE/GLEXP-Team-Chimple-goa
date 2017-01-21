@@ -42,7 +42,7 @@
 #ifndef __LTKINKFILEREADER_H
 #define __LTKINKFILEREADER_H
 
-#include "LTKTypes.h"
+#include "ext/LTKTypes.h"
 
 
 class LTKTraceGroup;

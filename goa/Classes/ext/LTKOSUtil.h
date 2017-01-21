@@ -42,7 +42,7 @@
 #ifndef __LTKOSUTIL_H
 #define __LTKOSUTIL_H
 
-#include "LTKTypes.h"
+#include "ext/LTKTypes.h"
 
 class LTKOSUtil
 {

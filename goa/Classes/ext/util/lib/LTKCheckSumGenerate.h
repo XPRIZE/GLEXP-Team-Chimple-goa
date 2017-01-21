@@ -40,15 +40,15 @@
 
 #include <sstream>
 
-#include "LTKStringUtil.h"
+#include "ext/util/lib/LTKStringUtil.h"
 
-#include "LTKTypes.h"
+#include "ext/LTKTypes.h"
 
-#include "LTKMacros.h"
+#include "ext/LTKMacros.h"
 
-#include "LTKErrors.h"
+#include "ext/util/lib/LTKErrors.h"
 
-#include "LTKErrorsList.h"
+#include "ext/LTKErrorsList.h"
 
 #ifdef _WIN32
 #include <windows.h>

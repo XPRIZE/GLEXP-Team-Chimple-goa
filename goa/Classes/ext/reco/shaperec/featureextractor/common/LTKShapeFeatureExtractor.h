@@ -41,8 +41,8 @@
 #define __LTKFEATUREEXTRACTOR_H
 
 
-#include "LTKTypes.h"
-#include "LTKShapeFeatureMacros.h"
+#include "ext/LTKTypes.h"
+#include "ext/LTKShapeFeatureMacros.h"
 
 // Forward class declarations
 class LTKTraceGroup;

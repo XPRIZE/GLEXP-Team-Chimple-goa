@@ -42,17 +42,17 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "LTKInc.h"
+#include "ext/LTKInc.h"
 
-#include "LTKMacros.h"
+#include "ext/LTKMacros.h"
 
-#include "LTKErrors.h"
+#include "ext/util/lib/LTKErrors.h"
 
-#include "LTKErrorsList.h"
+#include "ext/LTKErrorsList.h"
 
-#include "LTKShapeRecoResult.h"
+#include "../../../LTKShapeRecoResult.h"
 
-#include "LTKLoggerUtil.h"
+#include "ext/util/lib/LTKLoggerUtil.h"
 
 
 /**********************************************************************************

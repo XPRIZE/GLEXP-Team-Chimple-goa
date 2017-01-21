@@ -41,11 +41,11 @@
 #ifndef __LTKWORDRECOGNIZER_H
 #define __LTKWORDRECOGNIZER_H
 
-#include "LTKTypes.h"
+#include "ext/LTKTypes.h"
 
-#include "LTKInc.h"
+#include "ext/LTKInc.h"
 
-#include "LTKTraceGroup.h"
+#include "ext/LTKTraceGroup.h"
 
 class LTKRecognitionContext;
 /**

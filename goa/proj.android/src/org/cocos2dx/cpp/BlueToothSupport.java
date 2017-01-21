@@ -1,4 +1,4 @@
-package org.cocos2dx.javascript;
+package org.cocos2dx.cpp;
 
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
@@ -20,7 +20,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
-import org.cocos2dx.javascript.AppActivity;
+import org.cocos2dx.cpp.AppActivity;
 /**
  * Created by Shyamal.Upadhyaya on 28/09/16.
  */

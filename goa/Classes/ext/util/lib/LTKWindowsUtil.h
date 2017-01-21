@@ -44,7 +44,7 @@
 
 #define BUFSIZE	256
 
-#include "LTKOSUtil.h"
+#include "ext/LTKOSUtil.h"
 
 class LTKWindowsUtil: public LTKOSUtil
 {

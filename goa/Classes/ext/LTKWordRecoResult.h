@@ -41,7 +41,7 @@
 #ifndef __LTKWORDRECORESULT_H
 #define __LTKWORDRECORESULT_H
 
-#include "LTKTypes.h"
+#include "ext/LTKTypes.h"
 
 /**
 * @class LTKWordFeatureExtractor

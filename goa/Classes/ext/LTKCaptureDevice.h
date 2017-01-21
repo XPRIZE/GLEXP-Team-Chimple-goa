@@ -42,7 +42,7 @@
 #ifndef __LTKCAPTUREDEVICE_H
 #define __LTKCAPTUREDEVICE_H
 
-#include "LTKInc.h"
+#include "ext/LTKInc.h"
 
 /**
  * @class LTKCaptureDevice
