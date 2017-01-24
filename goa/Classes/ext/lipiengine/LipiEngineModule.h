@@ -51,10 +51,10 @@
 #endif
 
 #include "../LTKLipiEngineInterface.h"
-#include "ext/LTKMacros.h"
-#include "ext/LTKErrorsList.h"
-#include "ext/util/lib/LTKErrors.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "LTKMacros.h"
+#include "LTKErrorsList.h"
+#include "LTKErrors.h"
+#include "LTKLoggerUtil.h"
 
 class LTKConfigFileReader;
 class LTKOSUtil;

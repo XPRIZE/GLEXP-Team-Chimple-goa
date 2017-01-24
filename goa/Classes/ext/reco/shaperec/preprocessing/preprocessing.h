@@ -56,8 +56,8 @@
 #endif	//	#ifdef _WIN32
 
 
-#include "ext/LTKPreprocessor.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "LTKPreprocessor.h"
+#include "LTKLoggerUtil.h"
 
 /**
  * This function creates the object of type LTKPreprocessor and returns the adderss

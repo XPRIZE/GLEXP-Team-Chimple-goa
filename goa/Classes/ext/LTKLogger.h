@@ -41,8 +41,8 @@
 #ifndef LTKLOGGER_H
 #define LTKLOGGER_H
 
-#include "ext/LTKInc.h"
-#include "ext/LTKLoggerInterface.h"
+#include "LTKInc.h"
+#include "LTKLoggerInterface.h"
 
 /**
 * @ingroup util

@@ -46,13 +46,13 @@
  * Thanigai		09-AUG-2005		Added a to empty the trace group
 ************************************************************************/
 
-#include "ext/LTKTraceGroup.h"
-#include "ext/LTKTrace.h"
-#include "ext/util/lib/LTKErrors.h"
-#include "ext/LTKErrorsList.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
-#include "ext/LTKException.h"
-#include "ext/LTKMacros.h"
+#include "LTKTraceGroup.h"
+#include "LTKTrace.h"
+#include "LTKErrors.h"
+#include "LTKErrorsList.h"
+#include "LTKLoggerUtil.h"
+#include "LTKException.h"
+#include "LTKMacros.h"
 
 /******************************************************************************
 * AUTHOR		: Balaji R.

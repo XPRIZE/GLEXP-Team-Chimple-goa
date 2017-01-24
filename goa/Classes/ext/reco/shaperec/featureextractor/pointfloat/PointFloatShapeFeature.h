@@ -28,7 +28,7 @@
 #ifndef __POINTFLOATSHAPEFEATURE_H
 #define __POINTFLOATSHAPEFEATURE_H
 
-#include "ext/reco/shaperec/featureextractor/common/LTKShapeFeature.h"
+#include "LTKShapeFeature.h"
 
 
 /** @defgroup PointFloatShapeFeatureExtractor

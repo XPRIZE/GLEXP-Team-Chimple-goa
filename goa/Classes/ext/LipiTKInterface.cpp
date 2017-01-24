@@ -10,7 +10,7 @@
 #include <string.h>
 #include "LipiTKInterface.h"
 #include "lipiengine/lipiengine.h"
-#include "ext/LTKTrace.h"
+#include "LTKTrace.h"
 #include "cocos2d.h"
 
 USING_NS_CC;

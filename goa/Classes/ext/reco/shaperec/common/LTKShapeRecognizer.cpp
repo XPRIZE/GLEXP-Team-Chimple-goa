@@ -38,12 +38,12 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "ext/LTKShapeRecognizer.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
-#include "ext/LTKException.h"
-#include "ext/LTKErrorsList.h"
-#include "ext/util/lib/LTKErrors.h"
-#include "ext/LTKInc.h"
+#include "LTKShapeRecognizer.h"
+#include "LTKLoggerUtil.h"
+#include "LTKException.h"
+#include "LTKErrorsList.h"
+#include "LTKErrors.h"
+#include "LTKInc.h"
 
 /**********************************************************************************
 * AUTHOR		: Balaji R.

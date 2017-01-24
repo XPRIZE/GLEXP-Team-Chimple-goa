@@ -47,11 +47,11 @@
  * Author		Date			Description of change
  *****************************************************************************/
 
-#include "ext/util/lib/LTKErrors.h"
-#include "ext/LTKErrorsList.h"
-#include "ext/LTKChannel.h"
-#include "ext/LTKMacros.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "../util/lib/LTKErrors.h"
+#include "LTKErrorsList.h"
+#include "LTKChannel.h"
+#include "LTKMacros.h"
+#include "LTKLoggerUtil.h"
 
 /******************************************************************************
 * AUTHOR		: Balaji R.

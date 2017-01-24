@@ -51,14 +51,14 @@
  ************************************************************************/
 
 #include "LipiEngineModule.h"
-#include "ext/util/lib/LTKConfigFileReader.h"
-#include "ext/util/lib/LTKStringUtil.h"
+#include "LTKConfigFileReader.h"
+#include "LTKStringUtil.h"
 #include "lipiengine.h"
-#include "ext/LTKException.h"
-#include "ext/LTKOSUtilFactory.h"
-#include "ext/LTKOSUtil.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
-#include "ext/reco/shaperec/nn/NN.h"			// Android port : Added this header file
+#include "LTKException.h"
+#include "LTKOSUtilFactory.h"
+#include "LTKOSUtil.h"
+#include "LTKLoggerUtil.h"
+#include "NN.h"			// Android port : Added this header file
 
 extern int unloadAllModules();
 extern int deleteModule(void* RecoHandle);

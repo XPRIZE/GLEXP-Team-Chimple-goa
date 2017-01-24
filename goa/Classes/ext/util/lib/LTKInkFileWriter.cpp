@@ -36,11 +36,11 @@
  * CHANGE HISTORY:
  * Author		Date			Description of change
  ************************************************************************/
-#include "ext/util/lib/LTKInkFileWriter.h"
-#include "ext/LTKMacros.h"
-#include "ext/LTKTrace.h"
-#include "ext/LTKTraceGroup.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "LTKInkFileWriter.h"
+#include "LTKMacros.h"
+#include "LTKTrace.h"
+#include "LTKTraceGroup.h"
+#include "LTKLoggerUtil.h"
 
 using namespace std;
 

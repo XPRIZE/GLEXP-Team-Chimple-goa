@@ -37,15 +37,15 @@
 * CHANGE HISTORY:
 * Author		Date			Description of LTKShapeFeatureExtractorFactory
 ************************************************************************/
-#include "ext/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractorFactory.h"
-#include "ext/LTKMacros.h"
-#include "ext/LTKErrorsList.h"
-#include "ext/LTKException.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
-#include "ext/util/lib/LTKErrors.h"
-#include "ext/LTKOSUtil.h"
-#include "ext/LTKOSUtilFactory.h"
-#include "ext/reco/shaperec/featureextractor/pointfloat/PointFloat.h" /* Android port: Added this header file */
+#include "LTKShapeFeatureExtractorFactory.h"
+#include "LTKMacros.h"
+#include "LTKErrorsList.h"
+#include "LTKException.h"
+#include "LTKLoggerUtil.h"
+#include "LTKErrors.h"
+#include "LTKOSUtil.h"
+#include "LTKOSUtilFactory.h"
+#include "PointFloat.h" /* Android port: Added this header file */
 
 /*************************************************************************
 * AUTHOR		: Nidhi Sharma

@@ -28,13 +28,13 @@
 // NN.cpp : Defines the entry point for the DLL application.
 //
 
-#include "ext/reco/shaperec/nn/NN.h"
-#include "ext/LTKShapeRecognizer.h"
+#include "NN.h"
+#include "LTKShapeRecognizer.h"
 #include "NNShapeRecognizer.h"
-#include "ext/LTKException.h"
-#include "ext/util/lib/LTKErrors.h"
-#include "ext/LTKOSUtilFactory.h"
-#include "ext/LTKOSUtil.h"
+#include "LTKException.h"
+#include "LTKErrors.h"
+#include "LTKOSUtilFactory.h"
+#include "LTKOSUtil.h"
 
 //#ifdef _WIN32
 //#include <windows.h>

@@ -48,8 +48,8 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "ext/LTKScreenContext.h"
-#include "ext/LTKMacros.h"
+#include "LTKScreenContext.h"
+#include "LTKMacros.h"
 
 
 /******************************************************************************

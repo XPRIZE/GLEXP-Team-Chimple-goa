@@ -208,6 +208,16 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/util/CommonText.cpp 
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ext
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ext/common
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ext/util/lib
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ext/lipiengine
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ext/reco/shaperec/common
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ext/reco/shaperec/featureextractor/common
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ext/reco/shaperec/featureextractor/pointfloat
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ext/reco/shaperec/nn
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ext/reco/shaperec/preprocessing
+LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ext/util/logger
 
 # _COCOS_HEADER_ANDROID_BEGIN
 # _COCOS_HEADER_ANDROID_END

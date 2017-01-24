@@ -41,15 +41,15 @@
 #define __NNSHAPERECOGNIZER_H
 
 /**            Include files       */
-#include "ext/LTKInc.h"
-#include "ext/LTKTypes.h"
-#include "ext/LTKTrace.h"
-#include "ext/LTKMacros.h"
-#include "ext/LTKShapeRecognizer.h"
-#include "ext/LTKShapeRecoUtil.h"
-#include "ext/reco/shaperec/common/LTKShapeSample.h"
-#include "ext/util/lib/LTKCheckSumGenerate.h"
-#include "ext/util/lib/LTKDynamicTimeWarping.h"
+#include "LTKInc.h"
+#include "LTKTypes.h"
+#include "LTKTrace.h"
+#include "LTKMacros.h"
+#include "LTKShapeRecognizer.h"
+#include "LTKShapeRecoUtil.h"
+#include "LTKShapeSample.h"
+#include "LTKCheckSumGenerate.h"
+#include "LTKDynamicTimeWarping.h"
 
 /**            Forward declaration of classes          */
 class LTKTraceGroup;

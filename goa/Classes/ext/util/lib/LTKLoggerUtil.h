@@ -42,8 +42,8 @@
 #ifndef __LTKLOGGERUTIL_H
 #define __LTKLOGGERUTIL_H
 
-#include "ext/LTKInc.h"
-#include "ext/util/logger/logger.h"
+#include "LTKInc.h"
+#include "LTKLogger.h"
 class LTKOSUtil;
 
 typedef LTKLoggerInterface* (*FN_PTR_GETINSTANCE)();

@@ -44,7 +44,7 @@
 #ifndef __LTKCHANNEL_H
 #define __LTKCHANNEL_H
 
-#include "ext/LTKTypes.h"
+#include "LTKTypes.h"
 
 /**
 * @ingroup Common_Classes

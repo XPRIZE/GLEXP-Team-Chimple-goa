@@ -40,7 +40,7 @@
 #ifndef __LTKTYPES_H
 #define __LTKTYPES_H
 
-#include "ext/LTKInc.h"
+#include "LTKInc.h"
 //class LTKShapeFeature;
 class LTKChannel;
 class LTKTrace;

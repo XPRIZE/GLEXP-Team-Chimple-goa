@@ -44,8 +44,8 @@
 #ifndef __LTKWORDRECOCONFIG_H
 #define __LTKWORDRECOCONFIG_H
 
-#include "ext/LTKInc.h"
-#include "ext/LTKTypes.h"
+#include "LTKInc.h"
+#include "LTKTypes.h"
 
 /**
 * @class LTKWordRecoConfig

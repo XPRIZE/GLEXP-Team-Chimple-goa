@@ -42,9 +42,9 @@
 
 #include <cfloat>
 
-#include "ext/LTKInc.h"
+#include "LTKInc.h"
 
-#include "ext/LTKTypes.h"
+#include "LTKTypes.h"
 
 class LTKTraceGroup;
 

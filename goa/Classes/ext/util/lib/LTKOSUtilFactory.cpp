@@ -39,9 +39,9 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "ext/LTKOSUtil.h"
-#include "ext/LTKOSUtilFactory.h"
-#include "ext/LTKMacros.h"
+#include "LTKOSUtil.h"
+#include "LTKOSUtilFactory.h"
+#include "LTKMacros.h"
 
 #ifdef WINCE
 	#include "LTKWinCEUtil.h"

@@ -9,7 +9,7 @@
 #include "../menu/MapScene.h"
 #include "../effects/FShake.h"
 #include "storage/local-storage/LocalStorage.h"
-#include "ext/util/lib/LTKStringUtil.h"
+#include "../ext/util/lib/LTKStringUtil.h"
 
 USING_NS_CC;
 

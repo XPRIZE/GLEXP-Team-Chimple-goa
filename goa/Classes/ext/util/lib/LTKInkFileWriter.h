@@ -39,7 +39,7 @@
 #ifndef __LTKINKFILEWRITER_H
 #define __LTKINKFILEWRITER_H
 
-#include "ext/LTKInc.h"
+#include "LTKInc.h"
 
 class LTKTraceGroup;
 

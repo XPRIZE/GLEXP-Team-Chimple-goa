@@ -24,13 +24,13 @@
  * $Author: mnab $
  *
  ************************************************************************/
-#include "ext/reco/shaperec/common/LTKShapeSample.h"
+#include "LTKShapeSample.h"
 
-#include "ext/reco/shaperec/featureextractor/common/LTKShapeFeature.h"
+#include "LTKShapeFeature.h"
 
-#include "ext/LTKRefCountedPtr.h"
+#include "LTKRefCountedPtr.h"
 
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "LTKLoggerUtil.h"
 
 
 /**********************************************************************************

@@ -42,7 +42,7 @@
 #ifndef __LTKTRACEFORMAT_H
 #define __LTKTRACEFORMAT_H
 
-#include "ext/LTKTypes.h"
+#include "LTKTypes.h"
 
 class LTKChannel;
 

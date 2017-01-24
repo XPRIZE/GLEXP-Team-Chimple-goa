@@ -47,7 +47,7 @@
 #ifndef __LTKTRACEGROUP_H
 #define __LTKTRACEGROUP_H
 
-#include "ext/LTKTypes.h"
+#include "LTKTypes.h"
 
 class LTKTrace;
 

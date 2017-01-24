@@ -39,7 +39,7 @@
 
 #ifndef __LTKFEATUREEXTRACTORFACTORY_H
 #define __LTKFEATUREEXTRACTORFACTORY_H
-#include "ext/LTKTypes.h"
+#include "LTKTypes.h"
 
 #ifndef _WIN32
 #include  <dlfcn.h>

@@ -40,7 +40,7 @@
 #ifndef __LTKCONFIGFILEREADER_H
 #define __LTKCONFIGFILEREADER_H
 
-#include "ext/LTKTypes.h"
+#include "LTKTypes.h"
 
 /**
 * @ingroup util

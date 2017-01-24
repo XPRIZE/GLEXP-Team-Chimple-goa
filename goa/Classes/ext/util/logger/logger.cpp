@@ -42,12 +42,12 @@
  *
  * Author       Date            Description of change
  ************************************************************************/
-#include "ext/util/logger/logger.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
-#include "ext/LTKLoggerInterface.h"
-#include "ext/util/logger/logger.h"
-#include "ext/LTKMacros.h"
-#include "ext/LTKErrorsList.h"
+#include "logger.h"
+#include "LTKLoggerUtil.h"
+#include "LTKLoggerInterface.h"
+#include "LTKLogger.h"
+#include "LTKMacros.h"
+#include "LTKErrorsList.h"
 
 
 

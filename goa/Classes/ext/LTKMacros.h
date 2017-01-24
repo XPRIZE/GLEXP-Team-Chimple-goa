@@ -42,7 +42,7 @@
 #ifndef __COMMONMACORS_H
 #define __COMMONMACORS_H
 
-#include "ext/LTKTypes.h"
+#include "LTKTypes.h"
 
 /** @file LTKmacros.h
 * @brief Contains the macors used in reco/shaperec/pca and reco/shaperec/dtw modules.

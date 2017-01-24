@@ -37,10 +37,10 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "ext/util/lib/LTKVersionCompatibilityCheck.h"
-#include "ext/util/lib/LTKStringUtil.h"
-#include "ext/LTKTypes.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "LTKVersionCompatibilityCheck.h"
+#include "LTKStringUtil.h"
+#include "LTKTypes.h"
+#include "LTKLoggerUtil.h"
 
 /**********************************************************************************
 * AUTHOR		: Nidhi sharma

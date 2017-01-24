@@ -31,7 +31,7 @@
 #define SUPPORTED_MIN_VERSION "4.0.0"
 #define FEATEXTR_POINTFLOAT_DEF_SIZE 10
 
-#include "ext/reco/shaperec/featureextractor/common/LTKShapeFeatureExtractor.h"
+#include "LTKShapeFeatureExtractor.h"
 
 
 class PointFloatShapeFeatureExtractor : public LTKShapeFeatureExtractor

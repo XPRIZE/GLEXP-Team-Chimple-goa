@@ -60,8 +60,8 @@
 class LTKTraceGroup;
 class LTKShapeRecognizer;
 
-#include "ext/LTKInc.h"
-#include "ext/LTKTypes.h"
+#include "LTKInc.h"
+#include "LTKTypes.h"
 
 /** @defgroup NNShapeRecognizer NNShapeRecognizer
 *@brief The NNShapeRecognizer

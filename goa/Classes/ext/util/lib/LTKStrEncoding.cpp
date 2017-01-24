@@ -27,8 +27,8 @@
  ************************************************************************/
  
 #include "LTKStrEncoding.h"
-#include "ext/LTKMacros.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "LTKMacros.h"
+#include "LTKLoggerUtil.h"
 
 /************************************************************************
  * FILE DESCR: Implementation of LTKInkUtils that computes the statistics

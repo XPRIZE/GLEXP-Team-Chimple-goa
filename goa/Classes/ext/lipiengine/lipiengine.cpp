@@ -45,11 +45,11 @@
 #include "version.h"
 #include "lipiengine.h"
 #include "LipiEngineModule.h"
-#include "ext/LTKErrorsList.h"
-#include "ext/util/lib/LTKErrors.h"
-#include "ext/LTKOSUtilFactory.h"
-#include "ext/LTKOSUtil.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "LTKErrorsList.h"
+#include "LTKErrors.h"
+#include "LTKOSUtilFactory.h"
+#include "LTKOSUtil.h"
+#include "LTKLoggerUtil.h"
 
 vector<MODULEREFCOUNT> gLipiRefCount;
 LTKLipiEngineModule* lipiEngineModule = LTKLipiEngineModule::getInstance();

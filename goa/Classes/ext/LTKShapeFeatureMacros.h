@@ -20,7 +20,7 @@
 #define __LTKFEATUREEXTMACROS_H
 
 class LTKShapeFeature;
-#include "ext/LTKRefCountedPtr.h"
+#include "LTKRefCountedPtr.h"
 
 typedef LTKRefCountedPtr<LTKShapeFeature> LTKShapeFeaturePtr;
 #endif

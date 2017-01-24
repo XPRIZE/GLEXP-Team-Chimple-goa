@@ -41,15 +41,15 @@
 #ifndef __LTKShapeRecoEngine_H
 #define __LTKShapeRecoEngine_H
 
-#include "ext/LTKShapeRecognizer.h"
+#include "LTKShapeRecognizer.h"
 
-#include "ext/LTKTraceGroup.h"
+#include "LTKTraceGroup.h"
 
 #include "LTKShapeRecoResult.h"
 
-#include "ext/LTKScreenContext.h"
+#include "LTKScreenContext.h"
 
-#include "ext/LTKCaptureDevice.h"
+#include "LTKCaptureDevice.h"
 
 /**
  * @class LTKShapeRecoEngine

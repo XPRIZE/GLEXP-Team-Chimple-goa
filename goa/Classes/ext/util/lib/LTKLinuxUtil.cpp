@@ -39,8 +39,8 @@
  * Author		Date			Description of change
  ************************************************************************/
 #include "LTKLinuxUtil.h"
-#include "ext/LTKMacros.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "LTKMacros.h"
+#include "LTKLoggerUtil.h"
 
 
 #include <dlfcn.h>

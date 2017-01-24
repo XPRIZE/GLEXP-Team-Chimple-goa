@@ -49,14 +49,14 @@
  * Author		Date			Description of change
  ************************************************************************/
 
-#include "ext/LTKTrace.h"
-#include "ext/LTKMacros.h"
-#include "ext/LTKTraceFormat.h"
-#include "ext/util/lib/LTKErrors.h"
-#include "ext/LTKErrorsList.h"
-#include "ext/LTKChannel.h"
-#include "ext/LTKException.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "LTKTrace.h"
+#include "LTKMacros.h"
+#include "LTKTraceFormat.h"
+#include "LTKErrors.h"
+#include "LTKErrorsList.h"
+#include "LTKChannel.h"
+#include "LTKException.h"
+#include "LTKLoggerUtil.h"
 
 
 /******************************************************************************

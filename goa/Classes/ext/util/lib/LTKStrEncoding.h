@@ -42,10 +42,10 @@
 
 #include <string>
 
-#include "ext/LTKInc.h"
-#include "ext/LTKTypes.h"
-#include "ext/LTKErrorsList.h"
-#include "ext/util/lib/LTKErrors.h"
+#include "LTKInc.h"
+#include "LTKTypes.h"
+#include "LTKErrorsList.h"
+#include "LTKErrors.h"
 
 //mapping for Tamil basic characters 
 static unsigned short tamilIsoCharMap[] = {

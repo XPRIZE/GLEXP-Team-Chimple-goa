@@ -56,8 +56,8 @@
 #endif	//#ifdef _WIN32
 
 
-#include "ext/LTKTypes.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "LTKTypes.h"
+#include "LTKLoggerUtil.h"
 
 class LTKShapeFeatureExtractor;
 class LTKShapeFeature;

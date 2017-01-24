@@ -53,11 +53,11 @@
 //#include <values.h>
 #endif
 
-#include "ext/LTKInc.h"
-#include "ext/LTKTypes.h"
-#include "ext/util/lib/LTKLoggerUtil.h"
-#include "ext/LTKException.h"
-#include "ext/util/lib/LTKErrors.h"
+#include "LTKInc.h"
+#include "LTKTypes.h"
+#include "LTKLoggerUtil.h"
+#include "LTKException.h"
+#include "LTKErrors.h"
 
 /*Enumerator for stopping criterion to be used*/
 enum ELTKHCStoppingCriterion

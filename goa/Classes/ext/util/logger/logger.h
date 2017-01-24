@@ -61,8 +61,8 @@
 #endif	//#ifdef _WIN32
 
 class LTKLoggerInterface;
-#include "ext/LTKLogger.h"
-#include "ext/LTKTypes.h"
+#include "LTKLogger.h"
+#include "LTKTypes.h"
 
 
 extern "C" LOGGER_API LTKLoggerInterface* getLoggerInstance();

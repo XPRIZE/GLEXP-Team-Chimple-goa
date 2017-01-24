@@ -28,8 +28,8 @@
 #ifndef __LTKSHAPERECOUTIL_H
 #define __LTKSHAPERECOUTIL_H
 
-#include "ext/LTKInc.h"
-#include "ext/LTKTypes.h"
+#include "LTKInc.h"
+#include "LTKTypes.h"
 
 
 class LTKShapeFeature;
@@ -38,7 +38,7 @@ class LTKCaptureDevice;
 class LTKScreenContext;
 class LTKPreprocessorInterface;
 
-#include "ext/LTKShapeFeatureMacros.h"
+#include "LTKShapeFeatureMacros.h"
 
 /**
 * @class LTKShapeRecoUtil 

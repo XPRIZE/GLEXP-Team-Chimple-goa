@@ -38,9 +38,9 @@
  * CHANGE HISTORY:
  * Author		Date			Description of change
  ************************************************************************/
-#include "ext/util/lib/LTKErrors.h"
-#include "ext/LTKMacros.h"
-#include "ext/LTKErrorsList.h"
+#include "LTKErrors.h"
+#include "LTKMacros.h"
+#include "LTKErrorsList.h"
 #include "stdio.h"
 
 int errorCode;

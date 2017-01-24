@@ -43,15 +43,15 @@
 
 #define SUPPORTED_MIN_VERSION "3.0.0"
 
-#include "ext/LTKCaptureDevice.h"
+#include "LTKCaptureDevice.h"
 
-#include "ext/LTKScreenContext.h"
+#include "LTKScreenContext.h"
 
-#include "ext/LTKMacros.h"
+#include "LTKMacros.h"
 
-#include "ext/LTKInc.h"
+#include "LTKInc.h"
 
-#include "ext/LTKPreprocessorInterface.h"
+#include "LTKPreprocessorInterface.h"
 
 class LTKTrace;
 class LTKShapeRecoConfig;

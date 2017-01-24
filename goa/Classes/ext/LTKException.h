@@ -41,7 +41,7 @@
 #ifndef __LTKEXCEPTION_H
 #define __LTKEXCEPTION_H
 
-#include "ext/LTKInc.h"
+#include "LTKInc.h"
 
 /** @defgroup Exceptions
 */

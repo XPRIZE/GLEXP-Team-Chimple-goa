@@ -27,9 +27,9 @@
 #ifndef __LTKSHAPESAMPLE_H
 #define __LTKSHAPESAMPLE_H
 
-#include "ext/LTKInc.h"
+#include "LTKInc.h"
 
-#include "ext/LTKShapeFeatureMacros.h"
+#include "LTKShapeFeatureMacros.h"
 
 class LTKShapeFeature;
 

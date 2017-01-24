@@ -42,7 +42,7 @@
 #ifndef __LTKLINUXUTIL_H
 #define __LTKLINUXUTIL_H
 
-#include "ext/LTKOSUtil.h"
+#include "LTKOSUtil.h"
 
 class LTKLinuxUtil: public LTKOSUtil
 {

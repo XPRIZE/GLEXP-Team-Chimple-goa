@@ -38,19 +38,19 @@
  * Author		Date			Description of LTKConfigFileReader
  ************************************************************************/
 
-#include "ext/util/lib/LTKConfigFileReader.h"
+#include "LTKConfigFileReader.h"
 
-#include "ext/util/lib/LTKStringUtil.h"
+#include "LTKStringUtil.h"
 
-#include "ext/LTKException.h"
+#include "LTKException.h"
 
-#include "ext/LTKErrorsList.h"
+#include "LTKErrorsList.h"
 
-#include "ext/LTKMacros.h"
+#include "LTKMacros.h"
 
-#include "ext/util/lib/LTKErrors.h"
+#include "LTKErrors.h"
 
-#include "ext/util/lib/LTKLoggerUtil.h"
+#include "LTKLoggerUtil.h"
 
 #include "cocos2d.h"
 

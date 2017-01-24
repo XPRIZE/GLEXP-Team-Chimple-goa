@@ -26,7 +26,7 @@
  *
  ************************************************************************/
 #include "PointFloatShapeFeature.h"
-#include "ext/util/lib/LTKStringUtil.h"
+#include "LTKStringUtil.h"
 #include <sstream>
 
 /**********************************************************************************
