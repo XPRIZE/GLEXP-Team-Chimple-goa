@@ -7,30 +7,1365 @@
     <Filter Include="resource">
       <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src">
-      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    <Filter Include="Classes">
+      <UniqueIdentifier>{c2279e1a-1272-4790-a550-b18335a873c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\alphamon">
+      <UniqueIdentifier>{3da3c443-8831-4ee2-b146-f3e13146373a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\effects">
+      <UniqueIdentifier>{2e0fff0f-39f7-45e0-9f95-d72d2f372f47}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext">
+      <UniqueIdentifier>{8eb5ff47-c787-4633-8903-b6beb733f94a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\hero">
+      <UniqueIdentifier>{4f9dc999-416b-40e6-b3c8-571479c588d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\i18n">
+      <UniqueIdentifier>{52b1725c-dcb9-4643-93b2-c1d909b476f1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\lang">
+      <UniqueIdentifier>{b2032fb2-eb9d-4339-9330-e267c65d587c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\menu">
+      <UniqueIdentifier>{fc9428e1-97e8-4886-910f-69e2a3cc2b55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\mini_games">
+      <UniqueIdentifier>{ac805585-63d1-4f6f-a82b-d409a4e653dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\misc">
+      <UniqueIdentifier>{48c63da3-9b0f-4f1b-92a2-672e6f26b20e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\puzzle">
+      <UniqueIdentifier>{91eb19b1-ad42-4cb2-9557-96a4b9e69058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\splash">
+      <UniqueIdentifier>{fd2409c7-9928-47bd-b8f5-0560b63d2e06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\sqlite3">
+      <UniqueIdentifier>{f6856769-b80f-447a-951d-f7ba171d9cdb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\story">
+      <UniqueIdentifier>{afe986e0-714e-4eb6-8560-21541909eb4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\utile">
+      <UniqueIdentifier>{afa30ce9-194c-4757-a2f6-2682a76b9726}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\common">
+      <UniqueIdentifier>{efbe0ab7-d107-432b-a6df-6bc3f6e0ef0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\lipiengine">
+      <UniqueIdentifier>{041e02c4-9e37-4cda-a2f5-bb96872c5a1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\reco">
+      <UniqueIdentifier>{53dbcb44-bacd-471f-9133-cb761380170b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\utf8">
+      <UniqueIdentifier>{9c486935-25a3-4fb7-9e96-34a0e3882da7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\util">
+      <UniqueIdentifier>{56975993-dd42-4b3f-9ef3-e8f2b49054eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\reco\shaperec">
+      <UniqueIdentifier>{d519016c-bd0a-4e37-832c-b56896534101}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\reco\shaperec\common">
+      <UniqueIdentifier>{52888f75-c2eb-409c-8ac6-bfb78b0df375}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\reco\shaperec\featureextractor">
+      <UniqueIdentifier>{84302898-578e-4c9f-9231-86e09c0f4ccd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\reco\shaperec\nn">
+      <UniqueIdentifier>{5b28bad2-779c-4b4b-9c20-771a04932b4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\reco\shaperec\preprocessing">
+      <UniqueIdentifier>{410899af-6924-416f-a68b-f859c1137d90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\reco\shaperec\featureextractor\common">
+      <UniqueIdentifier>{b25dfb33-5618-4ee8-8082-7769db2a36f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\reco\shaperec\featureextractor\pointfloat">
+      <UniqueIdentifier>{adfa614e-d611-413d-8e89-8deb522097a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\util\lib">
+      <UniqueIdentifier>{da3ddf88-6f79-417b-b3b8-790d864bb886}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\ext\util\logger">
+      <UniqueIdentifier>{047b3f01-2f52-40a0-88ba-64d9c80e834f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\hero\character">
+      <UniqueIdentifier>{fe53dabf-530d-4de2-82d5-76da053d2aad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\hero\gesture">
+      <UniqueIdentifier>{39ee0a9c-5fdb-4b45-85bc-e221ba5802d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\hero\message">
+      <UniqueIdentifier>{35566c4a-a5cd-4d71-9b17-c0203666222f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\hero\sprites">
+      <UniqueIdentifier>{0455a100-f9ac-41df-a260-1f89b967127c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\hero\state">
+      <UniqueIdentifier>{6dd6ac17-f78c-406a-a1bf-f9cb8e289df5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Classes\utile\lib">
+      <UniqueIdentifier>{f48b012e-baf3-4cb1-80f9-670ceb09bb19}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\AppDelegate.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\alphamon\Alphamon.cpp">
+      <Filter>Classes\alphamon</Filter>
     </ClCompile>
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
-      <Filter>src</Filter>
+    <ClCompile Include="..\Classes\alphamon\HPMeter.cpp">
+      <Filter>Classes\alphamon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp">
+      <Filter>Classes\alphamon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\effects\FShake.cpp">
+      <Filter>Classes\effects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\common\LTKCaptureDevice.cpp">
+      <Filter>Classes\ext\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\common\LTKChannel.cpp">
+      <Filter>Classes\ext\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\common\LTKException.cpp">
+      <Filter>Classes\ext\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\common\LTKScreenContext.cpp">
+      <Filter>Classes\ext\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\common\LTKTrace.cpp">
+      <Filter>Classes\ext\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\common\LTKTraceFormat.cpp">
+      <Filter>Classes\ext\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\common\LTKTraceGroup.cpp">
+      <Filter>Classes\ext\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\lipiengine\lipiengine.cpp">
+      <Filter>Classes\ext\lipiengine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\lipiengine\LipiEngineModule.cpp">
+      <Filter>Classes\ext\lipiengine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\common\LTKShapeRecoConfig.cpp">
+      <Filter>Classes\ext\reco\shaperec\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\common\LTKShapeRecognizer.cpp">
+      <Filter>Classes\ext\reco\shaperec\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\common\LTKShapeRecoResult.cpp">
+      <Filter>Classes\ext\reco\shaperec\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\common\LTKShapeRecoUtil.cpp">
+      <Filter>Classes\ext\reco\shaperec\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\common\LTKShapeSample.cpp">
+      <Filter>Classes\ext\reco\shaperec\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractor.cpp">
+      <Filter>Classes\ext\reco\shaperec\featureextractor\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractorFactory.cpp">
+      <Filter>Classes\ext\reco\shaperec\featureextractor\common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloat.cpp">
+      <Filter>Classes\ext\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeature.cpp">
+      <Filter>Classes\ext\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeatureExtractor.cpp">
+      <Filter>Classes\ext\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\nn\NN.cpp">
+      <Filter>Classes\ext\reco\shaperec\nn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\nn\NNAdapt.cpp">
+      <Filter>Classes\ext\reco\shaperec\nn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\nn\NNShapeRecognizer.cpp">
+      <Filter>Classes\ext\reco\shaperec\nn</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\preprocessing\LTKPreprocessor.cpp">
+      <Filter>Classes\ext\reco\shaperec\preprocessing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\reco\shaperec\preprocessing\preprocessing.cpp">
+      <Filter>Classes\ext\reco\shaperec\preprocessing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKCheckSumGenerate.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKConfigFileReader.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKErrors.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKImageWriter.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKInkFileReader.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKInkFileWriter.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKInkUtils.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKLoggerUtil.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKOSUtilFactory.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKStrEncoding.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKStringUtil.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKVersionCompatibilityCheck.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\lib\LTKWindowsUtil.cpp">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\logger\logger.cpp">
+      <Filter>Classes\ext\util\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\util\logger\LTKLogger.cpp">
+      <Filter>Classes\ext\util\logger</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\AsyncTask.cpp">
+      <Filter>Classes\ext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\LipiTKInterface.cpp">
+      <Filter>Classes\ext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\LipiTKNode.cpp">
+      <Filter>Classes\ext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\LipiTKProcessTask.cpp">
+      <Filter>Classes\ext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\LipiTKResult.cpp">
+      <Filter>Classes\ext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\Stroke.cpp">
+      <Filter>Classes\ext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\ext\WordSceneLipiTKNode.cpp">
+      <Filter>Classes\ext</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\character\ExternalSkeletonCharacter.cpp">
+      <Filter>Classes\hero\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\character\SkeletonCharacter.cpp">
+      <Filter>Classes\hero\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\character\SkeletonConfiguration.cpp">
+      <Filter>Classes\hero\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\character\SkeletonPosition.cpp">
+      <Filter>Classes\hero\character</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\gesture\GestureLayer.cpp">
+      <Filter>Classes\hero\gesture</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\message\MessageContent.cpp">
+      <Filter>Classes\hero\message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\message\MessageReceiver.cpp">
+      <Filter>Classes\hero\message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\message\MessageSender.cpp">
+      <Filter>Classes\hero\message</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\sprites\AlphamonSprite.cpp">
+      <Filter>Classes\hero\sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\sprites\RPGSprite.cpp">
+      <Filter>Classes\hero\sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\sprites\WordBubble.cpp">
+      <Filter>Classes\hero\sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\sprites\WordSprite.cpp">
+      <Filter>Classes\hero\sprites</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\state\FallingState.cpp">
+      <Filter>Classes\hero\state</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\state\JumpingState.cpp">
+      <Filter>Classes\hero\state</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\state\RunningState.cpp">
+      <Filter>Classes\hero\state</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\state\StandingState.cpp">
+      <Filter>Classes\hero\state</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\state\State.cpp">
+      <Filter>Classes\hero\state</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\state\StateMachine.cpp">
+      <Filter>Classes\hero\state</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\state\WalkingState.cpp">
+      <Filter>Classes\hero\state</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\HelloWorldScene.cpp">
+      <Filter>Classes\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\PhysicsShapeCache.cpp">
+      <Filter>Classes\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\RPGConfig.cpp">
+      <Filter>Classes\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\hero\SpeechBubbleView.cpp">
+      <Filter>Classes\hero</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\i18n\Entry.cpp">
+      <Filter>Classes\i18n</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\i18n\I18nUtils.cpp">
+      <Filter>Classes\i18n</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\i18n\MO.cpp">
+      <Filter>Classes\i18n</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\EnglishUtil.cpp">
+      <Filter>Classes\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\KannadaUtil.cpp">
+      <Filter>Classes\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\LanguageManager.cpp">
+      <Filter>Classes\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\LangUtil.cpp">
+      <Filter>Classes\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\SafariAnalyticsManager.cpp">
+      <Filter>Classes\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\SwahiliUtil.cpp">
+      <Filter>Classes\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\TextGenerator.cpp">
+      <Filter>Classes\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\WordInfo.cpp">
+      <Filter>Classes\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\lang\WordManager.cpp">
+      <Filter>Classes\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\Award.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\GameMapScene.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\GameScene.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\HelpLayer.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\Introduction.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\LevelHelpOverlay.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\LevelHelpScene.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\LevelMenu.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\MapIsland.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\MapScene.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\MenuContext.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\ScoreBoardContent.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\ScrollableGameMapScene.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\Setting.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\menu\StartMenuScene.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphabetWriting.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Alphamole.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphamoleLevel.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\ATM.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Baja.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Balloon.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BalloonHero.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Bingo.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BlastLetter.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BlastLetterNode.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Card.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\CarDraw.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\CarDrawNode.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\CatGameScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\CatScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Chain.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\ChocolateFactory.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Circle.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Dash.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Decomon.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\DecomonGallery.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\DinoGame.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Door.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\DoorNode.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Drop.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Item.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Mainfile.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\jazz.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\JumpingNumbers.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Line.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Memory.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\MemoryHero.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\MemoryJungle.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Order.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Owl.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Pillar.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Pop.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\PopCount.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Shape.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Shop.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Spirograph.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\spot.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Stack.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Step.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Table.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Talk.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\TraceScene.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Train.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\TreasureHunt.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\TreasureHuntNode.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Units.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\Wembley.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\misc\CharacterConfiguration.cpp">
+      <Filter>Classes\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\misc\ChooseCharacter.cpp">
+      <Filter>Classes\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\misc\PhotoCaptureScene.cpp">
+      <Filter>Classes\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\Alphabet.cpp">
+      <Filter>Classes\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\AlphabetGrid.cpp">
+      <Filter>Classes\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\CharGenerator.cpp">
+      <Filter>Classes\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\DuelScene.cpp">
+      <Filter>Classes\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\Grapheme.cpp">
+      <Filter>Classes\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\GraphemeGrid.cpp">
+      <Filter>Classes\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\PegWord.cpp">
+      <Filter>Classes\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\StoryWordBoard.cpp">
+      <Filter>Classes\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\WordBoard.cpp">
+      <Filter>Classes\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\puzzle\WordScene.cpp">
+      <Filter>Classes\puzzle</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\splash\SplashScene.cpp">
+      <Filter>Classes\splash</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\sqlite3\sqlite3.c">
+      <Filter>Classes\sqlite3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\sqlite3\Sqlite3Helper.cpp">
+      <Filter>Classes\sqlite3</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\story\CopyRight.cpp">
+      <Filter>Classes\story</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\story\FillInTheBlanks.cpp">
+      <Filter>Classes\story</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\story\Meaning.cpp">
+      <Filter>Classes\story</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\story\MultipleChoice.cpp">
+      <Filter>Classes\story</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\story\Picture.cpp">
+      <Filter>Classes\story</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\story\QuestionHandler.cpp">
+      <Filter>Classes\story</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\story\ScrollableCatalogue.cpp">
+      <Filter>Classes\story</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\story\StoryCoverPage.cpp">
+      <Filter>Classes\story</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\story\StoryPlaying.cpp">
+      <Filter>Classes\story</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\Calculator.cpp">
+      <Filter>Classes\utile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\CommonLabel.cpp">
+      <Filter>Classes\utile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\CommonLabelTTF.cpp">
+      <Filter>Classes\utile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\CommonText.cpp">
+      <Filter>Classes\utile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>Classes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
       <Filter>win32</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\AppDelegate.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\alphamon\Alphamon.h">
+      <Filter>Classes\alphamon</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\HelloWorldScene.h">
-      <Filter>src</Filter>
+    <ClInclude Include="..\Classes\alphamon\HPMeter.h">
+      <Filter>Classes\alphamon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h">
+      <Filter>Classes\alphamon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\effects\FShake.h">
+      <Filter>Classes\effects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\lipiengine\lipiengine.h">
+      <Filter>Classes\ext\lipiengine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\lipiengine\LipiEngineModule.h">
+      <Filter>Classes\ext\lipiengine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\lipiengine\version.h">
+      <Filter>Classes\ext\lipiengine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\reco\shaperec\common\LTKShapeSample.h">
+      <Filter>Classes\ext\reco\shaperec\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\common\LTKShapeFeature.h">
+      <Filter>Classes\ext\reco\shaperec\featureextractor\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractor.h">
+      <Filter>Classes\ext\reco\shaperec\featureextractor\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractorFactory.h">
+      <Filter>Classes\ext\reco\shaperec\featureextractor\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloat.h">
+      <Filter>Classes\ext\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeature.h">
+      <Filter>Classes\ext\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeatureExtractor.h">
+      <Filter>Classes\ext\reco\shaperec\featureextractor\pointfloat</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\reco\shaperec\nn\NN.h">
+      <Filter>Classes\ext\reco\shaperec\nn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\reco\shaperec\nn\NNAdapt.h">
+      <Filter>Classes\ext\reco\shaperec\nn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\reco\shaperec\nn\NNShapeRecognizer.h">
+      <Filter>Classes\ext\reco\shaperec\nn</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\reco\shaperec\preprocessing\preprocessing.h">
+      <Filter>Classes\ext\reco\shaperec\preprocessing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\utf8\checked.h">
+      <Filter>Classes\ext\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\utf8\core.h">
+      <Filter>Classes\ext\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\utf8\unchecked.h">
+      <Filter>Classes\ext\utf8</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKCheckSumGenerate.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKConfigFileReader.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKDynamicTimeWarping.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKErrors.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKHierarchicalClustering.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKImageWriter.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKInkFileReader.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKInkFileWriter.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKInkUtils.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKLoggerUtil.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKStrEncoding.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKStringUtil.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKVersionCompatibilityCheck.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\lib\LTKWindowsUtil.h">
+      <Filter>Classes\ext\util\lib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\util\logger\logger.h">
+      <Filter>Classes\ext\util\logger</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\AsyncTask.hpp">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LipiTKInterface.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LipiTKNode.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LipiTKProcessTask.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LipiTKResult.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKCaptureDevice.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKChannel.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKClassifierDefaults.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKErrorsList.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKException.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKInc.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKLipiEngineInterface.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKLogger.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKLoggerInterface.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKMacros.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKOSUtil.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKOSUtilFactory.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKPreprocDefaults.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKPreprocessor.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKPreprocessorInterface.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKRecognitionContext.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKRefCountedPtr.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKScreenContext.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKShapeFeatureMacros.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKShapeRecoConfig.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKShapeRecoEngine.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKShapeRecognizer.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKShapeRecoResult.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKShapeRecoUtil.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKTrace.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKTraceFormat.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKTraceGroup.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKTypes.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKWordRecoConfig.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKWordRecognizer.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\LTKWordRecoResult.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\Stroke.hpp">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\TpcError.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\utf8.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\ext\WordSceneLipiTKNode.h">
+      <Filter>Classes\ext</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\character\ExternalSkeletonCharacter.h">
+      <Filter>Classes\hero\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\character\SkeletonCharacter.h">
+      <Filter>Classes\hero\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\character\SkeletonConfiguration.h">
+      <Filter>Classes\hero\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\character\SkeletonPosition.h">
+      <Filter>Classes\hero\character</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\gesture\GestureLayer.hpp">
+      <Filter>Classes\hero\gesture</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\message\MessageContent.hpp">
+      <Filter>Classes\hero\message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\message\MessageReceiver.hpp">
+      <Filter>Classes\hero\message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\message\MessageSender.hpp">
+      <Filter>Classes\hero\message</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\sprites\AlphamonSprite.h">
+      <Filter>Classes\hero\sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\sprites\RPGSprite.h">
+      <Filter>Classes\hero\sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\sprites\WordBubble.hpp">
+      <Filter>Classes\hero\sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\sprites\WordSprite.h">
+      <Filter>Classes\hero\sprites</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\state\FallingState.h">
+      <Filter>Classes\hero\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\state\JumpingState.h">
+      <Filter>Classes\hero\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\state\RunningState.h">
+      <Filter>Classes\hero\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\state\StandingState.h">
+      <Filter>Classes\hero\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\state\State.h">
+      <Filter>Classes\hero\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\state\StateMachine.h">
+      <Filter>Classes\hero\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\state\WalkingState.h">
+      <Filter>Classes\hero\state</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\HelloWorldScene.h">
+      <Filter>Classes\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\PhysicsShapeCache.h">
+      <Filter>Classes\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\RPGConfig.h">
+      <Filter>Classes\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\hero\SpeechBubbleView.hpp">
+      <Filter>Classes\hero</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\i18n\Entry.h">
+      <Filter>Classes\i18n</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\i18n\I18nDefine.h">
+      <Filter>Classes\i18n</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\i18n\I18nUtils.h">
+      <Filter>Classes\i18n</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\i18n\MO.h">
+      <Filter>Classes\i18n</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\EnglishUtil.h">
+      <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\KannadaUtil.h">
+      <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\LanguageManager.h">
+      <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\LangUtil.h">
+      <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\SafariAnalyticsManager.h">
+      <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\SwahiliUtil.h">
+      <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\TextGenerator.h">
+      <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\WordInfo.h">
+      <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\WordManager.h">
+      <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\Award.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\GameMapScene.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\GameScene.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\HelpLayer.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\Introduction.hpp">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\LevelHelpOverlay.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\LevelHelpScene.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\LevelMenu.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\MapIsland.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\MapScene.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\MenuContext.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\ScoreBoardContext.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\ScrollableGameMapScene.hpp">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\Setting.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\StartMenuScene.h">
+      <Filter>Classes\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphabetWriting.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Alphamole.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamoleLevel.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\ATM.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Baja.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BajaWordScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Balloon.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BalloonHero.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Bingo.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BlastLetter.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BlastLetterNode.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Card.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\CarDraw.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\CarDrawNode.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\CatGameScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\CatScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Chain.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\ChocolateFactory.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Circle.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Dash.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Decomon.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\DecomonGallery.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\DinoGame.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Door.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\DoorNode.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Drop.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\EndlessRunner.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Item.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Mainfile.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\jazz.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\JumpingNumbers.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Line.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Memory.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\MemoryHero.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\MemoryJungle.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Order.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Owl.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Pillar.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Pop.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\PopCount.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Shape.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Shop.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Spirograph.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\spot.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\SpriteCreate.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Stack.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Step.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Table.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Talk.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\TraceScene.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Train.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\TreasureHunt.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\TreasureHuntNode.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Units.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\Wembley.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\misc\CharacterConfiguration.h">
+      <Filter>Classes\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\misc\ChooseCharacter.hpp">
+      <Filter>Classes\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\misc\PhotoCaptureScene.hpp">
+      <Filter>Classes\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\Alphabet.h">
+      <Filter>Classes\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\AlphabetGrid.h">
+      <Filter>Classes\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\CharGenerator.h">
+      <Filter>Classes\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\DuelScene.h">
+      <Filter>Classes\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\Grapheme.h">
+      <Filter>Classes\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\GraphemeGrid.h">
+      <Filter>Classes\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\PegWord.h">
+      <Filter>Classes\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\StoryWordBoard.hpp">
+      <Filter>Classes\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\WordBoard.h">
+      <Filter>Classes\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\puzzle\WordScene.h">
+      <Filter>Classes\puzzle</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\splash\SplashScene.hpp">
+      <Filter>Classes\splash</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\sqlite3\sqlite3.h">
+      <Filter>Classes\sqlite3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\sqlite3\Sqlite3Helper.hpp">
+      <Filter>Classes\sqlite3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\story\CopyRight.hpp">
+      <Filter>Classes\story</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\story\FillInTheBlanks.hpp">
+      <Filter>Classes\story</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\story\Meaning.hpp">
+      <Filter>Classes\story</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\story\MultipleChoice.hpp">
+      <Filter>Classes\story</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\story\Picture.hpp">
+      <Filter>Classes\story</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\story\QuestionHandler.h">
+      <Filter>Classes\story</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\story\ScrollableCatalogue.hpp">
+      <Filter>Classes\story</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\story\StoryCoverPage.hpp">
+      <Filter>Classes\story</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\story\StoryPlaying.hpp">
+      <Filter>Classes\story</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\Calculator.h">
+      <Filter>Classes\utile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\CommonLabel.h">
+      <Filter>Classes\utile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\CommonLabelTTF.h">
+      <Filter>Classes\utile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\CommonText.h">
+      <Filter>Classes\utile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>Classes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
