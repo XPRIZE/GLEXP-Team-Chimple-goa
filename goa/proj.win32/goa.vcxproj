@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -51,7 +51,7 @@
     <_ProjectFileVersion>12.0.21005.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration).win32\</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)$(Configuration).win32\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration).win32\</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
@@ -71,7 +71,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>$(EngineRoot)external;$(EngineRoot)cocos\audio\include;$(EngineRoot)external\chipmunk\include\chipmunk;$(EngineRoot)extensions;..\Classes;..;%(AdditionalIncludeDirectories);$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\Classes;..\Classes\sqlite3;$(EngineRoot)external;$(EngineRoot)cocos\audio\include;..\cocos2d\external\sqlite3\include;$(EngineRoot)external\chipmunk\include\chipmunk;..\Classes\ext;$(EngineRoot)extensions;..\Classes\ext\reco\shaperec\preprocessing;..\Classes\ext\reco\shaperec\featureextractor\pointfloat;..\Classes\ext\reco\shaperec\common;..\Classes\ext\reco\shaperec\featureextractor\common;..\Classes\ext\lipiengine;$(_COCOS_HEADER_WIN32_BEGIN);$(_COCOS_HEADER_WIN32_END);..\Classes\ext\util;..\Classes\ext\util\lib;..\Classes\ext\util\logger;$(EngineRoot);$(EngineRoot)cocos;..\Classes\ext\reco\shaperec\nn;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USE_MATH_DEFINES;GL_GLEXT_PROTOTYPES;CC_ENABLE_CHIPMUNK_INTEGRATION=1;COCOS2D_DEBUG=1;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -79,12 +79,12 @@
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
       <DisableSpecificWarnings>4267;4251;4244;%(DisableSpecificWarnings)</DisableSpecificWarnings>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END)</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);sqlite3.lib;$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -96,7 +96,8 @@
       </Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command></Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup>
@@ -107,8 +108,11 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       <Outputs>$(TargetName).cab</Outputs>
       <Inputs>$(TargetFileName)</Inputs>
     </CustomBuildStep>
+    <ProjectReference>
+      <UseLibraryDependencyInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</UseLibraryDependencyInputs>
+    </ProjectReference>
+    <Link />
   </ItemDefinitionGroup>
-
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
@@ -125,7 +129,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libcurl_imp.lib;websockets.lib;%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END)</AdditionalDependencies>
+      <AdditionalDependencies>sqlite3.lib;libcurl_imp.lib;websockets.lib;%(AdditionalDependencies);$(_COCOS_LIB_WIN32_BEGIN);$(_COCOS_LIB_WIN32_END)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(ProjectName).exe</OutputFile>
       <AdditionalLibraryDirectories>$(OutDir);%(AdditionalLibraryDirectories);$(_COCOS_LIB_PATH_WIN32_BEGIN);$(_COCOS_LIB_PATH_WIN32_END)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -139,17 +143,429 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       </Command>
     </PostBuildEvent>
     <PreLinkEvent>
-      <Command></Command>
+      <Command>
+      </Command>
     </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Classes\alphamon\Alphamon.cpp" />
+    <ClCompile Include="..\Classes\alphamon\HPMeter.cpp" />
+    <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
-    <ClCompile Include="..\Classes\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\effects\FShake.cpp" />
+    <ClCompile Include="..\Classes\ext\AsyncTask.cpp" />
+    <ClCompile Include="..\Classes\ext\common\LTKCaptureDevice.cpp" />
+    <ClCompile Include="..\Classes\ext\common\LTKChannel.cpp" />
+    <ClCompile Include="..\Classes\ext\common\LTKException.cpp" />
+    <ClCompile Include="..\Classes\ext\common\LTKScreenContext.cpp" />
+    <ClCompile Include="..\Classes\ext\common\LTKTrace.cpp" />
+    <ClCompile Include="..\Classes\ext\common\LTKTraceFormat.cpp" />
+    <ClCompile Include="..\Classes\ext\common\LTKTraceGroup.cpp" />
+    <ClCompile Include="..\Classes\ext\lipiengine\lipiengine.cpp" />
+    <ClCompile Include="..\Classes\ext\lipiengine\LipiEngineModule.cpp" />
+    <ClCompile Include="..\Classes\ext\LipiTKInterface.cpp" />
+    <ClCompile Include="..\Classes\ext\LipiTKNode.cpp" />
+    <ClCompile Include="..\Classes\ext\LipiTKProcessTask.cpp" />
+    <ClCompile Include="..\Classes\ext\LipiTKResult.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\common\LTKShapeRecoConfig.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\common\LTKShapeRecognizer.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\common\LTKShapeRecoResult.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\common\LTKShapeRecoUtil.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\common\LTKShapeSample.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractor.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractorFactory.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloat.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeature.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeatureExtractor.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\nn\NN.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\nn\NNAdapt.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\nn\NNShapeRecognizer.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\preprocessing\LTKPreprocessor.cpp" />
+    <ClCompile Include="..\Classes\ext\reco\shaperec\preprocessing\preprocessing.cpp" />
+    <ClCompile Include="..\Classes\ext\Stroke.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKCheckSumGenerate.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKConfigFileReader.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKErrors.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKImageWriter.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKInkFileReader.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKInkFileWriter.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKInkUtils.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKLoggerUtil.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKOSUtilFactory.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKStrEncoding.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKStringUtil.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKVersionCompatibilityCheck.cpp" />
+    <ClCompile Include="..\Classes\ext\util\lib\LTKWindowsUtil.cpp" />
+    <ClCompile Include="..\Classes\ext\util\logger\logger.cpp" />
+    <ClCompile Include="..\Classes\ext\util\logger\LTKLogger.cpp" />
+    <ClCompile Include="..\Classes\ext\WordSceneLipiTKNode.cpp" />
+    <ClCompile Include="..\Classes\hero\character\ExternalSkeletonCharacter.cpp" />
+    <ClCompile Include="..\Classes\hero\character\SkeletonCharacter.cpp" />
+    <ClCompile Include="..\Classes\hero\character\SkeletonConfiguration.cpp" />
+    <ClCompile Include="..\Classes\hero\character\SkeletonPosition.cpp" />
+    <ClCompile Include="..\Classes\hero\gesture\GestureLayer.cpp" />
+    <ClCompile Include="..\Classes\hero\HelloWorldScene.cpp" />
+    <ClCompile Include="..\Classes\hero\message\MessageContent.cpp" />
+    <ClCompile Include="..\Classes\hero\message\MessageReceiver.cpp" />
+    <ClCompile Include="..\Classes\hero\message\MessageSender.cpp" />
+    <ClCompile Include="..\Classes\hero\PhysicsShapeCache.cpp" />
+    <ClCompile Include="..\Classes\hero\RPGConfig.cpp" />
+    <ClCompile Include="..\Classes\hero\SpeechBubbleView.cpp" />
+    <ClCompile Include="..\Classes\hero\sprites\AlphamonSprite.cpp" />
+    <ClCompile Include="..\Classes\hero\sprites\RPGSprite.cpp" />
+    <ClCompile Include="..\Classes\hero\sprites\WordBubble.cpp" />
+    <ClCompile Include="..\Classes\hero\sprites\WordSprite.cpp" />
+    <ClCompile Include="..\Classes\hero\state\FallingState.cpp" />
+    <ClCompile Include="..\Classes\hero\state\JumpingState.cpp" />
+    <ClCompile Include="..\Classes\hero\state\RunningState.cpp" />
+    <ClCompile Include="..\Classes\hero\state\StandingState.cpp" />
+    <ClCompile Include="..\Classes\hero\state\State.cpp" />
+    <ClCompile Include="..\Classes\hero\state\StateMachine.cpp" />
+    <ClCompile Include="..\Classes\hero\state\WalkingState.cpp" />
+    <ClCompile Include="..\Classes\i18n\Entry.cpp" />
+    <ClCompile Include="..\Classes\i18n\I18nUtils.cpp" />
+    <ClCompile Include="..\Classes\i18n\MO.cpp" />
+    <ClCompile Include="..\Classes\lang\EnglishUtil.cpp" />
+    <ClCompile Include="..\Classes\lang\KannadaUtil.cpp" />
+    <ClCompile Include="..\Classes\lang\LanguageManager.cpp" />
+    <ClCompile Include="..\Classes\lang\LangUtil.cpp" />
+    <ClCompile Include="..\Classes\lang\SafariAnalyticsManager.cpp" />
+    <ClCompile Include="..\Classes\lang\SwahiliUtil.cpp" />
+    <ClCompile Include="..\Classes\lang\TextGenerator.cpp" />
+    <ClCompile Include="..\Classes\lang\WordInfo.cpp" />
+    <ClCompile Include="..\Classes\lang\WordManager.cpp" />
+    <ClCompile Include="..\Classes\menu\Award.cpp" />
+    <ClCompile Include="..\Classes\menu\GameMapScene.cpp" />
+    <ClCompile Include="..\Classes\menu\GameScene.cpp" />
+    <ClCompile Include="..\Classes\menu\HelpLayer.cpp" />
+    <ClCompile Include="..\Classes\menu\Introduction.cpp" />
+    <ClCompile Include="..\Classes\menu\LevelHelpOverlay.cpp" />
+    <ClCompile Include="..\Classes\menu\LevelHelpScene.cpp" />
+    <ClCompile Include="..\Classes\menu\LevelMenu.cpp" />
+    <ClCompile Include="..\Classes\menu\MapIsland.cpp" />
+    <ClCompile Include="..\Classes\menu\MapScene.cpp" />
+    <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
+    <ClCompile Include="..\Classes\menu\ScoreBoardContent.cpp" />
+    <ClCompile Include="..\Classes\menu\ScrollableGameMapScene.cpp" />
+    <ClCompile Include="..\Classes\menu\Setting.cpp" />
+    <ClCompile Include="..\Classes\menu\StartMenuScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphabetWriting.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Alphamole.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphamoleLevel.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\ATM.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Baja.cpp" />
+    <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Balloon.cpp" />
+    <ClCompile Include="..\Classes\mini_games\BalloonHero.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Bingo.cpp" />
+    <ClCompile Include="..\Classes\mini_games\BlastLetter.cpp" />
+    <ClCompile Include="..\Classes\mini_games\BlastLetterNode.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Card.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CarDraw.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CarDrawNode.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CatGameScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CatScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Chain.cpp" />
+    <ClCompile Include="..\Classes\mini_games\ChocolateFactory.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Circle.cpp" />
+    <ClCompile Include="..\Classes\mini_games\CrossTheBridgeScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Dash.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Decomon.cpp" />
+    <ClCompile Include="..\Classes\mini_games\DecomonGallery.cpp" />
+    <ClCompile Include="..\Classes\mini_games\DinoGame.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Door.cpp" />
+    <ClCompile Include="..\Classes\mini_games\DoorNode.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Drop.cpp" />
+    <ClCompile Include="..\Classes\mini_games\EndlessRunner.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Item.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Listenerfile.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Jasmin_Mainfile.cpp" />
+    <ClCompile Include="..\Classes\mini_games\jazz.cpp" />
+    <ClCompile Include="..\Classes\mini_games\JumpingNumbers.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Line.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Memory.cpp" />
+    <ClCompile Include="..\Classes\mini_games\MemoryHero.cpp" />
+    <ClCompile Include="..\Classes\mini_games\MemoryJungle.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Order.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Owl.cpp" />
+    <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Pillar.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Pop.cpp" />
+    <ClCompile Include="..\Classes\mini_games\PopCount.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Shape.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Shop.cpp" />
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Spirograph.cpp" />
+    <ClCompile Include="..\Classes\mini_games\spot.cpp" />
+    <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Stack.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Step.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Table.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Talk.cpp" />
+    <ClCompile Include="..\Classes\mini_games\TraceScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Train.cpp" />
+    <ClCompile Include="..\Classes\mini_games\TreasureHunt.cpp" />
+    <ClCompile Include="..\Classes\mini_games\TreasureHuntNode.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Units.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Wembley.cpp" />
+    <ClCompile Include="..\Classes\misc\CharacterConfiguration.cpp" />
+    <ClCompile Include="..\Classes\misc\ChooseCharacter.cpp" />
+    <ClCompile Include="..\Classes\misc\PhotoCaptureScene.cpp" />
+    <ClCompile Include="..\Classes\puzzle\Alphabet.cpp" />
+    <ClCompile Include="..\Classes\puzzle\AlphabetGrid.cpp" />
+    <ClCompile Include="..\Classes\puzzle\CharGenerator.cpp" />
+    <ClCompile Include="..\Classes\puzzle\DuelScene.cpp" />
+    <ClCompile Include="..\Classes\puzzle\Grapheme.cpp" />
+    <ClCompile Include="..\Classes\puzzle\GraphemeGrid.cpp" />
+    <ClCompile Include="..\Classes\puzzle\PegWord.cpp" />
+    <ClCompile Include="..\Classes\puzzle\StoryWordBoard.cpp" />
+    <ClCompile Include="..\Classes\puzzle\WordBoard.cpp" />
+    <ClCompile Include="..\Classes\puzzle\WordScene.cpp" />
+    <ClCompile Include="..\Classes\splash\SplashScene.cpp" />
+    <ClCompile Include="..\Classes\sqlite3\sqlite3.c" />
+    <ClCompile Include="..\Classes\sqlite3\Sqlite3Helper.cpp" />
+    <ClCompile Include="..\Classes\story\CopyRight.cpp" />
+    <ClCompile Include="..\Classes\story\FillInTheBlanks.cpp" />
+    <ClCompile Include="..\Classes\story\Meaning.cpp" />
+    <ClCompile Include="..\Classes\story\MultipleChoice.cpp" />
+    <ClCompile Include="..\Classes\story\Picture.cpp" />
+    <ClCompile Include="..\Classes\story\QuestionHandler.cpp" />
+    <ClCompile Include="..\Classes\story\ScrollableCatalogue.cpp" />
+    <ClCompile Include="..\Classes\story\StoryCoverPage.cpp" />
+    <ClCompile Include="..\Classes\story\StoryPlaying.cpp" />
+    <ClCompile Include="..\Classes\util\Calculator.cpp" />
+    <ClCompile Include="..\Classes\util\CommonLabel.cpp" />
+    <ClCompile Include="..\Classes\util\CommonLabelTTF.cpp" />
+    <ClCompile Include="..\Classes\util\CommonText.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Classes\alphamon\Alphamon.h" />
+    <ClInclude Include="..\Classes\alphamon\HPMeter.h" />
+    <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
-    <ClInclude Include="..\Classes\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\effects\FShake.h" />
+    <ClInclude Include="..\Classes\ext\AsyncTask.hpp" />
+    <ClInclude Include="..\Classes\ext\lipiengine\lipiengine.h" />
+    <ClInclude Include="..\Classes\ext\lipiengine\LipiEngineModule.h" />
+    <ClInclude Include="..\Classes\ext\lipiengine\version.h" />
+    <ClInclude Include="..\Classes\ext\LipiTKInterface.h" />
+    <ClInclude Include="..\Classes\ext\LipiTKNode.h" />
+    <ClInclude Include="..\Classes\ext\LipiTKProcessTask.h" />
+    <ClInclude Include="..\Classes\ext\LipiTKResult.h" />
+    <ClInclude Include="..\Classes\ext\LTKCaptureDevice.h" />
+    <ClInclude Include="..\Classes\ext\LTKChannel.h" />
+    <ClInclude Include="..\Classes\ext\LTKClassifierDefaults.h" />
+    <ClInclude Include="..\Classes\ext\LTKErrorsList.h" />
+    <ClInclude Include="..\Classes\ext\LTKException.h" />
+    <ClInclude Include="..\Classes\ext\LTKInc.h" />
+    <ClInclude Include="..\Classes\ext\LTKLipiEngineInterface.h" />
+    <ClInclude Include="..\Classes\ext\LTKLogger.h" />
+    <ClInclude Include="..\Classes\ext\LTKLoggerInterface.h" />
+    <ClInclude Include="..\Classes\ext\LTKMacros.h" />
+    <ClInclude Include="..\Classes\ext\LTKOSUtil.h" />
+    <ClInclude Include="..\Classes\ext\LTKOSUtilFactory.h" />
+    <ClInclude Include="..\Classes\ext\LTKPreprocDefaults.h" />
+    <ClInclude Include="..\Classes\ext\LTKPreprocessor.h" />
+    <ClInclude Include="..\Classes\ext\LTKPreprocessorInterface.h" />
+    <ClInclude Include="..\Classes\ext\LTKRecognitionContext.h" />
+    <ClInclude Include="..\Classes\ext\LTKRefCountedPtr.h" />
+    <ClInclude Include="..\Classes\ext\LTKScreenContext.h" />
+    <ClInclude Include="..\Classes\ext\LTKShapeFeatureMacros.h" />
+    <ClInclude Include="..\Classes\ext\LTKShapeRecoConfig.h" />
+    <ClInclude Include="..\Classes\ext\LTKShapeRecoEngine.h" />
+    <ClInclude Include="..\Classes\ext\LTKShapeRecognizer.h" />
+    <ClInclude Include="..\Classes\ext\LTKShapeRecoResult.h" />
+    <ClInclude Include="..\Classes\ext\LTKShapeRecoUtil.h" />
+    <ClInclude Include="..\Classes\ext\LTKTrace.h" />
+    <ClInclude Include="..\Classes\ext\LTKTraceFormat.h" />
+    <ClInclude Include="..\Classes\ext\LTKTraceGroup.h" />
+    <ClInclude Include="..\Classes\ext\LTKTypes.h" />
+    <ClInclude Include="..\Classes\ext\LTKWordRecoConfig.h" />
+    <ClInclude Include="..\Classes\ext\LTKWordRecognizer.h" />
+    <ClInclude Include="..\Classes\ext\LTKWordRecoResult.h" />
+    <ClInclude Include="..\Classes\ext\reco\shaperec\common\LTKShapeSample.h" />
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\common\LTKShapeFeature.h" />
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractor.h" />
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\common\LTKShapeFeatureExtractorFactory.h" />
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloat.h" />
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeature.h" />
+    <ClInclude Include="..\Classes\ext\reco\shaperec\featureextractor\pointfloat\PointFloatShapeFeatureExtractor.h" />
+    <ClInclude Include="..\Classes\ext\reco\shaperec\nn\NN.h" />
+    <ClInclude Include="..\Classes\ext\reco\shaperec\nn\NNAdapt.h" />
+    <ClInclude Include="..\Classes\ext\reco\shaperec\nn\NNShapeRecognizer.h" />
+    <ClInclude Include="..\Classes\ext\reco\shaperec\preprocessing\preprocessing.h" />
+    <ClInclude Include="..\Classes\ext\Stroke.hpp" />
+    <ClInclude Include="..\Classes\ext\TpcError.h" />
+    <ClInclude Include="..\Classes\ext\utf8.h" />
+    <ClInclude Include="..\Classes\ext\utf8\checked.h" />
+    <ClInclude Include="..\Classes\ext\utf8\core.h" />
+    <ClInclude Include="..\Classes\ext\utf8\unchecked.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKCheckSumGenerate.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKConfigFileReader.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKDynamicTimeWarping.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKErrors.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKHierarchicalClustering.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKImageWriter.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKInkFileReader.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKInkFileWriter.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKInkUtils.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKLoggerUtil.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKStrEncoding.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKStringUtil.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKVersionCompatibilityCheck.h" />
+    <ClInclude Include="..\Classes\ext\util\lib\LTKWindowsUtil.h" />
+    <ClInclude Include="..\Classes\ext\util\logger\logger.h" />
+    <ClInclude Include="..\Classes\ext\WordSceneLipiTKNode.h" />
+    <ClInclude Include="..\Classes\hero\character\ExternalSkeletonCharacter.h" />
+    <ClInclude Include="..\Classes\hero\character\SkeletonCharacter.h" />
+    <ClInclude Include="..\Classes\hero\character\SkeletonConfiguration.h" />
+    <ClInclude Include="..\Classes\hero\character\SkeletonPosition.h" />
+    <ClInclude Include="..\Classes\hero\gesture\GestureLayer.hpp" />
+    <ClInclude Include="..\Classes\hero\HelloWorldScene.h" />
+    <ClInclude Include="..\Classes\hero\message\MessageContent.hpp" />
+    <ClInclude Include="..\Classes\hero\message\MessageReceiver.hpp" />
+    <ClInclude Include="..\Classes\hero\message\MessageSender.hpp" />
+    <ClInclude Include="..\Classes\hero\PhysicsShapeCache.h" />
+    <ClInclude Include="..\Classes\hero\RPGConfig.h" />
+    <ClInclude Include="..\Classes\hero\SpeechBubbleView.hpp" />
+    <ClInclude Include="..\Classes\hero\sprites\AlphamonSprite.h" />
+    <ClInclude Include="..\Classes\hero\sprites\RPGSprite.h" />
+    <ClInclude Include="..\Classes\hero\sprites\WordBubble.hpp" />
+    <ClInclude Include="..\Classes\hero\sprites\WordSprite.h" />
+    <ClInclude Include="..\Classes\hero\state\FallingState.h" />
+    <ClInclude Include="..\Classes\hero\state\JumpingState.h" />
+    <ClInclude Include="..\Classes\hero\state\RunningState.h" />
+    <ClInclude Include="..\Classes\hero\state\StandingState.h" />
+    <ClInclude Include="..\Classes\hero\state\State.h" />
+    <ClInclude Include="..\Classes\hero\state\StateMachine.h" />
+    <ClInclude Include="..\Classes\hero\state\WalkingState.h" />
+    <ClInclude Include="..\Classes\i18n\Entry.h" />
+    <ClInclude Include="..\Classes\i18n\I18nDefine.h" />
+    <ClInclude Include="..\Classes\i18n\I18nUtils.h" />
+    <ClInclude Include="..\Classes\i18n\MO.h" />
+    <ClInclude Include="..\Classes\lang\EnglishUtil.h" />
+    <ClInclude Include="..\Classes\lang\KannadaUtil.h" />
+    <ClInclude Include="..\Classes\lang\LanguageManager.h" />
+    <ClInclude Include="..\Classes\lang\LangUtil.h" />
+    <ClInclude Include="..\Classes\lang\SafariAnalyticsManager.h" />
+    <ClInclude Include="..\Classes\lang\SwahiliUtil.h" />
+    <ClInclude Include="..\Classes\lang\TextGenerator.h" />
+    <ClInclude Include="..\Classes\lang\WordInfo.h" />
+    <ClInclude Include="..\Classes\lang\WordManager.h" />
+    <ClInclude Include="..\Classes\menu\Award.h" />
+    <ClInclude Include="..\Classes\menu\GameMapScene.h" />
+    <ClInclude Include="..\Classes\menu\GameScene.h" />
+    <ClInclude Include="..\Classes\menu\HelpLayer.h" />
+    <ClInclude Include="..\Classes\menu\Introduction.hpp" />
+    <ClInclude Include="..\Classes\menu\LevelHelpOverlay.h" />
+    <ClInclude Include="..\Classes\menu\LevelHelpScene.h" />
+    <ClInclude Include="..\Classes\menu\LevelMenu.h" />
+    <ClInclude Include="..\Classes\menu\MapIsland.h" />
+    <ClInclude Include="..\Classes\menu\MapScene.h" />
+    <ClInclude Include="..\Classes\menu\MenuContext.h" />
+    <ClInclude Include="..\Classes\menu\ScoreBoardContext.h" />
+    <ClInclude Include="..\Classes\menu\ScrollableGameMapScene.hpp" />
+    <ClInclude Include="..\Classes\menu\Setting.h" />
+    <ClInclude Include="..\Classes\menu\StartMenuScene.h" />
+    <ClInclude Include="..\Classes\mini_games\AlphabetWriting.h" />
+    <ClInclude Include="..\Classes\mini_games\Alphamole.h" />
+    <ClInclude Include="..\Classes\mini_games\AlphamoleLevel.h" />
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h" />
+    <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
+    <ClInclude Include="..\Classes\mini_games\ATM.h" />
+    <ClInclude Include="..\Classes\mini_games\Baja.h" />
+    <ClInclude Include="..\Classes\mini_games\BajaWordScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Balloon.h" />
+    <ClInclude Include="..\Classes\mini_games\BalloonHero.h" />
+    <ClInclude Include="..\Classes\mini_games\Bingo.h" />
+    <ClInclude Include="..\Classes\mini_games\BlastLetter.h" />
+    <ClInclude Include="..\Classes\mini_games\BlastLetterNode.h" />
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
+    <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
+    <ClInclude Include="..\Classes\mini_games\Card.h" />
+    <ClInclude Include="..\Classes\mini_games\CarDraw.h" />
+    <ClInclude Include="..\Classes\mini_games\CarDrawNode.h" />
+    <ClInclude Include="..\Classes\mini_games\CatGameScene.h" />
+    <ClInclude Include="..\Classes\mini_games\CatScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Chain.h" />
+    <ClInclude Include="..\Classes\mini_games\ChocolateFactory.h" />
+    <ClInclude Include="..\Classes\mini_games\Circle.h" />
+    <ClInclude Include="..\Classes\mini_games\CrossTheBridgeScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Dash.h" />
+    <ClInclude Include="..\Classes\mini_games\Decomon.h" />
+    <ClInclude Include="..\Classes\mini_games\DecomonGallery.h" />
+    <ClInclude Include="..\Classes\mini_games\DinoGame.h" />
+    <ClInclude Include="..\Classes\mini_games\Door.h" />
+    <ClInclude Include="..\Classes\mini_games\DoorNode.h" />
+    <ClInclude Include="..\Classes\mini_games\Drop.h" />
+    <ClInclude Include="..\Classes\mini_games\EndlessRunner.h" />
+    <ClInclude Include="..\Classes\mini_games\Item.h" />
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Listenerfile.h" />
+    <ClInclude Include="..\Classes\mini_games\Jasmin_Mainfile.h" />
+    <ClInclude Include="..\Classes\mini_games\jazz.h" />
+    <ClInclude Include="..\Classes\mini_games\JumpingNumbers.h" />
+    <ClInclude Include="..\Classes\mini_games\Line.h" />
+    <ClInclude Include="..\Classes\mini_games\Memory.h" />
+    <ClInclude Include="..\Classes\mini_games\MemoryHero.h" />
+    <ClInclude Include="..\Classes\mini_games\MemoryJungle.h" />
+    <ClInclude Include="..\Classes\mini_games\Order.h" />
+    <ClInclude Include="..\Classes\mini_games\Owl.h" />
+    <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Pillar.h" />
+    <ClInclude Include="..\Classes\mini_games\Pop.h" />
+    <ClInclude Include="..\Classes\mini_games\PopCount.h" />
+    <ClInclude Include="..\Classes\mini_games\Shape.h" />
+    <ClInclude Include="..\Classes\mini_games\Shop.h" />
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h" />
+    <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Spirograph.h" />
+    <ClInclude Include="..\Classes\mini_games\spot.h" />
+    <ClInclude Include="..\Classes\mini_games\SpriteCreate.h" />
+    <ClInclude Include="..\Classes\mini_games\Stack.h" />
+    <ClInclude Include="..\Classes\mini_games\Step.h" />
+    <ClInclude Include="..\Classes\mini_games\Table.h" />
+    <ClInclude Include="..\Classes\mini_games\Talk.h" />
+    <ClInclude Include="..\Classes\mini_games\TraceScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Train.h" />
+    <ClInclude Include="..\Classes\mini_games\TreasureHunt.h" />
+    <ClInclude Include="..\Classes\mini_games\TreasureHuntNode.h" />
+    <ClInclude Include="..\Classes\mini_games\Units.h" />
+    <ClInclude Include="..\Classes\mini_games\Wembley.h" />
+    <ClInclude Include="..\Classes\misc\CharacterConfiguration.h" />
+    <ClInclude Include="..\Classes\misc\ChooseCharacter.hpp" />
+    <ClInclude Include="..\Classes\misc\PhotoCaptureScene.hpp" />
+    <ClInclude Include="..\Classes\puzzle\Alphabet.h" />
+    <ClInclude Include="..\Classes\puzzle\AlphabetGrid.h" />
+    <ClInclude Include="..\Classes\puzzle\CharGenerator.h" />
+    <ClInclude Include="..\Classes\puzzle\DuelScene.h" />
+    <ClInclude Include="..\Classes\puzzle\Grapheme.h" />
+    <ClInclude Include="..\Classes\puzzle\GraphemeGrid.h" />
+    <ClInclude Include="..\Classes\puzzle\PegWord.h" />
+    <ClInclude Include="..\Classes\puzzle\StoryWordBoard.hpp" />
+    <ClInclude Include="..\Classes\puzzle\WordBoard.h" />
+    <ClInclude Include="..\Classes\puzzle\WordScene.h" />
+    <ClInclude Include="..\Classes\splash\SplashScene.hpp" />
+    <ClInclude Include="..\Classes\sqlite3\sqlite3.h" />
+    <ClInclude Include="..\Classes\sqlite3\Sqlite3Helper.hpp" />
+    <ClInclude Include="..\Classes\story\CopyRight.hpp" />
+    <ClInclude Include="..\Classes\story\FillInTheBlanks.hpp" />
+    <ClInclude Include="..\Classes\story\Meaning.hpp" />
+    <ClInclude Include="..\Classes\story\MultipleChoice.hpp" />
+    <ClInclude Include="..\Classes\story\Picture.hpp" />
+    <ClInclude Include="..\Classes\story\QuestionHandler.h" />
+    <ClInclude Include="..\Classes\story\ScrollableCatalogue.hpp" />
+    <ClInclude Include="..\Classes\story\StoryCoverPage.hpp" />
+    <ClInclude Include="..\Classes\story\StoryPlaying.hpp" />
+    <ClInclude Include="..\Classes\util\Calculator.h" />
+    <ClInclude Include="..\Classes\util\CommonLabel.h" />
+    <ClInclude Include="..\Classes\util\CommonLabelTTF.h" />
+    <ClInclude Include="..\Classes\util\CommonText.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
