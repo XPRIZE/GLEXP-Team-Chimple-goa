@@ -72,6 +72,7 @@
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
 #include "../mini_games/DinoGame.h"
+#include "../mini_games/Train.h"
 #include "../util/CommonLabel.h"
 #include "Setting.h"
 #include "Award.h"
@@ -892,6 +893,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
         }else if (gameName == CAT) {
     		Director::getInstance()->replaceScene(CatGame::createScene());
         } else if (gameName == TRAIN) {
+			Director::getInstance()->replaceScene(Train::createScene());
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
         } else if (gameName == POP) {
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
