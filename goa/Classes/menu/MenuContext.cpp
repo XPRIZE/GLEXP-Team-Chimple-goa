@@ -72,6 +72,7 @@
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
 #include "../mini_games/DinoGame.h"
+#include "../mini_games/Pop.h"
 #include "../mini_games/Train.h"
 #include "../util/CommonLabel.h"
 #include "Setting.h"
@@ -895,8 +896,6 @@ void MenuContext::launchGameFinally(std::string gameName) {
         } else if (gameName == TRAIN) {
 			Director::getInstance()->replaceScene(Train::createScene());
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
-        } else if (gameName == POP) {
-//            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
         } else if (gameName == STORY_TELLING) {
 //            ScriptingCore::getInstance()->runScript("start/storytelling.js");
         } else if (gameName == ALPHAMOLE) {
@@ -908,7 +907,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
     	} else if (gameName == JUMP_ON_WORDS) {
 //    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
     	} else if (gameName == POP) {
-//    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
+			Director::getInstance()->replaceScene(Pop::createScene());
     	}else if (gameName == CIRCLE) {
     		Director::getInstance()->replaceScene(Circle::createScene());
     	}else if (gameName == BUBBLE) {
