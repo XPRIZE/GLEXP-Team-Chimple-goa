@@ -7,7 +7,12 @@
     "copy_resources": [
         {
             "from": "../Resources",
-            "to": ""
+            "to": "",
+            "exclude": [
+                "res/SD",
+                "res/HD",
+                "res/HDR"
+            ]
         }
     ]
 }
