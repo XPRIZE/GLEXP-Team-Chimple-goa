@@ -1,0 +1,252 @@
+{
+  "ID": "8f0aa1f8-66f7-4b1a-aee4-d88b1b7774f8",
+  "Version": "3.10.0.0",
+  "Name": "ii",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 1475,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "leg_ani/skate_a.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1.796,
+              "Y": 118.5721
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1.796,
+            "RightMargin": -1.796,
+            "TopMargin": -118.5721,
+            "BottomMargin": 118.5721,
+            "Tag": 4563,
+            "ActionTag": 1531804794,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "skate_a",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "LabelText": "ಈ",
+            "LabelBMFontFile_CNB": {
+              "Type": "Normal",
+              "Path": "kannada/kar shivarama_hdr.fnt",
+              "Plist": ""
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -39.7266,
+              "Y": 135.9253
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 39,
+              "G": 239,
+              "B": 41
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -289.2266,
+            "RightMargin": -209.7734,
+            "TopMargin": -635.9253,
+            "BottomMargin": -364.0747,
+            "Tag": 1476,
+            "ActionTag": 1242701247,
+            "Size": {
+              "X": 499.0,
+              "Y": 1000.0
+            },
+            "Name": "BitmapFontLabel_1",
+            "ctype": "TextBMFontObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "mouth_ani/mouth_i.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -90.6718,
+              "Y": 174.6133
+            },
+            "Scale": {
+              "ScaleX": 0.7461,
+              "ScaleY": 0.7461
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -90.6718,
+            "RightMargin": 90.6718,
+            "TopMargin": -174.6133,
+            "BottomMargin": 174.6133,
+            "Tag": 1489,
+            "ActionTag": -1014461203,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "mouth_i",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "eye_ani/eye_h.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -99.2952,
+              "Y": 410.9651
+            },
+            "Scale": {
+              "ScaleX": 0.6853,
+              "ScaleY": 0.6853
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -99.2952,
+            "RightMargin": 99.2952,
+            "TopMargin": -410.9651,
+            "BottomMargin": 410.9651,
+            "Tag": 1517,
+            "ActionTag": -1845415151,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "eye_h",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "nose/nose_4.png",
+              "Plist": "alphamon.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -95.2273,
+              "Y": 300.5236
+            },
+            "Scale": {
+              "ScaleX": 0.4305,
+              "ScaleY": 0.4681
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -231.7273,
+            "RightMargin": -41.2727,
+            "TopMargin": -350.5236,
+            "BottomMargin": 250.5236,
+            "Tag": 1523,
+            "ActionTag": 1074962420,
+            "Size": {
+              "X": 273.0,
+              "Y": 100.0
+            },
+            "Name": "nose_4",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../alphamon.plist",
+        "../alphamon.png",
+        "../eye_ani/eye_h.json",
+        "../leg_ani/skate_a.json",
+        "../mouth_ani/mouth_i.json",
+        "kar shivarama_hdr.fnt",
+        "kar shivarama_hdr_0.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}

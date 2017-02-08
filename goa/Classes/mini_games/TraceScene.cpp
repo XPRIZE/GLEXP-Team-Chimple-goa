@@ -98,7 +98,7 @@ void Trace::onEnterTransitionDidFinish() {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	std::string path = "english/Alpha Kombat/";//std::string(path)
+//	std::string path = "english/Alpha Kombat/";//std::string(path)
 	auto _bg = CSLoader::createNode("Alphacombat.csb");
 	//_background->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height / 2 + origin.y));
 	addChild(_bg);
