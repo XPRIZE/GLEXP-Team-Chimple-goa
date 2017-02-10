@@ -25,10 +25,10 @@ LangUtil::~LangUtil() {
 
 LangUtil* LangUtil::getInstance() {
     if(!_instance) {
-        // _instance = new EnglishUtil();
-        // Data moData = FileUtils::getInstance()->getDataFromFile("res/english/eng.mo");
-       _instance = new SwahiliUtil();
-       Data moData = FileUtils::getInstance()->getDataFromFile("res/swahili/swa.mo");
+         _instance = new EnglishUtil();
+         Data moData = FileUtils::getInstance()->getDataFromFile("res/lang/eng/eng.mo");
+//       _instance = new SwahiliUtil();
+//       Data moData = FileUtils::getInstance()->getDataFromFile("res/lang/swa/swa.mo");
         I18N::I18nUtils::getInstance()->removeAllMO();
         I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
     }
@@ -61,7 +61,7 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
         case SupportedLanguages::ENGLISH:
         {
             LangUtil::_instance = new EnglishUtil();
-            Data moData = FileUtils::getInstance()->getDataFromFile("res/english/eng.mo");
+            Data moData = FileUtils::getInstance()->getDataFromFile("res/lang/eng/eng.mo");
             I18N::I18nUtils::getInstance()->removeAllMO();
             I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
             break;
@@ -69,7 +69,7 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
         case SupportedLanguages::SWAHILI:
         {
             LangUtil::_instance = new SwahiliUtil();
-            Data moData = FileUtils::getInstance()->getDataFromFile("res/swahili/swa.mo");
+            Data moData = FileUtils::getInstance()->getDataFromFile("res/lang/swa/swa.mo");
             I18N::I18nUtils::getInstance()->removeAllMO();
             I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
             break;
@@ -78,7 +78,7 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
         case SupportedLanguages::KANNADA:
         {
             LangUtil::_instance = new KannadaUtil();
-            Data kannadaMoData = FileUtils::getInstance()->getDataFromFile("res/de.mo");
+            Data kannadaMoData = FileUtils::getInstance()->getDataFromFile("res/lang/kan/kan.mo");
             I18N::I18nUtils::getInstance()->removeAllMO();
             I18N::I18nUtils::getInstance()->addMO(kannadaMoData.getBytes());
             break;
