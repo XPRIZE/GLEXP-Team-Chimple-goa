@@ -14,7 +14,6 @@
 
 using namespace std;
 using namespace cocos2d;
-USING_NS_CC;
 
 class Shoot : public cocos2d::Layer
 {
@@ -47,7 +46,7 @@ public:
 	cocos2d::Sprite *bubblePlayer = NULL;
 	DrawNode* rightLine = NULL;
 	DrawNode* leftLine = NULL;
-
+	
 public:
 	~Shoot();
 	static cocos2d::Scene* createScene();
@@ -59,10 +58,10 @@ public:
 	string getConvertInLowerCase(string data);
 	void update(float) override;
 	void choosingListner();
-	float radToDeg(int angle);
-	float degToRad(int angle);
+	float radToDeg(float angle);
+	float degToRad(float angle);
 	void bgListner();
-	std::tuple<string, string, string> getBoardAndOptionWord();
+	std::tuple<std::string, std::string, std::string> getBoardAndOptionWord();
 	void reCreateSceneElement();
 	void runAnimations(Node * AnimNode, int x, int y, std::string path);
 	void stateShootBubble(float dt);

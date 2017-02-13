@@ -2,9 +2,7 @@
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabelTTF.h"
 
-using namespace cocos2d;
-using namespace std;
-
+#define COCOS2D_DEBUG 1;
 Scene* Shoot::createScene()
 {
 	auto scene = Scene::create();
@@ -178,12 +176,12 @@ void Shoot::onEnterTransitionDidFinish() {
 	player.x = bubblePlayer->getPositionX();    player.y = bubblePlayer->getPositionY();
 
 	rightLine = DrawNode::create();
-	rightLine->drawLine(Vec2(this->getChildByName("bg")->getChildByName("right")->getPositionX() + (xPosi / 2), this->getChildByName("bg")->getChildByName("right")->getPositionY()),Vec2(player.x + (bubblePlayer->getContentSize().width / 2), player.y),stringColor);
+	rightLine->drawSegment(Vec2(this->getChildByName("bg")->getChildByName("right")->getPositionX() + (xPosi / 2), this->getChildByName("bg")->getChildByName("right")->getPositionY()),Vec2(player.x + (bubblePlayer->getContentSize().width / 2), player.y),10,stringColor);
 	this->addChild(rightLine,3);
 	rightLine->setName("rightLine");
 
 	leftLine = DrawNode::create();
-	leftLine->drawLine(Vec2(this->getChildByName("bg")->getChildByName("left")->getPositionX() + (xPosi / 2), this->getChildByName("bg")->getChildByName("left")->getPositionY()), Vec2(player.x - (bubblePlayer->getContentSize().width / 2), player.y),stringColor);
+	leftLine->drawSegment(Vec2(this->getChildByName("bg")->getChildByName("left")->getPositionX() + (xPosi / 2), this->getChildByName("bg")->getChildByName("left")->getPositionY()), Vec2(player.x - (bubblePlayer->getContentSize().width / 2), player.y),10,stringColor);
 	this->addChild(leftLine);
 	leftLine->setName("leftLine");
 
@@ -257,20 +255,17 @@ void Shoot::update(float dt) {
 			this->removeChild(this->rightLine);
 		}
 		this->rightLine = DrawNode::create();
-		this->rightLine->drawLine(Vec2((this->xPosi / 2) + this->getChildByName("bg")->getChildByName("right")->getPositionX(), this->getChildByName("bg")->getChildByName("right")->getPositionY()), Vec2(this->bubblePlayer->getPositionX() + (this->bubblePlayer->getContentSize().width / 2), this->bubblePlayer->getPositionY()),this->stringColor);
+		this->rightLine->drawSegment(Vec2((this->xPosi / 2) + this->getChildByName("bg")->getChildByName("right")->getPositionX(), this->getChildByName("bg")->getChildByName("right")->getPositionY()), Vec2(this->bubblePlayer->getPositionX() + (this->bubblePlayer->getContentSize().width / 2), this->bubblePlayer->getPositionY()),10,this->stringColor);
 		this->addChild(this->rightLine);
 
 		if (this->leftLine) {
 			this->removeChild(this->leftLine);
 		}
 		this->leftLine = DrawNode::create();
-		this->leftLine->drawLine(Vec2((this->xPosi / 2) + this->getChildByName("bg")->getChildByName("left")->getPositionX(), this->getChildByName("bg")->getChildByName("left")->getPositionY()), Vec2(this->bubblePlayer->getPositionX() - (this->bubblePlayer->getContentSize().width / 2), this->bubblePlayer->getPositionY()),this->stringColor);
+		this->leftLine->drawSegment(Vec2((this->xPosi / 2) + this->getChildByName("bg")->getChildByName("left")->getPositionX(), this->getChildByName("bg")->getChildByName("left")->getPositionY()), Vec2(this->bubblePlayer->getPositionX() - (this->bubblePlayer->getContentSize().width / 2), this->bubblePlayer->getPositionY()),10,this->stringColor);
 		this->addChild(this->leftLine);
-	}
 
-	//   if(menuContext.isGamePaused()){
-	//      this.flagSingleTouchFirst = true;
-	//    }
+	}
 
 	if (this->shootingFlag && !_menuContext->isGamePaused()) {
 		this->stateShootBubble(dt);
@@ -283,7 +278,7 @@ void Shoot::update(float dt) {
 	}
 	if (this->shootingFlag) {
 		auto path = "";
-		auto size = 0;
+		float size = 0.5;
 		if (this->bubblePlayer->getName() == "pinatacity") {
 			path = "pinatacity/pinatacityanim.csb";
 			size = 0.7;
@@ -296,6 +291,16 @@ void Shoot::update(float dt) {
 			path = "jungle/target.csb";
 			size = 0.9;
 		}
+
+		auto firstX = this->targetPlayer->getPositionX() - (this->targetPlayer->getContentSize().width*size / 2) + (this->xPosi / 2);
+		auto firstY = this->targetPlayer->getPositionY() - (this->targetPlayer->getContentSize().height*size / 2);
+		auto height = this->targetPlayer->getContentSize().height*size;
+		auto width = this->targetPlayer->getContentSize().width*size;
+
+		auto firstXs = this->bubblePlayer->getPositionX() - (this->bubblePlayer->getContentSize().width / 4);
+		auto firstYs = this->bubblePlayer->getPositionY() - (this->bubblePlayer->getContentSize().height / 4);
+		auto heights = this->bubblePlayer->getContentSize().width / 2;
+		auto widths = this->bubblePlayer->getContentSize().height / 2;
 
 		auto targetObject = Rect(this->targetPlayer->getPositionX() - (this->targetPlayer->getContentSize().width*size / 2) + (this->xPosi / 2), this->targetPlayer->getPositionY() - (this->targetPlayer->getContentSize().height*size / 2), this->targetPlayer->getContentSize().width*size, this->targetPlayer->getContentSize().height*size);
 		auto playerObject = Rect(this->bubblePlayer->getPositionX() - (this->bubblePlayer->getContentSize().width / 4), this->bubblePlayer->getPositionY() - (this->bubblePlayer->getContentSize().height / 4), this->bubblePlayer->getContentSize().width / 2, this->bubblePlayer->getContentSize().height / 2);
@@ -376,7 +381,6 @@ void Shoot::choosingListner() {
 			auto targetC = classRefer->getChildByName("bg")->getChildByName("targetc");
 
 			auto audioEngine = CocosDenshion::SimpleAudioEngine::getInstance();
-			//audioEngine->playEffect("endlessrunner/sound/jump_sound.wav", false);
 			if (target->getName() == "targetc") {
 				if (targetA->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetA->getPositionX(), targetA->getPositionY(), path); targetA->setVisible(false); }
 				if (targetB->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetB->getPositionX(), targetB->getPositionY(), path); targetB->setVisible(false); }
@@ -498,14 +502,14 @@ void Shoot::bgListner() {
 			classReference->removeChild(classReference->rightLine);
 		}
 		classReference->rightLine = DrawNode::create();
-		classReference->rightLine->drawLine(Vec2((classReference->xPosi / 2) + classReference->getChildByName("bg")->getChildByName("right")->getPositionX(), classReference->getChildByName("bg")->getChildByName("right")->getPositionY()), Vec2(classReference->bubblePlayer->getPositionX() + (classReference->bubblePlayer->getContentSize().width / 2), classReference->bubblePlayer->getPositionY()),classReference->stringColor);
+		classReference->rightLine->drawSegment(Vec2((classReference->xPosi / 2) + classReference->getChildByName("bg")->getChildByName("right")->getPositionX(), classReference->getChildByName("bg")->getChildByName("right")->getPositionY()), Vec2(classReference->bubblePlayer->getPositionX() + (classReference->bubblePlayer->getContentSize().width / 2), classReference->bubblePlayer->getPositionY()),10,classReference->stringColor);
 		classReference->addChild(classReference->rightLine);
 
 		if (classReference->leftLine) {
 			classReference->removeChild(classReference->leftLine);
 		}
 		classReference->leftLine = DrawNode::create();
-		classReference->leftLine->drawLine(Vec2((classReference->xPosi / 2) + classReference->getChildByName("bg")->getChildByName("left")->getPositionX(), classReference->getChildByName("bg")->getChildByName("left")->getPositionY()), Vec2(classReference->bubblePlayer->getPositionX() - (classReference->bubblePlayer->getContentSize().width / 2), classReference->bubblePlayer->getPositionY()),classReference->stringColor);
+		classReference->leftLine->drawSegment(Vec2((classReference->xPosi / 2) + classReference->getChildByName("bg")->getChildByName("left")->getPositionX(), classReference->getChildByName("bg")->getChildByName("left")->getPositionY()), Vec2(classReference->bubblePlayer->getPositionX() - (classReference->bubblePlayer->getContentSize().width / 2), classReference->bubblePlayer->getPositionY()),10,classReference->stringColor);
 		classReference->addChild(classReference->leftLine);
 		
 		return true;
@@ -516,25 +520,34 @@ void Shoot::bgListner() {
 	{
 		auto classReference = this;
 
-		auto xangle = (touch->getLocation().y - classReference->player.y);
-		auto yangle = (-touch->getLocation().x + player.x);
+		auto prex = classReference->player.prevX;
+		auto prey = classReference->player.prevY;
+		auto currentX = touch->getLocation().x;
+		auto currentY = touch->getLocation().y;
+		auto playerdatay = classReference->player.y;
+		auto playerdatax = classReference->player.x;
 
-		player.angle = classReference->radToDeg(atan2(xangle,yangle));
-		player.prevX = abs(classReference->player.prevX - touch->getLocation().x);
-		player.prevY = abs(classReference->player.prevY - touch->getLocation().y);
+		auto angless = atan2((currentY - playerdatay), (-currentX + playerdatax));
+		auto convertDegree = radToDeg(angless);
+
+		classReference->player.angle = classReference->radToDeg(atan2((touch->getLocation().y - classReference->player.y), (-touch->getLocation().x + classReference->player.x)));
+		auto angle = classReference->player.angle;
+		classReference->player.prevX = abs(classReference->player.prevX - touch->getLocation().x);
+		classReference->player.prevY = abs(classReference->player.prevY - touch->getLocation().y);
+
 
 		if (classReference->rightLine) {
 			classReference->removeChild(classReference->rightLine);
 		}
 		classReference->rightLine = DrawNode::create();
-		classReference->rightLine->drawLine(Vec2((classReference->xPosi / 2) + classReference->getChildByName("bg")->getChildByName("right")->getPositionX(), classReference->getChildByName("bg")->getChildByName("right")->getPositionY()), Vec2(classReference->player.x - 10, classReference->player.y),classReference->stringColor);
+		classReference->rightLine->drawSegment(Vec2((classReference->xPosi / 2) + classReference->getChildByName("bg")->getChildByName("right")->getPositionX(), classReference->getChildByName("bg")->getChildByName("right")->getPositionY()), Vec2(classReference->player.x - 10, classReference->player.y),10,classReference->stringColor);
 		classReference->addChild(classReference->rightLine);
 
 		if (classReference->leftLine) {
 			classReference->removeChild(classReference->leftLine);
 		}
 		classReference->leftLine = DrawNode::create();
-		classReference->leftLine->drawLine(Vec2((classReference->xPosi / 2) + classReference->getChildByName("bg")->getChildByName("left")->getPositionX(), classReference->getChildByName("bg")->getChildByName("left")->getPositionY()), Vec2(classReference->player.x + 10, classReference->player.y),classReference->stringColor);
+		classReference->leftLine->drawSegment(Vec2((classReference->xPosi / 2) + classReference->getChildByName("bg")->getChildByName("left")->getPositionX(), classReference->getChildByName("bg")->getChildByName("left")->getPositionY()), Vec2(classReference->player.x + 10, classReference->player.y),10,classReference->stringColor);
 		classReference->addChild(classReference->leftLine);
 
 		if (classReference->player.prevY != 0 && classReference->player.prevX != 0) {
@@ -613,9 +626,9 @@ void Shoot::reCreateSceneElement() {
 		this->targetPlayer->setPositionY(this->targetYcoordSave - Director::getInstance()->getVisibleSize().height * 0.1);
 	}
 
-	targetA->setVisible(true);   targetA->setTag(1);
-	targetB->setVisible(true);   targetB->setTag(1);
-	targetC->setVisible(true);   targetC->setTag(1);
+	targetA->setVisible(true);   targetA->setTag(0);
+	targetB->setVisible(true);   targetB->setTag(0);
+	targetC->setVisible(true);   targetC->setTag(0);
 
 	this->flagSingleTouchFirst = true;
 
@@ -732,8 +745,19 @@ void Shoot::runAnimations(Node* AnimNode, int x, int y, std::string path) {
 
 void Shoot::stateShootBubble(float dt) {
 
-	this->bubblePlayer->setPositionX(this->bubblePlayer->getPositionX()+ ((1.0 / 60) * 2500 * cos(this->degToRad(this->player.angle))));
-	this->bubblePlayer->setPositionY(this->bubblePlayer->getPositionY()+((1.0 / 60) * 2500 * -1 * sin(this->degToRad(this->player.angle))));
+	auto currentx = this->bubblePlayer->getPositionX();
+	auto currenttxangle = cos(this->degToRad(this->player.angle));
+	auto currenty = this->bubblePlayer->getPositionY();
+	auto currenttyangle = -1 * sin(this->degToRad(this->player.angle));
+	auto angless = this->player.angle;
+	auto radianAngle = this->degToRad(this->player.angle);
+	auto addingy = ((1.0 / 60) * 2500 * -1 * sin(this->degToRad(this->player.angle)));
+	auto addingx = ((1.0 / 60) * 2500 * cos(this->degToRad(this->player.angle)));
+	
+	auto nextY = this->bubblePlayer->getPositionY() + ((1.0f / 60.0f) * 2500 * -1 * sin(this->degToRad(this->player.angle)));
+	auto nextX = this->bubblePlayer->getPositionX() + ((1.0f / 60.0f) * 2500 * cos(this->degToRad(this->player.angle)));
+	this->bubblePlayer->setPositionX(nextX);
+	this->bubblePlayer->setPositionY(nextY);
 	
 	if (this->bubblePlayer->getPositionX() < (this->bubblePlayer->getContentSize().width / 2)) {
 		// Left edge
@@ -836,11 +860,11 @@ void Shoot::checkBoundaryBall(Node* target, cocos2d::Touch* touch) {
  }
 }
 
-float Shoot::radToDeg(int angle) {
+float Shoot::radToDeg(float angle) {
 	return angle * (180.0f / M_PI);
 }
 
-float Shoot::degToRad(int angle) {
+float Shoot::degToRad(float angle) {
 	return angle * (M_PI / 180.0f);
 }
 
