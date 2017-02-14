@@ -112,6 +112,16 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       <UseLibraryDependencyInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</UseLibraryDependencyInputs>
     </ProjectReference>
     <Link />
+    <ClCompile>
+      <DisableLanguageExtensions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </DisableLanguageExtensions>
+    </ClCompile>
+    <ClCompile>
+      <EnforceTypeConversionRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</EnforceTypeConversionRules>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </CompileAsManaged>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -297,6 +307,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\Pop.cpp" />
     <ClCompile Include="..\Classes\mini_games\PopCount.cpp" />
     <ClCompile Include="..\Classes\mini_games\Shape.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Shoot.cpp" />
     <ClCompile Include="..\Classes\mini_games\Shop.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp" />
@@ -521,6 +532,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\Pop.h" />
     <ClInclude Include="..\Classes\mini_games\PopCount.h" />
     <ClInclude Include="..\Classes\mini_games\Shape.h" />
+    <ClInclude Include="..\Classes\mini_games\Shoot.h" />
     <ClInclude Include="..\Classes\mini_games\Shop.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h" />

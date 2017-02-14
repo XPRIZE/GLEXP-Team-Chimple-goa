@@ -2085,9 +2085,8 @@
 	"cIcon": "gameicons/shoot_pressed.png",
 	"icon": "gameicons/shoot.png",
 	"multiPlayer": false,
-	"isJSGame": true,
-	"pureJS": "Pinata",
-	"script": "src/start/Pinata.js",
+	"isJSGame": false,
+	"script": "src/NonJSGameLauncher.js",
 	"span": "4",
 	"numLevels": "30",
 	"rewards": {

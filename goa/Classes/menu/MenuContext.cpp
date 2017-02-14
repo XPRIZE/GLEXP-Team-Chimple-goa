@@ -80,6 +80,7 @@
 #include "../misc/ChooseCharacter.hpp"
 #include "../story/StoryCoverPage.hpp"
 #include "../story/ScrollableCatalogue.hpp"
+#include "../mini_games/Shoot.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -914,6 +915,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
 //    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
     //        ScriptingCore::getInstance()->runScript("src/start/dots.js");
     	}else if (gameName == PINATA) {
+			Director::getInstance()->replaceScene(Shoot::createScene());
 //    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
         }else if (gameName == DOTS) {
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
