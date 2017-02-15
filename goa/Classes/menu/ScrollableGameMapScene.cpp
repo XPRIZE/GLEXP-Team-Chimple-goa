@@ -48,6 +48,7 @@
 #include "../mini_games/MemoryJungle.h"
 #include "../mini_games/Talk.h"
 #include "../mini_games/BalloonHero.h"
+#include "../mini_games/SortIt.h"
 #include "../mini_games/Drop.h"
 #include "../mini_games/Owl.h"
 #include "../mini_games/Order.h"

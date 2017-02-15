@@ -154,6 +154,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/mini_games/Memory.cpp \
          ../../Classes/mini_games/MemoryHero.cpp \
          ../../Classes/mini_games/MemoryJungle.cpp \
+         ../../Classes/mini_games/SortIt.cpp \
          ../../Classes/mini_games/Order.cpp \
          ../../Classes/mini_games/Owl.cpp \
          ../../Classes/mini_games/PatchTheWallScene.cpp \
