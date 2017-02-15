@@ -81,6 +81,7 @@
 #include "../story/StoryCoverPage.hpp"
 #include "../story/ScrollableCatalogue.hpp"
 #include "../mini_games/Shoot.h"
+#include "../mini_games/SortIt.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -984,6 +985,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
 		else if (gameName == SORT_IT) {
 //			ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
+			Director::getInstance()->replaceScene(SortIt::createScene());
 		}
 		else if (gameName == TREASUREHUNT) {
 			Director::getInstance()->replaceScene(TreasureHunt::createScene());
