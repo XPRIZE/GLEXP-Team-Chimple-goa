@@ -72,6 +72,7 @@
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
 #include "../mini_games/DinoGame.h"
+#include "../mini_games/Bounce.h"
 #include "../mini_games/Pop.h"
 #include "../mini_games/Train.h"
 #include "../util/CommonLabel.h"
@@ -923,6 +924,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
         }else if (gameName == BOUNCE) {
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
+			  Director::getInstance()->replaceScene(Bounce::createScene());
     	}
     	else if (gameName == STACK) {
     		Director::getInstance()->replaceScene(Stack::createScene());
