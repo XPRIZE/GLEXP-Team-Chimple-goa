@@ -30,7 +30,7 @@ public:
 	HelpLayer* _help;
 	MenuContext *_menuContext;
 	int  _startNum = 0, _endNum = 0, _sum = 0, _begin = 0, _level = 1, _tries = 0, _lessons = 0;
-	std::array<int, 3> _choices;
+	std::vector<int> _choices;
 	//int _choices[3] = {};
 	std::vector<BounceHolder*> _holders;
 	std::vector<Sprite*> _backHolders;
@@ -58,7 +58,7 @@ public:
 	void onEnterTransitionDidFinish();
 	void update(float dt);
 	void doLevel();
-	void setupLayer(int startNum, int endNum, int sum, int begin, int choices[3], std::vector<int> correctChoices);
+	void setupLayer(int startNum, int endNum, int sum, int begin, std::vector<int> choice, std::vector<int> correctChoices);
 	int randomInt(int min, int max);
 	void cleanLayer();
 	void setupChoices();
@@ -105,6 +105,16 @@ public:
 class BounceChoice :public cocos2d::Node{
 public:
 	int _number = 0;
+	BounceHolder* _holder= NULL;
+	Point _locationInNode;
+	Vec2 _positionAtTouch;
+	Node* _dullSprite;
+	Node* _brightSprite;
+	cocostudio::timeline::ActionTimeline *_brightAction;
+	BounceChoice(int number, Point pt);
+	void shiftParent();
+	void addToHolder(BounceHolder *holder );
+	void resetPosition();
 };
 
 #endif // __BOUNCE_SCENE_H__
