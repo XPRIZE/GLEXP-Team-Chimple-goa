@@ -4,7 +4,6 @@
 #include <array>
 #include "../lang/LangUtil.h"
 
-#define COCOS2D_DEBUG 1
 using namespace std;
 using namespace cocos2d;
 USING_NS_CC;

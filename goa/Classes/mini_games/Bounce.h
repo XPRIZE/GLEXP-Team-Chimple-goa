@@ -1,8 +1,7 @@
-#ifndef __BOUNCE_SCENE_H__
-#define __BOUNCE_SCENE_H__
+#ifndef __BOUNCESCENE_H__
+#define __BOUNCESCENE_H__
 
 #include "cocos2d.h"
-//#include "CocosGUI.h"
 #include <array>
 #include "../menu/MenuContext.h"
 #include "../menu/StartMenuScene.h"
@@ -106,6 +105,6 @@ public:
 class BounceChoice :public cocos2d::Node{
 public:
 	int _number = 0;
-}
+};
 
 #endif // __BOUNCE_SCENE_H__
