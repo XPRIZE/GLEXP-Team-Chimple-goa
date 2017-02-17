@@ -174,7 +174,7 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	// Set the gun Pointer
 	auto gun = Sprite::createWithSpriteFrameName("bubble_shooter/gun_tricker.png");
 	gun->setAnchorPoint(Vec2(0.5,0.5));
-	gun->setPosition(Vec2(trnspImg->getContentSize().width / 2, Director::getInstance()->getVisibleSize().height*0.09));
+	gun->setPosition(Vec2(trnspImg->getContentSize().width / 2, Director::getInstance()->getVisibleSize().height*0.08));
 	gun->setName("gunPointer");
 	addChild(gun);
 
@@ -302,13 +302,26 @@ void BubbleShooter::bgListner() {
 		Rect targetRect = Rect(0, 0, targetSize.width, targetSize.height);
 		
 		if (targetRect.containsPoint(location)) {
-			auto xClickedPosition = floor(location.x);
-			auto yClickedPosition = (Director::getInstance()->getVisibleSize().height - floor(location.y));
-
-			classReference->gunMove(xClickedPosition, yClickedPosition);
 			return true;
 		}
 		return false;
+	};
+
+	listener->onTouchMoved = [=](cocos2d::Touch* touch, cocos2d::Event* event) {
+		auto target = event->getCurrentTarget();
+		auto location = target->convertToNodeSpace(touch->getLocation());
+		auto xClickedPosition = floor(location.x);
+		auto yClickedPosition = (Director::getInstance()->getVisibleSize().height - floor(location.y));
+		this->onMouseMove(xClickedPosition, yClickedPosition);
+	};
+
+	listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event) {
+		auto target = event->getCurrentTarget();
+		auto location = target->convertToNodeSpace(touch->getLocation());
+		auto xClickedPosition = floor(location.x);
+		auto yClickedPosition = (Director::getInstance()->getVisibleSize().height - floor(location.y));
+
+		classReference->gunMove(xClickedPosition, yClickedPosition);
 	};
 
 	auto touchBg = this->getChildByName("bg")->getChildByName("Panel_2")->getChildByName("touch");
