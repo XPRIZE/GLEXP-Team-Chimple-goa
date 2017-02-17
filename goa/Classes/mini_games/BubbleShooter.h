@@ -25,6 +25,7 @@ class BubbleShooter : public cocos2d::Layer
 protected:
 	MenuContext *_menuContext;
 	int _negativePoints = 0;
+	bool _AlphabetsScene = true;
 	bool _flagSwitchTwoColor = true;
 	std::string _imageSprite[8];
 	std::vector< std::vector<Sprite*> > _bubbleName;
@@ -100,6 +101,7 @@ public:
 	void stateRemoveCluster();
 	int getExistingColor();
 	std::vector<int> findColors();
+	std::vector<int> rndNumber(int color);
 	void renderTiles();
 	void bgListner();
 	void renderPlayer();

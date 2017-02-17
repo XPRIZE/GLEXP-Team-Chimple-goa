@@ -36,7 +36,18 @@ bool BubbleShooter::init()
 
 void BubbleShooter::onEnterTransitionDidFinish() {
 
-	Node* bg = CSLoader::createNode("bubble_shooter/bubble_shooter_1.csb");
+	std::string mainScenePath = "";
+
+	if (_menuContext->getCurrentLevel() >= 10 && _menuContext->getCurrentLevel() <= 14) {
+		mainScenePath = "bubble_shooter/bubble_shooter.csb";
+		_AlphabetsScene = false;
+	}
+	else {
+		mainScenePath = "bubble_shooter/bubble_shooter_1.csb";
+		_AlphabetsScene = true;
+	}
+
+	Node* bg = CSLoader::createNode(mainScenePath);
 	addChild(bg);
 	bg->setName("bg");
 
@@ -47,11 +58,19 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	for (int i = 0; i < 8; i++)
 		_imageSprite[i] = imageSprite[i];
 
-	auto LangLetter = TextGenerator::getInstance()->getAllChars();
-
+	std::vector<std::string> LangLetter;
 	int numberOfLetter = 3;
-	if (numberOfLetter <= ceil(LangLetter.size() / 12)) {
-		numberOfLetter = ceil(LangLetter.size() / 12);
+	if(_AlphabetsScene){
+		LangLetter = TextGenerator::getInstance()->getAllChars();
+	
+		if (numberOfLetter <= ceil(LangLetter.size() / 12)) {
+			numberOfLetter = ceil(LangLetter.size() / 12);
+		}
+	}
+	else {
+		string NumbersArray[]= {"0","1","2","3","4","5","6","7","8","9"};
+		for (int i = 0; i < 10; i++)
+			LangLetter.push_back(NumbersArray[i]);
 	}
 
 	auto textHitsLabel = CommonLabelTTF::create(TextGenerator::getInstance()->translateString("Hits : 0"), "Helvetica", 75);
@@ -74,9 +93,8 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	level.tilewidth = bubbleSizeReference->getContentSize().width;  // Visual width of a tile
 	level.tileheight = bubbleSizeReference->getContentSize().height; // Visual height of a tile
 	level.rowheight = bubbleSizeReference->getContentSize().height * 0.85;  // Height of a row
-	level.radius = bubbleSizeReference->getContentSize().width * 0.6;     // Bubble collision radius
+	level.radius = bubbleSizeReference->getContentSize().width * 0.52;     // Bubble collision radius
 	
-
 	// Define a level width and height
 	level.width = level.columns * level.tilewidth + level.tilewidth / 2;
 	level.height = (level.rows) * level.rowheight + level.tileheight;
@@ -85,21 +103,68 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	setGameState(gamestates.ready);
 
 	letterSprite.resize(numberOfLetter);
-	int bubblelevelValues = _menuContext->getCurrentLevel();
+	int bubblelevelValues = 1;
 
-	for (int i = 0; i < numberOfLetter; i++) {
-		auto letter = LangLetter[(((bubblelevelValues - 1)*numberOfLetter) + i)];
-		if (letter.empty()) {
-			letterSprite[i] = LangLetter[getRandomInt(0, (LangLetter.size() - 1))];
+	if (_AlphabetsScene) {
+		bubblelevelValues = _menuContext->getCurrentLevel();
+		for (int i = 0; i < numberOfLetter; i++) {
+			auto letter = LangLetter[(((bubblelevelValues - 1)*numberOfLetter) + i)];
+			if (letter.empty()) {
+				letterSprite[i] = LangLetter[getRandomInt(0, (LangLetter.size() - 1))];
+			}
+			else {
+				letterSprite[i] = letter;
+			}
 		}
-		else {
-			letterSprite[i] = letter;
+		int color = numberOfLetter, repeat = 4;
+		// Create the level of bubbles
+		createLevel(color, repeat);
+	}
+	else {
+		bubblelevelValues = _menuContext->getCurrentLevel() - 9;
+		if (bubblelevelValues == 1) {
+			letterSprite = { "0", "1", "2" };
+			auto color = 3, repeat = 4;
+			// Create the level of bubbles
+			this->createLevel(color, repeat);
+
+		}
+		else if (bubblelevelValues == 2) {
+			letterSprite = { "3", "4", "5" };
+			auto color = 3, repeat = 4;
+			// Create the level of bubbles
+			this->createLevel(color, repeat);
+
+		}
+		else if (bubblelevelValues == 3) {
+			auto color = 3, repeat = 4;
+			letterSprite = { "6", "7", "8" };
+			
+			// Create the level of bubbles
+			this->createLevel(color, repeat);
+
+		}
+		else if (bubblelevelValues == 4) {
+			auto color = 3, repeat = 4;
+			auto numbers = this->rndNumber(color);
+			string DataNumber[] = { "0","1","2","3","4","5","6","7","8","9" };
+			letterSprite = { "9", DataNumber[numbers[0]], DataNumber[numbers[1]] };
+
+			// Create the level of bubbles
+			this->createLevel(color, repeat);
+
+		}
+		else if (bubblelevelValues == 5) {
+			auto color = 3, repeat = 4;
+			auto numbers = this->rndNumber(color);
+			string DataNumber[] = { "0","1","2","3","4","5","6","7","8","9" };
+			letterSprite = { DataNumber[numbers[0]], DataNumber[numbers[1]], DataNumber[numbers[2]] };
+
+			// Create the level of bubbles
+			this->createLevel(color, repeat);
+
 		}
 	}
-
-	int color = numberOfLetter, repeat = 4;
-	// Create the level of bubbles
-	createLevel(color, repeat);
 
 	auto trnspImg = Sprite::createWithSpriteFrameName("bubble_shooter/pixel.png");
 	trnspImg->setName("touch");
@@ -1226,6 +1291,23 @@ std::vector<int> BubbleShooter::findColors() {
 		}
 	}
 	return foundcolors;
+}
+
+std::vector<int> BubbleShooter::rndNumber(int color)
+{
+	std::vector<int> ArrayBubble;
+	std::vector<int> newArrayBubble;
+
+	for (int i = 0; i < 9; i++) {
+		ArrayBubble.push_back(i);
+	}
+	for (int i = 0; i < color; i++) {
+
+		auto temp = floor(this->getRandomArbitrary(0, ArrayBubble.size()));
+		newArrayBubble.push_back(ArrayBubble[temp]);
+		ArrayBubble.erase(std::remove(ArrayBubble.begin(), ArrayBubble.end(), ArrayBubble[temp]), ArrayBubble.end());
+	}
+	return  newArrayBubble;
 }
 
 BubbleShooter::~BubbleShooter(void)
