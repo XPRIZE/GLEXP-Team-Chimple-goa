@@ -193,9 +193,11 @@ void Bounce::setupLayer(int startNum, int endNum, int sum, int begin, std::vecto
 void Bounce::setupChoices()
 {
 	    auto screenWidth = visibleSize.width;
+		//_rectContainer.resize(_choices.size());
 		for (int i = 0; i < _choices.size(); i++) {
-			auto bounceChoice = new BounceChoice(_choices[i], Point(screenWidth - (_choices.size() - i) * (CHOICE_WIDTH + CHOICE_PADDING), 200));
-				this->addChild(bounceChoice);
+			auto bounceChoice = new BounceChoice(_choices[i], Point(screenWidth - (_choices.size() - i) * (CHOICE_WIDTH + CHOICE_PADDING), 200),this);
+				
+			this->addChild(bounceChoice);
 				this->_bounceChoices.push_back(bounceChoice);
 		}
 }
@@ -213,12 +215,17 @@ void Bounce::cleanLayer()
 	this->_backHolders.clear();
 }
 
-BounceChoice::BounceChoice(int number, Point position)
+BounceChoice::BounceChoice()
+{
+	
+}
+
+BounceChoice::BounceChoice(int number, Point position , Bounce *bounce)
 {
 	_number = number;
 
 	auto dullHolder = CSLoader::createTimeline("icecream/cup.csb");
-	_dullSprite = (Sprite *)CSLoader::createNode("icecream/cup.csb");
+	_dullSprite = CSLoader::createNode("icecream/cup.csb");
 	_dullSprite->setPosition(Vec2(position));
 
 	std::ostringstream numberInString;
@@ -230,12 +237,14 @@ BounceChoice::BounceChoice(int number, Point position)
 	text->setColor(cocos2d::Color3B(0,0,0));
 	_dullSprite->addChild(text);
 	_dullSprite->setOpacity(50);
+	_dullSprite->setName("dullSprite");
 	this->addChild(_dullSprite);
 
 	  
 	_brightAction = CSLoader::createTimeline("icecream/cup.csb");
 	_brightSprite = CSLoader::createNode("icecream/cup.csb");
-	_dullSprite->setPosition(Vec2(position));
+	_brightSprite->setPosition(Vec2(position));
+	_brightSprite->setContentSize(Size(_brightSprite->getChildByName("body")->getContentSize().width, _brightSprite->getChildByName("body")->getContentSize().height));
 	_brightSprite->runAction(_brightAction);
 	_brightSprite->setName("brightsprite");
 
@@ -245,62 +254,111 @@ BounceChoice::BounceChoice(int number, Point position)
 	_brightSprite->addChild(text1);
 	this->addChild(_brightSprite);
 
+	auto xPos = _brightSprite->getPositionX() + _brightSprite->getChildByName("body")->getPositionX();
+	auto yPos = _brightSprite->getPositionY() + _brightSprite->getChildByName("body")->getPositionY();
+	auto spriteRect = Rect(xPos, yPos, _brightSprite->getChildByName("body")->getContentSize().width, _brightSprite->getChildByName("body")->getContentSize().height);
+	auto aabbb = DrawNode::create();
+	this->addChild(aabbb, 20);
+	
+	aabbb->drawRect(Vec2(xPos, yPos),
+		Vec2(xPos + _brightSprite->getChildByName("body")->getContentSize().width, yPos + _brightSprite->getChildByName("body")->getContentSize().height),
+		Color4F(0, 0, 255, 22));
+
+	/*auto xPos = _brightSprite->getPositionX() + _brightSprite->getChildByName("body")->getPositionX();
+	auto yPos = _brightSprite->getPositionY() + _brightSprite->getChildByName("body")->getPositionY();
+	auto spriteRect = Rect(xPos, yPos, _brightSprite->getChildByName("body")->getContentSize().width, _brightSprite->getChildByName("body")->getContentSize().height);
+	
+	bounce->_rectContainer.push_back(spriteRect);
+	bounce->_choiceSpriteContainer.push_back(_brightSprite);
+	bounce->_choiceDullSpriteContainer.push_back(_dullSprite);*/
+
 	auto _listener = cocos2d::EventListenerTouchOneByOne::create();
 	_listener->setSwallowTouches(true);
 
 	_listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		auto target = event->getCurrentTarget();
-		//Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
-		//Size s = target->getContentSize();
+		//auto rect = ((BounceChoice*)target)->_brightSprite->getBoundingBox();
+		auto point = target->getParent()->convertToNodeSpace(touch->getLocation());
+	   /* auto rect = Rect(((BounceChoice*)target)->_brightSprite->getPositionX() + ((BounceChoice*)target)->_brightSprite->getChildByName("body")->getPositionX(),
+			((BounceChoice*)target)->_brightSprite->getPositionY() + ((BounceChoice*)target)->_brightSprite->getChildByName("body")->getPositionY(),
+			((BounceChoice*)target)->_brightSprite->getChildByName("body")->getContentSize().width,
+			((BounceChoice*)target)->_brightSprite->getChildByName("body")->getContentSize().height
+		);*/
+
 		auto rect = ((BounceChoice*)target)->_brightSprite->getBoundingBox();
-			Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
-			auto targetSize = target->getContentSize();
-			
-			if (rect.containsPoint(locationInNode)) //NTC
-			{
-				_locationInNode = ((BounceChoice*)target)->_brightSprite->getParent()->convertTouchToNodeSpace(touch);
-				_positionAtTouch = ((BounceChoice*)target)->_brightSprite->getPosition();
-					if (((BounceChoice*)target)->_holder) {
-						((BounceChoice*)target)->shiftParent();
-					}
-				return true;
+
+		auto aab = DrawNode::create();
+		this->addChild(aab, 20);
+		auto a = ((BounceChoice*)target)->_brightSprite->getPositionX();
+		auto b = ((BounceChoice*)target)->_brightSprite->getPositionY();
+		aab->drawRect(Vec2(a, b),
+			Vec2(a + ((BounceChoice*)target)->_brightSprite->getChildByName("body")->getContentSize().width, b + ((BounceChoice*)target)->_brightSprite->getChildByName("body")->getContentSize().height),
+			Color4F(229, 78, 78, 22));
+
+				if (rect.containsPoint(touch->getLocation())) //NTC
+				{
+					
+					//_locationInNode = ((BounceChoice*)target)->_brightSprite[i]->getParent()->convertTouchToNodeSpace(touch);
+					//_locationInNode = bounce->_clickedObject->getParent()->convertTouchToNodeSpace(touch);
+					////_positionAtTouch = ((BounceChoice*)target)->_brightSprite->getPosition();
+					//_positionAtTouch = bounce->_clickedObject->getPosition();
+					//if (((BounceChoice*)target)->_holder) {
+					//	((BounceChoice*)target)->shiftParent();
+					//}
+
+					/*auto target = event->getCurrentTarget();
+					auto rect = target->getChildByName("body")->getBoundingBox();
+						if (rect.containsPoint(touch->getLocation())) {
+							((BounceChoice*)target)->_locationInNode = ((BounceChoice*)target)->getChildByName("brightsprite")->getParent()->convertTouchToNodeSpace(touch);
+							((BounceChoice*)target)->_positionAtTouch = ((BounceChoice*)target)->getChildByName("brightsprite")->getPosition();
+								if (((BounceChoice*)target)->_holder) {
+									((BounceChoice*)target)->shiftParent();
+								}*/
+					return true;
 			}
-		
 		return false;
 	};
 	_listener->onTouchMoved =[=] (cocos2d::Touch* touch, cocos2d::Event* event)
 	{
-		auto target = event->getCurrentTarget();
-		auto locationInNode = target->convertTouchToNodeSpace(touch);
-		((BounceChoice*)target)->_brightSprite->setPosition(locationInNode.x + ((BounceChoice*)target)->_positionAtTouch.x - ((BounceChoice*)target)->_locationInNode.x, locationInNode.y + ((BounceChoice*)target)->_positionAtTouch.y - ((BounceChoice*)target)->_locationInNode.y);
+		/*auto target = event->getCurrentTarget();
+		auto locationInNode = ((BounceChoice*)target)->convertTouchToNodeSpace(touch);
+		((BounceChoice*)target)->getChildByName("brightsprite")->setPosition(locationInNode.x + ((BounceChoice*)target)->_positionAtTouch.x - ((BounceChoice*)target)->_locationInNode.x, locationInNode.y + ((BounceChoice*)target)->_positionAtTouch.y - ((BounceChoice*)target)->_locationInNode.y);*/
+		
+		//auto target = event->getCurrentTarget();
+		//auto locationInNode = target->convertTouchToNodeSpace(touch);
+		////((BounceChoice*)target)->_brightSprite->setPosition(locationInNode.x + ((BounceChoice*)target)->_positionAtTouch.x - ((BounceChoice*)target)->_locationInNode.x, locationInNode.y + ((BounceChoice*)target)->_positionAtTouch.y - ((BounceChoice*)target)->_locationInNode.y);
+		//bounce->_clickedObject->setPosition(locationInNode.x + ((BounceChoice*)target)->_positionAtTouch.x - ((BounceChoice*)target)->_locationInNode.x, locationInNode.y + ((BounceChoice*)target)->_positionAtTouch.y - ((BounceChoice*)target)->_locationInNode.y);
+
 	};
 	_listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		auto target = event->getCurrentTarget();
-		((BounceChoice*)target)->_locationInNode = NULL;
-	    ((BounceChoice*)target)->_positionAtTouch = NULL;
-	for (int i = 0; i < ((Bounce*)target->getParent())->_holders.size(); i++) {
-		
-		auto holder = ((Bounce*)target->getParent())->_holders[i];
-		auto holderRect = holder->getBoundingBox();//NTC
-		auto targetRect = ((BounceChoice*)target)->_brightSprite->getBoundingBox();//NTC
-		targetRect.origin.x = targetRect.origin.x + targetRect.size.width / 2;
-		targetRect.size.width = 20;
+	/*	((BounceChoice*)target)->_locationInNode.~Vec2();
+	    ((BounceChoice*)target)->_positionAtTouch = NULL;*/
+	//for (int i = 0; i < bounce->_holders.size(); i++) {
+	//	
+	//	auto holder = bounce->_holders[i];
+	//	auto holderRect = holder->getBoundingBox();//NTC
+	//	auto xPos = holder->getPositionX();
+	//	auto yPos = holder->getPositionY();
+	//	//auto targetRect = ((BounceChoice*)target)->_brightSprite->getChildByName("body")->getBoundingBox();//NTC
+	//	auto targetRect = bounce->_clickedObject->getChildByName("body")->getBoundingBox();//NTC
+	//	targetRect.origin.x = targetRect.origin.x + targetRect.size.width / 2;
+	//	targetRect.size.width = 20;
 
-			if (holderRect.intersectsRect( targetRect) && ((BounceHolder*)holder)->_choice == NULL) {
-				if (((Bounce*)target->getParent())->_help) {
-					((Bounce*)target->getParent())->removeChild(((Bounce*)target->getParent())->_help);
-					((Bounce*)target->getParent())->_help = NULL;
-				}
-				((BounceChoice*)target)->addToHolder(holder);
-				//	return; NTC
-			}
-	}
-	((BounceChoice*)target)->resetPosition();
+	//		if (holderRect.intersectsRect( targetRect) && ((BounceHolder*)holder)->_choice == NULL) {
+	//			if (bounce->_help) {
+	//				bounce->removeChild(bounce->_help);
+	//				bounce->_help = NULL;
+	//			}
+	//			((BounceChoice*)target)->addToHolder(holder);
+	//			//	return; NTC
+	//		}
+	//}
+	((BounceChoice*)target)->resetPosition( );
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(_listener, this);
-
 
 }
 void BounceChoice::shiftParent()

@@ -239,14 +239,12 @@
             },
             "Position": {
               "X": 95.8015,
-              "Y": 133.8621
+              "Y": 148.49
             },
             "Scale": {
               "ScaleX": 1.0,
               "ScaleY": 1.0
             },
-            "RotationSkewX": 0.7535,
-            "RotationSkewY": 0.7535,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
@@ -259,8 +257,8 @@
             },
             "LeftMargin": -92.1985,
             "RightMargin": -95.8015,
-            "TopMargin": -241.8621,
-            "BottomMargin": 133.8621,
+            "TopMargin": -256.49,
+            "BottomMargin": 148.49,
             "Tag": 38,
             "ActionTag": -1720011948,
             "Size": {
@@ -269,6 +267,59 @@
             },
             "Name": "cup_1",
             "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.4839,
+              "ScaleY": 0.1075
+            },
+            "Position": {
+              "X": 0.9337,
+              "Y": -1.3977
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -104.7511,
+            "RightMargin": -113.6288,
+            "TopMargin": -256.0391,
+            "BottomMargin": -32.4144,
+            "Tag": 25,
+            "ActionTag": 527241092,
+            "Size": {
+              "X": 218.3799,
+              "Y": 288.4535
+            },
+            "Alpha": 0,
+            "Name": "body",
+            "ctype": "PanelObjectData"
           }
         ],
         "Size": {

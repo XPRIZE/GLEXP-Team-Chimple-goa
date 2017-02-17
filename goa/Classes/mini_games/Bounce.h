@@ -11,6 +11,7 @@
 #include "../util/Calculator.h"
 #include "../util/CommonLabelTTF.h"
 
+#define COCOS2D_DEBUG 1
 using namespace std;
 using namespace cocos2d;
 USING_NS_CC;
@@ -42,19 +43,16 @@ public:
 	int _currentLevel = 0;
 	cocos2d::ui::ScrollView *_scroll;
 	
-	
-
-	//const int NUMBER_WIDTH = 256, CHOICE_WIDTH = 150 , CHOICE_PADDING = 200 , HOLDER_Y = 600 , TEXT_Y = 55 , CUP_HEIGHT = 354 , MAX_LESSONS = 3, CONE_HEIGHT = 172;
-	
-	
-
-public:
 	//~Bounce();
 	CREATE_FUNC(Bounce);
 	
 	static cocos2d::Scene* createScene();
 	const static int NUMBER_WIDTH = 256, CHOICE_WIDTH = 150, CHOICE_PADDING = 200, HOLDER_Y = 600, TEXT_Y = 55, CUP_HEIGHT = 354, MAX_LESSONS = 3, CONE_HEIGHT = 172;
-    
+   /* std::vector<cocos2d::Rect> _rectContainer;
+	std::vector<Node*> _choiceSpriteContainer;
+	int _spriteIndex;
+	Node* _clickedObject = NULL;
+	std::vector<Node*> _choiceDullSpriteContainer;*/
 	void onEnterTransitionDidFinish();
 	void update(float dt);
 	void doLevel();
@@ -108,13 +106,16 @@ public:
 	BounceHolder* _holder= NULL;
 	Point _locationInNode;
 	Vec2 _positionAtTouch;
+	
 	Node* _dullSprite;
 	Node* _brightSprite;
 	cocostudio::timeline::ActionTimeline *_brightAction;
-	BounceChoice(int number, Point pt);
+	BounceChoice(int number, Point pt, Bounce *bounce);
+	BounceChoice();
 	void shiftParent();
 	void addToHolder(BounceHolder *holder );
 	void resetPosition();
+	
 };
 
 #endif // __BOUNCE_SCENE_H__
