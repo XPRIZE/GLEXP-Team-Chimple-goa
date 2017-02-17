@@ -2747,9 +2747,8 @@
 	"cIcon": "gameicons/sortit_pressed.png",
 	"icon": "gameicons/sortit.png",
 	"multiPlayer": false,
-	"isJSGame": true,
-	"pureJS": "sortitlevelLayer",
-	"script": "src/start/sortit.js",
+	"isJSGame": false,
+	"script": "src/NonJSGameLauncher.js",
 	"span": "2",
 	"numLevels": "6",
 	"rewards": {

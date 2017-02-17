@@ -51,6 +51,7 @@
 #include "../mini_games/spot.h"
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
+#include "../mini_games/SortIt.h"
 
 
 #include "storage/local-storage/LocalStorage.h"
