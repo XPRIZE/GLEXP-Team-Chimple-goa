@@ -272,6 +272,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\Bingo.cpp" />
     <ClCompile Include="..\Classes\mini_games\BlastLetter.cpp" />
     <ClCompile Include="..\Classes\mini_games\BlastLetterNode.cpp" />
+    <ClCompile Include="..\Classes\mini_games\BubbleShooter.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
     <ClCompile Include="..\Classes\mini_games\Card.cpp" />
@@ -311,6 +312,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\Shop.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockLevelScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\SmashTheRockScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\SortIt.cpp" />
     <ClCompile Include="..\Classes\mini_games\Spirograph.cpp" />
     <ClCompile Include="..\Classes\mini_games\spot.cpp" />
     <ClCompile Include="..\Classes\mini_games\SpriteCreate.cpp" />
@@ -497,6 +499,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\Bingo.h" />
     <ClInclude Include="..\Classes\mini_games\BlastLetter.h" />
     <ClInclude Include="..\Classes\mini_games\BlastLetterNode.h" />
+    <ClInclude Include="..\Classes\mini_games\BubbleShooter.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />
     <ClInclude Include="..\Classes\mini_games\Card.h" />
@@ -536,6 +539,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\Shop.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockLevelScene.h" />
     <ClInclude Include="..\Classes\mini_games\SmashTheRockScene.h" />
+    <ClInclude Include="..\Classes\mini_games\SortIt.h" />
     <ClInclude Include="..\Classes\mini_games\Spirograph.h" />
     <ClInclude Include="..\Classes\mini_games\spot.h" />
     <ClInclude Include="..\Classes\mini_games\SpriteCreate.h" />
