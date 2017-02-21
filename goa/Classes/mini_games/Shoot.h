@@ -22,7 +22,7 @@ public:
 	MenuContext *_menuContext;
 	int counterlevelStatus = 1 , xPosi = 0 , counterHit = 0 , targetXcoordSave = 0 , targetYcoordSave = 0;
 	Color4F stringColor = Color4F(Color4B(255,255,255,255));
-	bool soundReleaseBall = true , isItinOriginalPosition = true , shootingFlag = false , flagSingleTouchFirst = true;
+	bool soundReleaseBall = true , isItinOriginalPosition = true , shootingFlag = false , flagSingleTouchFirst = true , stopTouchingBg = false;
 	
 	struct backUp {
 		int category = 0;

@@ -3,6 +3,9 @@
 #include "../util/CommonLabelTTF.h"
 
 #define COCOS2D_DEBUG 1;
+using namespace std;
+using namespace cocos2d;
+
 Scene* Shoot::createScene()
 {
 	auto scene = Scene::create();
@@ -346,7 +349,7 @@ void Shoot::choosingListner() {
 		auto location = target->convertToNodeSpace(touch->getLocation());
 		Rect targetRect = Rect(0, 0, targetSize.width, targetSize.height);
 
-		if (target->getBoundingBox().containsPoint(touch->getLocation()) && (classRefer->getChildByName("bg")->getChildByName("board")->getTag() == 0) && !classRefer->shootingFlag && classRefer->flagSingleTouchFirst) {
+		if (target->getBoundingBox().containsPoint(touch->getLocation()) && (classRefer->getChildByName("bg")->getChildByName("board")->getTag() == 0) && !classRefer->shootingFlag && classRefer->flagSingleTouchFirst && !stopTouchingBg) {
 			return true;
 		}
 		return false;
@@ -408,6 +411,10 @@ void Shoot::choosingListner() {
 				classRefer->counterHit++;
 				_menuContext->addPoints(2);
 			}
+
+			stopTouchingBg = true;
+			this->runAction(Sequence::create(DelayTime::create(3),CallFunc::create([=]() {  stopTouchingBg = false;  }), NULL));
+
 		}else {
 			//    console.log("its wrong answer");
 			auto targetA = (Node*)classRefer->getChildByName("bg")->getChildByName("targeta");
