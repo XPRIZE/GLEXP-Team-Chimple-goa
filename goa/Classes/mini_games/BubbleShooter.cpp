@@ -2,6 +2,7 @@
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabelTTF.h"
 
+#define COCOS2D_DEBUG 1
 using namespace std;
 using namespace cocos2d;
 USING_NS_CC;
@@ -108,7 +109,10 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	if (_AlphabetsScene) {
 		bubblelevelValues = _menuContext->getCurrentLevel();
 		for (int i = 0; i < numberOfLetter; i++) {
-			auto letter = LangLetter[(((bubblelevelValues - 1)*numberOfLetter) + i)];
+			auto indexLetter = (((bubblelevelValues - 1)*numberOfLetter) + i);
+			if (indexLetter >= 26)
+				indexLetter = floor(rand_0_1() * (indexLetter - 3));
+			auto letter = LangLetter[indexLetter];
 			if (letter.empty()) {
 				letterSprite[i] = LangLetter[getRandomInt(0, (LangLetter.size() - 1))];
 			}
@@ -148,6 +152,14 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 			auto color = 3, repeat = 4;
 			auto numbers = this->rndNumber(color);
 			string DataNumber[] = { "0","1","2","3","4","5","6","7","8","9" };
+
+			if (DataNumber[numbers[0]] == "9") {
+				numbers[0] = numbers[2];
+			}
+			else if (DataNumber[numbers[1]] == "9") {
+				numbers[1] = numbers[2];
+			}
+
 			letterSprite = { "9", DataNumber[numbers[0]], DataNumber[numbers[1]] };
 
 			// Create the level of bubbles
