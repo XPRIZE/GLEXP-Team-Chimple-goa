@@ -42,7 +42,7 @@ public:
 	BounceBall* _bounceBall;
 	int _currentLevel = 0;
 	cocos2d::ui::ScrollView *_scroll;
-	//static BounceChoice* _bounceChoiceLayer;
+	bool _helpFlag = false;
 	
 	//~Bounce();
 	CREATE_FUNC(Bounce);
@@ -71,7 +71,6 @@ public:
 	int _num = 0 ;
 	cocos2d::Sprite *_backHolder = NULL;
 	BounceHolder(int num);
-	
 };
 
 class BounceDrop : public cocos2d::Node
@@ -86,7 +85,6 @@ public:
 	bool _animating = false;
 	Bounce *_layer = NULL;
 	MenuContext *_menuContext;
-	//cocos2d::EventListenerTouchOneByOne *_listener;
 	BounceBall(Bounce* layer);
 	void animateBounce(bool flag);
 	void showAnswer(Bounce* bounce);

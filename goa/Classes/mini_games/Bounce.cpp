@@ -4,7 +4,7 @@
 #include <array>
 #include "../lang/LangUtil.h"
 
-#define COCOS2d_DEBUG 1
+#define COCOS2S_DEBUG 1
 using namespace std;
 using namespace cocos2d;
 USING_NS_CC;
@@ -58,17 +58,21 @@ void Bounce::doLevel()
 			}
 			//this.setupLayer(startNum, endNum, sum, begin, choices, correctChoices)
 				if (_currentLevel == 1 && _lessons == 0) {
-				/*	var dullSprite = this._bounceChoices[this._correctChoices[0]]._dullSprite
-						var dullSpriteRect = dullSprite.getBoundingBoxToWorld()
-						dullSpriteRect.x = dullSpriteRect.x + dullSpriteRect.width / 2
-						dullSpriteRect.y = dullSpriteRect.y + dullSpriteRect.height / 2
-						var holder = this._holders[this._begin - this._startNum]
-						var holderPos = holder.getParent().convertToWorldSpace(holder.getPosition())
-						var holderRect = cc.rect(holderPos.x, holderPos.y, holder.width, holder.height)
-						this._help = new xc.HelpLayer(dullSpriteRect, holderRect)
-						this.addChild(this._help)
-						this._help.clickAndDrag(this._bounceChoices[this._correctChoices[0]]._dullSprite.x, this._bounceChoices[this._correctChoices[0]]._dullSprite.y, holderPos.x, holderPos.y)
-				*/}
+					auto dullSprite = this->_bounceChoices[this->_correctChoices[0]]->_dullSprite;
+					dullSprite->setContentSize(Size(225, 290));
+					auto dullSpriteRect = dullSprite->getBoundingBox();
+					dullSpriteRect.origin.x = dullSpriteRect.origin.x;// +dullSpriteRect.size.width / 2;
+					dullSpriteRect.origin.y = dullSpriteRect.origin.y + dullSpriteRect.size.height / 2;
+					auto dullSpriteRectNew = Rect(dullSpriteRect.origin.x, dullSpriteRect.origin.y, dullSpriteRect.size.width, dullSpriteRect.size.height);
+
+					auto holder = this->_holders[this->_begin - this->_startNum];
+					auto holderPos = holder->getParent()->convertToWorldSpace(holder->getPosition());
+					auto holderRect = Rect(holderPos.x , holderPos.y , holder->getContentSize().width, holder->getContentSize().height);
+					this->_help = HelpLayer::create(dullSpriteRectNew, holderRect);
+					this->addChild(this->_help);
+					this->_help->clickAndDrag(Vec2(_bounceChoices[this->_correctChoices[0]]->_dullSprite->getPositionX(), this->_bounceChoices[this->_correctChoices[0]]->_dullSprite->getPositionY()), Vec2(holderPos.x, holderPos.y));
+					_helpFlag = true;
+				}
 	}
 	else if (_currentLevel <= 10) {
 		int startNum = 0;
@@ -310,10 +314,11 @@ void Bounce::BounceChoiceListner(BounceChoice* bounceChoice) {
 			}
 				if (holderRect.intersectsRect( targetRect) && (holder->getTag() == 0)) 
 				{
-					/*if (((Bounce*)target->getParent())->_help) {
+					if (((Bounce*)target->getParent())->_help && ((Bounce*)target->getParent())->_helpFlag) {
 						((Bounce*)target->getParent())->removeChild(((Bounce*)target->getParent())->_help);
 						((Bounce*)target->getParent())->_help = NULL;
-					}*/
+						((Bounce*)target->getParent())->_helpFlag = false;
+					}
 					((BounceChoice*)target)->addToHolder(holder, ((BounceChoice*)target));
 					return;
 				}
@@ -389,7 +394,6 @@ void BounceChoice::shiftParent(BounceChoice *bounceChoice)
 	auto sprite = bounceChoice->_brightSprite;
 
 	auto pos = bounceChoice->_brightSprite->getParent()->convertToWorldSpace(bounceChoice->_brightSprite->getPosition());
-	//bounceChoice->_brightSprite->setOpacity(30);
 	bounceChoice->_brightSprite->removeFromParent();
 	
 
@@ -433,12 +437,6 @@ void BounceChoice::resetPosition(BounceChoice *bounceChoice)
 	bounceChoice->_brightSprite->setContentSize(Size(225, 290));
 	auto layer = bounceChoice->getParent();
 	
-	/*for (int i = 0; i < ((Bounce*)bounceChoice->getParent())->_holders.size(); i++) {
-		if (((Bounce*)bounceChoice->getParent())->_holders[i]->getTag() == 1)
-		{
-			((Bounce*)bounceChoice->getParent())->_holders[i]->setTag(0);
-		}
-	}*/
 	Bounce::BounceChoiceListner(bounceChoice);
 }
 void BounceChoice::addToHolder(BounceHolder  *holder, BounceChoice *bounceChoice)
@@ -446,19 +444,16 @@ void BounceChoice::addToHolder(BounceHolder  *holder, BounceChoice *bounceChoice
 	_holder = holder;
 	holder->setTag(1);
 	holder->_choice = bounceChoice;
-	//Bounce::_bounceChoiceLayer = bounceChoice;
 	auto spritePos = bounceChoice->_brightSprite->getPosition();
 	bounceChoice->_brightSprite->setOpacity(50);
 	bounceChoice->_brightSprite->removeFromParent();
-	//this->_brightSprite->removeFromParent();
+	
 	
 		
 	    auto brightHolder = CSLoader::createNode("icecream/cup.csb");
 		bounceChoice->_brightSprite = CSLoader::createNode("icecream/cup.csb");
 		bounceChoice->_brightAction = CSLoader::createTimeline("icecream/cup.csb");
 		bounceChoice->_brightSprite->runAction(this->_brightAction);
-		/*bounceChoice->_brightSprite = CSLoader::createNode("icecream/cup.csb");
-		bounceChoice->brightAction = CSLoader::createTimeline("icecream/cup.csb");*/
 		bounceChoice->_brightSprite->setName("brightsprite");
 		bounceChoice->_brightSprite->setContentSize(Size(225, 290));
 
@@ -484,20 +479,22 @@ void BounceChoice::addToHolder(BounceHolder  *holder, BounceChoice *bounceChoice
 		Sequence *action1;
 		action1 = Sequence::create(moveTo, NULL);
 		auto layer = bounceChoice->getParent();
+		auto layer2 = ((Bounce*)layer);
 		//auto layer = this->getParent();
 
-		//if (((Bounce*)layer)->_level == 1 && ((Bounce*)layer)->_lessons == 0) {
-		//	auto callFunc = CallFunc::create([=] {
+		if (((Bounce*)layer)->_level == 1 && ((Bounce*)layer)->_lessons == 0) {
+			auto callFunc = CallFunc::create([=] {
 
-		//		auto dropRect = Rect(((Bounce*)layer)->_bounceDrop->getPositionX(), ((Bounce*)layer)->_bounceDrop->getPositionY(), 400, 400);
-		//	  auto _help = HelpLayer::create(Rect(dropRect),
-		//		  Rect(0, 0, 0,0));
-		//		// auto _help = HelpLayer::create(dropRect);
-		//	   ((Bounce*)layer)->addChild(_help);
-		//	   _help->click(Vec2(((Bounce*)layer)->_bounceDrop->getPositionX(), ((Bounce*)layer)->_bounceDrop->getPositionY()));
-		//	});
-		//	 action1 = Sequence::create(moveTo, callFunc, NULL);
-		//}
+				auto dropRect = Rect(((Bounce*)layer)->_bounceDrop->getPositionX(), ((Bounce*)layer)->_bounceDrop->getPositionY(), 400, 400);
+				((Bounce*)layer)->_help = HelpLayer::create(Rect(dropRect),
+				  Rect(0, 0, 0,0));
+				// auto _help = HelpLayer::create(dropRect);
+			   ((Bounce*)layer)->addChild(((Bounce*)layer)->_help);
+			   ((Bounce*)layer)->_help->click(Vec2(((Bounce*)layer)->_bounceDrop->getPositionX(), ((Bounce*)layer)->_bounceDrop->getPositionY()));
+			});
+		   	((Bounce*)layer)->_helpFlag = true;
+			 action1 = Sequence::create(moveTo, callFunc, NULL);
+		}
 		bounceChoice->_brightSprite->runAction(action1);
 		Bounce::BounceChoiceListner(bounceChoice);
 }
@@ -554,10 +551,11 @@ BounceBall::BounceBall(Bounce* layer)
 		_listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 		{
 			auto target = event->getCurrentTarget();
-				/*if (target._layer._help) {
-						target._layer.removeChild(target._layer._help)
-							target._layer._help = null
-					}*/
+				if (_layer->_help && _layer->_helpFlag) {
+					_layer->removeChild(_layer->_help);
+					_layer->_help = NULL;
+					_layer->_helpFlag = false;
+					}
 				animateBounce(false);
 		};
 		cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(_listener, this);
@@ -614,7 +612,6 @@ void BounceBall::animateBounce(bool automatic)
 						audio->playEffect("sounds/sfx/water_drop.ogg", false);
 					});
 				}
-				    
 					/* posNum += bounceChoice->_number; 
 					 components.push_back(bounceChoice->_number);*/
 					  posNum += holder->_choice->_number;
@@ -645,7 +642,6 @@ void BounceBall::animateBounce(bool automatic)
 			if (holder->_num == _layer->_sum) {
 				moveTo_1 = MoveTo::create(0.2, Vec2(holder->getPositionX(), Bounce::HOLDER_Y + Bounce::CONE_HEIGHT));
 				
-
 				callFunc = CallFunc::create([=] {
 					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 					audio->playEffect("sounds/sfx/success.ogg", false);
@@ -659,7 +655,6 @@ void BounceBall::animateBounce(bool automatic)
 						}
 						auto additionDisplay = new AdditionDisplay(components, _layer->_sum);
 						this->_layer->addChild(additionDisplay);
-						
 				});
 				if (counter == 1)
 				{
@@ -687,7 +682,18 @@ void BounceBall::animateBounce(bool automatic)
 							//this->showAnswer(_layer);//NTC
 						}
 					});
-				this->runAction(Sequence::create(moveTo, moveTo_1, callFunc, NULL));
+				if (counter == 0)
+				{
+					this->runAction(Sequence::create(moveTo, moveTo_1, callFunc, NULL));
+				}
+				else if (counter == 1)
+				{
+					this->runAction(Sequence::create(moveTo, animCallFunc, bezierAction, moveTo_1, callFunc, NULL));
+				}
+				else
+				{
+					this->runAction(Sequence::create(moveTo, animCallFunc, bezierAction, animCallFunc_1, bezierAction_1, moveTo_1, callFunc, NULL));
+				}
 			}
 		//	this->runAction(Sequence::create(moveTo, animCallFunc, bezierAction, moveTo_1, callFunc, NULL));
 	}
