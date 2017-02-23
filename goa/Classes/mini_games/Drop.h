@@ -43,7 +43,7 @@ protected:
 	float _gapBetweenTwoBasket;
 	string _levelOneString;
 	std::string _labelPrefix = "";
-	bool _isGameDone = false;
+	bool _isGameDone = false, _stopMovingHelpObject = false;
 
 public:
 	~Drop();

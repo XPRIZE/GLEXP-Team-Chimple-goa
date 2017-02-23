@@ -81,6 +81,9 @@
 #include "../misc/ChooseCharacter.hpp"
 #include "../story/StoryCoverPage.hpp"
 #include "../story/ScrollableCatalogue.hpp"
+#include "../mini_games/Shoot.h"
+#include "../mini_games/BubbleShooter.h"
+#include "../mini_games/SortIt.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -912,9 +915,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
     	}else if (gameName == CIRCLE) {
     		Director::getInstance()->replaceScene(Circle::createScene());
     	}else if (gameName == BUBBLE) {
-//    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
-    //        ScriptingCore::getInstance()->runScript("src/start/dots.js");
+			Director::getInstance()->replaceScene(BubbleShooter::createScene());
     	}else if (gameName == PINATA) {
+			Director::getInstance()->replaceScene(Shoot::createScene());
 //    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
         }else if (gameName == DOTS) {
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
@@ -984,6 +987,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
 		else if (gameName == SORT_IT) {
 //			ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
+			Director::getInstance()->replaceScene(SortIt::createScene());
 		}
 		else if (gameName == TREASUREHUNT) {
 			Director::getInstance()->replaceScene(TreasureHunt::createScene());

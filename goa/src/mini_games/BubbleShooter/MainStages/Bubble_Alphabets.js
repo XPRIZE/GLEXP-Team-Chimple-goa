@@ -3,11 +3,11 @@ xc.Bubble_Alphabets = cc.Layer.extend({
    menuContext: null,
   onEnter: function() {
    this._super();
-    menuContext = this.getParent().menuContext;
-    this.negativePoints = 0;
-    this.flagSwitchTwoColor = true;
+   menuContext = this.getParent().menuContext;
+   this.negativePoints = 0;
+   this.flagSwitchTwoColor = true;
    imageSprite = ['bubble_shooter/red_ball','bubble_shooter/green_ball','bubble_shooter/yellow_ball','bubble_shooter/purple_ball','bubble_shooter/blue_ball','bubble_shooter/orange_ball',"bubble_shooter/yellow_ball","bubble_shooter/blue_ball"];
-
+   
    var ScreenMenu = ccs.load(xc.bubbleShooterLevelInfo.res.bubble_shooter_1_json,xc.path);
    this.addChild(ScreenMenu.node);
    var xPosi ;
@@ -937,7 +937,6 @@ xc.Bubble_Alphabets = cc.Layer.extend({
         return foundcluster;
     },
  
-     
     // Reset the processed flags
     resetProcessed : function () {
         for (let i=0; i < this.level.columns; i++) {

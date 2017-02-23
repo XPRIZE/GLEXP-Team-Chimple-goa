@@ -771,8 +771,7 @@
 	"icon": "gameicons/bubble.png",
 	"multiPlayer": false,
 	"isJSGame": false,
-	"pureJS": "bubbleShooterLevelInfo",
-	"script": "src/start/BubbleShooter.js",
+	"script": "src/NonJSGameLauncher.js",
 	"span": "3",
 	"numLevels": "14",
 	"rewards": {
@@ -2085,9 +2084,8 @@
 	"cIcon": "gameicons/shoot_pressed.png",
 	"icon": "gameicons/shoot.png",
 	"multiPlayer": false,
-	"isJSGame": true,
-	"pureJS": "Pinata",
-	"script": "src/start/Pinata.js",
+	"isJSGame": false,
+	"script": "src/NonJSGameLauncher.js",
 	"span": "4",
 	"numLevels": "30",
 	"rewards": {
@@ -2749,9 +2747,8 @@
 	"cIcon": "gameicons/sortit_pressed.png",
 	"icon": "gameicons/sortit.png",
 	"multiPlayer": false,
-	"isJSGame": true,
-	"pureJS": "sortitlevelLayer",
-	"script": "src/start/sortit.js",
+	"isJSGame": false,
+	"script": "src/NonJSGameLauncher.js",
 	"span": "2",
 	"numLevels": "6",
 	"rewards": {
