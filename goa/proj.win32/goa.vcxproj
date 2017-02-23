@@ -112,16 +112,6 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
       <UseLibraryDependencyInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</UseLibraryDependencyInputs>
     </ProjectReference>
     <Link />
-    <ClCompile>
-      <DisableLanguageExtensions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </DisableLanguageExtensions>
-    </ClCompile>
-    <ClCompile>
-      <EnforceTypeConversionRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</EnforceTypeConversionRules>
-      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </CompileAsManaged>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
-    </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -272,6 +262,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\Bingo.cpp" />
     <ClCompile Include="..\Classes\mini_games\BlastLetter.cpp" />
     <ClCompile Include="..\Classes\mini_games\BlastLetterNode.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Bounce.cpp" />
     <ClCompile Include="..\Classes\mini_games\BubbleShooter.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Listener.cpp" />
     <ClCompile Include="..\Classes\mini_games\Cannon_Ball_Main.cpp" />
@@ -499,6 +490,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\Bingo.h" />
     <ClInclude Include="..\Classes\mini_games\BlastLetter.h" />
     <ClInclude Include="..\Classes\mini_games\BlastLetterNode.h" />
+    <ClInclude Include="..\Classes\mini_games\Bounce.h" />
     <ClInclude Include="..\Classes\mini_games\BubbleShooter.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Listener.h" />
     <ClInclude Include="..\Classes\mini_games\Cannon_Ball_Main.h" />

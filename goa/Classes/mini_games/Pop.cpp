@@ -50,7 +50,7 @@ void Pop::onEnterTransitionDidFinish()
 	 int catagoryMap[] = {9, 4, 5, 6, 7, 8};
 
 	 auto catagoryLevel = catagoryMap[levelKeyNumber.second];
-	 CCLOG("catagoryLevel: " + catagoryLevel);
+	// CCLOG("catagoryLevel: " + catagoryLevel);
 	 std::string wordForSentanceArray = TextGenerator::getInstance()->generateASentence(catagoryLevel);
 	 int length = wordForSentanceArray.length();
 	 auto sentanceBin = convertSentenceIntoWords(wordForSentanceArray);
