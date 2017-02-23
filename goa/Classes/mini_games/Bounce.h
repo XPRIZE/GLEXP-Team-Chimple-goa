@@ -42,17 +42,14 @@ public:
 	BounceBall* _bounceBall;
 	int _currentLevel = 0;
 	cocos2d::ui::ScrollView *_scroll;
+	//static BounceChoice* _bounceChoiceLayer;
 	
 	//~Bounce();
 	CREATE_FUNC(Bounce);
 	
 	static cocos2d::Scene* createScene();
 	const static int NUMBER_WIDTH = 256, CHOICE_WIDTH = 150, CHOICE_PADDING = 200, HOLDER_Y = 600, TEXT_Y = 55, CUP_HEIGHT = 354, MAX_LESSONS = 3, CONE_HEIGHT = 172;
-   /* std::vector<cocos2d::Rect> _rectContainer;
-	std::vector<Node*> _choiceSpriteContainer;
-	int _spriteIndex;
-	Node* _clickedObject = NULL;
-	std::vector<Node*> _choiceDullSpriteContainer;*/
+ 
 	void onEnterTransitionDidFinish();
 	void update(float dt);
 	void doLevel();
@@ -60,6 +57,8 @@ public:
 	int randomInt(int min, int max);
 	void cleanLayer();
 	void setupChoices();
+
+	static void BounceChoiceListner(BounceChoice * bounce);
 	
 	static const char* gameName() { return BOUNCE.c_str(); }
 };
@@ -72,6 +71,7 @@ public:
 	int _num = 0 ;
 	cocos2d::Sprite *_backHolder = NULL;
 	BounceHolder(int num);
+	
 };
 
 class BounceDrop : public cocos2d::Node
@@ -79,7 +79,6 @@ class BounceDrop : public cocos2d::Node
 public:
 	int _posNum = 0;
 	BounceDrop(int posNum, int startNum);
-
 };
 
 class BounceBall : public cocos2d::Sprite {
@@ -87,9 +86,10 @@ public:
 	bool _animating = false;
 	Bounce *_layer = NULL;
 	MenuContext *_menuContext;
-	cocos2d::EventListenerTouchOneByOne *_listener;
+	//cocos2d::EventListenerTouchOneByOne *_listener;
 	BounceBall(Bounce* layer);
 	void animateBounce(bool flag);
+	void showAnswer(Bounce* bounce);
 	cocos2d::CCFollow *_follow;
 };
 
@@ -111,11 +111,10 @@ public:
 	Node* _brightSprite;
 	cocostudio::timeline::ActionTimeline *_brightAction;
 	BounceChoice(int number, Point pt, Bounce *bounce);
-	BounceChoice();
-	void shiftParent();
-	void addToHolder(BounceHolder *holder );
-	void resetPosition();
 	
+	void shiftParent(BounceChoice *bounceChoice);
+	void addToHolder(BounceHolder *holder, BounceChoice *bounceChoice);
+	void resetPosition(BounceChoice *bounceChoice);
 };
 
 #endif // __BOUNCE_SCENE_H__

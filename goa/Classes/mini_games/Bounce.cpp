@@ -4,11 +4,11 @@
 #include <array>
 #include "../lang/LangUtil.h"
 
-#define COCOS2D_DEBUG 1
+#define COCOS2d_DEBUG 1
 using namespace std;
 using namespace cocos2d;
 USING_NS_CC;
-
+ 
 Scene* Bounce::createScene()
 {
 	auto scene = Scene::create();
@@ -24,11 +24,10 @@ void Bounce::onEnterTransitionDidFinish()
 	CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
 	framecache1->addSpriteFramesWithFile("icecream/icecream.plist");
 	
-
 		_currentLevel = _menuContext->getCurrentLevel();
 		_menuContext->setMaxPoints(MAX_LESSONS);
-		//new BounceHolder(4);
-		CCLOG(" MAX_LESSONS = %d and Current level is = %d ", MAX_LESSONS, _level);
+		
+		
 		doLevel();
 		this->scheduleUpdate();
 
@@ -131,6 +130,7 @@ void Bounce::doLevel()
 void Bounce::setupLayer(int startNum, int endNum, int sum, int begin, std::vector<int> choices, std::vector<int> correctChoices)
 {
 	auto bg = CSLoader::createNode("icecream/background.csb");
+	bg->setName("bg");
 	this->addChild(bg);
 	_startNum = startNum;
 	_endNum = endNum;
@@ -149,6 +149,7 @@ void Bounce::setupLayer(int startNum, int endNum, int sum, int begin, std::vecto
 	//_scroll->setBounceEnabled(true);
 	_scroll->setDirection(cocos2d::ui::ScrollView::Direction::HORIZONTAL);
 	_scroll->setInnerContainerSize(Size(NUMBER_WIDTH * (endNum - startNum + 1), visibleSize.height));
+	_scroll->setName("scroll");
 	//_scroll->setBackGroundImage("sample.png");
 	this->addChild(_scroll);
 
@@ -156,13 +157,33 @@ void Bounce::setupLayer(int startNum, int endNum, int sum, int begin, std::vecto
 	for (int i = startNum; i <= endNum; i++) {
 		auto sprite = new BounceHolder(i);
 		sprite->setPosition(Vec2((i - startNum + 0.5)*NUMBER_WIDTH, HOLDER_Y));
+		sprite->setTag(0);
 		_scroll->addChild(sprite, 1);
 		_holders.push_back(sprite);
+
+		////
+		std::ostringstream numberInString;
+		numberInString << i;
+		std::string numInString = numberInString.str();
+		sprite->setName("holder" + numInString);
+
+		////
+		
 		auto backHolder = Sprite::createWithSpriteFrameName("icecream/holder_1.png");
 		backHolder->setPosition(Vec2((i - startNum + 0.5) * NUMBER_WIDTH, HOLDER_Y + 85));
 		_scroll->addChild(backHolder, -10);
 		_backHolders.push_back(backHolder);
 		sprite->_backHolder = backHolder;
+
+		//
+	/*	auto dummyBox = DrawNode::create();
+		_scroll->addChild(dummyBox, 20);
+		auto a = sprite->getPositionX() - sprite->getContentSize().width / 2;
+		auto b = sprite->getPositionY() - sprite->getContentSize().height / 2;
+		dummyBox->drawRect(Vec2(a, b),
+			Vec2(a + sprite->getContentSize().width, b + sprite->getContentSize().height),
+			Color4F(255 * rand_0_1(), 255* rand_0_1(), 255* rand_0_1(), 55));*/
+		//
 
 	}
 	    auto sumSprite = Sprite::createWithSpriteFrameName("icecream/cone.png");
@@ -193,14 +214,117 @@ void Bounce::setupLayer(int startNum, int endNum, int sum, int begin, std::vecto
 void Bounce::setupChoices()
 {
 	    auto screenWidth = visibleSize.width;
-		//_rectContainer.resize(_choices.size());
+		this->_bounceChoices.clear();
+		
 		for (int i = 0; i < _choices.size(); i++) {
+			auto x = screenWidth - (_choices.size() - i) * (CHOICE_WIDTH + CHOICE_PADDING);
 			auto bounceChoice = new BounceChoice(_choices[i], Point(screenWidth - (_choices.size() - i) * (CHOICE_WIDTH + CHOICE_PADDING), 200),this);
-				
+			BounceChoiceListner(bounceChoice);
 			this->addChild(bounceChoice);
 				this->_bounceChoices.push_back(bounceChoice);
 		}
 }
+
+void Bounce::BounceChoiceListner(BounceChoice* bounceChoice) {
+
+	
+	auto listener = cocos2d::EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(true);
+	cocos2d::DrawNode *aa = NULL;
+
+	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
+	{
+		auto target = event->getCurrentTarget();
+		auto location = target->convertTouchToNodeSpace(touch); //touch->getLocation();
+		auto location1 = touch->getLocation();
+		
+		auto targetPoint = ((BounceChoice*)target)->_brightSprite->getParent()->convertToWorldSpace(((BounceChoice*)target)->_brightSprite->getPosition());
+		auto rectTarget = ((BounceChoice*)target)->_brightSprite->getBoundingBox();
+	
+		auto x = targetPoint.x - rectTarget.size.width / 2;
+		auto y = targetPoint.y - 20;
+
+		auto rect = Rect(x,y,rectTarget.size.width, rectTarget.size.height);
+		//auto rect2 = Rect(location.x,location.y,10,10);
+		
+		if (rect.containsPoint(location))
+		{
+			
+			((BounceChoice*)target)->_locationInNode = ((BounceChoice*)target)->_brightSprite->getParent()->convertTouchToNodeSpace(touch);
+			((BounceChoice*)target)->_positionAtTouch = ((BounceChoice*)target)->_brightSprite->getPosition();
+			
+				if (((BounceChoice*)target)->_holder) {
+					auto name = ((BounceChoice*)target)->_holder->getName();
+					auto tag = ((BounceChoice*)target)->_holder->getTag();
+					for (int i = 0; i < ((Bounce*)target->getParent())->_holders.size(); i++) {
+						if (!name.compare(((Bounce*)target->getParent())->_holders[i]->getName()))
+						{
+							((Bounce*)target->getParent())->_holders[i]->setTag(0);
+							break;
+						}
+					}
+					auto a = ((Bounce*)target->getParent())->_holders;
+					((BounceChoice*)target)->shiftParent(((BounceChoice*)target));
+				}
+			return true;
+		}
+		return false;
+	};
+	listener->onTouchMoved = [=](cocos2d::Touch* touch, cocos2d::Event* event)
+	{
+		auto target = event->getCurrentTarget();
+		auto locationInNode = target->convertTouchToNodeSpace(touch);
+		((BounceChoice*)target)->_brightSprite->setPosition(locationInNode.x + ((BounceChoice*)target)->_positionAtTouch.x - ((BounceChoice*)target)->_locationInNode.x, locationInNode.y + ((BounceChoice*)target)->_positionAtTouch.y - ((BounceChoice*)target)->_locationInNode.y);
+
+		return true;
+	};
+	listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event)
+	{
+		auto target = event->getCurrentTarget();
+		for (int i = 0; i < ((Bounce*)target->getParent())->_holders.size(); i++) {
+
+			auto holder = ((Bounce*)target->getParent())->_holders[i];
+
+			auto name = ((Bounce*)target->getParent())->_holders[i]->getName();
+			auto tag = ((Bounce*)target->getParent())->_holders[i]->getTag();
+			if (tag == 1)
+			{
+				auto a = 0;
+			}
+
+			auto holderPoint = holder->getParent()->convertToWorldSpace(holder->getPosition());
+			auto holderRect = Rect(holderPoint.x- holder->getContentSize().width/2, holderPoint.y- holder->getContentSize().height/2, holder->getContentSize().width, holder->getContentSize().height);
+			auto holderRect1 = holder->getBoundingBox();
+			
+			auto targetPoint = ((BounceChoice*)target)->convertToWorldSpace(((BounceChoice*)target)->_brightSprite->getPosition());
+			auto targetRect = Rect(targetPoint.x, targetPoint.y, ((BounceChoice*)target)->_brightSprite->getContentSize().width, ((BounceChoice*)target)->_brightSprite->getContentSize().height);
+			auto targetRect1 = ((BounceChoice*)target)->_brightSprite->getBoundingBox();
+			
+			//targetRect.origin.x = targetRect.origin.x + targetRect.size.width / 2;
+			targetRect.origin.x = targetRect.origin.x - 10;// targetRect.size.width / 4;
+			targetRect.size.width = 20;
+
+			if((holder->_choice))
+			{
+				auto a = 1;
+			}
+				if (holderRect.intersectsRect( targetRect) && (holder->getTag() == 0)) 
+				{
+					/*if (((Bounce*)target->getParent())->_help) {
+						((Bounce*)target->getParent())->removeChild(((Bounce*)target->getParent())->_help);
+						((Bounce*)target->getParent())->_help = NULL;
+					}*/
+					((BounceChoice*)target)->addToHolder(holder, ((BounceChoice*)target));
+					return;
+				}
+		}
+		auto layer = ((BounceChoice*)target);
+		auto sprite = ((BounceChoice*)target)->_brightSprite;
+		((BounceChoice*)target)->resetPosition(((BounceChoice*)target));
+	};
+	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, bounceChoice);
+}
+
 int Bounce::randomInt(int min, int max)
 {
 	return  floor(rand_0_1() * (max - min + 1)) + min;
@@ -210,15 +334,11 @@ void Bounce::cleanLayer()
 {
 	this->removeAllChildren();
 	this->_holders.clear();
-	this->_choices[3] = {};
+	this->_choices.clear();;
 	this->_bounceChoices.clear();
 	this->_backHolders.clear();
 }
 
-BounceChoice::BounceChoice()
-{
-	
-}
 
 BounceChoice::BounceChoice(int number, Point position , Bounce *bounce)
 {
@@ -244,132 +364,40 @@ BounceChoice::BounceChoice(int number, Point position , Bounce *bounce)
 	_brightAction = CSLoader::createTimeline("icecream/cup.csb");
 	_brightSprite = CSLoader::createNode("icecream/cup.csb");
 	_brightSprite->setPosition(Vec2(position));
-	_brightSprite->setContentSize(Size(_brightSprite->getChildByName("body")->getContentSize().width, _brightSprite->getChildByName("body")->getContentSize().height));
+	_brightSprite->setContentSize(Size(225,290));
 	_brightSprite->runAction(_brightAction);
 	_brightSprite->setName("brightsprite");
-
+	
 	auto text1 = CommonLabelTTF::create(numString, "Arial", 128);
 	text1->setPosition(Vec2(0, Bounce::TEXT_Y));
 	text1->setColor(cocos2d::Color3B(0, 0, 0));
 	_brightSprite->addChild(text1);
 	this->addChild(_brightSprite);
 
-	auto xPos = _brightSprite->getPositionX() + _brightSprite->getChildByName("body")->getPositionX();
-	auto yPos = _brightSprite->getPositionY() + _brightSprite->getChildByName("body")->getPositionY();
-	auto spriteRect = Rect(xPos, yPos, _brightSprite->getChildByName("body")->getContentSize().width, _brightSprite->getChildByName("body")->getContentSize().height);
-	auto aabbb = DrawNode::create();
-	this->addChild(aabbb, 20);
-	
-	aabbb->drawRect(Vec2(xPos, yPos),
-		Vec2(xPos + _brightSprite->getChildByName("body")->getContentSize().width, yPos + _brightSprite->getChildByName("body")->getContentSize().height),
-		Color4F(0, 0, 255, 22));
-
-	/*auto xPos = _brightSprite->getPositionX() + _brightSprite->getChildByName("body")->getPositionX();
-	auto yPos = _brightSprite->getPositionY() + _brightSprite->getChildByName("body")->getPositionY();
-	auto spriteRect = Rect(xPos, yPos, _brightSprite->getChildByName("body")->getContentSize().width, _brightSprite->getChildByName("body")->getContentSize().height);
-	
-	bounce->_rectContainer.push_back(spriteRect);
-	bounce->_choiceSpriteContainer.push_back(_brightSprite);
-	bounce->_choiceDullSpriteContainer.push_back(_dullSprite);*/
-
-	auto _listener = cocos2d::EventListenerTouchOneByOne::create();
-	_listener->setSwallowTouches(true);
-
-	_listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
-	{
-		auto target = event->getCurrentTarget();
-		//auto rect = ((BounceChoice*)target)->_brightSprite->getBoundingBox();
-		auto point = target->getParent()->convertToNodeSpace(touch->getLocation());
-	   /* auto rect = Rect(((BounceChoice*)target)->_brightSprite->getPositionX() + ((BounceChoice*)target)->_brightSprite->getChildByName("body")->getPositionX(),
-			((BounceChoice*)target)->_brightSprite->getPositionY() + ((BounceChoice*)target)->_brightSprite->getChildByName("body")->getPositionY(),
-			((BounceChoice*)target)->_brightSprite->getChildByName("body")->getContentSize().width,
-			((BounceChoice*)target)->_brightSprite->getChildByName("body")->getContentSize().height
-		);*/
-
-		auto rect = ((BounceChoice*)target)->_brightSprite->getBoundingBox();
-
-		auto aab = DrawNode::create();
-		this->addChild(aab, 20);
-		auto a = ((BounceChoice*)target)->_brightSprite->getPositionX();
-		auto b = ((BounceChoice*)target)->_brightSprite->getPositionY();
-		aab->drawRect(Vec2(a, b),
-			Vec2(a + ((BounceChoice*)target)->_brightSprite->getChildByName("body")->getContentSize().width, b + ((BounceChoice*)target)->_brightSprite->getChildByName("body")->getContentSize().height),
-			Color4F(229, 78, 78, 22));
-
-				if (rect.containsPoint(touch->getLocation())) //NTC
-				{
-					
-					//_locationInNode = ((BounceChoice*)target)->_brightSprite[i]->getParent()->convertTouchToNodeSpace(touch);
-					//_locationInNode = bounce->_clickedObject->getParent()->convertTouchToNodeSpace(touch);
-					////_positionAtTouch = ((BounceChoice*)target)->_brightSprite->getPosition();
-					//_positionAtTouch = bounce->_clickedObject->getPosition();
-					//if (((BounceChoice*)target)->_holder) {
-					//	((BounceChoice*)target)->shiftParent();
-					//}
-
-					/*auto target = event->getCurrentTarget();
-					auto rect = target->getChildByName("body")->getBoundingBox();
-						if (rect.containsPoint(touch->getLocation())) {
-							((BounceChoice*)target)->_locationInNode = ((BounceChoice*)target)->getChildByName("brightsprite")->getParent()->convertTouchToNodeSpace(touch);
-							((BounceChoice*)target)->_positionAtTouch = ((BounceChoice*)target)->getChildByName("brightsprite")->getPosition();
-								if (((BounceChoice*)target)->_holder) {
-									((BounceChoice*)target)->shiftParent();
-								}*/
-					return true;
-			}
-		return false;
-	};
-	_listener->onTouchMoved =[=] (cocos2d::Touch* touch, cocos2d::Event* event)
-	{
-		/*auto target = event->getCurrentTarget();
-		auto locationInNode = ((BounceChoice*)target)->convertTouchToNodeSpace(touch);
-		((BounceChoice*)target)->getChildByName("brightsprite")->setPosition(locationInNode.x + ((BounceChoice*)target)->_positionAtTouch.x - ((BounceChoice*)target)->_locationInNode.x, locationInNode.y + ((BounceChoice*)target)->_positionAtTouch.y - ((BounceChoice*)target)->_locationInNode.y);*/
-		
-		//auto target = event->getCurrentTarget();
-		//auto locationInNode = target->convertTouchToNodeSpace(touch);
-		////((BounceChoice*)target)->_brightSprite->setPosition(locationInNode.x + ((BounceChoice*)target)->_positionAtTouch.x - ((BounceChoice*)target)->_locationInNode.x, locationInNode.y + ((BounceChoice*)target)->_positionAtTouch.y - ((BounceChoice*)target)->_locationInNode.y);
-		//bounce->_clickedObject->setPosition(locationInNode.x + ((BounceChoice*)target)->_positionAtTouch.x - ((BounceChoice*)target)->_locationInNode.x, locationInNode.y + ((BounceChoice*)target)->_positionAtTouch.y - ((BounceChoice*)target)->_locationInNode.y);
-
-	};
-	_listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event)
-	{
-		auto target = event->getCurrentTarget();
-	/*	((BounceChoice*)target)->_locationInNode.~Vec2();
-	    ((BounceChoice*)target)->_positionAtTouch = NULL;*/
-	//for (int i = 0; i < bounce->_holders.size(); i++) {
-	//	
-	//	auto holder = bounce->_holders[i];
-	//	auto holderRect = holder->getBoundingBox();//NTC
-	//	auto xPos = holder->getPositionX();
-	//	auto yPos = holder->getPositionY();
-	//	//auto targetRect = ((BounceChoice*)target)->_brightSprite->getChildByName("body")->getBoundingBox();//NTC
-	//	auto targetRect = bounce->_clickedObject->getChildByName("body")->getBoundingBox();//NTC
-	//	targetRect.origin.x = targetRect.origin.x + targetRect.size.width / 2;
-	//	targetRect.size.width = 20;
-
-	//		if (holderRect.intersectsRect( targetRect) && ((BounceHolder*)holder)->_choice == NULL) {
-	//			if (bounce->_help) {
-	//				bounce->removeChild(bounce->_help);
-	//				bounce->_help = NULL;
-	//			}
-	//			((BounceChoice*)target)->addToHolder(holder);
-	//			//	return; NTC
-	//		}
-	//}
-	((BounceChoice*)target)->resetPosition( );
-	};
-	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(_listener, this);
-
+	//auto aa = DrawNode::create();
+	//_brightSprite->addChild(aa, 20);
+	//aa->setName("debug");
+	////auto a = _brightSprite->getPositionX() - 10;
+	////auto b = _brightSprite->getPositionY() - 20;
+	//aa->drawRect(Vec2(0, 0),
+	//	Vec2(20,290),
+	//	Color4F(0, 0, 255, 22));
 }
-void BounceChoice::shiftParent()
+void BounceChoice::shiftParent(BounceChoice *bounceChoice)
 {
-	auto pos = _brightSprite->getParent()->convertToNodeSpace(_brightSprite->getPosition());
-	_brightSprite->removeFromParent();
+	auto layer = bounceChoice;
+	auto sprite = bounceChoice->_brightSprite;
+
+	auto pos = bounceChoice->_brightSprite->getParent()->convertToWorldSpace(bounceChoice->_brightSprite->getPosition());
+	//bounceChoice->_brightSprite->setOpacity(30);
+	bounceChoice->_brightSprite->removeFromParent();
 	
-	auto  brightHolder = CSLoader::createNode("icecream/cup.csb");
-	_brightSprite = CSLoader::createNode("icecream/cup.csb");
-	_brightAction = CSLoader::createTimeline("icecream/cup.csb");
-	_brightSprite->runAction(_brightAction);
+
+	auto brightHolder = CSLoader::createNode("icecream/cup.csb");
+	auto brightSprite = CSLoader::createNode("icecream/cup.csb");
+	auto brightAction = CSLoader::createTimeline("icecream/cup.csb");
+	brightSprite->setName("brightsprite");
+	brightSprite->runAction(brightAction);
 
 	std::ostringstream numberInString;
 	numberInString << _number;
@@ -378,34 +406,61 @@ void BounceChoice::shiftParent()
 	auto text = CommonLabelTTF::create(numString, "Arial", 128);
 	text->setPosition(Vec2(0, Bounce::TEXT_Y));
 	text->setColor(cocos2d::Color3B(0, 0, 0));
-	_brightSprite->addChild(text);
-	this->addChild(_brightSprite);
-	_brightSprite->setPosition(pos);
-
-		if (this->_holder) {
-			this->_holder->_choice = NULL;
-			this->_holder = NULL;
+	brightSprite->addChild(text);
+	bounceChoice->addChild(brightSprite);
+	brightSprite->setPosition(pos);
+	bounceChoice->_brightSprite = brightSprite;
+	bounceChoice->_brightAction = brightAction;
+		if (bounceChoice->_holder) {
+			bounceChoice->_holder->_choice = NULL;
+			bounceChoice->_holder = NULL;
 		}
 
-	
+		//auto aa = DrawNode::create();
+		//brightSprite->addChild(aa, 20);
+		//aa->setName("debug");
+		////auto a = _brightSprite->getPositionX() - 10;
+		////auto b = _brightSprite->getPositionY() - 20;
+		//aa->drawRect(Vec2(0, 0),
+		//	Vec2(20, 290),
+		//	Color4F(0, 0, 255, 22));
 }
-void BounceChoice::resetPosition()
+void BounceChoice::resetPosition(BounceChoice *bounceChoice)
 {
-	this->shiftParent();
+	bounceChoice->shiftParent(bounceChoice);
 	auto moveTo = MoveTo::create(1, this->_dullSprite->getPosition());
-	this->_brightSprite->runAction(moveTo);
+	bounceChoice->_brightSprite->runAction(moveTo);
+	bounceChoice->_brightSprite->setContentSize(Size(225, 290));
+	auto layer = bounceChoice->getParent();
+	
+	/*for (int i = 0; i < ((Bounce*)bounceChoice->getParent())->_holders.size(); i++) {
+		if (((Bounce*)bounceChoice->getParent())->_holders[i]->getTag() == 1)
+		{
+			((Bounce*)bounceChoice->getParent())->_holders[i]->setTag(0);
+		}
+	}*/
+	Bounce::BounceChoiceListner(bounceChoice);
 }
-void BounceChoice::addToHolder(BounceHolder  *holder)
+void BounceChoice::addToHolder(BounceHolder  *holder, BounceChoice *bounceChoice)
 {
 	_holder = holder;
-	holder->_choice = this;
-	auto spritePos = this->_brightSprite->getPosition();
-	this->_brightSprite->removeFromParent();
+	holder->setTag(1);
+	holder->_choice = bounceChoice;
+	//Bounce::_bounceChoiceLayer = bounceChoice;
+	auto spritePos = bounceChoice->_brightSprite->getPosition();
+	bounceChoice->_brightSprite->setOpacity(50);
+	bounceChoice->_brightSprite->removeFromParent();
+	//this->_brightSprite->removeFromParent();
+	
 		
 	    auto brightHolder = CSLoader::createNode("icecream/cup.csb");
-		this->_brightSprite = CSLoader::createNode("icecream/cup.csb");
-		this->_brightAction = CSLoader::createTimeline("icecream/cup.csb");
-		this->_brightSprite->runAction(this->_brightAction);
+		bounceChoice->_brightSprite = CSLoader::createNode("icecream/cup.csb");
+		bounceChoice->_brightAction = CSLoader::createTimeline("icecream/cup.csb");
+		bounceChoice->_brightSprite->runAction(this->_brightAction);
+		/*bounceChoice->_brightSprite = CSLoader::createNode("icecream/cup.csb");
+		bounceChoice->brightAction = CSLoader::createTimeline("icecream/cup.csb");*/
+		bounceChoice->_brightSprite->setName("brightsprite");
+		bounceChoice->_brightSprite->setContentSize(Size(225, 290));
 
 		std::ostringstream numberInString;
 		numberInString << _number;
@@ -414,33 +469,43 @@ void BounceChoice::addToHolder(BounceHolder  *holder)
 		auto text = CommonLabelTTF::create(numString, "Arial", 128);
 		text->setPosition(Vec2(0, Bounce::TEXT_Y));
 		text->setColor(cocos2d::Color3B(0, 0, 0));
-		_brightSprite->addChild(text);
-		holder->_backHolder->addChild(this->_brightSprite);
-		this->_brightSprite->setPosition(holder->_backHolder->convertToNodeSpace(spritePos));
+		bounceChoice->_brightSprite->addChild(text);
+
+		/*bounceChoice->_brightSprite = brightSprite;
+		bounceChoice->_brightAction = brightAction;*/
+
+		holder->_backHolder->addChild(bounceChoice->_brightSprite);
+		bounceChoice->_brightSprite->setPosition(holder->_backHolder->convertToNodeSpace(spritePos));
+
+		/*holder->_backHolder->addChild(this->_brightSprite);
+		this->_brightSprite->setPosition(holder->_backHolder->convertToNodeSpace(spritePos));*/
 		auto newPos = Point(holder->getContentSize().width / 2, 60);
 		auto moveTo = MoveTo::create(0.25, newPos);
-		auto action = moveTo;
-		auto layer = this->getParent();
 		Sequence *action1;
-		if (((Bounce*)layer)->_level == 1 && ((Bounce*)layer)->_lessons == 0) {
-			auto callFunc = CallFunc::create([=] {
+		action1 = Sequence::create(moveTo, NULL);
+		auto layer = bounceChoice->getParent();
+		//auto layer = this->getParent();
 
-				auto dropRect = Rect(((Bounce*)layer)->_bounceDrop->getPositionX(), ((Bounce*)layer)->_bounceDrop->getPositionY(), 400, 400);
-			  auto _help = HelpLayer::create(Rect(dropRect),
-				  Rect(0, 0, 0,0));
-				// auto _help = HelpLayer::create(dropRect);
-			   ((Bounce*)layer)->addChild(_help);
-			   _help->click(Vec2(((Bounce*)layer)->_bounceDrop->getPositionX(), ((Bounce*)layer)->_bounceDrop->getPositionY()));
-			});
-			 action1 = Sequence::create(moveTo, callFunc, NULL);
-		}
-		this->_brightSprite->runAction(action1);
+		//if (((Bounce*)layer)->_level == 1 && ((Bounce*)layer)->_lessons == 0) {
+		//	auto callFunc = CallFunc::create([=] {
 
+		//		auto dropRect = Rect(((Bounce*)layer)->_bounceDrop->getPositionX(), ((Bounce*)layer)->_bounceDrop->getPositionY(), 400, 400);
+		//	  auto _help = HelpLayer::create(Rect(dropRect),
+		//		  Rect(0, 0, 0,0));
+		//		// auto _help = HelpLayer::create(dropRect);
+		//	   ((Bounce*)layer)->addChild(_help);
+		//	   _help->click(Vec2(((Bounce*)layer)->_bounceDrop->getPositionX(), ((Bounce*)layer)->_bounceDrop->getPositionY()));
+		//	});
+		//	 action1 = Sequence::create(moveTo, callFunc, NULL);
+		//}
+		bounceChoice->_brightSprite->runAction(action1);
+		Bounce::BounceChoiceListner(bounceChoice);
 }
 BounceHolder::BounceHolder(int num)
 {
 	if (this->initWithSpriteFrameName("icecream/holder_2.png")) {
 		this->_num = num;
+		
 		std::ostringstream total;
 		total << num;
 		std::string numString = total.str();
@@ -527,14 +592,32 @@ void BounceBall::animateBounce(bool automatic)
 		    //NTC	
 			cocos2d::CallFunc *animCallFunc;
 			BezierTo *bezierAction;
-			while (holder->_choice)
+			cocos2d::CallFunc *animCallFunc_1;
+			BezierTo *bezierAction_1;
+			auto counter = 0;
+			while( holder->getTag() == 1 )
 			{
-				     animCallFunc = CallFunc::create([=] {
-					//_brightAction->gotoFrameAndPlay(0, false);
-					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-					audio->playEffect("sounds/sfx/water_drop.ogg", false);
-				});
-					 posNum += holder->_choice->_number;
+				counter++;
+				if(counter == 1)
+				{
+					animCallFunc = CallFunc::create([=] {
+						holder->_choice->_brightAction->gotoFrameAndPlay(0, false);
+						auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+						audio->playEffect("sounds/sfx/water_drop.ogg", false);
+					});
+				}
+				else
+				{
+					animCallFunc_1 = CallFunc::create([=] {
+						holder->_choice->_brightAction->gotoFrameAndPlay(0, false);
+						auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+						audio->playEffect("sounds/sfx/water_drop.ogg", false);
+					});
+				}
+				    
+					/* posNum += bounceChoice->_number; 
+					 components.push_back(bounceChoice->_number);*/
+					  posNum += holder->_choice->_number;
 					 components.push_back(holder->_choice->_number);
 					 auto holderPos = holder->getPosition();
 					 holderPos.y = holderPos.y + holder->getContentSize().height / 2 + Bounce::CUP_HEIGHT;
@@ -546,7 +629,15 @@ void BounceBall::animateBounce(bool automatic)
 					 bezier.controlPoint_1 = Point(holderPos);
 					 bezier.controlPoint_2 = Point((nextholderPos.x + holderPos.x) / 2, holderPos.y + 1600);
 					 bezier.endPosition = Point(nextholderPos);
-					 bezierAction = BezierTo::create(1, bezier);
+					 if (counter == 1)
+					 {
+						 bezierAction = BezierTo::create(1, bezier);
+					 }
+					 else
+					 {
+						 bezierAction_1 = BezierTo::create(1, bezier);
+					 }
+					 
 					 holder = nextholder;
 			}
 			MoveTo *moveTo_1;
@@ -569,8 +660,15 @@ void BounceBall::animateBounce(bool automatic)
 						auto additionDisplay = new AdditionDisplay(components, _layer->_sum);
 						this->_layer->addChild(additionDisplay);
 						
-						
 				});
+				if (counter == 1)
+				{
+					this->runAction(Sequence::create(moveTo, animCallFunc, bezierAction,  moveTo_1, callFunc, NULL));
+				}
+				else
+				{
+					this->runAction(Sequence::create(moveTo, animCallFunc, bezierAction, animCallFunc_1, bezierAction_1, moveTo_1, callFunc, NULL));
+				}
 			}
 
 			else {
@@ -586,16 +684,33 @@ void BounceBall::animateBounce(bool automatic)
 						this->_follow = NULL;
 						this->_layer->_scroll->scrollToPercentHorizontal((this->_layer->_holders[this->_layer->_begin - this->_layer->_startNum]->getPositionX()) * 100 / this->_layer->_scroll->getInnerContainerSize().width, 1, true);
 						if (++this->_layer->_tries >= Bounce::MAX_LESSONS) {
-							//this->_layer->showAnswer();//NTC
+							//this->showAnswer(_layer);//NTC
 						}
 					});
-				
+				this->runAction(Sequence::create(moveTo, moveTo_1, callFunc, NULL));
 			}
-			this->runAction(Sequence::create(moveTo, animCallFunc, bezierAction, moveTo_1, callFunc, NULL));
+		//	this->runAction(Sequence::create(moveTo, animCallFunc, bezierAction, moveTo_1, callFunc, NULL));
 	}
-	
 }
-
+//void BounceBall::showAnswer(Bounce* bounce)
+//{
+//	for (int i = 0; i < bounce->_holders.size(); i++) {
+//		if (bounce->_holders[i]->getTag() == 1) {
+//			bounce->_holders[i]->_choice->resetPosition(Bounce::_bounceChoiceLayer);
+//		}
+//	}
+//	auto callFunc = CallFunc::create([=] {
+//		auto choice = bounce->_bounceChoices[bounce->_correctChoices[0]];
+//		auto holder = bounce->_holders[bounce->_begin - bounce->_startNum];
+//		(BounceChoice*)choice->addToHolder(holder, Bounce::_bounceChoiceLayer);
+//		//((Bounce*)bounceChoice->getParent())
+//	});
+//	auto animateCallFunc = CallFunc::create([=] {
+//		bounce->_bounceBall->animateBounce(true);
+//	});
+//	auto seq = Sequence::create(DelayTime::create(1), callFunc, DelayTime::create(0.25), animateCallFunc, NULL);
+//	this->runAction(seq);
+//}
 AdditionDisplay::AdditionDisplay(std::vector<int> component, int sum)
 {
 	
