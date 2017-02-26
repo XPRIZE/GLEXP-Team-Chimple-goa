@@ -4,11 +4,11 @@
 #include <array>
 #include "../lang/LangUtil.h"
 
-#define COCOS2S_DEBUG 1
+#define COCOS2D_DEBUG 1
 using namespace std;
 using namespace cocos2d;
 USING_NS_CC;
- 
+
 Scene* Bounce::createScene()
 {
 	auto scene = Scene::create();
@@ -26,11 +26,9 @@ void Bounce::onEnterTransitionDidFinish()
 	
 		_currentLevel = _menuContext->getCurrentLevel();
 		_menuContext->setMaxPoints(MAX_LESSONS);
-		
-		
+
 		doLevel();
 		this->scheduleUpdate();
-
 }
 void Bounce::update(float dt)
 {
@@ -395,7 +393,6 @@ void BounceChoice::shiftParent(BounceChoice *bounceChoice)
 
 	auto pos = bounceChoice->_brightSprite->getParent()->convertToWorldSpace(bounceChoice->_brightSprite->getPosition());
 	bounceChoice->_brightSprite->removeFromParent();
-	
 
 	auto brightHolder = CSLoader::createNode("icecream/cup.csb");
 	auto brightSprite = CSLoader::createNode("icecream/cup.csb");
@@ -480,9 +477,9 @@ void BounceChoice::addToHolder(BounceHolder  *holder, BounceChoice *bounceChoice
 		action1 = Sequence::create(moveTo, NULL);
 		auto layer = bounceChoice->getParent();
 		auto layer2 = ((Bounce*)layer);
-		//auto layer = this->getParent();
+		((Bounce*)layer)->_bounceChoicesLayer = bounceChoice;
 
-		if (((Bounce*)layer)->_level == 1 && ((Bounce*)layer)->_lessons == 0) {
+		if (((Bounce*)layer)->_currentLevel == 1 && ((Bounce*)layer)->_lessons == 0) {
 			auto callFunc = CallFunc::create([=] {
 
 				auto dropRect = Rect(((Bounce*)layer)->_bounceDrop->getPositionX(), ((Bounce*)layer)->_bounceDrop->getPositionY(), 400, 400);
@@ -679,7 +676,7 @@ void BounceBall::animateBounce(bool automatic)
 						this->_follow = NULL;
 						this->_layer->_scroll->scrollToPercentHorizontal((this->_layer->_holders[this->_layer->_begin - this->_layer->_startNum]->getPositionX()) * 100 / this->_layer->_scroll->getInnerContainerSize().width, 1, true);
 						if (++this->_layer->_tries >= Bounce::MAX_LESSONS) {
-							//this->showAnswer(_layer);//NTC
+							this->showAnswer(_layer);//NTC
 						}
 					});
 				if (counter == 0)
@@ -695,28 +692,28 @@ void BounceBall::animateBounce(bool automatic)
 					this->runAction(Sequence::create(moveTo, animCallFunc, bezierAction, animCallFunc_1, bezierAction_1, moveTo_1, callFunc, NULL));
 				}
 			}
-		//	this->runAction(Sequence::create(moveTo, animCallFunc, bezierAction, moveTo_1, callFunc, NULL));
 	}
 }
-//void BounceBall::showAnswer(Bounce* bounce)
-//{
-//	for (int i = 0; i < bounce->_holders.size(); i++) {
-//		if (bounce->_holders[i]->getTag() == 1) {
-//			bounce->_holders[i]->_choice->resetPosition(Bounce::_bounceChoiceLayer);
-//		}
-//	}
-//	auto callFunc = CallFunc::create([=] {
-//		auto choice = bounce->_bounceChoices[bounce->_correctChoices[0]];
-//		auto holder = bounce->_holders[bounce->_begin - bounce->_startNum];
-//		(BounceChoice*)choice->addToHolder(holder, Bounce::_bounceChoiceLayer);
-//		//((Bounce*)bounceChoice->getParent())
-//	});
-//	auto animateCallFunc = CallFunc::create([=] {
-//		bounce->_bounceBall->animateBounce(true);
-//	});
-//	auto seq = Sequence::create(DelayTime::create(1), callFunc, DelayTime::create(0.25), animateCallFunc, NULL);
-//	this->runAction(seq);
-//}
+void BounceBall::showAnswer(Bounce* bounce)
+{
+	for (int i = 0; i < bounce->_holders.size(); i++) {
+		if (bounce->_holders[i]->getTag() == 1) {
+			//BounceChoice* layer = (BounceChoice*)bounce->_backHolders[i]->getChildByName("brightsprite")->getParent();
+			bounce->_holders[i]->_choice->resetPosition(bounce->_bounceChoicesLayer);
+		}
+	}
+	auto callFunc = CallFunc::create([=] {
+		auto choice = bounce->_bounceChoices[bounce->_correctChoices[0]];
+		auto holder = bounce->_holders[bounce->_begin - bounce->_startNum];
+		((BounceChoice*)choice)->addToHolder(holder, bounce->_bounceChoicesLayer);
+		//((Bounce*)bounceChoice->getParent())
+	});
+	auto animateCallFunc = CallFunc::create([=] {
+		bounce->_bounceBall->animateBounce(true);
+	});
+	auto seq = Sequence::create(DelayTime::create(1), callFunc, DelayTime::create(0.25), animateCallFunc, NULL);
+	this->runAction(seq);
+}
 AdditionDisplay::AdditionDisplay(std::vector<int> component, int sum)
 {
 	
@@ -767,7 +764,7 @@ AdditionDisplay::AdditionDisplay(std::vector<int> component, int sum)
 		};
 		cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(_listener, this);
 	}
-	}
+}
 
 
 std::string AdditionDisplay::convertInString(int number) {

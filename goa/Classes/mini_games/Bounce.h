@@ -43,7 +43,7 @@ public:
 	int _currentLevel = 0;
 	cocos2d::ui::ScrollView *_scroll;
 	bool _helpFlag = false;
-	
+    BounceChoice *_bounceChoicesLayer = NULL;
 	//~Bounce();
 	CREATE_FUNC(Bounce);
 	
