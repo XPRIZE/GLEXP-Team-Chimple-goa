@@ -5,9 +5,8 @@
 #include "../menu/HelpLayer.h"
 
 #define COCOS2D_DEBUG 1
-
 using namespace std;
-USING_NS_CC;
+using namespace cocos2d;
 
 Scene* EndlessRunner::createScene()
 {
@@ -197,6 +196,13 @@ void EndlessRunner::update(float delta) {
 			allLabels[0]->pause();
 		}
 	}
+
+	if (!_resumeHelp && (_menuContext->getCurrentLevel() == 1) && this->getChildByName("helpLayer")) {
+		allMonster[0]->pause();
+		allLabels[0]->pause();
+	}
+
+
 
 	if (initBool) {
 		for (std::size_t i = 0; i < allPathBlocks.size(); i++) {

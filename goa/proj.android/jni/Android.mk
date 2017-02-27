@@ -126,6 +126,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/mini_games/Bingo.cpp \
          ../../Classes/mini_games/BlastLetter.cpp \
          ../../Classes/mini_games/BlastLetterNode.cpp \
+         ../../Classes/mini_games/BubbleShooter.cpp \
          ../../Classes/mini_games/Cannon_Ball_Listener.cpp \
          ../../Classes/mini_games/Cannon_Ball_Main.cpp \
          ../../Classes/mini_games/Card.cpp \
@@ -154,6 +155,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/mini_games/Memory.cpp \
          ../../Classes/mini_games/MemoryHero.cpp \
          ../../Classes/mini_games/MemoryJungle.cpp \
+         ../../Classes/mini_games/SortIt.cpp \
          ../../Classes/mini_games/Order.cpp \
          ../../Classes/mini_games/Owl.cpp \
          ../../Classes/mini_games/PatchTheWallScene.cpp \
@@ -169,6 +171,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/mini_games/SpriteCreate.cpp \
          ../../Classes/mini_games/Stack.cpp \
          ../../Classes/mini_games/Step.cpp \
+         ../../Classes/mini_games/Shoot.cpp \
          ../../Classes/mini_games/Table.cpp \
          ../../Classes/mini_games/Talk.cpp \
          ../../Classes/mini_games/TraceScene.cpp \
@@ -192,7 +195,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/puzzle/WordScene.cpp \
          ../../Classes/splash/SplashScene.cpp \
          ../../Classes/sqlite3/Sqlite3Helper.cpp \
-		 ../../Classes/sqlite3/sqlite3.c \
+         ../../Classes/sqlite3/sqlite3.c \
          ../../Classes/story/CopyRight.cpp \
          ../../Classes/story/FillInTheBlanks.cpp \
          ../../Classes/story/Meaning.cpp \
