@@ -129,7 +129,7 @@ public class AppActivity extends Cocos2dxActivity {
 		_activity = this;
 		_context = this;
 		handler = new Handler(getMainLooper());
-
+		getGLSurfaceView().setMultipleTouchEnabled(false);
 		AssetInstaller assetInstaller = new AssetInstaller(getApplicationContext(), "projects");
 		try {
 			assetInstaller.execute();
