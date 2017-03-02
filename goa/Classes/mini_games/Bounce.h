@@ -37,14 +37,12 @@ public:
 	std::vector<Sprite*> _backHolders;
 	std::vector<int> _correctChoices;
 	std::vector<BounceChoice*> _bounceChoices;
-	//BounceChoice *_bounceChoices;
 	BounceDrop* _bounceDrop; 
 	BounceBall* _bounceBall;
 	int _currentLevel = 0;
 	cocos2d::ui::ScrollView *_scroll;
 	bool _helpFlag = false;
     BounceChoice *_bounceChoicesLayer = NULL;
-	//~Bounce();
 	CREATE_FUNC(Bounce);
 	
 	static cocos2d::Scene* createScene();
@@ -65,7 +63,6 @@ public:
 
 class BounceHolder :public cocos2d::Sprite
 {
-
 public:
 	BounceChoice* _choice;
 	int _num = 0 ;
@@ -110,9 +107,9 @@ public:
 	cocostudio::timeline::ActionTimeline *_brightAction;
 	BounceChoice(int number, Point pt, Bounce *bounce);
 	
-	void shiftParent(BounceChoice *bounceChoice);
-	void addToHolder(BounceHolder *holder, BounceChoice *bounceChoice);
-	void resetPosition(BounceChoice *bounceChoice);
+	void shiftParent();
+	void addToHolder(BounceHolder *holder);
+	void resetPosition();
 };
 
 #endif // __BOUNCE_SCENE_H__
