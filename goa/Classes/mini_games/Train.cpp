@@ -298,7 +298,7 @@ void Train::addEvents(struct labelDet _labelDet)
 					if (wordPosition != random)
 					{
 						auto target_Action = MoveTo::create(1, Vec2(tunnel_front_sprite.at(wordPosition - 1)._sprite->getPositionX(), tunnel_front_sprite.at(wordPosition - 1)._sprite->getPositionY()));
-						auto delay = DelayTime::create(1);
+						auto delay = DelayTime::create(1.1);
 						cocos2d::Sequence *sequence = Sequence::create(target_Action, CallFunc::create([=] {
 							auto train_Action = MoveTo::create(1, Vec2(visibleSize.width * 130 / 100, tunnel_front_sprite.at(wordPosition - 1)._sprite->getPositionY()));
 							train->runAction(train_Action);
