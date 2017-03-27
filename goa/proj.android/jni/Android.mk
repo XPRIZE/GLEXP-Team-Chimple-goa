@@ -121,6 +121,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/mini_games/ATM.cpp \
          ../../Classes/mini_games/Baja.cpp \
          ../../Classes/mini_games/BajaWordScene.cpp \
+         ../../Classes/mini_games/Bounce.cpp \
          ../../Classes/mini_games/Balloon.cpp \
          ../../Classes/mini_games/BalloonHero.cpp \
          ../../Classes/mini_games/Bingo.cpp \

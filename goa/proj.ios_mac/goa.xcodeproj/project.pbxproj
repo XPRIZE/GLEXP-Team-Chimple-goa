@@ -68,6 +68,14 @@
 		D6B0611B1803AB670077942B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B0611A1803AB670077942B /* CoreMotion.framework */; };
 		ED545A7C1B68A1F400C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7B1B68A1F400C3958E /* libiconv.dylib */; };
 		ED545A7E1B68A1FA00C3958E /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = ED545A7D1B68A1FA00C3958E /* libiconv.dylib */; };
+		F30575EE1E88F21C00171925 /* Bounce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575E61E88F21C00171925 /* Bounce.cpp */; };
+		F30575EF1E88F21C00171925 /* Bounce.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575E61E88F21C00171925 /* Bounce.cpp */; };
+		F30575F01E88F21C00171925 /* Shoot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575E81E88F21C00171925 /* Shoot.cpp */; };
+		F30575F11E88F21C00171925 /* Shoot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575E81E88F21C00171925 /* Shoot.cpp */; };
+		F30575F21E88F21C00171925 /* BubbleShooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575E91E88F21C00171925 /* BubbleShooter.cpp */; };
+		F30575F31E88F21C00171925 /* BubbleShooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575E91E88F21C00171925 /* BubbleShooter.cpp */; };
+		F30575F41E88F21C00171925 /* SortIt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575EC1E88F21C00171925 /* SortIt.cpp */; };
+		F30575F51E88F21C00171925 /* SortIt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575EC1E88F21C00171925 /* SortIt.cpp */; };
 		F35040891E3219890005DF8D /* Alphamon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35040831E3219890005DF8D /* Alphamon.cpp */; };
 		F350408A1E3219890005DF8D /* Alphamon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35040831E3219890005DF8D /* Alphamon.cpp */; };
 		F350408B1E3219890005DF8D /* HPMeter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35040851E3219890005DF8D /* HPMeter.cpp */; };
@@ -566,6 +574,14 @@
 		D6B0611A1803AB670077942B /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.0.sdk/System/Library/Frameworks/CoreMotion.framework; sourceTree = DEVELOPER_DIR; };
 		ED545A7B1B68A1F400C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.4.sdk/usr/lib/libiconv.dylib; sourceTree = DEVELOPER_DIR; };
 		ED545A7D1B68A1FA00C3958E /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
+		F30575E61E88F21C00171925 /* Bounce.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Bounce.cpp; sourceTree = "<group>"; };
+		F30575E71E88F21C00171925 /* Bounce.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bounce.h; sourceTree = "<group>"; };
+		F30575E81E88F21C00171925 /* Shoot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shoot.cpp; sourceTree = "<group>"; };
+		F30575E91E88F21C00171925 /* BubbleShooter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BubbleShooter.cpp; sourceTree = "<group>"; };
+		F30575EA1E88F21C00171925 /* Shoot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Shoot.h; sourceTree = "<group>"; };
+		F30575EB1E88F21C00171925 /* BubbleShooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleShooter.h; sourceTree = "<group>"; };
+		F30575EC1E88F21C00171925 /* SortIt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SortIt.cpp; sourceTree = "<group>"; };
+		F30575ED1E88F21C00171925 /* SortIt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortIt.h; sourceTree = "<group>"; };
 		F35040831E3219890005DF8D /* Alphamon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Alphamon.cpp; sourceTree = "<group>"; };
 		F35040841E3219890005DF8D /* Alphamon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alphamon.h; sourceTree = "<group>"; };
 		F35040851E3219890005DF8D /* HPMeter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HPMeter.cpp; sourceTree = "<group>"; };
@@ -1620,6 +1636,14 @@
 		F350418A1E32199F0005DF8D /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F30575E61E88F21C00171925 /* Bounce.cpp */,
+				F30575E71E88F21C00171925 /* Bounce.h */,
+				F30575E81E88F21C00171925 /* Shoot.cpp */,
+				F30575E91E88F21C00171925 /* BubbleShooter.cpp */,
+				F30575EA1E88F21C00171925 /* Shoot.h */,
+				F30575EB1E88F21C00171925 /* BubbleShooter.h */,
+				F30575EC1E88F21C00171925 /* SortIt.cpp */,
+				F30575ED1E88F21C00171925 /* SortIt.h */,
 				F350418B1E32199F0005DF8D /* AlphabetWriting.cpp */,
 				F350418C1E32199F0005DF8D /* AlphabetWriting.h */,
 				F350418D1E32199F0005DF8D /* Alphamole.cpp */,
@@ -2134,6 +2158,7 @@
 				F35043551E3219A00005DF8D /* DinoGame.cpp in Sources */,
 				F35042A11E32199F0005DF8D /* LTKInkFileWriter.cpp in Sources */,
 				F350432F1E3219A00005DF8D /* Balloon.cpp in Sources */,
+				F30575EE1E88F21C00171925 /* Bounce.cpp in Sources */,
 				F35043B51E3219A00005DF8D /* WordBoard.cpp in Sources */,
 				F35043571E3219A00005DF8D /* Door.cpp in Sources */,
 				F35043071E32199F0005DF8D /* HelpLayer.cpp in Sources */,
@@ -2160,6 +2185,7 @@
 				F35043B71E3219A00005DF8D /* WordScene.cpp in Sources */,
 				F35043BB1E3219A00005DF8D /* sqlite3.c in Sources */,
 				F350433D1E3219A00005DF8D /* Card.cpp in Sources */,
+				F30575F21E88F21C00171925 /* BubbleShooter.cpp in Sources */,
 				F35042731E32199F0005DF8D /* LTKShapeRecoResult.cpp in Sources */,
 				F35043371E3219A00005DF8D /* BlastLetterNode.cpp in Sources */,
 				F35042CB1E32199F0005DF8D /* MessageSender.cpp in Sources */,
@@ -2169,6 +2195,7 @@
 				F35042DB1E32199F0005DF8D /* FallingState.cpp in Sources */,
 				F35043C51E3219A00005DF8D /* MultipleChoice.cpp in Sources */,
 				F350429B1E32199F0005DF8D /* LTKErrors.cpp in Sources */,
+				F30575F41E88F21C00171925 /* SortIt.cpp in Sources */,
 				F35042831E32199F0005DF8D /* PointFloatShapeFeatureExtractor.cpp in Sources */,
 				F35042D51E32199F0005DF8D /* RPGSprite.cpp in Sources */,
 				F350436D1E3219A00005DF8D /* MemoryHero.cpp in Sources */,
@@ -2194,6 +2221,7 @@
 				F35040891E3219890005DF8D /* Alphamon.cpp in Sources */,
 				F35042FF1E32199F0005DF8D /* WordManager.cpp in Sources */,
 				F35043451E3219A00005DF8D /* CatScene.cpp in Sources */,
+				F30575F01E88F21C00171925 /* Shoot.cpp in Sources */,
 				F35043A51E3219A00005DF8D /* Alphabet.cpp in Sources */,
 				F35043CF1E3219A00005DF8D /* StoryPlaying.cpp in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
@@ -2239,6 +2267,7 @@
 				F35042D21E32199F0005DF8D /* SpeechBubbleView.cpp in Sources */,
 				F35042C61E32199F0005DF8D /* HelloWorldScene.cpp in Sources */,
 				F35042561E32199F0005DF8D /* LTKChannel.cpp in Sources */,
+				F30575F31E88F21C00171925 /* BubbleShooter.cpp in Sources */,
 				F350434E1E3219A00005DF8D /* CrossTheBridgeScene.cpp in Sources */,
 				F35042A01E32199F0005DF8D /* LTKInkFileReader.cpp in Sources */,
 				F35043AC1E3219A00005DF8D /* DuelScene.cpp in Sources */,
@@ -2271,9 +2300,11 @@
 				F35042A21E32199F0005DF8D /* LTKInkFileWriter.cpp in Sources */,
 				F350428E1E32199F0005DF8D /* NNShapeRecognizer.cpp in Sources */,
 				F35043B41E3219A00005DF8D /* StoryWordBoard.cpp in Sources */,
+				F30575F11E88F21C00171925 /* Shoot.cpp in Sources */,
 				F35043C21E3219A00005DF8D /* FillInTheBlanks.cpp in Sources */,
 				F35042921E32199F0005DF8D /* preprocessing.cpp in Sources */,
 				F35043A21E3219A00005DF8D /* ChooseCharacter.cpp in Sources */,
+				F30575F51E88F21C00171925 /* SortIt.cpp in Sources */,
 				F350425A1E32199F0005DF8D /* LTKScreenContext.cpp in Sources */,
 				F350435A1E3219A00005DF8D /* DoorNode.cpp in Sources */,
 				F35043161E32199F0005DF8D /* MenuContext.cpp in Sources */,
@@ -2410,6 +2441,7 @@
 				F35043261E3219A00005DF8D /* AlphamonFeedLevelScene.cpp in Sources */,
 				F35043681E3219A00005DF8D /* JumpingNumbers.cpp in Sources */,
 				F35042741E32199F0005DF8D /* LTKShapeRecoResult.cpp in Sources */,
+				F30575EF1E88F21C00171925 /* Bounce.cpp in Sources */,
 				F350430A1E32199F0005DF8D /* Introduction.cpp in Sources */,
 				F35043241E3219A00005DF8D /* AlphamoleLevel.cpp in Sources */,
 				F35043381E3219A00005DF8D /* BlastLetterNode.cpp in Sources */,
