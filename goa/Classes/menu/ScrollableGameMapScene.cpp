@@ -55,6 +55,7 @@
 #include "../mini_games/Line.h"
 #include "../mini_games/Item.h"
 #include "../mini_games/ChocolateFactory.h"
+#include "../mini_games/JumpOnWords.h"
 #include "../story/ScrollableCatalogue.hpp"
 
 #include "storage/local-storage/LocalStorage.h"

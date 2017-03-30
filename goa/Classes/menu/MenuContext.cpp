@@ -72,6 +72,7 @@
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
 #include "../mini_games/DinoGame.h"
+#include "../mini_games/JumpOnWords.h"
 #include "../util/CommonLabel.h"
 #include "Setting.h"
 #include "Award.h"
@@ -79,7 +80,8 @@
 #include "../story/StoryCoverPage.hpp"
 #include "../story/ScrollableCatalogue.hpp"
 
-USING_NS_CC;
+//USING_NS_CC;
+using namespace cocos2d;
 using namespace cocos2d::ui;
 using namespace experimental;
 
@@ -903,7 +905,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
             Director::getInstance()->replaceScene(WordBoard::createScene());
         } else if (gameName == PEG) {
             Director::getInstance()->replaceScene(PegWord::createScene());
-    	} else if (gameName == JUMP_ON_WORDS) {
+    	//} else if (gameName == JUMP_ON_WORDS) {
 //    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
     	} else if (gameName == POP) {
 //    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
@@ -1020,6 +1022,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
 		else if (gameName == POPCOUNT) {
 			Director::getInstance()->replaceScene(PopCount::createScene());
+		}
+		else if (gameName == JUMPONWORDS) {
+			Director::getInstance()->replaceScene(JumpOnWords::createScene());
 		}
 		else if (gameName == DINO) {
 			Director::getInstance()->replaceScene(DinoGame::createScene());

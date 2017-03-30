@@ -54,6 +54,7 @@ static const std::string PILLAR = "pillar";
 static const std::string CARDRAW = "cardraw"; 
 static const std::string BLASTLETTER = "blastletter";
 static const std::string DOOR = "Door";
+static const std::string JUMPONWORDS = "JumpOnWords";
 static const std::string TREASUREHUNT = "TreasureHunt";
 static const std::string UNITS = "Units";
 static const std::string JUMPING_NUMBERS = "jumpingNumbers";

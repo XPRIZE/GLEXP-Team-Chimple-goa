@@ -51,7 +51,7 @@
 #include "../mini_games/spot.h"
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
-
+#include "../mini_games/JumpOnWords.h"
 
 #include "storage/local-storage/LocalStorage.h"
 #include "external/json/document.h"
@@ -133,6 +133,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
 	gameNames.push_back(ITEM);
 	gameNames.push_back(SPOT);
 	gameNames.push_back(BALLOON);
+	gameNames.push_back(JUMPONWORDS);
     return gameNames;
 
 }
