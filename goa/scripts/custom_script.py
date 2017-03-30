@@ -34,3 +34,8 @@ def handle_event(event, target_platform, args):
 			"to": "res/"+res},
 			args["platform-project-path"], 
 			args["assets-dir"])
+		cocos.copy_files_with_config({
+			"from": "../Resources/res/lang/"+lang, 
+			"to": "res/lang/"+lang},
+			args["platform-project-path"], 
+			args["assets-dir"])
