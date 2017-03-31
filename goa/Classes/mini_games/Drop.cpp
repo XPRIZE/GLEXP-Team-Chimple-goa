@@ -2,6 +2,9 @@
 #include "../util/CommonLabelTTF.h"
 
 USING_NS_CC;
+using namespace std;
+using namespace cocos2d;
+#define COCOS2D_DEBUG 1
 
 Scene* Drop::createScene()
 {
@@ -391,7 +394,8 @@ void Drop::update(float delta) {
 		{
 			CCLOG("LINE NO : 386");
 			_helpFlag = false;
-				_letterHolderSpriteBin[0]->pause();
+			_letterHolderSpriteBin[0]->pause();
+			_stopMovingHelpObject = true;
 			auto letterBoardSprite = Sprite::create();
 			letterBoardSprite->setTextureRect(Rect(0, 0, _letterHolderSpriteBin[0]->getContentSize().width, _letterHolderSpriteBin[0]->getContentSize().height));
 			letterBoardSprite->setColor(Color3B(219, 224, 252));
@@ -404,6 +408,10 @@ void Drop::update(float delta) {
 			CCLOG("LINE NO : 397");
 		}
 	}
+
+	if(_stopMovingHelpObject && (_menuContext->getCurrentLevel() == 1) && this->getChildByName("helpLayer")){
+		_letterHolderSpriteBin[0]->pause();
+	}
 }
 
 Drop::~Drop(void)
@@ -415,6 +423,7 @@ void Drop::creatHelp(float gap)
 	_help = HelpLayer::create(Rect((_middleBasketIndex*gap + gap / 2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), _letterHolderSpriteBin[0]->getContentSize().width, _letterHolderSpriteBin[0]->getContentSize().height), Rect((visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), visibleSize.width*0.35, visibleSize.height*0.1));
 	_help->click(Vec2((_middleBasketIndex*gap + gap / 2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor")));
 	 this->addChild(_help, 6);
+	 _help->setName("helpLayer");
 }
 void Drop::letterAndHolderMaker(float dt)
 {
@@ -536,6 +545,7 @@ void Drop::addEvents(Sprite* clickedObject)
 				_letterHolderSpriteBin[0]->setVisible(false);
 				_letterHolderSpriteBin[0]->getEventDispatcher()->removeEventListener(listener);
 				_letterHolderSpriteBin[0]->resume();
+				_stopMovingHelpObject = false;
 				this->removeChild(this->getChildByName("touchSprite"));
 				CCLOG("LINE NO : 529");
 				auto label = setAllLabelProperties(_letterHolderSpriteBin[0]->getChildren().at(0)->getName(), 0, (sprite->getBoundingBox().size.width / 2), (sprite->getBoundingBox().size.height / 2), true, 0.5, 0.5, 0, 1, 1, 100);

@@ -771,8 +771,7 @@
 	"icon": "gameicons/bubble.png",
 	"multiPlayer": false,
 	"isJSGame": false,
-	"pureJS": "bubbleShooterLevelInfo",
-	"script": "src/start/BubbleShooter.js",
+	"script": "src/NonJSGameLauncher.js",
 	"span": "3",
 	"numLevels": "14",
 	"rewards": {
@@ -3378,7 +3377,7 @@
 	"cIcon": "gameicons/icecream_pressed.png",
 	"icon": "gameicons/icecream.png",
 	"multiPlayer": false,
-	"isJSGame": true,
+	"isJSGame": false,
 	"pureJS": "BounceLayer",
 	"script": "src/start/bounce.js",
 	"span": "4",

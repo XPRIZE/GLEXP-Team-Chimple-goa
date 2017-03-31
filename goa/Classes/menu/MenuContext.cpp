@@ -72,6 +72,7 @@
 #include "../mini_games/Balloon.h"
 #include "../mini_games/PopCount.h"
 #include "../mini_games/DinoGame.h"
+#include "../mini_games/Bounce.h"
 #include "../mini_games/Pop.h"
 #include "../mini_games/Train.h"
 #include "../util/CommonLabel.h"
@@ -81,6 +82,7 @@
 #include "../story/StoryCoverPage.hpp"
 #include "../story/ScrollableCatalogue.hpp"
 #include "../mini_games/Shoot.h"
+#include "../mini_games/BubbleShooter.h"
 #include "../mini_games/SortIt.h"
 
 USING_NS_CC;
@@ -913,8 +915,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
     	}else if (gameName == CIRCLE) {
     		Director::getInstance()->replaceScene(Circle::createScene());
     	}else if (gameName == BUBBLE) {
-//    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
-    //        ScriptingCore::getInstance()->runScript("src/start/dots.js");
+			Director::getInstance()->replaceScene(BubbleShooter::createScene());
     	}else if (gameName == PINATA) {
 			Director::getInstance()->replaceScene(Shoot::createScene());
 //    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
@@ -926,6 +927,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
         }else if (gameName == BOUNCE) {
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
+			  Director::getInstance()->replaceScene(Bounce::createScene());
     	}
     	else if (gameName == STACK) {
     		Director::getInstance()->replaceScene(Stack::createScene());
