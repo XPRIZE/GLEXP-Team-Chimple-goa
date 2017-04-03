@@ -75,6 +75,7 @@
 #include "../mini_games/Bounce.h"
 #include "../mini_games/Pop.h"
 #include "../mini_games/Train.h"
+#include "../dot/DotsLayer.hpp"
 #include "../util/CommonLabel.h"
 #include "Setting.h"
 #include "Award.h"
@@ -920,6 +921,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
 			Director::getInstance()->replaceScene(Shoot::createScene());
 //    		ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
         }else if (gameName == DOTS) {
+            Director::getInstance()->replaceScene(DotsLayer::createScene());
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
         }else if (gameName == CONNECT_THE_DOTS) {
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");
