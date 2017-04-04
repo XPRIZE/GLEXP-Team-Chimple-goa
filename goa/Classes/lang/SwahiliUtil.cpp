@@ -46,38 +46,38 @@ const std::vector<int> SwahiliUtil::getNumCharsInRows() {
 }
 
 std::string SwahiliUtil::getMonsterAnimationFileName(wchar_t alpha) {
-    return std::string("english/") + convertUTF16CharToString(alpha) +".csb";
+    return std::string("lang/swa/") + convertUTF16CharToString(alpha) +".csb";
 }
 
 std::string SwahiliUtil::getSpecialAnimationFileName(wchar_t alpha, std::string suffix) {
-    return std::string("english/") + suffix + "/" + convertUTF16CharToString(alpha) +".csb";
+    return std::string("lang/swa/") + suffix + "/" + convertUTF16CharToString(alpha) +".csb";
 }
 
 std::string SwahiliUtil::getBMFontFileName() {
-    return "english/baloo_bhai_common.fnt";
+    return "lang/swa/baloo_bhai_common.fnt";
 }
 
 std::string SwahiliUtil::getAlphabetSoundFileName(wchar_t alpha) {
     auto lowerCase = tolower(alpha);
     auto someString = convertUTF16CharToString(lowerCase);
-    auto fileName = std::string("swahili/sounds/") + someString + audioExt;
+    auto fileName = std::string("lang/swa/sounds/") + someString + audioExt;
     return fileName;
 }
 
 std::string SwahiliUtil::getPhoneticSoundFileName(wchar_t alpha) {
-    auto fileName = std::string("swahili/sounds/") + convertUTF16CharToString(tolower(alpha)) + audioExt;
+    auto fileName = std::string("lang/swa/sounds/") + convertUTF16CharToString(tolower(alpha)) + audioExt;
     return fileName;
 }
 
 std::string SwahiliUtil::getAlphabetSoundFileNameForString(std::string alpha) {
     std::transform(alpha.begin(), alpha.end(), alpha.begin(), ::tolower);
-    auto fileName = std::string("swahili/sounds/") + alpha + audioExt;
+    auto fileName = std::string("lang/swa/sounds/") + alpha + audioExt;
     return fileName;
 }
 
 std::string SwahiliUtil::getPhoneticSoundFileNameForString(std::string alpha) {
     std::transform(alpha.begin(), alpha.end(), alpha.begin(), ::tolower);
-    auto fileName = std::string("swahili/sounds/") + alpha + audioExt;
+    auto fileName = std::string("lang/swa/sounds/") + alpha + audioExt;
     return fileName;
 }
 
@@ -89,7 +89,7 @@ bool SwahiliUtil::isGraphemeStart(uint32_t prevCodePoint, uint32_t currentCodePo
 std::string SwahiliUtil::getPronounciationFileNameForWord(std::string word) {
     std::replace(word.begin(), word.end(), ' ', '_');
     std::transform(word.begin(), word.end(), word.begin(), ::tolower);
-    auto fileName = std::string("swahili/audio/words/") + word + pronounciationAudioExt;
+    auto fileName = std::string("lang/swa/audio/words/") + word + pronounciationAudioExt;
     return fileName;
 }
 
@@ -100,7 +100,7 @@ bool SwahiliUtil::isTextToSpeechSupported() {
 
 
 std::string SwahiliUtil::getDir() {
-    return "swahili";
+    return "lang/swa";
 }
 
 std::string SwahiliUtil::getLang() {
@@ -109,7 +109,7 @@ std::string SwahiliUtil::getLang() {
 
 SwahiliUtil::SwahiliUtil() {
     this->initializeWordManager();
-    Data moData = FileUtils::getInstance()->getDataFromFile("res/swahili/swa.mo");
+    Data moData = FileUtils::getInstance()->getDataFromFile("res/lang/swa/swa.mo");
     I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
 }
 

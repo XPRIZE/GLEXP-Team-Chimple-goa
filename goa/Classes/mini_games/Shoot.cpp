@@ -349,127 +349,120 @@ void Shoot::choosingListner() {
 		auto location = target->convertToNodeSpace(touch->getLocation());
 		Rect targetRect = Rect(0, 0, targetSize.width, targetSize.height);
 
-		if (target->getBoundingBox().containsPoint(touch->getLocation()) && (classRefer->getChildByName("bg")->getChildByName("board")->getTag() == 0) && !classRefer->shootingFlag && classRefer->flagSingleTouchFirst && !stopTouchingBg) {
-			return true;
-		}
-		return false;
-	};
+		if (target->getBoundingBox().containsPoint(touch->getLocation()) && (classRefer->getChildByName("bg")->getChildByName("board")->getTag() == 0) && !classRefer->shootingFlag && classRefer->flagSingleTouchFirst) {
 
-	listener->onTouchEnded = [=](cocos2d::Touch* touch, cocos2d::Event* event)
-	{
-		auto target = event->getCurrentTarget();
-		classRefer->flagSingleTouchFirst = false;
+			classRefer->flagSingleTouchFirst = false;
 
-		if (_menuContext->getCurrentLevel() == 1) {
-			classRefer->removeChildByName("helpLayer");
-		}
-		std::string path = "";
-
-		if (classRefer->bubblePlayer->getName() == "pinatacity") {
-			path = "pinatacity/pinatacityanim.csb";
-		}
-		else if (classRefer->bubblePlayer->getName() == "pinatacream") {
-			path = "pinatacream/pinatacreamanim.csb";
-		}
-		else if (classRefer->bubblePlayer->getName() == "pinatajungle") {
-			path = "jungle/target.csb";
-		}
-		auto boardText = classRefer->getChildByName("bg")->getChildByName("board")->getChildByName("board");
-	
-		auto stringmap = ((CommonLabelTTF *)boardText)->getString();
-		if (classRefer->_map[stringmap] == ((CommonLabelTTF *)target->getChildByName(target->getName()))->getString()) {
-			
-			auto targetA = classRefer->getChildByName("bg")->getChildByName("targeta");
-			auto targetB = classRefer->getChildByName("bg")->getChildByName("targetb");
-			auto targetC = classRefer->getChildByName("bg")->getChildByName("targetc");
-
-			auto audioEngine = CocosDenshion::SimpleAudioEngine::getInstance();
-			if (target->getName() == "targetc") {
-				if (targetA->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetA->getPositionX(), targetA->getPositionY(), path); targetA->setVisible(false); }
-				if (targetB->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetB->getPositionX(), targetB->getPositionY(), path); targetB->setVisible(false); }
-				classRefer->targetXcoordSave = targetC->getPositionX();
-				audioEngine->playEffect("sounds/sfx/pinata_select.ogg", false);
-				classRefer->counterHit++;
-				_menuContext->addPoints(2);
-				classRefer->gamePlay(targetC);
+			if (_menuContext->getCurrentLevel() == 1) {
+				classRefer->removeChildByName("helpLayer");
 			}
-			else if (target->getName() == "targetb") {
-				if (targetA->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetA->getPositionX(), targetA->getPositionY(), path); targetA->setVisible(false); }
-				if (targetC->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetC->getPositionX(), targetC->getPositionY(), path); targetC->setVisible(false); }
-				classRefer->targetXcoordSave = targetB->getPositionX();
-				classRefer->gamePlay(targetB);
-				audioEngine->playEffect("sounds/sfx/pinata_select.ogg", false);
-				classRefer->counterHit++;
-				_menuContext->addPoints(2);
+			std::string path = "";
+
+			if (classRefer->bubblePlayer->getName() == "pinatacity") {
+				path = "pinatacity/pinatacityanim.csb";
 			}
-			else if (target->getName() == "targeta") {
-				if (targetC->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetC->getPositionX(), targetC->getPositionY(), path); targetC->setVisible(false); }
-				if (targetB->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetB->getPositionX(), targetB->getPositionY(), path); targetB->setVisible(false); }
-				classRefer->targetXcoordSave = targetA->getPositionX();
-				classRefer->gamePlay(targetA);
-				audioEngine->playEffect("sounds/sfx/pinata_select.ogg", false);
-				classRefer->counterHit++;
-				_menuContext->addPoints(2);
+			else if (classRefer->bubblePlayer->getName() == "pinatacream") {
+				path = "pinatacream/pinatacreamanim.csb";
 			}
+			else if (classRefer->bubblePlayer->getName() == "pinatajungle") {
+				path = "jungle/target.csb";
+			}
+			auto boardText = classRefer->getChildByName("bg")->getChildByName("board")->getChildByName("board");
 
-			stopTouchingBg = true;
-			this->runAction(Sequence::create(DelayTime::create(3),CallFunc::create([=]() {  stopTouchingBg = false;  }), NULL));
+			auto stringmap = ((CommonLabelTTF *)boardText)->getString();
+			if (classRefer->_map[stringmap] == ((CommonLabelTTF *)target->getChildByName(target->getName()))->getString()) {
 
-		}else {
-			//    console.log("its wrong answer");
-			auto targetA = (Node*)classRefer->getChildByName("bg")->getChildByName("targeta");
-			auto targetB = (Node*)classRefer->getChildByName("bg")->getChildByName("targetb");
-			auto targetC = (Node*)classRefer->getChildByName("bg")->getChildByName("targetc");
+				auto targetA = classRefer->getChildByName("bg")->getChildByName("targeta");
+				auto targetB = classRefer->getChildByName("bg")->getChildByName("targetb");
+				auto targetC = classRefer->getChildByName("bg")->getChildByName("targetc");
 
-			if (target->getName() == "targetc") {
-				if (targetC->getTag() == 0) {
+				auto audioEngine = CocosDenshion::SimpleAudioEngine::getInstance();
+				if (target->getName() == "targetc") {
+					if (targetA->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetA->getPositionX(), targetA->getPositionY(), path); targetA->setVisible(false); }
+					if (targetB->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetB->getPositionX(), targetB->getPositionY(), path); targetB->setVisible(false); }
+					classRefer->targetXcoordSave = targetC->getPositionX();
+					audioEngine->playEffect("sounds/sfx/pinata_select.ogg", false);
 					classRefer->counterHit++;
-					_menuContext->addPoints(-1);
-					classRefer->runAnimations(CSLoader::createNode(path), targetC->getPositionX(), targetC->getPositionY(), path);
-					targetC->setVisible(false);
-					auto audioEngine1 = CocosDenshion::SimpleAudioEngine::getInstance();
-					audioEngine1->playEffect("sounds/sfx/pinata_select.ogg", false);
-					auto audioEngine2 = CocosDenshion::SimpleAudioEngine::getInstance();
-					audioEngine2->playEffect("sounds/sfx/pinata_select.ogg", false);
-					targetC->setTag(1);
+					_menuContext->addPoints(2);
+					classRefer->gamePlay(targetC);
+				}
+				else if (target->getName() == "targetb") {
+					if (targetA->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetA->getPositionX(), targetA->getPositionY(), path); targetA->setVisible(false); }
+					if (targetC->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetC->getPositionX(), targetC->getPositionY(), path); targetC->setVisible(false); }
+					classRefer->targetXcoordSave = targetB->getPositionX();
+					classRefer->gamePlay(targetB);
+					audioEngine->playEffect("sounds/sfx/pinata_select.ogg", false);
+					classRefer->counterHit++;
+					_menuContext->addPoints(2);
+				}
+				else if (target->getName() == "targeta") {
+					if (targetC->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetC->getPositionX(), targetC->getPositionY(), path); targetC->setVisible(false); }
+					if (targetB->getTag() == 0) { classRefer->runAnimations(CSLoader::createNode(path), targetB->getPositionX(), targetB->getPositionY(), path); targetB->setVisible(false); }
+					classRefer->targetXcoordSave = targetA->getPositionX();
+					classRefer->gamePlay(targetA);
+					audioEngine->playEffect("sounds/sfx/pinata_select.ogg", false);
+					classRefer->counterHit++;
+					_menuContext->addPoints(2);
 				}
 
 			}
-			else if (target->getName() == "targetb") {
-				if (targetB->getTag() == 0) {
-					classRefer->counterHit++;
-					_menuContext->addPoints(-1);
-					classRefer->runAnimations(CSLoader::createNode(path), targetB->getPositionX(), targetB->getPositionY(), path);
-					targetB->setTag(1);
-					auto audioEngine1 = CocosDenshion::SimpleAudioEngine::getInstance();
-					audioEngine1->playEffect("sounds/sfx/pinata_select.ogg", false);
-					auto audioEngine2 = CocosDenshion::SimpleAudioEngine::getInstance();
-					audioEngine2->playEffect("sounds/sfx/pinata_select.ogg", false);
-					targetB->setVisible(false);
-				}
+			else {
+				//    console.log("its wrong answer");
+				auto targetA = (Node*)classRefer->getChildByName("bg")->getChildByName("targeta");
+				auto targetB = (Node*)classRefer->getChildByName("bg")->getChildByName("targetb");
+				auto targetC = (Node*)classRefer->getChildByName("bg")->getChildByName("targetc");
 
-			}
-			else if (target->getName() == "targeta") {
-				if (targetA->getTag() == 0) {
-					classRefer->counterHit++;
-					_menuContext->addPoints(-1);
-					classRefer->runAnimations(CSLoader::createNode(path), targetA->getPositionX(), targetA->getPositionY(), path);
-					targetA->setTag(1);
-					auto audioEngine1 = CocosDenshion::SimpleAudioEngine::getInstance();
-					audioEngine1->playEffect("sounds/sfx/pinata_select.ogg", false);
-					auto audioEngine2 = CocosDenshion::SimpleAudioEngine::getInstance();
-					audioEngine2->playEffect("sounds/sfx/pinata_select.ogg", false);
-					targetA->setVisible(false);
+				if (target->getName() == "targetc") {
+					if (targetC->getTag() == 0) {
+						classRefer->counterHit++;
+						_menuContext->addPoints(-1);
+						classRefer->runAnimations(CSLoader::createNode(path), targetC->getPositionX(), targetC->getPositionY(), path);
+						targetC->setVisible(false);
+						auto audioEngine1 = CocosDenshion::SimpleAudioEngine::getInstance();
+						audioEngine1->playEffect("sounds/sfx/pinata_select.ogg", false);
+						auto audioEngine2 = CocosDenshion::SimpleAudioEngine::getInstance();
+						audioEngine2->playEffect("sounds/sfx/pinata_select.ogg", false);
+						targetC->setTag(1);
+					}
+
+				}
+				else if (target->getName() == "targetb") {
+					if (targetB->getTag() == 0) {
+						classRefer->counterHit++;
+						_menuContext->addPoints(-1);
+						classRefer->runAnimations(CSLoader::createNode(path), targetB->getPositionX(), targetB->getPositionY(), path);
+						targetB->setTag(1);
+						auto audioEngine1 = CocosDenshion::SimpleAudioEngine::getInstance();
+						audioEngine1->playEffect("sounds/sfx/pinata_select.ogg", false);
+						auto audioEngine2 = CocosDenshion::SimpleAudioEngine::getInstance();
+						audioEngine2->playEffect("sounds/sfx/pinata_select.ogg", false);
+						targetB->setVisible(false);
+					}
+
+				}
+				else if (target->getName() == "targeta") {
+					if (targetA->getTag() == 0) {
+						classRefer->counterHit++;
+						_menuContext->addPoints(-1);
+						classRefer->runAnimations(CSLoader::createNode(path), targetA->getPositionX(), targetA->getPositionY(), path);
+						targetA->setTag(1);
+						auto audioEngine1 = CocosDenshion::SimpleAudioEngine::getInstance();
+						audioEngine1->playEffect("sounds/sfx/pinata_select.ogg", false);
+						auto audioEngine2 = CocosDenshion::SimpleAudioEngine::getInstance();
+						audioEngine2->playEffect("sounds/sfx/pinata_select.ogg", false);
+						targetA->setVisible(false);
+					}
 				}
 			}
+
+			auto changeFlagInTouch = CallFunc::create([=]()
+			{
+				classRefer->flagSingleTouchFirst = true;
+			});
+			classRefer->runAction(Sequence::create(DelayTime::create(1), changeFlagInTouch, NULL));
+
+			return false;
 		}
-		
-		auto changeFlagInTouch = CallFunc::create([=]()
-		{
-			classRefer->flagSingleTouchFirst = true;
-		});
-		classRefer->runAction(Sequence::create(DelayTime::create(1),changeFlagInTouch,NULL));
-
 		return false;
 	};
 
