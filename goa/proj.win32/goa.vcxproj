@@ -259,6 +259,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\AlphamoleLevel.cpp" />
     <ClCompile Include="..\Classes\mini_games\AlphamonFeedLevelScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\AlphamonFeedScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphaPhonics.cpp" />
     <ClCompile Include="..\Classes\mini_games\ATM.cpp" />
     <ClCompile Include="..\Classes\mini_games\Baja.cpp" />
     <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp" />
@@ -493,6 +494,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\AlphamoleLevel.h" />
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedLevelScene.h" />
     <ClInclude Include="..\Classes\mini_games\AlphamonFeedScene.h" />
+    <ClInclude Include="..\Classes\mini_games\AlphaPhonics.h" />
     <ClInclude Include="..\Classes\mini_games\ATM.h" />
     <ClInclude Include="..\Classes\mini_games\Baja.h" />
     <ClInclude Include="..\Classes\mini_games\BajaWordScene.h" />
