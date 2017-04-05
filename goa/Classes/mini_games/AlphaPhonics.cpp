@@ -34,6 +34,10 @@ bool AlphaPhonics::init()
 
 void AlphaPhonics::onEnterTransitionDidFinish() {
 
+	Node* bg = CSLoader::createNode("bubble_shooter/bubble_shooter_1.csb");
+	addChild(bg);
+	bg->setName("bg");
+
 	this->scheduleUpdate();
 }
 
