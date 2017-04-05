@@ -9,6 +9,8 @@
 #include "EnglishUtil.h"
 #include "ctype.h"
 
+USING_NS_CC;
+
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 static const char* audioExt = ".wav";
 #else
@@ -106,6 +108,9 @@ std::string EnglishUtil::getLang() {
 
 EnglishUtil::EnglishUtil() {
     this->initializeWordManager();
+    Data moData = FileUtils::getInstance()->getDataFromFile("res/lang/eng/eng.mo");
+    I18N::I18nUtils::getInstance()->removeAllMO();
+    I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
 }
 
 EnglishUtil::~EnglishUtil() {    
