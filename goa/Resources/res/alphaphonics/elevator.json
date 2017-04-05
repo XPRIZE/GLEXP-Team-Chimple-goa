@@ -1,0 +1,491 @@
+{
+  "ID": "be3c010f-73eb-4a3f-a68e-d5633cf5c701",
+  "Version": "3.10.0.0",
+  "Name": "elevator",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 180,
+        "Speed": 1.0,
+        "ActivedAnimationName": "dooropen",
+        "Timelines": [
+          {
+            "ActionTag": -234233762,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 0.0005,
+                "Y": 8.9998,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2004008263,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 263.9967,
+                "Y": 387.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1596077901,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 263.9967,
+                "Y": 146.0043,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 263.9967,
+                "Y": 387.0,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2023945820,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 131.9983,
+                "Y": 387.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 131.9983,
+                "Y": 387.0,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 131.9983,
+                "Y": 387.0,
+                "FrameIndex": 95,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": -115.9932,
+                "Y": 387.0,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1369271812,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 389.0037,
+                "Y": 387.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 389.0037,
+                "Y": 387.0,
+                "FrameIndex": 90,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 389.0037,
+                "Y": 387.0,
+                "FrameIndex": 95,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 639.9953,
+                "Y": 387.0,
+                "FrameIndex": 180,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 90,
+          "Name": "liftup",
+          "ctype": "AnimationInfoData"
+        },
+        {
+          "StartIndex": 95,
+          "EndIndex": 220,
+          "Name": "dooropen",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 146,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 87,
+              "G": 115,
+              "B": 80
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0005,
+              "Y": 8.9998
+            },
+            "Scale": {
+              "ScaleX": 2.8258,
+              "ScaleY": 3.9566
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -99.9995,
+            "RightMargin": -100.0005,
+            "TopMargin": -108.9998,
+            "BottomMargin": -91.0002,
+            "Tag": 487,
+            "ActionTag": -234233762,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": true,
+            "BackColorAlpha": 0,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": -0.0005
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -260.0,
+            "TopMargin": -384.9995,
+            "BottomMargin": -385.0005,
+            "Tag": 153,
+            "Children": [
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 77,
+                  "G": 77,
+                  "B": 77
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 263.9967,
+                  "Y": 387.0
+                },
+                "Scale": {
+                  "ScaleX": 2.5528,
+                  "ScaleY": 3.8006
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5077,
+                  "Y": 0.5026
+                },
+                "PreSize": {
+                  "X": 0.3846,
+                  "Y": 0.2597
+                },
+                "LeftMargin": 163.9967,
+                "RightMargin": 156.0033,
+                "TopMargin": 283.0,
+                "BottomMargin": 287.0,
+                "Tag": 149,
+                "ActionTag": -2004008263,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "Panel_1",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "ClipAble": false,
+                "ComboBoxIndex": 1,
+                "SingleColor": {
+                  "R": 236,
+                  "G": 235,
+                  "B": 123
+                },
+                "FirstColor": {
+                  "R": 150,
+                  "G": 200
+                },
+                "EndColor": {},
+                "ColorVector": {
+                  "ScaleY": 1.0
+                },
+                "Scale9Width": 1,
+                "Scale9Height": 1,
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 263.9967,
+                  "Y": 146.0043
+                },
+                "Scale": {
+                  "ScaleX": 2.5528,
+                  "ScaleY": 3.8006
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5077,
+                  "Y": 0.1896
+                },
+                "PreSize": {
+                  "X": 0.3846,
+                  "Y": 0.2597
+                },
+                "LeftMargin": 163.9967,
+                "RightMargin": 156.0033,
+                "TopMargin": 523.9957,
+                "BottomMargin": 46.0043,
+                "Tag": 150,
+                "ActionTag": -1596077901,
+                "Size": {
+                  "X": 200.0,
+                  "Y": 200.0
+                },
+                "Name": "Panel_1_0",
+                "ctype": "PanelObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "alphaphonics/elevatordoor1.png",
+                  "Plist": "alphaphonics/alphaphonics.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 131.9983,
+                  "Y": 387.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.2538,
+                  "Y": 0.5026
+                },
+                "PreSize": {
+                  "X": 0.4904,
+                  "Y": 1.0026
+                },
+                "LeftMargin": 4.4983,
+                "RightMargin": 260.5017,
+                "TopMargin": -3.0,
+                "BottomMargin": 1.0,
+                "Tag": 151,
+                "ActionTag": -2023945820,
+                "Size": {
+                  "X": 255.0,
+                  "Y": 772.0
+                },
+                "Name": "elevatordoor1_3",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "alphaphonics/elevatordoor2.png",
+                  "Plist": "alphaphonics/alphaphonics.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 389.0037,
+                  "Y": 387.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.7481,
+                  "Y": 0.5026
+                },
+                "PreSize": {
+                  "X": 0.5077,
+                  "Y": 1.0026
+                },
+                "LeftMargin": 257.0037,
+                "RightMargin": -1.0037,
+                "TopMargin": -3.0,
+                "BottomMargin": 1.0,
+                "Tag": 147,
+                "ActionTag": -1369271812,
+                "Size": {
+                  "X": 264.0,
+                  "Y": 772.0
+                },
+                "Name": "elevatordoor2_1",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": -477168180,
+            "Size": {
+              "X": 520.0,
+              "Y": 770.0
+            },
+            "Name": "Panel_4",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "alphaphonics.plist",
+        "alphaphonics.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}
