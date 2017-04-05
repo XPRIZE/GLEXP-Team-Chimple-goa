@@ -181,6 +181,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/mini_games/TreasureHuntNode.cpp \
          ../../Classes/mini_games/Units.cpp \
          ../../Classes/mini_games/Wembley.cpp \
+		 ../../Classes/mini_games/Phonicsfree.cpp \
          ../../Classes/misc/CharacterConfiguration.cpp \
          ../../Classes/misc/ChooseCharacter.cpp \
          ../../Classes/misc/PhotoCaptureScene.cpp \

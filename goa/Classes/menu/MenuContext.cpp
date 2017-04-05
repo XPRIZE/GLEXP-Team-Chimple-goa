@@ -85,6 +85,7 @@
 #include "../mini_games/Shoot.h"
 #include "../mini_games/BubbleShooter.h"
 #include "../mini_games/SortIt.h"
+#include "../mini_games/Phonicsfree.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -1047,6 +1048,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
             Director::getInstance()->replaceScene(TransitionFade::create(0.5, StoryCoverPage::createScene(), Color3B::BLACK));
             
         }
+		else if (gameName == PHONICSFREE) {
+			Director::getInstance()->replaceScene(Phonicsfree::createScene());
+		}
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
         }
