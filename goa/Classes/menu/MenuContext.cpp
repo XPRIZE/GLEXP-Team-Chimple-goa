@@ -88,6 +88,7 @@
 #include "../mini_games/Phonicsfree.h"
 #include "../mini_games/AlphaArrange.h"
 #include "../mini_games/AlphaPhonics.h"
+#include "../mini_games/Find.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -1058,6 +1059,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
 		else if (gameName == ALPHAPHONICS) {
 			Director::getInstance()->replaceScene(AlphaPhonics::createScene());
+		}
+		else if (gameName == FIND) {
+			Director::getInstance()->replaceScene(Find::createScene());
 		}
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
