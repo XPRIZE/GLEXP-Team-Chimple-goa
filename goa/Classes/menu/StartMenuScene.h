@@ -79,6 +79,7 @@ static const std::string MININGBG = "miningbg";
 static const std::string FARMHOUSE = "farmhouse";
 static const std::string PHONICSFREE = "phonicsfree";
 static const std::string ALPHAARRANGE = "alphaarrange";
+static const std::string ALPHAPHONICS = "aplhaphonics";
 static const std::string CITY1 = "city1";
 static const std::string CITY2 = "city2";
 static const std::string CITY3 = "city3";
