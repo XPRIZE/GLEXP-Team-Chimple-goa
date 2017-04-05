@@ -152,6 +152,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\alphamon\HPMeter.cpp" />
     <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\dot\Dot.cpp" />
+    <ClCompile Include="..\Classes\dot\DotNum.cpp" />
+    <ClCompile Include="..\Classes\dot\DotsLayer.cpp" />
+    <ClCompile Include="..\Classes\dot\DotsQuizLayer.cpp" />
     <ClCompile Include="..\Classes\effects\FShake.cpp" />
     <ClCompile Include="..\Classes\ext\AsyncTask.cpp" />
     <ClCompile Include="..\Classes\ext\common\LTKCaptureDevice.cpp" />
@@ -295,6 +299,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\Order.cpp" />
     <ClCompile Include="..\Classes\mini_games\Owl.cpp" />
     <ClCompile Include="..\Classes\mini_games\PatchTheWallScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\Phonicsfree.cpp" />
     <ClCompile Include="..\Classes\mini_games\Pillar.cpp" />
     <ClCompile Include="..\Classes\mini_games\Pop.cpp" />
     <ClCompile Include="..\Classes\mini_games\PopCount.cpp" />
@@ -353,6 +358,10 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\alphamon\HPMeter.h" />
     <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\dot\Dot.hpp" />
+    <ClInclude Include="..\Classes\dot\DotNum.hpp" />
+    <ClInclude Include="..\Classes\dot\DotsLayer.hpp" />
+    <ClInclude Include="..\Classes\dot\DotsQuizLayer.hpp" />
     <ClInclude Include="..\Classes\effects\FShake.h" />
     <ClInclude Include="..\Classes\ext\AsyncTask.hpp" />
     <ClInclude Include="..\Classes\ext\lipiengine\lipiengine.h" />
@@ -523,6 +532,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\Order.h" />
     <ClInclude Include="..\Classes\mini_games\Owl.h" />
     <ClInclude Include="..\Classes\mini_games\PatchTheWallScene.h" />
+    <ClInclude Include="..\Classes\mini_games\Phonicsfree.h" />
     <ClInclude Include="..\Classes\mini_games\Pillar.h" />
     <ClInclude Include="..\Classes\mini_games\Pop.h" />
     <ClInclude Include="..\Classes\mini_games\PopCount.h" />
