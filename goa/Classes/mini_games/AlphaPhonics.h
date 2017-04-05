@@ -26,6 +26,11 @@ public:
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 	static AlphaPhonics* create();
+
+	void LiftAnimationPlay(string elevatorName,string animationName);
+
+	void createSprite(string spriteName,Size size, Vec2 position);
+
 	void onEnterTransitionDidFinish();
 	void update(float) override;
 
