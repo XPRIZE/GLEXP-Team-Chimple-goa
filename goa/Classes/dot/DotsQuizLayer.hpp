@@ -6,6 +6,8 @@
 //
 //
 
+#include "cocos2d.h"
+
 #ifndef DotsQuizLayer_hpp
 #define DotsQuizLayer_hpp
 
