@@ -3537,28 +3537,74 @@
     "menuPlist": "icecreamlevel/icecreamlevel.plist",
     "menuPng": "icecreamlevel/icecreamlevel.png"
   },
-    {
+  {
     "name": "alphaphonics",
     "title": "Alpha Phonics",
-	  "cIcon": "gameicons/EndlessRunner_pressed.png",
+    "cIcon": "gameicons/EndlessRunner_pressed.png",
     "icon": "gameicons/EndlessRunner.png",
-	  "multiPlayer": false,
-	  "isJSGame": false,
-	  "script": "src/NonJSGameLauncher.js",
-	  "span": "1",
-	  "numLevels": "5",
-	  "rewards": {
-		  "1": {
-			  "unlock": "table"
-		  },
-		  "5": {
-			  "badge": "s/golden_boot"
-		  }
-	  },
-	  "backgroundJson": "icecreamlevel/background.json",
-	  "foregroundJson": "icecreamlevel/foreground.json",
-	  "frontgroundJson": "icecreamlevel/frontground.json",
-	  "maingroundJson": "icecreamlevel/mainground.json",
-	  "menuPlist": "icecreamlevel/icecreamlevel.plist",
-	  "menuPng": "icecreamlevel/icecreamlevel.png"
-}]
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "1",
+    "numLevels": "5",
+    "rewards": {
+      "1": {
+        "unlock": "table"
+      },
+      "5": {
+        "badge": "s/golden_boot"
+      }
+    },
+    "backgroundJson": "icecreamlevel/background.json",
+    "foregroundJson": "icecreamlevel/foreground.json",
+    "frontgroundJson": "icecreamlevel/frontground.json",
+    "maingroundJson": "icecreamlevel/mainground.json",
+    "menuPlist": "icecreamlevel/icecreamlevel.plist",
+    "menuPng": "icecreamlevel/icecreamlevel.png"
+  },
+   {
+    "name": "find",
+    "title": "Find",
+    "cIcon": "gameicons/drop_pressed.png",
+    "icon": "gameicons/drop.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "8",
+    "numLevels": "60",
+    "rewards": {
+      "22": {
+        "unlock": "train"
+      },
+      "10": {
+        "badge": "s/popping_balloon"
+      },
+      "20": {
+        "badge": "m/leaf_bomb"
+      },
+      "30": {
+        "badge": "b/droping_ball"
+      },
+      "40": {
+        "badge": "g/cute_bow"
+      },
+      "50": {
+        "badge": "c/ball_of_leaves"
+      },
+      "60": {
+        "badge": "p/happiness_box"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "droplevel/Layer1.json",
+    "foregroundJson": "droplevel/Layer3.json",
+    "frontgroundJson": "droplevel/Layer4.json",
+    "maingroundJson": "droplevel/Layer2.json",
+    "menuPlist": "droplevel/droplevel.plist",
+    "menuPng": "droplevel/droplevel.png"
+ 
+}
+]
