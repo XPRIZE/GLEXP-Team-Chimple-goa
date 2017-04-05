@@ -3453,4 +3453,28 @@
 	"maingroundJson": "icecreamlevel/mainground.json",
 	"menuPlist": "icecreamlevel/icecreamlevel.plist",
 	"menuPng": "icecreamlevel/icecreamlevel.png"
+}, {
+	"name": "alphaarrange",
+	"title": "Alpha Arrange",
+	"cIcon": "gameicons/stack_pressed.png",
+	"icon": "gameicons/stack.png",
+	"multiPlayer": false,
+	"isJSGame": false,
+	"script": "src/NonJSGameLauncher.js",
+	"span": "1",
+	"numLevels": "1",
+	"rewards": {
+		"1": {
+			"unlock": "table"
+		},
+		"5": {
+			"badge": "s/golden_boot"
+		}
+	},
+	"backgroundJson": "icecreamlevel/background.json",
+	"foregroundJson": "icecreamlevel/foreground.json",
+	"frontgroundJson": "icecreamlevel/frontground.json",
+	"maingroundJson": "icecreamlevel/mainground.json",
+	"menuPlist": "icecreamlevel/icecreamlevel.plist",
+	"menuPng": "icecreamlevel/icecreamlevel.png"
 }]

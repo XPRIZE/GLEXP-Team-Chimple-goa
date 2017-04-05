@@ -253,6 +253,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\menu\ScrollableGameMapScene.cpp" />
     <ClCompile Include="..\Classes\menu\Setting.cpp" />
     <ClCompile Include="..\Classes\menu\StartMenuScene.cpp" />
+    <ClCompile Include="..\Classes\mini_games\AlphaArrange.cpp" />
     <ClCompile Include="..\Classes\mini_games\AlphabetWriting.cpp" />
     <ClCompile Include="..\Classes\mini_games\Alphamole.cpp" />
     <ClCompile Include="..\Classes\mini_games\AlphamoleLevel.cpp" />
@@ -486,6 +487,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\menu\ScrollableGameMapScene.hpp" />
     <ClInclude Include="..\Classes\menu\Setting.h" />
     <ClInclude Include="..\Classes\menu\StartMenuScene.h" />
+    <ClInclude Include="..\Classes\mini_games\AlphaArrange.h" />
     <ClInclude Include="..\Classes\mini_games\AlphabetWriting.h" />
     <ClInclude Include="..\Classes\mini_games\Alphamole.h" />
     <ClInclude Include="..\Classes\mini_games\AlphamoleLevel.h" />

@@ -86,6 +86,7 @@
 #include "../mini_games/BubbleShooter.h"
 #include "../mini_games/SortIt.h"
 #include "../mini_games/Phonicsfree.h"
+#include "../mini_games/AlphaArrange.h"
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -1050,6 +1051,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
         }
 		else if (gameName == PHONICSFREE) {
 			Director::getInstance()->replaceScene(Phonicsfree::createScene());
+		}
+		else if (gameName == ALPHAARRANGE) {
+			Director::getInstance()->replaceScene(AlphaArrange::createScene());
 		}
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
