@@ -1,0 +1,375 @@
+//
+//  DotNum.cpp
+//  goa
+//
+//  Created by Srikanth Talapadi on 01/04/17.
+//
+//
+
+#include "DotNum.hpp"
+#include "Dot.hpp"
+#include "../menu/MenuContext.h"
+
+
+USING_NS_CC;
+
+DotNum* DotNum::create(int num) {
+    DotNum *dotNum = new (std::nothrow) DotNum();
+    if(dotNum && dotNum->init(num)) {
+        dotNum->autorelease();
+        return dotNum;
+    }
+    CC_SAFE_DELETE(dotNum);
+    return nullptr;
+}
+
+DotNum::DotNum() {
+    
+}
+
+DotNum::~DotNum() {
+    
+}
+
+bool DotNum::init(int num) {
+    if(!Node::init()) {
+        return false;
+    }
+    auto wb = Sprite::create("help/whiteboard.png");
+    double length = 400.0;
+    wb->setScale(length * 2.0 / 1640.0);
+    addChild(wb);
+    _dotNode = Node::create();
+    addChild(_dotNode);
+    auto color = Color3B(56, 165, 212);
+    switch (num) {
+        case 1:
+        {
+            auto d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            break;
+        }
+        case 2:
+        {
+            auto d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPositionY(-length / 2.0);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPositionY(length / 2.0);
+        }
+        case 3:
+        {
+            auto d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPositionY(length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 2.0, -length / 2.0);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 2.0, -length / 2.0);
+        }
+        case 4:
+        {
+            auto d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 2.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 2.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 2.0, length / 2.0);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 2.0, length / 2.0);
+        }
+        case 5:
+        {
+            auto d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 2.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 2.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 2.0, length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 2.0, length / 2.0);
+        }
+        case 6:
+        {
+            auto d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length * 3.0 / 4.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(0.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length * 3.0 / 4.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length * 3.0 / 4.0, -length / 2.0);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(0.0, length / 2.0);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length * 3.0 / 4.0, length / 2.0);
+        }
+        case 7:
+        {
+            auto d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length * 3.0 / 4.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(0.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length * 3.0 / 4.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length * 3.0 / 4.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(0.0, length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length * 3.0 / 4.0, length / 2.0);
+        }
+        case 8:
+        {
+            auto d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length * 3.0 / 4.0, -length / 2.0);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 4.0, -length / 2.0);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 4.0, -length / 2.0);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length * 3.0 / 4.0, -length / 2.0);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length * 3.0 / 4.0, length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 4.0, length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 4.0, length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length * 3.0 / 4.0, length / 2.0);
+        }
+        case 9:
+        {
+            auto d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 2.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(0.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 2.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 2.0, 0.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 2.0, 0.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 2.0, length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(0.0, length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 2.0, length / 2.0);
+        }
+        case 10:
+        {
+            auto d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 2.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(0.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 2.0, -length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length * 3.0 / 4.0, 0.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 4.0, 0.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 4.0, 0.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length * 3.0 / 4.0, 0.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(-length / 2.0, length / 2.0);
+            
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(0.0, length / 2.0);
+
+            d = Dot::createWithColor(color);
+            _dotNode->addChild(d);
+            d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
+            d->setPosition(length / 2.0, length / 2.0);
+        }
+        default:
+            break;
+    }
+    return true;
+}
+
+bool DotNum::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) {
+    Dot* dot = static_cast<Dot*>(event->getCurrentTarget());
+    if(!dot->isTouched()) {
+        dot->touched(true);
+        dot->setColor(Color3B(181.0, 214.0, 47.0));
+    }
+    bool allTouched = true;
+    int pressedNumber = 0;
+    Vector <Node*> children = _dotNode->getChildren();
+    for (auto item = children.rbegin(); item != children.rend(); ++item) {
+        Dot *dot = static_cast<Dot*>(*item);
+        if(dot->isTouched()) {
+            pressedNumber++;
+        } else {
+            allTouched = false;
+        }
+    }
+    MenuContext::pronounceWord(MenuContext::to_string(pressedNumber));
+    if(allTouched) {
+        enableTouch(false);
+        //TODO: call callee
+    }
+    return true;
+}
+
+void DotNum::enableTouch(bool enabled) {
+    Vector <Node*> children = _dotNode->getChildren();
+    for (auto item = children.rbegin(); item != children.rend(); ++item) {
+        Dot *dot = static_cast<Dot*>(*item);
+        dot->enableTouch(enabled);
+    }
+}

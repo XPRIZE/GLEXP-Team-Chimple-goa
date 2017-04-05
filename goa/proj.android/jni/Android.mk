@@ -194,6 +194,10 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/puzzle/StoryWordBoard.cpp \
          ../../Classes/puzzle/WordBoard.cpp \
          ../../Classes/puzzle/WordScene.cpp \
+         ../../Classes/dot/Dot.cpp \
+         ../../Classes/dot/DotNum.cpp \
+         ../../Classes/dot/DotsLayer.cpp \
+         ../../Classes/dot/DotsQuizLayer.cpp \
          ../../Classes/splash/SplashScene.cpp \
          ../../Classes/sqlite3/Sqlite3Helper.cpp \
          ../../Classes/sqlite3/sqlite3.c \

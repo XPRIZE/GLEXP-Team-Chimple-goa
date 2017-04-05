@@ -474,6 +474,14 @@
 		F35043D81E3219A00005DF8D /* CommonText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35042491E32199F0005DF8D /* CommonText.cpp */; };
 		F35043DB1E3219A00005DF8D /* FShake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F350424F1E32199F0005DF8D /* FShake.cpp */; };
 		F35043DC1E3219A00005DF8D /* FShake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F350424F1E32199F0005DF8D /* FShake.cpp */; };
+		F3E3AC0A1E8E6CEA00AD906E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC081E8E6CEA00AD906E /* Dot.cpp */; };
+		F3E3AC0B1E8E6CEA00AD906E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC081E8E6CEA00AD906E /* Dot.cpp */; };
+		F3E3AC0E1E8FC5A900AD906E /* DotNum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */; };
+		F3E3AC0F1E8FC5A900AD906E /* DotNum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */; };
+		F3E3AC121E9004D200AD906E /* DotsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC101E9004D200AD906E /* DotsLayer.cpp */; };
+		F3E3AC131E9004D200AD906E /* DotsLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC101E9004D200AD906E /* DotsLayer.cpp */; };
+		F3E3AC161E924F6700AD906E /* DotsQuizLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC141E924F6700AD906E /* DotsQuizLayer.cpp */; };
+		F3E3AC171E924F6700AD906E /* DotsQuizLayer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC141E924F6700AD906E /* DotsQuizLayer.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1003,6 +1011,14 @@
 		F350424D1E32199F0005DF8D /* LTKWindowsUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTKWindowsUtil.h; sourceTree = "<group>"; };
 		F350424F1E32199F0005DF8D /* FShake.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FShake.cpp; sourceTree = "<group>"; };
 		F35042501E32199F0005DF8D /* FShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShake.h; sourceTree = "<group>"; };
+		F3E3AC081E8E6CEA00AD906E /* Dot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dot.cpp; sourceTree = "<group>"; };
+		F3E3AC091E8E6CEA00AD906E /* Dot.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dot.hpp; sourceTree = "<group>"; };
+		F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DotNum.cpp; sourceTree = "<group>"; };
+		F3E3AC0D1E8FC5A900AD906E /* DotNum.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DotNum.hpp; sourceTree = "<group>"; };
+		F3E3AC101E9004D200AD906E /* DotsLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DotsLayer.cpp; sourceTree = "<group>"; };
+		F3E3AC111E9004D200AD906E /* DotsLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DotsLayer.hpp; sourceTree = "<group>"; };
+		F3E3AC141E924F6700AD906E /* DotsQuizLayer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DotsQuizLayer.cpp; sourceTree = "<group>"; };
+		F3E3AC151E924F6700AD906E /* DotsQuizLayer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DotsQuizLayer.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1140,6 +1156,7 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				F3E3AC061E8E6C4900AD906E /* dot */,
 				F350408F1E32199F0005DF8D /* ext */,
 				F350411C1E32199F0005DF8D /* hero */,
 				F35041501E32199F0005DF8D /* i18n */,
@@ -1895,6 +1912,21 @@
 			path = effects;
 			sourceTree = "<group>";
 		};
+		F3E3AC061E8E6C4900AD906E /* dot */ = {
+			isa = PBXGroup;
+			children = (
+				F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */,
+				F3E3AC141E924F6700AD906E /* DotsQuizLayer.cpp */,
+				F3E3AC151E924F6700AD906E /* DotsQuizLayer.hpp */,
+				F3E3AC0D1E8FC5A900AD906E /* DotNum.hpp */,
+				F3E3AC081E8E6CEA00AD906E /* Dot.cpp */,
+				F3E3AC091E8E6CEA00AD906E /* Dot.hpp */,
+				F3E3AC101E9004D200AD906E /* DotsLayer.cpp */,
+				F3E3AC111E9004D200AD906E /* DotsLayer.hpp */,
+			);
+			path = dot;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -2059,6 +2091,7 @@
 				F35042AD1E32199F0005DF8D /* LTKStringUtil.cpp in Sources */,
 				F35043271E3219A00005DF8D /* AlphamonFeedScene.cpp in Sources */,
 				F35042D11E32199F0005DF8D /* SpeechBubbleView.cpp in Sources */,
+				F3E3AC0E1E8FC5A900AD906E /* DotNum.cpp in Sources */,
 				F350434D1E3219A00005DF8D /* CrossTheBridgeScene.cpp in Sources */,
 				F35043651E3219A00005DF8D /* jazz.cpp in Sources */,
 				F350439F1E3219A00005DF8D /* CharacterConfiguration.cpp in Sources */,
@@ -2110,6 +2143,7 @@
 				F35042F91E32199F0005DF8D /* SwahiliUtil.cpp in Sources */,
 				F35043391E3219A00005DF8D /* Cannon_Ball_Listener.cpp in Sources */,
 				F35043431E3219A00005DF8D /* CatGameScene.cpp in Sources */,
+				F3E3AC0A1E8E6CEA00AD906E /* Dot.cpp in Sources */,
 				F35042C31E32199F0005DF8D /* GestureLayer.cpp in Sources */,
 				F35043711E3219A00005DF8D /* Order.cpp in Sources */,
 				F35042D71E32199F0005DF8D /* WordBubble.cpp in Sources */,
@@ -2154,6 +2188,7 @@
 				F350438B1E3219A00005DF8D /* Stack.cpp in Sources */,
 				F35042991E32199F0005DF8D /* LTKConfigFileReader.cpp in Sources */,
 				F35042A71E32199F0005DF8D /* LTKLoggerUtil.cpp in Sources */,
+				F3E3AC121E9004D200AD906E /* DotsLayer.cpp in Sources */,
 				F35043DB1E3219A00005DF8D /* FShake.cpp in Sources */,
 				F35043551E3219A00005DF8D /* DinoGame.cpp in Sources */,
 				F35042A11E32199F0005DF8D /* LTKInkFileWriter.cpp in Sources */,
@@ -2175,6 +2210,7 @@
 				F350425F1E32199F0005DF8D /* LTKTraceGroup.cpp in Sources */,
 				F35043811E3219A00005DF8D /* SmashTheRockLevelScene.cpp in Sources */,
 				F35043751E3219A00005DF8D /* PatchTheWallScene.cpp in Sources */,
+				F3E3AC161E924F6700AD906E /* DotsQuizLayer.cpp in Sources */,
 				F35042D91E32199F0005DF8D /* WordSprite.cpp in Sources */,
 				F35042B31E32199F0005DF8D /* logger.cpp in Sources */,
 				F350434B1E3219A00005DF8D /* Circle.cpp in Sources */,
@@ -2358,6 +2394,7 @@
 				F350429C1E32199F0005DF8D /* LTKErrors.cpp in Sources */,
 				F35042BC1E32199F0005DF8D /* ExternalSkeletonCharacter.cpp in Sources */,
 				F350433C1E3219A00005DF8D /* Cannon_Ball_Main.cpp in Sources */,
+				F3E3AC0B1E8E6CEA00AD906E /* Dot.cpp in Sources */,
 				F35042DA1E32199F0005DF8D /* WordSprite.cpp in Sources */,
 				F35042601E32199F0005DF8D /* LTKTraceGroup.cpp in Sources */,
 				F35043721E3219A00005DF8D /* Order.cpp in Sources */,
@@ -2382,6 +2419,7 @@
 				F35042E01E32199F0005DF8D /* RunningState.cpp in Sources */,
 				F350408A1E3219890005DF8D /* Alphamon.cpp in Sources */,
 				F35043461E3219A00005DF8D /* CatScene.cpp in Sources */,
+				F3E3AC0F1E8FC5A900AD906E /* DotNum.cpp in Sources */,
 				F35043221E3219A00005DF8D /* Alphamole.cpp in Sources */,
 				F35043D01E3219A00005DF8D /* StoryPlaying.cpp in Sources */,
 				F35043581E3219A00005DF8D /* Door.cpp in Sources */,
@@ -2400,6 +2438,7 @@
 				F35043001E32199F0005DF8D /* WordManager.cpp in Sources */,
 				F35042FC1E32199F0005DF8D /* TextGenerator.cpp in Sources */,
 				F350433A1E3219A00005DF8D /* Cannon_Ball_Listener.cpp in Sources */,
+				F3E3AC131E9004D200AD906E /* DotsLayer.cpp in Sources */,
 				F350425E1E32199F0005DF8D /* LTKTraceFormat.cpp in Sources */,
 				F350439A1E3219A00005DF8D /* TreasureHuntNode.cpp in Sources */,
 				F35042AE1E32199F0005DF8D /* LTKStringUtil.cpp in Sources */,
@@ -2422,6 +2461,7 @@
 				F35043CE1E3219A00005DF8D /* StoryCoverPage.cpp in Sources */,
 				F35043121E32199F0005DF8D /* MapIsland.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
+				F3E3AC171E924F6700AD906E /* DotsQuizLayer.cpp in Sources */,
 				F35043D61E3219A00005DF8D /* CommonLabelTTF.cpp in Sources */,
 				F350437E1E3219A00005DF8D /* Shape.cpp in Sources */,
 				F350437A1E3219A00005DF8D /* Pop.cpp in Sources */,
