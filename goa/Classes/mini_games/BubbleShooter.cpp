@@ -551,7 +551,7 @@ void BubbleShooter::drawNextLetter(float x, float y, int index) {
 	
 	}
 	else {
-		auto nextLetterPlayer = CommonLabelTTF::create(letterSprite[player->nextbubble.tiletype], "res/fonts/BalooBhai-Regular.ttf", 120);
+		auto nextLetterPlayer = CommonLabelTTF::create(letterSprite[player->nextbubble.tiletype], "Helvetica", 120);
 		nextLetterPlayer->setPosition(Vec2(this->getChildByName("nextBubblePlayer")->getContentSize().width / 2, this->getChildByName("nextBubblePlayer")->getContentSize().height / 2));
 		this->getChildByName("nextBubblePlayer")->addChild(nextLetterPlayer);
 		//nextLetterPlayer->setAnchorPoint(0.5, 0.5);

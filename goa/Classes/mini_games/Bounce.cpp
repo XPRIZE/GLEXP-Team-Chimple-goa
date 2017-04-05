@@ -225,7 +225,15 @@ void Bounce::setupLayer(int startNum, int endNum, int sum, int begin, std::vecto
 	auto sumSprite = Sprite::createWithSpriteFrameName("icecream/cone.png");
 	sumSprite->setPosition(Vec2((sum - startNum + 0.5) *NUMBER_WIDTH, HOLDER_Y + 100));
 	_scroll->addChild(sumSprite);
-
+	 
+	for (int i = 0; i < _holders.size(); i++)
+	{
+		if ((int)(_holders[i]->getPositionX()) == (int)((sum - startNum + 0.5) *NUMBER_WIDTH))
+		{
+			_holders[i]->setTag(1);
+			break;
+		}
+	}
 	_bounceDrop = new BounceDrop(_begin, startNum);
 	_scroll->addChild(_bounceDrop, -1);
 
