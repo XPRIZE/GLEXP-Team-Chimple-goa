@@ -19,7 +19,10 @@ class AlphaPhonics : public cocos2d::Layer
 
 protected:
 	MenuContext *_menuContext;
-	
+	int liftOpenChoice = 0,currentOptionPosition = 0;
+	bool touchOption = true;
+	vector<int> _optionValue;
+	vector<string> optionNames;
 
 public:
 	~AlphaPhonics();
@@ -29,10 +32,22 @@ public:
 
 	void LiftAnimationPlay(string elevatorName,string animationName);
 
-	void createSprite(string spriteName,Size size, Vec2 position);
+	void LiftAnimationHandler(int elevatorNo);
+
+	bool DataCorrectOrNot(Sprite * option);
+
+	void OptionChangeAnimation(vector<int> optionNumber);
+
+	void RecreateOptions(std::vector<string> optionName);
+
+	Sprite* createSprite(string spriteName,int currentOptionPosition,Size size, Vec2 position);
 
 	void onEnterTransitionDidFinish();
 	void update(float) override;
+
+	void OptionListner(Sprite *option);
+
+	string StringandIntConcat(string data, int number);
 
 	static const char* gameName() { return ALPHAPHONICS.c_str(); }
 };
