@@ -50,7 +50,6 @@ void Find::onEnterTransitionDidFinish()
 		Sprite* temp = Sprite::create("find/boxy.png");
 		setAllSpriteProperties(temp, 0, _nodeBin[j]->getPositionX(), _nodeBin[j]->getPositionY(), true, 0.5, 0.5, 0, 0.001, 0.001);
 		this->addChild(temp, 0);
-		temp->setName("");
 		addTouchEvents(temp);
 		_propsBin.push_back(temp);
 

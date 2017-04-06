@@ -8,7 +8,7 @@
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
 
-#define COCOS2D_DEBUG 1
+#define COCOS2D_DEBUG 1;
 using namespace std;
 using namespace cocos2d;
 USING_NS_CC;
@@ -22,6 +22,8 @@ protected:
 	HelpLayer* _help;
 	Find();
 	~Find();
+	vector<Node*> _nodeBin;
+	vector<Sprite*> _propsBin;
 
 public:
 	CREATE_FUNC(Find);
