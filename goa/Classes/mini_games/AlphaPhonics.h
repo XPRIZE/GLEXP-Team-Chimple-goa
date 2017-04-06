@@ -36,7 +36,9 @@ public:
 
 	bool DataCorrectOrNot(Sprite * option);
 
-	void OptionChangeAnimation(vector<int> optionNumber);
+	void OptionChangeAnimation(int optionNumber);
+
+	vector<int> getRandomValueRange(int min, int max, int getValue);
 
 	void RecreateOptions(std::vector<string> optionName);
 

@@ -42,7 +42,8 @@ void AlphaPhonics::onEnterTransitionDidFinish() {
 		bg->setPositionX(myGameWidth);
 	}
 
-	LiftAnimationHandler(++liftOpenChoice);
+	_optionValue = getRandomValueRange(1, 4, 4);
+	LiftAnimationHandler(_optionValue[liftOpenChoice]);
 		
 	auto parentOption = this->getChildByName("bg")->getChildByName("FileNode_2");
 	
@@ -107,12 +108,11 @@ void AlphaPhonics::OptionListner(Sprite *option) {
 		
 		auto setTagOfCorrectObj = CallFunc::create([=]() {
 			
-			classRefer->_optionValue.push_back(target->getTag());
-			classRefer->OptionChangeAnimation(classRefer->_optionValue);
+			classRefer->OptionChangeAnimation(target->getTag());
 			target->setTag(0);
-
-			if (liftOpenChoice < 4) {
-				LiftAnimationHandler(++liftOpenChoice);
+			target->pause();
+			if (liftOpenChoice < 3) {
+				LiftAnimationHandler(_optionValue[++liftOpenChoice]);
 			}
 			else {
 				//_menuContext->setMaxPoints(classReference->counterHit);
@@ -120,10 +120,10 @@ void AlphaPhonics::OptionListner(Sprite *option) {
 			}
 		});
 
-		auto elevatorObj = parentOption->getChildByName(StringandIntConcat("elevator", liftOpenChoice));
+		auto elevatorObj = parentOption->getChildByName(StringandIntConcat("elevator", _optionValue[liftOpenChoice]));
 		if (target->getBoundingBox().intersectsRect(elevatorObj->getBoundingBox())&& DataCorrectOrNot((Sprite*)target)) {
 
-			target->runAction(Sequence::create(MoveTo::create(0.6, Vec2(elevatorObj->getPosition())), setTagOfCorrectObj, NULL));
+			target->runAction(Sequence::create(MoveTo::create(0.1, Vec2(elevatorObj->getPosition())), setTagOfCorrectObj, NULL));
 		}
 		else {		
 			if (target->getTag() == 1) {
@@ -190,16 +190,14 @@ bool AlphaPhonics::DataCorrectOrNot(Sprite* option) {
 	return false;
 }
 
-void AlphaPhonics::OptionChangeAnimation(vector<int> optionNumber) {
+void AlphaPhonics::OptionChangeAnimation(int optionNumber) {
 	auto parentOption = this->getChildByName("bg")->getChildByName("FileNode_2");
 	vector<Sprite*> options;
 
 	for (int i = 1; i <= 4; i++) {
-		for (int j = 0; j < optionNumber.size(); j++) {
-				if (i != optionNumber[j]) {
-				auto optionObj = (Sprite*)this->getChildByName(StringandIntConcat("option",i));
-				options.push_back(optionObj);
-			}
+			if (i != optionNumber) {
+			auto optionObj = (Sprite*)this->getChildByName(StringandIntConcat("option",i));
+			options.push_back(optionObj);
 		}
 	}
 
@@ -208,7 +206,37 @@ void AlphaPhonics::OptionChangeAnimation(vector<int> optionNumber) {
 		options[i]->runAction(ScaleTo::create(1.5f, 0.0f));
 	}
 
-	this->runAction(Sequence::create(DelayTime::create(1.6), CallFunc::create([=]() {RecreateOptions(optionNames);}), NULL));
+	if(liftOpenChoice < 4)
+	this->runAction(Sequence::create(DelayTime::create(1.6), CallFunc::create([=]() {
+		for(int i = 0 ; i < options.size() ; i++)
+			this->removeChild(options[i]);
+
+		RecreateOptions(optionNames);
+	}), NULL));
+}
+
+vector<int> AlphaPhonics::getRandomValueRange(int min, int max, int getValue) {
+	int count = 0;
+	vector<int> objectVector;
+	while (count < getValue) {
+		int temp = RandomHelper::random_int(min, max);
+		bool flag = true;
+
+		for (size_t index = 0; index < objectVector.size(); index++) {
+			if (objectVector[index] == temp) {
+				flag = false;
+				break;
+			}
+		}
+
+		if (flag) {
+			objectVector.push_back(temp);
+			count++;
+		}
+	}
+
+//	sort(objectVector.begin(), objectVector.end());
+	return objectVector;
 }
 
 void AlphaPhonics::RecreateOptions(std::vector<string> optionName) {
