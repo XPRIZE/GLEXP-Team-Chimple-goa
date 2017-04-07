@@ -22,9 +22,26 @@ public:
 	AlphaArrange();
 	~AlphaArrange();
 	virtual bool init();
-
-	
+	bool enableTouch;
+	Node *_bg;
+	Node *_english;
+	int overlapped;
+	std::vector<std::string> _alphabets;
+	std::vector<cocos2d::Vec2> _randomPositions;
+	std::vector<Node*> _correctPlaces;
+	std::vector<Node*> _randomPlaces;
+	int _currentAlphabet;
+	void createBox();
+	void setupTouch();
 	HelpLayer *_help;
+	std::string lang;
+	int _labelFontSize = 150;
+	int helpFlag = 0;
+	int matches;
+
+	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+	void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
+	void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(AlphaArrange);
