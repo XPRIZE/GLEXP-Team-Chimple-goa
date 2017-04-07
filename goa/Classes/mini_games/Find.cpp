@@ -45,12 +45,22 @@ void Find::onEnterTransitionDidFinish()
 		CCLOG("name : %s", str.c_str());
 	}
 
+	Sprite *textHolder = (Sprite*)findBackground->getChildByName("board_24");
+	textHolder->setName("textHolder");
+
+	LabelTTF *label = CommonLabelTTF::create("FIND", "Helvetica", 90);
+	label->setPosition(Vec2(visibleSize.width/2, textHolder->getPositionY()));
+	this->addChild(label, 3);
+
+	label->setName("spell");
+
+
 	for (int j = 0; j < _nodeBin.size(); j++)
 	{
 		Sprite* temp = Sprite::create("find/boxy.png");
 		setAllSpriteProperties(temp, 0, _nodeBin[j]->getPositionX(), _nodeBin[j]->getPositionY(), true, 0.5, 0.5, 0, 0.001, 0.001);
 		this->addChild(temp, 0);
-		temp->setName("");
+		temp->setName(StringandIntConcat("object",(j+1)));
 		addTouchEvents(temp);
 		_propsBin.push_back(temp);
 
@@ -76,55 +86,101 @@ void Find::onEnterTransitionDidFinish()
 			randomIndex.push_back(numberPicker);
 	}
 	float delay = 0;
+	int counter = 0;
 	for (int i = 0; i < randomIndex.size(); i++)
 	{
-		auto a = 10;
 		this->runAction(Sequence::create(DelayTime::create(delay), CCCallFunc::create([=] {
 			auto scaleTo = ScaleTo::create(3, 0.5);
 			EaseElasticOut *easeAction = EaseElasticOut::create(scaleTo);
 			_propsBin[randomIndex[i]]->runAction(easeAction);
-		}), NULL));
-		//this->runAction(sequence);
+		}),NULL));
+		
 		delay = delay + 0.5;
+		counter++;
 	}
+	this->runAction(Sequence::create(DelayTime::create(delay), CCCallFunc::create([=] {_touchFlag = true; }), NULL));
 	this->scheduleUpdate();
 
 }
+
+string Find::StringandIntConcat(string data, int number) {
+
+	std::ostringstream value;
+	value << data << number;
+	return value.str();
+}
+
 Find::Find()
 {
-
 }
 
 Find::~Find()
 {
-
 }
 
 void Find::update(float dt)
 {
-
 }
 
 void Find::addTouchEvents(Sprite* sprite)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
-	
+	auto displayText = (LabelTTF*)this->getChildByName("spell");
+	string str = displayText->getString();
+
 	listener->onTouchBegan = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
 		auto target = event->getCurrentTarget();
-		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+		if (target->getBoundingBox().containsPoint(touch->getLocation()) && _touchFlag) {
+			
+			displayText->setString(target->getName());
 
-		auto posX = target->getPositionX();
-		auto posY = target->getPositionY();
-		auto a = target->getPositionX() - (target->getContentSize().width / 2)*0.5;
-		auto b = target->getPositionY() - (target->getContentSize().height / 2)*0.5;
+			string textOriginal = this->getChildByName("spell")->getName();
+			CCLOG("TOUCHED OBJECT : %s", target->getName().c_str());
+			if (!target->getName().compare("object5"))
+			{
+				
+				auto *funcAct = CCCallFunc::create([=] {
+					ScaleTo *scaleTo = ScaleTo::create(1.2, 0.0001);
+					EaseElasticIn *easeAction = EaseElasticIn::create(scaleTo);
+					target->runAction(easeAction);
+				});
 
-		Rect rect = CCRectMake(a, b, target->getContentSize().width*0.5, target->getContentSize().height * 0.5);
+				auto *func = CCCallFunc::create([=] {
+					for (auto it = _propsBin.begin(); it != _propsBin.end(); it++)
+					{
+						Sprite *temp = *it;
+						Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(temp);
+					}});
 
-		if (rect.containsPoint(locationInNode))
-		{
-			CCLOG("node name is : %s ",target->getName().c_str());
+				auto *funcMove= CCCallFunc::create([=] {
+					for (auto it = _propsBin.begin(); it != _propsBin.end(); it++)
+					{
+						Sprite *temp = *it;
+						if (temp->getName().compare("object5"))
+						{
+							MoveTo *scaleTo = MoveTo::create(1,Vec2(-300, temp->getPositionY()));
+							EaseBackIn *easeAction = EaseBackIn::create(scaleTo);
+							temp->runAction(easeAction);
+						}
+					}});
+				auto *deleteMove = CCCallFunc::create([=] {
+					Vector <Node*> children = this->getChildren();
+					for (auto it = children.begin(); it != children.end(); ++it)
+					{
+						auto *obj = *it;
+						string str = obj->getName();
+						if (!str.find("object"))
+							this->removeChild(obj);
+					}
+					});
+				this->runAction(Sequence::create(func,funcAct,DelayTime::create(1.5),funcMove,DelayTime::create(1.5), deleteMove, NULL));
+			}
+			else
+			{
+				shake(target);
+			}
 			return true;
 		}
 		return false;
@@ -135,9 +191,20 @@ void Find::addTouchEvents(Sprite* sprite)
 	};
 	listener->onTouchEnded = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
-
+		displayText->setString(str);
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, sprite);
+}
+
+void Find::shake(Node *sprite)
+{
+	auto act_1 = MoveBy::create(0.1, Vec2(10, 0));
+	auto act_2 = MoveBy::create(0.1, Vec2(0, -10));
+	auto act_3 = MoveBy::create(0.1, Vec2(0, 10));
+	auto act_4 = MoveBy::create(0.1, Vec2(-10, 0));
+
+	sprite->runAction(Sequence::create(act_1, act_2, act_3, act_4, NULL));
+
 }
 
 void Find::setAllSpriteProperties(Sprite* sprite, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY)
