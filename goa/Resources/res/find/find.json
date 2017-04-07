@@ -1,0 +1,1471 @@
+{
+  "ID": "2bf55857-d685-4f41-9298-24dc04bc75b7",
+  "Version": "3.10.0.0",
+  "Name": "find",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 6,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 53,
+              "G": 46,
+              "B": 81
+            },
+            "EndColor": {
+              "R": 76,
+              "G": 69,
+              "B": 109
+            },
+            "ColorVector": {
+              "ScaleX": 0.0,
+              "ScaleY": -1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 21,
+            "ActionTag": 644903083,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 204,
+              "G": 114,
+              "B": 168
+            },
+            "FirstColor": {
+              "R": 70,
+              "G": 62,
+              "B": 96
+            },
+            "EndColor": {
+              "R": 95,
+              "G": 87,
+              "B": 124
+            },
+            "ColorVector": {
+              "ScaleX": 0.0,
+              "ScaleY": -1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.1087
+            },
+            "TopMargin": 1604.3398,
+            "Tag": 23,
+            "ActionTag": 295443204,
+            "Size": {
+              "X": 2560.0,
+              "Y": 195.6601
+            },
+            "Name": "Panel_1_0_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 153,
+              "G": 40,
+              "B": 102
+            },
+            "FirstColor": {
+              "R": 70,
+              "G": 62,
+              "B": 96
+            },
+            "EndColor": {
+              "R": 95,
+              "G": 87,
+              "B": 124
+            },
+            "ColorVector": {
+              "ScaleX": 0.0,
+              "ScaleY": -1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.0766
+            },
+            "TopMargin": 1662.1715,
+            "Tag": 22,
+            "ActionTag": -1112991929,
+            "Size": {
+              "X": 2560.0,
+              "Y": 137.8285
+            },
+            "Name": "Panel_1_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/apple.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 456.1145,
+              "Y": 970.3928
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1782,
+              "Y": 0.5391
+            },
+            "PreSize": {
+              "X": 0.0895,
+              "Y": 0.1483
+            },
+            "LeftMargin": 341.6145,
+            "RightMargin": 1989.3855,
+            "TopMargin": 696.1072,
+            "BottomMargin": 836.8928,
+            "Tag": 11,
+            "ActionTag": 2139562258,
+            "Size": {
+              "X": 229.0,
+              "Y": 267.0
+            },
+            "Name": "apple_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/book.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1569.004,
+              "Y": 390.7974
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6129,
+              "Y": 0.2171
+            },
+            "PreSize": {
+              "X": 0.1484,
+              "Y": 0.1578
+            },
+            "LeftMargin": 1379.004,
+            "RightMargin": 800.996,
+            "TopMargin": 1267.2026,
+            "BottomMargin": 248.7974,
+            "Tag": 12,
+            "ActionTag": -1414140372,
+            "Size": {
+              "X": 380.0,
+              "Y": 284.0
+            },
+            "Name": "book_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/cheese.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4617,
+              "ScaleY": 0.5127
+            },
+            "Position": {
+              "X": 818.8636,
+              "Y": 943.6743
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3199,
+              "Y": 0.5243
+            },
+            "PreSize": {
+              "X": 0.0926,
+              "Y": 0.1122
+            },
+            "LeftMargin": 709.4304,
+            "RightMargin": 1613.5696,
+            "TopMargin": 757.8979,
+            "BottomMargin": 840.1021,
+            "Tag": 13,
+            "ActionTag": -886076909,
+            "Size": {
+              "X": 237.0,
+              "Y": 202.0
+            },
+            "Name": "cheese_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/cup.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1844.4447,
+              "Y": 965.3209
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7205,
+              "Y": 0.5363
+            },
+            "PreSize": {
+              "X": 0.1344,
+              "Y": 0.2011
+            },
+            "LeftMargin": 1672.4447,
+            "RightMargin": 543.5553,
+            "TopMargin": 653.6792,
+            "BottomMargin": 784.3209,
+            "Tag": 14,
+            "ActionTag": -2084204230,
+            "Size": {
+              "X": 344.0,
+              "Y": 362.0
+            },
+            "Name": "cup_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/donut.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 204.6033,
+              "Y": 734.3576
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0799,
+              "Y": 0.408
+            },
+            "PreSize": {
+              "X": 0.1176,
+              "Y": 0.1667
+            },
+            "LeftMargin": 54.1033,
+            "RightMargin": 2204.8967,
+            "TopMargin": 915.6424,
+            "BottomMargin": 584.3576,
+            "Tag": 15,
+            "ActionTag": -372160919,
+            "Size": {
+              "X": 301.0,
+              "Y": 300.0
+            },
+            "Name": "donut_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/fish.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 740.1022,
+              "Y": 1236.3848
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 16.6885,
+            "RotationSkewY": 16.6852,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2891,
+              "Y": 0.6869
+            },
+            "PreSize": {
+              "X": 0.2121,
+              "Y": 0.1228
+            },
+            "LeftMargin": 468.6022,
+            "RightMargin": 1548.3978,
+            "TopMargin": 453.1152,
+            "BottomMargin": 1125.8848,
+            "Tag": 16,
+            "ActionTag": -358556196,
+            "Size": {
+              "X": 543.0,
+              "Y": 221.0
+            },
+            "Name": "fish_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/shirt.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 982.7017,
+              "Y": 1498.3457
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 31.1461,
+            "RotationSkewY": 31.1461,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3839,
+              "Y": 0.8324
+            },
+            "PreSize": {
+              "X": 0.1992,
+              "Y": 0.2339
+            },
+            "LeftMargin": 727.7017,
+            "RightMargin": 1322.2983,
+            "TopMargin": 91.1543,
+            "BottomMargin": 1287.8457,
+            "Tag": 17,
+            "ActionTag": 1232226006,
+            "Size": {
+              "X": 510.0,
+              "Y": 421.0
+            },
+            "Name": "shirt_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/submarine.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1204.6747,
+              "Y": 634.9116
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4706,
+              "Y": 0.3527
+            },
+            "PreSize": {
+              "X": 0.3535,
+              "Y": 0.2944
+            },
+            "LeftMargin": 752.1747,
+            "RightMargin": 902.8253,
+            "TopMargin": 900.0884,
+            "BottomMargin": 369.9116,
+            "Tag": 18,
+            "ActionTag": -1957554934,
+            "Size": {
+              "X": 905.0,
+              "Y": 530.0
+            },
+            "Name": "submarine_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/tooth.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1149.8812,
+              "Y": 1076.4551
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 51.3184,
+            "RotationSkewY": 51.3183,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4492,
+              "Y": 0.598
+            },
+            "PreSize": {
+              "X": 0.0699,
+              "Y": 0.1178
+            },
+            "LeftMargin": 1060.3812,
+            "RightMargin": 1320.6188,
+            "TopMargin": 617.5449,
+            "BottomMargin": 970.4551,
+            "Tag": 19,
+            "ActionTag": -2036686452,
+            "Size": {
+              "X": 179.0,
+              "Y": 212.0
+            },
+            "Name": "tooth_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/submarine.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1888.2157,
+              "Y": 1413.2014
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -17.6807,
+            "RotationSkewY": -17.6807,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7376,
+              "Y": 0.7851
+            },
+            "PreSize": {
+              "X": 0.3535,
+              "Y": 0.2944
+            },
+            "LeftMargin": 1435.7157,
+            "RightMargin": 219.2842,
+            "TopMargin": 121.7986,
+            "BottomMargin": 1148.2014,
+            "Tag": 24,
+            "ActionTag": -1087136379,
+            "Size": {
+              "X": 905.0,
+              "Y": 530.0
+            },
+            "Name": "submarine_8_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/shirt.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2247.3882,
+              "Y": 690.7572
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -27.1171,
+            "RotationSkewY": -27.0843,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8779,
+              "Y": 0.3838
+            },
+            "PreSize": {
+              "X": 0.1992,
+              "Y": 0.2339
+            },
+            "LeftMargin": 1992.3882,
+            "RightMargin": 57.6118,
+            "TopMargin": 898.7428,
+            "BottomMargin": 480.2572,
+            "Tag": 25,
+            "ActionTag": 90763211,
+            "Size": {
+              "X": 510.0,
+              "Y": 421.0
+            },
+            "Name": "shirt_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/cup.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 301.704,
+              "Y": 1564.4883
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 35.5647,
+            "RotationSkewY": 35.5682,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1179,
+              "Y": 0.8692
+            },
+            "PreSize": {
+              "X": 0.1344,
+              "Y": 0.2011
+            },
+            "LeftMargin": 129.704,
+            "RightMargin": 2086.2959,
+            "TopMargin": 54.5117,
+            "BottomMargin": 1383.4883,
+            "Tag": 26,
+            "ActionTag": 1471175552,
+            "Size": {
+              "X": 344.0,
+              "Y": 362.0
+            },
+            "Name": "cup_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/fish.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 481.5808,
+              "Y": 523.143
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -37.6778,
+            "RotationSkewY": -37.6767,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1881,
+              "Y": 0.2906
+            },
+            "PreSize": {
+              "X": 0.2121,
+              "Y": 0.1228
+            },
+            "LeftMargin": 210.0808,
+            "RightMargin": 1806.9192,
+            "TopMargin": 1166.3569,
+            "BottomMargin": 412.643,
+            "Tag": 27,
+            "ActionTag": -1873621175,
+            "Size": {
+              "X": 543.0,
+              "Y": 221.0
+            },
+            "Name": "fish_6_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/cheese.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.4617,
+              "ScaleY": 0.5127
+            },
+            "Position": {
+              "X": 1385.9159,
+              "Y": 1650.4214
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 30.9422,
+            "RotationSkewY": 30.9422,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5414,
+              "Y": 0.9169
+            },
+            "PreSize": {
+              "X": 0.0926,
+              "Y": 0.1122
+            },
+            "LeftMargin": 1276.4827,
+            "RightMargin": 1046.5173,
+            "TopMargin": 51.1508,
+            "BottomMargin": 1546.8492,
+            "Tag": 28,
+            "ActionTag": -1098695701,
+            "Size": {
+              "X": 237.0,
+              "Y": 202.0
+            },
+            "Name": "cheese_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/tooth.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2329.0098,
+              "Y": 1563.3384
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 36.3174,
+            "RotationSkewY": 36.3076,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9098,
+              "Y": 0.8685
+            },
+            "PreSize": {
+              "X": 0.0699,
+              "Y": 0.1178
+            },
+            "LeftMargin": 2239.5098,
+            "RightMargin": 141.4902,
+            "TopMargin": 130.6616,
+            "BottomMargin": 1457.3384,
+            "Tag": 29,
+            "ActionTag": 526302275,
+            "Size": {
+              "X": 179.0,
+              "Y": 212.0
+            },
+            "Name": "tooth_9_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/apple.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1731.3285,
+              "Y": 1665.7263
+            },
+            "Scale": {
+              "ScaleX": 0.7876,
+              "ScaleY": 0.7876
+            },
+            "RotationSkewX": 29.2944,
+            "RotationSkewY": 29.2944,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6763,
+              "Y": 0.9254
+            },
+            "PreSize": {
+              "X": 0.0895,
+              "Y": 0.1483
+            },
+            "LeftMargin": 1616.8285,
+            "RightMargin": 714.1715,
+            "TopMargin": 0.7737,
+            "BottomMargin": 1532.2263,
+            "Tag": 30,
+            "ActionTag": 1656957659,
+            "Size": {
+              "X": 229.0,
+              "Y": 267.0
+            },
+            "Name": "apple_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/donut.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1965.3488,
+              "Y": 452.0084
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7677,
+              "Y": 0.2511
+            },
+            "PreSize": {
+              "X": 0.1176,
+              "Y": 0.1667
+            },
+            "LeftMargin": 1814.8488,
+            "RightMargin": 444.1514,
+            "TopMargin": 1197.9917,
+            "BottomMargin": 302.0084,
+            "Tag": 31,
+            "ActionTag": -1931775902,
+            "Size": {
+              "X": 301.0,
+              "Y": 300.0
+            },
+            "Name": "donut_5_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/book.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 231.8729,
+              "Y": 1183.2173
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 33.742,
+            "RotationSkewY": 33.7483,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0906,
+              "Y": 0.6573
+            },
+            "PreSize": {
+              "X": 0.1484,
+              "Y": 0.1578
+            },
+            "LeftMargin": 41.8729,
+            "RightMargin": 2138.127,
+            "TopMargin": 474.7827,
+            "BottomMargin": 1041.2173,
+            "Tag": 32,
+            "ActionTag": -1062802452,
+            "Size": {
+              "X": 380.0,
+              "Y": 284.0
+            },
+            "Name": "book_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/donut.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2290.8281,
+              "Y": 1103.5608
+            },
+            "Scale": {
+              "ScaleX": 0.7391,
+              "ScaleY": 0.7391
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8949,
+              "Y": 0.6131
+            },
+            "PreSize": {
+              "X": 0.1176,
+              "Y": 0.1667
+            },
+            "LeftMargin": 2140.3281,
+            "RightMargin": 118.6719,
+            "TopMargin": 546.4392,
+            "BottomMargin": 953.5608,
+            "Tag": 33,
+            "ActionTag": 833965502,
+            "Size": {
+              "X": 301.0,
+              "Y": 300.0
+            },
+            "Name": "donut_5_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/apple.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1426.0521,
+              "Y": 1161.1316
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -43.0857,
+            "RotationSkewY": -43.0857,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5571,
+              "Y": 0.6451
+            },
+            "PreSize": {
+              "X": 0.0895,
+              "Y": 0.1483
+            },
+            "LeftMargin": 1311.5521,
+            "RightMargin": 1019.4479,
+            "TopMargin": 505.3684,
+            "BottomMargin": 1027.6316,
+            "Tag": 35,
+            "ActionTag": 596538213,
+            "Size": {
+              "X": 229.0,
+              "Y": 267.0
+            },
+            "Name": "apple_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 566.5988,
+              "Y": 544.1384
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2213,
+              "Y": 0.3023
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 566.5988,
+            "RightMargin": 1993.4012,
+            "TopMargin": 1255.8616,
+            "BottomMargin": 544.1384,
+            "Tag": 33,
+            "ActionTag": -456004217,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_8",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1902.4415,
+              "Y": 459.7209
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7431,
+              "Y": 0.2554
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1902.4415,
+            "RightMargin": 657.5585,
+            "TopMargin": 1340.2791,
+            "BottomMargin": 459.7209,
+            "Tag": 32,
+            "ActionTag": -1271591481,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_7",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2059.0469,
+              "Y": 1022.7053
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8043,
+              "Y": 0.5682
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2059.0469,
+            "RightMargin": 500.9531,
+            "TopMargin": 777.2947,
+            "BottomMargin": 1022.7053,
+            "Tag": 31,
+            "ActionTag": -530118278,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_6",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1417.0009,
+              "Y": 747.7018
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5535,
+              "Y": 0.4154
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1417.0009,
+            "RightMargin": 1142.9991,
+            "TopMargin": 1052.2981,
+            "BottomMargin": 747.7018,
+            "Tag": 30,
+            "ActionTag": -1252580000,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_5",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 648.6088,
+              "Y": 986.0009
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2534,
+              "Y": 0.5478
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 648.6088,
+            "RightMargin": 1911.3912,
+            "TopMargin": 813.9991,
+            "BottomMargin": 986.0009,
+            "Tag": 29,
+            "ActionTag": 338831138,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_4",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1876.2841,
+              "Y": 1354.3599
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7329,
+              "Y": 0.7524
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1876.2841,
+            "RightMargin": 683.7159,
+            "TopMargin": 445.6401,
+            "BottomMargin": 1354.3599,
+            "Tag": 28,
+            "ActionTag": 2019582630,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_3",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1217.6061,
+              "Y": 1409.1052
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4756,
+              "Y": 0.7828
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1217.6061,
+            "RightMargin": 1342.3939,
+            "TopMargin": 390.8948,
+            "BottomMargin": 1409.1052,
+            "Tag": 27,
+            "ActionTag": 1119388260,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_2",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 518.8727,
+              "Y": 1489.2825
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2027,
+              "Y": 0.8274
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 518.8727,
+            "RightMargin": 2041.1273,
+            "TopMargin": 310.7175,
+            "BottomMargin": 1489.2825,
+            "Tag": 26,
+            "ActionTag": -2035704562,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "Node_1",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/board_shadow.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1501.745,
+              "Y": 116.1255
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5866,
+              "Y": 0.0645
+            },
+            "PreSize": {
+              "X": 0.5137,
+              "Y": 0.1561
+            },
+            "LeftMargin": 844.245,
+            "RightMargin": 400.7549,
+            "TopMargin": 1543.3745,
+            "BottomMargin": -24.3745,
+            "Tag": 37,
+            "ActionTag": 758852336,
+            "Size": {
+              "X": 1315.0,
+              "Y": 281.0
+            },
+            "Name": "board_shadow_25",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "find/board.png",
+              "Plist": "find/find.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1304.61,
+              "Y": 165.5416
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5096,
+              "Y": 0.092
+            },
+            "PreSize": {
+              "X": 0.3805,
+              "Y": 0.1278
+            },
+            "LeftMargin": 817.61,
+            "RightMargin": 768.39,
+            "TopMargin": 1519.4584,
+            "BottomMargin": 50.5416,
+            "Tag": 36,
+            "ActionTag": 457797078,
+            "Size": {
+              "X": 974.0,
+              "Y": 230.0
+            },
+            "Name": "board_24",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "find.plist",
+        "find.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
