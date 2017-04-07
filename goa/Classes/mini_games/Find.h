@@ -8,10 +8,11 @@
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
 
-#define COCOS2D_DEBUG 1
+#define COCOS2D_DEBUG 1;
 using namespace std;
 using namespace cocos2d;
 USING_NS_CC;
+
 
 class Find : public cocos2d::Layer
 {
@@ -22,6 +23,10 @@ protected:
 	HelpLayer* _help;
 	Find();
 	~Find();
+	vector<Node*> _nodeBin;
+	vector<Sprite*> _propsBin;
+	bool _touchFlag = false;
+	Sprite *_textHolder;
 
 public:
 	CREATE_FUNC(Find);
@@ -30,7 +35,8 @@ public:
 	void onEnterTransitionDidFinish();
 	void update(float dt);
 	void addTouchEvents(Sprite* touchSprite);
-
+	string StringandIntConcat(string data, int number);
+	void shake(Node *sprite);
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
 	static const char* gameName() { return FIND.c_str(); }
