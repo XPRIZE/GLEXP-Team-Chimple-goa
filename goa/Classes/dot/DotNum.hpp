@@ -13,6 +13,7 @@
 class DotNum : public cocos2d::Node {
 public:
     static DotNum* create(int num);
+    int getNum();
 CC_CONSTRUCTOR_ACCESS:
     DotNum();
     virtual ~DotNum();

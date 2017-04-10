@@ -7,6 +7,7 @@
 //
 
 #include "DotsLayer.hpp"
+#include "DotsQuizLayer.hpp"
 #include "../menu/GameScene.h"
 
 USING_NS_CC;
@@ -46,12 +47,10 @@ void DotsLayer::onEnterTransitionDidFinish() {
     if(_menuContext->getCurrentLevel() <= 10) {
         showNumber();
     } else {
-        //TODO:
-//        var quizLayer = new xc.DotsQuizLayer(this._level)
-//        this.addChild(quizLayer)
-//        this.getParent().menuContext.setMaxPoints(quizLayer._numButtons * 2)
-//        quizLayer.showDotNum()
-        
+        auto quiz = DotsQuizLayer::create(_menuContext->getCurrentLevel());
+        addChild(quiz);
+        _menuContext->setMaxPoints(quiz->_numButtons * 2);
+        quiz->showDotNum();
     }
 }
 
@@ -128,11 +127,9 @@ void DotsLayer::showNext(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventT
     if(_currentNumber <= _menuContext->getCurrentLevel()) {
         showNumber();
     } else {
-        //TODO:
-//        var quizLayer = new xc.DotsQuizLayer(this._level)
-//        this.addChild(quizLayer)
-//        this.getParent().menuContext.setMaxPoints(quizLayer._numButtons * 2)
-//        quizLayer.showDotNum()
-        
+        auto quiz = DotsQuizLayer::create(_menuContext->getCurrentLevel());
+        addChild(quiz);
+        _menuContext->setMaxPoints(quiz->_numButtons * 2);
+        quiz->showDotNum();
     }
 }
