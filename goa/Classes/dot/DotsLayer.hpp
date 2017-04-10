@@ -22,6 +22,7 @@ public:
     static DotsLayer *create();
     void onEnterTransitionDidFinish() override;
     static std::map<int, std::string> fingerRep;
+    void showFinger(DotNum* dotNum);
 CC_CONSTRUCTOR_ACCESS:
     DotsLayer();
     ~DotsLayer();
@@ -36,7 +37,6 @@ protected:
     cocos2d::ui::Button* _nextButton;
     MenuContext* _menuContext;
     void showNumber();
-    void showFinger(DotNum* dotNum);
     void showNext(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };
 #endif /* DotsLayer_hpp */

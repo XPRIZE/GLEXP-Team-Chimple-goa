@@ -100,6 +100,7 @@ void DotsLayer::showFinger(DotNum *dotNum) {
     }
     _hand = Sprite::createWithSpriteFrameName(fingerRep[_currentNumber]);
     _hand->setPosition(640, 2400);
+    addChild(_hand);
     _hand->runAction(Sequence::create(EaseBackOut::create(MoveTo::create(0.5, Vec2(640, 1350))), DelayTime::create(1.0), CallFunc::create([=]() {
         _nextButton = cocos2d::ui::Button::create("maths/next.png");
         addChild(_nextButton);
@@ -109,7 +110,7 @@ void DotsLayer::showFinger(DotNum *dotNum) {
         _nextButton->addTouchEventListener(CC_CALLBACK_2(DotsLayer::showNext, this));
         }), NULL));
 
-    _text = Label::createWithTTF(MenuContext::to_string(_currentNumber), "fonts/Roboto-regular.ttf", 512);
+    _text = Label::createWithTTF(MenuContext::to_string(_currentNumber), "fonts/Roboto-Regular.ttf", 512);
     _text->setTextColor(Color4B(255, 255, 255, 255));
     _text->setPosition(Vec2(1920, 2400));
     addChild(_text);

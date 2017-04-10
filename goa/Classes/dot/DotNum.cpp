@@ -9,6 +9,7 @@
 #include "DotNum.hpp"
 #include "Dot.hpp"
 #include "../menu/MenuContext.h"
+#include "DotsLayer.hpp"
 
 
 USING_NS_CC;
@@ -61,6 +62,7 @@ bool DotNum::init(int num) {
             _dotNode->addChild(d);
             d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
             d->setPositionY(length / 2.0);
+            break;
         }
         case 3:
         {
@@ -78,6 +80,7 @@ bool DotNum::init(int num) {
             _dotNode->addChild(d);
             d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
             d->setPosition(length / 2.0, -length / 2.0);
+            break;
         }
         case 4:
         {
@@ -100,6 +103,7 @@ bool DotNum::init(int num) {
             _dotNode->addChild(d);
             d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
             d->setPosition(length / 2.0, length / 2.0);
+            break;
         }
         case 5:
         {
@@ -126,6 +130,7 @@ bool DotNum::init(int num) {
             _dotNode->addChild(d);
             d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
             d->setPosition(length / 2.0, length / 2.0);
+            break;
         }
         case 6:
         {
@@ -158,6 +163,7 @@ bool DotNum::init(int num) {
             _dotNode->addChild(d);
             d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
             d->setPosition(length * 3.0 / 4.0, length / 2.0);
+            break;
         }
         case 7:
         {
@@ -194,6 +200,7 @@ bool DotNum::init(int num) {
             _dotNode->addChild(d);
             d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
             d->setPosition(length * 3.0 / 4.0, length / 2.0);
+            break;
         }
         case 8:
         {
@@ -236,6 +243,7 @@ bool DotNum::init(int num) {
             _dotNode->addChild(d);
             d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
             d->setPosition(length * 3.0 / 4.0, length / 2.0);
+            break;
         }
         case 9:
         {
@@ -282,6 +290,7 @@ bool DotNum::init(int num) {
             _dotNode->addChild(d);
             d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
             d->setPosition(length / 2.0, length / 2.0);
+            break;
         }
         case 10:
         {
@@ -334,6 +343,7 @@ bool DotNum::init(int num) {
             _dotNode->addChild(d);
             d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
             d->setPosition(length / 2.0, length / 2.0);
+            break;
         }
         default:
             break;
@@ -361,7 +371,8 @@ bool DotNum::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) {
     MenuContext::pronounceWord(MenuContext::to_string(pressedNumber));
     if(allTouched) {
         enableTouch(false);
-        //TODO: call callee
+        DotsLayer* dotsLayer = static_cast<DotsLayer *>(getParent());
+        dotsLayer->showFinger(this);
     }
     return true;
 }
