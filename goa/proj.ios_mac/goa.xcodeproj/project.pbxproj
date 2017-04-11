@@ -474,6 +474,14 @@
 		F35043D81E3219A00005DF8D /* CommonText.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35042491E32199F0005DF8D /* CommonText.cpp */; };
 		F35043DB1E3219A00005DF8D /* FShake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F350424F1E32199F0005DF8D /* FShake.cpp */; };
 		F35043DC1E3219A00005DF8D /* FShake.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F350424F1E32199F0005DF8D /* FShake.cpp */; };
+		F35CEBBF1E98A35F00E0F041 /* AlphaArrange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBB71E98A35F00E0F041 /* AlphaArrange.cpp */; };
+		F35CEBC01E98A35F00E0F041 /* AlphaArrange.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBB71E98A35F00E0F041 /* AlphaArrange.cpp */; };
+		F35CEBC11E98A35F00E0F041 /* AlphaPhonics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBB91E98A35F00E0F041 /* AlphaPhonics.cpp */; };
+		F35CEBC21E98A35F00E0F041 /* AlphaPhonics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBB91E98A35F00E0F041 /* AlphaPhonics.cpp */; };
+		F35CEBC31E98A35F00E0F041 /* Find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBBB1E98A35F00E0F041 /* Find.cpp */; };
+		F35CEBC41E98A35F00E0F041 /* Find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBBB1E98A35F00E0F041 /* Find.cpp */; };
+		F35CEBC51E98A35F00E0F041 /* Phonicsfree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBBD1E98A35F00E0F041 /* Phonicsfree.cpp */; };
+		F35CEBC61E98A35F00E0F041 /* Phonicsfree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBBD1E98A35F00E0F041 /* Phonicsfree.cpp */; };
 		F3E3AC0A1E8E6CEA00AD906E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC081E8E6CEA00AD906E /* Dot.cpp */; };
 		F3E3AC0B1E8E6CEA00AD906E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC081E8E6CEA00AD906E /* Dot.cpp */; };
 		F3E3AC0E1E8FC5A900AD906E /* DotNum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */; };
@@ -1011,6 +1019,14 @@
 		F350424D1E32199F0005DF8D /* LTKWindowsUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTKWindowsUtil.h; sourceTree = "<group>"; };
 		F350424F1E32199F0005DF8D /* FShake.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FShake.cpp; sourceTree = "<group>"; };
 		F35042501E32199F0005DF8D /* FShake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FShake.h; sourceTree = "<group>"; };
+		F35CEBB71E98A35F00E0F041 /* AlphaArrange.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphaArrange.cpp; sourceTree = "<group>"; };
+		F35CEBB81E98A35F00E0F041 /* AlphaArrange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphaArrange.h; sourceTree = "<group>"; };
+		F35CEBB91E98A35F00E0F041 /* AlphaPhonics.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AlphaPhonics.cpp; sourceTree = "<group>"; };
+		F35CEBBA1E98A35F00E0F041 /* AlphaPhonics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlphaPhonics.h; sourceTree = "<group>"; };
+		F35CEBBB1E98A35F00E0F041 /* Find.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Find.cpp; sourceTree = "<group>"; };
+		F35CEBBC1E98A35F00E0F041 /* Find.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Find.h; sourceTree = "<group>"; };
+		F35CEBBD1E98A35F00E0F041 /* Phonicsfree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Phonicsfree.cpp; sourceTree = "<group>"; };
+		F35CEBBE1E98A35F00E0F041 /* Phonicsfree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Phonicsfree.h; sourceTree = "<group>"; };
 		F3E3AC081E8E6CEA00AD906E /* Dot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dot.cpp; sourceTree = "<group>"; };
 		F3E3AC091E8E6CEA00AD906E /* Dot.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dot.hpp; sourceTree = "<group>"; };
 		F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DotNum.cpp; sourceTree = "<group>"; };
@@ -1653,6 +1669,14 @@
 		F350418A1E32199F0005DF8D /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F35CEBB71E98A35F00E0F041 /* AlphaArrange.cpp */,
+				F35CEBB81E98A35F00E0F041 /* AlphaArrange.h */,
+				F35CEBB91E98A35F00E0F041 /* AlphaPhonics.cpp */,
+				F35CEBBA1E98A35F00E0F041 /* AlphaPhonics.h */,
+				F35CEBBB1E98A35F00E0F041 /* Find.cpp */,
+				F35CEBBC1E98A35F00E0F041 /* Find.h */,
+				F35CEBBD1E98A35F00E0F041 /* Phonicsfree.cpp */,
+				F35CEBBE1E98A35F00E0F041 /* Phonicsfree.h */,
 				F30575E61E88F21C00171925 /* Bounce.cpp */,
 				F30575E71E88F21C00171925 /* Bounce.h */,
 				F30575E81E88F21C00171925 /* Shoot.cpp */,
@@ -1916,9 +1940,9 @@
 			isa = PBXGroup;
 			children = (
 				F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */,
+				F3E3AC0D1E8FC5A900AD906E /* DotNum.hpp */,
 				F3E3AC141E924F6700AD906E /* DotsQuizLayer.cpp */,
 				F3E3AC151E924F6700AD906E /* DotsQuizLayer.hpp */,
-				F3E3AC0D1E8FC5A900AD906E /* DotNum.hpp */,
 				F3E3AC081E8E6CEA00AD906E /* Dot.cpp */,
 				F3E3AC091E8E6CEA00AD906E /* Dot.hpp */,
 				F3E3AC101E9004D200AD906E /* DotsLayer.cpp */,
@@ -2114,6 +2138,7 @@
 				F35043191E3219A00005DF8D /* ScrollableGameMapScene.cpp in Sources */,
 				F35042791E32199F0005DF8D /* LTKShapeFeatureExtractor.cpp in Sources */,
 				F35043B11E3219A00005DF8D /* PegWord.cpp in Sources */,
+				F35CEBC51E98A35F00E0F041 /* Phonicsfree.cpp in Sources */,
 				F35043A91E3219A00005DF8D /* CharGenerator.cpp in Sources */,
 				F35043331E3219A00005DF8D /* Bingo.cpp in Sources */,
 				F35043851E3219A00005DF8D /* Spirograph.cpp in Sources */,
@@ -2200,6 +2225,8 @@
 				F35042531E32199F0005DF8D /* LTKCaptureDevice.cpp in Sources */,
 				F35043691E3219A00005DF8D /* Line.cpp in Sources */,
 				F350431D1E3219A00005DF8D /* StartMenuScene.cpp in Sources */,
+				F35CEBC11E98A35F00E0F041 /* AlphaPhonics.cpp in Sources */,
+				F35CEBBF1E98A35F00E0F041 /* AlphaArrange.cpp in Sources */,
 				F35043931E3219A00005DF8D /* TraceScene.cpp in Sources */,
 				F35043991E3219A00005DF8D /* TreasureHuntNode.cpp in Sources */,
 				F350428F1E32199F0005DF8D /* LTKPreprocessor.cpp in Sources */,
@@ -2255,6 +2282,7 @@
 				F35042C71E32199F0005DF8D /* MessageContent.cpp in Sources */,
 				F350438F1E3219A00005DF8D /* Table.cpp in Sources */,
 				F35040891E3219890005DF8D /* Alphamon.cpp in Sources */,
+				F35CEBC31E98A35F00E0F041 /* Find.cpp in Sources */,
 				F35042FF1E32199F0005DF8D /* WordManager.cpp in Sources */,
 				F35043451E3219A00005DF8D /* CatScene.cpp in Sources */,
 				F30575F01E88F21C00171925 /* Shoot.cpp in Sources */,
@@ -2301,6 +2329,7 @@
 			files = (
 				F350429A1E32199F0005DF8D /* LTKConfigFileReader.cpp in Sources */,
 				F35042D21E32199F0005DF8D /* SpeechBubbleView.cpp in Sources */,
+				F35CEBC61E98A35F00E0F041 /* Phonicsfree.cpp in Sources */,
 				F35042C61E32199F0005DF8D /* HelloWorldScene.cpp in Sources */,
 				F35042561E32199F0005DF8D /* LTKChannel.cpp in Sources */,
 				F30575F31E88F21C00171925 /* BubbleShooter.cpp in Sources */,
@@ -2338,6 +2367,7 @@
 				F35043B41E3219A00005DF8D /* StoryWordBoard.cpp in Sources */,
 				F30575F11E88F21C00171925 /* Shoot.cpp in Sources */,
 				F35043C21E3219A00005DF8D /* FillInTheBlanks.cpp in Sources */,
+				F35CEBC01E98A35F00E0F041 /* AlphaArrange.cpp in Sources */,
 				F35042921E32199F0005DF8D /* preprocessing.cpp in Sources */,
 				F35043A21E3219A00005DF8D /* ChooseCharacter.cpp in Sources */,
 				F30575F51E88F21C00171925 /* SortIt.cpp in Sources */,
@@ -2442,6 +2472,7 @@
 				F350425E1E32199F0005DF8D /* LTKTraceFormat.cpp in Sources */,
 				F350439A1E3219A00005DF8D /* TreasureHuntNode.cpp in Sources */,
 				F35042AE1E32199F0005DF8D /* LTKStringUtil.cpp in Sources */,
+				F35CEBC41E98A35F00E0F041 /* Find.cpp in Sources */,
 				F350431A1E3219A00005DF8D /* ScrollableGameMapScene.cpp in Sources */,
 				F35043D41E3219A00005DF8D /* CommonLabel.cpp in Sources */,
 				F350434C1E3219A00005DF8D /* Circle.cpp in Sources */,
@@ -2454,6 +2485,7 @@
 				F35042D81E32199F0005DF8D /* WordBubble.cpp in Sources */,
 				F35042761E32199F0005DF8D /* LTKShapeRecoUtil.cpp in Sources */,
 				F35043D81E3219A00005DF8D /* CommonText.cpp in Sources */,
+				F35CEBC21E98A35F00E0F041 /* AlphaPhonics.cpp in Sources */,
 				F35043A01E3219A00005DF8D /* CharacterConfiguration.cpp in Sources */,
 				F350435C1E3219A00005DF8D /* Drop.cpp in Sources */,
 				F35043081E32199F0005DF8D /* HelpLayer.cpp in Sources */,

@@ -39,7 +39,7 @@
 
         <receiver
             android:enabled="true" android:exported="true" 
-            android:name="org.cocos2dx.javascript.BootUpReceiver"
+            android:name="org.cocos2dx.cpp.BootUpReceiver"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
