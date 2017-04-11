@@ -115,6 +115,7 @@ void AlphaArrange::onEnterTransitionDidFinish()
 	for (int i = 0; i < languageCharCount; i++) {
 		_currentAlphabet = i;
 		createBox();
+
 	}	
 
 	if (_menuContext->getCurrentLevel() == 1) {
@@ -168,16 +169,26 @@ void AlphaArrange::createBox() {
 	Point pos = currentAlphaNode->getPosition();
 	_randomPositions[_currentAlphabet] = pos;
 	_randomPlaces[_currentAlphabet]->setPosition(currentAlphaNode->getPosition());
-	//_randomPlaces[_currentAlphabet]->setAnchorPoint(currentAlphaNode->getAnchorPoint());
-	_randomPlaces[_currentAlphabet]->setContentSize(cocos2d::Size(185, 185));
 	_randomPlaces[_currentAlphabet]->setAnchorPoint(currentAlphaNode->getAnchorPoint());
+
+	_randomPlaces[_currentAlphabet]->setContentSize(cocos2d::Size(185, 185));
+	
+	//_randomPlaces[_currentAlphabet]->setAnchorPoint(Vec2(0.5,0.5));
 
 	_randomPlaces[_currentAlphabet]->setName(_alphabets[_currentAlphabet] + "_s");
 	
 
 	this->addChild(_randomPlaces[_currentAlphabet]);
 	setupTouch();
-
+	//
+	/*
+	Rect aabb = _randomPlaces[_currentAlphabet]->getBoundingBox();
+	DrawNode* drawNode = DrawNode::create();
+	drawNode->drawRect(aabb.origin, aabb.origin + aabb.size, Color4F(1, 0, 0, 1));
+	this->addChild(drawNode, 100);
+	*/
+	
+	//
 
 	//Setting label
 
@@ -206,8 +217,9 @@ bool AlphaArrange::onTouchBegan(Touch* touch, Event* event) {
 	auto target = event->getCurrentTarget();
 	Point locationInNode = target->getParent()->convertToNodeSpace(touch->getLocation());
 	
+	Rect rect = CCRectMake(target->getPositionX() - (185 / 2), target->getPositionY() - (185 / 2), target->getContentSize().width, target->getContentSize().height);
 	
-	if (target->getBoundingBox().containsPoint(locationInNode) && enableTouch)
+	if (rect.containsPoint(locationInNode) && enableTouch)
 	{
 		CCLOG("TOUCHDED");
 		enableTouch = false;
