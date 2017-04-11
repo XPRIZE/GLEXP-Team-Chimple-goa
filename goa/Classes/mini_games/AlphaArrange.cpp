@@ -55,7 +55,7 @@ void AlphaArrange::onEnterTransitionDidFinish()
 
 	lang = LangUtil::getInstance()->getLang();
 
-	//lang = "eng";
+	lang = "eng";
 	int languageCharCount;
 	if (lang == "swa") {
 
@@ -137,7 +137,9 @@ void AlphaArrange::onEnterTransitionDidFinish()
 
 		this->addChild(_help);
 	}
-
+	if (_menuContext->getCurrentLevel() < 3) {
+		createLevel(_menuContext->getCurrentLevel());
+	}
 	_menuContext->setMaxPoints(3);
 
 }
@@ -161,6 +163,9 @@ void AlphaArrange::createBox() {
 	std::string boxes[] = { "alphabets/box_blue.csb","alphabets/box_green.csb" ,"alphabets/box_red.csb" ,"alphabets/box_yellow.csb" };
 
 	int numberPicker = RandomHelper::random_int(0, 3);
+
+	std::string boxColor;
+
 	
 	_randomPlaces[_currentAlphabet] = CSLoader::createNode(boxes[numberPicker]);
 
@@ -201,9 +206,16 @@ void AlphaArrange::createBox() {
 
 	//label->setPosition(Vec2(visibleSize.width * 0.079, visibleSize.height * 0.05));
 	label->setAnchorPoint(Vec2(0.5, 0.5));
-	label->setTextColor(Color4B::BLACK);
+	/*
+	switch (numberPicker) {
+	case 0:label->setTextColor(Color4B::BLUE); break;
+	case 1:label->setTextColor(Color4B::GREEN); break;
+	case 2:label->setTextColor(Color4B::RED); break;
+	case 3:label->setTextColor(Color4B::YELLOW); break;
+	}
+	*/
 	//label->setScaleX(0.5);
-
+	label->setTextColor(Color4B::BLACK);
 	_randomPlaces[_currentAlphabet]->addChild(label);
 
 	//end of label adding
@@ -323,7 +335,10 @@ void AlphaArrange::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 		auto target = event->getCurrentTarget();
 		target->setPosition(n);
 
-		auto toyRect = target->getBoundingBox();
+		//auto toyRect = target->getBoundingBox();
+
+		Rect toyRect = CCRectMake(target->getPositionX() - (185 / 2), target->getPositionY() - (185 / 2), target->getContentSize().width, target->getContentSize().height);
+
 
 		std::string nodeName = target->getName();
 		
@@ -373,5 +388,85 @@ void AlphaArrange::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 
 			}
 		}
+
+}
+
+
+void AlphaArrange::createLevel(int level) {
+
+	if (lang == "swa") {
+		int levelOneFixedIndexesSwa[] = {1,2,3,4,5,8,9,10,11,12,14,15,17,19,21,22};
+		int levelTwoFixedIndexesSwa[] = { 1,2,10,12,15,17,13,22};
+		if (_menuContext->getCurrentLevel() == 1) {
+			matches = 16;
+			for (int i = 0; i < matches; i++) {
+
+				auto solidNode = _randomPlaces[levelOneFixedIndexesSwa[i]];
+				std::string nodeName = solidNode->getName();
+				auto transNode = _english->getChildByName(nodeName.substr(0, 1));
+
+				solidNode->setPosition(transNode->getPosition());
+				solidNode->setAnchorPoint(transNode->getAnchorPoint());
+
+				Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(_randomPlaces[levelOneFixedIndexesSwa[i]]);
+
+			}
+
+		}else{
+			matches = 8;
+
+			for (int i = 0; i < matches; i++) {
+
+				auto solidNode = _randomPlaces[levelTwoFixedIndexesSwa[i]];
+				std::string nodeName = solidNode->getName();
+				auto transNode = _english->getChildByName(nodeName.substr(0, 1));
+
+				solidNode->setPosition(transNode->getPosition());
+				solidNode->setAnchorPoint(transNode->getAnchorPoint());
+
+				Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(_randomPlaces[levelTwoFixedIndexesSwa[i]]);
+
+			}
+		}
+	}
+	if (lang == "eng") {
+		int levelOneFixedIndexesEng[] = { 1,2,3,4,5,8,9,10,11,12,14,15,17,19,21,22,23,25};
+		int levelTwoFixedIndexesEng[] = { 1,2,10,12,14,15,21,22,23,25 };
+
+		if (_menuContext->getCurrentLevel() == 1) {
+			matches = 18;
+
+			for (int i = 0; i < matches; i++) {
+
+				auto solidNode = _randomPlaces[levelOneFixedIndexesEng[i]];
+				std::string nodeName = solidNode->getName();
+				auto transNode = _english->getChildByName(nodeName.substr(0, 1));
+
+				solidNode->setPosition(transNode->getPosition());
+				solidNode->setAnchorPoint(transNode->getAnchorPoint());
+
+				Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(_randomPlaces[levelOneFixedIndexesEng[i]]);
+
+			}
+		}
+		else {
+			matches = 10;
+
+			for (int i = 0; i < matches; i++) {
+
+				auto solidNode = _randomPlaces[levelTwoFixedIndexesEng[i]];
+				std::string nodeName = solidNode->getName();
+				auto transNode = _english->getChildByName(nodeName.substr(0, 1));
+
+				solidNode->setPosition(transNode->getPosition());
+				solidNode->setAnchorPoint(transNode->getAnchorPoint());
+
+				Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(_randomPlaces[levelTwoFixedIndexesEng[i]]);
+
+			}
+		}
+	}
+	
+	
 
 }
