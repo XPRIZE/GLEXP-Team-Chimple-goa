@@ -55,7 +55,7 @@ void AlphaArrange::onEnterTransitionDidFinish()
 
 	lang = LangUtil::getInstance()->getLang();
 
-	lang = "eng";
+	
 	int languageCharCount;
 	if (lang == "swa") {
 
