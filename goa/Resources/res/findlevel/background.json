@@ -1,0 +1,1046 @@
+{
+  "ID": "42965fa5-02ef-4f7c-84d8-295f7d947d74",
+  "Version": "3.10.0.0",
+  "Name": "background",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 539,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 76,
+              "G": 69,
+              "B": 109
+            },
+            "EndColor": {
+              "R": 53,
+              "G": 46,
+              "B": 81
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.9375,
+              "Y": 1.0
+            },
+            "RightMargin": 160.0,
+            "Tag": 540,
+            "ActionTag": 191790472,
+            "Size": {
+              "X": 2400.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/apple.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 871.9075,
+              "Y": 882.3726
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3406,
+              "Y": 0.4902
+            },
+            "PreSize": {
+              "X": 0.0895,
+              "Y": 0.1483
+            },
+            "LeftMargin": 757.4075,
+            "RightMargin": 1573.5925,
+            "TopMargin": 784.1274,
+            "BottomMargin": 748.8726,
+            "Tag": 597,
+            "ActionTag": -936120196,
+            "Size": {
+              "X": 229.0,
+              "Y": 267.0
+            },
+            "Name": "apple_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/book.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1121.7318,
+              "Y": 172.2711
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4382,
+              "Y": 0.0957
+            },
+            "PreSize": {
+              "X": 0.1484,
+              "Y": 0.1578
+            },
+            "LeftMargin": 931.7318,
+            "RightMargin": 1248.2682,
+            "TopMargin": 1485.7289,
+            "BottomMargin": 30.2711,
+            "Tag": 598,
+            "ActionTag": -401205901,
+            "Size": {
+              "X": 380.0,
+              "Y": 284.0
+            },
+            "Name": "book_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/cheese.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1863.1689,
+              "Y": 507.2348
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7278,
+              "Y": 0.2818
+            },
+            "PreSize": {
+              "X": 0.0926,
+              "Y": 0.1122
+            },
+            "LeftMargin": 1744.6689,
+            "RightMargin": 578.3311,
+            "TopMargin": 1191.7653,
+            "BottomMargin": 406.2348,
+            "Tag": 599,
+            "ActionTag": 2084270119,
+            "Size": {
+              "X": 237.0,
+              "Y": 202.0
+            },
+            "Name": "cheese_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/cup.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1847.4833,
+              "Y": 1259.7017
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7217,
+              "Y": 0.6998
+            },
+            "PreSize": {
+              "X": 0.1344,
+              "Y": 0.2011
+            },
+            "LeftMargin": 1675.4833,
+            "RightMargin": 540.5167,
+            "TopMargin": 359.2983,
+            "BottomMargin": 1078.7017,
+            "Tag": 600,
+            "ActionTag": -1847188713,
+            "Size": {
+              "X": 344.0,
+              "Y": 362.0
+            },
+            "Name": "cup_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/donut.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 659.3287,
+              "Y": 299.2704
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2576,
+              "Y": 0.1663
+            },
+            "PreSize": {
+              "X": 0.1176,
+              "Y": 0.1667
+            },
+            "LeftMargin": 508.8287,
+            "RightMargin": 1750.1714,
+            "TopMargin": 1350.7296,
+            "BottomMargin": 149.2704,
+            "Tag": 601,
+            "ActionTag": -1150421031,
+            "Size": {
+              "X": 301.0,
+              "Y": 300.0
+            },
+            "Name": "donut_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/fish.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.537,
+              "ScaleY": 0.3142
+            },
+            "Position": {
+              "X": 602.8797,
+              "Y": 1108.0106
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2355,
+              "Y": 0.6156
+            },
+            "PreSize": {
+              "X": 0.2121,
+              "Y": 0.1228
+            },
+            "LeftMargin": 311.2684,
+            "RightMargin": 1705.7316,
+            "TopMargin": 540.4209,
+            "BottomMargin": 1038.5791,
+            "Tag": 602,
+            "ActionTag": -2127802718,
+            "Size": {
+              "X": 543.0,
+              "Y": 221.0
+            },
+            "Name": "fish_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/shirt.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1370.332,
+              "Y": 970.7743
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5353,
+              "Y": 0.5393
+            },
+            "PreSize": {
+              "X": 0.1992,
+              "Y": 0.2339
+            },
+            "LeftMargin": 1115.332,
+            "RightMargin": 934.668,
+            "TopMargin": 618.7257,
+            "BottomMargin": 760.2743,
+            "Tag": 603,
+            "ActionTag": 1659730032,
+            "Size": {
+              "X": 510.0,
+              "Y": 421.0
+            },
+            "Name": "shirt_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/submarine.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1268.606,
+              "Y": 1483.385
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4955,
+              "Y": 0.8241
+            },
+            "PreSize": {
+              "X": 0.3535,
+              "Y": 0.2944
+            },
+            "LeftMargin": 816.106,
+            "RightMargin": 838.894,
+            "TopMargin": 51.615,
+            "BottomMargin": 1218.385,
+            "Tag": 604,
+            "ActionTag": 202363434,
+            "Size": {
+              "X": 905.0,
+              "Y": 530.0
+            },
+            "Name": "submarine_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/tooth.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2243.303,
+              "Y": 515.7268
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8763,
+              "Y": 0.2865
+            },
+            "PreSize": {
+              "X": 0.0699,
+              "Y": 0.1178
+            },
+            "LeftMargin": 2153.803,
+            "RightMargin": 227.197,
+            "TopMargin": 1178.2732,
+            "BottomMargin": 409.7268,
+            "Tag": 605,
+            "ActionTag": 968798843,
+            "Size": {
+              "X": 179.0,
+              "Y": 212.0
+            },
+            "Name": "tooth_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/fish.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2039.8066,
+              "Y": 216.5971
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -27.7002,
+            "RotationSkewY": -27.7162,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7968,
+              "Y": 0.1203
+            },
+            "PreSize": {
+              "X": 0.2121,
+              "Y": 0.1228
+            },
+            "LeftMargin": 1768.3066,
+            "RightMargin": 248.6934,
+            "TopMargin": 1472.9028,
+            "BottomMargin": 106.0971,
+            "Tag": 973,
+            "ActionTag": 1135647356,
+            "Size": {
+              "X": 543.0,
+              "Y": 221.0
+            },
+            "Name": "fish_6_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/donut.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 242.379,
+              "Y": 1582.8618
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0947,
+              "Y": 0.8794
+            },
+            "PreSize": {
+              "X": 0.1176,
+              "Y": 0.1667
+            },
+            "LeftMargin": 91.879,
+            "RightMargin": 2167.1211,
+            "TopMargin": 67.1382,
+            "BottomMargin": 1432.8618,
+            "Tag": 974,
+            "ActionTag": -1069793728,
+            "Size": {
+              "X": 301.0,
+              "Y": 300.0
+            },
+            "Name": "donut_5_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/apple.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 640.2537,
+              "Y": 1507.0715
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 33.9675,
+            "RotationSkewY": 33.9578,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2501,
+              "Y": 0.8373
+            },
+            "PreSize": {
+              "X": 0.0895,
+              "Y": 0.1483
+            },
+            "LeftMargin": 525.7537,
+            "RightMargin": 1805.2463,
+            "TopMargin": 159.4285,
+            "BottomMargin": 1373.5715,
+            "Tag": 975,
+            "ActionTag": 1679293781,
+            "Size": {
+              "X": 229.0,
+              "Y": 267.0
+            },
+            "Name": "apple_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/cup.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 282.3329,
+              "Y": 269.7278
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 37.7652,
+            "RotationSkewY": 37.7603,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1103,
+              "Y": 0.1498
+            },
+            "PreSize": {
+              "X": 0.1344,
+              "Y": 0.2011
+            },
+            "LeftMargin": 110.3329,
+            "RightMargin": 2105.667,
+            "TopMargin": 1349.2722,
+            "BottomMargin": 88.7278,
+            "Tag": 976,
+            "ActionTag": 658963295,
+            "Size": {
+              "X": 344.0,
+              "Y": 362.0
+            },
+            "Name": "cup_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/shirt.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 375.2195,
+              "Y": 784.6609
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 34.1188,
+            "RotationSkewY": 34.1149,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1466,
+              "Y": 0.4359
+            },
+            "PreSize": {
+              "X": 0.1992,
+              "Y": 0.2339
+            },
+            "LeftMargin": 120.2195,
+            "RightMargin": 1929.7805,
+            "TopMargin": 804.8391,
+            "BottomMargin": 574.1609,
+            "Tag": 977,
+            "ActionTag": -664435500,
+            "Size": {
+              "X": 510.0,
+              "Y": 421.0
+            },
+            "Name": "shirt_7_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/book.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2106.6924,
+              "Y": 1513.9209
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8229,
+              "Y": 0.8411
+            },
+            "PreSize": {
+              "X": 0.1484,
+              "Y": 0.1578
+            },
+            "LeftMargin": 1916.6924,
+            "RightMargin": 263.3076,
+            "TopMargin": 144.0791,
+            "BottomMargin": 1371.9209,
+            "Tag": 978,
+            "ActionTag": -1740286197,
+            "Size": {
+              "X": 380.0,
+              "Y": 284.0
+            },
+            "Name": "book_2_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/submarine.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1300.7637,
+              "Y": 487.3462
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5081,
+              "Y": 0.2707
+            },
+            "PreSize": {
+              "X": 0.3535,
+              "Y": 0.2944
+            },
+            "LeftMargin": 848.2637,
+            "RightMargin": 806.7363,
+            "TopMargin": 1047.6538,
+            "BottomMargin": 222.3462,
+            "Tag": 979,
+            "ActionTag": -1096831405,
+            "Size": {
+              "X": 905.0,
+              "Y": 530.0
+            },
+            "Name": "submarine_8_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/tooth.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 672.6821,
+              "Y": 579.5875
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2628,
+              "Y": 0.322
+            },
+            "PreSize": {
+              "X": 0.0699,
+              "Y": 0.1178
+            },
+            "LeftMargin": 583.1821,
+            "RightMargin": 1797.8179,
+            "TopMargin": 1114.4125,
+            "BottomMargin": 473.5875,
+            "Tag": 980,
+            "ActionTag": -569892619,
+            "Size": {
+              "X": 179.0,
+              "Y": 212.0
+            },
+            "Name": "tooth_9_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/apple.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1746.0762,
+              "Y": 839.1351
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 31.8916,
+            "RotationSkewY": 31.8868,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6821,
+              "Y": 0.4662
+            },
+            "PreSize": {
+              "X": 0.0895,
+              "Y": 0.1483
+            },
+            "LeftMargin": 1631.5762,
+            "RightMargin": 699.4238,
+            "TopMargin": 827.3649,
+            "BottomMargin": 705.6351,
+            "Tag": 981,
+            "ActionTag": 1486834781,
+            "Size": {
+              "X": 229.0,
+              "Y": 267.0
+            },
+            "Name": "apple_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/donut.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2213.3801,
+              "Y": 1196.1726
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8646,
+              "Y": 0.6645
+            },
+            "PreSize": {
+              "X": 0.1176,
+              "Y": 0.1667
+            },
+            "LeftMargin": 2062.8801,
+            "RightMargin": 196.1199,
+            "TopMargin": 453.8274,
+            "BottomMargin": 1046.1726,
+            "Tag": 982,
+            "ActionTag": -1245141749,
+            "Size": {
+              "X": 301.0,
+              "Y": 300.0
+            },
+            "Name": "donut_5_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/book.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2090.8433,
+              "Y": 813.3248
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 44.817,
+            "RotationSkewY": 44.8467,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8167,
+              "Y": 0.4518
+            },
+            "PreSize": {
+              "X": 0.1484,
+              "Y": 0.1578
+            },
+            "LeftMargin": 1900.8433,
+            "RightMargin": 279.1567,
+            "TopMargin": 844.6752,
+            "BottomMargin": 671.3248,
+            "Tag": 984,
+            "ActionTag": -1642293438,
+            "Size": {
+              "X": 380.0,
+              "Y": 284.0
+            },
+            "Name": "book_2_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "findlevel/cheese.png",
+              "Plist": "findlevel/findlevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5213,
+              "ScaleY": 0.4414
+            },
+            "Position": {
+              "X": 201.4213,
+              "Y": 1222.7113
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -32.147,
+            "RotationSkewY": -32.1477,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0787,
+              "Y": 0.6793
+            },
+            "PreSize": {
+              "X": 0.0926,
+              "Y": 0.1122
+            },
+            "LeftMargin": 77.879,
+            "RightMargin": 2245.1211,
+            "TopMargin": 464.4524,
+            "BottomMargin": 1133.5476,
+            "Tag": 985,
+            "ActionTag": -355766629,
+            "Size": {
+              "X": 237.0,
+              "Y": 202.0
+            },
+            "Name": "cheese_3_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "findlevel.plist",
+        "findlevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

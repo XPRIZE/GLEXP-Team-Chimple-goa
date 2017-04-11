@@ -9,7 +9,7 @@ using namespace cocos2d;
 USING_NS_CC;
 
 Scene* Find::createScene()
-{
+{ 
 	auto scene = Scene::create();
 	auto layer = Find::create();
 	scene->addChild(layer);
@@ -64,13 +64,13 @@ void Find::onEnterTransitionDidFinish()
 		addTouchEvents(temp);
 		_propsBin.push_back(temp);
 
-		auto a = temp->getPositionX() - (temp->getContentSize().width / 2)*0.5;
+		/*auto a = temp->getPositionX() - (temp->getContentSize().width / 2)*0.5;
 		auto b = temp->getPositionY() - (temp->getContentSize().height / 2)*0.5;
 		auto E = DrawNode::create();
 		this->addChild(E, 10);
 		E->drawRect(Vec2(a, b),
 			Vec2(a + temp->getContentSize().width*0.5, b + temp->getContentSize().height*0.5),
-			Color4F(0, 0, 255, 22));
+			Color4F(0, 0, 255, 22));*/
 
 	}
 	vector<int> randomIndex;
@@ -98,8 +98,28 @@ void Find::onEnterTransitionDidFinish()
 		delay = delay + 0.5;
 		counter++;
 	}
-	this->runAction(Sequence::create(DelayTime::create(delay), CCCallFunc::create([=] {_touchFlag = true; }), NULL));
+	this->runAction(Sequence::create(DelayTime::create(delay), CCCallFunc::create([=] {_touchFlag = true;
+	if (gameCurrentLevel == 1 && _helpFlag)
+	{
+		_helpFlag = false;
+		auto a = _propsBin[0]->getPositionX();// - (_propsBin[0]->getContentSize().width / 2)*0.5;
+		auto b = _propsBin[0]->getPositionY();// -(_propsBin[0]->getContentSize().height / 2)*0.5;;
+
+		auto c = textHolder->getPositionX();// -_balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().width / 2 * 0.7;
+		auto d = textHolder->getPositionY();// -_balloonsBin[0]->getChildByName("Sprite_1")->getContentSize().height / 2 * 0.35;
+
+		_help = HelpLayer::create(Rect(a, b, _propsBin[0]->getContentSize().width*0.5
+			, _propsBin[0]->getContentSize().height*0.5),
+			Rect(c, d, textHolder->getContentSize().width, textHolder->getContentSize().height));
+		_help->click(Vec2(c, d));
+		this->addChild(_help, 5);
+	}
+	}), NULL));
+	
+	
+
 	this->scheduleUpdate();
+
 
 }
 
@@ -134,6 +154,12 @@ void Find::addTouchEvents(Sprite* sprite)
 		auto target = event->getCurrentTarget();
 		if (target->getBoundingBox().containsPoint(touch->getLocation()) && _touchFlag) {
 			
+			if (_menuContext->getCurrentLevel() == 1 && !_helpFlag)
+			{
+				_helpFlag = true;
+				this->removeChild(_help);
+			}
+
 			displayText->setString(target->getName());
 
 			string textOriginal = this->getChildByName("spell")->getName();
@@ -176,6 +202,7 @@ void Find::addTouchEvents(Sprite* sprite)
 					}
 					});
 				this->runAction(Sequence::create(func,funcAct,DelayTime::create(1.5),funcMove,DelayTime::create(1.5), deleteMove, NULL));
+			
 			}
 			else
 			{
