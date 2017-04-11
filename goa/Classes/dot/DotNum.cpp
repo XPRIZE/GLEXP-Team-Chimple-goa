@@ -43,6 +43,7 @@ bool DotNum::init(int num) {
     _dotNode = Node::create();
     addChild(_dotNode);
     auto color = Color3B(56, 165, 212);
+    _num = num;
     switch (num) {
         case 1:
         {
@@ -152,7 +153,7 @@ bool DotNum::init(int num) {
             d = Dot::createWithColor(color);
             _dotNode->addChild(d);
             d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
-            d->setPosition(-length * 3.0 / 4.0, -length / 2.0);
+            d->setPosition(-length * 3.0 / 4.0, length / 2.0);
 
             d = Dot::createWithColor(color);
             _dotNode->addChild(d);
@@ -189,7 +190,7 @@ bool DotNum::init(int num) {
             d = Dot::createWithColor(color);
             _dotNode->addChild(d);
             d->touchBeganCallback = CC_CALLBACK_2(DotNum::onTouchBegan, this);
-            d->setPosition(-length * 3.0 / 4.0, -length / 2.0);
+            d->setPosition(-length * 3.0 / 4.0, length / 2.0);
             
             d = Dot::createWithColor(color);
             _dotNode->addChild(d);
@@ -383,4 +384,8 @@ void DotNum::enableTouch(bool enabled) {
         Dot *dot = static_cast<Dot*>(*item);
         dot->enableTouch(enabled);
     }
+}
+
+int DotNum::getNum() {
+    return _num;
 }

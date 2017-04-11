@@ -1,0 +1,133 @@
+{
+  "ID": "c69a2fff-910b-409b-bcd6-e8c5694651aa",
+  "Version": "3.10.0.0",
+  "Name": "Layer2",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 193,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphabetslevel/Ball.png",
+              "Plist": "alphabetslevel/alphabetslevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1109.9995,
+              "Y": 549.9999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 166,
+              "G": 166,
+              "B": 166
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4336,
+              "Y": 0.3056
+            },
+            "PreSize": {
+              "X": 0.1707,
+              "Y": 0.2428
+            },
+            "LeftMargin": 891.4995,
+            "RightMargin": 1231.5005,
+            "TopMargin": 1031.5,
+            "BottomMargin": 331.4999,
+            "Tag": 327,
+            "ActionTag": 1161299424,
+            "Size": {
+              "X": 437.0,
+              "Y": 437.0
+            },
+            "Name": "Ball_125",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphabetslevel/Ball.png",
+              "Plist": "alphabetslevel/alphabetslevel.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 3176.0986,
+              "Y": 497.4169
+            },
+            "Scale": {
+              "ScaleX": 0.7894,
+              "ScaleY": 0.7894
+            },
+            "RotationSkewX": -37.1127,
+            "RotationSkewY": -37.1003,
+            "CColor": {
+              "R": 166,
+              "G": 166,
+              "B": 166
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.2407,
+              "Y": 0.2763
+            },
+            "PreSize": {
+              "X": 0.1707,
+              "Y": 0.2428
+            },
+            "LeftMargin": 2957.5986,
+            "RightMargin": -834.5986,
+            "TopMargin": 1084.083,
+            "BottomMargin": 278.9169,
+            "Tag": 328,
+            "ActionTag": 589937475,
+            "Size": {
+              "X": 437.0,
+              "Y": 437.0
+            },
+            "Name": "Ball_125_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "alphabetslevel.plist",
+        "alphabetslevel.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
