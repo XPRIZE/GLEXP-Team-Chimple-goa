@@ -1,0 +1,169 @@
+{
+  "ID": "13216990-711a-40f7-8fff-c7838e71ddd2",
+  "Version": "3.10.0.0",
+  "Name": "aplevelfng",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 4936,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "plevelscreen2/tree.png",
+              "Plist": "plevelscreen2/plevelscreen2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1689.9912,
+              "Y": 895.5024
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6602,
+              "Y": 0.4975
+            },
+            "PreSize": {
+              "X": 0.5324,
+              "Y": 1.0672
+            },
+            "LeftMargin": 1008.4912,
+            "RightMargin": 188.5088,
+            "TopMargin": -56.0024,
+            "BottomMargin": -64.9976,
+            "Tag": 4993,
+            "ActionTag": 72046380,
+            "Size": {
+              "X": 1363.0,
+              "Y": 1921.0
+            },
+            "Name": "tree_56",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "plevelscreen2/tree.png",
+              "Plist": "plevelscreen2/plevelscreen2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 6359.9268,
+              "Y": 905.4875
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 2.4843,
+              "Y": 0.503
+            },
+            "PreSize": {
+              "X": 0.5324,
+              "Y": 1.0672
+            },
+            "LeftMargin": 5678.4268,
+            "RightMargin": -4481.4268,
+            "TopMargin": -65.9875,
+            "BottomMargin": -55.0125,
+            "Tag": 4994,
+            "ActionTag": -174481736,
+            "Size": {
+              "X": 1363.0,
+              "Y": 1921.0
+            },
+            "Name": "tree_56_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "plevelscreen2/tree.png",
+              "Plist": "plevelscreen2/plevelscreen2.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 13089.9512,
+              "Y": 915.4987
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 5.1133,
+              "Y": 0.5086
+            },
+            "PreSize": {
+              "X": 0.5324,
+              "Y": 1.0672
+            },
+            "LeftMargin": 12408.4512,
+            "RightMargin": -11211.4512,
+            "TopMargin": -75.9988,
+            "BottomMargin": -45.0013,
+            "Tag": 4995,
+            "ActionTag": -228386062,
+            "Size": {
+              "X": 1363.0,
+              "Y": 1921.0
+            },
+            "Name": "tree_56_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "plevelscreen2.plist",
+        "plevelscreen2.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
