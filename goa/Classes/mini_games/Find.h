@@ -13,7 +13,6 @@ using namespace std;
 using namespace cocos2d;
 USING_NS_CC;
 
-
 class Find : public cocos2d::Layer
 {
 protected:
@@ -21,6 +20,7 @@ protected:
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	MenuContext *_menuContext;
 	HelpLayer* _help;
+	bool _helpFlag = true;
 	Find();
 	~Find();
 	vector<Node*> _nodeBin;
