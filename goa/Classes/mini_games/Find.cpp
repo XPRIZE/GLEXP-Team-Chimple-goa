@@ -116,11 +116,14 @@ void Find::onEnterTransitionDidFinish()
 	}
 	}), NULL));
 	
+	auto a = TextGenerator::getInstance()->getInitialForLevel(1);
+
+	auto b = TextGenerator::getInstance()->getWordsForInitial(1, 5);
+
+	auto c = TextGenerator::getInstance()->getWordsNotForInitial(1, 5);
 	
 
 	this->scheduleUpdate();
-
-
 }
 
 string Find::StringandIntConcat(string data, int number) {
