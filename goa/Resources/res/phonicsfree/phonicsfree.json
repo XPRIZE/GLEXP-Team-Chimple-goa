@@ -1,0 +1,492 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "phonicsfree",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 37,
+              "G": 174,
+              "B": 167
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 698.2979
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.3879
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.6111
+            },
+            "TopMargin": 1.7021,
+            "BottomMargin": 698.2979,
+            "Tag": 3,
+            "ActionTag": 605139032,
+            "Size": {
+              "X": 2560.0,
+              "Y": 1100.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 23,
+              "G": 117,
+              "B": 110
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.2455,
+              "Y": 180.2692
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0001,
+              "Y": 0.1001
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.2483
+            },
+            "LeftMargin": -0.2455,
+            "RightMargin": 0.2456,
+            "TopMargin": 1172.7308,
+            "BottomMargin": 180.2692,
+            "Tag": 4,
+            "ActionTag": 40912213,
+            "Size": {
+              "X": 2560.0,
+              "Y": 447.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "phonicsfree/floor.png",
+              "Plist": "phonicsfree/phonicsfree.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1281.5435,
+              "Y": 86.921
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5006,
+              "Y": 0.0483
+            },
+            "PreSize": {
+              "X": 1.3352,
+              "Y": 0.1039
+            },
+            "LeftMargin": -427.4565,
+            "RightMargin": -430.5435,
+            "TopMargin": 1619.579,
+            "BottomMargin": -6.579,
+            "Tag": 16,
+            "ActionTag": -261223104,
+            "Size": {
+              "X": 3418.0,
+              "Y": 187.0
+            },
+            "Name": "floor_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "phonicsfree/bar.png",
+              "Plist": "phonicsfree/phonicsfree.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1272.6014,
+              "Y": 652.8639
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4971,
+              "Y": 0.3627
+            },
+            "PreSize": {
+              "X": 1.0203,
+              "Y": 0.0711
+            },
+            "LeftMargin": -33.3986,
+            "RightMargin": -18.6016,
+            "TopMargin": 1083.1361,
+            "BottomMargin": 588.8639,
+            "Tag": 5,
+            "ActionTag": -246360615,
+            "Size": {
+              "X": 2612.0,
+              "Y": 128.0
+            },
+            "Name": "bar_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "phonicsfree/cubes.png",
+              "Plist": "phonicsfree/phonicsfree.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 199.2423,
+              "Y": 237.9865
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0778,
+              "Y": 0.1322
+            },
+            "PreSize": {
+              "X": 0.1211,
+              "Y": 0.1022
+            },
+            "LeftMargin": 44.2423,
+            "RightMargin": 2205.7578,
+            "TopMargin": 1470.0134,
+            "BottomMargin": 145.9865,
+            "Tag": 14,
+            "ActionTag": 976481129,
+            "Size": {
+              "X": 310.0,
+              "Y": 184.0
+            },
+            "Name": "cubes_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "phonicsfree/box.png",
+              "Plist": "phonicsfree/phonicsfree.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2284.4707,
+              "Y": 183.944
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8924,
+              "Y": 0.1022
+            },
+            "PreSize": {
+              "X": 0.1102,
+              "Y": 0.1617
+            },
+            "LeftMargin": 2143.4707,
+            "RightMargin": 134.5293,
+            "TopMargin": 1470.556,
+            "BottomMargin": 38.444,
+            "Tag": 15,
+            "ActionTag": 503374142,
+            "Size": {
+              "X": 282.0,
+              "Y": 291.0
+            },
+            "Name": "box_9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "phonicsfree/tick mark.png",
+              "Plist": "phonicsfree/phonicsfree.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2334.6416,
+              "Y": 903.0374
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.912,
+              "Y": 0.5017
+            },
+            "PreSize": {
+              "X": 0.132,
+              "Y": 0.1878
+            },
+            "LeftMargin": 2165.6416,
+            "RightMargin": 56.3584,
+            "TopMargin": 727.9626,
+            "BottomMargin": 734.0374,
+            "Tag": 16,
+            "ActionTag": 860429073,
+            "Size": {
+              "X": 338.0,
+              "Y": 338.0
+            },
+            "Name": "Sprite_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "phonicsfree/ref button.png",
+              "Plist": "phonicsfree/phonicsfree.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 227.8021,
+              "Y": 903.0361
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.089,
+              "Y": 0.5017
+            },
+            "PreSize": {
+              "X": 0.132,
+              "Y": 0.1878
+            },
+            "LeftMargin": 58.8021,
+            "RightMargin": 2163.198,
+            "TopMargin": 727.9639,
+            "BottomMargin": 734.0361,
+            "Tag": 17,
+            "ActionTag": -2087707022,
+            "Size": {
+              "X": 338.0,
+              "Y": 338.0
+            },
+            "Name": "Sprite_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "phonicsfree/Big box.png",
+              "Plist": "phonicsfree/phonicsfree.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1282.9657,
+              "Y": 1250.7562
+            },
+            "Scale": {
+              "ScaleX": 1.0362,
+              "ScaleY": 1.0362
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5012,
+              "Y": 0.6949
+            },
+            "PreSize": {
+              "X": 0.5238,
+              "Y": 0.2194
+            },
+            "LeftMargin": 612.4657,
+            "RightMargin": 606.5343,
+            "TopMargin": 351.7438,
+            "BottomMargin": 1053.2562,
+            "Tag": 19,
+            "ActionTag": 1525108391,
+            "Size": {
+              "X": 1341.0,
+              "Y": 395.0
+            },
+            "Name": "Sprite_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "phonicsfree/name bar.png",
+              "Plist": "phonicsfree/phonicsfree.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1271.6974,
+              "Y": 522.2373
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4968,
+              "Y": 0.2901
+            },
+            "PreSize": {
+              "X": 0.3254,
+              "Y": 0.1294
+            },
+            "LeftMargin": 855.1974,
+            "RightMargin": 871.8026,
+            "TopMargin": 1161.2627,
+            "BottomMargin": 405.7373,
+            "Tag": 21,
+            "ActionTag": -141694929,
+            "Size": {
+              "X": 833.0,
+              "Y": 233.0
+            },
+            "Name": "Sprite_6",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "phonicsfree.plist",
+        "phonicsfree.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

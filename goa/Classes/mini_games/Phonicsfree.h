@@ -25,9 +25,10 @@ public:
 	virtual bool init();
 
 	Node *phonicsfreebg;
-	ui::ScrollView *_scrollView;
+	ui::ScrollView *_leftScrollView, *_midScrollView, *_rightScrollView;
 	HelpLayer *_help;
 	cocos2d::Size _visibleSize;
+	std::vector<std::vector<wchar_t>> _matrix;
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(Phonicsfree);
@@ -44,14 +45,17 @@ public:
 
 	struct SpriteDetails
 	{
-		cocos2d::Sprite *_sprite;
+		Alphabet *_label;
 		wchar_t _id;
 		int _sequence;
 	}SpriteDetails;
-	std::vector<struct SpriteDetails> _spriteDetails;
+	std::vector<struct SpriteDetails> _leftSpriteDetails;
+	std::vector<struct SpriteDetails> _midSpriteDetails;
+	std::vector<struct SpriteDetails> _rightSpriteDetails;
 
-	std::vector<std::vector<wchar_t>> _matrix;
+	std::map<int, std::map<int, float>> _differntPosition;
 
+	std::vector<cocos2d::Sprite*> _boxDetails;
 	void onEnterTransitionDidFinish() override;
 	void addEvents();
 protected:
