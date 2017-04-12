@@ -9,8 +9,8 @@
 #include "../lang/TextGenerator.h"
 
 #define COCOS2D_DEBUG 1;
-using namespace cocos2d;
 using namespace std;
+using namespace cocos2d;
 USING_NS_CC;
 
 class Find : public cocos2d::Layer
@@ -27,6 +27,9 @@ protected:
 	vector<Sprite*> _propsBin;
 	bool _touchFlag = false;
 	Sprite *_textHolder;
+
+	std::vector<string> _data_key;
+	std::vector<string> _data_value;
 
 public:
 	CREATE_FUNC(Find);

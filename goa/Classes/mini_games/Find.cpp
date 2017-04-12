@@ -45,24 +45,68 @@ void Find::onEnterTransitionDidFinish()
 		CCLOG("name : %s", str.c_str());
 	}
 
+	int randomNo = RandomHelper::random_int(1, 6);
+
+	string initial = TextGenerator::getInstance()->getInitialForLevel(1);
+
+	auto wordForInitial = TextGenerator::getInstance()->getWordsForInitial(1, randomNo);
+
+	auto wordNotForInitial = TextGenerator::getInstance()->getWordsNotForInitial(1, (8- randomNo));
+
+	for (std::map<std::string, std::string>::iterator it = wordForInitial.begin(); it != wordForInitial.end(); ++it)
+	{
+		_data_key.push_back(it->first);
+	}
+
+	for (std::map<std::string, std::string>::iterator it = wordNotForInitial.begin(); it != wordNotForInitial.end(); ++it)
+	{
+		_data_key.push_back(it->first);
+	}
+
+	for (std::map<std::string, std::string>::iterator it = wordForInitial.begin(); it != wordForInitial.end(); ++it)
+	{
+		_data_value.push_back(it->second);
+	}
+	for (std::map<std::string, std::string>::iterator it = wordNotForInitial.begin(); it != wordNotForInitial.end(); ++it)
+	{
+		_data_value.push_back(it->second);
+	}
+
 	Sprite *textHolder = (Sprite*)findBackground->getChildByName("board_24");
 	textHolder->setName("textHolder");
 
-	LabelTTF *label = CommonLabelTTF::create("FIND", "Helvetica", 90);
+	LabelTTF *label = CommonLabelTTF::create(initial, "Helvetica", 90);
 	label->setPosition(Vec2(visibleSize.width/2, textHolder->getPositionY()));
 	this->addChild(label, 3);
 
 	label->setName("spell");
 
+	vector<int> randomIndex;
+	while (randomIndex.size() != _propsBin.size()) {
+		bool duplicateCheck = true;
+		int size = _propsBin.size() - 1;
+		int numberPicker = RandomHelper::random_int(0, size);
+		for (int i = 0; i < randomIndex.size(); i++) {
+			if (numberPicker == randomIndex[i])
+				duplicateCheck = false;
+		}
+		if (duplicateCheck)
+			randomIndex.push_back(numberPicker);
+	}
+
 
 	for (int j = 0; j < _nodeBin.size(); j++)
 	{
-		Sprite* temp = Sprite::create("find/boxy.png");
-		setAllSpriteProperties(temp, 0, _nodeBin[j]->getPositionX(), _nodeBin[j]->getPositionY(), true, 0.5, 0.5, 0, 0.001, 0.001);
+		auto a = _data_value[j][0];
+
+		Sprite* temp = Sprite::create(_data_value[j]);
+		setAllSpriteProperties(temp, 0, _nodeBin[randomIndex[j]]->getPositionX(), _nodeBin[randomIndex[j]]->getPositionY(), true, 0.5, 0.5, 0, 0.001, 0.001);
 		this->addChild(temp, 0);
 		temp->setName(StringandIntConcat("object",(j+1)));
 		addTouchEvents(temp);
 		_propsBin.push_back(temp);
+
+		
 
 		/*auto a = temp->getPositionX() - (temp->getContentSize().width / 2)*0.5;
 		auto b = temp->getPositionY() - (temp->getContentSize().height / 2)*0.5;
@@ -73,18 +117,7 @@ void Find::onEnterTransitionDidFinish()
 			Color4F(0, 0, 255, 22));*/
 
 	}
-	vector<int> randomIndex;
-	while (randomIndex.size() != _propsBin.size()) {
-		bool duplicateCheck = true;
-		int size = _propsBin.size()-1;
-		int numberPicker = RandomHelper::random_int(0, size);
-		for (int i = 0; i < randomIndex.size(); i++) {
-			if(numberPicker == randomIndex[i])
-				duplicateCheck = false;
-		}
-		if (duplicateCheck)
-			randomIndex.push_back(numberPicker);
-	}
+	
 	float delay = 0;
 	int counter = 0;
 	for (int i = 0; i < randomIndex.size(); i++)
@@ -115,12 +148,6 @@ void Find::onEnterTransitionDidFinish()
 		this->addChild(_help, 5);
 	}
 	}), NULL));
-	
-	auto a = TextGenerator::getInstance()->getInitialForLevel(1);
-
-	auto b = TextGenerator::getInstance()->getWordsForInitial(1, 5);
-
-	auto c = TextGenerator::getInstance()->getWordsNotForInitial(1, 5);
 	
 
 	this->scheduleUpdate();
