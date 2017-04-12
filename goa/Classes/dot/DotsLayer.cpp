@@ -9,6 +9,7 @@
 #include "DotsLayer.hpp"
 #include "DotsQuizLayer.hpp"
 #include "../menu/GameScene.h"
+#include "../lang/TextGenerator.h"
 
 USING_NS_CC;
 
@@ -76,6 +77,7 @@ bool DotsLayer::init() {
     }
     setContentSize(Director::getInstance()->getVisibleSize());
     SpriteFrameCache::getInstance()->addSpriteFramesWithFile("maths/hand.plist");
+    
     return true;
 }
 
