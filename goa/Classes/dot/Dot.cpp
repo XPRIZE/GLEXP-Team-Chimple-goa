@@ -25,7 +25,7 @@ Dot::Dot():
 touchBeganCallback(NULL),
 touchMovedCallback(NULL),
 touchEndedCallback(NULL),
-_touchEnabled(false),
+_touchEnabled(true),
 _isTouched(false)
 {
     _listener = EventListenerTouchOneByOne::create();
@@ -42,13 +42,14 @@ bool Dot::initWithColor(cocos2d::Color3B color) {
         return false;
     }
     _color = color;
+    setColor(color);
     return true;
 }
 
 bool Dot::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) {
     if(_touchEnabled) {
         auto n = convertTouchToNodeSpace(touch);
-        auto rect = this->getBoundingBox();
+        auto rect = Rect(Vec2::ZERO, this->getBoundingBox().size);
         
         if(rect.containsPoint(n))
         {

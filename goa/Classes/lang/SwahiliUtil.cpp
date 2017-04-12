@@ -110,7 +110,9 @@ std::string SwahiliUtil::getLang() {
 SwahiliUtil::SwahiliUtil() {
     this->initializeWordManager();
     Data moData = FileUtils::getInstance()->getDataFromFile("res/lang/swa/swa.mo");
+    I18N::I18nUtils::getInstance()->removeAllMO();
     I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
+    
 }
 
 SwahiliUtil::~SwahiliUtil() {
