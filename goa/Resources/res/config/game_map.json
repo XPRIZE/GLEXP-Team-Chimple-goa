@@ -3521,19 +3521,22 @@
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
     "span": "1",
-    "numLevels": "1",
+    "numLevels": "3",
     "rewards": {
       "1": {
         "unlock": "table"
       },
-      "5": {
+      "2": {
+        "badge": "s/golden_boot"
+      },
+      "3": {
         "badge": "s/golden_boot"
       }
     },
-    "backgroundJson": "icecreamlevel/background.json",
-    "foregroundJson": "icecreamlevel/foreground.json",
-    "frontgroundJson": "icecreamlevel/frontground.json",
-    "maingroundJson": "icecreamlevel/mainground.json",
+    "backgroundJson": "alphabetslevel/Layer1.json",
+    "foregroundJson": "alphabetslevel/Layer3.json",
+    "frontgroundJson": "alphabetslevel/Layer4.json",
+    "maingroundJson": "alphabetslevel/Layer2.json",
     "menuPlist": "icecreamlevel/icecreamlevel.plist",
     "menuPng": "icecreamlevel/icecreamlevel.png"
   },
@@ -3555,12 +3558,12 @@
         "badge": "s/golden_boot"
       }
     },
-    "backgroundJson": "icecreamlevel/background.json",
-    "foregroundJson": "icecreamlevel/foreground.json",
-    "frontgroundJson": "icecreamlevel/frontground.json",
-    "maingroundJson": "icecreamlevel/mainground.json",
-    "menuPlist": "icecreamlevel/icecreamlevel.plist",
-    "menuPng": "icecreamlevel/icecreamlevel.png"
+    "backgroundJson": "plevelscreen2/aplevelbg.json",
+    "foregroundJson": "plevelscreen2/aplevelfrg.json",
+    "frontgroundJson": "plevelscreen2/aplevelfng.json",
+    "maingroundJson": "plevelscreen2/aplevelmng.json",
+    "menuPlist": "plevelscreen2/plevelscreen2.plist",
+    "menuPng": "plevelscreen2/plevelscreen2.png"
   },
    {
     "name": "find",

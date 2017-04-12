@@ -169,7 +169,40 @@ std::map<std::string, std::string> TextGenerator::getPairs(std::string type, int
     return data;
 }
 
-std::vector<std::string> TextGenerator::getWordList(std::string type, int level) {
+std::map<std::string, std::string> TextGenerator::getPairsNotForLevel(std::string type, int maxNum, int level) {
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/" + type + ".csv");
+    std::vector<std::pair<std::string, std::string>> pairs;
+    std::stringstream ss;
+    ss.str(contents);
+    std::string line;
+    while (std::getline(ss, line)) {
+        if ( line.size() && line[line.size()-1] == '\r' ) {
+            line = line.substr( 0, line.size() - 1 );
+        }
+        std::stringstream sline;
+        sline.str(line);
+        std::string item;
+        std::vector<std::string> elems;
+        while (std::getline(sline, item, ';')) {
+            elems.push_back(item);
+        }
+        if(atoi(elems[0].c_str()) != level) {
+            pairs.push_back(std::pair<std::string, std::string>(elems[1], elems[2]));
+        }
+    }
+    
+    std::map<std::string, std::string> data;
+    for(int i = 0; i < maxNum; i++) {
+        int rIndex = rand() % pairs.size();
+        auto pair = pairs[rIndex];
+        pairs.erase(pairs.begin() + rIndex);
+        data.insert(pair);
+    }
+    return data;
+}
+
+
+std::vector<std::string> TextGenerator::getWordList(std::string type, int level, int maxNum) {
     std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/" + type + ".csv");
     std::vector<std::string> pairs;
     std::stringstream ss;
@@ -190,6 +223,18 @@ std::vector<std::string> TextGenerator::getWordList(std::string type, int level)
             pairs.push_back(elems[1]);
         }
     }
+    
+    if(maxNum > 0 && pairs.size() > maxNum) {
+        std::vector<std::string> data;
+        for(int i = 0; i < maxNum; i++) {
+            int rIndex = rand() % pairs.size();
+            auto pair = pairs[rIndex];
+            pairs.erase(pairs.begin() + rIndex);
+            data.push_back(pair);
+        }
+        return data;
+    }
+    
     return pairs;
 }
 
@@ -626,4 +671,39 @@ std::vector<std::string> TextGenerator::wordsWithGivenLetter(std::string str)
 	return listOfWords;
 }
 
+std::string TextGenerator::getPhonicForLevel(int level) {
+    return getSingle("phonic_level", level);
+}
+
+std::map<std::string, std::string> TextGenerator::getWordsForPhonic(int level, int maxNum) {
+    return getPairs("phonic_words", maxNum, level);
+}
+
+std::map<std::string, std::string> TextGenerator::getWordsNotForPhonic(int level, int maxNum) {
+    return getPairsNotForLevel("phonic_words", maxNum, level);
+}
+
+std::string TextGenerator::getInitialForLevel(int level) {
+    return getSingle("initial_level", level);
+}
+
+std::map<std::string, std::string> TextGenerator::getWordsForInitial(int level, int maxNum) {
+    return getPairs("initial_words", maxNum, level);
+}
+
+std::map<std::string, std::string> TextGenerator::getWordsNotForInitial(int level, int maxNum) {
+    return getPairsNotForLevel("initial_words", maxNum, level);
+}
+
+TextGenerator::Phonic TextGenerator::getPhonicSegmentForLevel(int level) {
+    
+}
+
+std::vector<std::vector<std::string>> TextGenerator::getSegmentsForPhonic(Phonic phonic, int maxNum) {
+    
+}
+
+std::vector<std::vector<std::string>> TextGenerator::getSegmentsNotForPhonic(Phonic phonic, int maxNum) {
+    
+}
 
