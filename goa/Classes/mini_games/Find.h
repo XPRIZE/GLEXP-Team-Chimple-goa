@@ -9,8 +9,8 @@
 #include "../lang/TextGenerator.h"
 
 #define COCOS2D_DEBUG 1;
-using namespace std;
 using namespace cocos2d;
+using namespace std;
 USING_NS_CC;
 
 class Find : public cocos2d::Layer
