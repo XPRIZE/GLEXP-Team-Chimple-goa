@@ -25,11 +25,14 @@ protected:
 	~Find();
 	vector<Node*> _nodeBin;
 	vector<Sprite*> _propsBin;
-	bool _touchFlag = false;
+	bool _touchFlag = true;
+	bool _touchStart = false;
 	Sprite *_textHolder;
-
+	std::string _initial = "";
+	int _noOfWordStartFromInitial = 0;
 	std::vector<string> _data_key;
 	std::vector<string> _data_value;
+	int _itemCounter = 0;
 
 public:
 	CREATE_FUNC(Find);
