@@ -22,7 +22,6 @@ AlphaPhonics *AlphaPhonics::create() {
 	}
 	CC_SAFE_DELETE(blast);
 	return nullptr;
-
 }
 
 bool AlphaPhonics::init()
@@ -49,7 +48,7 @@ void AlphaPhonics::onEnterTransitionDidFinish() {
 	
 	auto upperLetter = TextGenerator::getInstance()->getAllChars();
 	std::ostringstream boardDisplay;
-	boardDisplay << (char)tolower(upperLetter[_menuContext->getCurrentLevel()-1][0])<<" "<< upperLetter[0];
+	boardDisplay << (char)tolower(upperLetter[_menuContext->getCurrentLevel()-1][0])<<" "<< upperLetter[_menuContext->getCurrentLevel() - 1];
 	
 	auto boardText = CommonLabelTTF::create(TextGenerator::getInstance()->translateString(boardDisplay.str()), "Helvetica", parentOption->getChildByName("board")->getContentSize().height * 0.5);
 	boardText->setPosition(parentOption->getChildByName("board")->getContentSize().width / 2, parentOption->getChildByName("board")->getContentSize().height / 2);
@@ -58,10 +57,16 @@ void AlphaPhonics::onEnterTransitionDidFinish() {
 
 	createOptions();
 
-	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++],1,parentOption->getChildByName("option1")->getContentSize(), parentOption->getChildByName("option1")->getPosition()));
-	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++],2, parentOption->getChildByName("option2")->getContentSize(), parentOption->getChildByName("option2")->getPosition()));
-	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++],3,parentOption->getChildByName("option3")->getContentSize(), parentOption->getChildByName("option3")->getPosition()));
-	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++],4, parentOption->getChildByName("option4")->getContentSize(), parentOption->getChildByName("option4")->getPosition()));
+	vector<pair<string, string>> resuffleVector;
+	for (int i = 0; i < 4; i++) {
+		resuffleVector.push_back(_optionsMap[_optionSelection++]);
+	}
+	std::random_shuffle(resuffleVector.begin(), resuffleVector.end());
+
+	_optionSprite.push_back(createSprite(resuffleVector[0],1,parentOption->getChildByName("option1")->getContentSize(), parentOption->getChildByName("option1")->getPosition()));
+	_optionSprite.push_back(createSprite(resuffleVector[1],2, parentOption->getChildByName("option2")->getContentSize(), parentOption->getChildByName("option2")->getPosition()));
+	_optionSprite.push_back(createSprite(resuffleVector[2],3,parentOption->getChildByName("option3")->getContentSize(), parentOption->getChildByName("option3")->getPosition()));
+	_optionSprite.push_back(createSprite(resuffleVector[3],4, parentOption->getChildByName("option4")->getContentSize(), parentOption->getChildByName("option4")->getPosition()));
 
 	this->scheduleUpdate();
 }
@@ -117,6 +122,7 @@ void AlphaPhonics::OptionListner(Sprite *option) {
 			}
 			else {
 				//_menuContext->setMaxPoints(classReference->counterHit);
+				++liftOpenChoice;
 				classRefer->runAction(Sequence::create(DelayTime::create(2),CallFunc::create([=]() {_menuContext->showScore(); }), NULL));
 			}
 		});
@@ -243,10 +249,18 @@ vector<int> AlphaPhonics::getRandomValueRange(int min, int max, int getValue) {
 
 void AlphaPhonics::RecreateOptions() {
 	auto parentOption = this->getChildByName("bg")->getChildByName("FileNode_2");
-	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++], 1, parentOption->getChildByName("option1")->getContentSize(), parentOption->getChildByName("option1")->getPosition()));
-	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++], 2, parentOption->getChildByName("option2")->getContentSize(), parentOption->getChildByName("option2")->getPosition()));
-	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++], 3, parentOption->getChildByName("option3")->getContentSize(), parentOption->getChildByName("option3")->getPosition()));
-	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++], 4, parentOption->getChildByName("option4")->getContentSize(), parentOption->getChildByName("option4")->getPosition()));
+	vector<pair<string, string>> resuffleVector;
+	for (int i = 0; i < 4; i++) {
+		resuffleVector.push_back(_optionsMap[_optionSelection++]);
+	}
+
+	std::random_shuffle(resuffleVector.begin(), resuffleVector.end());
+
+	_optionSprite.push_back(createSprite(resuffleVector[0], 1, parentOption->getChildByName("option1")->getContentSize(), parentOption->getChildByName("option1")->getPosition()));
+	_optionSprite.push_back(createSprite(resuffleVector[1], 2, parentOption->getChildByName("option2")->getContentSize(), parentOption->getChildByName("option2")->getPosition()));
+	_optionSprite.push_back(createSprite(resuffleVector[2], 3, parentOption->getChildByName("option3")->getContentSize(), parentOption->getChildByName("option3")->getPosition()));
+	_optionSprite.push_back(createSprite(resuffleVector[3], 4, parentOption->getChildByName("option4")->getContentSize(), parentOption->getChildByName("option4")->getPosition()));
+	resuffleVector.clear();
 }
 
 Sprite* AlphaPhonics::createSprite(pair<string, string> data, int currentOptionPosition,Size size,Vec2 position) {
@@ -268,13 +282,19 @@ void AlphaPhonics::createOptions() {
 	boardDisplay << (char)tolower(upperLetter[_menuContext->getCurrentLevel() - 1][0]);
 	auto currentLetter = boardDisplay.str();
 
-	auto b = TextGenerator::getInstance()->getWordsForInitial(1, 4);
-	auto c = TextGenerator::getInstance()->getWordsNotForInitial(1, 12);
+	auto b = TextGenerator::getInstance()->getWordsForInitial(_menuContext->getCurrentLevel(), 4);
+	auto c = TextGenerator::getInstance()->getWordsNotForInitial(_menuContext->getCurrentLevel(), 12);
 
 	std::map<std::string, std::string> newMapping;
 
 	newMapping.insert(b.begin(), b.end());
 	newMapping.insert(c.begin(), c.end());
+
+	vector<pair<string, string>> optionsMap;
+	for (std::map<std::string, std::string>::iterator it = newMapping.begin(); it != newMapping.end(); ++it) {
+		auto pairs = std::make_pair(it->first, it->second);
+		optionsMap.push_back(pairs);
+	}
 
 	bool flagAlphabetsCheck = true;
 
@@ -283,18 +303,20 @@ void AlphaPhonics::createOptions() {
 		flagAlphabetsCheck = true;
 		int counter = 0;
 
-		for (std::map<std::string, std::string>::iterator it = newMapping.begin(); it != newMapping.end(); ++it) {
-			auto pairs = std::make_pair(it->first, it->second);
-			auto data = it->first;
-			if (it->first[0] == currentLetter[0] && flagAlphabetsCheck) {
+		for (int index = 0; index < optionsMap.size(); index++) {
+			auto it = optionsMap[index];
+			auto data = it.first;
+			if (it.first[0] == currentLetter[0] && flagAlphabetsCheck) {
 				flagAlphabetsCheck = false;
-				_optionsMap.push_back(pairs);
+				_optionsMap.push_back(it);
 				data = string("#") + data;
+				optionsMap[index].first = data;
 				counter++;
 			}
-			else if (it->first[0] != currentLetter[0] && it->first[0] != '#') {
-				_optionsMap.push_back(pairs);
+			else if (it.first[0] != currentLetter[0] && it.first[0] != '#') {
+				_optionsMap.push_back(it);
 				data = string("#") + data;
+				optionsMap[index].first = data;
 				counter++;
 			}
 			if (counter >= 4)
