@@ -696,17 +696,64 @@ std::map<std::string, std::string> TextGenerator::getWordsNotForInitial(int leve
 }
 
 TextGenerator::Phonic TextGenerator::getPhonicSegmentForLevel(int level) {
-	TextGenerator::Phonic dummy;
-	return dummy;
+	auto phonicSegmentVec = getListsOfWords("phonic_segment_level", level, 1);
+    auto phonicSegment = phonicSegmentVec[0];
+    TextGenerator::Phonic segment;
+    segment.phonic_string = phonicSegment[0];
+    segment.pronunciation = phonicSegment[1];
+    segment.number_of_segments = atoi(phonicSegment[2].c_str());
+    segment.fixed_index = atoi(phonicSegment[3].c_str());
+    return segment;
 }
 
-std::vector<std::vector<std::string>> TextGenerator::getSegmentsForPhonic(Phonic phonic, int maxNum) {
-	std::vector<std::vector<std::string>> dummy;
-	return dummy;
+std::vector<std::vector<std::string>> TextGenerator::getSegmentsForPhonic(int level, int maxNum) {
+    auto ret = getListsOfWords("phonic_segment", level, maxNum);
+    return ret;
 }
 
-std::vector<std::vector<std::string>> TextGenerator::getSegmentsNotForPhonic(Phonic phonic, int maxNum) {
-	std::vector<std::vector<std::string>> dummy;
-	return dummy;
+std::vector<std::vector<std::string>> TextGenerator::getSegmentsNotForPhonic(int level, int maxNum) {
+    auto ret = getListsOfWords("phonic_not_segment", level, maxNum);
+    return ret;
+}
+
+std::vector<std::vector<std::string>> TextGenerator::getListsOfWords(std::string type, int level, int maxNum) {
+    std::string contents = cocos2d::FileUtils::getInstance()->getStringFromFile(LangUtil::getInstance()->getDir() + "/" + type + ".csv");
+    std::vector<std::vector<std::string>> pairs;
+    std::stringstream ss;
+    ss.str(contents);
+    std::string line;
+    while (std::getline(ss, line)) {
+        if ( line.size() && line[line.size()-1] == '\r' ) {
+            line = line.substr( 0, line.size() - 1 );
+        }
+        std::stringstream sline;
+        sline.str(line);
+        std::string item;
+        std::vector<std::string> elems;
+        std::string levelStr = "";
+        while (std::getline(sline, item, ';')) {
+            if(levelStr.empty()) {
+                levelStr = item;
+            } else {
+                elems.push_back(item);
+            }
+        }
+        if(level == 0 || atoi(levelStr.c_str()) == level) {
+            pairs.push_back(elems);
+        }
+    }
+    
+    if(maxNum > 0 && pairs.size() > maxNum) {
+        std::vector<std::vector<std::string>> data;
+        for(int i = 0; i < maxNum; i++) {
+            int rIndex = rand() % pairs.size();
+            auto pair = pairs[rIndex];
+            pairs.erase(pairs.begin() + rIndex);
+            data.push_back(pair);
+        }
+        return data;
+    }
+    
+    return pairs;
 }
 

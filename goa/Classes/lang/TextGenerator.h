@@ -64,8 +64,8 @@ public:
     std::map<std::string, std::string> getWordsForInitial(int level, int maxNum);
     std::map<std::string, std::string> getWordsNotForInitial(int level, int maxNum);
     Phonic getPhonicSegmentForLevel(int level);
-    std::vector<std::vector<std::string>> getSegmentsForPhonic(Phonic phonic, int maxNum);
-    std::vector<std::vector<std::string>> getSegmentsNotForPhonic(Phonic phonic, int maxNum);
+    std::vector<std::vector<std::string>> getSegmentsForPhonic(int level, int maxNum);
+    std::vector<std::vector<std::string>> getSegmentsNotForPhonic(int level, int maxNum);
 protected:
     std::map<int, int> getRandomLocations(int numLoc, int totalNum);
     std::map<std::string, std::map<std::string, std::string>> getMapOfWords(std::string type, int maxNum, int maxChoices, int level);
@@ -73,7 +73,7 @@ protected:
     std::map<std::string, std::string> getPairsNotForLevel(std::string type, int maxNum, int level);
     std::string getSingle(std::string type, int level, int length = 0);
     std::vector<std::string> getWordList(std::string type, int level, int maxNum = 0);
-
+    std::vector<std::vector<std::string>> getListsOfWords(std::string type, int level, int maxNum = 0);
 };
 
 #endif /* TextGenerator_h */
