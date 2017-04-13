@@ -41,26 +41,27 @@ void AlphaPhonics::onEnterTransitionDidFinish() {
 		auto myGameWidth = (Director::getInstance()->getVisibleSize().width - 2560) / 2;
 		bg->setPositionX(myGameWidth);
 	}
-
+	
 	_optionValue = getRandomValueRange(1, 4, 4);
 	LiftAnimationHandler(_optionValue[liftOpenChoice]);
 		
 	auto parentOption = this->getChildByName("bg")->getChildByName("FileNode_2");
 	
-	auto boardText = CommonLabelTTF::create(TextGenerator::getInstance()->translateString("A a"), "Helvetica", parentOption->getChildByName("board")->getContentSize().height * 0.5);
+	auto upperLetter = TextGenerator::getInstance()->getAllChars();
+	std::ostringstream boardDisplay;
+	boardDisplay << (char)tolower(upperLetter[_menuContext->getCurrentLevel()-1][0])<<" "<< upperLetter[0];
+	
+	auto boardText = CommonLabelTTF::create(TextGenerator::getInstance()->translateString(boardDisplay.str()), "Helvetica", parentOption->getChildByName("board")->getContentSize().height * 0.5);
 	boardText->setPosition(parentOption->getChildByName("board")->getContentSize().width / 2, parentOption->getChildByName("board")->getContentSize().height / 2);
 	parentOption->getChildByName("board")->addChild(boardText);
 	boardText->setName("board");
-	
-	optionNames.push_back("Ant");
-	optionNames.push_back("Parrot");
-	optionNames.push_back("Kite");
-	optionNames.push_back("Mobile");
 
-	OptionListner(createSprite(optionNames[0],1,parentOption->getChildByName("option1")->getContentSize(), parentOption->getChildByName("option1")->getPosition()));
-	OptionListner(createSprite(optionNames[1],2, parentOption->getChildByName("option2")->getContentSize(), parentOption->getChildByName("option2")->getPosition()));
-	OptionListner(createSprite(optionNames[2], 3,parentOption->getChildByName("option3")->getContentSize(), parentOption->getChildByName("option3")->getPosition()));
-	OptionListner(createSprite(optionNames[3],4, parentOption->getChildByName("option4")->getContentSize(), parentOption->getChildByName("option4")->getPosition()));
+	createOptions();
+
+	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++],1,parentOption->getChildByName("option1")->getContentSize(), parentOption->getChildByName("option1")->getPosition()));
+	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++],2, parentOption->getChildByName("option2")->getContentSize(), parentOption->getChildByName("option2")->getPosition()));
+	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++],3,parentOption->getChildByName("option3")->getContentSize(), parentOption->getChildByName("option3")->getPosition()));
+	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++],4, parentOption->getChildByName("option4")->getContentSize(), parentOption->getChildByName("option4")->getPosition()));
 
 	this->scheduleUpdate();
 }
@@ -182,7 +183,7 @@ bool AlphaPhonics::DataCorrectOrNot(Sprite* option) {
 	CommonLabelTTF *ttfBoard = (CommonLabelTTF*)parentOption->getChildByName("board")->getChildByName("board");
 	auto boardText = ttfBoard->getString();
 
-	string optionText = ((CommonLabelTTF*)option->getChildByName("name"))->getString();
+	string optionText = option->getName();
 
 	if (boardText[0] == optionText[0]) {
 		return true;
@@ -196,7 +197,7 @@ void AlphaPhonics::OptionChangeAnimation(int optionNumber) {
 
 	for (int i = 1; i <= 4; i++) {
 			if (i != optionNumber) {
-			auto optionObj = (Sprite*)this->getChildByName(StringandIntConcat("option",i));
+			auto optionObj = (Sprite*)this->getChildByName(_optionSprite[i-1]->getName());
 			options.push_back(optionObj);
 		}
 	}
@@ -210,8 +211,9 @@ void AlphaPhonics::OptionChangeAnimation(int optionNumber) {
 	this->runAction(Sequence::create(DelayTime::create(1.6), CallFunc::create([=]() {
 		for(int i = 0 ; i < options.size() ; i++)
 			this->removeChild(options[i]);
-
-		RecreateOptions(optionNames);
+		_optionSprite.clear();
+		if(liftOpenChoice < 4)
+		RecreateOptions();
 	}), NULL));
 }
 
@@ -239,29 +241,66 @@ vector<int> AlphaPhonics::getRandomValueRange(int min, int max, int getValue) {
 	return objectVector;
 }
 
-void AlphaPhonics::RecreateOptions(std::vector<string> optionName) {
+void AlphaPhonics::RecreateOptions() {
 	auto parentOption = this->getChildByName("bg")->getChildByName("FileNode_2");
-	OptionListner(createSprite(optionName[0], 1, parentOption->getChildByName("option1")->getContentSize(), parentOption->getChildByName("option1")->getPosition()));
-	OptionListner(createSprite(optionName[1], 2, parentOption->getChildByName("option2")->getContentSize(), parentOption->getChildByName("option2")->getPosition()));
-	OptionListner(createSprite(optionName[2], 3, parentOption->getChildByName("option3")->getContentSize(), parentOption->getChildByName("option3")->getPosition()));
-	OptionListner(createSprite(optionName[3], 4, parentOption->getChildByName("option4")->getContentSize(), parentOption->getChildByName("option4")->getPosition()));
+	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++], 1, parentOption->getChildByName("option1")->getContentSize(), parentOption->getChildByName("option1")->getPosition()));
+	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++], 2, parentOption->getChildByName("option2")->getContentSize(), parentOption->getChildByName("option2")->getPosition()));
+	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++], 3, parentOption->getChildByName("option3")->getContentSize(), parentOption->getChildByName("option3")->getPosition()));
+	_optionSprite.push_back(createSprite(_optionsMap[_optionSelection++], 4, parentOption->getChildByName("option4")->getContentSize(), parentOption->getChildByName("option4")->getPosition()));
 }
 
-Sprite* AlphaPhonics::createSprite(string spriteName, int currentOptionPosition,Size size,Vec2 position) {
-	auto sprite = Sprite::create();
+Sprite* AlphaPhonics::createSprite(pair<string, string> data, int currentOptionPosition,Size size,Vec2 position) {
+	auto sprite = Sprite::create(data.second);
 	sprite->setTextureRect(Rect(0, 0, size.height, size.width));
 	sprite->setColor(Color3B::GRAY);
 	sprite->setPosition(Vec2(position.x,position.y));
 	sprite->setTag(currentOptionPosition);
-	sprite->setName(StringandIntConcat("option",currentOptionPosition));
-
-	auto boardText = CommonLabelTTF::create(TextGenerator::getInstance()->translateString(spriteName), "Helvetica", sprite->getContentSize().height * 0.2);
-	boardText->setPosition(sprite->getContentSize().width / 2, sprite->getContentSize().height / 2);
-	boardText->setName("name");
-	sprite->addChild(boardText);
-
+	sprite->setName(data.first);
 	addChild(sprite);
+	OptionListner(sprite);
 	return sprite;
+}
+
+void AlphaPhonics::createOptions() {
+
+	auto upperLetter = TextGenerator::getInstance()->getAllChars();
+	std::ostringstream boardDisplay;
+	boardDisplay << (char)tolower(upperLetter[_menuContext->getCurrentLevel() - 1][0]);
+	auto currentLetter = boardDisplay.str();
+
+	auto b = TextGenerator::getInstance()->getWordsForInitial(1, 4);
+	auto c = TextGenerator::getInstance()->getWordsNotForInitial(1, 12);
+
+	std::map<std::string, std::string> newMapping;
+
+	newMapping.insert(b.begin(), b.end());
+	newMapping.insert(c.begin(), c.end());
+
+	bool flagAlphabetsCheck = true;
+
+	for (size_t i = 0; i < 4; i++) {
+
+		flagAlphabetsCheck = true;
+		int counter = 0;
+
+		for (std::map<std::string, std::string>::iterator it = newMapping.begin(); it != newMapping.end(); ++it) {
+			auto pairs = std::make_pair(it->first, it->second);
+			auto data = it->first;
+			if (it->first[0] == currentLetter[0] && flagAlphabetsCheck) {
+				flagAlphabetsCheck = false;
+				_optionsMap.push_back(pairs);
+				data = string("#") + data;
+				counter++;
+			}
+			else if (it->first[0] != currentLetter[0] && it->first[0] != '#') {
+				_optionsMap.push_back(pairs);
+				data = string("#") + data;
+				counter++;
+			}
+			if (counter >= 4)
+				break;
+		}
+	}
 }
 
 AlphaPhonics::~AlphaPhonics(void)
