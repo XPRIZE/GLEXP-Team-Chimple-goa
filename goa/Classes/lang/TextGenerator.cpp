@@ -696,14 +696,17 @@ std::map<std::string, std::string> TextGenerator::getWordsNotForInitial(int leve
 }
 
 TextGenerator::Phonic TextGenerator::getPhonicSegmentForLevel(int level) {
-    
+	TextGenerator::Phonic dummy;
+	return dummy;
 }
 
 std::vector<std::vector<std::string>> TextGenerator::getSegmentsForPhonic(Phonic phonic, int maxNum) {
-    
+	std::vector<std::vector<std::string>> dummy;
+	return dummy;
 }
 
 std::vector<std::vector<std::string>> TextGenerator::getSegmentsNotForPhonic(Phonic phonic, int maxNum) {
-    
+	std::vector<std::vector<std::string>> dummy;
+	return dummy;
 }
 
