@@ -482,6 +482,8 @@
 		F35CEBC41E98A35F00E0F041 /* Find.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBBB1E98A35F00E0F041 /* Find.cpp */; };
 		F35CEBC51E98A35F00E0F041 /* Phonicsfree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBBD1E98A35F00E0F041 /* Phonicsfree.cpp */; };
 		F35CEBC61E98A35F00E0F041 /* Phonicsfree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBBD1E98A35F00E0F041 /* Phonicsfree.cpp */; };
+		F35CEBCC1E9FB98E00E0F041 /* ConnectTheDots.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBCA1E9FB98E00E0F041 /* ConnectTheDots.cpp */; };
+		F35CEBCE1E9FB99D00E0F041 /* ConnectTheDots.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBCA1E9FB98E00E0F041 /* ConnectTheDots.cpp */; };
 		F3E3AC0A1E8E6CEA00AD906E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC081E8E6CEA00AD906E /* Dot.cpp */; };
 		F3E3AC0B1E8E6CEA00AD906E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC081E8E6CEA00AD906E /* Dot.cpp */; };
 		F3E3AC0E1E8FC5A900AD906E /* DotNum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */; };
@@ -1027,6 +1029,8 @@
 		F35CEBBC1E98A35F00E0F041 /* Find.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Find.h; sourceTree = "<group>"; };
 		F35CEBBD1E98A35F00E0F041 /* Phonicsfree.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Phonicsfree.cpp; sourceTree = "<group>"; };
 		F35CEBBE1E98A35F00E0F041 /* Phonicsfree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Phonicsfree.h; sourceTree = "<group>"; };
+		F35CEBCA1E9FB98E00E0F041 /* ConnectTheDots.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectTheDots.cpp; sourceTree = "<group>"; };
+		F35CEBCB1E9FB98E00E0F041 /* ConnectTheDots.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConnectTheDots.hpp; sourceTree = "<group>"; };
 		F3E3AC081E8E6CEA00AD906E /* Dot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dot.cpp; sourceTree = "<group>"; };
 		F3E3AC091E8E6CEA00AD906E /* Dot.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dot.hpp; sourceTree = "<group>"; };
 		F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DotNum.cpp; sourceTree = "<group>"; };
@@ -1947,6 +1951,8 @@
 				F3E3AC091E8E6CEA00AD906E /* Dot.hpp */,
 				F3E3AC101E9004D200AD906E /* DotsLayer.cpp */,
 				F3E3AC111E9004D200AD906E /* DotsLayer.hpp */,
+				F35CEBCA1E9FB98E00E0F041 /* ConnectTheDots.cpp */,
+				F35CEBCB1E9FB98E00E0F041 /* ConnectTheDots.hpp */,
 			);
 			path = dot;
 			sourceTree = "<group>";
@@ -2127,6 +2133,7 @@
 				F35043AF1E3219A00005DF8D /* GraphemeGrid.cpp in Sources */,
 				F350430F1E32199F0005DF8D /* LevelMenu.cpp in Sources */,
 				F35042F51E32199F0005DF8D /* LangUtil.cpp in Sources */,
+				F35CEBCC1E9FB98E00E0F041 /* ConnectTheDots.cpp in Sources */,
 				F350433B1E3219A00005DF8D /* Cannon_Ball_Main.cpp in Sources */,
 				F35043B31E3219A00005DF8D /* StoryWordBoard.cpp in Sources */,
 				F35042F71E32199F0005DF8D /* SafariAnalyticsManager.cpp in Sources */,
@@ -2463,6 +2470,7 @@
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				F35043141E32199F0005DF8D /* MapScene.cpp in Sources */,
 				F350437C1E3219A00005DF8D /* PopCount.cpp in Sources */,
+				F35CEBCE1E9FB99D00E0F041 /* ConnectTheDots.cpp in Sources */,
 				F35043D21E3219A00005DF8D /* Calculator.cpp in Sources */,
 				F35042F81E32199F0005DF8D /* SafariAnalyticsManager.cpp in Sources */,
 				F35043001E32199F0005DF8D /* WordManager.cpp in Sources */,
