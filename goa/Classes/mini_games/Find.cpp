@@ -8,6 +8,7 @@ using namespace std;
 using namespace cocos2d;
 USING_NS_CC;
 
+
 Scene* Find::createScene()
 { 
 	auto scene = Scene::create();
@@ -45,29 +46,28 @@ void Find::onEnterTransitionDidFinish()
 		CCLOG("name : %s", str.c_str());
 	}
 
-	int randomNo = RandomHelper::random_int(1, 6);
+	_noOfWordStartFromInitial = RandomHelper::random_int(1, 6);
+	_menuContext->setMaxPoints(_noOfWordStartFromInitial);
+	_menuContext->addPoints(_noOfWordStartFromInitial);
+	int chooseInitial = RandomHelper::random_int(1,10);
 
-	string initial = TextGenerator::getInstance()->getInitialForLevel(1);
+	_initial = TextGenerator::getInstance()->getInitialForLevel(chooseInitial);
 
-	auto wordForInitial = TextGenerator::getInstance()->getWordsForInitial(1, randomNo);
+	auto wordForInitial = TextGenerator::getInstance()->getWordsForInitial(chooseInitial, _noOfWordStartFromInitial);
 
-	auto wordNotForInitial = TextGenerator::getInstance()->getWordsNotForInitial(1, (8- randomNo));
+	auto wordNotForInitial = TextGenerator::getInstance()->getWordsNotForInitial(chooseInitial, (8- _noOfWordStartFromInitial));
 
-	for (std::map<std::string, std::string>::iterator it = wordForInitial.begin(); it != wordForInitial.end(); ++it)
+	std::map<std::string, std::string> newMap;
+
+	newMap.insert(wordForInitial.begin(), wordForInitial.end());
+	newMap.insert(wordNotForInitial.begin(), wordNotForInitial.end());
+
+	for (std::map<std::string, std::string>::iterator it = newMap.begin(); it != newMap.end(); ++it)
 	{
 		_data_key.push_back(it->first);
 	}
 
-	for (std::map<std::string, std::string>::iterator it = wordNotForInitial.begin(); it != wordNotForInitial.end(); ++it)
-	{
-		_data_key.push_back(it->first);
-	}
-
-	for (std::map<std::string, std::string>::iterator it = wordForInitial.begin(); it != wordForInitial.end(); ++it)
-	{
-		_data_value.push_back(it->second);
-	}
-	for (std::map<std::string, std::string>::iterator it = wordNotForInitial.begin(); it != wordNotForInitial.end(); ++it)
+	for (std::map<std::string, std::string>::iterator it = newMap.begin(); it != newMap.end(); ++it)
 	{
 		_data_value.push_back(it->second);
 	}
@@ -75,16 +75,16 @@ void Find::onEnterTransitionDidFinish()
 	Sprite *textHolder = (Sprite*)findBackground->getChildByName("board_24");
 	textHolder->setName("textHolder");
 
-	LabelTTF *label = CommonLabelTTF::create(initial, "Helvetica", 90);
+	LabelTTF *label = CommonLabelTTF::create(_initial, "Helvetica", 90);
 	label->setPosition(Vec2(visibleSize.width/2, textHolder->getPositionY()));
 	this->addChild(label, 3);
 
 	label->setName("spell");
 
 	vector<int> randomIndex;
-	while (randomIndex.size() != _propsBin.size()) {
+	while (randomIndex.size() != _data_key.size()) {
 		bool duplicateCheck = true;
-		int size = _propsBin.size() - 1;
+		int size = _data_key.size() - 1;
 		int numberPicker = RandomHelper::random_int(0, size);
 		for (int i = 0; i < randomIndex.size(); i++) {
 			if (numberPicker == randomIndex[i])
@@ -94,19 +94,15 @@ void Find::onEnterTransitionDidFinish()
 			randomIndex.push_back(numberPicker);
 	}
 
-
 	for (int j = 0; j < _nodeBin.size(); j++)
 	{
-		auto a = _data_value[j][0];
 
 		Sprite* temp = Sprite::create(_data_value[j]);
 		setAllSpriteProperties(temp, 0, _nodeBin[randomIndex[j]]->getPositionX(), _nodeBin[randomIndex[j]]->getPositionY(), true, 0.5, 0.5, 0, 0.001, 0.001);
 		this->addChild(temp, 0);
-		temp->setName(StringandIntConcat("object",(j+1)));
+		temp->setName(_data_key[j]);
 		addTouchEvents(temp);
 		_propsBin.push_back(temp);
-
-		
 
 		/*auto a = temp->getPositionX() - (temp->getContentSize().width / 2)*0.5;
 		auto b = temp->getPositionY() - (temp->getContentSize().height / 2)*0.5;
@@ -123,7 +119,7 @@ void Find::onEnterTransitionDidFinish()
 	for (int i = 0; i < randomIndex.size(); i++)
 	{
 		this->runAction(Sequence::create(DelayTime::create(delay), CCCallFunc::create([=] {
-			auto scaleTo = ScaleTo::create(3, 0.5);
+			auto scaleTo = ScaleTo::create(3, 1);
 			EaseElasticOut *easeAction = EaseElasticOut::create(scaleTo);
 			_propsBin[randomIndex[i]]->runAction(easeAction);
 		}),NULL));
@@ -131,18 +127,28 @@ void Find::onEnterTransitionDidFinish()
 		delay = delay + 0.5;
 		counter++;
 	}
-	this->runAction(Sequence::create(DelayTime::create(delay), CCCallFunc::create([=] {_touchFlag = true;
+	this->runAction(Sequence::create(DelayTime::create(delay), CCCallFunc::create([=] {_touchStart = true;
 	if (gameCurrentLevel == 1 && _helpFlag)
 	{
 		_helpFlag = false;
-		auto a = _propsBin[0]->getPositionX();// - (_propsBin[0]->getContentSize().width / 2)*0.5;
-		auto b = _propsBin[0]->getPositionY();// -(_propsBin[0]->getContentSize().height / 2)*0.5;;
+		Sprite *cloneSprite;
+		for (int i = 0; i < _propsBin.size(); i++)
+		{
+			string name = _propsBin[i]->getName();
+			if ( name[0] == _initial[0])
+			{
+				cloneSprite = _propsBin[i];
+				break;
+			}
+		}
+		auto a = cloneSprite->getPositionX();// -(_propsBin[0]->getContentSize().width / 2);
+		auto b = cloneSprite->getPositionY();// -(_propsBin[0]->getContentSize().height / 2);
 
 		auto c = textHolder->getPositionX();// -_balloonsBin[6]->getChildByName("Sprite_1")->getContentSize().width / 2 * 0.7;
 		auto d = textHolder->getPositionY();// -_balloonsBin[0]->getChildByName("Sprite_1")->getContentSize().height / 2 * 0.35;
 
-		_help = HelpLayer::create(Rect(a, b, _propsBin[0]->getContentSize().width*0.5
-			, _propsBin[0]->getContentSize().height*0.5),
+		_help = HelpLayer::create(Rect(a, b, cloneSprite->getContentSize().width
+			, cloneSprite->getContentSize().height),
 			Rect(c, d, textHolder->getContentSize().width, textHolder->getContentSize().height));
 		_help->click(Vec2(c, d));
 		this->addChild(_help, 5);
@@ -177,32 +183,58 @@ void Find::addTouchEvents(Sprite* sprite)
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
 	auto displayText = (LabelTTF*)this->getChildByName("spell");
-	string str = displayText->getString();
-
+	//string str = displayText->getString();
+	
 	listener->onTouchBegan = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
 		auto target = event->getCurrentTarget();
-		if (target->getBoundingBox().containsPoint(touch->getLocation()) && _touchFlag) {
+		if (target->getBoundingBox().containsPoint(touch->getLocation()) && _touchFlag && _touchStart) {
 			
+			_touchFlag = false;
 			if (_menuContext->getCurrentLevel() == 1 && !_helpFlag)
 			{
 				_helpFlag = true;
 				this->removeChild(_help);
 			}
 
-			displayText->setString(target->getName());
+			//displayText->setString(target->getName());
 
 			string textOriginal = this->getChildByName("spell")->getName();
-			CCLOG("TOUCHED OBJECT : %s", target->getName().c_str());
-			if (!target->getName().compare("object5"))
+			string name = target->getName();
+			if(name[0] == _initial[0])
 			{
+				_itemCounter++;
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/success.ogg", false);
+
+				for (auto it = _propsBin.begin(); it != _propsBin.end(); it++)
+				{
+					Sprite *temp = *it;
+					if(!temp->getName().compare(target->getName()))
+					Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(temp);
+				}
 				
+				//Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
 				auto *funcAct = CCCallFunc::create([=] {
-					ScaleTo *scaleTo = ScaleTo::create(1.2, 0.0001);
+					
+					ScaleTo *scaleTo = ScaleTo::create(1, 0.0001);
 					EaseElasticIn *easeAction = EaseElasticIn::create(scaleTo);
 					target->runAction(easeAction);
+					//Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
 				});
+				this->runAction(Sequence::create(funcAct, DelayTime::create(1), CCCallFunc::create([=] {_touchFlag = true; }), NULL));
+			}
+			else
+			{
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/error.ogg", false);
+				_menuContext->addPoints(-1);
+				shake(target);
+				_touchFlag = true;
+			}
 
+			if (_itemCounter == _noOfWordStartFromInitial)
+			{
 				auto *func = CCCallFunc::create([=] {
 					for (auto it = _propsBin.begin(); it != _propsBin.end(); it++)
 					{
@@ -210,13 +242,13 @@ void Find::addTouchEvents(Sprite* sprite)
 						Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(temp);
 					}});
 
-				auto *funcMove= CCCallFunc::create([=] {
+				auto *funcMove = CCCallFunc::create([=] {
 					for (auto it = _propsBin.begin(); it != _propsBin.end(); it++)
 					{
 						Sprite *temp = *it;
-						if (temp->getName().compare("object5"))
+						if (temp->getName()[0] != _initial[0])
 						{
-							MoveTo *scaleTo = MoveTo::create(1,Vec2(-300, temp->getPositionY()));
+							MoveTo *scaleTo = MoveTo::create(1, Vec2(-350, temp->getPositionY()));
 							EaseBackIn *easeAction = EaseBackIn::create(scaleTo);
 							temp->runAction(easeAction);
 						}
@@ -230,15 +262,12 @@ void Find::addTouchEvents(Sprite* sprite)
 						if (!str.find("object"))
 							this->removeChild(obj);
 					}
-					});
-				this->runAction(Sequence::create(func,funcAct,DelayTime::create(1.5),funcMove,DelayTime::create(1.5), deleteMove, NULL));
+					_menuContext->showScore();
+				});
+				this->runAction(Sequence::create(DelayTime::create(1.2), func, funcMove, DelayTime::create(1.2), deleteMove, NULL));
+			}
 			
-			}
-			else
-			{
-				shake(target);
-			}
-			return true;
+			return false;
 		}
 		return false;
 	};
@@ -248,7 +277,7 @@ void Find::addTouchEvents(Sprite* sprite)
 	};
 	listener->onTouchEnded = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
-		displayText->setString(str);
+		//displayText->setString(str);
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, sprite);
 }
