@@ -265,8 +265,6 @@ void AlphaPhonics::RecreateOptions() {
 
 Sprite* AlphaPhonics::createSprite(pair<string, string> data, int currentOptionPosition,Size size,Vec2 position) {
 	auto sprite = Sprite::create(data.second);
-	sprite->setTextureRect(Rect(0, 0, size.height, size.width));
-	sprite->setColor(Color3B::GRAY);
 	sprite->setPosition(Vec2(position.x,position.y));
 	sprite->setTag(currentOptionPosition);
 	sprite->setName(data.first);
