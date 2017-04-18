@@ -161,7 +161,7 @@ bool ScrollableGameMapScene::init() {
         const int numRows = NUMBER_OF_BUTTONS_ROWS;
         const int numCols = NUMBER_OF_BUTTONS_COLS;
         
-        const int numberOfPages = ceil((float) d.Size() / (numRows * numCols));
+        const int numberOfPages = ceil((float) (d.Size() - 1) / (numRows * numCols));
 
         std::string unlockedGamesStr;
         localStorageGetItem("unlockedGames", &unlockedGamesStr);
