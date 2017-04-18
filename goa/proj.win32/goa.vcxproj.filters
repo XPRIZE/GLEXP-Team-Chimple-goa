@@ -738,6 +738,9 @@
     <ClCompile Include="..\Classes\mini_games\Find.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\dot\ConnectTheDots.cpp">
+      <Filter>Classes\dot</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1441,6 +1444,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\Find.h">
       <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\dot\ConnectTheDots.hpp">
+      <Filter>Classes\dot</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

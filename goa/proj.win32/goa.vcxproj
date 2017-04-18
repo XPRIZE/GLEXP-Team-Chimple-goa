@@ -152,6 +152,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\alphamon\HPMeter.cpp" />
     <ClCompile Include="..\Classes\alphamon\SelectAlphamonScene.cpp" />
     <ClCompile Include="..\Classes\AppDelegate.cpp" />
+    <ClCompile Include="..\Classes\dot\ConnectTheDots.cpp" />
     <ClCompile Include="..\Classes\dot\Dot.cpp" />
     <ClCompile Include="..\Classes\dot\DotNum.cpp" />
     <ClCompile Include="..\Classes\dot\DotsLayer.cpp" />
@@ -361,6 +362,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\alphamon\HPMeter.h" />
     <ClInclude Include="..\Classes\alphamon\SelectAlphamonScene.h" />
     <ClInclude Include="..\Classes\AppDelegate.h" />
+    <ClInclude Include="..\Classes\dot\ConnectTheDots.hpp" />
     <ClInclude Include="..\Classes\dot\Dot.hpp" />
     <ClInclude Include="..\Classes\dot\DotNum.hpp" />
     <ClInclude Include="..\Classes\dot\DotsLayer.hpp" />

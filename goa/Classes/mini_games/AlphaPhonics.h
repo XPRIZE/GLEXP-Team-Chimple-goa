@@ -26,6 +26,7 @@ protected:
 	vector<pair<string, string>> _optionsMap;
 
 public:
+	std::string getConvertInUpperCase(string data);
 	~AlphaPhonics();
 	static cocos2d::Scene* createScene();
 	virtual bool init();

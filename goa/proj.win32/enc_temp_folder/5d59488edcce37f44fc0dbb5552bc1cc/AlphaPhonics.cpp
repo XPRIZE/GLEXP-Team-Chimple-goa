@@ -44,8 +44,8 @@ void AlphaPhonics::onEnterTransitionDidFinish() {
 	_optionValue = getRandomValueRange(1, 4, 4);
 	LiftAnimationHandler(_optionValue[liftOpenChoice]);
 
-	_menuContext->setMaxPoints(16);
-	this->_menuContext->addPoints(16);
+	_menuContext->setMaxPoints(4);
+	this->_menuContext->addPoints(1);
 	auto parentOption = this->getChildByName("bg")->getChildByName("FileNode_2");
 	
 	auto upperLetter = TextGenerator::getInstance()->getAllChars();
