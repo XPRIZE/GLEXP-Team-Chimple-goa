@@ -33,6 +33,7 @@ public:
 	int _currentAlphabet;
 	void createBox();
 	void setupTouch();
+	std::string convertToString(char character);
 	HelpLayer *_help;
 	std::string lang;
 	int _labelFontSize = 150;

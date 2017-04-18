@@ -61,7 +61,13 @@ void AlphaArrange::onEnterTransitionDidFinish()
 
 		_randomPositions.resize(24);
 		languageCharCount = 24;
+
+		if(_menuContext->getCurrentLevel() >=1 && _menuContext->getCurrentLevel() <=3)
 		_alphabets = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","r","s","t","u","v","w","y","z" };
+
+		if (_menuContext->getCurrentLevel() > 3 && _menuContext->getCurrentLevel() <= 6)
+			_alphabets = { "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","Y","Z" };
+
 
 		_english->getChildByName("v")->setVisible(false);
 		_english->getChildByName("z")->setVisible(false);
@@ -107,7 +113,14 @@ void AlphaArrange::onEnterTransitionDidFinish()
 
 		_randomPositions.resize(26);
 		languageCharCount = 26;
-		_alphabets = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
+		
+		if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 3)
+			_alphabets = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
+
+		if (_menuContext->getCurrentLevel() > 3 && _menuContext->getCurrentLevel() <= 6)
+			_alphabets = { "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z" };
+
+	
 	}
 
 	
@@ -137,7 +150,9 @@ void AlphaArrange::onEnterTransitionDidFinish()
 
 		this->addChild(_help);
 	}
-	if (_menuContext->getCurrentLevel() < 3) {
+
+	int level = _menuContext->getCurrentLevel();
+	if (level == 1 || level == 2 || level == 4 || level == 5) {
 		createLevel(_menuContext->getCurrentLevel());
 	}
 	_menuContext->setMaxPoints(3);
@@ -169,7 +184,7 @@ void AlphaArrange::createBox() {
 	
 	_randomPlaces[_currentAlphabet] = CSLoader::createNode(boxes[numberPicker]);
 
-	auto currentAlphaNode = _english->getChildByName(_alphabets[_currentAlphabet]+"_r");
+	auto currentAlphaNode = _english->getChildByName(convertToString(tolower(_alphabets[_currentAlphabet][0])) +"_r");
 	
 	Point pos = currentAlphaNode->getPosition();
 	_randomPositions[_currentAlphabet] = pos;
@@ -180,7 +195,7 @@ void AlphaArrange::createBox() {
 	
 	//_randomPlaces[_currentAlphabet]->setAnchorPoint(Vec2(0.5,0.5));
 
-	_randomPlaces[_currentAlphabet]->setName(_alphabets[_currentAlphabet] + "_s");
+	_randomPlaces[_currentAlphabet]->setName(convertToString(tolower(_alphabets[_currentAlphabet][0])) + "_s");
 	
 
 	this->addChild(_randomPlaces[_currentAlphabet]);
@@ -248,7 +263,7 @@ void AlphaArrange::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 	int position;
 
 	if (lang == "eng") {
-		switch (target->getName()[0]) {
+		switch (tolower(target->getName()[0])) {
 
 		case 'a':position = 0; break;
 		case 'b':position = 1; break;
@@ -283,7 +298,7 @@ void AlphaArrange::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 	}
 	else {
 
-		switch (target->getName()[0]) {
+		switch (tolower(target->getName()[0])) {
 
 		case 'a':position = 0; break;
 		case 'b':position = 1; break;
@@ -468,5 +483,41 @@ void AlphaArrange::createLevel(int level) {
 	}
 	
 	
+
+}
+
+
+std::string AlphaArrange::convertToString(char character) {
+
+	switch (character) {
+
+	case 'a':return "a";
+	case 'b':return "b";
+	case 'c':return "c";
+	case 'd':return "d";
+	case 'e':return "e";
+	case 'f':return "f";
+	case 'g':return "g";
+	case 'h':return "h";
+	case 'i':return "i";
+	case 'j':return "j";
+	case 'k':return "k";
+	case 'l':return "l";
+	case 'm':return "m";
+	case 'n':return "n";
+	case 'o':return "o";
+	case 'p':return "p";
+	case 'q':return "q";
+	case 'r':return "r";
+	case 's':return "s";
+	case 't':return "t";
+	case 'u':return "u";
+	case 'v':return "v";
+	case 'w':return "w";
+	case 'x':return "x";
+	case 'y':return "y";
+	case 'z':return "z";
+
+	}
 
 }
