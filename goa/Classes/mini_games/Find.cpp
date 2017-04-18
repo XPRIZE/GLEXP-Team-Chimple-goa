@@ -183,7 +183,7 @@ void Find::addTouchEvents(Sprite* sprite)
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
 	auto displayText = (LabelTTF*)this->getChildByName("spell");
-	//string str = displayText->getString();
+	string str = displayText->getString();
 	
 	listener->onTouchBegan = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
@@ -197,7 +197,7 @@ void Find::addTouchEvents(Sprite* sprite)
 				this->removeChild(_help);
 			}
 
-			//displayText->setString(target->getName());
+			displayText->setString(target->getName());
 
 			string textOriginal = this->getChildByName("spell")->getName();
 			string name = target->getName();
@@ -220,9 +220,10 @@ void Find::addTouchEvents(Sprite* sprite)
 					ScaleTo *scaleTo = ScaleTo::create(1, 0.0001);
 					EaseElasticIn *easeAction = EaseElasticIn::create(scaleTo);
 					target->runAction(easeAction);
+					
 					//Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
 				});
-				this->runAction(Sequence::create(funcAct, DelayTime::create(1), CCCallFunc::create([=] {_touchFlag = true; }), NULL));
+				this->runAction(Sequence::create(funcAct, DelayTime::create(1), CCCallFunc::create([=] {_touchFlag = true; displayText->setString(str); }), NULL));
 			}
 			else
 			{
@@ -267,7 +268,7 @@ void Find::addTouchEvents(Sprite* sprite)
 				this->runAction(Sequence::create(DelayTime::create(1.2), func, funcMove, DelayTime::create(1.2), deleteMove, NULL));
 			}
 			
-			return false;
+			return true;
 		}
 		return false;
 	};
@@ -277,7 +278,7 @@ void Find::addTouchEvents(Sprite* sprite)
 	};
 	listener->onTouchEnded = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
-		//displayText->setString(str);
+		displayText->setString(str);
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, sprite);
 }
