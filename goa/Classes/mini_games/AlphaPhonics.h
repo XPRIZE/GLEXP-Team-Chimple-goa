@@ -19,12 +19,14 @@ class AlphaPhonics : public cocos2d::Layer
 
 protected:
 	MenuContext *_menuContext;
-	int liftOpenChoice = 0,currentOptionPosition = 0;
+	int liftOpenChoice = 0,currentOptionPosition = 0,_optionSelection = 0;
 	bool touchOption = true;
 	vector<int> _optionValue;
-	vector<string> optionNames;
+	vector<Sprite*> _optionSprite;
+	vector<pair<string, string>> _optionsMap;
 
 public:
+	std::string getConvertInUpperCase(string data);
 	~AlphaPhonics();
 	static cocos2d::Scene* createScene();
 	virtual bool init();
@@ -40,9 +42,11 @@ public:
 
 	vector<int> getRandomValueRange(int min, int max, int getValue);
 
-	void RecreateOptions(std::vector<string> optionName);
+	void RecreateOptions();
 
-	Sprite* createSprite(string spriteName,int currentOptionPosition,Size size, Vec2 position);
+	Sprite* createSprite(pair<string, string> data,int currentOptionPosition,Size size, Vec2 position);
+
+	void createOptions();
 
 	void onEnterTransitionDidFinish();
 	void update(float) override;
