@@ -32,7 +32,6 @@ bool Phonicsfree::init()
 	return true;
 }
 
-
 void Phonicsfree::onEnterTransitionDidFinish()
 {
 		phonicsfreebg = (Node *)CSLoader::createNode("phonicsfree/phonicsfree.csb");
@@ -96,22 +95,27 @@ void Phonicsfree::onEnterTransitionDidFinish()
 
 			if (_phonicSegmentForLevel.fixed_index != (i + 1))
 			{
-				ui::ScrollView *_scrollView = ui::ScrollView::create();
-				_scrollView->setClippingEnabled(true);
-				_scrollView->setContentSize(Size(230, 1100));
-				_scrollView->setDirection(ui::ScrollView::Direction::VERTICAL);
-				_scrollView->getInnerContainer()->setLayoutType(ui::Layout::Type::VERTICAL);
-				_scrollView->setInnerContainerSize(Size(230, (337 * (_segmentsForPhonic.size()))));
-				_scrollView->setPosition(Vec2(_differntPosition.at(num_of_segments).at(i + 1), _differntPosition.at(num_of_segments).at(0)));
-				this->addChild(_scrollView);
-				_scrollView->setScrollBarOpacity(0);
-				_scrollViewMap.push_back(_scrollView);
+				ScrollViewDetails._scrollView = ui::ScrollView::create();
+				ScrollViewDetails._scrollView->setClippingEnabled(true);
+				ScrollViewDetails._scrollView->setContentSize(Size(230, 1100));
+				ScrollViewDetails._scrollView->setDirection(ui::ScrollView::Direction::VERTICAL);
+				ScrollViewDetails._scrollView->getInnerContainer()->setLayoutType(ui::Layout::Type::VERTICAL);
+				ScrollViewDetails._scrollView->setInnerContainerSize(Size(230, (337 * (_segmentsForPhonic.size()))));
+				ScrollViewDetails._scrollView->setPosition(Vec2(_differntPosition.at(num_of_segments).at(i + 1), _differntPosition.at(num_of_segments).at(0)));
+				this->addChild(ScrollViewDetails._scrollView);
+				ScrollViewDetails._scrollView->setScrollBarOpacity(0);
+				ScrollViewDetails._id = _scrollViewMap.size();
+
+				if(_scrollViewMap.size()==0)
+					ScrollViewDetails._scrollView->addEventListener((ui::ScrollView::ccScrollViewCallback)CC_CALLBACK_2(Phonicsfree::scrollEventFirst, this));
+
+				_scrollViewMap.push_back(ScrollViewDetails);
+//				addEventsForScrollView(ScrollViewDetails);
 			}
 		}
 
 
 		// add letters to the scrollview
-
 		for (int i = 0; i < _segmentsForPhonic.size(); i++)
 		{
 			int k = 0;
@@ -127,7 +131,7 @@ void Phonicsfree::onEnterTransitionDidFinish()
 					SpriteDetails._label->setPosition(Vec2(0, (i + 1.8) * 250));
 					SpriteDetails._sequence = j;
 					SpriteDetails._id = _segmentsForPhonic.at(i).at(j);
-					_scrollViewMap.at(k)->addChild(SpriteDetails._label);
+					_scrollViewMap.at(k)._scrollView->addChild(SpriteDetails._label);
 					_spriteDetails.push_back(SpriteDetails);
 					k++;
 				}
@@ -143,10 +147,13 @@ void Phonicsfree::onEnterTransitionDidFinish()
 			_allSpriteDetails.push_back(_spriteDetails);
 		}
 
+		 _lastPosition = _scrollViewMap.at(0)._scrollView->getChildren().at(0)->getParent()->convertToWorldSpace(_scrollViewMap.at(0)._scrollView->getChildren().at(_scrollViewMap.at(0)._scrollView->getChildrenCount() - 1)->getPosition());
+		 Vec2 _lastPosition1 = _scrollViewMap.at(0)._scrollView->getChildren().at(_scrollViewMap.at(0)._scrollView->getChildrenCount() - 1)->getPosition();
+		 Size _inner = _scrollViewMap.at(0)._scrollView->getInnerContainerSize();
 		addEvents();
 
 		this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=] {
-			scrollViewEffect();
+//			scrollViewEffect();
 		}), NULL));
 }
 
@@ -155,11 +162,11 @@ void Phonicsfree::scrollViewEffect()	//	scrolling effect when user make correct 
 	for (int i = 0; i < _scrollViewMap.size(); i++)
 	{
 		if(i==0)
-			_scrollViewMap.at(i)->scrollToPercentVertical(20, 3, true);
+			_scrollViewMap.at(i)._scrollView->scrollToPercentVertical(20, 3, true);
 		else if(i==1)
-			_scrollViewMap.at(i)->scrollToPercentVertical(50, 3, true);
+			_scrollViewMap.at(i)._scrollView->scrollToPercentVertical(50, 3, true);
 		else if (i == 2)
-			_scrollViewMap.at(i)->scrollToPercentVertical(80, 3, true);
+			_scrollViewMap.at(i)._scrollView->scrollToPercentVertical(80, 3, true);
 	}
 }
 
@@ -190,9 +197,9 @@ void Phonicsfree::addEvents()
 					Rect _spriteRect = Rect((_boxDetails.at(i)->getPositionX() - _boxDetails.at(i)->getContentSize().width), (_boxDetails.at(i)->getPositionY() - _boxDetails.at(i)->getContentSize().height / 2), _boxDetails.at(i)->getContentSize().width, _boxDetails.at(i)->getContentSize().height / 2);
 					for (int j = 0; j < _scrollViewMap.size(); j++)
 					{
-						for (int k = 0; k < _scrollViewMap.at(j)->getChildrenCount(); k++)
+						for (int k = 0; k < _scrollViewMap.at(j)._scrollView->getChildrenCount(); k++)
 						{
-							Point _spritePoints = _scrollViewMap.at(j)->getChildren().at(k)->getParent()->convertToWorldSpace(_scrollViewMap.at(j)->getChildren().at(k)->getPosition());
+							Point _spritePoints = _scrollViewMap.at(j)._scrollView->getChildren().at(k)->getParent()->convertToWorldSpace(_scrollViewMap.at(j)._scrollView->getChildren().at(k)->getPosition());
 							if (_spriteRect.containsPoint(_spritePoints))
 							{
 								_answer = _answer + "" + _allSpriteDetails.at(k).at(j)._id;
@@ -257,4 +264,75 @@ void Phonicsfree::addEvents()
 	};
 
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), phonicsfreebg->getChildren().at(6));
+}
+
+void Phonicsfree::scrollEventSecond(Ref * ref, ui::ScrollView::EventType EventType)
+{
+	switch (EventType)
+	{
+		case ui::ScrollView::EventType::AUTOSCROLL_ENDED:
+			break;
+	}
+}
+
+// callback function for first scrollview
+void Phonicsfree::scrollEventFirst(Ref * ref, ui::ScrollView::EventType EventType)
+{
+	switch (EventType)
+	{
+		case ui::ScrollView::EventType::SCROLLING:
+			_scrol = 1;
+			break;
+		case ui::ScrollView::EventType::AUTOSCROLL_ENDED:
+			if (_scrol == 1)
+			{
+				for (int i = 0; i < _scrollViewMap.at(0)._scrollView->getChildrenCount(); i++)
+				{
+					bool _flag = false;
+					Point _spritePoints = _scrollViewMap.at(0)._scrollView->getChildren().at(i)->getParent()->convertToWorldSpace(_scrollViewMap.at(0)._scrollView->getChildren().at(i)->getPosition());
+					for (int j = 0; j < _boxDetails.size(); j++)
+					{
+						Rect _spriteRect = Rect((_boxDetails.at(j)->getPositionX() - _boxDetails.at(j)->getContentSize().width), (_boxDetails.at(j)->getPositionY() - _boxDetails.at(j)->getContentSize().height / 2), _boxDetails.at(j)->getContentSize().width, _boxDetails.at(j)->getContentSize().height / 2);
+						if (_spriteRect.containsPoint(_spritePoints))
+						{
+							float cou = _scrollViewMap.at(0)._scrollView->getChildrenCount();
+							float a = (i * 100) / cou;
+							_scrollViewMap.at(0)._scrollView->scrollToPercentVertical((100 - a), .5, true);
+							_flag = true;
+							break;
+						}
+						else if (_spritePoints.y >= _lastPosition.y)
+						{
+							if (i != 0 && i != _scrollViewMap.at(0)._scrollView->getChildrenCount()-1)
+							{
+								Point _spritePointsOfOneLess = _scrollViewMap.at(0)._scrollView->getChildren().at(i - 1)->getParent()->convertToWorldSpace(_scrollViewMap.at(0)._scrollView->getChildren().at(i - 1)->getPosition());
+								float _downPoint = _spritePointsOfOneLess.y - _lastPosition.y;
+								float _upPoint = _lastPosition.y - _spritePoints.y;
+								
+								if (_downPoint < _upPoint)
+								{
+									float cou = _scrollViewMap.at(0)._scrollView->getChildrenCount();
+									float a = (i * 100) / cou;
+									_scrollViewMap.at(0)._scrollView->scrollToPercentVertical((100 - a), .5, true);
+									CCLOG("move to down");
+								}
+								else
+								{
+									float cou = _scrollViewMap.at(0)._scrollView->getChildrenCount();
+									float a = ((i + 1) * 100) / cou;
+									_scrollViewMap.at(0)._scrollView->scrollToPercentVertical((100-a), .5, true);
+									CCLOG("move to up");
+								}
+							}
+							_flag = true;
+							break;
+						}
+					}
+					if (_flag == true)
+						break;
+				}
+				_scrol = 0;
+			}
+			break;
+	}
 }
