@@ -3490,13 +3490,13 @@
   {
     "name": "phonicsfree",
     "title": "Stack the Words",
-    "cIcon": "gameicons/stack_pressed.png",
-    "icon": "gameicons/stack.png",
+    "cIcon": "gameicons/Phonicsfree_pressed.png",
+    "icon": "gameicons/Phonicsfree.png",
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
     "span": "1",
-    "numLevels": "5",
+    "numLevels": "3",
     "rewards": {
       "1": {
         "unlock": "table"
@@ -3505,12 +3505,12 @@
         "badge": "s/golden_boot"
       }
     },
-    "backgroundJson": "icecreamlevel/background.json",
-    "foregroundJson": "icecreamlevel/foreground.json",
-    "frontgroundJson": "icecreamlevel/frontground.json",
-    "maingroundJson": "icecreamlevel/mainground.json",
-    "menuPlist": "icecreamlevel/icecreamlevel.plist",
-    "menuPng": "icecreamlevel/icecreamlevel.png"
+    "backgroundJson": "phonicsfreelevel/background.json",
+    "foregroundJson": "phonicsfreelevel/foreground.json",
+    "frontgroundJson": "phonicsfreelevel/frontground.json",
+    "maingroundJson": "phonicsfreelevel/mainground.json",
+    "menuPlist": "phonicsfreelevel/phonicsfreelevel.plist",
+    "menuPng": "phonicsfreelevel/phonicsfreelevel.png"
   },
   {
     "name": "alphaarrange",

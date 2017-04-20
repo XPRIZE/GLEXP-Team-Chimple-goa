@@ -31,26 +31,21 @@ public:
 		int _sequence;
 	}SpriteDetails;
 
-	struct ScrollViewDetails
+	struct PageViewDetails
 	{
-		ui::ScrollView *_scrollView;
+		ui::PageView *_pageView;
 		int _id;
-	}ScrollViewDetails;
+	}PageViewDetails;
 
-	Point locationInNode;
-	int _scrol = 0;
-	int _direction; // o for up and 1 for down
 	Node *phonicsfreebg;
 	HelpLayer *_help;
 	cocos2d::Size _visibleSize;
 	int _level, _maxScore;
 	cocos2d::LabelTTF *_fixLabel = NULL, *_rightWordLabel = NULL;
 	TextGenerator::Phonic _phonicSegmentForLevel;
-	Point _lastPosition;
 
 	void onEnterTransitionDidFinish() override;
 	void addEvents();
-	void scrollViewEffect();
 	virtual bool init();
 	// implement the "static create()" method manually
 	CREATE_FUNC(Phonicsfree);
@@ -61,11 +56,8 @@ public:
 	std::vector<std::string> _allWords;
 	std::vector<std::vector<std::string>> _segmentsForPhonic;
 	std::vector<std::vector<std::string>> _segmentsNotForPhonic;
-	std::vector<struct ScrollViewDetails> _scrollViewMap;
+	std::vector<struct PageViewDetails> _pageViewMap;
 	std::vector<cocos2d::Sprite*> _boxDetails;
-
-	void scrollEventFirst(Ref* ref, ui::ScrollView::EventType EventType);
-	void scrollEventSecond(Ref* ref, ui::ScrollView::EventType EventType);
 
 protected:
 	MenuContext* _menuContext;
