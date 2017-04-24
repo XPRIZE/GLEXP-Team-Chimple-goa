@@ -3557,8 +3557,8 @@
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
-    "span": "1",
-    "numLevels": "5",
+    "span": "4",
+    "numLevels": "26",
     "rewards": {
       "1": {
         "unlock": "table"
@@ -3572,7 +3572,69 @@
     "frontgroundJson": "plevelscreen2/aplevelfng.json",
     "maingroundJson": "plevelscreen2/aplevelmng.json",
     "menuPlist": "plevelscreen2/plevelscreen2.plist",
-    "menuPng": "plevelscreen2/plevelscreen2.png"
+    "menuPng": "plevelscreen2/plevelscreen2.png",
+    "lang": {
+      "swa": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "Y",
+          "Z"
+        ],
+        "numLevels": "24"
+      },
+      "eng": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "numLevels": "26"
+      }
+    }
   },
    {
     "name": "find",

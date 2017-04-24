@@ -305,13 +305,14 @@ void AlphaPhonics::createOptions() {
 		auto pairs = std::make_pair(it->first, it->second);
 		optionsMap.push_back(pairs);
 	}
-
+	_optionsMap.clear();
 	bool flagAlphabetsCheck = true;
 
 	for (size_t i = 0; i < 4; i++) {
 
 		flagAlphabetsCheck = true;
 		int counter = 0;
+		int counterJunk = 0;
 
 		for (int index = 0; index < optionsMap.size(); index++) {
 			auto it = optionsMap[index];
@@ -323,11 +324,12 @@ void AlphaPhonics::createOptions() {
 				optionsMap[index].first = data;
 				counter++;
 			}
-			else if (it.first[0] != currentLetter[0] && it.first[0] != '#') {
+			else if (it.first[0] != currentLetter[0] && it.first[0] != '#' && (counterJunk < 3)) {
 				_optionsMap.push_back(it);
 				data = string("#") + data;
 				optionsMap[index].first = data;
 				counter++;
+				counterJunk++;
 			}
 			if (counter >= 4)
 				break;
