@@ -34,7 +34,7 @@ cocos2d::Scene * DecomonGallery::createScene()
 	auto layer = DecomonGallery::create();
 	layer->setName("decomonGallery");
 	scene->addChild(layer);
-	layer->menu = MenuContext::create(layer, "decomon");
+	layer->menu = MenuContext::create(layer, "decomone");
 	scene->addChild(layer->menu);
 	scene->addChild(DecomonGallery::_decomonLayer,1);
 	

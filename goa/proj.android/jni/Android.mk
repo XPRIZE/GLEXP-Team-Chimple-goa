@@ -202,6 +202,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/dot/DotNum.cpp \
          ../../Classes/dot/DotsLayer.cpp \
          ../../Classes/dot/DotsQuizLayer.cpp \
+         ../../Classes/dot/ConnectTheDots.cpp \
          ../../Classes/splash/SplashScene.cpp \
          ../../Classes/sqlite3/Sqlite3Helper.cpp \
          ../../Classes/sqlite3/sqlite3.c \

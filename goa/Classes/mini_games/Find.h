@@ -43,6 +43,7 @@ public:
 	void addTouchEvents(Sprite* touchSprite);
 	string StringandIntConcat(string data, int number);
 	void shake(Node *sprite);
+	string getConvertInUpperCase(string data);
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
 	static const char* gameName() { return FIND.c_str(); }

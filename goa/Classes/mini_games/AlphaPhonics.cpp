@@ -36,14 +36,16 @@ void AlphaPhonics::onEnterTransitionDidFinish() {
 	Node* bg = CSLoader::createNode("alphaphonics/alphaphonics.csb");
 	addChild(bg);
 	bg->setName("bg");
+	auto winSize = Director::getInstance()->getVisibleSize();
 	if (Director::getInstance()->getVisibleSize().width > 2560) {
 		auto myGameWidth = (Director::getInstance()->getVisibleSize().width - 2560) / 2;
 		bg->setPositionX(myGameWidth);
 	}
-	
 	_optionValue = getRandomValueRange(1, 4, 4);
 	LiftAnimationHandler(_optionValue[liftOpenChoice]);
-		
+
+	_menuContext->setMaxPoints(16);
+	this->_menuContext->addPoints(16);
 	auto parentOption = this->getChildByName("bg")->getChildByName("FileNode_2");
 	
 	auto upperLetter = TextGenerator::getInstance()->getAllChars();
@@ -54,6 +56,12 @@ void AlphaPhonics::onEnterTransitionDidFinish() {
 	boardText->setPosition(parentOption->getChildByName("board")->getContentSize().width / 2, parentOption->getChildByName("board")->getContentSize().height / 2);
 	parentOption->getChildByName("board")->addChild(boardText);
 	boardText->setName("board");
+
+	auto objectText = CommonLabelTTF::create(TextGenerator::getInstance()->translateString(""), "Helvetica", 100);
+	objectText->setPosition(winSize.width/2,winSize.height*0.79);
+	this->addChild(objectText);
+	objectText->setName("objecttext");
+	objectText->setColor(Color3B(87, 111, 196));
 
 	createOptions();
 
@@ -87,6 +95,9 @@ void AlphaPhonics::OptionListner(Sprite *option) {
 		auto location = target->convertToNodeSpace(touch->getLocation());
 		Rect targetRect = Rect(0, 0, targetSize.width, targetSize.height);
 		if (target->getBoundingBox().containsPoint(touch->getLocation()) && touchOption) {
+
+			auto textValue = TextGenerator::getInstance()->translateString(target->getName());
+			((CommonLabelTTF*)classRefer->getChildByName("objecttext"))->setString(classRefer->getConvertInUpperCase(textValue));
 			classRefer->currentOptionPosition = target->getTag();
 			target->setScale(1.3);
 			touchOption = false;
@@ -129,10 +140,10 @@ void AlphaPhonics::OptionListner(Sprite *option) {
 
 		auto elevatorObj = parentOption->getChildByName(StringandIntConcat("elevator", _optionValue[liftOpenChoice]));
 		if (target->getBoundingBox().intersectsRect(elevatorObj->getBoundingBox())&& DataCorrectOrNot((Sprite*)target)) {
-
 			target->runAction(Sequence::create(MoveTo::create(0.1, Vec2(elevatorObj->getPosition())), setTagOfCorrectObj, NULL));
 		}
-		else {		
+		else {	
+			classRefer->_menuContext->addPoints(-1);
 			if (target->getTag() == 1) {
 				target->runAction(Sequence::create(MoveTo::create(0.6, Vec2(parentOption->getChildByName("option1")->getPosition())), setTouchPermission, NULL));
 			}
@@ -248,6 +259,7 @@ vector<int> AlphaPhonics::getRandomValueRange(int min, int max, int getValue) {
 }
 
 void AlphaPhonics::RecreateOptions() {
+	((CommonLabelTTF*)this->getChildByName("objecttext"))->setString("");
 	auto parentOption = this->getChildByName("bg")->getChildByName("FileNode_2");
 	vector<pair<string, string>> resuffleVector;
 	for (int i = 0; i < 4; i++) {
@@ -265,8 +277,6 @@ void AlphaPhonics::RecreateOptions() {
 
 Sprite* AlphaPhonics::createSprite(pair<string, string> data, int currentOptionPosition,Size size,Vec2 position) {
 	auto sprite = Sprite::create(data.second);
-	sprite->setTextureRect(Rect(0, 0, size.height, size.width));
-	sprite->setColor(Color3B::GRAY);
 	sprite->setPosition(Vec2(position.x,position.y));
 	sprite->setTag(currentOptionPosition);
 	sprite->setName(data.first);
@@ -295,13 +305,14 @@ void AlphaPhonics::createOptions() {
 		auto pairs = std::make_pair(it->first, it->second);
 		optionsMap.push_back(pairs);
 	}
-
+	_optionsMap.clear();
 	bool flagAlphabetsCheck = true;
 
 	for (size_t i = 0; i < 4; i++) {
 
 		flagAlphabetsCheck = true;
 		int counter = 0;
+		int counterJunk = 0;
 
 		for (int index = 0; index < optionsMap.size(); index++) {
 			auto it = optionsMap[index];
@@ -313,11 +324,12 @@ void AlphaPhonics::createOptions() {
 				optionsMap[index].first = data;
 				counter++;
 			}
-			else if (it.first[0] != currentLetter[0] && it.first[0] != '#') {
+			else if (it.first[0] != currentLetter[0] && it.first[0] != '#' && (counterJunk < 3)) {
 				_optionsMap.push_back(it);
 				data = string("#") + data;
 				optionsMap[index].first = data;
 				counter++;
+				counterJunk++;
 			}
 			if (counter >= 4)
 				break;
@@ -325,6 +337,17 @@ void AlphaPhonics::createOptions() {
 	}
 }
 
+std::string AlphaPhonics::getConvertInUpperCase(string data)
+{
+	std::ostringstream blockName;
+	int i = 0;
+	while (data[i])
+	{
+		blockName << (char)toupper(data[i]);
+		i++;
+	}
+	return blockName.str();
+}
 AlphaPhonics::~AlphaPhonics(void)
 {
 	this->removeAllChildrenWithCleanup(true);

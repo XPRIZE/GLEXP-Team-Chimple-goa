@@ -49,10 +49,10 @@ void Find::onEnterTransitionDidFinish()
 	_noOfWordStartFromInitial = RandomHelper::random_int(1, 6);
 	_menuContext->setMaxPoints(_noOfWordStartFromInitial);
 	_menuContext->addPoints(_noOfWordStartFromInitial);
-	int chooseInitial = RandomHelper::random_int(1,10);
+	int chooseInitial = RandomHelper::random_int(1,26);
 
-	_initial = TextGenerator::getInstance()->getInitialForLevel(chooseInitial);
-
+	string initial = TextGenerator::getInstance()->getInitialForLevel(chooseInitial);
+	_initial = getConvertInUpperCase(initial);
 	auto wordForInitial = TextGenerator::getInstance()->getWordsForInitial(chooseInitial, _noOfWordStartFromInitial);
 
 	auto wordNotForInitial = TextGenerator::getInstance()->getWordsNotForInitial(chooseInitial, (8- _noOfWordStartFromInitial));
@@ -100,7 +100,7 @@ void Find::onEnterTransitionDidFinish()
 		Sprite* temp = Sprite::create(_data_value[j]);
 		setAllSpriteProperties(temp, 0, _nodeBin[randomIndex[j]]->getPositionX(), _nodeBin[randomIndex[j]]->getPositionY(), true, 0.5, 0.5, 0, 0.001, 0.001);
 		this->addChild(temp, 0);
-		temp->setName(_data_key[j]);
+		temp->setName(getConvertInUpperCase(_data_key[j]));
 		addTouchEvents(temp);
 		_propsBin.push_back(temp);
 
@@ -183,7 +183,7 @@ void Find::addTouchEvents(Sprite* sprite)
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
 	auto displayText = (LabelTTF*)this->getChildByName("spell");
-	//string str = displayText->getString();
+	string str = displayText->getString();
 	
 	listener->onTouchBegan = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
@@ -197,10 +197,10 @@ void Find::addTouchEvents(Sprite* sprite)
 				this->removeChild(_help);
 			}
 
-			//displayText->setString(target->getName());
+			displayText->setString(getConvertInUpperCase(target->getName()));
 
 			string textOriginal = this->getChildByName("spell")->getName();
-			string name = target->getName();
+			string name = getConvertInUpperCase(target->getName());
 			if(name[0] == _initial[0])
 			{
 				_itemCounter++;
@@ -220,9 +220,10 @@ void Find::addTouchEvents(Sprite* sprite)
 					ScaleTo *scaleTo = ScaleTo::create(1, 0.0001);
 					EaseElasticIn *easeAction = EaseElasticIn::create(scaleTo);
 					target->runAction(easeAction);
+					
 					//Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
 				});
-				this->runAction(Sequence::create(funcAct, DelayTime::create(1), CCCallFunc::create([=] {_touchFlag = true; }), NULL));
+				this->runAction(Sequence::create(funcAct, DelayTime::create(1), CCCallFunc::create([=] {_touchFlag = true; displayText->setString(str); }), NULL));
 			}
 			else
 			{
@@ -266,8 +267,7 @@ void Find::addTouchEvents(Sprite* sprite)
 				});
 				this->runAction(Sequence::create(DelayTime::create(1.2), func, funcMove, DelayTime::create(1.2), deleteMove, NULL));
 			}
-			
-			return false;
+			return true;
 		}
 		return false;
 	};
@@ -277,10 +277,23 @@ void Find::addTouchEvents(Sprite* sprite)
 	};
 	listener->onTouchEnded = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
-		//displayText->setString(str);
+		displayText->setString(str);
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, sprite);
 }
+
+std::string Find::getConvertInUpperCase(string data)
+{
+	std::ostringstream blockName;
+	int i = 0;
+	while (data[i])
+	{
+		blockName << (char)toupper(data[i]);
+		i++;
+	}
+	return blockName.str();
+}
+
 
 void Find::shake(Node *sprite)
 {
