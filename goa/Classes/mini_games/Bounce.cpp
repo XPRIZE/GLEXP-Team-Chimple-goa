@@ -230,7 +230,7 @@ void Bounce::setupLayer(int startNum, int endNum, int sum, int begin, std::vecto
 	{
 		if ((int)(_holders[i]->getPositionX()) == (int)((sum - startNum + 0.5) *NUMBER_WIDTH))
 		{
-			_holders[i]->setTag(1);
+			_holders[i]->setTag(10);
 			break;
 		}
 	}
