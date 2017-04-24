@@ -13,6 +13,7 @@
 #include "../menu/StartMenuScene.h"
 #include "../lang/TextGenerator.h"
 #include "ui/CocosGUI.h"
+#include "../effects/FShake.h"
 #include "../menu/HelpLayer.h"
 
 class Phonicsfree : public cocos2d::Layer
@@ -22,38 +23,42 @@ public:
 	static cocos2d::Scene* createScene();
 	Phonicsfree();
 	~Phonicsfree();
-	virtual bool init();
-
-	Node *phonicsfreebg;
-	ui::ScrollView *_scrollView;
-	HelpLayer *_help;
-	cocos2d::Size _visibleSize;
-
-	// implement the "static create()" method manually
-	CREATE_FUNC(Phonicsfree);
-    
-    static const char* gameName() { return PHONICSFREE.c_str(); };
-
-	struct LabelDetails
-	{
-		cocos2d::LabelTTF *label;
-		cocos2d::Sprite *container;
-		std::string id;
-		int sequence, item;
-	}LabelDetails;
 
 	struct SpriteDetails
 	{
-		cocos2d::Sprite *_sprite;
-		wchar_t _id;
+		cocos2d::LabelTTF *_label;
+		std::string _id;
 		int _sequence;
 	}SpriteDetails;
-	std::vector<struct SpriteDetails> _spriteDetails;
 
-	std::vector<std::vector<wchar_t>> _matrix;
+	struct PageViewDetails
+	{
+		ui::PageView *_pageView;
+		int _id;
+	}PageViewDetails;
+
+	Node *phonicsfreebg;
+	HelpLayer *_help;
+	cocos2d::Size _visibleSize;
+	int _level, _maxScore;
+	cocos2d::LabelTTF *_fixLabel = NULL, *_rightWordLabel = NULL;
+	TextGenerator::Phonic _phonicSegmentForLevel;
 
 	void onEnterTransitionDidFinish() override;
 	void addEvents();
+	virtual bool init();
+	// implement the "static create()" method manually
+	CREATE_FUNC(Phonicsfree);
+	static const char* gameName() { return PHONICSFREE.c_str(); };
+
+	std::map<int, std::map<int, float>> _differntPosition;
+	std::vector<std::vector<struct SpriteDetails>> _allSpriteDetails;
+	std::vector<std::string> _allWords;
+	std::vector<std::vector<std::string>> _segmentsForPhonic;
+	std::vector<std::vector<std::string>> _segmentsNotForPhonic;
+	std::vector<struct PageViewDetails> _pageViewMap;
+	std::vector<cocos2d::Sprite*> _boxDetails;
+
 protected:
 	MenuContext* _menuContext;
 };

@@ -4,6 +4,21 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>phonicsfree/Big box.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{1341,395}</string>
+                <key>spriteSourceSize</key>
+                <string>{1341,395}</string>
+                <key>textureRect</key>
+                <string>{{1,316},{1341,395}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>phonicsfree/bar.png</key>
             <dict>
                 <key>aliases</key>
@@ -15,7 +30,7 @@
                 <key>spriteSourceSize</key>
                 <string>{2612,128}</string>
                 <key>textureRect</key>
-                <string>{{1,801},{2608,124}}</string>
+                <string>{{1,190},{2608,124}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -30,9 +45,9 @@
                 <key>spriteSourceSize</key>
                 <string>{282,291}</string>
                 <key>textureRect</key>
-                <string>{{2611,641},{282,291}}</string>
+                <string>{{3446,1},{282,291}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>phonicsfree/cubes.png</key>
             <dict>
@@ -45,7 +60,7 @@
                 <key>spriteSourceSize</key>
                 <string>{310,184}</string>
                 <key>textureRect</key>
-                <string>{{2147,341},{310,184}}</string>
+                <string>{{3467,294},{310,184}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
@@ -56,11 +71,11 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{3418,338}</string>
+                <string>{3418,187}</string>
                 <key>spriteSourceSize</key>
-                <string>{3418,338}</string>
+                <string>{3418,187}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{3418,338}}</string>
+                <string>{{1,1},{3418,187}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -71,41 +86,41 @@
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{932,298}</string>
+                <string>{833,233}</string>
                 <key>spriteSourceSize</key>
-                <string>{932,298}</string>
+                <string>{833,233}</string>
                 <key>textureRect</key>
-                <string>{{2333,341},{932,298}}</string>
+                <string>{{2611,190},{833,233}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>phonicsfree/scroll bar.png</key>
+            <key>phonicsfree/ref button.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{1552,458}</string>
+                <string>{338,338}</string>
                 <key>spriteSourceSize</key>
-                <string>{1552,458}</string>
+                <string>{338,338}</string>
                 <key>textureRect</key>
-                <string>{{1,341},{1552,458}}</string>
+                <string>{{2787,425},{338,338}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>phonicsfree/scroll button.png</key>
+            <key>phonicsfree/small box.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{250,377}</string>
+                <string>{339,324}</string>
                 <key>spriteSourceSize</key>
-                <string>{250,377}</string>
+                <string>{339,324}</string>
                 <key>textureRect</key>
-                <string>{{1555,341},{250,377}}</string>
+                <string>{{2446,425},{339,324}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -120,9 +135,24 @@
                 <key>spriteSourceSize</key>
                 <string>{338,338}</string>
                 <key>textureRect</key>
-                <string>{{1807,341},{338,338}}</string>
+                <string>{{3127,425},{338,338}}</string>
                 <key>textureRotated</key>
                 <false/>
+            </dict>
+            <key>phonicsfree/trans bar_1.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{360,1100}</string>
+                <key>spriteSourceSize</key>
+                <string>{360,1100}</string>
+                <key>textureRect</key>
+                <string>{{1344,316},{360,1100}}</string>
+                <key>textureRotated</key>
+                <true/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -130,15 +160,15 @@
             <key>format</key>
             <integer>3</integer>
             <key>pixelFormat</key>
-            <string>RGBA4444</string>
+            <string>RGBA8888</string>
             <key>premultiplyAlpha</key>
             <false/>
             <key>realTextureFileName</key>
             <string>phonicsfree.png</string>
             <key>size</key>
-            <string>{3420,926}</string>
+            <string>{3729,764}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:76029a644ff5d4bc26716f412bde97b1:b4f0545088fd7640e13188d4c37cf684:c75a598cb7473236c7ff89a85ab06c74$</string>
+            <string>$TexturePacker:SmartUpdate:6d29e57fc823dfcd23052058e0cbf8f3:c1da24c7668768236af82e24bb7bf1fb:c75a598cb7473236c7ff89a85ab06c74$</string>
             <key>textureFileName</key>
             <string>phonicsfree.png</string>
         </dict>
