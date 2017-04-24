@@ -220,6 +220,7 @@ void HelloWorld::showBagpackOpenAnimation(std::unordered_map<int, std::string> t
             if(closeButtonNode != NULL) {
                 cocos2d::ui::Button * closeButton = dynamic_cast<cocos2d::ui::Button *>(closeButtonNode);
                 if(closeButton != NULL) {
+                    closeButton->setTitleText("");
                     closeButton->addTouchEventListener(CC_CALLBACK_2(HelloWorld::closeBagPack, this,textMapFollowedByAnimation, owner));
                 }
                 
