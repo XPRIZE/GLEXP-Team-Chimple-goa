@@ -204,7 +204,7 @@ public:
      * Change the content of button's title.
      *@param text The title in std::string.
      */
-    void setTitleText(const std::string& text);
+void setTitleText(const std::string& text);
 
     /**
      * Query the button title content.

@@ -55,7 +55,7 @@ void AlphaArrange::onEnterTransitionDidFinish()
 
 	lang = LangUtil::getInstance()->getLang();
 
-	
+	//lang = "swa";
 	int languageCharCount;
 	if (lang == "swa") {
 
@@ -221,17 +221,12 @@ void AlphaArrange::createBox() {
 
 	//label->setPosition(Vec2(visibleSize.width * 0.079, visibleSize.height * 0.05));
 	label->setAnchorPoint(Vec2(0.5, 0.5));
-	/*
-	switch (numberPicker) {
-	case 0:label->setTextColor(Color4B::BLUE); break;
-	case 1:label->setTextColor(Color4B::GREEN); break;
-	case 2:label->setTextColor(Color4B::RED); break;
-	case 3:label->setTextColor(Color4B::YELLOW); break;
-	}
-	*/
 	//label->setScaleX(0.5);
 	label->setTextColor(Color4B::BLACK);
 	_randomPlaces[_currentAlphabet]->addChild(label);
+
+	if(_menuContext->getCurrentLevel() == 1)
+	addHelpTrace();
 
 	//end of label adding
 
@@ -519,5 +514,26 @@ std::string AlphaArrange::convertToString(char character) {
 	case 'z':return "z";
 
 	}
+
+}
+
+
+void AlphaArrange::addHelpTrace() {
+	
+	//Setting label
+
+	auto label = CommonText::create();
+
+	label->setString(LangUtil::getInstance()->translateString(_alphabets[_currentAlphabet]));
+	label->setFontSize(_labelFontSize);
+	label->setFontName("fonts/BalooBhai-Regular.ttf");
+
+
+	//label->setPosition(Vec2(visibleSize.width * 0.079, visibleSize.height * 0.05));
+	label->setAnchorPoint(Vec2(0.5, 0.5));
+	//label->setScaleX(0.5);
+	label->setTextColor(Color4B::WHITE);
+	_english->getChildByName(convertToString(tolower(_alphabets[_currentAlphabet][0])))->addChild(label);
+
 
 }

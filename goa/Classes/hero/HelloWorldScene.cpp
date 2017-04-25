@@ -220,6 +220,7 @@ void HelloWorld::showBagpackOpenAnimation(std::unordered_map<int, std::string> t
             if(closeButtonNode != NULL) {
                 cocos2d::ui::Button * closeButton = dynamic_cast<cocos2d::ui::Button *>(closeButtonNode);
                 if(closeButton != NULL) {
+                    closeButton->setTitleText("");
                     closeButton->addTouchEventListener(CC_CALLBACK_2(HelloWorld::closeBagPack, this,textMapFollowedByAnimation, owner));
                 }
                 
@@ -803,6 +804,9 @@ void HelloWorld::removeLoadedSearchPath() {
 }
 
 void HelloWorld::querySceneToLoadInIsland() {
+    
+    this->sqlite3Helper->findALLDialogs();
+    
     this->skeletonPositionInLastVisitedScene = this->sqlite3Helper->findLastVisitedSceneInIsland(this->getIsland().c_str(), this->getSceneName().c_str());
     
     if(this->skeletonPositionInLastVisitedScene != NULL) {

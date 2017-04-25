@@ -47,7 +47,7 @@ public:
 	void createLevel(int level);
 	// implement the "static create()" method manually
 	CREATE_FUNC(AlphaArrange);
-
+	void addHelpTrace();
 	static const char* gameName() { return ALPHAARRANGE.c_str(); };
 
 	
