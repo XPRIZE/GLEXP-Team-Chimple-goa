@@ -116,7 +116,7 @@ void DotsQuizLayer::showDotNum() {
     if(++_tries > _numButtons * 2) {
         dotsLayer->_menuContext->showScore();
     } else {
-        _dotNum = DotNum::create(num);
+        _dotNum = DotNum::create(num, false);
         addChild(_dotNum);
         _dotNum->setPosition(1280, 2400);
         _dotNum->runAction(Sequence::create(EaseBackOut::create(MoveTo::create(0.5, Vec2(1280, 1200))), CallFunc::create([=]() {
