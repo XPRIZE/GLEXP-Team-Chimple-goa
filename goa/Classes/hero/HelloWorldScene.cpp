@@ -804,6 +804,9 @@ void HelloWorld::removeLoadedSearchPath() {
 }
 
 void HelloWorld::querySceneToLoadInIsland() {
+    
+    this->sqlite3Helper->findALLDialogs();
+    
     this->skeletonPositionInLastVisitedScene = this->sqlite3Helper->findLastVisitedSceneInIsland(this->getIsland().c_str(), this->getSceneName().c_str());
     
     if(this->skeletonPositionInLastVisitedScene != NULL) {

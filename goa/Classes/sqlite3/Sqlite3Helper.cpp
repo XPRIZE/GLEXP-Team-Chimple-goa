@@ -8,6 +8,7 @@
 
 #include "Sqlite3Helper.hpp"
 #include "cocos2d.h"
+#include "../lang/LangUtil.h"
 
 USING_NS_CC;
 
@@ -337,6 +338,94 @@ std::string Sqlite3Helper::trim(const std::string &s)
     return std::string(it, rit.base());
 }
 
+
+//std::vector<MessageContent*> Sqlite3Helper::findALLHints() {
+//    /* Create SQL statement */
+//    
+//    sqlite3_stmt *res;
+//    int rc = 0;
+//    
+//    const char* querySQL = "SELECT HINTS FROM EVENTS WHERE ACTION IN ('use', 'put')";
+//    
+//    
+//    /* Execute SQL statement */
+//    
+//    
+//    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+//    
+//    if (rc == SQLITE_OK) {
+//        
+//        
+//    } else {
+//        fprintf(stderr, "Failed to execute statement in findEventsByOwnerInScene: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+//    }
+//    
+//    std::vector<MessageContent*> messages;
+//    while(sqlite3_step(res) == SQLITE_ROW)
+//    {
+//        MessageContent* content = new MessageContent();
+//        
+//        std::string dialog( reinterpret_cast< char const* >(sqlite3_column_text(res, 0))) ;
+//        content->setDialog(dialog);
+//        
+//        LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
+//        std::string convertedString = LangUtil::getInstance()->translateString(dialog);
+//        
+//        CCLOG("hints: %s, %s", dialog.c_str(), convertedString.c_str());
+//        
+//        messages.push_back(content);
+//    }
+//    
+//    
+//    sqlite3_finalize(res);
+//    CCLOG("retuning result in findEventsByOwnerInScene with findings %ld", messages.size());
+//    return messages;
+//    
+//}
+
+std::vector<MessageContent*> Sqlite3Helper::findALLDialogs() {
+    /* Create SQL statement */
+    
+    sqlite3_stmt *res;
+    int rc = 0;
+    
+    const char* querySQL = "SELECT DIALOG FROM EVENTS WHERE ACTION = 'say'";
+    
+    
+    /* Execute SQL statement */
+    
+    
+    rc = sqlite3_prepare_v2(this->dataBaseConnection, querySQL, -1, &res, 0);
+    
+    if (rc == SQLITE_OK) {
+        
+        
+    } else {
+        fprintf(stderr, "Failed to execute statement in findEventsByOwnerInScene: %s\n", sqlite3_errmsg(this->dataBaseConnection));
+    }
+    
+    std::vector<MessageContent*> messages;
+    while(sqlite3_step(res) == SQLITE_ROW)
+    {
+        MessageContent* content = new MessageContent();
+        
+        std::string dialog( reinterpret_cast< char const* >(sqlite3_column_text(res, 0))) ;
+        content->setDialog(dialog);
+        
+        LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
+        std::string convertedString = LangUtil::getInstance()->translateString(dialog);
+        
+        CCLOG("dialog: %s, %s", dialog.c_str(), convertedString.c_str());
+        
+        messages.push_back(content);
+    }
+    
+    
+    sqlite3_finalize(res);
+    CCLOG("retuning result in findEventsByOwnerInScene with findings %ld", messages.size());
+    return messages;
+    
+}
 
 std::string Sqlite3Helper::findFirstHint(const char* sceneName) {
     /* Create SQL statement */
