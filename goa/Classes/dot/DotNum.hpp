@@ -12,15 +12,16 @@
 
 class DotNum : public cocos2d::Node {
 public:
-    static DotNum* create(int num);
+    static DotNum* create(int num, bool isShowFinger = true);
     int getNum();
 CC_CONSTRUCTOR_ACCESS:
     DotNum();
     virtual ~DotNum();
-    bool init(int num);
+    bool init(int num, bool isShowFinger);
     virtual bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 protected:
     int _num;
+    bool _isShowFinger;
     cocos2d::Node* _dotNode;
     void enableTouch(bool enabled);
 };

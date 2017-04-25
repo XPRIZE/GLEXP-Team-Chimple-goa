@@ -14,9 +14,9 @@
 
 USING_NS_CC;
 
-DotNum* DotNum::create(int num) {
+DotNum* DotNum::create(int num, bool isShowFinger) {
     DotNum *dotNum = new (std::nothrow) DotNum();
-    if(dotNum && dotNum->init(num)) {
+    if(dotNum && dotNum->init(num, isShowFinger)) {
         dotNum->autorelease();
         return dotNum;
     }
@@ -32,10 +32,11 @@ DotNum::~DotNum() {
     
 }
 
-bool DotNum::init(int num) {
+bool DotNum::init(int num, bool isShowFinger) {
     if(!Node::init()) {
         return false;
     }
+    _isShowFinger = isShowFinger;
     auto wb = Sprite::create("help/whiteboard.png");
     double length = 400.0;
     wb->setScale(length * 2.0 / 1640.0);
@@ -370,7 +371,7 @@ bool DotNum::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event) {
         }
     }
     MenuContext::pronounceWord(MenuContext::to_string(pressedNumber));
-    if(allTouched) {
+    if(_isShowFinger && allTouched) {
         enableTouch(false);
         DotsLayer* dotsLayer = static_cast<DotsLayer *>(getParent());
         dotsLayer->showFinger(this);
