@@ -13,6 +13,7 @@
 #include "../hero/RPGConfig.h"
 #include "../hero/character/SkeletonConfiguration.h"
 
+
 #ifndef Sqlite3Helper_hpp
 #define Sqlite3Helper_hpp
 
@@ -55,6 +56,8 @@ public:
     std::string findFirstHint(const char* sceneName);
     
     int checkIfAnyItemExistsInBag(const char* island);
+    
+    std::vector<MessageContent*> findALLDialogs();
     
     static bool instanceFlag;
     static Sqlite3Helper *shared;
