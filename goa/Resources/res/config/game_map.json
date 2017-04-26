@@ -3524,30 +3524,31 @@
     "numLevels": "6",
     "rewards": {
       "1": {
-        "unlock": "table"
+        "badge": "g/dark_hat"
       },
       "2": {
-        "badge": "s/golden_boot"
+        "badge": "s/jumping_jack"
       },
       "3": {
-        "badge": "s/golden_boot"
+        "badge": "s/m/tidy_shoe",
+        "unlock": "shape"
       },
       "4": {
-        "badge": "s/golden_boot"
+        "badge": "s/jumping_frog"
       },
       "5": {
-        "badge": "s/golden_boot"
+        "badge": "s/flying_mountain"
       },
       "6": {
-        "badge": "s/golden_boot"
+        "badge": "s/cotton_wings"
       }
     },
     "backgroundJson": "alphabetslevel/Layer1.json",
     "foregroundJson": "alphabetslevel/Layer3.json",
     "frontgroundJson": "alphabetslevel/Layer4.json",
     "maingroundJson": "alphabetslevel/Layer2.json",
-    "menuPlist": "icecreamlevel/icecreamlevel.plist",
-    "menuPng": "icecreamlevel/icecreamlevel.png"
+    "menuPlist": "alphabetslevel/alphabetslevel.plist",
+    "menuPng": "alphabetslevel/alphabetslevel.png"
   },
   {
     "name": "alphaphonics",
