@@ -1,0 +1,629 @@
+[
+  {
+    "name": "story-catalogue",
+    "title": "Stories",
+    "unlock": true,
+    "cIcon": "gameicons/story_pressed.png",
+    "icon": "gameicons/story.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "pureJS": "",
+    "script": "src/NonJSGameLauncher.js"
+  },
+  {
+    "name": "decomone",
+    "title": "Decorate the Alphabet",
+    "unlock": true,
+    "cIcon": "gameicons/decomone_pressed.png",
+    "icon": "gameicons/decomone.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "10",
+    "numLevels": "62",
+    "rewards": {
+      "26": {
+        "unlock": "Alphamon Feed"
+      },
+      "10": {
+        "badge": "s/cool_cap"
+      },
+      "20": {
+        "badge": "m/curly_mustache"
+      },
+      "30": {
+        "badge": "p/dary_tophat"
+      },
+      "52": {
+        "unlockMin": "Kung Fu Alpha",
+        "min": "5"
+      },
+      "40": {
+        "badge": "g/color_brush"
+      },
+      "50": {
+        "badge": "b/shining_crown"
+      },
+      "62": {
+        "badge": "c/cute_decomon"
+      }
+    },
+    "lang": {
+      "swa": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "Y",
+          "Z",
+          "A-Z",
+          "A-Z",
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l",
+          "m",
+          "n",
+          "o",
+          "p",
+          "r",
+          "s",
+          "t",
+          "u",
+          "v",
+          "w",
+          "y",
+          "z",
+          "a-z",
+          "a-z",
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "numLevels": "62"
+      },
+      "eng": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z",
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j",
+          "k",
+          "l",
+          "m",
+          "n",
+          "o",
+          "p",
+          "q",
+          "r",
+          "s",
+          "t",
+          "u",
+          "v",
+          "w",
+          "x",
+          "y",
+          "z",
+          "0",
+          "1",
+          "2",
+          "3",
+          "4",
+          "5",
+          "6",
+          "7",
+          "8",
+          "9"
+        ],
+        "numLevels": "62"
+      }
+    },
+    "backgroundJson": "decomonlevel/Layer1.json",
+    "foregroundJson": "decomonlevel/Layer3.json",
+    "frontgroundJson": "decomonlevel/Layer4.json",
+    "maingroundJson": "decomonlevel/Layer2.json",
+    "menuPlist": "decomonlevel/decomonlevel.plist",
+    "menuPng": "decomonlevel/decomonlevel.png"
+  },
+  {
+    "name": "EndlessRunner",
+    "title": "Run and Catch",
+    "cIcon": "gameicons/EndlessRunner_pressed.png",
+    "icon": "gameicons/EndlessRunner.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "unlock": true,
+    "span": "5",
+    "numLevels": "28",
+    "backgroundJson": "endlessrunner/Layer1.json",
+    "foregroundJson": "endlessrunner/Layer3.json",
+    "frontgroundJson": "endlessrunner/Layer4.json",
+    "maingroundJson": "endlessrunner/Layer2.json",
+    "menuPlist": "endlessrunner/endlessrunner_01.plist",
+    "menuPng": "endlessrunner/endlessrunner_01.png",
+    "rewards": {
+      "9": {
+        "unlock": "Cannon Ball"
+      },
+      "5": {
+        "badge": "s/butterfly_net"
+      },
+      "10": {
+        "badge": "m/speed_runner"
+      },
+      "15": {
+        "badge": "p/cracked_egg"
+      },
+      "20": {
+        "badge": "c/shiny_goggles"
+      },
+      "23": {
+        "badge": "b/friendly_monster"
+      },
+      "25": {
+        "badge": "g/flaming_hero"
+      },
+      "28": {
+        "unlockMin": "Kung Fu Alpha",
+        "min": "5"
+      }
+    },
+    "lang": {
+      "swa": {
+        "labels": [
+          "ABC",
+          "DEF",
+          "GHI",
+          "JKL",
+          "MNO",
+          "PRS",
+          "TUV",
+          "WYZ",
+          "A-Z",
+          "abc",
+          "def",
+          "ghi",
+          "jkl",
+          "mno",
+          "prs",
+          "tuv",
+          "wyz",
+          "a-z",
+          "A-F",
+          "G-L",
+          "M-S",
+          "T-Z",
+          "A-Z",
+          "a-f",
+          "g-l",
+          "m-s",
+          "t-z",
+          "a-z"
+        ],
+        "numLevels": "28"
+      },
+      "eng": {
+        "labels": [
+          "ABC",
+          "DEF",
+          "GHI",
+          "JKL",
+          "MNO",
+          "PQR",
+          "STU",
+          "VWX",
+          "YZ",
+          "abc",
+          "def",
+          "ghi",
+          "jkl",
+          "mno",
+          "pqr",
+          "stu",
+          "vwx",
+          "yz",
+          "A-F",
+          "G-L",
+          "M-R",
+          "S-X",
+          "YZ",
+          "a-f",
+          "g-l",
+          "m-r",
+          "s-x",
+          "yz"
+        ],
+        "numLevels": "28"
+      }
+    }
+  },
+  {
+    "name": "Alphamon Feed",
+    "title": "Feed the Monsters",
+    "cIcon": "gameicons/Alphamon Feed_pressed.png",
+    "icon": "gameicons/Alphamon Feed.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "26",
+    "rewards": {
+      "13": {
+        "unlock": "book"
+      },
+      "4": {
+        "badge": "c/tasty_mango"
+      },
+      "8": {
+        "badge": "m/charming_face"
+      },
+      "12": {
+        "badge": "p/tasty_pineapple"
+      },
+      "16": {
+        "badge": "g/juicy_strawberry"
+      },
+      "20": {
+        "badge": "b/delicious_cherry"
+      },
+      "23": {
+        "badge": "c/tasty_mango"
+      },
+      "26": {
+        "unlockMin": "Kung Fu Alpha",
+        "min": "5"
+      }
+    },
+    "backgroundJson": "alphafeedlevel/Layer1.json",
+    "foregroundJson": "alphafeedlevel/Layer3.json",
+    "frontgroundJson": "alphafeedlevel/Layer4.json",
+    "maingroundJson": "alphafeedlevel/Layer2.json",
+    "menuPlist": "alphafeedlevel/alphafeedlevel.plist",
+    "menuPng": "alphafeedlevel/alphafeedlevel.png",
+    "lang": {
+      "swa": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "Y",
+          "Z",
+          "A-Z",
+          "A-Z"
+        ],
+        "numLevels": "26"
+      },
+      "eng": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "numLevels": "26"
+      }
+    }
+  },
+  {
+    "name": "book",
+    "title": "Alphabet Fight",
+    "cIcon": "gameicons/book_pressed.png",
+    "icon": "gameicons/book.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "3",
+    "numLevels": "26",
+    "backgroundJson": "bgmap/bgmap_background.json",
+    "foregroundJson": "bgmap/bgmap_foreground.json",
+    "frontgroundJson": "bgmap/bgmap_frontground.json",
+    "maingroundJson": "bgmap/bgmap_mainground.json",
+    "menuPlist": "bgmap/bgmap.plist",
+    "menuPng": "bgmap/bgmap.png",
+    "rewards": {
+      "13": {
+        "unlock": "alphamole"
+      },
+      "2": {
+        "badge": "s/amazing_book"
+      },
+      "6": {
+        "badge": "m/quacky_base"
+      },
+      "10": {
+        "badge": "p/cute_monster"
+      },
+      "15": {
+        "badge": "g/blazing_wheels"
+      },
+      "19": {
+        "badge": "b/lightning_bolt"
+      },
+      "22": {
+        "badge": "c/candy_mountain"
+      },
+      "24": {
+        "unlockMin": "Kung Fu Alpha",
+        "min": "5"
+      }
+    },
+    "lang": {
+      "swa": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "Y",
+          "Z"
+        ],
+        "numLevels": "24"
+      },
+      "eng": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "numLevels": "26"
+      }
+    }
+  },
+  {
+    "name": "alphamole",
+    "title": "Whack a Monster",
+    "cIcon": "gameicons/alphamole_pressed.png",
+    "icon": "gameicons/alphamole.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "3",
+    "numLevels": "26",
+    "rewards": {
+      "13": {
+        "unlock": "Cross The Bridge"
+      },
+      "4": {
+        "badge": "c/candy_flake"
+      },
+      "8": {
+        "badge": "m/golden_carrot"
+      },
+      "12": {
+        "badge": "p/scary_scarecrow"
+      },
+      "16": {
+        "badge": "g/patterned_shell"
+      },
+      "20": {
+        "badge": "b/paddling_shovel"
+      },
+      "26": {
+        "badge": "c/candy_flake"
+      },
+      "24": {
+        "unlockMin": "Kung Fu Alpha",
+        "min": "5"
+      }
+    },
+    "backgroundJson": "alphamolelevel/alphamolebackground.json",
+    "foregroundJson": "alphamolelevel/alphamoleforeground.json",
+    "frontgroundJson": "alphamolelevel/alphamolefrontground.json",
+    "maingroundJson": "alphamolelevel/alphamolemainground.json",
+    "menuPlist": "alphamolelevel/alphamolelevel.plist",
+    "menuPng": "alphamolelevel/alphamolelevel.png",
+    "lang": {
+      "swa": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "Y",
+          "Z",
+          "A-Z",
+          "A-Z"
+        ],
+        "numLevels": "26"
+      },
+      "eng": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "numLevels": "26"
+      }
+    }
+  }
+]

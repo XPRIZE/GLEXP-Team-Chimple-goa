@@ -17,7 +17,7 @@ static const char* audioExt = ".wav";
 static const char* audioExt = ".m4a";
 #endif
 
-static const char* pronounciationAudioExt = ".ogg";
+static const char* pronounciationAudioExt = ".mp3";
 
 static const wchar_t* const allCharacters = L"ABCDEFGHIJKLMNOPRSTUVWYZ" ;
 static const wchar_t* const allLowerCaseCharacters = L"abcdefghijklmnoprstuvwyz" ;

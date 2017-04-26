@@ -13,6 +13,7 @@
 #include "../lang/SafariAnalyticsManager.h"
 #include "../misc/PhotoCaptureScene.hpp"
 #include "../menu/Introduction.hpp"
+#include "../menu/MainMenuHome.hpp"
 
 #include "audio/include/SimpleAudioEngine.h"
 #include "storage/local-storage/LocalStorage.h"
@@ -73,5 +74,7 @@ void SplashScene::loadDepedencies() {
 
 void SplashScene::GoToMainMenuScene( float dt )
 {
-    Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());    
+//    Director::getInstance()->replaceScene(ScrollableGameMapScene::createScene());
+    Director::getInstance()->replaceScene(MainMenuHome::createScene());
+    
 }

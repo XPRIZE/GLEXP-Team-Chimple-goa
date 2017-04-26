@@ -59,6 +59,8 @@
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		9CD115F31EAF8BBE00BE09DE /* MainMenuHome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD115F11EAF8BBE00BE09DE /* MainMenuHome.cpp */; };
+		9CD115F41EAF8BBE00BE09DE /* MainMenuHome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD115F11EAF8BBE00BE09DE /* MainMenuHome.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
 		BF1C47F01293687400B63C5D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF1C47EA1293683800B63C5D /* QuartzCore.framework */; };
@@ -583,6 +585,8 @@
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9CD115F11EAF8BBE00BE09DE /* MainMenuHome.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuHome.cpp; sourceTree = "<group>"; };
+		9CD115F21EAF8BBE00BE09DE /* MainMenuHome.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MainMenuHome.hpp; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		BF1C47EA1293683800B63C5D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1666,6 +1670,8 @@
 				F35041871E32199F0005DF8D /* Setting.h */,
 				F35041881E32199F0005DF8D /* StartMenuScene.cpp */,
 				F35041891E32199F0005DF8D /* StartMenuScene.h */,
+				9CD115F11EAF8BBE00BE09DE /* MainMenuHome.cpp */,
+				9CD115F21EAF8BBE00BE09DE /* MainMenuHome.hpp */,
 			);
 			path = menu;
 			sourceTree = "<group>";
@@ -2158,6 +2164,7 @@
 				F35043291E3219A00005DF8D /* ATM.cpp in Sources */,
 				F35043671E3219A00005DF8D /* JumpingNumbers.cpp in Sources */,
 				F35042971E32199F0005DF8D /* LTKCheckSumGenerate.cpp in Sources */,
+				9CD115F31EAF8BBE00BE09DE /* MainMenuHome.cpp in Sources */,
 				F35042DF1E32199F0005DF8D /* RunningState.cpp in Sources */,
 				F35042611E32199F0005DF8D /* lipiengine.cpp in Sources */,
 				F350426B1E32199F0005DF8D /* LipiTKProcessTask.cpp in Sources */,
@@ -2525,6 +2532,7 @@
 				F350430A1E32199F0005DF8D /* Introduction.cpp in Sources */,
 				F35043241E3219A00005DF8D /* AlphamoleLevel.cpp in Sources */,
 				F35043381E3219A00005DF8D /* BlastLetterNode.cpp in Sources */,
+				9CD115F41EAF8BBE00BE09DE /* MainMenuHome.cpp in Sources */,
 				F35043641E3219A00005DF8D /* Jasmin_Mainfile.cpp in Sources */,
 				F35042F01E32199F0005DF8D /* EnglishUtil.cpp in Sources */,
 				F350426A1E32199F0005DF8D /* LipiTKNode.cpp in Sources */,

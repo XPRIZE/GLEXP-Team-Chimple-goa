@@ -19,6 +19,7 @@
 #include "SimpleAudioEngine.h"
 #include "AudioEngine.h"
 #include "ScrollableGameMapScene.hpp"
+#include "MainMenuHome.hpp"
 #include "../misc/PhotoCaptureScene.hpp"
 #include "storage/local-storage/LocalStorage.h"
 #include "../alphamon/SelectAlphamonScene.h"
@@ -141,6 +142,8 @@ bool MenuContext::init(Node* main) {
     _menuButton->addTouchEventListener(CC_CALLBACK_2(MenuContext::expandMenu, this));
     if(gameName == "menu") {
         _menuButton->setPosition(Vec2((NUMBER_OF_BUTTONS_COLS - 0.5) * visibleSize.width / NUMBER_OF_BUTTONS_COLS, visibleSize.height + 50 - (0.5) * (visibleSize.height + 50) / (NUMBER_OF_BUTTONS_ROWS + 1)));        
+    } else if(gameName == "MainMenuHome") {
+        _menuButton->setPosition(Vec2((MAIN_HOME_NUMBER_OF_BUTTONS_COLS - 0.5) * visibleSize.width / MAIN_HOME_NUMBER_OF_BUTTONS_COLS, visibleSize.height + 50 - (0.5) * (visibleSize.height + 50) / (NUMBER_OF_BUTTONS_ROWS + 1)));
     } else {
         _menuButton->setPosition(Vec2(origin.x + visibleSize.width - 150, origin.y + visibleSize.height - 150));
     }
@@ -245,7 +248,10 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                     _settingMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::addCalculator, this));
                     _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
                     _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
-                } else if(gameName == "levelMenu" || gameName == "story-catalogue" || gameName == "map") {
+                } else if(gameName == "story-catalogue" || gameName == "StoryCoverPage") {
+                    _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
+                    _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMainHomeMenu, this));
+                } else if(gameName == "levelMenu" || gameName == "map") {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                 } else if(gameName == "ChooseCharacterScene") {
@@ -1073,6 +1079,21 @@ void MenuContext::transitToScrollableGameMap() {
     Director::getInstance()->replaceScene(TransitionFade::create(0.5, ScrollableGameMapScene::createScene(), Color3B::BLACK));
 }
 
+void MenuContext::showMainHomeMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        if(_launchCustomEventOnExit) {
+            std::string menuName(GAME_MAP_MENU);
+            EventCustom event("on_menu_exit");
+            event.setUserData(static_cast<void*>(&menuName));
+            _eventDispatcher->dispatchEvent(&event);
+            
+        } else {
+            Director::getInstance()->replaceScene(TransitionFade::create(2.0, MainMenuHome::createScene(), Color3B::BLACK));
+        }
+    }
+}
+
+
 void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         if(_launchCustomEventOnExit) {
@@ -1416,15 +1437,29 @@ std::vector<std::vector<cocos2d::Point>> MenuContext::getTrianglePointsForSprite
     return points;
 }
 
+void MenuContext::pronounceHashedText(std::string joinedStr) {
+    
+    
+    unsigned long generatedHash = RPGConfig::hash(joinedStr);
+    std::string fileName = MenuContext::to_string(generatedHash);    
+    fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(fileName);
+    if(FileUtils::getInstance()->isFileExist(fileName)) {
+        CCLOG("fileName to pronounce %s", fileName.c_str());
+        MenuContext::_lastAudioId = fileName;
+        auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+        audio->playEffect(fileName.c_str());
+    }
+
+}
 
 void MenuContext::pronounceWord(std::string word) {
     if(!MenuContext::_lastAudioId.empty()) {
         CCLOG("unloadEffect: %s", MenuContext::_lastAudioId.c_str());
         CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect(MenuContext::_lastAudioId.c_str());
     }
+    
     std::replace(word.begin(), word.end(), '_', ' ');
     word = LangUtil::getInstance()->translateString(word);
-    
     std::string fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(word);
     if(FileUtils::getInstance()->isFileExist(fileName)) {
         CCLOG("fileName to pronounce %s", fileName.c_str());
@@ -1450,7 +1485,8 @@ void MenuContext::pronounceWord(std::string word) {
 //        #endif
 //    }
     else {
-        CCLOG("File %s not found OR Language is not supported for Pronounciation", fileName.c_str());
+        std::replace(word.begin(), word.end(), '_', ' ');
+        pronounceHashedText(word);
     }
 }
 
