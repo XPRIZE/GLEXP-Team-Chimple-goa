@@ -77,7 +77,7 @@ std::string EnglishUtil::getAlphabetSoundFileNameForString(std::string alpha) {
 
 std::string EnglishUtil::getPhoneticSoundFileNameForString(std::string alpha) {
     std::transform(alpha.begin(), alpha.end(), alpha.begin(), ::tolower);
-    auto fileName = std::string("lang/eng/sounds/") + alpha + audioExt;
+    auto fileName = std::string("lang/eng/audio/phonetic/") + alpha + pronounciationAudioExt;
     return fileName;
 }
 
