@@ -570,7 +570,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			auto x = childText->getName();
 			CCLOG("Touched : %c", x.at(0));
 
-			if (LangUtil::getInstance()->getLang() == "eng") {
+			if (LangUtil::getInstance()->getLang() == "eng" || LangUtil::getInstance()->getLang() == "swa") {
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(x.at(0));
 				audio->playEffect(path.c_str(), false);
