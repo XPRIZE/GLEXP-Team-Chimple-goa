@@ -77,7 +77,7 @@ std::string SwahiliUtil::getAlphabetSoundFileNameForString(std::string alpha) {
 
 std::string SwahiliUtil::getPhoneticSoundFileNameForString(std::string alpha) {
     std::transform(alpha.begin(), alpha.end(), alpha.begin(), ::tolower);
-    auto fileName = std::string("lang/swa/sounds/") + alpha + audioExt;
+    auto fileName = std::string("lang/swa/audio/phonetic/") + alpha + pronounciationAudioExt;
     return fileName;
 }
 
