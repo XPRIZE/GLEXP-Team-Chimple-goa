@@ -235,7 +235,7 @@ bool ScrollableGameMapScene::init(std::string subGameMenuName) {
         const int numRows = NUMBER_OF_BUTTONS_ROWS;
         const int numCols = NUMBER_OF_BUTTONS_COLS;
         
-        const int numberOfPages = ceil((float) (d.Size() - 1) / (numRows * numCols));
+        const int numberOfPages = ceil((float) (d.Size()) / (numRows * numCols));
 
         std::string unlockedGamesStr;
         localStorageGetItem("unlockedGames", &unlockedGamesStr);
@@ -250,7 +250,7 @@ bool ScrollableGameMapScene::init(std::string subGameMenuName) {
         }
         std::vector<int> orderedGameIndexes;
         int unlockPosition = 0;
-        for (int dIndex = 1; dIndex < d.Size(); dIndex++) {
+        for (int dIndex = 0; dIndex < d.Size(); dIndex++) {
             const rapidjson::Value& game = d[dIndex];
             auto gameName = game["name"].GetString();
             if((game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName))) {
