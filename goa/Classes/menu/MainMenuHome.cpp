@@ -96,13 +96,13 @@ cocos2d::ui::Button* MainMenuHome::createButton() {
     button->addTouchEventListener(CC_CALLBACK_2(MainMenuHome::storySelected, this));
     
     button->setName(gameName);
-    button->setTitleText(LangUtil::getInstance()->translateString(gameTitle));
-    button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
-    button->setTitleFontName("fonts/Roboto-Regular.ttf");
-    button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
-    button->setTitleFontSize(48);
-    auto label = button->getTitleRenderer();
-    label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 200));
+//    button->setTitleText(LangUtil::getInstance()->translateString(gameTitle));
+//    button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
+//    button->setTitleFontName("fonts/Roboto-Regular.ttf");
+//    button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
+//    button->setTitleFontSize(48);
+//    auto label = button->getTitleRenderer();
+//    label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 200));
 //    button->setScale(0.5);
     return button;
 }
