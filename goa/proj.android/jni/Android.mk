@@ -109,6 +109,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/menu/MapIsland.cpp \
          ../../Classes/menu/MapScene.cpp \
          ../../Classes/menu/MenuContext.cpp \
+         ../../Classes/menu/MainMenuHome.cpp \
          ../../Classes/menu/ScoreBoardContent.cpp \
          ../../Classes/menu/ScrollableGameMapScene.cpp \
          ../../Classes/menu/Setting.cpp \
