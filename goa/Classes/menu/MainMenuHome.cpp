@@ -7,6 +7,7 @@
 //
 
 #include "MainMenuHome.hpp"
+#include "../hero/RPGConfig.h"
 
 
 USING_NS_CC;
@@ -62,6 +63,19 @@ bool MainMenuHome::init()
 //    
 //    addChild(storyTopBarButton);
 
+    
+//    const char *args[] = {
+//        "Jimbi alielezea \"Asubuhi tuamkapo, sisi huvirejesha ______________ vyetu mwilini.\""
+//    
+//    };
+//    std::vector<std::string> v(args, std::end(args));
+//    
+//    for (std::vector<std::string>::iterator it = v.begin() ; it != v.end(); ++it)
+//    {
+//        std::string item = *(it);
+//        unsigned long generatedHash = RPGConfig::hash(item);
+//        CCLOG("item: %s, hash: %ld", item.c_str(), generatedHash);
+//    }
     
     return true;
 }
