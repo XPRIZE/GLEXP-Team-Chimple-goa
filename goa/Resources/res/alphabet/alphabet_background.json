@@ -1,0 +1,131 @@
+{
+  "ID": "2865e0da-78ca-4cb3-8729-f362ee96c3b3",
+  "Version": "3.10.0.0",
+  "Name": "alphabet_background",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 3,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "G": 249,
+              "B": 212
+            },
+            "FirstColor": {
+              "G": 179,
+              "B": 164
+            },
+            "EndColor": {
+              "R": 134,
+              "G": 36,
+              "B": 87
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -709.9956,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2773,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.5625,
+              "Y": 1.0
+            },
+            "LeftMargin": -709.9956,
+            "RightMargin": -730.0044,
+            "Tag": 15,
+            "ActionTag": 1300169045,
+            "Size": {
+              "X": 4000.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "alphabet/circle.png",
+              "Plist": "alphabet/alphabet.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 936.7333,
+              "Y": 1076.9319
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "G": 192,
+              "B": 192
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3659,
+              "Y": 0.5983
+            },
+            "PreSize": {
+              "X": 0.4035,
+              "Y": 0.5739
+            },
+            "LeftMargin": 420.2333,
+            "RightMargin": 1106.7667,
+            "TopMargin": 206.5681,
+            "BottomMargin": 560.4319,
+            "Tag": 201,
+            "ActionTag": 1062094474,
+            "Size": {
+              "X": 1033.0,
+              "Y": 1033.0
+            },
+            "Name": "circle_45",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "alphabet.plist",
+        "alphabet.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
