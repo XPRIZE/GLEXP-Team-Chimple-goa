@@ -1,0 +1,1796 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "Background_menu",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 249,
+              "G": 123,
+              "B": 30
+            },
+            "EndColor": {
+              "R": 250,
+              "G": 178,
+              "B": 45
+            },
+            "ColorVector": {
+              "ScaleX": -0.0872,
+              "ScaleY": -0.9962
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -329.6051,
+              "Y": -0.2009
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1288,
+              "Y": -0.0001
+            },
+            "PreSize": {
+              "X": 1.2891,
+              "Y": 1.0
+            },
+            "LeftMargin": -329.6051,
+            "RightMargin": -410.395,
+            "TopMargin": 0.2009,
+            "BottomMargin": -0.2009,
+            "Tag": 280,
+            "ActionTag": -1759226933,
+            "Size": {
+              "X": 3300.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/sun.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1339.845,
+              "Y": 909.9108
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5234,
+              "Y": 0.5055
+            },
+            "PreSize": {
+              "X": 0.382,
+              "Y": 0.5433
+            },
+            "LeftMargin": 850.845,
+            "RightMargin": 731.155,
+            "TopMargin": 401.0891,
+            "BottomMargin": 420.9108,
+            "Tag": 33,
+            "ActionTag": -815534510,
+            "Size": {
+              "X": 978.0,
+              "Y": 978.0
+            },
+            "Name": "sun_19",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/hill_03.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 948.2263,
+              "Y": 895.6774
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3704,
+              "Y": 0.4976
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.4328
+            },
+            "LeftMargin": -331.7737,
+            "RightMargin": 331.7737,
+            "TopMargin": 514.8225,
+            "BottomMargin": 506.1774,
+            "Tag": 31,
+            "ActionTag": -557522828,
+            "Size": {
+              "X": 2560.0,
+              "Y": 779.0
+            },
+            "Name": "hill_03_17",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/hill_03.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1689.5735,
+              "Y": 829.1999
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.66,
+              "Y": 0.4607
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.4328
+            },
+            "LeftMargin": 409.5735,
+            "RightMargin": -409.5735,
+            "TopMargin": 581.3,
+            "BottomMargin": 439.6999,
+            "Tag": 32,
+            "ActionTag": -918546931,
+            "Size": {
+              "X": 2560.0,
+              "Y": 779.0
+            },
+            "Name": "hill_03_18",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/hill_02.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2058.3425,
+              "Y": 651.7746
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.804,
+              "Y": 0.3621
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.3233
+            },
+            "LeftMargin": 778.3425,
+            "RightMargin": -778.3425,
+            "TopMargin": 857.2254,
+            "BottomMargin": 360.7746,
+            "Tag": 30,
+            "ActionTag": -142649853,
+            "Size": {
+              "X": 2560.0,
+              "Y": 582.0
+            },
+            "Name": "hill_02_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/hill_02.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 951.3408,
+              "Y": 699.8192
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3716,
+              "Y": 0.3888
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.3233
+            },
+            "LeftMargin": -328.6592,
+            "RightMargin": 328.6592,
+            "TopMargin": 809.1808,
+            "BottomMargin": 408.8192,
+            "Tag": 29,
+            "ActionTag": -1267790498,
+            "Size": {
+              "X": 2560.0,
+              "Y": 582.0
+            },
+            "Name": "hill_02_15",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/hill_01_1.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 739.3191,
+              "Y": 447.4431
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2888,
+              "Y": 0.2486
+            },
+            "PreSize": {
+              "X": 1.0004,
+              "Y": 0.3794
+            },
+            "LeftMargin": -541.1809,
+            "RightMargin": 540.1809,
+            "TopMargin": 1011.0569,
+            "BottomMargin": 105.9431,
+            "Tag": 27,
+            "ActionTag": -145768558,
+            "Size": {
+              "X": 2561.0,
+              "Y": 683.0
+            },
+            "Name": "hill_01_1_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/tree_01.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2500.1201,
+              "Y": 1008.3084
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 63,
+              "G": 63,
+              "B": 63
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9766,
+              "Y": 0.5602
+            },
+            "PreSize": {
+              "X": 0.1086,
+              "Y": 0.2911
+            },
+            "LeftMargin": 2361.1201,
+            "RightMargin": -79.1201,
+            "TopMargin": 529.6917,
+            "BottomMargin": 746.3084,
+            "Tag": 39,
+            "ActionTag": -1433924090,
+            "Size": {
+              "X": 278.0,
+              "Y": 524.0
+            },
+            "Name": "tree_01_25",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/hill_01_1.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2057.5461,
+              "Y": 450.4558
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8037,
+              "Y": 0.2503
+            },
+            "PreSize": {
+              "X": 1.0004,
+              "Y": 0.3794
+            },
+            "LeftMargin": 777.0461,
+            "RightMargin": -778.0461,
+            "TopMargin": 1008.0442,
+            "BottomMargin": 108.9558,
+            "Tag": 28,
+            "ActionTag": 618512636,
+            "Size": {
+              "X": 2561.0,
+              "Y": 683.0
+            },
+            "Name": "hill_01_1_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/grass.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 587.4017,
+              "Y": 154.7974
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2295,
+              "Y": 0.086
+            },
+            "PreSize": {
+              "X": 0.2496,
+              "Y": 0.1722
+            },
+            "LeftMargin": 267.9017,
+            "RightMargin": 1653.0984,
+            "TopMargin": 1490.2026,
+            "BottomMargin": -0.2026,
+            "Tag": 20,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Background_menu/grass.png",
+                  "Plist": "Background_menu/Background_menu.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 948.845,
+                  "Y": 155.0038
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 1.4849,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 629.345,
+                "RightMargin": -629.345,
+                "TopMargin": -0.0038,
+                "BottomMargin": 0.0038,
+                "Tag": 21,
+                "ActionTag": -1297116768,
+                "Size": {
+                  "X": 639.0,
+                  "Y": 310.0
+                },
+                "Name": "grass_7",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FlipX": true,
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Background_menu/grass.png",
+                  "Plist": "Background_menu/Background_menu.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 1568.6914,
+                  "Y": 155.005
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 2.4549,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1249.1914,
+                "RightMargin": -1249.1914,
+                "TopMargin": -0.005,
+                "BottomMargin": 0.005,
+                "Tag": 22,
+                "ActionTag": -1947309351,
+                "Size": {
+                  "X": 639.0,
+                  "Y": 310.0
+                },
+                "Name": "grass_8",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Background_menu/grass.png",
+                  "Plist": "Background_menu/Background_menu.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2197.2021,
+                  "Y": 155.0049
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 3.4385,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 1877.7021,
+                "RightMargin": -1877.7021,
+                "TopMargin": -0.0049,
+                "BottomMargin": 0.0049,
+                "Tag": 23,
+                "ActionTag": -642369931,
+                "Size": {
+                  "X": 639.0,
+                  "Y": 310.0
+                },
+                "Name": "grass_9",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Background_menu/grass.png",
+                  "Plist": "Background_menu/Background_menu.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 2815.1187,
+                  "Y": 155.0049
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 4.4055,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": 2495.6187,
+                "RightMargin": -2495.6187,
+                "TopMargin": -0.0049,
+                "BottomMargin": 0.0049,
+                "Tag": 24,
+                "ActionTag": -396802088,
+                "Size": {
+                  "X": 639.0,
+                  "Y": 310.0
+                },
+                "Name": "grass_10",
+                "ctype": "SpriteObjectData"
+              },
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "Background_menu/grass.png",
+                  "Plist": "Background_menu/Background_menu.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": -283.3741,
+                  "Y": 155.0044
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": -0.4435,
+                  "Y": 0.5
+                },
+                "PreSize": {
+                  "X": 1.0,
+                  "Y": 1.0
+                },
+                "LeftMargin": -602.8741,
+                "RightMargin": 602.8741,
+                "TopMargin": -0.0044,
+                "BottomMargin": 0.0044,
+                "Tag": 25,
+                "ActionTag": -388144532,
+                "Size": {
+                  "X": 639.0,
+                  "Y": 310.0
+                },
+                "Name": "grass_11",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 33952651,
+            "Size": {
+              "X": 639.0,
+              "Y": 310.0
+            },
+            "Name": "grass_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/tree_01.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 38.6169,
+              "Y": 885.5485
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0151,
+              "Y": 0.492
+            },
+            "PreSize": {
+              "X": 0.1086,
+              "Y": 0.2911
+            },
+            "LeftMargin": -100.3831,
+            "RightMargin": 2382.3831,
+            "TopMargin": 652.4515,
+            "BottomMargin": 623.5485,
+            "Tag": 36,
+            "ActionTag": -1149227041,
+            "Size": {
+              "X": 278.0,
+              "Y": 524.0
+            },
+            "Name": "tree_01_22",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/tree_01.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 315.6035,
+              "Y": 848.996
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 26.7324,
+            "RotationSkewY": 26.7207,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1233,
+              "Y": 0.4717
+            },
+            "PreSize": {
+              "X": 0.1086,
+              "Y": 0.2911
+            },
+            "LeftMargin": 176.6035,
+            "RightMargin": 2105.3965,
+            "TopMargin": 689.004,
+            "BottomMargin": 586.996,
+            "Tag": 37,
+            "ActionTag": -1905279735,
+            "Size": {
+              "X": 278.0,
+              "Y": 524.0
+            },
+            "Name": "tree_01_23",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/tree.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 397.8082,
+              "Y": 811.85
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1554,
+              "Y": 0.451
+            },
+            "PreSize": {
+              "X": 0.3105,
+              "Y": 0.7656
+            },
+            "LeftMargin": 0.3082,
+            "RightMargin": 1764.6919,
+            "TopMargin": 299.15,
+            "BottomMargin": 122.85,
+            "Tag": 34,
+            "ActionTag": -2053895367,
+            "Size": {
+              "X": 795.0,
+              "Y": 1378.0
+            },
+            "Name": "tree_20",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/tree.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 457.8965,
+              "Y": 408.9323
+            },
+            "Scale": {
+              "ScaleX": 0.5454,
+              "ScaleY": 0.5454
+            },
+            "RotationSkewX": 10.5793,
+            "RotationSkewY": 10.5698,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1789,
+              "Y": 0.2272
+            },
+            "PreSize": {
+              "X": 0.3105,
+              "Y": 0.7656
+            },
+            "LeftMargin": 60.3965,
+            "RightMargin": 1704.6035,
+            "TopMargin": 702.0676,
+            "BottomMargin": -280.0677,
+            "Tag": 35,
+            "ActionTag": 478622730,
+            "Size": {
+              "X": 795.0,
+              "Y": 1378.0
+            },
+            "Name": "tree_21",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/tree_01.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2420.6982,
+              "Y": 931.5219
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9456,
+              "Y": 0.5175
+            },
+            "PreSize": {
+              "X": 0.1086,
+              "Y": 0.2911
+            },
+            "LeftMargin": 2281.6982,
+            "RightMargin": 0.3018,
+            "TopMargin": 606.478,
+            "BottomMargin": 669.5219,
+            "Tag": 38,
+            "ActionTag": 1522947214,
+            "Size": {
+              "X": 278.0,
+              "Y": 524.0
+            },
+            "Name": "tree_01_24",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/birds.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1303.001,
+              "Y": 1126.0088
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.509,
+              "Y": 0.6256
+            },
+            "PreSize": {
+              "X": 0.1426,
+              "Y": 0.1372
+            },
+            "LeftMargin": 1120.501,
+            "RightMargin": 1074.499,
+            "TopMargin": 550.4912,
+            "BottomMargin": 1002.5088,
+            "Tag": 40,
+            "ActionTag": 371305048,
+            "Size": {
+              "X": 365.0,
+              "Y": 247.0
+            },
+            "Name": "birds_26",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/birds.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 895.4468,
+              "Y": 1377.3473
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3498,
+              "Y": 0.7652
+            },
+            "PreSize": {
+              "X": 0.1426,
+              "Y": 0.1372
+            },
+            "LeftMargin": 712.9468,
+            "RightMargin": 1482.0532,
+            "TopMargin": 299.1527,
+            "BottomMargin": 1253.8473,
+            "Tag": 41,
+            "ActionTag": 2029178614,
+            "Size": {
+              "X": 365.0,
+              "Y": 247.0
+            },
+            "Name": "birds_27",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/birds.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1779.7985,
+              "Y": 1285.0083
+            },
+            "Scale": {
+              "ScaleX": 0.7514,
+              "ScaleY": 0.7514
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6952,
+              "Y": 0.7139
+            },
+            "PreSize": {
+              "X": 0.1426,
+              "Y": 0.1372
+            },
+            "LeftMargin": 1597.2985,
+            "RightMargin": 597.7015,
+            "TopMargin": 391.4917,
+            "BottomMargin": 1161.5083,
+            "Tag": 42,
+            "ActionTag": -1635103043,
+            "Size": {
+              "X": 365.0,
+              "Y": 247.0
+            },
+            "Name": "birds_28",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/alphabet.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 494,
+            "Scale9Height": 502,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 497.0912,
+              "Y": 1080.6426
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1942,
+              "Y": 0.6004
+            },
+            "PreSize": {
+              "X": 0.2047,
+              "Y": 0.2911
+            },
+            "LeftMargin": 235.0912,
+            "RightMargin": 1800.9088,
+            "TopMargin": 457.3574,
+            "BottomMargin": 818.6426,
+            "Tag": 44,
+            "ActionTag": -630559528,
+            "Size": {
+              "X": 524.0,
+              "Y": 524.0
+            },
+            "Name": "alphabet",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "",
+            "PlaceHolderText": "",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 478.4502,
+              "Y": 1252.4121
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1869,
+              "Y": 0.6958
+            },
+            "PreSize": {
+              "X": 0.0328,
+              "Y": 0.0128
+            },
+            "LeftMargin": 436.4502,
+            "RightMargin": 2039.5498,
+            "TopMargin": 536.0879,
+            "BottomMargin": 1240.9121,
+            "Tag": 45,
+            "ActionTag": -1699666926,
+            "Size": {
+              "X": 84.0,
+              "Y": 23.0
+            },
+            "Name": "alphabet",
+            "ctype": "TextFieldObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/grammar.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 494,
+            "Scale9Height": 502,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.4455,
+              "ScaleY": 0.4954
+            },
+            "Position": {
+              "X": 2078.8896,
+              "Y": 411.1664
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8121,
+              "Y": 0.2284
+            },
+            "PreSize": {
+              "X": 0.2047,
+              "Y": 0.2911
+            },
+            "LeftMargin": 1845.4265,
+            "RightMargin": 190.5735,
+            "TopMargin": 1124.4279,
+            "BottomMargin": 151.5722,
+            "Tag": 46,
+            "ActionTag": 310255017,
+            "Size": {
+              "X": 524.0,
+              "Y": 524.0
+            },
+            "Name": "grammar",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "",
+            "PlaceHolderText": "",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2105.324,
+              "Y": 582.5546
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8224,
+              "Y": 0.3236
+            },
+            "PreSize": {
+              "X": 0.0328,
+              "Y": 0.0128
+            },
+            "LeftMargin": 2063.324,
+            "RightMargin": 412.676,
+            "TopMargin": 1205.9453,
+            "BottomMargin": 571.0546,
+            "Tag": 47,
+            "ActionTag": -626789043,
+            "Size": {
+              "X": 84.0,
+              "Y": 23.0
+            },
+            "Name": "grammar",
+            "ctype": "TextFieldObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/shapes.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 494,
+            "Scale9Height": 503,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1297.3311,
+              "Y": 1081.1404
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5068,
+              "Y": 0.6006
+            },
+            "PreSize": {
+              "X": 0.2047,
+              "Y": 0.2917
+            },
+            "LeftMargin": 1035.3311,
+            "RightMargin": 1000.6689,
+            "TopMargin": 456.3596,
+            "BottomMargin": 818.6404,
+            "Tag": 48,
+            "ActionTag": 1259337871,
+            "Size": {
+              "X": 524.0,
+              "Y": 525.0
+            },
+            "Name": "shapes",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "",
+            "PlaceHolderText": "",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1304.8218,
+              "Y": 1252.3384
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5097,
+              "Y": 0.6957
+            },
+            "PreSize": {
+              "X": 0.0328,
+              "Y": 0.0128
+            },
+            "LeftMargin": 1262.8218,
+            "RightMargin": 1213.1782,
+            "TopMargin": 536.1616,
+            "BottomMargin": 1240.8384,
+            "Tag": 49,
+            "ActionTag": 880371812,
+            "Size": {
+              "X": 84.0,
+              "Y": 23.0
+            },
+            "Name": "shapes",
+            "ctype": "TextFieldObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/writing.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 494,
+            "Scale9Height": 502,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2102.2583,
+              "Y": 1080.6426
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8212,
+              "Y": 0.6004
+            },
+            "PreSize": {
+              "X": 0.2047,
+              "Y": 0.2911
+            },
+            "LeftMargin": 1840.2583,
+            "RightMargin": 195.7417,
+            "TopMargin": 457.3574,
+            "BottomMargin": 818.6426,
+            "Tag": 50,
+            "ActionTag": 1622159846,
+            "Size": {
+              "X": 524.0,
+              "Y": 524.0
+            },
+            "Name": "writing",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "",
+            "PlaceHolderText": "",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2100.3242,
+              "Y": 1254.6262
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8204,
+              "Y": 0.697
+            },
+            "PreSize": {
+              "X": 0.0328,
+              "Y": 0.0128
+            },
+            "LeftMargin": 2058.3242,
+            "RightMargin": 417.6758,
+            "TopMargin": 533.8738,
+            "BottomMargin": 1243.1262,
+            "Tag": 51,
+            "ActionTag": 1222803406,
+            "Size": {
+              "X": 84.0,
+              "Y": 23.0
+            },
+            "Name": "writing",
+            "ctype": "TextFieldObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/words.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 494,
+            "Scale9Height": 502,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 497.0966,
+              "Y": 413.5726
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1942,
+              "Y": 0.2298
+            },
+            "PreSize": {
+              "X": 0.2047,
+              "Y": 0.2911
+            },
+            "LeftMargin": 235.0966,
+            "RightMargin": 1800.9034,
+            "TopMargin": 1124.4274,
+            "BottomMargin": 151.5726,
+            "Tag": 52,
+            "ActionTag": 1202927306,
+            "Size": {
+              "X": 524.0,
+              "Y": 524.0
+            },
+            "Name": "words",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "",
+            "PlaceHolderText": "",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.4639,
+              "ScaleY": 0.5834
+            },
+            "Position": {
+              "X": 483.3372,
+              "Y": 591.3185
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1888,
+              "Y": 0.3285
+            },
+            "PreSize": {
+              "X": 0.0328,
+              "Y": 0.0128
+            },
+            "LeftMargin": 444.3717,
+            "RightMargin": 2031.6283,
+            "TopMargin": 1199.1001,
+            "BottomMargin": 577.8998,
+            "Tag": 53,
+            "ActionTag": -939323646,
+            "Size": {
+              "X": 84.0,
+              "Y": 23.0
+            },
+            "Name": "words",
+            "ctype": "TextFieldObjectData"
+          },
+          {
+            "FontSize": 14,
+            "ButtonText": "",
+            "TextColor": {
+              "R": 65,
+              "G": 65,
+              "B": 70
+            },
+            "DisabledFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Disable.png",
+              "Plist": ""
+            },
+            "PressedFileData": {
+              "Type": "Default",
+              "Path": "Default/Button_Press.png",
+              "Plist": ""
+            },
+            "NormalFileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/maths.png",
+              "Plist": "Background_menu/Background_menu.plist"
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 15,
+            "Scale9OriginY": 11,
+            "Scale9Width": 494,
+            "Scale9Height": 502,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1298.3433,
+              "Y": 413.5726
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5072,
+              "Y": 0.2298
+            },
+            "PreSize": {
+              "X": 0.2047,
+              "Y": 0.2911
+            },
+            "LeftMargin": 1036.3433,
+            "RightMargin": 999.6567,
+            "TopMargin": 1124.4274,
+            "BottomMargin": 151.5726,
+            "Tag": 54,
+            "ActionTag": 1693408675,
+            "Size": {
+              "X": 524.0,
+              "Y": 524.0
+            },
+            "Name": "maths",
+            "ctype": "ButtonObjectData"
+          },
+          {
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "",
+            "PlaceHolderText": "",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1297.6257,
+              "Y": 586.846
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5069,
+              "Y": 0.326
+            },
+            "PreSize": {
+              "X": 0.0328,
+              "Y": 0.0128
+            },
+            "LeftMargin": 1255.6257,
+            "RightMargin": 1220.3743,
+            "TopMargin": 1201.6541,
+            "BottomMargin": 575.346,
+            "Tag": 55,
+            "ActionTag": -1595278637,
+            "Size": {
+              "X": 84.0,
+              "Y": 23.0
+            },
+            "Name": "maths",
+            "ctype": "TextFieldObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "../Default/Button_Disable.png",
+        "../Default/Button_Press.png",
+        "Background_menu.plist",
+        "Background_menu.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

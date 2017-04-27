@@ -1,0 +1,177 @@
+{
+  "ID": "699dd115-3ff7-4e5b-ba9e-0f25ec4e21f9",
+  "Version": "3.10.0.0",
+  "Name": "background",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 8,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 240,
+              "B": 127
+            },
+            "EndColor": {
+              "R": 33,
+              "G": 59,
+              "B": 51
+            },
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -357.0747,
+              "Y": -0.5457
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1395,
+              "Y": -0.0003
+            },
+            "PreSize": {
+              "X": 1.2891,
+              "Y": 1.0
+            },
+            "LeftMargin": -357.0747,
+            "RightMargin": -382.9253,
+            "TopMargin": 0.5457,
+            "BottomMargin": -0.5457,
+            "Tag": 12,
+            "ActionTag": -104310829,
+            "Size": {
+              "X": 3300.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "sun.png",
+              "Plist": "Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1494.2947,
+              "Y": 952.2537
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5837,
+              "Y": 0.529
+            },
+            "PreSize": {
+              "X": 0.2313,
+              "Y": 0.3289
+            },
+            "LeftMargin": 1198.2947,
+            "RightMargin": 769.7053,
+            "TopMargin": 551.7463,
+            "BottomMargin": 656.2537,
+            "Tag": 13,
+            "ActionTag": -1725372665,
+            "Size": {
+              "X": 592.0,
+              "Y": 592.0
+            },
+            "Name": "sun_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "bird.png",
+              "Plist": "Background_menu.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1472.2871,
+              "Y": 1165.8765
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5751,
+              "Y": 0.6477
+            },
+            "PreSize": {
+              "X": 0.0742,
+              "Y": 0.0389
+            },
+            "LeftMargin": 1377.2871,
+            "RightMargin": 992.7129,
+            "TopMargin": 599.1235,
+            "BottomMargin": 1130.8765,
+            "Tag": 14,
+            "ActionTag": 1566836813,
+            "Size": {
+              "X": 190.0,
+              "Y": 70.0
+            },
+            "Name": "bird_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "../Background_menu.plist",
+        "../Background_menu.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

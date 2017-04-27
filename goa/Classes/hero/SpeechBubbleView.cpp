@@ -158,6 +158,10 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
         delta += 100.0f;
         priority += 1;
         
+        
+        //pronounce text
+        MenuContext::pronounceWord(joinedStr);
+        
     }
 
     

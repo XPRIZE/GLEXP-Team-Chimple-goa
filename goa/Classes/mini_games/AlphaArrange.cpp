@@ -62,10 +62,10 @@ void AlphaArrange::onEnterTransitionDidFinish()
 		_randomPositions.resize(24);
 		languageCharCount = 24;
 
-		if(_menuContext->getCurrentLevel() >=1 && _menuContext->getCurrentLevel() <=3)
+		if(_menuContext->getCurrentLevel() > 3 && _menuContext->getCurrentLevel() <=6)
 		_alphabets = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","r","s","t","u","v","w","y","z" };
 
-		if (_menuContext->getCurrentLevel() > 3 && _menuContext->getCurrentLevel() <= 6)
+		if (_menuContext->getCurrentLevel() >=1 && _menuContext->getCurrentLevel() <= 3)
 			_alphabets = { "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","R","S","T","U","V","W","Y","Z" };
 
 
@@ -114,10 +114,10 @@ void AlphaArrange::onEnterTransitionDidFinish()
 		_randomPositions.resize(26);
 		languageCharCount = 26;
 		
-		if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 3)
+		if (_menuContext->getCurrentLevel() > 3 && _menuContext->getCurrentLevel() <= 6)
 			_alphabets = { "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" };
 
-		if (_menuContext->getCurrentLevel() > 3 && _menuContext->getCurrentLevel() <= 6)
+		if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 3)
 			_alphabets = { "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z" };
 
 	

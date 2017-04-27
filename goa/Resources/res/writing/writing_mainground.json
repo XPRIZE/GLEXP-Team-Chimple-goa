@@ -1,0 +1,168 @@
+{
+  "ID": "f1280c51-f941-4be6-8fd1-dd4660c23bf0",
+  "Version": "3.10.0.0",
+  "Name": "writing_mainground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 10,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/tree2.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 610.1501,
+              "Y": 1010.3558
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2383,
+              "Y": 0.5613
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 437.6501,
+            "RightMargin": 1777.3499,
+            "TopMargin": -4.8557,
+            "BottomMargin": 215.8558,
+            "Tag": 30,
+            "ActionTag": -331601556,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/tree2.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1755.1578,
+              "Y": 1006.9164
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6856,
+              "Y": 0.5594
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 1582.6578,
+            "RightMargin": 632.3422,
+            "TopMargin": -1.4165,
+            "BottomMargin": 212.4164,
+            "Tag": 31,
+            "ActionTag": 449894284,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/tree2.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1122.1975,
+              "Y": 1016.5973
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4384,
+              "Y": 0.5648
+            },
+            "PreSize": {
+              "X": 0.1348,
+              "Y": 0.8828
+            },
+            "LeftMargin": 949.6975,
+            "RightMargin": 1265.3025,
+            "TopMargin": -11.0973,
+            "BottomMargin": 222.0973,
+            "Tag": 163,
+            "ActionTag": -45534196,
+            "Size": {
+              "X": 345.0,
+              "Y": 1589.0
+            },
+            "Name": "tree2_1_0_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "writing.plist",
+        "writing.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

@@ -140,6 +140,7 @@ void StoryCoverPage::loadCoverPage(std::string coverPageUrl) {
     if(playNode != NULL) {
         cocos2d::ui::Button* playButton = dynamic_cast<cocos2d::ui::Button *>(playNode);
         if(playButton != NULL) {
+            playButton->setTitleText("");
             playButton->addTouchEventListener(CC_CALLBACK_2(StoryCoverPage::play, this));
         }
     }
@@ -160,6 +161,7 @@ void StoryCoverPage::loadCoverPage(std::string coverPageUrl) {
     if(soundNode != NULL) {
         cocos2d::ui::Button* soundButton = dynamic_cast<cocos2d::ui::Button *>(soundNode);
         if(soundButton != NULL) {
+            soundButton->setTitleText("");
             soundButton->addTouchEventListener(CC_CALLBACK_2(StoryCoverPage::playSound, this));
             
             if(_soundEnabled.compare("true") == 0) {

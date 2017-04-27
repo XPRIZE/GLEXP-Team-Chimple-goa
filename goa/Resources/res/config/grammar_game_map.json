@@ -1,0 +1,653 @@
+[
+  {
+    "name": "shoot",
+    "title": "Shoot",
+    "unlock": true,
+    "cIcon": "gameicons/shoot_pressed.png",
+    "icon": "gameicons/shoot.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "4",
+    "numLevels": "30",
+    "rewards": {
+      "12": {
+        "unlock": "owl"
+      },
+      "5": {
+        "badge": "s/yummy_icecream"
+      },
+      "10": {
+        "badge": "m/broken_branch"
+      },
+      "15": {
+        "badge": "p/sweet_cupcake"
+      },
+      "20": {
+        "badge": "g/yummy_lollipop"
+      },
+      "24": {
+        "badge": "b/slinging_slingshot"
+      },
+      "27": {
+        "badge": "c/swirly_shots"
+      }
+    },
+    "backgroundJson": "pinatacandylevel/background.json",
+    "foregroundJson": "pinatacandylevel/foreground.json",
+    "frontgroundJson": "pinatacandylevel/frontground.json",
+    "maingroundJson": "pinatacandylevel/mainground.json",
+    "menuPlist": "pinatacandylevel/pinatacandylevel.plist",
+    "menuPng": "pinatacandylevel/pinatacandylevel.png"
+  },
+  {
+    "name": "owl",
+    "title": "Spelling Owl",
+    "unlock": true,
+    "cIcon": "gameicons/owl_pressed.png",
+    "icon": "gameicons/owl.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "7",
+    "numLevels": "50",
+    "rewards": {
+      "20": {
+        "unlock": "stack"
+      },
+      "8": {
+        "badge": "s/wise_owl"
+      },
+      "16": {
+        "badge": "m/lucky_leave"
+      },
+      "24": {
+        "badge": "p/furry_bird"
+      },
+      "32": {
+        "badge": "g/pink_jellyfish"
+      },
+      "40": {
+        "badge": "b/underwater_coral"
+      },
+      "45": {
+        "badge": "c/creamy_stand"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "owllevel/background.json",
+    "foregroundJson": "owllevel/foreground.json",
+    "frontgroundJson": "owllevel/frontground.json",
+    "maingroundJson": "owllevel/mainground.json",
+    "menuPlist": "owllevel/owllevel.plist",
+    "menuPng": "owllevel/owllevel.png"
+  },
+  {
+    "name": "stack",
+    "title": "Stack the Words",
+    "unlock": true,
+    "cIcon": "gameicons/stack_pressed.png",
+    "icon": "gameicons/stack.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "9",
+    "numLevels": "72",
+    "rewards": {
+      "30": {
+        "unlock": "order"
+      },
+      "12": {
+        "badge": "s/fancy_Box"
+      },
+      "24": {
+        "badge": "m/heavy_crate"
+      },
+      "36": {
+        "badge": "p/milk_container"
+      },
+      "48": {
+        "badge": "g/priceless_peral"
+      },
+      "60": {
+        "badge": "b/running_conveyor"
+      },
+      "72": {
+        "badge": "c/priceless_shell"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "plevelscreen/sklevelbg.json",
+    "foregroundJson": "plevelscreen/sklevelfrg.json",
+    "frontgroundJson": "plevelscreen/sklevelfng.json",
+    "maingroundJson": "plevelscreen/sklevelmng.json",
+    "menuPlist": "plevelscreen/plevelscreen.plist",
+    "menuPng": "plevelscreen/plevelscreen.png"
+  },
+  {
+    "name": "order",
+    "title": "Arrange in Order",
+    "unlock": true,
+    "cIcon": "gameicons/order_pressed.png",
+    "icon": "gameicons/order.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "20",
+    "rewards": {
+      "10": {
+        "unlock": "dash"
+      },
+      "3": {
+        "badge": "s/candy_tree"
+      },
+      "6": {
+        "badge": "m/tower_toy"
+      },
+      "9": {
+        "badge": "p/crafty_cart"
+      },
+      "12": {
+        "badge": "g/candy_cane"
+      },
+      "15": {
+        "badge": "b/filled_paintbucket"
+      },
+      "18": {
+        "badge": "c/creamy_cake"
+      },
+      "20": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "orderlevel/Layer1.json",
+    "foregroundJson": "orderlevel/Layer3.json",
+    "frontgroundJson": "orderlevel/Layer4.json",
+    "maingroundJson": "orderlevel/Layer2.json",
+    "menuPlist": "orderlevel/orderlevel.plist",
+    "menuPng": "orderlevel/orderlevel.png"
+  },
+  {
+    "name": "dash",
+    "title": "Dash",
+    "unlock": true,
+    "cIcon": "gameicons/dash_pressed.png",
+    "icon": "gameicons/dash.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "10",
+    "numLevels": "75",
+    "rewards": {
+      "30": {
+        "unlock": "bingo"
+      },
+      "13": {
+        "badge": "s/fluffy_cloud"
+      },
+      "26": {
+        "badge": "m/jumping_otter"
+      },
+      "39": {
+        "badge": "p/floating_land"
+      },
+      "52": {
+        "badge": "g/progressive_flag"
+      },
+      "65": {
+        "badge": "b/hot_gingerbreadman"
+      },
+      "75": {
+        "badge": "c/furtune_wheel"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+
+    },
+    "backgroundJson": "dashlevel/background.json",
+    "foregroundJson": "dashlevel/foreground.json",
+    "frontgroundJson": "dashlevel/frontground.json",
+    "maingroundJson": "dashlevel/mainground.json",
+    "menuPlist": "dashlevel/dashlevel.plist",
+    "menuPng": "dashlevel/dashlevel.png"
+  },
+  {
+    "name": "bingo",
+    "title": "Bingo",
+    "unlock": true,
+    "cIcon": "gameicons/bingo_pressed.png",
+    "icon": "gameicons/bingo.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "36",
+    "rewards": {
+      "20": {
+        "unlock": "drop"
+      },
+      "6": {
+        "badge": "s/curious_giraffe"
+      },
+      "12": {
+        "badge": "p/healthy_cauliflower"
+      },
+      "18": {
+        "badge": "m/crakalaking_chimp"
+      },
+      "24": {
+        "badge": "b/roaring_lion"
+      },
+      "30": {
+        "badge": "c/funky_elephant"
+      },
+      "36": {
+        "badge": "g/ripe_watermelon"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "bingolevel/layer1.json",
+    "foregroundJson": "bingolevel/leyel3.json",
+    "frontgroundJson": "bingolevel/level4.json",
+    "maingroundJson": "bingolevel/layer2.json",
+    "menuPlist": "bingolevel/bingolevel.plist",
+    "menuPng": "bingolevel/bingolevel.png"
+  },
+  {
+    "name": "drop",
+    "title": "Drop",
+    "unlock": true,
+    "cIcon": "gameicons/drop_pressed.png",
+    "icon": "gameicons/drop.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "8",
+    "numLevels": "60",
+    "rewards": {
+      "22": {
+        "unlock": "train"
+      },
+      "10": {
+        "badge": "s/popping_balloon"
+      },
+      "20": {
+        "badge": "m/leaf_bomb"
+      },
+      "30": {
+        "badge": "b/droping_ball"
+      },
+      "40": {
+        "badge": "g/cute_bow"
+      },
+      "50": {
+        "badge": "c/ball_of_leaves"
+      },
+      "60": {
+        "badge": "p/happiness_box"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "droplevel/Layer1.json",
+    "foregroundJson": "droplevel/Layer3.json",
+    "frontgroundJson": "droplevel/Layer4.json",
+    "maingroundJson": "droplevel/Layer2.json",
+    "menuPlist": "droplevel/droplevel.plist",
+    "menuPng": "droplevel/droplevel.png"
+  },
+  {
+    "name": "train",
+    "title": "Train",
+    "unlock": true,
+    "cIcon": "gameicons/train_pressed.png",
+    "icon": "gameicons/train.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "pureJS": "TrainLayer",
+    "script": "src/start/train.js",
+    "span": "6",
+    "numLevels": "48",
+    "rewards": {
+      "20": {
+        "unlock": "pop"
+      },
+      "8": {
+        "badge": "s/express_train"
+      },
+      "16": {
+        "badge": "m/melodious_whistle"
+      },
+      "24": {
+        "badge": "p/go_signal"
+      },
+      "32": {
+        "badge": "g/high_hill"
+      },
+      "40": {
+        "badge": "b/endless_traintrack"
+      },
+      "48": {
+        "badge": "c/marsmallow_cave"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "trainlevel/background.json",
+    "foregroundJson": "trainlevel/foreground.json",
+    "frontgroundJson": "trainlevel/frontground.json",
+    "maingroundJson": "trainlevel/mainground.json",
+    "menuPlist": "trainlevel/trainlevel.plist",
+    "menuPng": "trainlevel/trainlevel.png"
+  },
+  {
+    "name": "pop",
+    "title": "Fly Through Clouds",
+    "unlock": true,
+    "cIcon": "gameicons/pop_pressed.png",
+    "icon": "gameicons/pop.png",
+    "multiPlayer": false,
+    "isJSGame": true,
+    "pureJS": "PopLayer",
+    "script": "src/start/pop.js",
+    "span": "6",
+    "numLevels": "48",
+    "rewards": {
+      "20": {
+        "unlock": "talk"
+      },
+      "8": {
+        "badge": "c/chocolava_mountain"
+      },
+      "16": {
+        "badge": "s/joy_ride"
+      },
+      "24": {
+        "badge": "g/white_cloud"
+      },
+      "32": {
+        "badge": "p/fast_fan"
+      },
+      "40": {
+        "badge": "m/eagles_helmet"
+      },
+      "48": {
+        "badge": "b/flying_aeroplane"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "pop/pplevelbg.json",
+    "foregroundJson": "pop/pplevelfrg.json",
+    "frontgroundJson": "pop/pplevelfng.json",
+    "maingroundJson": "pop/pplevelmng.json",
+    "menuPlist": "plevelscreen/plevelscreen.plist",
+    "menuPng": "plevelscreen/plevelscreen.png"
+  },
+  {
+    "name": "talk",
+    "title": "Feed the Words",
+    "unlock": true,
+    "cIcon": "gameicons/talk_pressed.png",
+    "icon": "gameicons/talk.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "9",
+    "numLevels": "72",
+    "rewards": {
+      "30": {
+        "unlock": "memory"
+      },
+      "12": {
+        "badge": "s/glimmering_fish"
+      },
+      "24": {
+        "badge": "m/jungly_lion"
+      },
+      "36": {
+        "badge": "p/clean_plate"
+      },
+      "48": {
+        "badge": "g/bushy_plant"
+      },
+      "60": {
+        "badge": "b/empty_basket"
+      },
+      "72": {
+        "badge": "c/sweet_meat"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "talkislandlevel/talkbackground.json",
+    "foregroundJson": "talkislandlevel/talkforeground.json",
+    "frontgroundJson": "talkislandlevel/talkfrontground.json",
+    "maingroundJson": "talkislandlevel/talkmainground.json",
+    "menuPlist": "talkislandlevel/talkislandlevel.plist",
+    "menuPng": "talkislandlevel/talkislandlevel.png"
+  },
+  {
+    "name": "memory",
+    "title": "Memory",
+    "unlock": true,
+    "cIcon": "gameicons/memory_pressed.png",
+    "icon": "gameicons/memory.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "6",
+    "numLevels": "36",
+    "rewards": {
+      "1": {
+        "unlock": "balloon"
+      },
+      "6": {
+        "badge": "s/mama_hen"
+      },
+      "12": {
+        "badge": "m/stripey_zebra"
+      },
+      "18": {
+        "badge": "p/shiny_egg"
+      },
+      "24": {
+        "badge": "g/little_nest"
+      },
+      "30": {
+        "badge": "b/open_window"
+      },
+      "36": {
+        "badge": "c/toffee_tree"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "memorylevel/layer1.json",
+    "foregroundJson": "memorylevel/layer3.json",
+    "frontgroundJson": "memorylevel/layer4.json",
+    "maingroundJson": "memorylevel/layer2.json",
+    "menuPlist": "memorylevel/memorylevel.plist",
+    "menuPng": "memorylevel/memorylevel.png"
+  },
+  {
+    "name": "circle",
+    "title": "Catch",
+    "unlock": true,
+    "cIcon": "gameicons/circle_pressed.png",
+    "icon": "gameicons/circle.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "10",
+    "numLevels": "75",
+    "rewards": {
+      "30": {
+        "unlock": "pillar"
+      },
+      "13": {
+        "badge": "s/falling_stone"
+      },
+      "26": {
+        "badge": "m/squidy_squid"
+      },
+      "39": {
+        "badge": "p/sweet_cake"
+      },
+      "52": {
+        "badge": "g/gold_fish"
+      },
+      "65": {
+        "badge": "b/grizzly_stonehand"
+      },
+      "75": {
+        "badge": "c/sweet_fudge"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "circleislandlevel/circlebackground.json",
+    "foregroundJson": "circleislandlevel/circleforeground.json",
+    "frontgroundJson": "circleislandlevel/circlefrontground.json",
+    "maingroundJson": "circleislandlevel/circlemainground.json",
+    "menuPlist": "circleislandlevel/circleislandlevel.plist",
+    "menuPng": "circleislandlevel/circleislandlevel.png"
+  },
+  {
+    "name": "pillar",
+    "title": "Layer the Cake",
+    "unlock": true,
+    "cIcon": "gameicons/pillar_pressed.png",
+    "icon": "gameicons/pillar.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "10",
+    "numLevels": "75",
+    "rewards": {
+      "30": {
+        "unlock": "balloon"
+      },
+      "13": {
+        "badge": "s/climbing_ladder"
+      },
+      "26": {
+        "badge": "m/windy_windmill"
+      },
+      "39": {
+        "badge": "p/dry_hay"
+      },
+      "52": {
+        "badge": "g/funny_starfish"
+      },
+      "65": {
+        "badge": "b/yummy_candystick"
+      },
+      "75": {
+        "badge": "c/cupy_cake"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "layercandylevel/background.json",
+    "foregroundJson": "layercandylevel/foreground.json",
+    "frontgroundJson": "layercandylevel/frontground.json",
+    "maingroundJson": "layercandylevel/mainground.json",
+    "menuPlist": "layercandylevel/layercandylevel.plist",
+    "menuPng": "layercandylevel/layercandylevel.png"
+  },
+  {
+    "name": "balloon",
+    "title": "Fly",
+    "unlock": true,
+    "cIcon": "gameicons/balloon_pressed.png",
+    "icon": "gameicons/balloon.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "9",
+    "numLevels": "72",
+    "rewards": {
+      "32": {
+        "unlock": "JumpOnWords"
+      },
+      "12": {
+        "badge": "s/life_saver"
+      },
+      "24": {
+        "badge": "m/launching_rocket"
+      },
+      "36": {
+        "badge": "p/shocking_shock"
+      },
+      "48": {
+        "badge": "g/pink_candy"
+      },
+      "60": {
+        "badge": "b/strong_safe"
+      },
+      "72": {
+        "badge": "c/cotton_candy"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "balloonhero/bllevelbg.json",
+    "foregroundJson": "balloonhero/bllevelfrg.json",
+    "frontgroundJson": "balloonhero/bllevelfng.json",
+    "maingroundJson": "balloonhero/bllevelmng.json",
+    "menuPlist": "plevelscreen/plevelscreen.plist",
+    "menuPng": "plevelscreen/plevelscreen.png"
+  },
+  {
+    "name": "map",
+    "title": "Hero",
+    "unlock": true,
+    "cIcon": "gameicons/hero_pressed.png",
+    "icon": "gameicons/hero.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "numLevels": "8",
+    "rewards": {
+      "1": {
+        "badge": "s/golden_boot"
+      },
+      "2": {
+        "badge": "g/gem_balloon"
+      },
+      "3": {
+        "badge": "s/golden_boot"
+      }
+    }
+  }
+]

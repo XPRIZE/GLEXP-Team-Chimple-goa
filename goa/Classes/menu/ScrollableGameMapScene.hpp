@@ -28,8 +28,9 @@ typedef std::map<std::string, cocos2d::Scene*> map_type;
 
 class ScrollableGameMapScene : public cocos2d::Node {
 public:
+    static cocos2d::Scene* createSceneWithSubGames(std::string gameName);
     static cocos2d::Scene* createScene();
-    CREATE_FUNC(ScrollableGameMapScene);
+    static ScrollableGameMapScene* create(std::string subGameMenuName);    
     
     void static nagivateToGame(std::string gameName);
     static std::vector<std::string> getTopBarGames();
@@ -38,7 +39,7 @@ public:
     void onExitTransitionDidStart() override;
 
 CC_CONSTRUCTOR_ACCESS:
-    virtual bool init();
+    virtual bool init(std::string subGameMenuName);
     ScrollableGameMapScene();
     virtual ~ScrollableGameMapScene();
 
@@ -47,6 +48,7 @@ protected:
     cocos2d::LayerColor* _greyLayer;
     cocos2d::ui::PageView* _pageView;
     MenuContext* menuContext;
+    std::string _subGameMenuToNavigate;
     cocos2d::ParallaxNode *_parallax;
     map_type mymap;
     void gameSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
@@ -58,6 +60,9 @@ protected:
     void addGreyLayer();
     bool greyLayerTouched(cocos2d::Touch *touch, cocos2d::Event *event);
     void transition(float dt);
+    cocos2d::ui::Button* createBackButton();
+    void backButtonPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    
 };
 
 #endif /* ScrollableGameMapScene_hpp */

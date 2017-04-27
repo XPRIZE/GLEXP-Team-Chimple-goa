@@ -534,6 +534,7 @@ void StoryPlaying::createWordBubble() {
         if(soundWordNode != NULL) {
             cocos2d::ui::Button* soundWordButton = dynamic_cast<cocos2d::ui::Button *>(soundWordNode);
             if(soundWordButton != NULL) {
+                soundWordButton->setTitleText("");
                 soundWordButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::pronounceWord, this));
             }
         }
@@ -584,6 +585,7 @@ void StoryPlaying::createDialogBubble() {
         if(closeNode != NULL) {
             cocos2d::ui::Button* closeButton = dynamic_cast<cocos2d::ui::Button *>(closeNode);
             if(closeButton != NULL) {
+                closeButton->setTitleText("");
                 closeButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::closeDialog, this));
 #if defined(AUTO_CLICK) && (AUTO_CLICK > 0)
                 runAction(Sequence::create(DelayTime::create(10.0), CallFunc::create([=]() {
@@ -600,6 +602,7 @@ void StoryPlaying::createDialogBubble() {
         if(soundNode != NULL) {
             cocos2d::ui::Button* soundButton = dynamic_cast<cocos2d::ui::Button *>(soundNode);
             if(soundButton != NULL) {
+                soundButton->setTitleText("");
                 soundButton->addTouchEventListener(CC_CALLBACK_2(StoryPlaying::playSound, this));
                 
                 if(_soundEnabled.compare("true") == 0) {

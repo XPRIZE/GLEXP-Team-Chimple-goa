@@ -17,7 +17,7 @@ static const char* audioExt = ".wav";
 static const char* audioExt = ".m4a";
 #endif
 
-static const char* pronounciationAudioExt = ".ogg";
+static const char* pronounciationAudioExt = ".mp3";
 
 static const wchar_t* const allCharacters = L"ABCDEFGHIJKLMNOPRSTUVWYZ" ;
 static const wchar_t* const allLowerCaseCharacters = L"abcdefghijklmnoprstuvwyz" ;
@@ -77,7 +77,7 @@ std::string SwahiliUtil::getAlphabetSoundFileNameForString(std::string alpha) {
 
 std::string SwahiliUtil::getPhoneticSoundFileNameForString(std::string alpha) {
     std::transform(alpha.begin(), alpha.end(), alpha.begin(), ::tolower);
-    auto fileName = std::string("lang/swa/sounds/") + alpha + audioExt;
+    auto fileName = std::string("lang/swa/audio/phonetic/") + alpha + pronounciationAudioExt;
     return fileName;
 }
 

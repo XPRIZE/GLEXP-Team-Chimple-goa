@@ -112,7 +112,7 @@ bool Grapheme::onTouchBegan(Touch* touch, Event* event){
         if(rect.containsPoint(n)) {
             CCLOG("onTouchBegan %s", _graphemeString.c_str());
             auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-            auto sound = LangUtil::getInstance()->getAlphabetSoundFileNameForString(_graphemeString);
+            auto sound = LangUtil::getInstance()->getPhoneticSoundFileNameForString(_graphemeString);
             audio->playEffect(sound.c_str());
     
             if(touchBeganCallback) {
