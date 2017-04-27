@@ -1,6 +1,6 @@
 {
-  "ID": "4dc4409d-b3ab-4995-9c59-01468b84cc6a",
-  "Version": "3.10.0.0",
+  "ID": "d4ecef84-6240-45b8-a352-ce73bfa8550e",
+  "Version": "2.3.4",
   "Name": "writing_foreground",
   "Content": {
     "Content": {
@@ -12,12 +12,12 @@
       },
       "AnimationList": [],
       "ObjectData": {
-        "Tag": 13,
+        "Tag": 93,
         "Children": [
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "writing/tree3.png",
+              "Path": "writing/tree_4.png",
               "Plist": "writing/writing.plist"
             },
             "BlendFunc": {
@@ -29,8 +29,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": -111.5361,
-              "Y": 931.6278
+              "X": -77.5916,
+              "Y": 826.6062
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -39,30 +39,30 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": -0.0436,
-              "Y": 0.5176
+              "X": -0.0303,
+              "Y": 0.4592
             },
             "PreSize": {
-              "X": 0.0941,
-              "Y": 0.9533
+              "X": 0.073,
+              "Y": 0.2722
             },
-            "LeftMargin": -232.0361,
-            "RightMargin": 2551.0361,
-            "TopMargin": 10.3722,
-            "BottomMargin": 73.6278,
-            "Tag": 32,
-            "ActionTag": 971168359,
+            "LeftMargin": -171.0916,
+            "RightMargin": 2544.0916,
+            "TopMargin": 728.3938,
+            "BottomMargin": 581.6062,
+            "Tag": 213,
+            "ActionTag": -351876786,
             "Size": {
-              "X": 241.0,
-              "Y": 1716.0
+              "X": 187.0,
+              "Y": 490.0
             },
-            "Name": "tree3_3",
+            "Name": "tree_4_24",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "writing/tree3.png",
+              "Path": "writing/hill_2.png",
               "Plist": "writing/writing.plist"
             },
             "BlendFunc": {
@@ -74,8 +74,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 88.7198,
-              "Y": 921.6273
+              "X": 1829.4662,
+              "Y": 662.4781
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -84,30 +84,124 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0347,
-              "Y": 0.512
+              "X": 0.7146,
+              "Y": 0.368
             },
             "PreSize": {
-              "X": 0.0941,
-              "Y": 0.9533
+              "X": 0.3656,
+              "Y": 0.185
             },
-            "LeftMargin": -31.7802,
-            "RightMargin": 2350.7803,
-            "TopMargin": 20.3727,
-            "BottomMargin": 63.6273,
-            "Tag": 33,
-            "ActionTag": 108898204,
+            "LeftMargin": 1361.4662,
+            "RightMargin": 262.5337,
+            "TopMargin": 971.0219,
+            "BottomMargin": 495.9781,
+            "Tag": 227,
+            "ActionTag": 91116068,
             "Size": {
-              "X": 241.0,
-              "Y": 1716.0
+              "X": 936.0,
+              "Y": 333.0
             },
-            "Name": "tree3_3_0",
+            "Name": "hill_7_1_4_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 80,
+              "G": 139,
+              "B": 181
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 0.25
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "TopMargin": 1350.0,
+            "Tag": 235,
+            "ActionTag": 1376399467,
+            "Size": {
+              "X": 3100.0,
+              "Y": 450.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/hill_2.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 558.6909,
+              "Y": 553.6695
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2182,
+              "Y": 0.3076
+            },
+            "PreSize": {
+              "X": 0.3656,
+              "Y": 0.185
+            },
+            "LeftMargin": 90.6909,
+            "RightMargin": 1533.3091,
+            "TopMargin": 1079.8306,
+            "BottomMargin": 387.1695,
+            "Tag": 345,
+            "ActionTag": -1847881966,
+            "Size": {
+              "X": 936.0,
+              "Y": 333.0
+            },
+            "Name": "hill_7_1_0_0",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "writing/tree3.png",
+              "Path": "writing/tree_4.png",
               "Plist": "writing/writing.plist"
             },
             "BlendFunc": {
@@ -119,8 +213,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1676.4288,
-              "Y": 941.3116
+              "X": 210.1086,
+              "Y": 674.5275
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -129,30 +223,30 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.6549,
-              "Y": 0.523
+              "X": 0.0821,
+              "Y": 0.3747
             },
             "PreSize": {
-              "X": 0.0941,
-              "Y": 0.9533
+              "X": 0.073,
+              "Y": 0.2722
             },
-            "LeftMargin": 1555.9288,
-            "RightMargin": 763.0712,
-            "TopMargin": 0.6885,
-            "BottomMargin": 83.3116,
-            "Tag": 34,
-            "ActionTag": -44621713,
+            "LeftMargin": 116.6086,
+            "RightMargin": 2256.3914,
+            "TopMargin": 880.4725,
+            "BottomMargin": 429.5275,
+            "Tag": 472,
+            "ActionTag": -76938995,
             "Size": {
-              "X": 241.0,
-              "Y": 1716.0
+              "X": 187.0,
+              "Y": 490.0
             },
-            "Name": "tree3_3_1",
+            "Name": "tree_4_24_1",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "writing/tree3.png",
+              "Path": "writing/tree_4.png",
               "Plist": "writing/writing.plist"
             },
             "BlendFunc": {
@@ -164,8 +258,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1876.6871,
-              "Y": 931.3111
+              "X": 333.1417,
+              "Y": 531.5002
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -174,30 +268,30 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7331,
-              "Y": 0.5174
+              "X": 0.1301,
+              "Y": 0.2953
             },
             "PreSize": {
-              "X": 0.0941,
-              "Y": 0.9533
+              "X": 0.073,
+              "Y": 0.2722
             },
-            "LeftMargin": 1756.1871,
-            "RightMargin": 562.8129,
-            "TopMargin": 10.689,
-            "BottomMargin": 73.3111,
-            "Tag": 35,
-            "ActionTag": -95076912,
+            "LeftMargin": 239.6417,
+            "RightMargin": 2133.3584,
+            "TopMargin": 1023.4998,
+            "BottomMargin": 286.5002,
+            "Tag": 473,
+            "ActionTag": -283161803,
             "Size": {
-              "X": 241.0,
-              "Y": 1716.0
+              "X": 187.0,
+              "Y": 490.0
             },
-            "Name": "tree3_3_0_0",
+            "Name": "tree_4_24_0_0",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "writing/tree3.png",
+              "Path": "writing/tree_4.png",
               "Plist": "writing/writing.plist"
             },
             "BlendFunc": {
@@ -209,8 +303,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2440.9065,
-              "Y": 944.4318
+              "X": 45.4406,
+              "Y": 683.5794
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -219,30 +313,30 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.9535,
-              "Y": 0.5247
+              "X": 0.0178,
+              "Y": 0.3798
             },
             "PreSize": {
-              "X": 0.0941,
-              "Y": 0.9533
+              "X": 0.073,
+              "Y": 0.2722
             },
-            "LeftMargin": 2320.4065,
-            "RightMargin": -1.4065,
-            "TopMargin": -2.4318,
-            "BottomMargin": 86.4318,
-            "Tag": 248,
-            "ActionTag": 173629114,
+            "LeftMargin": -48.0594,
+            "RightMargin": 2421.0593,
+            "TopMargin": 871.4206,
+            "BottomMargin": 438.5794,
+            "Tag": 214,
+            "ActionTag": 1773921678,
             "Size": {
-              "X": 241.0,
-              "Y": 1716.0
+              "X": 187.0,
+              "Y": 490.0
             },
-            "Name": "tree3_3_1_0",
+            "Name": "tree_4_24_0",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "writing/tree3.png",
+              "Path": "writing/hill_2.png",
               "Plist": "writing/writing.plist"
             },
             "BlendFunc": {
@@ -254,8 +348,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2641.1643,
-              "Y": 934.4308
+              "X": 1012.9341,
+              "Y": 585.5537
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -264,24 +358,252 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 1.0317,
-              "Y": 0.5191
+              "X": 0.3957,
+              "Y": 0.3253
             },
             "PreSize": {
-              "X": 0.0941,
-              "Y": 0.9533
+              "X": 0.3656,
+              "Y": 0.185
             },
-            "LeftMargin": 2520.6643,
-            "RightMargin": -201.6643,
-            "TopMargin": 7.5692,
-            "BottomMargin": 76.4308,
-            "Tag": 249,
-            "ActionTag": -191978357,
+            "LeftMargin": 544.9341,
+            "RightMargin": 1079.0659,
+            "TopMargin": 1047.9463,
+            "BottomMargin": 419.0537,
+            "Tag": 346,
+            "ActionTag": 1103077107,
             "Size": {
-              "X": 241.0,
-              "Y": 1716.0
+              "X": 936.0,
+              "Y": 333.0
             },
-            "Name": "tree3_3_0_0_0",
+            "Name": "hill_7_1_0_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/hill_2.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1094.4165,
+              "Y": 709.002
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4275,
+              "Y": 0.3939
+            },
+            "PreSize": {
+              "X": 0.3656,
+              "Y": 0.185
+            },
+            "LeftMargin": 626.4165,
+            "RightMargin": 997.5835,
+            "TopMargin": 924.498,
+            "BottomMargin": 542.502,
+            "Tag": 347,
+            "ActionTag": 1456322975,
+            "Size": {
+              "X": 936.0,
+              "Y": 333.0
+            },
+            "Name": "hill_7_1_0_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/hill_2.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1565.8929,
+              "Y": 571.4286
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6117,
+              "Y": 0.3175
+            },
+            "PreSize": {
+              "X": 0.3656,
+              "Y": 0.185
+            },
+            "LeftMargin": 1097.8929,
+            "RightMargin": 526.1071,
+            "TopMargin": 1062.0714,
+            "BottomMargin": 404.9286,
+            "Tag": 348,
+            "ActionTag": 1431129483,
+            "Size": {
+              "X": 936.0,
+              "Y": 333.0
+            },
+            "Name": "hill_7_1_0_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/hill_1.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1019.6348,
+              "Y": 389.0042
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3983,
+              "Y": 0.2161
+            },
+            "PreSize": {
+              "X": 1.0008,
+              "Y": 0.4328
+            },
+            "LeftMargin": -261.3652,
+            "RightMargin": 259.3652,
+            "TopMargin": 1021.4958,
+            "BottomMargin": -0.4958,
+            "Tag": 211,
+            "ActionTag": 1131451287,
+            "Size": {
+              "X": 2562.0,
+              "Y": 779.0
+            },
+            "Name": "hill_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/hill_2.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2232.0586,
+              "Y": 524.2049
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8719,
+              "Y": 0.2912
+            },
+            "PreSize": {
+              "X": 0.3656,
+              "Y": 0.185
+            },
+            "LeftMargin": 1764.0586,
+            "RightMargin": -140.0586,
+            "TopMargin": 1109.2952,
+            "BottomMargin": 357.7049,
+            "Tag": 395,
+            "ActionTag": -1871676414,
+            "Size": {
+              "X": 936.0,
+              "Y": 333.0
+            },
+            "Name": "hill_7_1_4_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/hill_1.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1557.1987,
+              "Y": 389.0026
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6083,
+              "Y": 0.2161
+            },
+            "PreSize": {
+              "X": 1.0008,
+              "Y": 0.4328
+            },
+            "LeftMargin": 276.1987,
+            "RightMargin": -278.1987,
+            "TopMargin": 1021.4974,
+            "BottomMargin": -0.4974,
+            "Tag": 212,
+            "ActionTag": -1484715971,
+            "Size": {
+              "X": 2562.0,
+              "Y": 779.0
+            },
+            "Name": "hill_1_1_0",
             "ctype": "SpriteObjectData"
           }
         ],

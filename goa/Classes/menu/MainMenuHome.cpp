@@ -41,10 +41,10 @@ bool MainMenuHome::init()
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-    const int numRows = NUMBER_OF_BUTTONS_ROWS;
-    const int numCols = NUMBER_OF_BUTTONS_COLS;
-    int index = 0;
-    int yOffset = 50;
+//    const int numRows = NUMBER_OF_BUTTONS_ROWS;
+//    const int numCols = NUMBER_OF_BUTTONS_COLS;
+//    int index = 0;
+//    int yOffset = 50;
 
 
     Node *rootNode = CSLoader::createNode(BACKGROUND_MENU);
@@ -56,56 +56,45 @@ bool MainMenuHome::init()
     this->addChild(rootNode);
     this->bindEvents(rootNode);
     
-    auto storyTopBarButton = createButton();
-
-    storyTopBarButton->setPosition(Vec2(_leftMostX + storyTopBarButton->getBoundingBox().size.width/2, visibleSize.height + yOffset - (0 + 0.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
-    
-    addChild(storyTopBarButton);
+//    auto storyTopBarButton = createButton();
+//
+//    storyTopBarButton->setPosition(Vec2(_leftMostX + storyTopBarButton->getBoundingBox().size.width/2, visibleSize.height + yOffset - (0 + 0.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
+//    
+//    addChild(storyTopBarButton);
 
     
     return true;
 }
 
-//"name": "story-catalogue",
-//"title": "Stories",
-//"unlock": true,
-//"cIcon": "gameicons/story_pressed.png",
-//"icon": "gameicons/story.png",
-//"multiPlayer": false,
-//"isJSGame": false,
-//"pureJS": "",
-//"script": "src/NonJSGameLauncher.js"
-
-
-cocos2d::ui::Button* MainMenuHome::createButton() {
-    std::string ICONS = ICON_FOLDER;
-    
-    std::string gameName = "story-catalogue";
-    std::string gameTitle = "Stories";
-    std::string buttonNormalIcon = "menu/library.png";
-    std::string buttonPressedIcon = "menu/library.png";
-    cocos2d::ui::Button* button = ui::Button::create();
-    std::string buttonDisabledIcon = buttonNormalIcon;
-    if(buttonDisabledIcon.find(".png") != std::string::npos) {
-        buttonDisabledIcon = buttonDisabledIcon.insert(buttonDisabledIcon.find(".png"), "_disabled");
-    }
-
-    button->loadTextureNormal(buttonNormalIcon);
-    button->loadTexturePressed(buttonPressedIcon);
-    button->loadTextureDisabled(buttonDisabledIcon);
-    button->addTouchEventListener(CC_CALLBACK_2(MainMenuHome::storySelected, this));
-    
-    button->setName(gameName);
-//    button->setTitleText(LangUtil::getInstance()->translateString(gameTitle));
-//    button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
-//    button->setTitleFontName("fonts/Roboto-Regular.ttf");
-//    button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
-//    button->setTitleFontSize(48);
-//    auto label = button->getTitleRenderer();
-//    label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 200));
-//    button->setScale(0.5);
-    return button;
-}
+//cocos2d::ui::Button* MainMenuHome::createButton() {
+//    std::string ICONS = ICON_FOLDER;
+//    
+//    std::string gameName = "story-catalogue";
+//    std::string gameTitle = "Stories";
+//    std::string buttonNormalIcon = "menu/library.png";
+//    std::string buttonPressedIcon = "menu/library.png";
+//    cocos2d::ui::Button* button = ui::Button::create();
+//    std::string buttonDisabledIcon = buttonNormalIcon;
+//    if(buttonDisabledIcon.find(".png") != std::string::npos) {
+//        buttonDisabledIcon = buttonDisabledIcon.insert(buttonDisabledIcon.find(".png"), "_disabled");
+//    }
+//
+//    button->loadTextureNormal(buttonNormalIcon);
+//    button->loadTexturePressed(buttonPressedIcon);
+//    button->loadTextureDisabled(buttonDisabledIcon);
+//    button->addTouchEventListener(CC_CALLBACK_2(MainMenuHome::storySelected, this));
+//    
+//    button->setName(gameName);
+////    button->setTitleText(LangUtil::getInstance()->translateString(gameTitle));
+////    button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
+////    button->setTitleFontName("fonts/Roboto-Regular.ttf");
+////    button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
+////    button->setTitleFontSize(48);
+////    auto label = button->getTitleRenderer();
+////    label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 200));
+////    button->setScale(0.5);
+//    return button;
+//}
 
 void MainMenuHome::bindEvents(cocos2d::Node *rootNode) {
     //iterate thru all children
@@ -132,18 +121,25 @@ void MainMenuHome::bindEvents(cocos2d::Node *rootNode) {
                     _rightMostX =  button->getPosition().x + button->getBoundingBox().size.width;
                 }
                 
-                button->addTouchEventListener(CC_CALLBACK_2(MainMenuHome::mainMenuSelected, this));
+                if(button->getName() == "library") {
+                    std::string gameName = "story-catalogue";
+                    button->setName(gameName);
+                    button->addTouchEventListener(CC_CALLBACK_2(MainMenuHome::storySelected, this));
+                } else {
+                    button->addTouchEventListener(CC_CALLBACK_2(MainMenuHome::mainMenuSelected, this));
+                }
             } else {
                 //bind events
                 cocos2d::ui::TextField* textTitle = dynamic_cast<cocos2d::ui::TextField *>(node);
                 
                 if(textTitle) {
+                    textTitle->setText(textTitle->getName());
                     textTitle->setEnabled(false);
                     textTitle->setTouchEnabled(false);
                     textTitle->setFocusEnabled(false);
-                    textTitle->setFontName(QuestionHandler::FONT_NAME);
-                    textTitle->setTextColor(Color4B(QuestionHandler::FONT_COLOR));
-                    textTitle->setFontSize(QuestionHandler::FONT_SIZE);
+                    textTitle->setFontName("fonts/Roboto-Regular.ttf");
+                    textTitle->setTextColor(Color4B(Color3B::BLACK));
+                    textTitle->setFontSize(60);
                 }
             }            
         }
@@ -168,7 +164,6 @@ void MainMenuHome::mainMenuSelected(Ref* pSender, ui::Widget::TouchEventType eEv
             addGreyLayer();
             clickedButton->setEnabled(false);
             _gameNameToNavigate = clickedButton->getName();
-            
             localStorageSetItem("mainMenuHomeSelectedItem", _gameNameToNavigate);
             
             this->scheduleOnce(schedule_selector(MainMenuHome::transition), 1.5);

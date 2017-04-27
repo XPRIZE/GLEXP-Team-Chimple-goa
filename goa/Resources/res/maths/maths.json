@@ -1,7 +1,7 @@
 {
   "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
-  "Version": "3.10.0.0",
-  "Name": "grammar",
+  "Version": "2.3.4",
+  "Name": "maths",
   "Content": {
     "Content": {
       "Animation": {
@@ -16,7 +16,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "grammar/background.json",
+              "Path": "maths/maths_background.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -24,8 +24,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1.5365,
-              "Y": -0.3133
+              "X": 0.0,
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -34,19 +34,16 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0006,
-              "Y": -0.0002
+              "X": 0.0,
+              "Y": 0.0
             },
             "PreSize": {
               "X": 1.0,
               "Y": 1.0
             },
-            "LeftMargin": 1.5365,
-            "RightMargin": -1.5366,
-            "TopMargin": 0.3134,
-            "BottomMargin": -0.3133,
-            "Tag": 16,
-            "ActionTag": 175075004,
+            "UserData": "background",
+            "Tag": 181,
+            "ActionTag": 1056789097,
             "Size": {
               "X": 2560.0,
               "Y": 1800.0
@@ -57,7 +54,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "grammar/mainground.json",
+              "Path": "maths/maths_mainground.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -65,8 +62,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.5173,
-              "Y": -1.377
+              "X": 0.0,
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -75,19 +72,16 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0002,
-              "Y": -0.0008
+              "X": 0.0,
+              "Y": 0.0
             },
             "PreSize": {
               "X": 1.0,
               "Y": 1.0
             },
-            "LeftMargin": 0.5173,
-            "RightMargin": -0.5173,
-            "TopMargin": 1.377,
-            "BottomMargin": -1.377,
-            "Tag": 21,
-            "ActionTag": -794349510,
+            "UserData": "mainground",
+            "Tag": 192,
+            "ActionTag": 382701161,
             "Size": {
               "X": 2560.0,
               "Y": 1800.0
@@ -98,7 +92,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "grammar/foreground.json",
+              "Path": "maths/maths_foreground.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -106,8 +100,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 1.5093,
-              "Y": -1.9414
+              "X": 0.0,
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -116,30 +110,27 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0006,
-              "Y": -0.0011
+              "X": 0.0,
+              "Y": 0.0
             },
             "PreSize": {
               "X": 1.0,
               "Y": 1.0
             },
-            "LeftMargin": 1.5093,
-            "RightMargin": -1.5093,
-            "TopMargin": 1.9414,
-            "BottomMargin": -1.9414,
-            "Tag": 100,
-            "ActionTag": -368431022,
+            "UserData": "foreground",
+            "Tag": 219,
+            "ActionTag": -1541996603,
             "Size": {
               "X": 2560.0,
               "Y": 1800.0
             },
-            "Name": "FileNode_5",
+            "Name": "FileNode_4",
             "ctype": "ProjectNodeObjectData"
           },
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "grammar/frontground.json",
+              "Path": "maths/maths_frontground.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -147,8 +138,8 @@
             "InnerActionSpeed": 1.0,
             "AnchorPoint": {},
             "Position": {
-              "X": 0.7775,
-              "Y": -1.7626
+              "X": 0.0,
+              "Y": 0.0
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -157,24 +148,21 @@
             "CColor": {},
             "IconVisible": true,
             "PrePosition": {
-              "X": 0.0003,
-              "Y": -0.001
+              "X": 0.0,
+              "Y": 0.0
             },
             "PreSize": {
               "X": 1.0,
               "Y": 1.0
             },
-            "LeftMargin": 0.7775,
-            "RightMargin": -0.7773,
-            "TopMargin": 1.7626,
-            "BottomMargin": -1.7626,
-            "Tag": 269,
-            "ActionTag": -1833489026,
+            "UserData": "frontground",
+            "Tag": 235,
+            "ActionTag": -1704832405,
             "Size": {
               "X": 2560.0,
               "Y": 1800.0
             },
-            "Name": "FileNode_6",
+            "Name": "FileNode_5",
             "ctype": "ProjectNodeObjectData"
           }
         ],
@@ -186,10 +174,10 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "background.json",
-        "foreground.json",
-        "frontground.json",
-        "mainground.json"
+        "maths_background.json",
+        "maths_foreground.json",
+        "maths_frontground.json",
+        "maths_mainground.json"
       ],
       "ctype": "GameFileData"
     }

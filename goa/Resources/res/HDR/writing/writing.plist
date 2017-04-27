@@ -4,65 +4,170 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>writing/leaf.png</key>
+            <key>writing/blade.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{267,324}</string>
+                <string>{159,166}</string>
                 <key>spriteSourceSize</key>
-                <string>{267,324}</string>
+                <string>{159,166}</string>
                 <key>textureRect</key>
-                <string>{{3310,1},{267,324}}</string>
+                <string>{{2165,1456},{159,166}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
-            <key>writing/tree1.png</key>
+            <key>writing/hill_1.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{124,1708}</string>
+                <string>{2562,779}</string>
                 <key>spriteSourceSize</key>
-                <string>{124,1708}</string>
+                <string>{2562,779}</string>
                 <key>textureRect</key>
-                <string>{{1,244},{124,1708}}</string>
+                <string>{{1,1},{2562,779}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>writing/hill_2.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{936,333}</string>
+                <key>spriteSourceSize</key>
+                <string>{936,333}</string>
+                <key>textureRect</key>
+                <string>{{1,1482},{936,333}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>writing/hill_3.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{639,331}</string>
+                <key>spriteSourceSize</key>
+                <string>{639,331}</string>
+                <key>textureRect</key>
+                <string>{{939,1456},{639,331}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>writing/hill_4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{2562,672}</string>
+                <key>spriteSourceSize</key>
+                <string>{2562,672}</string>
+                <key>textureRect</key>
+                <string>{{1,782},{2562,672}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>writing/house.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{232,441}</string>
+                <key>spriteSourceSize</key>
+                <string>{232,441}</string>
+                <key>textureRect</key>
+                <string>{{2818,1482},{232,441}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>writing/tree2.png</key>
+            <key>writing/moon.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{345,1589}</string>
+                <string>{101,101}</string>
                 <key>spriteSourceSize</key>
-                <string>{345,1589}</string>
+                <string>{101,101}</string>
                 <key>textureRect</key>
-                <string>{{1719,1},{345,1589}}</string>
+                <string>{{2326,1456},{101,101}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>writing/star.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{1479,735}</string>
+                <key>spriteSourceSize</key>
+                <string>{1479,735}</string>
+                <key>textureRect</key>
+                <string>{{2565,1},{1479,735}}</string>
                 <key>textureRotated</key>
                 <true/>
             </dict>
-            <key>writing/tree3.png</key>
+            <key>writing/tree.png</key>
             <dict>
                 <key>aliases</key>
                 <array/>
                 <key>spriteOffset</key>
                 <string>{0,0}</string>
                 <key>spriteSize</key>
-                <string>{241,1716}</string>
+                <string>{88,1798}</string>
                 <key>spriteSourceSize</key>
-                <string>{241,1716}</string>
+                <string>{88,1798}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{241,1716}}</string>
+                <string>{{939,1789},{88,1798}}</string>
                 <key>textureRotated</key>
                 <true/>
+            </dict>
+            <key>writing/tree_4.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{187,490}</string>
+                <key>spriteSourceSize</key>
+                <string>{187,490}</string>
+                <key>textureRect</key>
+                <string>{{2326,1559},{187,490}}</string>
+                <key>textureRotated</key>
+                <true/>
+            </dict>
+            <key>writing/zebra.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{583,323}</string>
+                <key>spriteSourceSize</key>
+                <string>{583,323}</string>
+                <key>textureRect</key>
+                <string>{{1580,1456},{583,323}}</string>
+                <key>textureRotated</key>
+                <false/>
             </dict>
         </dict>
         <key>metadata</key>
@@ -76,9 +181,9 @@
             <key>realTextureFileName</key>
             <string>writing.png</string>
             <key>size</key>
-            <string>{3578,369}</string>
+            <string>{3301,1878}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:fa7d41fbbd4444ed007b0d8809d2b1e3:0548f222d294276667881bb67fc2e916:adbbe24605d6e485510d22de5643c3b1$</string>
+            <string>$TexturePacker:SmartUpdate:82b57248bfeb9613e3d504f72e73adef:667f3bd94da5ef1be6af8259814df1cc:adbbe24605d6e485510d22de5643c3b1$</string>
             <key>textureFileName</key>
             <string>writing.png</string>
         </dict>
