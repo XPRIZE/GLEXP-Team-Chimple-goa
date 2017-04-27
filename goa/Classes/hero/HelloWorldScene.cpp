@@ -811,9 +811,9 @@ void HelloWorld::querySceneToLoadInIsland() {
     unsigned long out = std::hash<std::string>()("testing herer");
     CCLOG("outoutout %ld", out);
     
-    this->sqlite3Helper->findALLDialogs();
-    
-    this->sqlite3Helper->findALLHints();
+//    this->sqlite3Helper->findALLDialogs();
+//    
+//    this->sqlite3Helper->findALLHints();
     
     this->skeletonPositionInLastVisitedScene = this->sqlite3Helper->findLastVisitedSceneInIsland(this->getIsland().c_str(), this->getSceneName().c_str());
     
