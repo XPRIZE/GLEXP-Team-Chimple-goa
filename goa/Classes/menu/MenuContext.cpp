@@ -1497,10 +1497,10 @@ void MenuContext::pronounceWord(std::string word) {
 //
 //        #endif
 //    }
-    else {
-        std::replace(word.begin(), word.end(), '_', ' ');
-        pronounceHashedText(word);
-    }
+//    else {
+//        std::replace(word.begin(), word.end(), '_', ' ');
+//        pronounceHashedText(word);
+//    }
 }
 
 std::vector<cocos2d::Vec2> MenuContext::getPolygonPointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold) {
