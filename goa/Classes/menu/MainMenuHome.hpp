@@ -19,6 +19,7 @@
 #include "../story/QuestionHandler.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "../menu/LevelHelpScene.h"
+#include "../lang/LangUtil.h"
 
 #define BACKGROUND_MENU "Background_menu/Background_menu.csb"
 #define ICON_FOLDER "gameicons"
@@ -49,13 +50,15 @@ protected:
     std::string _gameNameToNavigate;
     float _leftMostX = 0.0f;
     float _rightMostX = 0.0f;
-
+    LangUtil* currentLangUtil;
     
     void addGreyLayer();
     bool greyLayerTouched(cocos2d::Touch *touch, cocos2d::Event *event);
     void bindEvents(cocos2d::Node *rootNode);
     void mainMenuSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void mainMenuMapSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void transition(float dt);
+    void transitionToMap(float dt);
     
     cocos2d::ui::Button* createButton();
     void storyTransition(float dt);

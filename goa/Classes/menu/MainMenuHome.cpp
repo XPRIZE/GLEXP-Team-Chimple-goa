@@ -8,7 +8,7 @@
 
 #include "MainMenuHome.hpp"
 #include "../hero/RPGConfig.h"
-
+#include "MapScene.h"
 
 USING_NS_CC;
 
@@ -41,7 +41,8 @@ bool MainMenuHome::init()
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-
+    this->currentLangUtil = LangUtil::getInstance();
+    
 //    const int numRows = NUMBER_OF_BUTTONS_ROWS;
 //    const int numCols = NUMBER_OF_BUTTONS_COLS;
 //    int index = 0;
@@ -136,9 +137,10 @@ void MainMenuHome::bindEvents(cocos2d::Node *rootNode) {
                 }
                 
                 if(button->getName() == "library") {
-                    std::string gameName = "story-catalogue";
-                    button->setName(gameName);
+                    button->setName("story-catalogue");
                     button->addTouchEventListener(CC_CALLBACK_2(MainMenuHome::storySelected, this));
+                } else if(button->getName() == "map") {
+                    button->addTouchEventListener(CC_CALLBACK_2(MainMenuHome::mainMenuMapSelected, this));
                 } else {
                     button->addTouchEventListener(CC_CALLBACK_2(MainMenuHome::mainMenuSelected, this));
                 }
@@ -147,13 +149,16 @@ void MainMenuHome::bindEvents(cocos2d::Node *rootNode) {
                 cocos2d::ui::TextField* textTitle = dynamic_cast<cocos2d::ui::TextField *>(node);
                 
                 if(textTitle) {
-                    textTitle->setText(textTitle->getName());
+                    std::string translatedString = this->currentLangUtil->translateString(textTitle->getName());
+                    textTitle->setText(translatedString);
+                    textTitle->setTextHorizontalAlignment(TextHAlignment::CENTER);
+                    textTitle->setTextVerticalAlignment(TextVAlignment::TOP);
                     textTitle->setEnabled(false);
                     textTitle->setTouchEnabled(false);
                     textTitle->setFocusEnabled(false);
-                    textTitle->setFontName("fonts/Roboto-Regular.ttf");
-                    textTitle->setTextColor(Color4B(Color3B::BLACK));
-                    textTitle->setFontSize(60);
+                    textTitle->setFontName("fonts/BalooBhai-Regular.ttf");
+                    textTitle->setTextColor(Color4B(Color3B::WHITE));
+                    textTitle->setFontSize(72);
                 }
             }            
         }
@@ -181,6 +186,36 @@ void MainMenuHome::mainMenuSelected(Ref* pSender, ui::Widget::TouchEventType eEv
             localStorageSetItem("mainMenuHomeSelectedItem", _gameNameToNavigate);
             
             this->scheduleOnce(schedule_selector(MainMenuHome::transition), 1.5);
+            break;
+        }
+            
+        case ui::Widget::TouchEventType::CANCELED:
+            break;
+        default:
+            break;
+    }
+    
+}
+
+void MainMenuHome::mainMenuMapSelected(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
+    switch (eEventType) {
+        case ui::Widget::TouchEventType::BEGAN:
+        {
+            clickedButton->setHighlighted(true);
+            break;
+        }
+        case ui::Widget::TouchEventType::MOVED:
+            break;
+        case ui::Widget::TouchEventType::ENDED:
+        {
+            
+            addGreyLayer();
+            clickedButton->setEnabled(false);
+            _gameNameToNavigate = clickedButton->getName();
+            localStorageSetItem("mainMenuHomeSelectedItem", _gameNameToNavigate);
+            this->scheduleOnce(schedule_selector(MainMenuHome::transitionToMap), 1.5);
             break;
         }
             
@@ -259,4 +294,9 @@ void MainMenuHome::storySelected(Ref* pSender, ui::Widget::TouchEventType eEvent
             break;
     }
     
+}
+
+
+void MainMenuHome::transitionToMap(float dt) {
+        Director::getInstance()->replaceScene(MapScene::createScene());
 }

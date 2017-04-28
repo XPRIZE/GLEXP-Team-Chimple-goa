@@ -1698,7 +1698,7 @@ bool HelloWorld::greyLayerTouched(Touch *touch, Event *event)
 void HelloWorld::transitToMenu(EventCustom * event) {
     std::string &menuName = *(static_cast<std::string*>(event->getUserData()));
     if(menuName == GAME_MAP_MENU) {
-        Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
     } else if(menuName == MAP_MENU) {
         Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
     } else {

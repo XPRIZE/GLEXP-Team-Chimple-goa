@@ -42,6 +42,8 @@ private:
     void processChildNodes(cocos2d::Node *rootNode);
     void islandSelected(Ref* pSender, ui::Widget::TouchEventType eEventType);
     std::map<std::string, std::string> gameNameToLevelMap;
+    cocos2d::ui::Button* createBackButton();
+    void backButtonPressed(Ref* pSender, ui::Widget::TouchEventType eEventType);
 };
 
 #endif /* MapScene_h */
