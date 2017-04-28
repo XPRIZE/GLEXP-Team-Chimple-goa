@@ -49,6 +49,7 @@ protected:
     cocos2d::ui::PageView* _pageView;
     MenuContext* menuContext;
     std::string _subGameMenuToNavigate;
+    static std::map<std::string, cocos2d::Color3B> BUTTON_TEXT_COLOR_MAP;
     cocos2d::ParallaxNode *_parallax;
     map_type mymap;
     void gameSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
