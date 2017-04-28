@@ -741,6 +741,9 @@
     <ClCompile Include="..\Classes\dot\ConnectTheDots.cpp">
       <Filter>Classes\dot</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\menu\MainMenuHome.cpp">
+      <Filter>Classes\menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1447,6 +1450,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\dot\ConnectTheDots.hpp">
       <Filter>Classes\dot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\menu\MainMenuHome.hpp">
+      <Filter>Classes\menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
