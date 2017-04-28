@@ -247,6 +247,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\menu\LevelHelpOverlay.cpp" />
     <ClCompile Include="..\Classes\menu\LevelHelpScene.cpp" />
     <ClCompile Include="..\Classes\menu\LevelMenu.cpp" />
+    <ClCompile Include="..\Classes\menu\MainMenuHome.cpp" />
     <ClCompile Include="..\Classes\menu\MapIsland.cpp" />
     <ClCompile Include="..\Classes\menu\MapScene.cpp" />
     <ClCompile Include="..\Classes\menu\MenuContext.cpp" />
@@ -484,6 +485,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\menu\LevelHelpOverlay.h" />
     <ClInclude Include="..\Classes\menu\LevelHelpScene.h" />
     <ClInclude Include="..\Classes\menu\LevelMenu.h" />
+    <ClInclude Include="..\Classes\menu\MainMenuHome.hpp" />
     <ClInclude Include="..\Classes\menu\MapIsland.h" />
     <ClInclude Include="..\Classes\menu\MapScene.h" />
     <ClInclude Include="..\Classes\menu\MenuContext.h" />
