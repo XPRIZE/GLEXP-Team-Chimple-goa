@@ -14,7 +14,7 @@ USING_NS_CC;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 static const char* audioExt = ".wav";
 #else
-static const char* audioExt = ".m4a";
+static const char* audioExt = ".ogg";
 #endif
 
 static const char* pronounciationAudioExt = ".ogg";
