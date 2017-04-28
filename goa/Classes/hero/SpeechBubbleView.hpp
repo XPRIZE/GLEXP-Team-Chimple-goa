@@ -17,7 +17,7 @@
 #include "cocos-ext.h"
 #include "character/ExternalSkeletonCharacter.h"
 #include "character/SkeletonCharacter.h"
-
+#include "../menu/MenuContext.h"
 
 
 class SpeechBubbleView : public cocos2d::Node {

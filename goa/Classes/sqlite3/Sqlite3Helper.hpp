@@ -59,6 +59,8 @@ public:
     
     std::vector<MessageContent*> findALLDialogs();
     
+    std::vector<MessageContent*> findALLHints();
+    
     static bool instanceFlag;
     static Sqlite3Helper *shared;
 

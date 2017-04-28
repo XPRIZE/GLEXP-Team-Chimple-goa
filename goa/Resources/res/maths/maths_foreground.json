@@ -1,0 +1,215 @@
+{
+  "ID": "d4ecef84-6240-45b8-a352-ce73bfa8550e",
+  "Version": "2.3.4",
+  "Name": "maths_foreground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 93,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "maths/math_hill_3.png",
+              "Plist": "maths/maths.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1366.1187,
+              "Y": 501.0033
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5336,
+              "Y": 0.2783
+            },
+            "PreSize": {
+              "X": 0.2496,
+              "Y": 0.1872
+            },
+            "LeftMargin": 1046.6187,
+            "RightMargin": 874.3813,
+            "TopMargin": 1130.4967,
+            "BottomMargin": 332.5033,
+            "Tag": 397,
+            "ActionTag": 103041724,
+            "Size": {
+              "X": 639.0,
+              "Y": 337.0
+            },
+            "Name": "hill_6_1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "maths/math_hill_3.png",
+              "Plist": "maths/maths.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1742.2181,
+              "Y": 545.3707
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6806,
+              "Y": 0.303
+            },
+            "PreSize": {
+              "X": 0.2496,
+              "Y": 0.1872
+            },
+            "LeftMargin": 1422.7181,
+            "RightMargin": 498.2817,
+            "TopMargin": 1086.1293,
+            "BottomMargin": 376.8707,
+            "Tag": 398,
+            "ActionTag": 182978843,
+            "Size": {
+              "X": 639.0,
+              "Y": 337.0
+            },
+            "Name": "hill_6_1_1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "maths/math_hill_1.png",
+              "Plist": "maths/maths.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1559.9824,
+              "Y": 267.2431
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6094,
+              "Y": 0.1485
+            },
+            "PreSize": {
+              "X": 1.0008,
+              "Y": 0.2928
+            },
+            "LeftMargin": 278.9824,
+            "RightMargin": -280.9824,
+            "TopMargin": 1269.2568,
+            "BottomMargin": 3.7431,
+            "Tag": 265,
+            "ActionTag": -826083849,
+            "Size": {
+              "X": 2562.0,
+              "Y": 527.0
+            },
+            "Name": "hill_1_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "maths/math_hill_1.png",
+              "Plist": "maths/maths.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1018.5692,
+              "Y": 362.5348
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3979,
+              "Y": 0.2014
+            },
+            "PreSize": {
+              "X": 1.0008,
+              "Y": 0.2928
+            },
+            "LeftMargin": -262.4308,
+            "RightMargin": 260.4307,
+            "TopMargin": 1173.9652,
+            "BottomMargin": 99.0348,
+            "Tag": 211,
+            "ActionTag": 1131451287,
+            "Size": {
+              "X": 2562.0,
+              "Y": 527.0
+            },
+            "Name": "hill_1_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "maths.plist",
+        "maths.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

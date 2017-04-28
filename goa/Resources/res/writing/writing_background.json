@@ -1,0 +1,217 @@
+{
+  "ID": "2a3d4ee9-3153-4b20-97f7-6df87ef29120",
+  "Version": "2.3.4",
+  "Name": "writing_background",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 94,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 171,
+              "G": 211,
+              "B": 244
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -260.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1016,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.2109,
+              "Y": 1.0
+            },
+            "LeftMargin": -260.0,
+            "RightMargin": -280.0,
+            "Tag": 82,
+            "ActionTag": 1571634467,
+            "Size": {
+              "X": 3100.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/hill_4.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1020.5018,
+              "Y": 841.8073
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3986,
+              "Y": 0.4677
+            },
+            "PreSize": {
+              "X": 1.0012,
+              "Y": 0.3728
+            },
+            "LeftMargin": -260.4982,
+            "RightMargin": 258.498,
+            "TopMargin": 622.1926,
+            "BottomMargin": 505.8073,
+            "Tag": 132,
+            "ActionTag": -1640055934,
+            "Size": {
+              "X": 2562.0,
+              "Y": 672.0
+            },
+            "Name": "hill_4_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/hill_4.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1561.9048,
+              "Y": 844.928
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6101,
+              "Y": 0.4694
+            },
+            "PreSize": {
+              "X": 1.0008,
+              "Y": 0.3733
+            },
+            "LeftMargin": 280.9048,
+            "RightMargin": -282.9048,
+            "TopMargin": 619.072,
+            "BottomMargin": 508.928,
+            "Tag": 335,
+            "ActionTag": 1963590862,
+            "Size": {
+              "X": 2562.0,
+              "Y": 672.0
+            },
+            "Name": "hill_4_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/moon.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 736.3328,
+              "Y": 1282.0776
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2876,
+              "Y": 0.7123
+            },
+            "PreSize": {
+              "X": 0.0395,
+              "Y": 0.0561
+            },
+            "LeftMargin": 685.8328,
+            "RightMargin": 1773.1672,
+            "TopMargin": 467.4224,
+            "BottomMargin": 1231.5776,
+            "Tag": 598,
+            "ActionTag": 671145559,
+            "Size": {
+              "X": 101.0,
+              "Y": 101.0
+            },
+            "Name": "moon_91",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "writing.plist",
+        "writing.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

@@ -1,0 +1,213 @@
+{
+  "ID": "25da9cf9-4963-4494-b231-7fdcd39ee392",
+  "Version": "3.10.0.0",
+  "Name": "grammar_mainground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 7,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "grammar/hill_01.png",
+              "Plist": "grammar/grammar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 693.3602,
+              "Y": 625.1663
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2708,
+              "Y": 0.3473
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.5072
+            },
+            "LeftMargin": -586.6398,
+            "RightMargin": 586.6399,
+            "TopMargin": 718.3337,
+            "BottomMargin": 168.6663,
+            "Tag": 110,
+            "ActionTag": -851294807,
+            "Size": {
+              "X": 2560.0,
+              "Y": 913.0
+            },
+            "Name": "hill_01_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "grammar/hill_01.png",
+              "Plist": "grammar/grammar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2551.8237,
+              "Y": 591.0671
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9968,
+              "Y": 0.3284
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.5072
+            },
+            "LeftMargin": 1271.8237,
+            "RightMargin": -1271.8237,
+            "TopMargin": 752.4329,
+            "BottomMargin": 134.5671,
+            "Tag": 111,
+            "ActionTag": -468919542,
+            "Size": {
+              "X": 2560.0,
+              "Y": 913.0
+            },
+            "Name": "hill_01_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "grammar/tree_01.png",
+              "Plist": "grammar/grammar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1659.541,
+              "Y": 1034.3729
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6483,
+              "Y": 0.5747
+            },
+            "PreSize": {
+              "X": 0.1574,
+              "Y": 0.2933
+            },
+            "LeftMargin": 1458.041,
+            "RightMargin": 698.959,
+            "TopMargin": 501.6271,
+            "BottomMargin": 770.3729,
+            "Tag": 119,
+            "ActionTag": -1516729679,
+            "Size": {
+              "X": 403.0,
+              "Y": 528.0
+            },
+            "Name": "tree_01_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "grammar/tree_03.png",
+              "Plist": "grammar/grammar.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 846.8178,
+              "Y": 852.5057
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3308,
+              "Y": 0.4736
+            },
+            "PreSize": {
+              "X": 0.0793,
+              "Y": 0.1633
+            },
+            "LeftMargin": 745.3178,
+            "RightMargin": 1611.6821,
+            "TopMargin": 800.4943,
+            "BottomMargin": 705.5057,
+            "Tag": 133,
+            "ActionTag": 774121796,
+            "Size": {
+              "X": 203.0,
+              "Y": 294.0
+            },
+            "Name": "tree_03_21",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "grammar.plist",
+        "grammar.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

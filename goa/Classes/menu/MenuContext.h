@@ -19,6 +19,7 @@
 #include "../mini_games/Dash.h"
 #include "../mini_games/EndlessRunner.h"
 #include "../util/Calculator.h"
+#include "../hero/RPGConfig.h"
 
 #define GAME_MAP_MENU "GameMapScene"
 #define HELP_MENU "HelpScene"
@@ -56,6 +57,7 @@ public:
     std::vector<std::vector<cocos2d::Point>> getTrianglePointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold);
     
     static void pronounceWord(std::string word);
+    static void pronounceHashedText(std::string word);
     static std::string _lastAudioId;
     static bool isGameStatic();
 	void wordPairList(std::string question, std::string answer = "it is a word",bool isInitialSyllable = false);
@@ -124,6 +126,7 @@ protected:
     void showMap(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showBook(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void showMainHomeMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void waitForAudioLoad(std::string audioFileName, std::function<void(bool isSuccess)>callback);

@@ -1,0 +1,333 @@
+[
+  {
+    "name": "sortit",
+    "title": "Sort It",
+    "unlock": true,
+    "cIcon": "gameicons/sortit_pressed.png",
+    "icon": "gameicons/sortit.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "2",
+    "numLevels": "6",
+    "rewards": {
+      "1": {
+        "badge": "s/strawberry_cake"
+      },
+      "2": {
+        "badge": "m/musical_harp"
+      },
+      "3": {
+        "unlock": "shape",
+        "badge": "p/arranging_blocks"
+      },
+      "4": {
+        "badge": "g/large_bowl"
+      },
+      "5": {
+        "badge": "b/elite_book"
+      },
+      "6": {
+        "badge": "c/minty_notes"
+      }
+    },
+    "backgroundJson": "sortitlevel/background.json",
+    "foregroundJson": "sortitlevel/foreground.json",
+    "frontgroundJson": "sortitlevel/frontground.json",
+    "maingroundJson": "sortitlevel/mainground.json",
+    "menuPlist": "sortitlevel/sortitlevel.plist",
+    "menuPng": "sortitlevel/sortitlevel.png"
+  },
+  {
+    "name": "shape",
+    "title": "Patch the Holes",
+    "unlock": true,
+    "cIcon": "gameicons/shape_pressed.png",
+    "icon": "gameicons/shape.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "2",
+    "numLevels": "10",
+    "rewards": {
+      "1": {
+        "badge": "s/glass_star"
+      },
+      "2": {
+        "badge": "m/gold_plus"
+      },
+      "4": {
+        "badge": "p/blue_pyramid"
+      },
+      "5": {
+        "unlock": "Dots"
+      },
+      "6": {
+        "badge": "g/pink_hexagon"
+      },
+      "8": {
+        "badge": "b/red_circle"
+      },
+      "10": {
+        "badge": "c/square_delight"
+      }
+    },
+    "backgroundJson": "shapelevel/shapelevelbackground.json",
+    "foregroundJson": "shapelevel/shapelevelforeground.json",
+    "frontgroundJson": "shapelevel/shapelevelfrontground.json",
+    "maingroundJson": "shapelevel/shapelevelmainground.json",
+    "menuPlist": "shapelevel/shapelevel.plist",
+    "menuPng": "shapelevel/shapelevel.png"
+  },
+  {
+    "name": "Dots",
+    "title": "Number Dots",
+    "unlock": true,
+    "cIcon": "gameicons/numberdot_pressed.png",
+    "icon": "gameicons/numberdot.png",
+    "multiPlayer": false,
+    "isJSGame": true,
+    "pureJS": "DotsLayer",
+    "script": "src/start/dots.js",
+    "span": "2",
+    "numLevels": "12",
+    "rewards": {
+      "1": {
+        "badge": "s/number_one"
+      },
+      "3": {
+        "badge": "c/tri_cookie"
+      },
+      "5": {
+        "unlock": "popcount"
+      },
+      "4": {
+        "badge": "b/fantastic_four"
+      },
+      "6": {
+        "badge": "p/number_six"
+      },
+      "12": {
+        "unlockMin": "step",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "dots_level/background.json",
+    "foregroundJson": "dots_level/foreground.json",
+    "frontgroundJson": "dots_level/frontground.json",
+    "maingroundJson": "dots_level/mainground.json",
+    "menuPlist": "dots_level/dots_level.plist",
+    "menuPng": "dots_level/dots_level.png"
+  },
+  {
+    "name": "popcount",
+    "title": "Count the fish",
+    "unlock": true,
+    "cIcon": "gameicons/popcount_pressed.png",
+    "icon": "gameicons/popcount.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "2",
+    "numLevels": "10",
+    "rewards": {
+      "5": {
+        "unlock": "spot"
+      },
+      "2": {
+        "badge": "s/star_fish"
+      },
+      "4": {
+        "badge": "m/sandy_castle"
+      },
+      "6": {
+        "badge": "p/lifesaver_tube"
+      },
+      "8": {
+        "badge": "g/wide_umbrella"
+      },
+      "9": {
+        "badge": "b/sunny_beachball"
+      },
+      "10": {
+        "badge": "c/shiny_shell",
+        "unlockMin": "step",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "popcountlevel/background.json",
+    "foregroundJson": "popcountlevel/foreground.json",
+    "frontgroundJson": "popcountlevel/frontground.json",
+    "maingroundJson": "popcountlevel/mainground.json",
+    "menuPlist": "popcountlevel/popcountlevel.plist",
+    "menuPng": "popcountlevel/popcountlevel.png"
+  },
+  {
+    "name": "spot",
+    "title": "Spot the Animals",
+    "unlock": true,
+    "cIcon": "gameicons/spot_pressed.png",
+    "icon": "gameicons/spot.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "2",
+    "numLevels": "6",
+    "rewards": {
+      "1": {
+        "badge": "s/mighty_tractor"
+      },
+      "2": {
+        "badge": "m/goldy_goat"
+      },
+      "3": {
+        "badge": "p/wind_mill",
+        "unlock": "Item"
+      },
+      "4": {
+        "badge": "g/old_house"
+      },
+      "5": {
+        "badge": "b/big_barn"
+      },
+      "6": {
+        "badge": "c/cute_pig",
+        "unlockMin": "step",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "spotlevel/Layer1.json",
+    "foregroundJson": "spotlevel/Layer3.json",
+    "frontgroundJson": "spotlevel/Layer4.json",
+    "maingroundJson": "spotlevel/Layer2.json",
+    "menuPlist": "spotlevel/spotlevel.plist",
+    "menuPng": "spotlevel/spotlevel.png"
+  },
+  {
+    "name": "Item",
+    "title": "Fill the Pond",
+    "unlock": true,
+    "cIcon": "gameicons/item_pressed.png",
+    "icon": "gameicons/item.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "25",
+    "rewards": {
+      "10": {
+        "unlock": "ConnectTheDots"
+      },
+      "4": {
+        "badge": "s/green_tree"
+      },
+      "8": {
+        "badge": "m/tiny_dragonfly"
+      },
+      "12": {
+        "badge": "p/water_splash"
+      },
+      "16": {
+        "badge": "g/fresh_fish"
+      },
+      "20": {
+        "badge": "b/smiling_frog"
+      },
+      "25": {
+        "badge": "c/sweet_rod"
+      },
+      "15": {
+        "unlockMin": "step",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "itemlevel/background.json",
+    "foregroundJson": "itemlevel/foreground.json",
+    "frontgroundJson": "itemlevel/frontground.json",
+    "maingroundJson": "itemlevel/mainground.json",
+    "menuPlist": "itemlevel/itemlevel.plist",
+    "menuPng": "itemlevel/itemlevel.png"
+  },
+  {
+    "name": "ConnectTheDots",
+    "title": "Connect the Dots",
+    "unlock": true,
+    "cIcon": "gameicons/coonectthedot_pressed.png",
+    "icon": "gameicons/coonectthedot.png",
+    "multiPlayer": false,
+    "isJSGame": true,
+    "pureJS": "ConnectTheDotsLayer",
+    "script": "src/start/connectTheDots.js",
+    "span": "2",
+    "numLevels": "10",
+    "rewards": {
+      "5": {
+        "unlock": "chocolateFactory"
+      },
+      "2": {
+        "badge": "s/blasting_dot"
+      },
+      "3": {
+        "badge": "p/playful_domino"
+      },
+      "6": {
+        "badge": "b/rolling_dice"
+      },
+      "8": {
+        "badge": "c/candy_treats"
+      },
+      "9": {
+        "unlockMin": "step",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "connectlevel/background.json",
+    "foregroundJson": "connectlevel/foreground.json",
+    "frontgroundJson": "connectlevel/frontground.json",
+    "maingroundJson": "connectlevel/mainground.json",
+    "menuPlist": "connectlevel/connectlevel.plist",
+    "menuPng": "connectlevel/connectlevel.png"
+  },
+  {
+    "name": "chocolateFactory",
+    "title": "Milk Factory",
+    "unlock": true,
+    "cIcon": "gameicons/chocolatefactory_pressed.png",
+    "icon": "gameicons/chocolatefactory.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "20",
+    "rewards": {
+      "3": {
+        "badge": "s/milk_bottle"
+      },
+      "6": {
+        "badge": "c/cream_jug"
+      },
+      "10": {
+        "badge": "g/sharp_drop"
+      },
+      "13": {
+        "badge": "m/milky_cow"
+      },
+      "16": {
+        "badge": "p/metallic_gear"
+      },
+      "20": {
+        "badge": "b/loaded_container"
+      },
+      "15": {
+        "unlockMin": "step",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "plevelscreen2/cflevelbg.json",
+    "foregroundJson": "plevelscreen2/cflevelfrg.json",
+    "frontgroundJson": "plevelscreen2/cflevelfng.json",
+    "maingroundJson": "plevelscreen2/cflevelmng.json",
+    "menuPlist": "plevelscreen2/plevelscreen2.plist",
+    "menuPng": "plevelscreen2/plevelscreen2.png"
+  }
+]

@@ -63,11 +63,12 @@
 #include "external/json/stringbuffer.h"
 #include "external/json/writer.h"
 #include "../menu/LevelHelpScene.h"
+#include "../menu/MainMenuHome.hpp"
 
 
 USING_NS_CC;
 
-ScrollableGameMapScene::ScrollableGameMapScene(): _greyLayer(NULL),_gameNameToNavigate("")
+ScrollableGameMapScene::ScrollableGameMapScene(): _greyLayer(NULL),_gameNameToNavigate(""), _subGameMenuToNavigate("")
 {
 }
 
@@ -75,9 +76,32 @@ ScrollableGameMapScene::~ScrollableGameMapScene() {
     
 }
 
+
+ScrollableGameMapScene* ScrollableGameMapScene::create(std::string subGameMenuName) {
+    ScrollableGameMapScene* sGameMapScene = new (std::nothrow) ScrollableGameMapScene();
+    if (sGameMapScene && sGameMapScene->init(subGameMenuName))
+    {
+        sGameMapScene->autorelease();
+        return sGameMapScene;
+    }
+    CC_SAFE_DELETE(sGameMapScene);
+    return nullptr;
+}
+
+Scene* ScrollableGameMapScene::createSceneWithSubGames(std::string gameMenuName) {
+    auto scene = Scene::create();
+    auto layer = ScrollableGameMapScene::create(gameMenuName);
+    scene->addChild(layer);
+    layer->menuContext = MenuContext::create(layer, "menu");
+    layer->_subGameMenuToNavigate = gameMenuName;
+    scene->addChild(layer->menuContext);
+    return scene;
+
+}
+
 Scene* ScrollableGameMapScene::createScene() {
     auto scene = Scene::create();    
-    auto layer = ScrollableGameMapScene::create();
+    auto layer = ScrollableGameMapScene::create("");
     scene->addChild(layer);
     layer->menuContext = MenuContext::create(layer, "menu");
     scene->addChild(layer->menuContext);
@@ -141,18 +165,68 @@ void ScrollableGameMapScene::onExitTransitionDidStart() {
 }
 
 
-bool ScrollableGameMapScene::init() {
+bool ScrollableGameMapScene::init(std::string subGameMenuName) {
     if(!Node::init())
     {
         return false;
     }
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    if(!subGameMenuName.empty()) {
+        _subGameMenuToNavigate = subGameMenuName;
+    }
+    
 
 //    auto spriteCache = SpriteFrameCache::getInstance();
 //    spriteCache->addSpriteFramesWithFile("gamemap/gamemap/gamemap.plist");
     
-    std::string contents = FileUtils::getInstance()->getStringFromFile("config/game_map.json");
+    std::string mainMenuHomeSelectedItem;
+    localStorageGetItem("mainMenuHomeSelectedItem", &mainMenuHomeSelectedItem);
+
+    if(!mainMenuHomeSelectedItem.empty()) {
+        _subGameMenuToNavigate = mainMenuHomeSelectedItem;
+    }
+    
+    std::string configDir = "config/";
+    std::string gameMapJsonFile = _subGameMenuToNavigate + "_game_map.json";
+    configDir.append(gameMapJsonFile);
+    
+    std::string contents = "";
+    
+    if(FileUtils::getInstance()->isFileExist(configDir)) {
+        contents = FileUtils::getInstance()->getStringFromFile(configDir);
+    } else {
+        contents = FileUtils::getInstance()->getStringFromFile("config/game_map.json");
+    }
+    
+    
+    std::string backGroundMap = "backgoundmap/backgoundmap_background.csb";
+    std::string mainGroundMap = "backgoundmap/backgoundmap_mainground.csb";
+    std::string foreGroundMap = "backgoundmap/backgoundmap_foreground.csb";
+    std::string frontGroundMap = "backgoundmap/backgoundmap_frontground.csb";
+
+    
+    std::string tBackGroundMap  = _subGameMenuToNavigate + "/" + _subGameMenuToNavigate + "_background.csb";
+    std::string tMainGroundMap  = _subGameMenuToNavigate + "/" + _subGameMenuToNavigate + "_mainground.csb";
+    std::string tForeGroundMap  = _subGameMenuToNavigate + "/" + _subGameMenuToNavigate + "_foreground.csb";
+    std::string tFrontGroundMap  = _subGameMenuToNavigate + "/" + _subGameMenuToNavigate + "_frontground.csb";
+    
+    
+    if(FileUtils::getInstance()->isFileExist(tBackGroundMap)) {
+        backGroundMap = tBackGroundMap;
+    }
+    if(FileUtils::getInstance()->isFileExist(tMainGroundMap)) {
+        mainGroundMap = tMainGroundMap;
+    }
+    if(FileUtils::getInstance()->isFileExist(tForeGroundMap)) {
+        foreGroundMap = tForeGroundMap;
+    }
+    if(FileUtils::getInstance()->isFileExist(tFrontGroundMap)) {
+        frontGroundMap = tFrontGroundMap;
+    }
+
+    cocos2d::ui::Button* backButton = createBackButton();
+    
     
     rapidjson::Document d;
     
@@ -161,7 +235,7 @@ bool ScrollableGameMapScene::init() {
         const int numRows = NUMBER_OF_BUTTONS_ROWS;
         const int numCols = NUMBER_OF_BUTTONS_COLS;
         
-        const int numberOfPages = ceil((float) (d.Size() - 1) / (numRows * numCols));
+        const int numberOfPages = ceil((float) (d.Size()) / (numRows * numCols));
 
         std::string unlockedGamesStr;
         localStorageGetItem("unlockedGames", &unlockedGamesStr);
@@ -176,7 +250,7 @@ bool ScrollableGameMapScene::init() {
         }
         std::vector<int> orderedGameIndexes;
         int unlockPosition = 0;
-        for (int dIndex = 1; dIndex < d.Size(); dIndex++) {
+        for (int dIndex = 0; dIndex < d.Size(); dIndex++) {
             const rapidjson::Value& game = d[dIndex];
             auto gameName = game["name"].GetString();
             if((game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName))) {
@@ -191,13 +265,13 @@ bool ScrollableGameMapScene::init() {
 
         _parallax = ParallaxNode::create();
         _parallax->setContentSize(Size(visibleSize.width * 3, visibleSize.height));
-        auto node = CSLoader::createNode("backgoundmap/backgoundmap_background.csb");
+        auto node = CSLoader::createNode(backGroundMap);
         _parallax->addChild(node, -4, Vec2(0.2, 0.2), Vec2::ZERO);
-        node = CSLoader::createNode("backgoundmap/backgoundmap_mainground.csb");
+        node = CSLoader::createNode(mainGroundMap);
         _parallax->addChild(node, -3, Vec2(0.4, 0.4), Vec2::ZERO);
-        node = CSLoader::createNode("backgoundmap/backgoundmap_foreground.csb");
+        node = CSLoader::createNode(foreGroundMap);
         _parallax->addChild(node, -2, Vec2(0.6, 0.6), Vec2::ZERO);
-        node = CSLoader::createNode("backgoundmap/backgoundmap_frontground.csb");
+        node = CSLoader::createNode(frontGroundMap);
         _parallax->addChild(node, -1, Vec2(0.8, 0.8), Vec2::ZERO);
         _pageView->addChild(_parallax);
         
@@ -222,6 +296,12 @@ bool ScrollableGameMapScene::init() {
 //            page->addChild(node);
             
             
+            if(k == 0) {
+                
+                backButton->setPosition(Vec2((0.5) * visibleSize.width / numCols, visibleSize.height + 50 - (0.5) * (visibleSize.height + 50) / (NUMBER_OF_BUTTONS_ROWS + 1)));
+                page->addChild(backButton);
+            }
+            
             for (int i = 0; i < numRows; i++) {
                 for (int j = 0; j < numCols; j++) {
                     if(index < orderedGameIndexes.size()) {
@@ -242,17 +322,21 @@ bool ScrollableGameMapScene::init() {
                     index++;
                 }
             }
+            
+            
         }
+        
+        
 
-        for (auto it = topBarGames.begin() ; it != topBarGames.end(); ++it) {
-            const rapidjson::Value& game = d[topBarGamesIndexes[*it]];
-            auto gameName = game["name"].GetString();
-            bool active = !lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName));
-            auto topBarButton = createButton(game, active);
-            auto index = std::distance(topBarGames.begin(), it);
-            topBarButton->setPosition(Vec2((index + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (0 + 0.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
-            addChild(topBarButton);
-        }
+//        for (auto it = topBarGames.begin() ; it != topBarGames.end(); ++it) {
+//            const rapidjson::Value& game = d[topBarGamesIndexes[*it]];
+//            auto gameName = game["name"].GetString();
+//            bool active = !lockAll ||  (game.HasMember("unlock") && game["unlock"].GetBool()) || (doc.IsObject() && doc.HasMember(gameName));
+//            auto topBarButton = createButton(game, active);
+//            auto index = std::distance(topBarGames.begin(), it);
+//            topBarButton->setPosition(Vec2((index + 0.5) * visibleSize.width / numCols, visibleSize.height + yOffset - (0 + 0.5) * ((visibleSize.height + yOffset) / (numRows + 1))));
+//            addChild(topBarButton);
+//        }
 
         _pageView->setContentSize(visibleSize);
         _pageView->setDirection(cocos2d::ui::ScrollView::Direction::HORIZONTAL);
@@ -260,6 +344,33 @@ bool ScrollableGameMapScene::init() {
     }
     return true;
 }
+
+
+cocos2d::ui::Button* ScrollableGameMapScene::createBackButton() {
+
+    std::string buttonNormalIcon = "menu/back.png";
+    std::string buttonPressedIcon = buttonNormalIcon;
+    cocos2d::ui::Button* button = ui::Button::create();
+    std::string buttonDisabledIcon = buttonNormalIcon;
+    if(buttonDisabledIcon.find(".png") != std::string::npos) {
+        buttonDisabledIcon = buttonDisabledIcon.insert(buttonDisabledIcon.find(".png"), "_disabled");
+    }
+    
+    button->loadTextureNormal(buttonNormalIcon);
+    button->loadTexturePressed(buttonPressedIcon);
+    button->loadTextureDisabled(buttonDisabledIcon);
+    button->addTouchEventListener(CC_CALLBACK_2(ScrollableGameMapScene::backButtonPressed, this));
+
+    return button;
+}
+
+void ScrollableGameMapScene::backButtonPressed(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    Director::getInstance()->replaceScene(MainMenuHome::createScene());
+}
+
+
+
 
 cocos2d::ui::Button* ScrollableGameMapScene::createButton(const rapidjson::Value& gameJson, bool active) {
     std::string ICONS = ICON_FOLDER;

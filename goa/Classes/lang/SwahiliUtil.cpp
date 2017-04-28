@@ -14,7 +14,7 @@ USING_NS_CC;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 static const char* audioExt = ".wav";
 #else
-static const char* audioExt = ".m4a";
+static const char* audioExt = ".ogg";
 #endif
 
 static const char* pronounciationAudioExt = ".ogg";
@@ -77,7 +77,7 @@ std::string SwahiliUtil::getAlphabetSoundFileNameForString(std::string alpha) {
 
 std::string SwahiliUtil::getPhoneticSoundFileNameForString(std::string alpha) {
     std::transform(alpha.begin(), alpha.end(), alpha.begin(), ::tolower);
-    auto fileName = std::string("lang/swa/sounds/") + alpha + audioExt;
+    auto fileName = std::string("lang/swa/audio/phonetic/") + alpha + pronounciationAudioExt;
     return fileName;
 }
 

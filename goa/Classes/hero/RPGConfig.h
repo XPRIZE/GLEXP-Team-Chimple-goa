@@ -288,7 +288,15 @@ public:
         os << value ;
         return os.str() ;
     }
+
     
+    static inline unsigned long hash(std::string& str)
+    {
+        
+        unsigned long generatedHash = std::hash<std::string>()(str);
+        return generatedHash;
+    }
+
     
     static inline std::string trim(std::string& str)
     {

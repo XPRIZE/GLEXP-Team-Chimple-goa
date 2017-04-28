@@ -1,0 +1,127 @@
+{
+  "ID": "d3ae8b3a-5208-4d79-93e7-87c13c140b3e",
+  "Version": "2.3.4",
+  "Name": "maths_frontground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 134,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "maths/maths.png",
+              "Plist": "maths/maths.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 358.1338,
+              "Y": 577.4897
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -7.4911,
+            "RotationSkewY": -7.4911,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1399,
+              "Y": 0.3208
+            },
+            "PreSize": {
+              "X": 0.107,
+              "Y": 0.1478
+            },
+            "LeftMargin": 221.1338,
+            "RightMargin": 2064.8662,
+            "TopMargin": 1089.5103,
+            "BottomMargin": 444.4897,
+            "Tag": 380,
+            "ActionTag": -1395387686,
+            "Size": {
+              "X": 274.0,
+              "Y": 266.0
+            },
+            "Name": "maths_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "maths/maths.png",
+              "Plist": "maths/maths.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 610.0285,
+              "Y": 564.2655
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "RotationSkewX": -7.4937,
+            "RotationSkewY": -7.4937,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2383,
+              "Y": 0.3135
+            },
+            "PreSize": {
+              "X": 0.107,
+              "Y": 0.1478
+            },
+            "LeftMargin": 473.0285,
+            "RightMargin": 1812.9714,
+            "TopMargin": 1102.7345,
+            "BottomMargin": 431.2655,
+            "Tag": 381,
+            "ActionTag": -849082781,
+            "Size": {
+              "X": 274.0,
+              "Y": 266.0
+            },
+            "Name": "maths_3_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "maths.plist",
+        "maths.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}

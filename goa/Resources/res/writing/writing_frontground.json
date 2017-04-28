@@ -1,0 +1,485 @@
+{
+  "ID": "d3ae8b3a-5208-4d79-93e7-87c13c140b3e",
+  "Version": "2.3.4",
+  "Name": "writing_frontground",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 134,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/tree.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1488.7314,
+              "Y": 898.8322
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0631
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5815,
+              "Y": 0.4994
+            },
+            "PreSize": {
+              "X": 0.0344,
+              "Y": 0.9989
+            },
+            "LeftMargin": 1444.7314,
+            "RightMargin": 1027.2686,
+            "TopMargin": 2.1677,
+            "BottomMargin": -0.1678,
+            "Tag": 240,
+            "ActionTag": 1438299819,
+            "Size": {
+              "X": 88.0,
+              "Y": 1798.0
+            },
+            "Name": "tree_5_10_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/tree.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1678.1799,
+              "Y": 915.333
+            },
+            "Scale": {
+              "ScaleX": 0.3333,
+              "ScaleY": 1.0631
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6555,
+              "Y": 0.5085
+            },
+            "PreSize": {
+              "X": 0.0344,
+              "Y": 0.9989
+            },
+            "LeftMargin": 1634.1799,
+            "RightMargin": 837.8201,
+            "TopMargin": -14.333,
+            "BottomMargin": 16.333,
+            "Tag": 241,
+            "ActionTag": 2105986400,
+            "Size": {
+              "X": 88.0,
+              "Y": 1798.0
+            },
+            "Name": "tree_5_10_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/star.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1230.5176,
+              "Y": 1301.9723
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4807,
+              "Y": 0.7233
+            },
+            "PreSize": {
+              "X": 0.5777,
+              "Y": 0.4083
+            },
+            "LeftMargin": 491.0176,
+            "RightMargin": 589.9824,
+            "TopMargin": 130.5277,
+            "BottomMargin": 934.4723,
+            "Tag": 382,
+            "ActionTag": 2038241728,
+            "Size": {
+              "X": 1479.0,
+              "Y": 735.0
+            },
+            "Name": "star_24",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/blade.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2186.8345,
+              "Y": 612.3876
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8542,
+              "Y": 0.3402
+            },
+            "PreSize": {
+              "X": 0.0621,
+              "Y": 0.0922
+            },
+            "LeftMargin": 2107.3345,
+            "RightMargin": 293.6655,
+            "TopMargin": 1104.6124,
+            "BottomMargin": 529.3876,
+            "Tag": 217,
+            "ActionTag": -1815872492,
+            "Size": {
+              "X": 159.0,
+              "Y": 166.0
+            },
+            "Name": "blade_4_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/blade.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1924.7922,
+              "Y": 603.866
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7519,
+              "Y": 0.3355
+            },
+            "PreSize": {
+              "X": 0.0621,
+              "Y": 0.0922
+            },
+            "LeftMargin": 1845.2922,
+            "RightMargin": 555.7078,
+            "TopMargin": 1113.134,
+            "BottomMargin": 520.866,
+            "Tag": 219,
+            "ActionTag": 98907499,
+            "Size": {
+              "X": 159.0,
+              "Y": 166.0
+            },
+            "Name": "blade_4_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/house.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2053.7144,
+              "Y": 639.8214
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8022,
+              "Y": 0.3555
+            },
+            "PreSize": {
+              "X": 0.0906,
+              "Y": 0.245
+            },
+            "LeftMargin": 1937.7144,
+            "RightMargin": 390.2856,
+            "TopMargin": 939.6786,
+            "BottomMargin": 419.3214,
+            "Tag": 215,
+            "ActionTag": 480583017,
+            "Size": {
+              "X": 232.0,
+              "Y": 441.0
+            },
+            "Name": "house_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/blade.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1939.8992,
+              "Y": 831.1178
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7578,
+              "Y": 0.4617
+            },
+            "PreSize": {
+              "X": 0.0621,
+              "Y": 0.0922
+            },
+            "LeftMargin": 1860.3992,
+            "RightMargin": 540.6008,
+            "TopMargin": 885.8822,
+            "BottomMargin": 748.1178,
+            "Tag": 216,
+            "ActionTag": -1798954532,
+            "Size": {
+              "X": 159.0,
+              "Y": 166.0
+            },
+            "Name": "blade_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/blade.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2171.5901,
+              "Y": 827.0292
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8483,
+              "Y": 0.4595
+            },
+            "PreSize": {
+              "X": 0.0621,
+              "Y": 0.0922
+            },
+            "LeftMargin": 2092.0901,
+            "RightMargin": 308.9099,
+            "TopMargin": 889.9708,
+            "BottomMargin": 744.0292,
+            "Tag": 218,
+            "ActionTag": -780155434,
+            "Size": {
+              "X": 159.0,
+              "Y": 166.0
+            },
+            "Name": "blade_4_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/tree.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 432.0932,
+              "Y": 916.238
+            },
+            "Scale": {
+              "ScaleX": 2.1929,
+              "ScaleY": 1.1274
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1688,
+              "Y": 0.509
+            },
+            "PreSize": {
+              "X": 0.0344,
+              "Y": 0.9989
+            },
+            "LeftMargin": 388.0932,
+            "RightMargin": 2083.9067,
+            "TopMargin": -15.238,
+            "BottomMargin": 17.238,
+            "Tag": 312,
+            "ActionTag": -1424228542,
+            "Size": {
+              "X": 88.0,
+              "Y": 1798.0
+            },
+            "Name": "tree_5_10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/zebra.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1122.5961,
+              "Y": 627.8839
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4385,
+              "Y": 0.3488
+            },
+            "PreSize": {
+              "X": 0.2277,
+              "Y": 0.1794
+            },
+            "LeftMargin": 831.0961,
+            "RightMargin": 1145.9039,
+            "TopMargin": 1010.6161,
+            "BottomMargin": 466.3839,
+            "Tag": 544,
+            "ActionTag": -1773813430,
+            "Size": {
+              "X": 583.0,
+              "Y": 323.0
+            },
+            "Name": "zebra_22",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "writing.plist",
+        "writing.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
