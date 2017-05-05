@@ -1,0 +1,170 @@
+{
+  "ID": "46a7a38a-5a5a-4f22-a966-b5ae3271fd65",
+  "Version": "3.10.0.0",
+  "Name": "scene5",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 12,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "scene1/bg.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 899.6319,
+              "Y": 900.0683
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4998,
+              "Y": 0.5
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -0.3681,
+            "RightMargin": 0.3682,
+            "TopMargin": -0.0684,
+            "BottomMargin": 0.0683,
+            "Tag": 13,
+            "ActionTag": -637969823,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "bg_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "scene2/bg2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 871.4791,
+              "Y": 861.5991
+            },
+            "Scale": {
+              "ScaleX": 1.0957,
+              "ScaleY": 1.0957
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4842,
+              "Y": 0.4787
+            },
+            "PreSize": {
+              "X": 0.7589,
+              "Y": 0.4689
+            },
+            "LeftMargin": 188.4791,
+            "RightMargin": 245.5209,
+            "TopMargin": 516.4009,
+            "BottomMargin": 439.5991,
+            "Tag": 14,
+            "ActionTag": -1270534062,
+            "Size": {
+              "X": 1366.0,
+              "Y": 844.0
+            },
+            "Name": "bg2_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipY": true,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "scene3/leaf.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 837.1141,
+              "Y": 929.3081
+            },
+            "Scale": {
+              "ScaleX": 1.9177,
+              "ScaleY": 1.9177
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4651,
+              "Y": 0.5163
+            },
+            "PreSize": {
+              "X": 0.1567,
+              "Y": 0.0933
+            },
+            "LeftMargin": 696.1141,
+            "RightMargin": 821.8859,
+            "TopMargin": 786.6919,
+            "BottomMargin": 845.3081,
+            "Tag": 15,
+            "ActionTag": -101202615,
+            "Size": {
+              "X": 282.0,
+              "Y": 168.0
+            },
+            "Name": "leaf_3",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "scene1/bg.png",
+        "scene2/bg2.png",
+        "scene3/leaf.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

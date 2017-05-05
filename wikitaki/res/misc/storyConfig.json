@@ -1,0 +1,2749 @@
+{
+  "addObjects": [
+    {
+      "name": "addBackground",
+      "cIcon": "icons/bg_onclick.png",
+      "icon": "icons/bg.png",
+      "categories": [
+        {
+          "name": "backgrounds",
+          "cIcon": "icons/bg_onclick.png",
+          "icon": "icons/bg.png",
+          "items": [
+            {
+              "cIcon": "scene/fox_stork_01.png",
+              "icon": "scene/fox_stork_01.png",
+              "json": "res/fox_stork_01.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_stork_02.png",
+              "icon": "scene/fox_stork_02.png",
+              "json": "res/fox_stork_02.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_stork_03.png",
+              "icon": "scene/fox_stork_03.png",
+              "json": "res/fox_stork_03.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_1.png",
+              "icon": "scene/ant_dove_1.png",
+              "json": "res/ant_dove_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_2.png",
+              "icon": "scene/ant_dove_2.png",
+              "json": "res/ant_dove_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_3.png",
+              "icon": "scene/ant_dove_3.png",
+              "json": "res/ant_dove_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_4.png",
+              "icon": "scene/ant_dove_4.png",
+              "json": "res/ant_dove_4.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_5.png",
+              "icon": "scene/ant_dove_5.png",
+              "json": "res/ant_dove_5.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_6.png",
+              "icon": "scene/ant_dove_6.png",
+              "json": "res/ant_dove_6.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_7.png",
+              "icon": "scene/ant_dove_7.png",
+              "json": "res/ant_dove_7.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/ant_dove_8.png",
+              "icon": "scene/ant_dove_8.png",
+              "json": "res/ant_dove_8.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/hare_tortoise_1.png",
+              "icon": "scene/hare_tortoise_1.png",
+              "json": "res/hare_tortoise_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/hare_tortoise_2.png",
+              "icon": "scene/hare_tortoise_2.png",
+              "json": "res/hare_tortoise_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/hare_tortoise_3.png",
+              "icon": "scene/hare_tortoise_3.png",
+              "json": "res/hare_tortoise_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/dog_bone_1.png",
+              "icon": "scene/dog_bone_1.png",
+              "json": "res/dog_bone_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/dog_bone_2.png",
+              "icon": "scene/dog_bone_2.png",
+              "json": "res/dog_bone_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/dog_bone_3.png",
+              "icon": "scene/dog_bone_3.png",
+              "json": "res/dog_bone_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_1.png",
+              "icon": "scene/fox_crow_1.png",
+              "json": "res/fox_crow_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_2.png",
+              "icon": "scene/fox_crow_2.png",
+              "json": "res/fox_crow_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_3.png",
+              "icon": "scene/fox_crow_3.png",
+              "json": "res/fox_crow_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_4.png",
+              "icon": "scene/fox_crow_4.png",
+              "json": "res/fox_crow_4.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_5.png",
+              "icon": "scene/fox_crow_5.png",
+              "json": "res/fox_crow_5.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_crow_6.png",
+              "icon": "scene/fox_crow_6.png",
+              "json": "res/fox_crow_6.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_grapes_1.png",
+              "icon": "scene/fox_grapes_1.png",
+              "json": "res/fox_grapes_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/fox_grapes_2.png",
+              "icon": "scene/fox_grapes_2.png",
+              "json": "res/fox_grapes_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/selfish_horse_1.png",
+              "icon": "scene/selfish_horse_1.png",
+              "json": "res/selfish_horse_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/selfish_horse_2.png",
+              "icon": "scene/selfish_horse_2.png",
+              "json": "res/selfish_horse_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/selfish_horse_3.png",
+              "icon": "scene/selfish_horse_3.png",
+              "json": "res/selfish_horse_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_1.png",
+              "icon": "scene/shell_wings_1.png",
+              "json": "res/shell_wings_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_2.png",
+              "icon": "scene/shell_wings_2.png",
+              "json": "res/shell_wings_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_3.png",
+              "icon": "scene/shell_wings_3.png",
+              "json": "res/shell_wings_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_4.png",
+              "icon": "scene/shell_wings_4.png",
+              "json": "res/shell_wings_4.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_5.png",
+              "icon": "scene/shell_wings_5.png",
+              "json": "res/shell_wings_5.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_6.png",
+              "icon": "scene/shell_wings_6.png",
+              "json": "res/shell_wings_6.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_7.png",
+              "icon": "scene/shell_wings_7.png",
+              "json": "res/shell_wings_7.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/shell_wings_8.png",
+              "icon": "scene/shell_wings_8.png",
+              "json": "res/shell_wings_8.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/silly_goats_1.png",
+              "icon": "scene/silly_goats_1.png",
+              "json": "res/silly_goats_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/silly_goats_2.png",
+              "icon": "scene/silly_goats_2.png",
+              "json": "res/silly_goats_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_1.png",
+              "icon": "scene/thirsty_crow_1.png",
+              "json": "res/thirsty_crow_1.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_2.png",
+              "icon": "scene/thirsty_crow_2.png",
+              "json": "res/thirsty_crow_2.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_3.png",
+              "icon": "scene/thirsty_crow_3.png",
+              "json": "res/thirsty_crow_3.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_4.png",
+              "icon": "scene/thirsty_crow_4.png",
+              "json": "res/thirsty_crow_4.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_5.png",
+              "icon": "scene/thirsty_crow_5.png",
+              "json": "res/thirsty_crow_5.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_6.png",
+              "icon": "scene/thirsty_crow_6.png",
+              "json": "res/thirsty_crow_6.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_7.png",
+              "icon": "scene/thirsty_crow_7.png",
+              "json": "res/thirsty_crow_7.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/thirsty_crow_8.png",
+              "icon": "scene/thirsty_crow_8.png",
+              "json": "res/thirsty_crow_8.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_01.png",
+              "icon": "scene/Village_01.png",
+              "json": "res/village_page_01.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_02.png",
+              "icon": "scene/Village_02.png",
+              "json": "res/village_Page_02.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_03.png",
+              "icon": "scene/Village_03.png",
+              "json": "res/village_Page_03.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_04.png",
+              "icon": "scene/Village_04.png",
+              "json": "res/village_Page_04.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/Village_05.png",
+              "icon": "scene/Village_05.png",
+              "json": "res/village_Page_05.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_hungry_mouse_Page_01.png",
+              "icon": "scene/the_hungry_mouse_Page_01.png",
+              "json": "res/the_hungry_mouse_page_01.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_hungry_mouse_Page_02.png",
+              "icon": "scene/the_hungry_mouse_Page_02.png",
+              "json": "res/the_hungry_mouse_page_02.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_farm_house_Page_01.png",
+              "icon": "scene/the_farm_house_Page_01.png",
+              "json": "res/the_farm_house_page_01.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/the_farm_house_Page_02.png",
+              "icon": "scene/the_farm_house_Page_02.png",
+              "json": "res/the_farm_house_Page_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_01_64.png",
+              "icon": "scene/forest_01_64.png",
+              "json": "res/forest_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_02_64.png",
+              "icon": "scene/forest_02_64.png",
+              "json": "res/forest_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_03_64.png",
+              "icon": "scene/forest_03_64.png",
+              "json": "res/forest_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_04_64.png",
+              "icon": "scene/forest_04_64.png",
+              "json": "res/forest_04.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_05_64.png",
+              "icon": "scene/forest_05_64.png",
+              "json": "res/forest_05.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_06_64.png",
+              "icon": "scene/forest_06_64.png",
+              "json": "res/forest_06.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_07_64.png",
+              "icon": "scene/forest_07_64.png",
+              "json": "res/forest_07.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_08_64.png",
+              "icon": "scene/forest_08_64.png",
+              "json": "res/forest_08.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_09_64.png",
+              "icon": "scene/forest_09_64.png",
+              "json": "res/forest_09.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/forest_10_64.png",
+              "icon": "scene/forest_10_64.png",
+              "json": "res/forest_10.json",
+              "type": "scene"
+            },
+            {
+              "cIcon": "scene/water_scene_01.png",
+              "icon": "scene/water_scene_01.png",
+              "json": "res/water_Scene_1.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/water_scene_02.png",
+              "icon": "scene/water_scene_02.png",
+              "json": "res/water_Scene_2.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/water_scene_03.png",
+              "icon": "scene/water_scene_03.png",
+              "json": "res/water_Scene_3.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/water_scene_04.png",
+              "icon": "scene/water_scene_04.png",
+              "json": "res/water_Scene_4.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_1.png",
+              "icon": "scene/desert_Scene_1.png",
+              "json": "res/desert_Scene_1.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_2.png",
+              "icon": "scene/desert_Scene_2.png",
+              "json": "res/desert_Scene_2.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_3.png",
+              "icon": "scene/desert_Scene_3.png",
+              "json": "res/desert_Scene_3.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_4.png",
+              "icon": "scene/desert_Scene_4.png",
+              "json": "res/desert_Scene_4.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_5.png",
+              "icon": "scene/desert_Scene_5.png",
+              "json": "res/desert_Scene_5.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/desert_Scene_6.png",
+              "icon": "scene/desert_Scene_6.png",
+              "json": "res/desert_Scene_6.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_01_01_64.png",
+              "icon": "scene/story_01_01_64.png",
+              "json": "res/Scene_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_01_02_64.png",
+              "icon": "scene/story_01_02_64.png",
+              "json": "res/Scene_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_01_03_64.png",
+              "icon": "scene/story_01_03_64.png",
+              "json": "res/Scene_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_02_01_64.png",
+              "icon": "scene/story_02_01_64.png",
+              "json": "res/Story_Scene_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_02_02_64.png",
+              "icon": "scene/story_02_02_64.png",
+              "json": "res/Story_Scene_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_02_03_64.png",
+              "icon": "scene/story_02_03_64.png",
+              "json": "res/Story_Scene_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_02_04_64.png",
+              "icon": "scene/story_02_04_64.png",
+              "json": "res/Story_Scene_04.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_02_05_64.png",
+              "icon": "scene/story_02_05_64.png",
+              "json": "res/Story_Scene_05.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_01_64.png",
+              "icon": "scene/story_03_01_64.png",
+              "json": "res/colour_Scene_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_02_64.png",
+              "icon": "scene/story_03_02_64.png",
+              "json": "res/colour_Scene_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_03_64.png",
+              "icon": "scene/story_03_03_64.png",
+              "json": "res/colour_Scene_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_04_64.png",
+              "icon": "scene/story_03_04_64.png",
+              "json": "res/colour_Scene_04.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_05_64.png",
+              "icon": "scene/story_03_05_64.png",
+              "json": "res/colour_Scene_05.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_06_64.png",
+              "icon": "scene/story_03_06_64.png",
+              "json": "res/colour_Scene_06.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_07_64.png",
+              "icon": "scene/story_03_07_64.png",
+              "json": "res/colour_Scene_07.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_08_64.png",
+              "icon": "scene/story_03_08_64.png",
+              "json": "res/colour_Scene_08.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_09_64.png",
+              "icon": "scene/story_03_09_64.png",
+              "json": "res/colour_Scene_09.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_10_64.png",
+              "icon": "scene/story_03_10_64.png",
+              "json": "res/colour_Scene_10.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/story_03_11_64.png",
+              "icon": "scene/story_03_11_64.png",
+              "json": "res/colour_Scene_11.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/aqua_scene_01.png",
+              "icon": "scene/aqua_scene_01.png",
+              "json": "res/aqua_Scene_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/aqua_scene_02.png",
+              "icon": "scene/aqua_scene_02.png",
+              "json": "res/aqua_Scene_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/aqua_scene_03.png",
+              "icon": "scene/aqua_scene_03.png",
+              "json": "res/aqua_Scene_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/aqua_scene_04.png",
+              "icon": "scene/aqua_scene_04.png",
+              "json": "res/aqua_Scene_04.json",
+              "type": "scene" 
+            },
+             {
+              "cIcon": "scene/Scene_01.png",
+              "icon": "scene/Scene_01.png",
+              "json": "res/story_a_scene_01.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_02.png",
+              "icon": "scene/Scene_02.png",
+              "json": "res/story_a_scene_02.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_03.png",
+              "icon": "scene/Scene_03.png",
+              "json": "res/story_a_scene_03.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_04.png",
+              "icon": "scene/Scene_04.png",
+              "json": "res/story_a_scene_04.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_05.png",
+              "icon": "scene/Scene_05.png",
+              "json": "res/story_a_scene_05.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_1-01.png",
+              "icon": "scene/Scene_1-01.png",
+              "json": "res/story_b_scene_1.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_2-01.png",
+              "icon": "scene/Scene_2-01.png",
+              "json": "res/story_b_scene_2.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_3-01.png",
+              "icon": "scene/Scene_3-01.png",
+              "json": "res/story_b_scene_3.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_4-01.png",
+              "icon": "scene/Scene_4-01.png",
+              "json": "res/story_b_scene_4.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/Scene_5-01.png",
+              "icon": "scene/Scene_5-01.png",
+              "json": "res/story_b_scene_5.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/road_scene_1.png",
+              "icon": "scene/road_scene_1.png",
+              "json": "res/road_scene1.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/road_scene_2.png",
+              "icon": "scene/road_scene_2.png",
+              "json": "res/road_scene2.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/road_scene_3.png",
+              "icon": "scene/road_scene_3.png",
+              "json": "res/road_scene3.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/road_scene_4.png",
+              "icon": "scene/road_scene_4.png",
+              "json": "res/road_scene4.json",
+              "type": "scene" 
+            },
+            {
+              "cIcon": "scene/scene_mys1.png",
+              "icon": "scene/scene_mys1.png",
+              "json": "res/scene_myscene_1.json",
+              "type": "scene" 
+            },
+             {
+              "cIcon": "scene/scene_mys2.png",
+              "icon": "scene/scene_mys2.png",
+              "json": "res/scene_myscene_2.json",
+              "type": "scene" 
+            },
+             {
+              "cIcon": "scene/scene_mys3.png",
+              "icon": "scene/scene_mys3.png",
+              "json": "res/scene_myscene_3.json",
+              "type": "scene" 
+            },
+             {
+              "cIcon": "scene/scene_mys4.png",
+              "icon": "scene/scene_mys4.png",
+              "json": "res/scene_myscene_4.json",
+              "type": "scene" 
+            },
+             {
+              "cIcon": "scene/scene_mys5.png",
+              "icon": "scene/scene_mys5.png",
+              "json": "res/scene_myscene_5.json",
+              "type": "scene" 
+            },
+             {
+              "cIcon": "scene/scene_mys6.png",
+              "icon": "scene/scene_mys6.png",
+              "json": "res/scene_myscene_6.json",
+              "type": "scene" 
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "addCharacter",
+      "cIcon": "icons/character_onclick.png",
+      "icon": "icons/character.png",
+      "categories": [
+        {
+          "name": "humans",
+          "cIcon": "icons/character_onclick.png",
+          "icon": "icons/character.png",
+          "items": [
+             {
+              "icon": "human/costume/austronaut_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "astronaut",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+             {
+              "icon": "human/costume/austronaut_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skeletonConfigJson": "res/characters/skeletonConfig/female_Human_Skeleton.json",              
+              "skinNameMap": "female_lawyer",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/barber_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "barber",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/boss_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "boss",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/captain_thumbnails.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "captain",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+             {
+              "icon": "human/costume/chef_thumbnails.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "chef",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+             {
+              "icon": "human/costume/conductor_thumbnails.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "conductor",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/cowboy_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "cowboy",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/cricketer_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "cricketer",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/designer_thumbnails.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "designer",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/doctor.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "doctor",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/employe_thumbnails.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "employe",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/engineer_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "engineer",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/farmer.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "farmer",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/fireman_thumbnails.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "fireman",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/footballer_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "footballer",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/lawyer_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "lawyer",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            }, 
+            {
+              "icon": "human/costume/motu_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "motu",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/musician_thumbnails.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "musician",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/nurs_thumbnails.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "nurse",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            }, 
+            {
+              "icon": "human/costume/painter_thumbnails.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "painter",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+          
+             {
+              "icon": "human/costume/photographer.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "photographer",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/police.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "police",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/priest_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "priest",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+             {
+              "icon": "human/costume/scientist.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "scientist",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+             {
+              "icon": "human/costume/singer.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "singer",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+             {
+              "icon": "human/costume/soccer.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "soccer",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+             {
+              "icon": "human/costume/soldier.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "soldier",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/teacher_thumbnail.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "teacher",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            },
+            {
+              "icon": "human/costume/watchman.png",
+              "json": "res/human_skeleton.json",
+              "skinNameMap": "watchman",
+              "colorSkins": [
+                {
+                        "skins": "bodySkin",
+                        "color": "#e5ad8f"                  
+                },
+                {
+                        "skins": "hairSkin",
+                        "color": "#000000"
+                }                
+              ],
+              "type": "character"
+            }
+            
+          ]
+        },
+        {
+          "name": "animal",
+          "cIcon": "icons/my_pet_onclick.png",
+          "icon": "icons/my_pet.png",
+          "items": [
+            {
+              "icon": "animal/lion.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "lion",
+              "type": "character"
+            },
+            {
+              "icon": "animal/dog.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "dog",
+              "type": "character"
+            },
+             {
+              "icon": "animal/cat.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "cat",
+              "type": "character"
+            },
+            {
+              "icon": "animal/cow.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "cow",
+              "type": "character"
+            },
+             {
+              "icon": "animal/elephant.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "elephant",
+              "type": "character"
+            },
+            {
+              "icon": "animal/pig.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "pig",
+              "type": "character"
+            },
+            {
+              "icon": "animal/goat.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "goat",
+              "type": "character"
+            },
+             {
+              "icon": "animal/sheep.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "sheep",
+              "type": "character"
+            },
+            {
+              "icon": "animal/donkey.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "donkey",
+              "type": "character"
+            },
+            {
+              "icon": "animal/horse.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "horse",
+              "type": "character"
+            },
+             {
+              "icon": "animal/rhino.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "rhino",
+              "type": "character"
+            },
+            {
+              "icon": "animal/hippo.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "hippo",
+              "type": "character"
+            },
+            {
+              "icon": "animal/zebra.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "zebra",
+              "type": "character"
+            },
+            {
+              "icon": "animal/buffalo.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "buffalo",
+              "type": "character"
+            },
+            {
+              "icon": "animal/ox.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "ox",
+              "type": "character"
+            },
+            {
+              "icon": "animal/yak.png",
+              "json": "res/animalskeleton.json",
+              "skinNameMap": "yak",
+              "type": "character"
+            },
+            {
+              "icon": "bird/crow.png",
+              "json": "res/birdskeleton.json",
+              "skinNameMap": "crow",
+              "type": "character"
+            },
+            {
+              "icon": "bird/dove.png",
+              "json": "res/birdskeleton.json",
+              "skinNameMap": "dove",
+              "type": "character"
+            },
+             {
+              "icon": "bird/pigeon.png",
+              "json": "res/birdskeleton.json",
+              "skinNameMap": "pigeon",
+              "type": "character"
+            }            
+          ]
+        }        
+      ]
+    },
+    {
+      "name": "addObject",
+      "cIcon": "icons/props_onclick.png",
+      "icon": "icons/props.png",
+      "categories": [         
+         {
+          "name": "trees",
+          "cIcon": "icons/blink_onclick.png",
+          "icon": "icons/blink.png",
+          "items": [
+            {
+              "cIcon": "ob/tree/branch.png",
+              "icon": "ob/tree/branch.png",
+              "png": "res/ob/tree/branch.png"
+            },
+             {
+              "cIcon": "ob/tree/bush_0.png",
+              "icon": "ob/tree/bush_0.png",
+              "png": "res/ob/tree/bush_0.png"
+            },
+            {
+              "cIcon": "ob/tree/bush_1.png",
+              "icon": "ob/tree/bush_1.png",
+              "png": "res/ob/tree/bush_1.png"
+            },
+            {
+              "cIcon": "ob/tree/bush_2.png",
+              "icon": "ob/tree/bush_2.png",
+              "png": "res/ob/tree/bush_2.png"
+            },
+            {
+              "cIcon": "ob/tree/bush_3.png",
+              "icon": "ob/tree/bush_3.png",
+              "png": "res/ob/tree/bush_3.png"
+            },
+            {
+              "cIcon": "ob/tree/dog_bone_tree_1.png",
+              "icon": "ob/tree/dog_bone_tree_1.png",
+              "png": "res/ob/tree/dog_bone_tree_1.png"
+            },
+            {
+              "cIcon": "ob/tree/dog_bone_tree_2.png",
+              "icon": "ob/tree/dog_bone_tree_2.png",
+              "png": "res/ob/tree/dog_bone_tree_2.png"
+            },
+            {
+              "cIcon": "ob/tree/fox_crow_tree.png",
+              "icon": "ob/tree/fox_crow_tree.png",
+              "png": "res/ob/tree/fox_crow_tree.png"
+            },
+             {
+              "cIcon": "ob/tree/fox_crow_tree_1.png",
+              "icon": "ob/tree/fox_crow_tree_1.png",
+              "png": "res/ob/tree/fox_crow_tree_1.png"
+            },
+            {
+              "cIcon": "ob/tree/fox_crow_tree_2.png",
+              "icon": "ob/tree/fox_crow_tree_2.png",
+              "png": "res/ob/tree/fox_crow_tree_2.png"
+            },
+            {
+              "cIcon": "ob/tree/fox_crow_tree_3.png",
+              "icon": "ob/tree/fox_crow_tree_3.png",
+              "png": "res/ob/tree/fox_crow_tree_3.png"
+            },
+            {
+              "cIcon": "ob/tree/fox_crow_tree_4.png",
+              "icon": "ob/tree/fox_crow_tree_4.png",
+              "png": "res/ob/tree/fox_crow_tree_4.png"
+            },
+            {
+              "cIcon": "ob/tree/fox_crow_tree_5.png",
+              "icon": "ob/tree/fox_crow_tree_5.png",
+              "png": "res/ob/tree/fox_crow_tree_5.png"
+            },
+            {
+              "cIcon": "ob/tree/fox_grapes_tree_1.png",
+              "icon": "ob/tree/fox_grapes_tree_1.png",
+              "png": "res/ob/tree/fox_grapes_tree_1.png"
+            },
+             {
+              "cIcon": "ob/tree/fox_grapes_tree_2.png",
+              "icon": "ob/tree/fox_grapes_tree_2.png",
+              "png": "res/ob/tree/fox_grapes_tree_2.png"
+            },
+             {
+              "cIcon": "ob/tree/fox_grapes_tree_3.png",
+              "icon": "ob/tree/fox_grapes_tree_3.png",
+              "png": "res/ob/tree/fox_grapes_tree_3.png"
+            },
+             {
+              "cIcon": "ob/tree/fox_grapes_tree_4.png",
+              "icon": "ob/tree/fox_grapes_tree_4.png",
+              "png": "res/ob/tree/fox_grapes_tree_4.png"
+            },
+             {
+              "cIcon": "ob/tree/fox_grapes_tree_5.png",
+              "icon": "ob/tree/fox_grapes_tree_5.png",
+              "png": "res/ob/tree/fox_grapes_tree_5.png"
+            },
+             {
+              "cIcon": "ob/tree/fox_grapes_tree_6.png",
+              "icon": "ob/tree/fox_grapes_tree_6.png",
+              "png": "res/ob/tree/fox_grapes_tree_6.png"
+            },
+             {
+              "cIcon": "ob/tree/fox_grapes_tree_7.png",
+              "icon": "ob/tree/fox_grapes_tree_7.png",
+              "png": "res/ob/tree/fox_grapes_tree_7.png"
+            },
+             {
+              "cIcon": "ob/tree/leaf.png",
+              "icon": "ob/tree/leaf.png",
+              "png": "res/ob/tree/leaf.png"
+            },
+            {
+              "cIcon": "ob/tree/selfish_horse_tree.png",
+              "icon": "ob/tree/selfish_horse_tree.png",
+              "png": "res/ob/tree/selfish_horse_tree.png"
+            },
+            {
+              "cIcon": "ob/tree/shell_wings_trees.png",
+              "icon": "ob/tree/shell_wings_trees.png",
+              "png": "res/ob/tree/shell_wings_trees.png"
+            },
+            {
+              "cIcon": "ob/tree/thirsty_crow_tree_01.png",
+              "icon": "ob/tree/thirsty_crow_tree_01.png",
+              "png": "res/ob/tree/thirsty_crow_tree_01.png"
+            },
+            {
+              "cIcon": "ob/tree/thirsty_crow_tree_02.png",
+              "icon": "ob/tree/thirsty_crow_tree_02.png",
+              "png": "res/ob/tree/thirsty_crow_tree_02.png"
+            },
+            {
+              "cIcon": "ob/tree/thirsty_crow_tree_03.png",
+              "icon": "ob/tree/thirsty_crow_tree_03.png",
+              "png": "res/ob/tree/thirsty_crow_tree_03.png"
+            },
+            {
+              "cIcon": "ob/tree/thirsty_crow_tree_04.png",
+              "icon": "ob/tree/thirsty_crow_tree_04.png",
+              "png": "res/ob/tree/thirsty_crow_tree_04.png"
+            },
+            {
+              "cIcon": "ob/tree/thirsty_crow_tree_05.png",
+              "icon": "ob/tree/thirsty_crow_tree_05.png",
+              "png": "res/ob/tree/thirsty_crow_tree_05.png"
+            },
+            {
+              "cIcon": "ob/tree/tree.png",
+              "icon": "ob/tree/tree.png",
+              "png": "res/ob/tree/tree.png"
+            },
+            {
+              "cIcon": "ob/tree/tree_1.png",
+              "icon": "ob/tree/tree_1.png",
+              "png": "res/ob/tree/tree_1.png"
+            },
+            {
+              "cIcon": "ob/tree/tree_2.png",
+              "icon": "ob/tree/tree_2.png",
+              "png": "res/ob/tree/tree_2.png"
+            },
+            {
+              "cIcon": "ob/tree/tree_3.png",
+              "icon": "ob/tree/tree_3.png",
+              "png": "res/ob/tree/tree_3.png"
+            },
+            {
+              "cIcon": "ob/tree/tree_4.png",
+              "icon": "ob/tree/tree_4.png",
+              "png": "res/ob/tree/tree_4.png"
+            },
+            {
+              "cIcon": "ob/tree/tree_5.png",
+              "icon": "ob/tree/tree_5.png",
+              "png": "res/ob/tree/tree_5.png"
+            },
+            {
+              "cIcon": "ob/tree/tree_6.png",
+              "icon": "ob/tree/tree_6.png",
+              "png": "res/ob/tree/tree_6.png"
+            },
+            {
+              "cIcon": "ob/tree/tree_7.png",
+              "icon": "ob/tree/tree_7.png",
+              "png": "res/ob/tree/tree_7.png"
+            },
+            {
+              "cIcon": "ob/tree/tree_8.png",
+              "icon": "ob/tree/tree_8.png",
+              "png": "res/ob/tree/tree_8.png"
+            },
+            {
+              "cIcon": "ob/tree/tree_9.png",
+              "icon": "ob/tree/tree_9.png",
+              "png": "res/ob/tree/tree_9.png"
+            },
+            {
+              "cIcon": "ob/tree/trees6.png",
+              "icon": "ob/tree/trees6.png",
+              "png": "res/ob/tree/trees6.png"
+            },
+            {
+              "cIcon": "ob/grass/dog_bone_grass_1.png",
+              "icon": "ob/grass/dog_bone_grass_1.png",
+              "png": "res/ob/grass/dog_bone_grass_1.png"
+            },
+            {
+              "cIcon": "ob/grass/grass.png",
+              "icon": "ob/grass/grass.png",
+              "png": "res/ob/grass/grass.png"
+            },
+            {
+              "cIcon": "ob/grass/grass_01.png",
+              "icon": "ob/grass/grass_01.png",
+              "png": "res/ob/grass/grass_01.png"
+            },
+            {
+              "cIcon": "ob/grass/grass_02.png",
+              "icon": "ob/grass/grass_02.png",
+              "png": "res/ob/grass/grass_02.png"
+            },
+            {
+              "cIcon": "ob/grass/grass_03.png",
+              "icon": "ob/grass/grass_03.png",
+              "png": "res/ob/grass/grass_03.png"
+            },
+            {
+              "cIcon": "ob/grass/grass_04.png",
+              "icon": "ob/grass/grass_04.png",
+              "png": "res/ob/grass/grass_04.png"
+            }
+         ]
+         },
+          {
+          "name": "trees",
+          "cIcon": "icons/props_onclick.png",
+          "icon": "icons/props.png",
+          "items": [
+            {
+              "cIcon": "ob/bag/selfish_horse_bag_1.png",
+              "icon": "ob/bag/selfish_horse_bag_1.png",
+              "png": "res/ob/bag/selfish_horse_bag_1.png"
+            },
+            {
+              "cIcon": "ob/bag/selfish_horse_bag_2.png",
+              "icon": "ob/bag/selfish_horse_bag_2.png",
+              "png": "res/ob/bag/selfish_horse_bag_2.png"
+            },
+            {
+              "cIcon": "ob/bag/selfish_horse_bag_3.png",
+              "icon": "ob/bag/selfish_horse_bag_3.png",
+              "png": "res/ob/bag/selfish_horse_bag_3.png"
+            },
+            {
+              "cIcon": "ob/bag/selfish_horse_bag_4.png",
+              "icon": "ob/bag/selfish_horse_bag_4.png",
+              "png": "res/ob/bag/selfish_horse_bag_4.png"
+            },
+            {
+              "cIcon": "ob/bird/fox_crow_bird.png",
+              "icon": "ob/bird/fox_crow_bird.png",
+              "png": "res/ob/bird/fox_crow_bird.png"
+            },
+            {
+              "cIcon": "ob/flag/finish.png",
+              "icon": "ob/flag/finish.png",
+              "png": "res/ob/flag/finish.png"
+            },
+            {
+              "cIcon": "ob/fruit/fox_crow_grapes.png",
+              "icon": "ob/fruit/fox_crow_grapes.png",
+              "png": "res/ob/fruit/fox_crow_grapes.png"
+            },
+            {
+              "cIcon": "ob/human/human_legs.png",
+              "icon": "ob/human/human_legs.png",
+              "png": "res/ob/human/human_legs.png"
+            },
+            {
+              "cIcon": "ob/kitchen/jug.png",
+              "icon": "ob/kitchen/jug.png",
+              "png": "res/ob/kitchen/jug.png"
+            },
+            {
+              "cIcon": "ob/kitchen/plate.png",
+              "icon": "ob/kitchen/plate.png",
+              "png": "res/ob/kitchen/plate.png"
+            },
+            {
+              "cIcon": "ob/kitchen/thirsty_crow_jug.png",
+              "icon": "ob/kitchen/thirsty_crow_jug.png",
+              "png": "res/ob/kitchen/thirsty_crow_jug.png"
+            },
+            {
+              "cIcon": "ob/kitchen/thirsty_crow_jug_01.png",
+              "icon": "ob/kitchen/thirsty_crow_jug_01.png",
+              "png": "res/ob/kitchen/thirsty_crow_jug_01.png"
+            },
+            {
+              "cIcon": "ob/kitchen/thirsty_crow_water_level.png",
+              "icon": "ob/kitchen/thirsty_crow_water_level.png",
+              "png": "res/ob/kitchen/thirsty_crow_water_level.png"
+            },
+            {
+              "cIcon": "ob/kitchen/thirsty_crow_water_level_01.png",
+              "icon": "ob/kitchen/thirsty_crow_water_level_01.png",
+              "png": "res/ob/kitchen/thirsty_crow_water_level_01.png"
+            },
+            {
+              "cIcon": "ob/sky/cloud.png",
+              "icon": "ob/sky/cloud.png",
+              "png": "res/ob/sky/cloud.png"
+            },
+            {
+              "cIcon": "ob/sky/cloud_1.png",
+              "icon": "ob/sky/cloud_1.png",
+              "png": "res/ob/sky/cloud_1.png"
+            },
+            {
+              "cIcon": "ob/sky/dog_bone_cloud.png",
+              "icon": "ob/sky/dog_bone_cloud.png",
+              "png": "res/ob/sky/dog_bone_cloud.png"
+            },
+            {
+              "cIcon": "ob/sky/sun.png",
+              "icon": "ob/sky/sun.png",
+              "png": "res/ob/sky/sun.png"
+            },
+            {
+              "cIcon": "ob/stone/shell_wings_rock.png",
+              "icon": "ob/stone/shell_wings_rock.png",
+              "png": "res/ob/stone/shell_wings_rock.png"
+            },
+            
+            {
+              "cIcon": "ob/lab_instrument/Ammeter.png",
+              "icon": "ob/lab_instrument/Ammeter.png",
+              "png": "res/ob/lab_instrument/Ammeter.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Beaker.png",
+              "icon": "ob/lab_instrument/Beaker.png",
+              "png": "res/ob/lab_instrument/Beaker.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Burner.png",
+              "icon": "ob/lab_instrument/Burner.png",
+              "png": "res/ob/lab_instrument/Burner.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Caliper.png",
+              "icon": "ob/lab_instrument/Caliper.png",
+              "png": "res/ob/lab_instrument/Caliper.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Corcks.png",
+              "icon": "ob/lab_instrument/Corcks.png",
+              "png": "res/ob/lab_instrument/Corcks.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Dropper.png",
+              "icon": "ob/lab_instrument/Dropper.png",
+              "png": "res/ob/lab_instrument/Dropper.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Electrode.png",
+              "icon": "ob/lab_instrument/Electrode.png",
+              "png": "res/ob/lab_instrument/Electrode.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Flask.png",
+              "icon": "ob/lab_instrument/Flask.png",
+              "png": "res/ob/lab_instrument/Flask.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Forceps.png",
+              "icon": "ob/lab_instrument/Forceps.png",
+              "png": "res/ob/lab_instrument/Forceps.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Funnel.png",
+              "icon": "ob/lab_instrument/Funnel.png",
+              "png": "res/ob/lab_instrument/Funnel.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Goggles.png",
+              "icon": "ob/lab_instrument/Goggles.png",
+              "png": "res/ob/lab_instrument/Goggles.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Lens.png",
+              "icon": "ob/lab_instrument/Lens.png",
+              "png": "res/ob/lab_instrument/Lens.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Magnet.png",
+              "icon": "ob/lab_instrument/Magnet.png",
+              "png": "res/ob/lab_instrument/Magnet.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Microscope.png",
+              "icon": "ob/lab_instrument/Microscope.png",
+              "png": "res/ob/lab_instrument/Microscope.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/pipette.png",
+              "icon": "ob/lab_instrument/pipette.png",
+              "png": "res/ob/lab_instrument/pipette.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Prism.png",
+              "icon": "ob/lab_instrument/Prism.png",
+              "png": "res/ob/lab_instrument/Prism.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/ScrewGauge.png",
+              "icon": "ob/lab_instrument/ScrewGauge.png",
+              "png": "res/ob/lab_instrument/ScrewGauge.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Spatula.png",
+              "icon": "ob/lab_instrument/Spatula.png",
+              "png": "res/ob/lab_instrument/Spatula.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/TestTube.png",
+              "icon": "ob/lab_instrument/TestTube.png",
+              "png": "res/ob/lab_instrument/TestTube.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/Tripod.png",
+              "icon": "ob/lab_instrument/Tripod.png",
+              "png": "res/ob/lab_instrument/Tripod.png"
+            },
+            {
+              "cIcon": "ob/lab_instrument/TuningFork.png",
+              "icon": "ob/lab_instrument/TuningFork.png",
+              "png": "res/ob/lab_instrument/TuningFork.png"
+            },
+            {
+              "cIcon": "ob/music_instrument/accordion.png",
+              "icon": "ob/music_instrument/accordion.png",
+              "png": "res/ob/music_instrument/accordion.png"
+            },
+            {
+              "cIcon": "ob/music_instrument/Bugle.png",
+              "icon": "ob/music_instrument/Bugle.png",
+              "png": "res/ob/music_instrument/Bugle.png"
+            },
+            {
+              "cIcon": "ob/music_instrument/Dhol.png",
+              "icon": "ob/music_instrument/Dhol.png",
+              "png": "res/ob/music_instrument/Dhol.png"
+            },
+            {
+              "cIcon": "ob/music_instrument/Drum.png",
+              "icon": "ob/music_instrument/Drum.png",
+              "png": "res/ob/music_instrument/Drum.png"
+            },
+            {
+              "cIcon": "ob/music_instrument/Flute.png",
+              "icon": "ob/music_instrument/Flute.png",
+              "png": "res/ob/music_instrument/Flute.png"
+            },
+            {
+              "cIcon": "ob/music_instrument/Guitar.png",
+              "icon": "ob/music_instrument/Guitar.png",
+              "png": "res/ob/music_instrument/Guitar.png"
+            },
+            {
+              "cIcon": "ob/music_instrument/Harp.png",
+              "icon": "ob/music_instrument/Harp.png",
+              "png": "res/ob/music_instrument/Harp.png"
+            },
+            {
+              "cIcon": "ob/music_instrument/Keyboard.png",
+              "icon": "ob/music_instrument/Keyboard.png",
+              "png": "res/ob/music_instrument/Keyboard.png"
+            },
+             {
+              "cIcon": "ob/music_instrument/Xylophone.png",
+              "icon": "ob/music_instrument/Xylophone.png",
+              "png": "res/ob/music_instrument/Xylophone.png"
+            }
+            
+          ]
+         },
+          {
+          "name": "animals",
+          "cIcon": "icons/animal_walk_onclick.png",
+          "icon": "icons/animal_walk.png",
+          "items": [
+            {
+              "cIcon": "ob/animal/Alligator.png",
+              "icon": "ob/animal/Alligator.png",
+              "png": "res/ob/animal/Alligator.png"
+            },
+            {
+              "cIcon": "ob/animal/ant.png",
+              "icon": "ob/animal/ant.png",
+              "png": "res/ob/animal/ant.png"
+            },
+            {
+              "cIcon": "ob/animal/bear.png",
+              "icon": "ob/animal/bear.png",
+              "png": "res/ob/animal/bear.png"
+            },
+            {
+              "cIcon": "ob/animal/Bee.png",
+              "icon": "ob/animal/Bee.png",
+              "png": "res/ob/animal/Bee.png"
+            },
+            {
+              "cIcon": "ob/animal/brachiosaurus.png",
+              "icon": "ob/animal/brachiosaurus.png",
+              "png": "res/ob/animal/brachiosaurus.png"
+            },
+            {
+              "cIcon": "ob/animal/Buffalo.png",
+              "icon": "ob/animal/Buffalo.png",
+              "png": "res/ob/animal/Buffalo.png"
+            },
+            {
+              "cIcon": "ob/animal/bug.png",
+              "icon": "ob/animal/bug.png",
+              "png": "res/ob/animal/bug.png"
+            },
+             {
+              "cIcon": "ob/animal/butterfly.png",
+              "icon": "ob/animal/butterfly.png",
+              "png": "res/ob/animal/butterfly.png"
+            },
+            {
+              "cIcon": "ob/animal/Camel.png",
+              "icon": "ob/animal/Camel.png",
+              "png": "res/ob/animal/Camel.png"
+            },
+            {
+              "cIcon": "ob/animal/Cat.png",
+              "icon": "ob/animal/Cat.png",
+              "png": "res/ob/animal/Cat.png"
+            },
+            {
+              "cIcon": "ob/animal/cockroach.png",
+              "icon": "ob/animal/cockroach.png",
+              "png": "res/ob/animal/cockroach.png"
+            },
+            {
+              "cIcon": "ob/animal/Crab.png",
+              "icon": "ob/animal/Crab.png",
+              "png": "res/ob/animal/Crab.png"
+            },
+            {
+              "cIcon": "ob/animal/Deer.png",
+              "icon": "ob/animal/Deer.png",
+              "png": "res/ob/animal/Deer.png"
+            },
+            {
+              "cIcon": "ob/animal/Dinosaur.png",
+              "icon": "ob/animal/Dinosaur.png",
+              "png": "res/ob/animal/Dinosaur.png"
+            },
+            {
+              "cIcon": "ob/animal/Dolphin.png",
+              "icon": "ob/animal/Dolphin.png",
+              "png": "res/ob/animal/Dolphin.png"
+            },
+            {
+              "cIcon": "ob/animal/dragonfly.png",
+              "icon": "ob/animal/dragonfly.png",
+              "png": "res/ob/animal/dragonfly.png"
+            },
+            {
+              "cIcon": "ob/animal/Duck.png",
+              "icon": "ob/animal/Duck.png",
+              "png": "res/ob/animal/Duck.png"
+            },
+            {
+              "cIcon": "ob/animal/Elephant.png",
+              "icon": "ob/animal/Elephant.png",
+              "png": "res/ob/animal/Elephant.png"
+            },
+            {
+              "cIcon": "ob/animal/fish.png",
+              "icon": "ob/animal/fish.png",
+              "png": "res/ob/animal/fish.png"
+            },
+            {
+              "cIcon": "ob/animal/Fish_01.png",
+              "icon": "ob/animal/Fish_01.png",
+              "png": "res/ob/animal/Fish_01.png"
+            },
+            {
+              "cIcon": "ob/animal/Fish_02.png",
+              "icon": "ob/animal/Fish_02.png",
+              "png": "res/ob/animal/Fish_02.png"
+            },
+            {
+              "cIcon": "ob/animal/Fish_03.png",
+              "icon": "ob/animal/Fish_03.png",
+              "png": "res/ob/animal/Fish_03.png"
+            },
+            {
+              "cIcon": "ob/animal/Fox.png",
+              "icon": "ob/animal/Fox.png",
+              "png": "res/ob/animal/fox.png"
+            },
+            {
+              "cIcon": "ob/animal/Frog.png",
+              "icon": "ob/animal/Frog.png",
+              "png": "res/ob/animal/Frog.png"
+            },
+            {
+              "cIcon": "ob/animal/Giraffe.png",
+              "icon": "ob/animal/Giraffe.png",
+              "png": "res/ob/animal/Giraffe.png"
+            },
+            {
+              "cIcon": "ob/animal/Goat.png",
+              "icon": "ob/animal/Goat.png",
+              "png": "res/ob/animal/Goat.png"
+            },
+            {
+              "cIcon": "ob/animal/Gorilla.png",
+              "icon": "ob/animal/Gorilla.png",
+              "png": "res/ob/animal/Gorilla.png"
+            },
+            {
+              "cIcon": "ob/animal/hamster.png",
+              "icon": "ob/animal/hamster.png",
+              "png": "res/ob/animal/hamster.png"
+            },
+            {
+              "cIcon": "ob/animal/hare.png",
+              "icon": "ob/animal/hare.png",
+              "png": "res/ob/animal/hare.png"
+            },
+            {
+              "cIcon": "ob/animal/Hippopotomus.png",
+              "icon": "ob/animal/Hippopotomus.png",
+              "png": "res/ob/animal/Hippopotomus.png"
+            },
+            {
+              "cIcon": "ob/animal/horse_01.png",
+              "icon": "ob/animal/horse_01.png",
+              "png": "res/ob/animal/horse_01.png"
+            },
+            {
+              "cIcon": "ob/animal/horse_02.png",
+              "icon": "ob/animal/horse_02.png",
+              "png": "res/ob/animal/horse_02.png"
+            },
+            {
+              "cIcon": "ob/animal/housefly.png",
+              "icon": "ob/animal/housefly.png",
+              "png": "res/ob/animal/housefly.png"
+            },
+            {
+              "cIcon": "ob/animal/Iguana.png",
+              "icon": "ob/animal/Iguana.png",
+              "png": "res/ob/animal/Iguana.png"
+            },
+            {
+              "cIcon": "ob/animal/Jaguar.png",
+              "icon": "ob/animal/Jaguar.png",
+              "png": "res/ob/animal/Jaguar.png"
+            },
+            {
+              "cIcon": "ob/animal/Kangaroo.png",
+              "icon": "ob/animal/Kangaroo.png",
+              "png": "res/ob/animal/Kangaroo.png"
+            },
+            {
+              "cIcon": "ob/animal/Kitten.png",
+              "icon": "ob/animal/Kitten.png",
+              "png": "res/ob/animal/Kitten.png"
+            },
+            {
+              "cIcon": "ob/animal/Koala.png",
+              "icon": "ob/animal/Koala.png",
+              "png": "res/ob/animal/Koala.png"
+            },
+            {
+              "cIcon": "ob/animal/Ladybug.png",
+              "icon": "ob/animal/Ladybug.png",
+              "png": "res/ob/animal/Ladybug.png"
+            },
+            {
+              "cIcon": "ob/animal/lion.png",
+              "icon": "ob/animal/lion.png",
+              "png": "res/ob/animal/lion.png"
+            },
+            {
+              "cIcon": "ob/animal/Monkey.png",
+              "icon": "ob/animal/Monkey.png",
+              "png": "res/ob/animal/Monkey.png"
+            },
+            {
+              "cIcon": "ob/animal/Nerhwal_Fish.png",
+              "icon": "ob/animal/Nerhwal_Fish.png",
+              "png": "res/ob/animal/Nerhwal_Fish.png"
+            },
+            {
+              "cIcon": "ob/animal/Occtopus.png",
+              "icon": "ob/animal/Occtopus.png",
+              "png": "res/ob/animal/Occtopus.png"
+            },
+            {
+              "cIcon": "ob/animal/Octopus.png",
+              "icon": "ob/animal/Octopus.png",
+              "png": "res/ob/animal/Octopus.png"
+            },
+            {
+              "cIcon": "ob/animal/owl.png",
+              "icon": "ob/animal/owl.png",
+              "png": "res/ob/animal/owl.png"
+            },
+            {
+              "cIcon": "ob/animal/Ox.png",
+              "icon": "ob/animal/Ox.png",
+              "png": "res/ob/animal/Ox.png"
+            },
+            {
+              "cIcon": "ob/animal/Penguin.png",
+              "icon": "ob/animal/Penguin.png",
+              "png": "res/ob/animal/Penguin.png"
+            },
+            {
+              "cIcon": "ob/animal/Penguin_1.png",
+              "icon": "ob/animal/Penguin_1.png",
+              "png": "res/ob/animal/Penguin_1.png"
+            },
+            {
+              "cIcon": "ob/animal/Pig.png",
+              "icon": "ob/animal/Pig.png",
+              "png": "res/ob/animal/Pig.png"
+            },
+            {
+              "cIcon": "ob/animal/pig (2).png",
+              "icon": "ob/animal/pig (2).png",
+              "png": "res/ob/animal/pig (2).png"
+            },
+            {
+              "cIcon": "ob/animal/python.png",
+              "icon": "ob/animal/python.png",
+              "png": "res/ob/animal/python.png"
+            },
+            {
+              "cIcon": "ob/animal/Quail_Bird.png",
+              "icon": "ob/animal/Quail_Bird.png",
+              "png": "res/ob/animal/Quail_Bird.png"
+            },
+            {
+              "cIcon": "ob/animal/Rabbit.png",
+              "icon": "ob/animal/Rabbit.png",
+              "png": "res/ob/animal/Rabbit.png"
+            },
+            {
+              "cIcon": "ob/animal/rat.png",
+              "icon": "ob/animal/rat.png",
+              "png": "res/ob/animal/rat.png"
+            },
+            {
+              "cIcon": "ob/animal/scorpion.png",
+              "icon": "ob/animal/scorpion.png",
+              "png": "res/ob/animal/scorpion.png"
+            },
+            {
+              "cIcon": "ob/animal/Shark.png",
+              "icon": "ob/animal/Shark.png",
+              "png": "res/ob/animal/Shark.png"
+            },
+            {
+              "cIcon": "ob/animal/sheep.png",
+              "icon": "ob/animal/sheep.png",
+              "png": "res/ob/animal/sheep.png"
+            },
+             {
+              "cIcon": "ob/animal/snake.png",
+              "icon": "ob/animal/snake.png",
+              "png": "res/ob/animal/snake.png"
+            },
+            {
+              "cIcon": "ob/animal/spider.png",
+              "icon": "ob/animal/spider.png",
+              "png": "res/ob/animal/spider.png"
+            },
+            {
+              "cIcon": "ob/animal/squid.png",
+              "icon": "ob/animal/squid.png",
+              "png": "res/ob/animal/squid.png"
+            },
+            {
+              "cIcon": "ob/animal/Swan.png",
+              "icon": "ob/animal/Swan.png",
+              "png": "res/ob/animal/Swan.png"
+            },
+            {
+              "cIcon": "ob/animal/T rex.png",
+              "icon": "ob/animal/T rex.png",
+              "png": "res/ob/animal/T rex.png"
+            },
+            {
+              "cIcon": "ob/animal/Tiger.png",
+              "icon": "ob/animal/Tiger.png",
+              "png": "res/ob/animal/Tiger.png"
+            },
+            {
+              "cIcon": "ob/animal/Tortoise.png",
+              "icon": "ob/animal/Tortoise.png",
+              "png": "res/ob/animal/tortoise.png"
+            },
+            {
+              "cIcon": "ob/animal/triceratops.png",
+              "icon": "ob/animal/triceratops.png",
+              "png": "res/ob/animal/triceratops.png"
+            },
+            {
+              "cIcon": "ob/animal/Unicorn.png",
+              "icon": "ob/animal/Unicorn.png",
+              "png": "res/ob/animal/Unicorn.png"
+            },
+            {
+              "cIcon": "ob/animal/Vulture.png",
+              "icon": "ob/animal/Vulture.png",
+              "png": "res/ob/animal/Vulture.png"
+            },
+            {
+              "cIcon": "ob/animal/Wolf.png",
+              "icon": "ob/animal/Wolf.png",
+              "png": "res/ob/animal/Wolf.png"
+            },
+            {
+              "cIcon": "ob/animal/X-Ray_Fish.png",
+              "icon": "ob/animal/X-Ray_Fish.png",
+              "png": "res/ob/animal/X-Ray_Fish.png"
+            },
+            {
+              "cIcon": "ob/animal/Yalk.png",
+              "icon": "ob/animal/Yalk.png",
+              "png": "res/ob/animal/Yalk.png"
+            },
+            {
+              "cIcon": "ob/animal/Zebra.png",
+              "icon": "ob/animal/Zebra.png",
+              "png": "res/ob/animal/Zebra.png"
+            }
+          ]
+          },
+           {
+          "name": "birds",
+          "cIcon": "icons/bird_fly_onclick.png",
+          "icon": "icons/bird_fly.png",
+          "items": [
+            
+            {
+              "cIcon": "ob/bird/bat.png",
+              "icon": "ob/bird/bat.png",
+              "png": "res/ob/bird/bat.png"
+            },
+            {
+              "cIcon": "ob/bird/crane.png",
+              "icon": "ob/bird/crane.png",
+              "png": "res/ob/bird/crane.png"
+            },
+            {
+              "cIcon": "ob/bird/crow.png",
+              "icon": "ob/bird/crow.png",
+              "png": "res/ob/bird/crow.png"
+            },
+            {
+              "cIcon": "ob/bird/crow2.png",
+              "icon": "ob/bird/crow2.png",
+              "png": "res/ob/bird/crow2.png"
+            },
+            {
+              "cIcon": "ob/bird/dove.png",
+              "icon": "ob/bird/dove.png",
+              "png": "res/ob/bird/dove.png"
+            },
+            {
+              "cIcon": "ob/bird/duck.png",
+              "icon": "ob/bird/duck.png",
+              "png": "res/ob/bird/duck.png"
+            },
+            {
+              "cIcon": "ob/bird/Eagle.png",
+              "icon": "ob/bird/Eagle.png",
+              "png": "res/ob/bird/Eagle.png"
+            },
+            {
+              "cIcon": "ob/bird/flamingo.png",
+              "icon": "ob/bird/flamingo.png",
+              "png": "res/ob/bird/flamingo.png"
+            },
+            {
+              "cIcon": "ob/bird/fox_crow_bird.png",
+              "icon": "ob/bird/fox_crow_bird.png",
+              "png": "res/ob/bird/fox_crow_bird.png"
+            },
+            {
+              "cIcon": "ob/bird/goose.png",
+              "icon": "ob/bird/goose.png",
+              "png": "res/ob/bird/goose.png"
+            },
+            {
+              "cIcon": "ob/bird/hen.png",
+              "icon": "ob/bird/hen.png",
+              "png": "res/ob/bird/hen.png"
+            },
+            {
+              "cIcon": "ob/bird/kingfisher.png",
+              "icon": "ob/bird/kingfisher.png",
+              "png": "res/ob/bird/kingfisher.png"
+            },
+            {
+              "cIcon": "ob/bird/ostrich.png",
+              "icon": "ob/bird/ostrich.png",
+              "png": "res/ob/bird/ostrich.png"
+            },
+            {
+              "cIcon": "ob/bird/Owl.png",
+              "icon": "ob/bird/Owl.png",
+              "png": "res/ob/bird/Owl.png"
+            },
+            {
+              "cIcon": "ob/bird/owl (2).png",
+              "icon": "ob/bird/owl (2).png",
+              "png": "res/ob/bird/owl (2).png"
+            },
+            {
+              "cIcon": "ob/bird/Parrot.png",
+              "icon": "ob/bird/Parrot.png",
+              "png": "res/ob/bird/Parrot.png"
+            },
+            {
+              "cIcon": "ob/bird/Peacock.png",
+              "icon": "ob/bird/Peacock.png",
+              "png": "res/ob/bird/Peacock.png"
+            },
+            {
+              "cIcon": "ob/bird/penguin.png",
+              "icon": "ob/bird/penguin.png",
+              "png": "res/ob/bird/penguin.png"
+            },
+            {
+              "cIcon": "ob/bird/pigeon.png",
+              "icon": "ob/bird/pigeon.png",
+              "png": "res/ob/bird/pigeon.png"
+            },
+            {
+              "cIcon": "ob/bird/Sparrow.png",
+              "icon": "ob/bird/Sparrow.png",
+              "png": "res/ob/bird/Sparrow.png"
+            },
+            {
+              "cIcon": "ob/bird/Squirrel.png",
+              "icon": "ob/bird/Squirrel.png",
+              "png": "res/ob/bird/Squirrel.png"
+            },
+            {
+              "cIcon": "ob/bird/swan.png",
+              "icon": "ob/bird/swan.png",
+              "png": "res/ob/bird/swan.png"
+            },
+            {
+              "cIcon": "ob/bird/toucan.png",
+              "icon": "ob/bird/toucan.png",
+              "png": "res/ob/bird/toucan.png"
+            },
+            {
+              "cIcon": "ob/bird/turkey.png",
+              "icon": "ob/bird/turkey.png",
+              "png": "res/ob/bird/turkey.png"
+            },
+            {
+              "cIcon": "ob/bird/village_bird.png",
+              "icon": "ob/bird/village_bird.png",
+              "png": "res/ob/bird/village_bird.png"
+            },
+            {
+              "cIcon": "ob/bird/village_bird_01.png",
+              "icon": "ob/bird/village_bird_01.png",
+              "png": "res/ob/bird/village_bird_01.png"
+            },
+            {
+              "cIcon": "ob/bird/vulture.png",
+              "icon": "ob/bird/vulture.png",
+              "png": "res/ob/bird/vulture.png"
+            },
+            {
+              "cIcon": "ob/bird/woodpicker.png",
+              "icon": "ob/bird/woodpicker.png",
+              "png": "res/ob/bird/woodpicker.png"
+            }
+          ]
+        },
+        {
+          "name": "home",
+          "cIcon": "icons/home_onclick.png",
+          "icon": "icons/home.png",
+          "items": [
+            {
+              "cIcon": "ob/house/fox_crow_home.png",
+              "icon": "ob/house/fox_crow_home.png",
+              "png": "res/ob/house/fox_crow_home.png"
+            },
+            {
+              "cIcon": "ob/house/house.png",
+              "icon": "ob/house/house.png",
+              "png": "res/ob/house/house.png"
+            },
+            {
+              "cIcon": "ob/house/selfish_horse_building_1.png",
+              "icon": "ob/house/selfish_horse_building_1.png",
+              "png": "res/ob/house/selfish_horse_building_1.png"
+            },
+            {
+              "cIcon": "ob/house/selfish_horse_building_2.png",
+              "icon": "ob/house/selfish_horse_building_2.png",
+              "png": "res/ob/house/selfish_horse_building_2.png"
+            },
+            {
+              "cIcon": "ob/house/selfish_horse_building_3.png",
+              "icon": "ob/house/selfish_horse_building_3.png",
+              "png": "res/ob/house/selfish_horse_building_3.png"
+            },
+            {
+              "cIcon": "ob/house/selfish_horse_building_4.png",
+              "icon": "ob/house/selfish_horse_building_4.png",
+              "png": "res/ob/house/selfish_horse_building_4s.png"
+            },
+            {
+              "cIcon": "ob/house/silly_goats_home.png",
+              "icon": "ob/house/silly_goats_home.png",
+              "png": "res/ob/house/silly_goats_home.png"
+            },
+            {
+              "cIcon": "ob/house/thirsty_crow_home.png",
+              "icon": "ob/house/thirsty_crow_home.png",
+              "png": "res/ob/house/thirsty_crow_home.png"
+            },
+            {
+              "cIcon": "ob/house/cage.png",
+              "icon": "ob/house/cage.png",
+              "png": "res/ob/house/cage.png"
+            }
+          ]
+        },
+        {
+          "name": "hills",
+          "cIcon": "icons/help_onclick.png",
+          "icon": "icons/help.png",
+          "items": [
+            {
+              "cIcon": "ob/hill/fox_crow_hill_1.png",
+              "icon": "ob/hill/fox_crow_hill_1.png",
+              "png": "res/ob/hill/fox_crow_hill_1.png"
+            },
+            {
+              "cIcon": "ob/hill/fox_crow_hill_2.png",
+              "icon": "ob/hill/fox_crow_hill_2.png",
+              "png": "res/ob/hill/fox_crow_hill_2.png"
+            },
+            {
+              "cIcon": "ob/hill/fox_crow_hill_3.png",
+              "icon": "ob/hill/fox_crow_hill_3.png",
+              "png": "res/ob/hill/fox_crow_hill_3.png"
+            },
+            {
+              "cIcon": "ob/hill/fox_crow_hill_4.png",
+              "icon": "ob/hill/fox_crow_hill_4.png",
+              "png": "res/ob/hill/fox_crow_hill_4.png"
+            },
+            {
+              "cIcon": "ob/hill/hill.png",
+              "icon": "ob/hill/hill.png",
+              "png": "res/ob/hill/hill.png"
+            },
+            {
+              "cIcon": "ob/hill/small_hill_01.png",
+              "icon": "ob/hill/small_hill_01.png",
+              "png": "res/ob/hill/small_hill_01.png"
+            },
+            {
+              "cIcon": "ob/hill/small_hill_02.png",
+              "icon": "ob/hill/small_hill_02.png",
+              "png": "res/ob/hill/small_hill_02.png"
+            },
+            {
+              "cIcon": "ob/hill/thirsty_crow_grass_Hill.png",
+              "icon": "ob/hill/thirsty_crow_grass_Hill.png",
+              "png": "res/ob/hill/thirsty_crow_grass_Hill.png"
+            },
+            {
+              "cIcon": "ob/hill/thirsty_crow_grass_Hill_01.png",
+              "icon": "ob/hill/thirsty_crow_grass_Hill_01.png",
+              "png": "res/ob/hill/thirsty_crow_grass_Hill_01.png"
+            },
+            {
+              "cIcon": "ob/hill/thirsty_crow_grass_Hill_02.png",
+              "icon": "ob/hill/thirsty_crow_grass_Hill_02.png",
+              "png": "res/ob/hill/thirsty_crow_grass_Hill_02.png"
+            },
+            {
+              "cIcon": "ob/hill/thirsty_crow_hill.png",
+              "icon": "ob/hill/thirsty_crow_hill.png",
+              "png": "res/ob/hill/thirsty_crow_hill.png"
+            }
+          ]
+        },
+        {
+          "name": "vehicles",
+          "cIcon": "icons/vehicle_onclick.png",
+          "icon": "icons/vehicle.png",
+          "items": [
+            {
+              "cIcon": "ob/vehicle/Ambulance.png",
+              "icon": "ob/vehicle/Ambulance.png",
+              "png": "res/ob/vehicle/Ambulance.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Auto.png",
+              "icon": "ob/vehicle/Auto.png",
+              "png": "res/ob/vehicle/Auto.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Bus.png",
+              "icon": "ob/vehicle/Bus.png",
+              "png": "res/ob/vehicle/Bus.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Car.png",
+              "icon": "ob/vehicle/Car.png",
+              "png": "res/ob/vehicle/Car.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Car_01.png",
+              "icon": "ob/vehicle/Car_01.png",
+              "png": "res/ob/vehicle/Car_01.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Jeep.png",
+              "icon": "ob/vehicle/Jeep.png",
+              "png": "res/ob/vehicle/Jeep.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Motocycle.png",
+              "icon": "ob/vehicle/Motocycle.png",
+              "png": "res/ob/vehicle/Motocycle.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Scooter.png",
+              "icon": "ob/vehicle/Scooter.png",
+              "png": "res/ob/vehicle/Scooter.png"
+            },
+            {
+              "cIcon": "ob/vehicle/Truck.png",
+              "icon": "ob/vehicle/Truck.png",
+              "png": "res/ob/vehicle/Truck.png"
+            },
+             {
+              "cIcon": "ob/vehicle/bullock_cart.png",
+              "icon": "ob/vehicle/bullock_cart.png",
+              "png": "res/ob/vehicle/bullock_cart.png"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "check",
+      "cIcon": "icons/check_disabled.png",
+      "icon": "icons/check.png"
+    }
+  ],
+  "addText": [
+    {
+      "name": "plus",
+      "icon": "icons/plus_done.png"
+    },
+    {
+      "name": "texts",
+      "cIcon": "icons/text_onclick.png",
+      "icon": "icons/text.png"
+    },
+    {
+      "name": "check",
+      "cIcon": "icons/check_onclick.png",
+      "icon": "icons/check.png"
+    },
+    {
+      "name": "record",
+      "icon": "icons/record_disabled.png"
+    },
+    {
+      "name": "play",
+      "icon": "icons/play_disabled.png"
+    }
+  ],
+  "addRecording": [
+    {
+      "name": "plus",
+      "icon": "icons/plus_done.png"
+    },
+    {
+      "name": "text",
+      "icon": "icons/text_done.png"
+    },
+    {
+      "name": "startRecording",
+      "cIcon": "icons/record_disabled.png",
+      "icon": "icons/start_recording.png",
+      "toggle": true
+    },
+    {
+      "name": "play",
+      "cIcon": "icons/play_disabled.png",
+      "icon": "icons/play.png"
+    },
+    {
+      "name": "check",
+      "cIcon": "icons/check_onclick.png",
+      "icon": "icons/check.png"
+    }
+  ],
+  "Human_Skeleton": [
+    {
+      "name": "translate",
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "scale",
+      "cIcon": "icons/scale_onclick.png",
+      "icon": "icons/scale.png"
+    },
+    {
+      "name": "delete",
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    },
+    {
+      "name": "customize",
+      "cIcon": "icons/avatar_onclick.png",
+      "icon": "icons/avatar.png"
+    },
+    {
+      "name": "animation",
+      "cIcon": "icons/animation_onclick.png",
+      "icon": "icons/animation.png"
+    }
+  ],
+  "animalskeleton": [
+    {
+      "name": "translate",
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "scale",
+      "cIcon": "icons/scale_onclick.png",
+      "icon": "icons/scale.png"
+    },
+    {
+      "name": "delete",
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    },
+    {
+      "name": "animation",
+      "cIcon": "icons/animation_onclick.png",
+      "icon": "icons/animation.png"
+    }
+  ],
+  "birdskeleton": [
+    {
+      "name": "translate",
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "scale",
+      "cIcon": "icons/scale_onclick.png",
+      "icon": "icons/scale.png"
+    },
+    {
+      "name": "delete",
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    }
+  ],
+  "editObject": [
+    {
+      "name": "translate",
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "scale",
+      "cIcon": "icons/scale_onclick.png",
+      "icon": "icons/scale.png"
+    },
+    {
+      "name": "flipX",
+      "cIcon": "icons/flipX_onclick.png",
+      "icon": "icons/flipX.png"
+    },
+    {
+      "name": "delete",
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    }
+  ],  
+  "editBackGroundObject": [
+    {
+      "name": "translate",
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "scale",
+      "cIcon": "icons/scale_onclick.png",
+      "icon": "icons/scale.png"
+    }
+  ],  
+  "editText": [
+    {
+      "cIcon": "icons/text_onclick.png",
+      "icon": "icons/text.png"
+    },
+    {
+      "cIcon": "icons/next_onclick.png",
+      "icon": "icons/next.png"
+    },
+    {
+      "cIcon": "icons/book_onclick.png",
+      "icon": "icons/book.png"
+    }
+  ],
+  "editDefault": [
+    {
+      "name": "back",
+      "cIcon": "icons/save_goback_onclick.png",
+      "icon": "icons/save_goback.png"
+    }
+  ],
+  "editStory": [
+    {
+      "name": "story",
+      "cIcon": "icons/plus_onclick.png",
+      "icon": "icons/plus.png"
+    },
+    {
+      "name": "save",
+      "cIcon": "icons/publish_onclick.png",
+      "icon": "icons/publish.png"
+    }
+  ],
+  "editPage": [
+    {
+      "name": "edit",
+      "cIcon": "icons/edit_onclick.png",
+      "icon": "icons/edit.png"
+    },
+    {
+      "name": "delete",
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    },
+    {
+      "name": "prev",
+      "cIcon": "icons/back_onclick.png",
+      "icon": "icons/back.png"
+    },
+    {
+      "name": "next",
+      "cIcon": "icons/next_arrow_onclick.png",
+      "icon": "icons/next_arrow.png"
+    }
+  ],
+  "blank": []
+}

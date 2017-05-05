@@ -1,0 +1,123 @@
+{
+  "ID": "fdae550f-e25a-481a-af06-af24ae1fe72d",
+  "Version": "3.10.0.0",
+  "Name": "Scene6",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 32,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "scene2/bg_b.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 897.5339,
+              "Y": 899.8782
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4986,
+              "Y": 0.4999
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -2.4661,
+            "RightMargin": 2.4661,
+            "TopMargin": 0.1218,
+            "BottomMargin": -0.1218,
+            "Tag": 45,
+            "ActionTag": 797045339,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "bg_b_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "scene6/bg7.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 933.214,
+              "Y": 450.3783
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5185,
+              "Y": 0.2502
+            },
+            "PreSize": {
+              "X": 0.9633,
+              "Y": 0.5028
+            },
+            "LeftMargin": 66.214,
+            "RightMargin": -0.214,
+            "TopMargin": 897.1217,
+            "BottomMargin": -2.1217,
+            "Tag": 33,
+            "ActionTag": -1202862056,
+            "Size": {
+              "X": 1734.0,
+              "Y": 905.0
+            },
+            "Name": "bg7_1",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "scene2/bg_b.png",
+        "scene6/bg7.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

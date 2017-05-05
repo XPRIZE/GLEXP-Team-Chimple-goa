@@ -1,0 +1,307 @@
+{
+  "ID": "7851f49a-8339-4585-a2a4-5b790df55854",
+  "Version": "3.10.0.0",
+  "Name": "forest_06",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 138,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/sky_day_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 887.1247,
+              "Y": 1105.8153
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4928,
+              "Y": 0.6143
+            },
+            "PreSize": {
+              "X": 0.9244,
+              "Y": 0.6589
+            },
+            "LeftMargin": 55.1247,
+            "RightMargin": 80.8752,
+            "TopMargin": 101.1847,
+            "BottomMargin": 512.8153,
+            "Tag": 139,
+            "ActionTag": 965466497,
+            "Size": {
+              "X": 1664.0,
+              "Y": 1186.0
+            },
+            "Name": "sky_day_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/ground_day_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 894.0682,
+              "Y": 491.9401
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4967,
+              "Y": 0.2733
+            },
+            "PreSize": {
+              "X": 0.9256,
+              "Y": 0.3611
+            },
+            "LeftMargin": 61.0682,
+            "RightMargin": 72.9319,
+            "TopMargin": 983.0599,
+            "BottomMargin": 166.9401,
+            "Tag": 140,
+            "ActionTag": 1281805588,
+            "Size": {
+              "X": 1666.0,
+              "Y": 650.0
+            },
+            "Name": "ground_day_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_06.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 418.399,
+              "Y": 699.7158
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2324,
+              "Y": 0.3887
+            },
+            "PreSize": {
+              "X": 0.1656,
+              "Y": 0.22
+            },
+            "LeftMargin": 269.399,
+            "RightMargin": 1232.601,
+            "TopMargin": 902.2842,
+            "BottomMargin": 501.7158,
+            "Tag": 144,
+            "ActionTag": -1082115619,
+            "Size": {
+              "X": 298.0,
+              "Y": 396.0
+            },
+            "Name": "bush_day_06",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/cave/cave_day_03.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 922.4553,
+              "Y": 751.8651
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5125,
+              "Y": 0.4177
+            },
+            "PreSize": {
+              "X": 0.66,
+              "Y": 0.4056
+            },
+            "LeftMargin": 328.4553,
+            "RightMargin": 283.5447,
+            "TopMargin": 683.1349,
+            "BottomMargin": 386.8651,
+            "Tag": 141,
+            "ActionTag": -1109961431,
+            "Size": {
+              "X": 1188.0,
+              "Y": 730.0
+            },
+            "Name": "cave_day_03",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_09.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1433.9172,
+              "Y": 482.1064
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7966,
+              "Y": 0.2678
+            },
+            "PreSize": {
+              "X": 0.1522,
+              "Y": 0.13
+            },
+            "LeftMargin": 1296.9172,
+            "RightMargin": 229.0828,
+            "TopMargin": 1200.8936,
+            "BottomMargin": 365.1064,
+            "Tag": 142,
+            "ActionTag": 1248243262,
+            "Size": {
+              "X": 274.0,
+              "Y": 234.0
+            },
+            "Name": "bush_day_09",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/bush_day_07.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 292.6696,
+              "Y": 491.7786
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1626,
+              "Y": 0.2732
+            },
+            "PreSize": {
+              "X": 0.1167,
+              "Y": 0.1056
+            },
+            "LeftMargin": 187.6696,
+            "RightMargin": 1402.3304,
+            "TopMargin": 1213.2214,
+            "BottomMargin": 396.7786,
+            "Tag": 143,
+            "ActionTag": 233236001,
+            "Size": {
+              "X": 210.0,
+              "Y": 190.0
+            },
+            "Name": "bush_day_07",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/ground_day_01.png",
+        "bg/sky_day_01.png",
+        "ob/tree/bush_day_06.png",
+        "ob/tree/bush_day_07.png",
+        "ob/tree/bush_day_09.png",
+        "ob/cave/cave_day_03.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

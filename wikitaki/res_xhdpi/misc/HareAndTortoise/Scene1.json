@@ -1,0 +1,215 @@
+{
+  "ID": "3314f45a-fcca-41e8-af38-0d684cca0b59",
+  "Version": "3.10.0.0",
+  "Name": "Scene1",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 23,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Scene1/scene_2_sky.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 910.6833,
+              "Y": 920.614
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5059,
+              "Y": 0.5115
+            },
+            "PreSize": {
+              "X": 0.95,
+              "Y": 0.6778
+            },
+            "LeftMargin": 55.6833,
+            "RightMargin": 34.3167,
+            "TopMargin": 269.386,
+            "BottomMargin": 310.614,
+            "Tag": 24,
+            "ActionTag": 678629750,
+            "Size": {
+              "X": 1710.0,
+              "Y": 1220.0
+            },
+            "Name": "scene_2_sky_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Scene2/ground.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 894.5842,
+              "Y": 428.9968
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.497,
+              "Y": 0.2383
+            },
+            "PreSize": {
+              "X": 0.8972,
+              "Y": 0.1411
+            },
+            "LeftMargin": 87.0842,
+            "RightMargin": 97.9158,
+            "TopMargin": 1244.0032,
+            "BottomMargin": 301.9968,
+            "Tag": 25,
+            "ActionTag": -1684358309,
+            "Size": {
+              "X": 1615.0,
+              "Y": 254.0
+            },
+            "Name": "ground_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Scene1/stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 638.0334,
+              "Y": 428.996
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3545,
+              "Y": 0.2383
+            },
+            "PreSize": {
+              "X": 0.06,
+              "Y": 0.1339
+            },
+            "LeftMargin": 584.0334,
+            "RightMargin": 1107.9666,
+            "TopMargin": 1250.5039,
+            "BottomMargin": 308.496,
+            "Tag": 26,
+            "ActionTag": -1147900764,
+            "Size": {
+              "X": 108.0,
+              "Y": 241.0
+            },
+            "Name": "stone_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Scene1/grass.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 686.7468,
+              "Y": 571.018
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3815,
+              "Y": 0.3172
+            },
+            "PreSize": {
+              "X": 0.0206,
+              "Y": 0.0567
+            },
+            "LeftMargin": 668.2468,
+            "RightMargin": 1094.7532,
+            "TopMargin": 1177.9819,
+            "BottomMargin": 520.018,
+            "Tag": 27,
+            "ActionTag": 155254944,
+            "Size": {
+              "X": 37.0,
+              "Y": 102.0
+            },
+            "Name": "grass_4",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Scene1/grass.png",
+        "Scene2/ground.png",
+        "Scene1/scene_2_sky.png",
+        "Scene1/stone.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
