@@ -12,6 +12,7 @@
 #include "../menu/LevelHelpOverlay.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "StartMenuScene.h"
+#include "MainMenuHome.hpp"
 
 static const std::string CURRENT_LEVEL = ".currentLevel";
 const std::map<std::string, std::string> MapScene::levelToGameNameMap = MapScene::createLevelToGameName();
@@ -102,10 +103,17 @@ bool MapScene::init()
 }
 
 
-void MapScene::loadMap() {
+void MapScene::loadMap() {    
+    const int numCols = 4;
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+    
     Node *rootNode = CSLoader::createNode(MAP_FILE);
     this->addChild(rootNode);
     this->processChildNodes(rootNode);
+    cocos2d::ui::Button* backButton = createBackButton();
+    backButton->setPosition(Vec2(origin.x + 150, origin.y + visibleSize.height - 150));
+    this->addChild(backButton);
 }
 
 
@@ -190,12 +198,13 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
                         if(!lockAll) {
                             button->setEnabled(true);
                         } else {
-                            int cLevel = std::atoi(buttonLevel.c_str());
-                            if(cLevel <= unlockLevel) {
-                                button->setEnabled(true);
-                            } else {
-                                button->setEnabled(false);
-                            }
+                            button->setEnabled(true);
+//                            int cLevel = std::atoi(buttonLevel.c_str());
+//                            if(cLevel <= unlockLevel) {
+//                                button->setEnabled(true);
+//                            } else {
+//                                button->setEnabled(false);
+//                            }
                         }
                     } else {
                         button->setEnabled(false);
@@ -258,3 +267,25 @@ const std::map<std::string, std::string> MapScene::createLevelToGameName() {
     return levelToGameNameMaps;
 }
 
+cocos2d::ui::Button* MapScene::createBackButton() {
+    
+    std::string buttonNormalIcon = "menu/back.png";
+    std::string buttonPressedIcon = buttonNormalIcon;
+    cocos2d::ui::Button* button = ui::Button::create();
+    std::string buttonDisabledIcon = buttonNormalIcon;
+    if(buttonDisabledIcon.find(".png") != std::string::npos) {
+        buttonDisabledIcon = buttonDisabledIcon.insert(buttonDisabledIcon.find(".png"), "_disabled");
+    }
+    
+    button->loadTextureNormal(buttonNormalIcon);
+    button->loadTexturePressed(buttonPressedIcon);
+    button->loadTextureDisabled(buttonDisabledIcon);
+    button->addTouchEventListener(CC_CALLBACK_2(MapScene::backButtonPressed, this));
+    
+    return button;
+}
+
+void MapScene::backButtonPressed(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    Director::getInstance()->replaceScene(MainMenuHome::createScene());
+}

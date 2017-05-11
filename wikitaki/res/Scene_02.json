@@ -1,0 +1,274 @@
+{
+  "ID": "83b0ef3c-f3d0-42c3-863b-db1da7e9cdb9",
+  "Version": "3.10.0.0",
+  "Name": "Scene_02",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 31,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 177,
+              "G": 147,
+              "B": 73
+            },
+            "FirstColor": {
+              "R": 34,
+              "G": 132,
+              "B": 240
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleX": -0.4695,
+              "ScaleY": -0.8829
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -33.5327,
+              "Y": -10.0345
+            },
+            "Scale": {
+              "ScaleX": 1.0258,
+              "ScaleY": 0.5793
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0186,
+              "Y": -0.0056
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -33.5327,
+            "RightMargin": 33.5327,
+            "TopMargin": 10.0344,
+            "BottomMargin": -10.0345,
+            "Tag": 44,
+            "ActionTag": 1943645272,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "ground_01",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 34,
+              "G": 132,
+              "B": 240
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleX": -0.0872,
+              "ScaleY": -0.9962
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -25.3864,
+              "Y": 909.2639
+            },
+            "Scale": {
+              "ScaleX": 1.0258,
+              "ScaleY": 0.5112
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0141,
+              "Y": 0.5051
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -25.3864,
+            "RightMargin": 25.3864,
+            "TopMargin": -909.2639,
+            "BottomMargin": 909.2639,
+            "Tag": 45,
+            "ActionTag": 245342688,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "sky_01",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/ground_03.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 917.8217,
+              "Y": 863.8308
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5099,
+              "Y": 0.4799
+            },
+            "PreSize": {
+              "X": 1.015,
+              "Y": 0.4422
+            },
+            "LeftMargin": 4.3217,
+            "RightMargin": -31.3217,
+            "TopMargin": 538.1692,
+            "BottomMargin": 465.8308,
+            "Tag": 46,
+            "ActionTag": -1048486330,
+            "Size": {
+              "X": 1827.0,
+              "Y": 796.0
+            },
+            "Name": "ground_03",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/house/house_01.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 147.322,
+              "Y": 1190.5096
+            },
+            "Scale": {
+              "ScaleX": 3.5398,
+              "ScaleY": 3.5398
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0818,
+              "Y": 0.6614
+            },
+            "PreSize": {
+              "X": 0.1672,
+              "Y": 0.1422
+            },
+            "LeftMargin": -3.178,
+            "RightMargin": 1502.178,
+            "TopMargin": 481.4904,
+            "BottomMargin": 1062.5096,
+            "Tag": 33,
+            "ActionTag": -1158573838,
+            "Size": {
+              "X": 301.0,
+              "Y": 256.0
+            },
+            "Name": "house_01",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/tree_day_03.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1365.7014,
+              "Y": 1027.2562
+            },
+            "Scale": {
+              "ScaleX": 1.6523,
+              "ScaleY": 1.5627
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7587,
+              "Y": 0.5707
+            },
+            "PreSize": {
+              "X": 0.3594,
+              "Y": 0.4639
+            },
+            "LeftMargin": 1042.2014,
+            "RightMargin": 110.7986,
+            "TopMargin": 355.2438,
+            "BottomMargin": 609.7562,
+            "Tag": 34,
+            "ActionTag": 1575754982,
+            "Size": {
+              "X": 647.0,
+              "Y": 835.0
+            },
+            "Name": "tree_day_03",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/ground_03.png",
+        "ob/house/house_01.png",
+        "ob/tree/tree_day_03.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

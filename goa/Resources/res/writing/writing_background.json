@@ -1,6 +1,6 @@
 {
-  "ID": "0f03276e-1bb6-413d-9581-25988a2a431f",
-  "Version": "3.10.0.0",
+  "ID": "2a3d4ee9-3153-4b20-97f7-6df87ef29120",
+  "Version": "2.3.4",
   "Name": "writing_background",
   "Content": {
     "Content": {
@@ -12,15 +12,15 @@
       },
       "AnimationList": [],
       "ObjectData": {
-        "Tag": 9,
+        "Tag": 94,
         "Children": [
           {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
-              "R": 168,
-              "G": 193,
-              "B": 108
+              "R": 171,
+              "G": 211,
+              "B": 244
             },
             "FirstColor": {
               "R": 150,
@@ -30,7 +30,8 @@
             "ColorVector": {
               "ScaleY": 1.0
             },
-            "TouchEnable": true,
+            "Scale9Width": 1,
+            "Scale9Height": 1,
             "AnchorPoint": {},
             "Position": {
               "X": -260.0,
@@ -52,8 +53,8 @@
             },
             "LeftMargin": -260.0,
             "RightMargin": -280.0,
-            "Tag": 15,
-            "ActionTag": 1416497084,
+            "Tag": 82,
+            "ActionTag": 1571634467,
             "Size": {
               "X": 3100.0,
               "Y": 1800.0
@@ -64,7 +65,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "writing/tree1.png",
+              "Path": "writing/hill_4.png",
               "Plist": "writing/writing.plist"
             },
             "BlendFunc": {
@@ -76,8 +77,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 183.7004,
-              "Y": 839.7763
+              "X": 1020.5018,
+              "Y": 841.8073
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -86,30 +87,76 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.0718,
-              "Y": 0.4665
+              "X": 0.3986,
+              "Y": 0.4677
             },
             "PreSize": {
-              "X": 0.0484,
-              "Y": 0.9489
+              "X": 1.0012,
+              "Y": 0.3728
             },
-            "LeftMargin": 121.7004,
-            "RightMargin": 2314.2996,
-            "TopMargin": 106.2236,
-            "BottomMargin": -14.2237,
-            "Tag": 27,
-            "ActionTag": 1895030381,
+            "LeftMargin": -260.4982,
+            "RightMargin": 258.498,
+            "TopMargin": 622.1926,
+            "BottomMargin": 505.8073,
+            "Tag": 132,
+            "ActionTag": -1640055934,
             "Size": {
-              "X": 124.0,
-              "Y": 1708.0
+              "X": 2562.0,
+              "Y": 672.0
             },
-            "Name": "tree1_1",
+            "Name": "hill_4_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "writing/hill_4.png",
+              "Plist": "writing/writing.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1561.9048,
+              "Y": 844.928
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6101,
+              "Y": 0.4694
+            },
+            "PreSize": {
+              "X": 1.0008,
+              "Y": 0.3733
+            },
+            "LeftMargin": 280.9048,
+            "RightMargin": -282.9048,
+            "TopMargin": 619.072,
+            "BottomMargin": 508.928,
+            "Tag": 335,
+            "ActionTag": 1963590862,
+            "Size": {
+              "X": 2562.0,
+              "Y": 672.0
+            },
+            "Name": "hill_4_1_0",
             "ctype": "SpriteObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "writing/tree1.png",
+              "Path": "writing/moon.png",
               "Plist": "writing/writing.plist"
             },
             "BlendFunc": {
@@ -121,8 +168,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1230.296,
-              "Y": 862.5772
+              "X": 736.3328,
+              "Y": 1282.0776
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -131,204 +178,24 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4806,
-              "Y": 0.4792
+              "X": 0.2876,
+              "Y": 0.7123
             },
             "PreSize": {
-              "X": 0.0484,
-              "Y": 0.9489
+              "X": 0.0395,
+              "Y": 0.0561
             },
-            "LeftMargin": 1168.296,
-            "RightMargin": 1267.704,
-            "TopMargin": 83.4229,
-            "BottomMargin": 8.5772,
-            "Tag": 28,
-            "ActionTag": 1905936136,
+            "LeftMargin": 685.8328,
+            "RightMargin": 1773.1672,
+            "TopMargin": 467.4224,
+            "BottomMargin": 1231.5776,
+            "Tag": 598,
+            "ActionTag": 671145559,
             "Size": {
-              "X": 124.0,
-              "Y": 1708.0
+              "X": 101.0,
+              "Y": 101.0
             },
-            "Name": "tree1_1_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "writing/tree1.png",
-              "Plist": "writing/writing.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2404.6709,
-              "Y": 875.6978
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.9393,
-              "Y": 0.4865
-            },
-            "PreSize": {
-              "X": 0.0484,
-              "Y": 0.9489
-            },
-            "LeftMargin": 2342.6709,
-            "RightMargin": 93.3291,
-            "TopMargin": 70.3022,
-            "BottomMargin": 21.6978,
-            "Tag": 29,
-            "ActionTag": -1214780775,
-            "Size": {
-              "X": 124.0,
-              "Y": 1708.0
-            },
-            "Name": "tree1_1_1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "writing/tree1.png",
-              "Plist": "writing/writing.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 626.7048,
-              "Y": 908.5033
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2448,
-              "Y": 0.5047
-            },
-            "PreSize": {
-              "X": 0.0484,
-              "Y": 0.9489
-            },
-            "LeftMargin": 564.7048,
-            "RightMargin": 1871.2952,
-            "TopMargin": 37.4967,
-            "BottomMargin": 54.5033,
-            "Tag": 152,
-            "ActionTag": -1255668655,
-            "Size": {
-              "X": 124.0,
-              "Y": 1708.0
-            },
-            "Name": "tree1_1_2",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "writing/tree1.png",
-              "Plist": "writing/writing.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 754.7978,
-              "Y": 885.3796
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2948,
-              "Y": 0.4919
-            },
-            "PreSize": {
-              "X": 0.0484,
-              "Y": 0.9489
-            },
-            "LeftMargin": 692.7978,
-            "RightMargin": 1743.2021,
-            "TopMargin": 60.6204,
-            "BottomMargin": 31.3796,
-            "Tag": 153,
-            "ActionTag": 1423048953,
-            "Size": {
-              "X": 124.0,
-              "Y": 1708.0
-            },
-            "Name": "tree1_1_0_0",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "writing/tree1.png",
-              "Plist": "writing/writing.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1863.5605,
-              "Y": 885.3787
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.728,
-              "Y": 0.4919
-            },
-            "PreSize": {
-              "X": 0.0484,
-              "Y": 0.9489
-            },
-            "LeftMargin": 1801.5605,
-            "RightMargin": 634.4395,
-            "TopMargin": 60.6213,
-            "BottomMargin": 31.3787,
-            "Tag": 154,
-            "ActionTag": 1918403900,
-            "Size": {
-              "X": 124.0,
-              "Y": 1708.0
-            },
-            "Name": "tree1_1_1_0",
+            "Name": "moon_91",
             "ctype": "SpriteObjectData"
           }
         ],

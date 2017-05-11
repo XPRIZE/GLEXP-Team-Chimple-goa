@@ -371,7 +371,8 @@ std::vector<MessageContent*> Sqlite3Helper::findALLHints() {
         LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
         std::string convertedHint = LangUtil::getInstance()->translateString(hint);
         
-        CCLOG("hints: %s, %s", hint.c_str(), convertedHint.c_str());
+//        CCLOG("hints: %s, %s", hint.c_str(), convertedHint.c_str());
+        CCLOG("hints: %s", convertedHint.c_str());
         
         messages.push_back(content);
     }
@@ -415,7 +416,8 @@ std::vector<MessageContent*> Sqlite3Helper::findALLDialogs() {
         LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
         std::string convertedString = LangUtil::getInstance()->translateString(dialog);
         
-        CCLOG("dialog: %s, %s", dialog.c_str(), convertedString.c_str());
+//        CCLOG("dialog: %s, %s", dialog.c_str(), convertedString.c_str());
+        CCLOG("dialog: %s", convertedString.c_str());
         
         messages.push_back(content);
     }

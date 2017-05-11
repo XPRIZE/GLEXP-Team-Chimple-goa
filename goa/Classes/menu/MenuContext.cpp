@@ -254,8 +254,7 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                 else if(gameName == "story-catalogue") {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMainHomeMenu, this));
-                }
-                else if(gameName == "StoryCoverPage" || isStories!=std::string::npos) {
+                } else if(gameName == "StoryCoverPage" || isStories!=std::string::npos) {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMainHomeMenu, this));
                     _bookMenu = this->createMenuItem("menu/level.png", "menu/level.png", "menu/level.png", 2 * POINTS_TO_LEFT);
@@ -263,13 +262,15 @@ void MenuContext::expandMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEv
                     _helpMenu = this->createMenuItem("menu/help.png", "menu/help.png", "menu/help.png", 3 * POINTS_TO_LEFT);
                     _helpMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showHelp, this));
                     
-                }
-                else if(gameName == "levelMenu" || gameName == "map") {
+                } else if(gameName == "map") {
+                    _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
+                    _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMainHomeMenu, this));
+                } else if(gameName == "levelMenu") {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
                 } else if(gameName == "ChooseCharacterScene") {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
-                    _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showGamesMenu, this));
+                    _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMapMenu, this));
                 } else if(gameName == "Award") {
                     _gamesMenu = this->createMenuItem("menu/game.png", "menu/game.png", "menu/game.png", 1 * POINTS_TO_LEFT);
                     _gamesMenu->addTouchEventListener(CC_CALLBACK_2(MenuContext::showMainHomeMenu, this));
@@ -1107,6 +1108,22 @@ void MenuContext::showMainHomeMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::T
 }
 
 
+
+void MenuContext::showMapMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
+        if(_launchCustomEventOnExit) {
+            std::string menuName(GAME_MAP_MENU);
+            EventCustom event("on_menu_exit");
+            event.setUserData(static_cast<void*>(&menuName));
+            _eventDispatcher->dispatchEvent(&event);
+            
+        } else {
+            Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
+        }
+    }
+}
+
+
 void MenuContext::showGamesMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     if(eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
         if(_launchCustomEventOnExit) {
@@ -1497,10 +1514,10 @@ void MenuContext::pronounceWord(std::string word) {
 //
 //        #endif
 //    }
-    else {
-        std::replace(word.begin(), word.end(), '_', ' ');
-        pronounceHashedText(word);
-    }
+//    else {
+//        std::replace(word.begin(), word.end(), '_', ' ');
+//        pronounceHashedText(word);
+//    }
 }
 
 std::vector<cocos2d::Vec2> MenuContext::getPolygonPointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold) {

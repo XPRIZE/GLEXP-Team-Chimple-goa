@@ -1,0 +1,305 @@
+{
+  "ID": "9d44c56b-bf46-4e22-946e-37e9dd7537f6",
+  "Version": "3.10.0.0",
+  "Name": "Page_03",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 31,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/fox_crow_background_02.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 899.0417,
+              "Y": 900.4465
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4995,
+              "Y": 0.5002
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -0.9583,
+            "RightMargin": 0.9583,
+            "TopMargin": -0.4465,
+            "BottomMargin": 0.4465,
+            "Tag": 32,
+            "ActionTag": -1955471211,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "background_02",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/fox_crow_tree_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 500.9216,
+              "Y": 1006.3474
+            },
+            "Scale": {
+              "ScaleX": 2.4513,
+              "ScaleY": 2.4513
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2783,
+              "Y": 0.5591
+            },
+            "PreSize": {
+              "X": 0.1806,
+              "Y": 0.3261
+            },
+            "LeftMargin": 338.4216,
+            "RightMargin": 1136.5784,
+            "TopMargin": 500.1526,
+            "BottomMargin": 712.8474,
+            "Tag": 33,
+            "ActionTag": -268586374,
+            "Size": {
+              "X": 325.0,
+              "Y": 587.0
+            },
+            "Name": "tree_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/fox_crow_tree_3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1425.4272,
+              "Y": 825.5016
+            },
+            "Scale": {
+              "ScaleX": 1.9904,
+              "ScaleY": 1.9904
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7919,
+              "Y": 0.4586
+            },
+            "PreSize": {
+              "X": 0.0422,
+              "Y": 0.1139
+            },
+            "LeftMargin": 1387.4272,
+            "RightMargin": 336.5728,
+            "TopMargin": 871.9984,
+            "BottomMargin": 723.0016,
+            "Tag": 34,
+            "ActionTag": -136680234,
+            "Size": {
+              "X": 76.0,
+              "Y": 205.0
+            },
+            "Name": "tree_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/fox_crow_cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 235.159,
+              "Y": 1237.712
+            },
+            "Scale": {
+              "ScaleX": 0.5957,
+              "ScaleY": 0.7487
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1306,
+              "Y": 0.6876
+            },
+            "PreSize": {
+              "X": 0.2889,
+              "Y": 0.0533
+            },
+            "LeftMargin": -24.841,
+            "RightMargin": 1304.8411,
+            "TopMargin": 514.288,
+            "BottomMargin": 1189.712,
+            "Tag": 35,
+            "ActionTag": -28481600,
+            "Size": {
+              "X": 520.0,
+              "Y": 96.0
+            },
+            "Name": "cloud_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/fox_crow_cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1411.902,
+              "Y": 1591.3749
+            },
+            "Scale": {
+              "ScaleX": 0.8628,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7844,
+              "Y": 0.8841
+            },
+            "PreSize": {
+              "X": 0.2889,
+              "Y": 0.0533
+            },
+            "LeftMargin": 1151.902,
+            "RightMargin": 128.098,
+            "TopMargin": 160.6251,
+            "BottomMargin": 1543.3749,
+            "Tag": 36,
+            "ActionTag": 1433817880,
+            "Size": {
+              "X": 520.0,
+              "Y": 96.0
+            },
+            "Name": "cloud_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/fox_crow_cloud.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1098.0996,
+              "Y": 1171.6256
+            },
+            "Scale": {
+              "ScaleX": 0.6154,
+              "ScaleY": 0.6772
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6101,
+              "Y": 0.6509
+            },
+            "PreSize": {
+              "X": 0.2889,
+              "Y": 0.0533
+            },
+            "LeftMargin": 838.0996,
+            "RightMargin": 441.9004,
+            "TopMargin": 580.3744,
+            "BottomMargin": 1123.6256,
+            "Tag": 37,
+            "ActionTag": -1284779413,
+            "Size": {
+              "X": 520.0,
+              "Y": 96.0
+            },
+            "Name": "cloud_3",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "ob/sky/fox_crow_cloud.png",
+        "ob/tree/fox_crow_tree_1.png",
+        "ob/tree/fox_crow_tree_3.png",
+        "bg/fox_crow_background_02.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

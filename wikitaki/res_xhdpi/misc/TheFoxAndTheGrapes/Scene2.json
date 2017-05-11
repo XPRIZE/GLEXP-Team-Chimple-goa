@@ -1,0 +1,262 @@
+{
+  "ID": "3b8039f9-b288-478d-bcc9-69b866e4e8ea",
+  "Version": "3.10.0.0",
+  "Name": "Scene_2",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 28,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Scene_2/bg.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 900.6432,
+              "Y": 694.9895
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5004,
+              "Y": 0.3861
+            },
+            "PreSize": {
+              "X": 0.9333,
+              "Y": 0.7044
+            },
+            "LeftMargin": 60.6432,
+            "RightMargin": 59.3568,
+            "TopMargin": 471.0105,
+            "BottomMargin": 60.9895,
+            "Tag": 29,
+            "ActionTag": -1955818908,
+            "Size": {
+              "X": 1680.0,
+              "Y": 1268.0
+            },
+            "Name": "bg_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Scene_2/tree_7.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 700.9064,
+              "Y": 805.8973
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3894,
+              "Y": 0.4477
+            },
+            "PreSize": {
+              "X": 0.1594,
+              "Y": 0.3339
+            },
+            "LeftMargin": 557.4064,
+            "RightMargin": 955.5936,
+            "TopMargin": 693.6027,
+            "BottomMargin": 505.3973,
+            "Tag": 30,
+            "ActionTag": -996872022,
+            "Size": {
+              "X": 287.0,
+              "Y": 601.0
+            },
+            "Name": "tree_7_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Scene_2/tree_6.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 454.9724,
+              "Y": 979.4972
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2528,
+              "Y": 0.5442
+            },
+            "PreSize": {
+              "X": 0.3733,
+              "Y": 0.7811
+            },
+            "LeftMargin": 118.9724,
+            "RightMargin": 1009.0276,
+            "TopMargin": 117.5028,
+            "BottomMargin": 276.4972,
+            "Tag": 31,
+            "ActionTag": 1046669510,
+            "Size": {
+              "X": 672.0,
+              "Y": 1406.0
+            },
+            "Name": "tree_6_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Scene_2/grape.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 647.6809,
+              "Y": 824.4263
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3598,
+              "Y": 0.458
+            },
+            "PreSize": {
+              "X": 0.1033,
+              "Y": 0.1194
+            },
+            "LeftMargin": 554.6809,
+            "RightMargin": 1059.3191,
+            "TopMargin": 868.0737,
+            "BottomMargin": 716.9263,
+            "Tag": 32,
+            "ActionTag": -2069627859,
+            "Size": {
+              "X": 186.0,
+              "Y": 215.0
+            },
+            "Name": "grape_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Scene_2/grape.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 609.0051,
+              "Y": 1163.8704
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -29.0,
+            "RotationSkewY": -29.0,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3383,
+              "Y": 0.6466
+            },
+            "PreSize": {
+              "X": 0.1033,
+              "Y": 0.1194
+            },
+            "LeftMargin": 516.0051,
+            "RightMargin": 1097.9949,
+            "TopMargin": 528.6296,
+            "BottomMargin": 1056.3704,
+            "Tag": 33,
+            "ActionTag": -877570615,
+            "Size": {
+              "X": 186.0,
+              "Y": 215.0
+            },
+            "Name": "grape_5",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Scene_2/bg.png",
+        "Scene_2/grape.png",
+        "Scene_2/tree_6.png",
+        "Scene_2/tree_7.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

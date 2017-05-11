@@ -1,0 +1,45 @@
+{
+    "project_type": "javascript",
+
+    "debugMode" : 1,
+    "showFPS" : false,
+    "frameRate" : 60,
+    "noCache" : false,
+    "id" : "gameCanvas",
+    "renderMode" : 0,
+    "engineDir":"frameworks/cocos2d-html5",
+
+    "modules" : ["cocos2d", "cocostudio"],
+
+    "jsList" : [
+        "src/resource.js",
+        "src/app.js",
+        "src/ui/PageConfigPanel.js",
+        "src/ui/ObjectConfigPanel.js",
+        "src/ui/AbstractContentPanel.js",
+        "src/ui/ContentPanel.js",
+        "src/ui/PlayContentPanel.js",     
+        "src/ui/BaseConfigPanel.js",     
+        "src/ui/ButtonPanel.js",
+        "src/ui/ScrollableButtonPanel.js",        
+        "src/ui/TabBar.js",
+        "src/ui/TabPanel.js",
+        "src/ui/TabBarPanel.js",
+        "src/ui/PreviewPanel.js",
+        "src/ui/TextCreatePanel.js",
+        "src/util/CharacterUtil.js",
+        "src/util/ParseUtil.js",
+        "src/TextEditScene.js",
+        "src/PlayRecordingScene.js",
+        "src/SpriteTouchHandler.js",
+        "src/SkeletonTouchHandler.js",
+        "src/TextTouchHandler.js",
+        "src/EditStoryScene.js",
+        "src/play.js",
+        "src/Preload.js",
+        "src/pako.js",
+        "src/ui/TextReadPanel.js",
+        "src/lz-string.js",
+        "src/jsonc.js"       
+    ]
+}

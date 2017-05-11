@@ -14,10 +14,10 @@ USING_NS_CC;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32)
 static const char* audioExt = ".wav";
 #else
-static const char* audioExt = ".m4a";
+static const char* audioExt = ".ogg";
 #endif
 
-static const char* pronounciationAudioExt = ".mp3";
+static const char* pronounciationAudioExt = ".ogg";
 
 static const wchar_t* const allCharacters = L"ABCDEFGHIJKLMNOPRSTUVWYZ" ;
 static const wchar_t* const allLowerCaseCharacters = L"abcdefghijklmnoprstuvwyz" ;

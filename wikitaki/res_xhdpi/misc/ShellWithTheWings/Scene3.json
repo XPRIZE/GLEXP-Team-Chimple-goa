@@ -1,0 +1,169 @@
+{
+  "ID": "b0400100-4d1a-40a3-8ac4-d1830a7b3d48",
+  "Version": "3.10.0.0",
+  "Name": "Scene3",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 14,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "scene2/bg_b.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 900.2734,
+              "Y": 900.518
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5002,
+              "Y": 0.5003
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": 0.2734,
+            "RightMargin": -0.2734,
+            "TopMargin": -0.5181,
+            "BottomMargin": 0.518,
+            "Tag": 15,
+            "ActionTag": -2076495069,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "bg_b_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "scene3/bg3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 902.5554,
+              "Y": 564.6927
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5014,
+              "Y": 0.3137
+            },
+            "PreSize": {
+              "X": 0.8467,
+              "Y": 0.2517
+            },
+            "LeftMargin": 140.5554,
+            "RightMargin": 135.4446,
+            "TopMargin": 1008.8073,
+            "BottomMargin": 338.1927,
+            "Tag": 16,
+            "ActionTag": -1293685117,
+            "Size": {
+              "X": 1524.0,
+              "Y": 453.0
+            },
+            "Name": "bg3_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "scene3/rocks.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1199.2731,
+              "Y": 512.5934
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6663,
+              "Y": 0.2848
+            },
+            "PreSize": {
+              "X": 0.2328,
+              "Y": 0.2311
+            },
+            "LeftMargin": 989.7731,
+            "RightMargin": 391.2269,
+            "TopMargin": 1079.4066,
+            "BottomMargin": 304.5934,
+            "Tag": 17,
+            "ActionTag": 2112074379,
+            "Size": {
+              "X": 419.0,
+              "Y": 416.0
+            },
+            "Name": "rocks_3",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "scene2/bg_b.png",
+        "scene3/bg3.png",
+        "scene3/rocks.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -110,8 +110,19 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 		bubblelevelValues = _menuContext->getCurrentLevel();
 		for (int i = 0; i < numberOfLetter; i++) {
 			auto indexLetter = (((bubblelevelValues - 1)*numberOfLetter) + i);
-			if (indexLetter >= 26)
+		
+			if (indexLetter >= 26 && LangUtil::getInstance()->getLang() == "eng") {
 				indexLetter = floor(rand_0_1() * (indexLetter - 3));
+			}
+
+			if (indexLetter >= 24 && LangUtil::getInstance()->getLang() == "swa") {
+				indexLetter = floor(rand_0_1() * (indexLetter - 3));
+			}
+
+			if (LangLetter.size() < indexLetter) {
+				indexLetter = getRandomInt(0, (LangLetter.size() - 1));
+			}
+
 			auto letter = LangLetter[indexLetter];
 			if (letter.empty()) {
 				letterSprite[i] = LangLetter[getRandomInt(0, (LangLetter.size() - 1))];
@@ -259,7 +270,7 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 		extendedGameX = extendedGameX - 45;
 	}
 
-	if (bubblelevelValues == 1) {
+	if (_menuContext->getCurrentLevel() == 1) {
 		auto window = Director::getInstance()->getVisibleSize();
 		auto help = HelpLayer::create(Rect((window.width - (window.width - 2560)) * 0.5, window.height *0.75, window.width - (window.width - 2560), window.height *0.5), Rect(this->getChildByName("gunbase")->getPositionX(), this->getChildByName("gunbase")->getPositionY(), this->getChildByName("bubblePlayer")->getContentSize().width, this->getChildByName("bubblePlayer")->getContentSize().height));
 		addChild(help, 4);

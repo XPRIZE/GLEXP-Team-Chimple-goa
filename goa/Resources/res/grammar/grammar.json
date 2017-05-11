@@ -16,7 +16,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "grammar/background.json",
+              "Path": "grammar/grammar_background.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -57,7 +57,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "grammar/mainground.json",
+              "Path": "grammar/grammar_mainground.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -98,7 +98,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "grammar/foreground.json",
+              "Path": "grammar/grammar_foreground.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -139,7 +139,7 @@
           {
             "FileData": {
               "Type": "Normal",
-              "Path": "grammar/frontground.json",
+              "Path": "grammar/grammar_frontground.json",
               "Plist": ""
             },
             "StretchWidthEnable": false,
@@ -186,10 +186,10 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "background.json",
-        "foreground.json",
-        "frontground.json",
-        "mainground.json"
+        "grammar_background.json",
+        "grammar_foreground.json",
+        "grammar_frontground.json",
+        "grammar_mainground.json"
       ],
       "ctype": "GameFileData"
     }

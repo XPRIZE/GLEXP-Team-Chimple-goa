@@ -804,16 +804,10 @@ void HelloWorld::removeLoadedSearchPath() {
 }
 
 void HelloWorld::querySceneToLoadInIsland() {
-    
-    std::hash<std::string> str_hash;
-    
-    
-    unsigned long out = std::hash<std::string>()("testing herer");
-    CCLOG("outoutout %ld", out);
-    
-    this->sqlite3Helper->findALLDialogs();
-    
-    this->sqlite3Helper->findALLHints();
+        
+//    this->sqlite3Helper->findALLDialogs();
+//    
+//    this->sqlite3Helper->findALLHints();
     
     this->skeletonPositionInLastVisitedScene = this->sqlite3Helper->findLastVisitedSceneInIsland(this->getIsland().c_str(), this->getSceneName().c_str());
     
@@ -1704,7 +1698,7 @@ bool HelloWorld::greyLayerTouched(Touch *touch, Event *event)
 void HelloWorld::transitToMenu(EventCustom * event) {
     std::string &menuName = *(static_cast<std::string*>(event->getUserData()));
     if(menuName == GAME_MAP_MENU) {
-        Director::getInstance()->replaceScene(TransitionFade::create(2.0, ScrollableGameMapScene::createScene(), Color3B::BLACK));
+        Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
     } else if(menuName == MAP_MENU) {
         Director::getInstance()->replaceScene(TransitionFade::create(2.0, MapScene::createScene(), Color3B::BLACK));
     } else {

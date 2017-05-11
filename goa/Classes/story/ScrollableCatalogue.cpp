@@ -17,6 +17,7 @@
 #include "external/json/writer.h"
 #include "../effects/FShake.h"
 #include "QuestionHandler.h"
+#include "../menu/MainMenuHome.hpp"
 
 USING_NS_CC;
 
@@ -165,8 +166,82 @@ bool ScrollableCatalogue::init() {
         const char* output = buffer.GetString();
         localStorageSetItem(UNLOCKED_STORY_ID_ORDER, output);
         
+        menuContext->createNewUnlockStoryDocument("storyId_1");
+        menuContext->createNewUnlockStoryDocument("storyId_2");
         menuContext->createNewUnlockStoryDocument("storyId_3");
+        menuContext->createNewUnlockStoryDocument("storyId_4");
+        menuContext->createNewUnlockStoryDocument("storyId_5");
         menuContext->createNewUnlockStoryDocument("storyId_6");
+        menuContext->createNewUnlockStoryDocument("storyId_7");
+        menuContext->createNewUnlockStoryDocument("storyId_8");
+        menuContext->createNewUnlockStoryDocument("storyId_9");
+        menuContext->createNewUnlockStoryDocument("storyId_10");
+        menuContext->createNewUnlockStoryDocument("storyId_11");
+        menuContext->createNewUnlockStoryDocument("storyId_12");
+        menuContext->createNewUnlockStoryDocument("storyId_13");
+        menuContext->createNewUnlockStoryDocument("storyId_14");
+        menuContext->createNewUnlockStoryDocument("storyId_15");
+        menuContext->createNewUnlockStoryDocument("storyId_16");
+        menuContext->createNewUnlockStoryDocument("storyId_17");
+        menuContext->createNewUnlockStoryDocument("storyId_18");
+        menuContext->createNewUnlockStoryDocument("storyId_19");
+        menuContext->createNewUnlockStoryDocument("storyId_20");
+        menuContext->createNewUnlockStoryDocument("storyId_21");
+        menuContext->createNewUnlockStoryDocument("storyId_22");
+        menuContext->createNewUnlockStoryDocument("storyId_23");
+        menuContext->createNewUnlockStoryDocument("storyId_24");
+        menuContext->createNewUnlockStoryDocument("storyId_25");
+        menuContext->createNewUnlockStoryDocument("storyId_26");
+        menuContext->createNewUnlockStoryDocument("storyId_27");
+        menuContext->createNewUnlockStoryDocument("storyId_28");
+        menuContext->createNewUnlockStoryDocument("storyId_29");
+        menuContext->createNewUnlockStoryDocument("storyId_30");
+        menuContext->createNewUnlockStoryDocument("storyId_31");
+        menuContext->createNewUnlockStoryDocument("storyId_32");
+        menuContext->createNewUnlockStoryDocument("storyId_33");
+        menuContext->createNewUnlockStoryDocument("storyId_34");
+        menuContext->createNewUnlockStoryDocument("storyId_35");
+        menuContext->createNewUnlockStoryDocument("storyId_36");
+        menuContext->createNewUnlockStoryDocument("storyId_37");
+        menuContext->createNewUnlockStoryDocument("storyId_38");
+        menuContext->createNewUnlockStoryDocument("storyId_39");
+        menuContext->createNewUnlockStoryDocument("storyId_40");
+        menuContext->createNewUnlockStoryDocument("storyId_41");
+        menuContext->createNewUnlockStoryDocument("storyId_42");
+        menuContext->createNewUnlockStoryDocument("storyId_43");
+        menuContext->createNewUnlockStoryDocument("storyId_44");
+        menuContext->createNewUnlockStoryDocument("storyId_45");
+        menuContext->createNewUnlockStoryDocument("storyId_46");
+        menuContext->createNewUnlockStoryDocument("storyId_47");
+        menuContext->createNewUnlockStoryDocument("storyId_48");
+        menuContext->createNewUnlockStoryDocument("storyId_49");
+        menuContext->createNewUnlockStoryDocument("storyId_50");
+        menuContext->createNewUnlockStoryDocument("storyId_51");
+        menuContext->createNewUnlockStoryDocument("storyId_52");
+        menuContext->createNewUnlockStoryDocument("storyId_53");
+        menuContext->createNewUnlockStoryDocument("storyId_54");
+        menuContext->createNewUnlockStoryDocument("storyId_55");
+        menuContext->createNewUnlockStoryDocument("storyId_56");
+        menuContext->createNewUnlockStoryDocument("storyId_57");
+        menuContext->createNewUnlockStoryDocument("storyId_58");
+        menuContext->createNewUnlockStoryDocument("storyId_59");
+        menuContext->createNewUnlockStoryDocument("storyId_60");
+        menuContext->createNewUnlockStoryDocument("storyId_61");
+        menuContext->createNewUnlockStoryDocument("storyId_62");
+        menuContext->createNewUnlockStoryDocument("storyId_63");
+        menuContext->createNewUnlockStoryDocument("storyId_64");
+        menuContext->createNewUnlockStoryDocument("storyId_65");
+        menuContext->createNewUnlockStoryDocument("storyId_66");
+        menuContext->createNewUnlockStoryDocument("storyId_67");
+        menuContext->createNewUnlockStoryDocument("storyId_68");
+        menuContext->createNewUnlockStoryDocument("storyId_69");
+        menuContext->createNewUnlockStoryDocument("storyId_70");
+        menuContext->createNewUnlockStoryDocument("storyId_71");
+        menuContext->createNewUnlockStoryDocument("storyId_72");
+        menuContext->createNewUnlockStoryDocument("storyId_73");
+        menuContext->createNewUnlockStoryDocument("storyId_74");
+        menuContext->createNewUnlockStoryDocument("storyId_75");
+        menuContext->createNewUnlockStoryDocument("storyId_76");
     }
     
     
@@ -270,6 +345,10 @@ bool ScrollableCatalogue::init() {
             
         }
     }
+    
+    cocos2d::ui::Button* backButton = createBackButton();
+    backButton->setPosition(Vec2(origin.x + 150, origin.y + visibleSize.height - 150));
+    this->addChild(backButton);
     
     return true;
 }
@@ -456,4 +535,27 @@ void ScrollableCatalogue::loadStory(Ref* pSender, ui::Widget::TouchEventType eEv
     
 }
 
+
+cocos2d::ui::Button* ScrollableCatalogue::createBackButton() {
+    
+    std::string buttonNormalIcon = "menu/back.png";
+    std::string buttonPressedIcon = buttonNormalIcon;
+    cocos2d::ui::Button* button = ui::Button::create();
+    std::string buttonDisabledIcon = buttonNormalIcon;
+    if(buttonDisabledIcon.find(".png") != std::string::npos) {
+        buttonDisabledIcon = buttonDisabledIcon.insert(buttonDisabledIcon.find(".png"), "_disabled");
+    }
+    
+    button->loadTextureNormal(buttonNormalIcon);
+    button->loadTexturePressed(buttonPressedIcon);
+    button->loadTextureDisabled(buttonDisabledIcon);
+    button->addTouchEventListener(CC_CALLBACK_2(ScrollableCatalogue::backButtonPressed, this));
+    
+    return button;
+}
+
+void ScrollableCatalogue::backButtonPressed(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    Director::getInstance()->replaceScene(MainMenuHome::createScene());
+}
 

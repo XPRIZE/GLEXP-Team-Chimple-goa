@@ -54,7 +54,9 @@ protected:
     
     void loadStory(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
-    void transitionToStory(float dt);    
+    void transitionToStory(float dt);
+    cocos2d::ui::Button* createBackButton();
+    void backButtonPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };
 
 

@@ -595,9 +595,6 @@
     "span": "9",
     "numLevels": "72",
     "rewards": {
-      "32": {
-        "unlock": "JumpOnWords"
-      },
       "12": {
         "badge": "s/life_saver"
       },
@@ -627,27 +624,5 @@
     "maingroundJson": "balloonhero/bllevelmng.json",
     "menuPlist": "plevelscreen/plevelscreen.plist",
     "menuPng": "plevelscreen/plevelscreen.png"
-  },
-  {
-    "name": "map",
-    "title": "Hero",
-    "unlock": true,
-    "cIcon": "gameicons/hero_pressed.png",
-    "icon": "gameicons/hero.png",
-    "multiPlayer": false,
-    "isJSGame": false,
-    "script": "src/NonJSGameLauncher.js",
-    "numLevels": "8",
-    "rewards": {
-      "1": {
-        "badge": "s/golden_boot"
-      },
-      "2": {
-        "badge": "g/gem_balloon"
-      },
-      "3": {
-        "badge": "s/golden_boot"
-      }
-    }
   }
 ]
