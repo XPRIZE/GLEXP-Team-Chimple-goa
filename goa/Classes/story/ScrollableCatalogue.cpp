@@ -17,6 +17,7 @@
 #include "external/json/writer.h"
 #include "../effects/FShake.h"
 #include "QuestionHandler.h"
+#include "../menu/MainMenuHome.hpp"
 
 USING_NS_CC;
 
@@ -344,6 +345,10 @@ bool ScrollableCatalogue::init() {
         }
     }
     
+    cocos2d::ui::Button* backButton = createBackButton();
+    backButton->setPosition(Vec2(origin.x + 150, origin.y + visibleSize.height - 150));
+    this->addChild(backButton);
+    
     return true;
 }
 
@@ -529,4 +534,27 @@ void ScrollableCatalogue::loadStory(Ref* pSender, ui::Widget::TouchEventType eEv
     
 }
 
+
+cocos2d::ui::Button* ScrollableCatalogue::createBackButton() {
+    
+    std::string buttonNormalIcon = "menu/back.png";
+    std::string buttonPressedIcon = buttonNormalIcon;
+    cocos2d::ui::Button* button = ui::Button::create();
+    std::string buttonDisabledIcon = buttonNormalIcon;
+    if(buttonDisabledIcon.find(".png") != std::string::npos) {
+        buttonDisabledIcon = buttonDisabledIcon.insert(buttonDisabledIcon.find(".png"), "_disabled");
+    }
+    
+    button->loadTextureNormal(buttonNormalIcon);
+    button->loadTexturePressed(buttonPressedIcon);
+    button->loadTextureDisabled(buttonDisabledIcon);
+    button->addTouchEventListener(CC_CALLBACK_2(ScrollableCatalogue::backButtonPressed, this));
+    
+    return button;
+}
+
+void ScrollableCatalogue::backButtonPressed(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    Director::getInstance()->replaceScene(MainMenuHome::createScene());
+}
 

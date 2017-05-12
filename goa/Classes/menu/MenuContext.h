@@ -129,6 +129,7 @@ protected:
     void showMainHomeMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void changePhoto(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void showHelp(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    void showMapMenu(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     void waitForAudioLoad(std::string audioFileName, std::function<void(bool isSuccess)>callback);
     void chimpHelp();
     void tellHelp();

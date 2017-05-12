@@ -68,6 +68,15 @@
 
 USING_NS_CC;
 
+std::map<std::string, cocos2d::Color3B> ScrollableGameMapScene::BUTTON_TEXT_COLOR_MAP = {
+    {"alphabet", Color3B(0xFF, 0xC0, 0xC0)},
+    {"shapes", Color3B(0xFF, 0xF2, 0x00)},
+    {"writing", Color3B(0x27, 0x43, 0x48)},
+    {"words", Color3B(0x58, 0x39, 0x41)},
+    {"maths", Color3B(0x47, 0x11, 0x11)},
+    {"grammar", Color3B(0xC4, 0xC4, 0x92)}
+};
+
 ScrollableGameMapScene::ScrollableGameMapScene(): _greyLayer(NULL),_gameNameToNavigate(""), _subGameMenuToNavigate("")
 {
 }
@@ -399,7 +408,14 @@ cocos2d::ui::Button* ScrollableGameMapScene::createButton(const rapidjson::Value
         button->setTitleText(LangUtil::getInstance()->translateString(gameJson["title"].GetString()));
         button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
         button->setTitleFontName("fonts/Roboto-Regular.ttf");
-        button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
+        auto titleColor = Color3B(0xFF, 0xF2, 0x00);
+        if(!_subGameMenuToNavigate.empty()) {
+            auto it = BUTTON_TEXT_COLOR_MAP.find(_subGameMenuToNavigate);
+            if (it != BUTTON_TEXT_COLOR_MAP.end()) {
+                titleColor = BUTTON_TEXT_COLOR_MAP.at(_subGameMenuToNavigate);
+            }
+        }
+        button->setTitleColor(titleColor);
         button->setTitleFontSize(72);
         auto label = button->getTitleRenderer();
         label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 300));
