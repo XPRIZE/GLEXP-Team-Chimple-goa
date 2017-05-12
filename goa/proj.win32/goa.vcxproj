@@ -298,6 +298,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\jazz.cpp" />
     <ClCompile Include="..\Classes\mini_games\JumpingNumbers.cpp" />
     <ClCompile Include="..\Classes\mini_games\Line.cpp" />
+    <ClCompile Include="..\Classes\mini_games\MathLearning.cpp" />
     <ClCompile Include="..\Classes\mini_games\Memory.cpp" />
     <ClCompile Include="..\Classes\mini_games\MemoryHero.cpp" />
     <ClCompile Include="..\Classes\mini_games\MemoryJungle.cpp" />
@@ -536,6 +537,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\jazz.h" />
     <ClInclude Include="..\Classes\mini_games\JumpingNumbers.h" />
     <ClInclude Include="..\Classes\mini_games\Line.h" />
+    <ClInclude Include="..\Classes\mini_games\MathLearning.h" />
     <ClInclude Include="..\Classes\mini_games\Memory.h" />
     <ClInclude Include="..\Classes\mini_games\MemoryHero.h" />
     <ClInclude Include="..\Classes\mini_games\MemoryJungle.h" />
