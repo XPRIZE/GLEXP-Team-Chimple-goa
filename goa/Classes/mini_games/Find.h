@@ -33,6 +33,7 @@ protected:
 	std::vector<string> _data_key;
 	std::vector<string> _data_value;
 	int _itemCounter = 0;
+	std::vector<LabelTTF*> _propsLabelBin;
 
 public:
 	CREATE_FUNC(Find);
@@ -43,6 +44,7 @@ public:
 	void addTouchEvents(Sprite* touchSprite);
 	string StringandIntConcat(string data, int number);
 	void shake(Node *sprite);
+	void namePopup(float dt);
 	string getConvertInUpperCase(string data);
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
