@@ -93,6 +93,7 @@ std::string StartMenu::parseGameConfig(std::string gameConfigStr) {
 const std::vector<std::string> StartMenu::getGameNames() {
     std::vector<std::string> gameNames;
 
+	gameNames.push_back(BASICMULTIPLICATION);
 	gameNames.push_back(ALPHAPHONICS);
 	gameNames.push_back(DECOMON);
 	gameNames.push_back(POPCOUNT);
