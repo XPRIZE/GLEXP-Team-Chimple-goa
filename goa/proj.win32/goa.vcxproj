@@ -267,6 +267,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\mini_games\BajaWordScene.cpp" />
     <ClCompile Include="..\Classes\mini_games\Balloon.cpp" />
     <ClCompile Include="..\Classes\mini_games\BalloonHero.cpp" />
+    <ClCompile Include="..\Classes\mini_games\BasicMultiplication.cpp" />
     <ClCompile Include="..\Classes\mini_games\Bingo.cpp" />
     <ClCompile Include="..\Classes\mini_games\BlastLetter.cpp" />
     <ClCompile Include="..\Classes\mini_games\BlastLetterNode.cpp" />
@@ -505,6 +506,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\mini_games\BajaWordScene.h" />
     <ClInclude Include="..\Classes\mini_games\Balloon.h" />
     <ClInclude Include="..\Classes\mini_games\BalloonHero.h" />
+    <ClInclude Include="..\Classes\mini_games\BasicMultiplication.h" />
     <ClInclude Include="..\Classes\mini_games\Bingo.h" />
     <ClInclude Include="..\Classes\mini_games\BlastLetter.h" />
     <ClInclude Include="..\Classes\mini_games\BlastLetterNode.h" />
