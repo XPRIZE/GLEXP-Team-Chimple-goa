@@ -22,19 +22,7 @@ Scene* MathLearning::createScene()
 void MathLearning::onEnterTransitionDidFinish()
 {
 
-	CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
-	framecache1->addSpriteFramesWithFile("find/find.plist");
-
-	int gameCurrentLevel = _menuContext->getCurrentLevel();
-
-	auto findBackground = CSLoader::createNode("find/find.csb");
-	this->addChild(findBackground, 0);
-	findBackground->setName("bg");
-
-	if (visibleSize.width > 2560) {
-		auto myGameWidth = (visibleSize.width - 2560) / 2;
-		findBackground->setPositionX(myGameWidth);
-	}
+	
 	this->scheduleUpdate();
 }
 
