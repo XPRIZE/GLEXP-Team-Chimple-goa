@@ -104,6 +104,11 @@ void Find::onEnterTransitionDidFinish()
 		addTouchEvents(temp);
 		_propsBin.push_back(temp);
 
+		LabelTTF *label1 = CommonLabelTTF::create(getConvertInUpperCase(_data_key[j]), "Helvetica", 75);
+		label1->setPosition(Vec2(temp->getContentSize().width/2, -50));
+		temp->addChild(label1, 3);
+		_propsLabelBin.push_back(label1);
+		//label1->setVisible(false);
 		/*auto a = temp->getPositionX() - (temp->getContentSize().width / 2)*0.5;
 		auto b = temp->getPositionY() - (temp->getContentSize().height / 2)*0.5;
 		auto E = DrawNode::create();
@@ -155,7 +160,7 @@ void Find::onEnterTransitionDidFinish()
 	}
 	}), NULL));
 	
-
+	this->schedule(schedule_selector(Find::namePopup), 8);
 	this->scheduleUpdate();
 }
 
@@ -178,12 +183,34 @@ void Find::update(float dt)
 {
 }
 
+void Find::namePopup(float dt)
+{
+	auto funcAppear = CCCallFunc::create([=] {
+
+		for (auto it = _propsLabelBin.begin(); it != _propsLabelBin.end(); ++it)
+		{
+			CCFadeIn *fadeIn = FadeIn::create(1);
+			LabelTTF *labelTemp = *it;
+			labelTemp->runAction(fadeIn);
+		}
+	});
+	auto funcDisappear = CCCallFunc::create([=] {
+
+		for (auto it = _propsLabelBin.begin(); it != _propsLabelBin.end(); ++it)
+		{
+			CCFadeOut *fadeOut = FadeOut::create(1);
+			LabelTTF *labelTemp = *it;
+			labelTemp->runAction(fadeOut);
+		}
+	});
+	this->runAction(Sequence::create(funcDisappear, DelayTime::create(5), funcAppear, NULL));
+}
 void Find::addTouchEvents(Sprite* sprite)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
 	auto displayText = (LabelTTF*)this->getChildByName("spell");
-	string str = displayText->getString();
+	
 	
 	listener->onTouchBegan = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
@@ -196,8 +223,6 @@ void Find::addTouchEvents(Sprite* sprite)
 				_helpFlag = true;
 				this->removeChild(_help);
 			}
-
-			displayText->setString(getConvertInUpperCase(target->getName()));
 
 			string textOriginal = this->getChildByName("spell")->getName();
 			string name = getConvertInUpperCase(target->getName());
@@ -223,7 +248,7 @@ void Find::addTouchEvents(Sprite* sprite)
 					
 					//Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
 				});
-				this->runAction(Sequence::create(funcAct, DelayTime::create(1), CCCallFunc::create([=] {_touchFlag = true; displayText->setString(str); }), NULL));
+				this->runAction(Sequence::create(funcAct, DelayTime::create(1), CCCallFunc::create([=] {_touchFlag = true; }), NULL));
 			}
 			else
 			{
@@ -273,11 +298,9 @@ void Find::addTouchEvents(Sprite* sprite)
 	};
 	listener->onTouchMoved = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
-
 	};
 	listener->onTouchEnded = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
-		displayText->setString(str);
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, sprite);
 }
