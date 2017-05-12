@@ -91,7 +91,9 @@
 #include "../mini_games/AlphaArrange.h"
 #include "../mini_games/AlphaPhonics.h"
 #include "../mini_games/Find.h"
+#include "../mini_games/MathLearning.h"
 #include "../mini_games/BasicMultiplication.h"
+
 
 USING_NS_CC;
 using namespace cocos2d::ui;
@@ -1083,6 +1085,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
 		else if (gameName == FIND) {
 			Director::getInstance()->replaceScene(Find::createScene());
+		}
+		else if (gameName == MATHLEARNING) {
+			Director::getInstance()->replaceScene(MathLearning::createScene());
 		}
 		else if (gameName == BASICMULTIPLICATION) {
 			Director::getInstance()->replaceScene(BasicMultiplication::createScene());
