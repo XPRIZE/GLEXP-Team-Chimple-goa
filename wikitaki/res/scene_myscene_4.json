@@ -1,0 +1,169 @@
+{
+  "ID": "626fe6ac-f01e-49fa-86b2-756f341ec453",
+  "Version": "3.10.0.0",
+  "Name": "scene4",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 19,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/scene_mybg4.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 895.78,
+              "Y": 891.2358
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4977,
+              "Y": 0.4951
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -4.22,
+            "RightMargin": 4.22,
+            "TopMargin": 8.7642,
+            "BottomMargin": -8.7642,
+            "Tag": 22,
+            "ActionTag": -936662770,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "bg4_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path":"bg/bed1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 297.0792,
+              "Y": 471.4486
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.165,
+              "Y": 0.2619
+            },
+            "PreSize": {
+              "X": 0.6878,
+              "Y": 0.3339
+            },
+            "LeftMargin": -321.9208,
+            "RightMargin": 883.9208,
+            "TopMargin": 1028.0514,
+            "BottomMargin": 170.9486,
+            "Tag": 20,
+            "ActionTag": -447231565,
+            "Size": {
+              "X": 1238.0,
+              "Y": 601.0
+            },
+            "Name": "bed1_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path":"bg/bed2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1156.0239,
+              "Y": 154.997
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6422,
+              "Y": 0.0861
+            },
+            "PreSize": {
+              "X": 0.9306,
+              "Y": 0.4639
+            },
+            "LeftMargin": 318.5239,
+            "RightMargin": -193.5239,
+            "TopMargin": 1227.5029,
+            "BottomMargin": -262.503,
+            "Tag": 21,
+            "ActionTag": 509538378,
+            "Size": {
+              "X": 1675.0,
+              "Y": 835.0
+            },
+            "Name": "bed2_2",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+       "bg/bed1.png",
+       "bg/bed2.png",
+        "bg/scene_mybg4.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

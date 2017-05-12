@@ -1,0 +1,139 @@
+{
+  "ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+  "Version": "3.10.0.0",
+  "Name": "MainScene",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "BackColorAlpha": 102,
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bubble.png",
+              "Plist": ""
+            },
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Enable": true,
+            "Scale9OriginX": 64,
+            "Scale9OriginY": 64,
+            "Scale9Width": 1482,
+            "Scale9Height": 1630,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "Tag": 12,
+            "Children": [
+              {
+                "IsCustomSize": true,
+                "FontSize": 36,
+                "LabelText": "Text Label sdgdsgsag  sdg sdgasd sdga sdg sdga dsgsadg sdag asgasdgsadg  asdg sdag\n\n",
+                "OutlineColor": {
+                  "G": 0,
+                  "B": 0
+                },
+                "ShadowColor": {
+                  "R": 110,
+                  "G": 110,
+                  "B": 110
+                },
+                "ShadowOffsetX": 2.0,
+                "ShadowOffsetY": -2.0,
+                "AnchorPoint": {},
+                "Position": {
+                  "X": 100.0,
+                  "Y": 100.0
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {
+                  "R": 26,
+                  "G": 26,
+                  "B": 26
+                },
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.0556,
+                  "Y": 0.0556
+                },
+                "PreSize": {
+                  "X": 0.8889,
+                  "Y": 0.8889
+                },
+                "LeftMargin": 100.0,
+                "RightMargin": 100.0,
+                "TopMargin": 100.0,
+                "BottomMargin": 100.0,
+                "Tag": 13,
+                "ActionTag": -1612391704,
+                "Size": {
+                  "X": 1600.0,
+                  "Y": 1600.0
+                },
+                "Name": "ChimpleCustomText",
+                "ctype": "TextObjectData"
+              }
+            ],
+            "ActionTag": 467034842,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "ChimpleTextPanel",
+            "ctype": "PanelObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "Bubble.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

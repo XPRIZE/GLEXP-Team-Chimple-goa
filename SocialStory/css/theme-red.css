@@ -1,0 +1,79 @@
+html	(-webkit-tap-highlight-color:#E60501;)
+
+::-moz-selection 	{background:#fff;color:#D20702;-webkit-text-shadow:none;-moz-text-shadow:none;text-shadow:none;}
+::selection 	 		{background:#fff;color:#D20702;-webkit-text-shadow:none;-moz-text-shadow:none;text-shadow:none;}
+
+em,.req 	{color:#E60501;}
+.spinner	{background:#E60501;}
+
+a, a:hover, a:focus,.post h2 a:hover ,p.drop-cap::first-letter,.main-nav ul ul li:hover a,.main-nav ul ul li:hover span,.main-nav ul ul .current-menu-item a,.user-nav .dark.current-menu-item a,.user-nav .dark:hover a,.button.white,.entry h2 a:hover,.foot a:hover ,.icons .title,.actions div div a:hover 
+{color:#D20702 !important;}
+
+p.drop-cap.secondary::first-letter,th,.pricing .active th,.user-nav .dark a,.button:hover, .button:focus,.white:hover,.white:focus,section.cta,.comment-reply-link:focus,.comment-reply-link:hover,.widget #today,.boxed .dark a,button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover,button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus ,div.uploader.active span.action,div.uploader.hover span.action, div.uploader.focus span.action ,.social li:hover,div#subnav.item-list-tabs ul li.feed:hover,button:hover, a.button:hover, input[type="submit"]:hover, input[type="button"]:hover, input[type="reset"]:hover, ul.button-nav li a:hover, div.generic-button a:hover, .comment-reply-link:hover, a.bp-title-button:hover,.activity-comments li .acomment-options a:hover,#bbpress-forums div.bbp-forum-header, #bbpress-forums div.bbp-topic-header, #bbpress-forums div.bbp-reply-header,.item-options a:last-child ,.bp-primary-action:hover,.bp-secondary-action:hover,a.friendship-button:hover, .activity-read-more a:hover, .pending_friend a:hover 
+{background:#D20702 !important;}
+
+div.bbp-template-notice.info {background:rgba(210, 7, 2, 0.5) !important;}
+.entry figcaption {background:rgba(230, 5, 1, 0.85);}
+
+th,.pricing .active th,.pricing.secondary .active 
+{border-color:#D20702 !important;}
+
+.user-nav .medium.current-menu-item a,.user-nav .medium:hover a,.pager a:hover,.pager .current,.bbp-topic-title > a,.page-numbers.current 
+{color:#E60501 !important;}
+
+.main-nav li:hover span,.main-nav .current-menu-item span,.user-nav .medium a,.button,.post .date,.pager a,.page-numbers,.comment-reply-link,.comment-meta a,.recipe dd,.basic dd,.tabs .active  a,.tabs a:hover,.articles_latest li a:hover,.boxed .medium a,.categories li a:hover,.categories li.active a,.widget .page_item a:hover,.item-options a,button, input[type="button"], input[type="reset"], input[type="submit"],div.uploader span.action ,.error_text,.social li,.item-list-tabs ul li.selected a,.item-list-tabs ul li.current a,.item-list-tabs ul li:hover a,div#subnav.item-list-tabs ul li.feed,button, a.button, input[type="submit"], input[type="button"], input[type="reset"], ul.button-nav li a, div.generic-button a, .comment-reply-link, a.bp-title-button,.activity-comments li .acomment-options a,.activity-read-more a,td.data 
+ {background:#E60501 !important;}
+
+.main-nav ul ul 
+{border-color: #E60501;}
+
+.main-nav ul ul:after 	
+{border-color: transparent transparent #E60501 transparent;}
+
+.tabs .active:before,.item-list-tabs ul li.selected:after,.item-list-tabs ul li.current:after 	
+{border-color: #E60501 transparent transparent;}
+
+.item-options a.selected:before	
+{border-color: #E60501 transparent transparent transparent;}
+
+.user-nav .light.current-menu-item a, .user-nav .light:hover a,.actions .more a:hover 	
+{color:#F50300 !important;}
+
+.boxed .light a,.item-options a:first-child,.error_type,.quicktags-toolbar, .wp_themeSkin tr.mceFirst td.mceToolbar,.user-nav .light a,.instructions li:before,.basic dd 		
+{background:#F50300 !important;}
+
+.instructions li:hover:after 
+{border-left-color: #F50300;}
+
+.user-nav .light:hover .i-search,
+.user-nav .current-menu-item .i-search 		{background:url(../images/themes/red.png) -462px -62px no-repeat;}
+.user-nav .medium:hover .i-account,
+.user-nav .current-menu-item .i-account		{background:url(../images/themes/red.png) -490px -62px no-repeat;}
+.user-nav .dark:hover .i-submitrecipe,
+.user-nav .current-menu-item .i-submitrecipe 	{background:url(../images/themes/red.png) -518px -62px no-repeat;}
+
+h2.ribbon  		 {background-image:url(../images/themes/red.png);}
+blockquote:before {background:url(../images/themes/red.png) -478px -93px no-repeat;}
+
+.white.more:after				{background:url(../images/themes/red.png) -463px -105px no-repeat;}
+.white.more:hover:after  		{background:url(../images/ico/icons.png) -173px -13px no-repeat;}
+
+
+div.radio span.checked,
+div.radio.active span.checked,
+div.radio.hover span.checked, 
+div.radio.focus span.checked,
+div.radio.hover.active span.checked, 
+div.radio.focus.active span.checked,
+div.radio.disabled span.checked, 
+div.radio.disabled.active span.checked   				{background:url(../images/themes/red.png) -550px -60px no-repeat;}
+
+div.checker span.checked,
+div.checker.active span.checked,
+div.checker.hover span.checked, 
+div.checker.focus span.checked ,
+div.checker.hover.active span.checked, 
+div.checker.focus.active span.checked,
+div.checker.disabled span.checked, 
+div.checker.disabled.active span.checked  			{background:url(../images/themes/red.png) -550px -81px no-repeat;}
+

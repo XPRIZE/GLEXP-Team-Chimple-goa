@@ -1,0 +1,810 @@
+{
+  "ID": "576aadcb-48d9-4ceb-8e53-3a61f3909452",
+  "Version": "3.10.0.0",
+  "Name": "Scene_04",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 59,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 0,
+              "G": 53,
+              "B": 107
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.6822
+            },
+            "TopMargin": 572.0,
+            "Tag": 60,
+            "ActionTag": 1043665741,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1228.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_plant_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1503.4933,
+              "Y": 173.0495
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8353,
+              "Y": 0.0961
+            },
+            "PreSize": {
+              "X": 0.1278,
+              "Y": 0.0756
+            },
+            "LeftMargin": 1388.4933,
+            "RightMargin": 181.5067,
+            "TopMargin": 1558.9506,
+            "BottomMargin": 105.0495,
+            "Tag": 62,
+            "ActionTag": -1911624896,
+            "Size": {
+              "X": 230.0,
+              "Y": 136.0
+            },
+            "Name": "aqua_plant",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_plant_2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5706,
+              "ScaleY": 0.4479
+            },
+            "Position": {
+              "X": 1341.0845,
+              "Y": 167.6699
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.745,
+              "Y": 0.0931
+            },
+            "PreSize": {
+              "X": 0.0672,
+              "Y": 0.0817
+            },
+            "LeftMargin": 1272.0446,
+            "RightMargin": 406.9554,
+            "TopMargin": 1551.1718,
+            "BottomMargin": 101.8283,
+            "Tag": 63,
+            "ActionTag": -243127179,
+            "Size": {
+              "X": 121.0,
+              "Y": 147.0
+            },
+            "Name": "aqua_plant",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_plant_3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1644.8044,
+              "Y": 191.2893
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9138,
+              "Y": 0.1063
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.1022
+            },
+            "LeftMargin": 1599.8044,
+            "RightMargin": 110.1956,
+            "TopMargin": 1516.7107,
+            "BottomMargin": 99.2893,
+            "Tag": 64,
+            "ActionTag": -1127901336,
+            "Size": {
+              "X": 90.0,
+              "Y": 184.0
+            },
+            "Name": "aqua_plant",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_plant_4.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 542.2975,
+              "Y": 184.1157
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3013,
+              "Y": 0.1023
+            },
+            "PreSize": {
+              "X": 0.1039,
+              "Y": 0.1033
+            },
+            "LeftMargin": 448.7975,
+            "RightMargin": 1164.2025,
+            "TopMargin": 1522.8843,
+            "BottomMargin": 91.1157,
+            "Tag": 65,
+            "ActionTag": 135909697,
+            "Size": {
+              "X": 187.0,
+              "Y": 186.0
+            },
+            "Name": "aqua_plant",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_plant_5.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 323.0048,
+              "Y": 201.3361
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1794,
+              "Y": 0.1119
+            },
+            "PreSize": {
+              "X": 0.1144,
+              "Y": 0.1256
+            },
+            "LeftMargin": 220.0048,
+            "RightMargin": 1373.9952,
+            "TopMargin": 1485.6639,
+            "BottomMargin": 88.3361,
+            "Tag": 66,
+            "ActionTag": -463335467,
+            "Size": {
+              "X": 206.0,
+              "Y": 226.0
+            },
+            "Name": "aqua_plant",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_plant_6.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 832.1163,
+              "Y": 152.2231
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4623,
+              "Y": 0.0846
+            },
+            "PreSize": {
+              "X": 0.1133,
+              "Y": 0.0561
+            },
+            "LeftMargin": 730.1163,
+            "RightMargin": 865.8837,
+            "TopMargin": 1597.2769,
+            "BottomMargin": 101.7231,
+            "Tag": 67,
+            "ActionTag": -2014018220,
+            "Size": {
+              "X": 204.0,
+              "Y": 101.0
+            },
+            "Name": "aqua_plant",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_plant_2.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 969.1005,
+              "Y": 158.6186
+            },
+            "Scale": {
+              "ScaleX": 0.76,
+              "ScaleY": 0.76
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5384,
+              "Y": 0.0881
+            },
+            "PreSize": {
+              "X": 0.0672,
+              "Y": 0.0817
+            },
+            "LeftMargin": 908.6005,
+            "RightMargin": 770.3995,
+            "TopMargin": 1567.8813,
+            "BottomMargin": 85.1186,
+            "Tag": 68,
+            "ActionTag": 1346975479,
+            "Size": {
+              "X": 121.0,
+              "Y": 147.0
+            },
+            "Name": "aqua_plant",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_plant_3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1687.0955,
+              "Y": 168.5143
+            },
+            "Scale": {
+              "ScaleX": 0.67,
+              "ScaleY": 0.67
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9373,
+              "Y": 0.0936
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.1022
+            },
+            "LeftMargin": 1642.0955,
+            "RightMargin": 67.9045,
+            "TopMargin": 1539.4856,
+            "BottomMargin": 76.5143,
+            "Tag": 69,
+            "ActionTag": 195405238,
+            "Size": {
+              "X": 90.0,
+              "Y": 184.0
+            },
+            "Name": "aqua_plant",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_plant_3.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1153.844,
+              "Y": 208.5481
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.641,
+              "Y": 0.1159
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.1022
+            },
+            "LeftMargin": 1108.844,
+            "RightMargin": 601.156,
+            "TopMargin": 1499.4519,
+            "BottomMargin": 116.5481,
+            "Tag": 70,
+            "ActionTag": -1422234240,
+            "Size": {
+              "X": 90.0,
+              "Y": 184.0
+            },
+            "Name": "aqua_plant",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/aqua_ground_1.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 900.5331,
+              "Y": 59.6052
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5003,
+              "Y": 0.0331
+            },
+            "PreSize": {
+              "X": 1.0006,
+              "Y": 0.0667
+            },
+            "LeftMargin": 0.0331,
+            "RightMargin": -1.0331,
+            "TopMargin": 1680.3949,
+            "BottomMargin": -0.3948,
+            "Tag": 61,
+            "ActionTag": 2053369857,
+            "Size": {
+              "X": 1801.0,
+              "Y": 120.0
+            },
+            "Name": "ground_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 63,
+              "G": 162,
+              "B": 57
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -0.4036,
+              "Y": 1212.01
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0282
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0002,
+              "Y": 0.6733
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 0.3178
+            },
+            "LeftMargin": -0.4036,
+            "RightMargin": 0.4036,
+            "TopMargin": 15.99,
+            "BottomMargin": 1212.01,
+            "Tag": 71,
+            "ActionTag": 1522584848,
+            "Size": {
+              "X": 1800.0,
+              "Y": 572.0
+            },
+            "Name": "Panel",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/aqua_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 309.3302,
+              "Y": 1308.7913
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1719,
+              "Y": 0.7271
+            },
+            "PreSize": {
+              "X": 0.1517,
+              "Y": 0.0744
+            },
+            "LeftMargin": 172.8302,
+            "RightMargin": 1354.1698,
+            "TopMargin": 424.2087,
+            "BottomMargin": 1241.7913,
+            "Tag": 73,
+            "ActionTag": 1278945051,
+            "Size": {
+              "X": 273.0,
+              "Y": 134.0
+            },
+            "Name": "stone",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/aqua_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 474.1942,
+              "Y": 1364.5533
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2634,
+              "Y": 0.7581
+            },
+            "PreSize": {
+              "X": 0.1517,
+              "Y": 0.0744
+            },
+            "LeftMargin": 337.6942,
+            "RightMargin": 1189.3058,
+            "TopMargin": 368.4467,
+            "BottomMargin": 1297.5533,
+            "Tag": 74,
+            "ActionTag": 1596729864,
+            "Size": {
+              "X": 273.0,
+              "Y": 134.0
+            },
+            "Name": "stone",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/aqua_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1508.8165,
+              "Y": 1328.8345
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8382,
+              "Y": 0.7382
+            },
+            "PreSize": {
+              "X": 0.1517,
+              "Y": 0.0744
+            },
+            "LeftMargin": 1372.3165,
+            "RightMargin": 154.6835,
+            "TopMargin": 404.1655,
+            "BottomMargin": 1261.8345,
+            "Tag": 75,
+            "ActionTag": 829418407,
+            "Size": {
+              "X": 273.0,
+              "Y": 134.0
+            },
+            "Name": "stone",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/stone/aqua_stone.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1606.1929,
+              "Y": 1307.439
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8923,
+              "Y": 0.7264
+            },
+            "PreSize": {
+              "X": 0.1517,
+              "Y": 0.0744
+            },
+            "LeftMargin": 1469.6929,
+            "RightMargin": 57.3071,
+            "TopMargin": 425.561,
+            "BottomMargin": 1240.439,
+            "Tag": 76,
+            "ActionTag": 1587798503,
+            "Size": {
+              "X": 273.0,
+              "Y": 134.0
+            },
+            "Name": "stone",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_grass.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 909.5697,
+              "Y": 1272.4771
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5053,
+              "Y": 0.7069
+            },
+            "PreSize": {
+              "X": 0.9322,
+              "Y": 0.0672
+            },
+            "LeftMargin": 70.5697,
+            "RightMargin": 51.4303,
+            "TopMargin": 467.0229,
+            "BottomMargin": 1211.9771,
+            "Tag": 72,
+            "ActionTag": -1124428461,
+            "Size": {
+              "X": 1678.0,
+              "Y": 121.0
+            },
+            "Name": "grass",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/aqua_ground_1.png",
+        "ob/tree/aqua_plant_1.png",
+        "ob/tree/aqua_plant_2.png",
+        "ob/tree/aqua_plant_3.png",
+        "ob/tree/aqua_plant_4.png",
+        "ob/tree/aqua_plant_5.png",
+        "ob/tree/aqua_plant_6.png",
+        "ob/tree/aqua_grass.png",
+        "ob/stone/aqua_stone.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

@@ -1,0 +1,169 @@
+{
+  "ID": "1ffd07d5-8f86-4cbb-bfb6-23031b580f3a",
+  "Version": "3.10.0.0",
+  "Name": "Scene_02",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 6,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "bg/story_a_bg.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 770,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 899.9893,
+              "Y": 902.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5,
+              "Y": 0.5011
+            },
+            "PreSize": {
+              "X": 1.0,
+              "Y": 1.0
+            },
+            "LeftMargin": -0.0107,
+            "RightMargin": 0.0107,
+            "TopMargin": -2.0,
+            "BottomMargin": 2.0,
+            "Tag": 7,
+            "ActionTag": 1259917180,
+            "Size": {
+              "X": 1800.0,
+              "Y": 1800.0
+            },
+            "Name": "bg",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/sky/cloud_big.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 889.9888,
+              "Y": 1119.9976
+            },
+            "Scale": {
+              "ScaleX": 0.95,
+              "ScaleY": 0.95
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4944,
+              "Y": 0.6222
+            },
+            "PreSize": {
+              "X": 1.025,
+              "Y": 0.2128
+            },
+            "LeftMargin": -32.5112,
+            "RightMargin": -12.4888,
+            "TopMargin": 488.5024,
+            "BottomMargin": 928.4976,
+            "Tag": 8,
+            "ActionTag": -1137510152,
+            "Size": {
+              "X": 1845.0,
+              "Y": 383.0
+            },
+            "Name": "cloud_big",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "ob/tree/aqua_grass.png",
+              "Plist": ""
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 851.5476,
+              "Y": 65.1866
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4731,
+              "Y": 0.0362
+            },
+            "PreSize": {
+              "X": 0.9322,
+              "Y": 0.0672
+            },
+            "LeftMargin": 12.5476,
+            "RightMargin": 109.4524,
+            "TopMargin": 1674.3135,
+            "BottomMargin": 4.6866,
+            "Tag": 9,
+            "ActionTag": 1693175322,
+            "Size": {
+              "X": 1678.0,
+              "Y": 121.0
+            },
+            "Name": "grass",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 1800.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "bg/story_a_bg.png",
+        "ob/sky/cloud_big.png",
+        "ob/tree/aqua_grass.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}
