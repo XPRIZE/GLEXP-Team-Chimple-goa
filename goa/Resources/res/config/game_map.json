@@ -3592,7 +3592,7 @@
       }
     }
   },
-   {
+  {
     "name": "find",
     "title": "Find",
     "cIcon": "gameicons/find_pressed.png",
@@ -3635,6 +3635,50 @@
     "maingroundJson": "findlevel/mainground.json",
     "menuPlist": "findlevel/findlevel.plist",
     "menuPng": "findlevel/findlevel.png"
- 
-}
+
+  },
+  {
+    "name": "BasicMultiplication",
+    "title": "Basic Multiplication",
+    "cIcon": "gameicons/owl_pressed.png",
+    "icon": "gameicons/owl.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "7",
+    "numLevels": "50",
+    "rewards": {
+      "20": {
+        "unlock": "stack"
+      },
+      "8": {
+        "badge": "s/wise_owl"
+      },
+      "16": {
+        "badge": "m/lucky_leave"
+      },
+      "24": {
+        "badge": "p/furry_bird"
+      },
+      "32": {
+        "badge": "g/pink_jellyfish"
+      },
+      "40": {
+        "badge": "b/underwater_coral"
+      },
+      "45": {
+        "badge": "c/creamy_stand"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "owllevel/background.json",
+    "foregroundJson": "owllevel/foreground.json",
+    "frontgroundJson": "owllevel/frontground.json",
+    "maingroundJson": "owllevel/mainground.json",
+    "menuPlist": "owllevel/owllevel.plist",
+    "menuPng": "owllevel/owllevel.png"
+  }
 ]

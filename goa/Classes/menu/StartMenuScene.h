@@ -74,6 +74,7 @@ static const std::string DOTS = "Dots";
 static const std::string CONNECT_THE_DOTS = "ConnectTheDots";
 static const std::string BOUNCE = "Bounce";
 static const std::string MAZE = "Maze";
+static const std::string BASICMULTIPLICATION = "BasicMultiplication";
 static const std::string MAP = "map";
 static const std::string MININGBG = "miningbg";
 static const std::string FARMHOUSE = "farmhouse";

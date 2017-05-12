@@ -329,5 +329,48 @@
     "maingroundJson": "plevelscreen2/cflevelmng.json",
     "menuPlist": "plevelscreen2/plevelscreen2.plist",
     "menuPng": "plevelscreen2/plevelscreen2.png"
+  },
+  {
+    "name": "BasicMultiplication",
+    "title": "Basic Multiplication",
+    "unlock": true,
+    "cIcon": "gameicons/popcount_pressed.png",
+    "icon": "gameicons/popcount.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "2",
+    "numLevels": "10",
+    "rewards": {
+      "5": {
+        "unlock": "spot"
+      },
+      "2": {
+        "badge": "s/star_fish"
+      },
+      "4": {
+        "badge": "m/sandy_castle"
+      },
+      "6": {
+        "badge": "p/lifesaver_tube"
+      },
+      "8": {
+        "badge": "g/wide_umbrella"
+      },
+      "9": {
+        "badge": "b/sunny_beachball"
+      },
+      "10": {
+        "badge": "c/shiny_shell",
+        "unlockMin": "step",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "popcountlevel/background.json",
+    "foregroundJson": "popcountlevel/foreground.json",
+    "frontgroundJson": "popcountlevel/frontground.json",
+    "maingroundJson": "popcountlevel/mainground.json",
+    "menuPlist": "popcountlevel/popcountlevel.plist",
+    "menuPng": "popcountlevel/popcountlevel.png"
   }
 ]
