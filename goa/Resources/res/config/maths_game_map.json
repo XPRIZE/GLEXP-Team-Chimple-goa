@@ -391,5 +391,40 @@
     "maingroundJson": "tablelevel/mainground.json",
     "menuPlist": "tablelevel/tablelevel.plist",
     "menuPng": "tablelevel/tablelevel.png"
+  },
+  {
+    "name": "mathlearning",
+    "title": "AdditionSubtraction",
+    "unlock": true,
+    "cIcon": "gameicons/table_pressed.png",
+    "icon": "gameicons/table.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "3",
+    "numLevels": "15",
+    "rewards": {
+      "3": {
+        "badge": "s/ocean_fish"
+      },
+      "6": {
+        "badge": "m/shallow_anchor"
+      },
+      "9": {
+        "badge": "p/water_plant"
+      },
+      "12": {
+        "badge": "g/jelly_fish"
+      },
+      "15": {
+        "badge": "b/drowning_scubaglass"
+      }
+    },
+    "backgroundJson": "tablelevel/background.json",
+    "foregroundJson": "tablelevel/foreground.json",
+    "frontgroundJson": "tablelevel/frontground.json",
+    "maingroundJson": "tablelevel/mainground.json",
+    "menuPlist": "tablelevel/tablelevel.plist",
+    "menuPng": "tablelevel/tablelevel.png"
   }
 ]
