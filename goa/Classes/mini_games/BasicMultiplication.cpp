@@ -103,7 +103,7 @@ void BasicMultiplication::addEventsOnGrid(cocos2d::Sprite* object)
 		Point locationInNode = touch->getLocation();
 	
 		if (target->getBoundingBox().containsPoint(locationInNode)) {
-			target->setColor(Color3B::ORANGE);
+			target->setColor(Color3B(255, 198, 44));
 
 			auto action1 = ScaleTo::create(0.1,1.1);
 			auto action2 = ScaleTo::create(0.1, 1);
