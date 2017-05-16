@@ -49,14 +49,7 @@ void BasicMultiplication::LearningPlay() {
 	bg->setName("bg");
 	topBoardSetting();
 
-	std::map<int, std::string> popcountSceneMapping = {
-		{ 1,	"elephant_animation/elephant_animation.csb" },
-		{ 2,	"Giraffe_animation/Giraffe_animation.csb" },
-		{ 3,    "gorillacoin/gorillacoin.csb" },
-		{4 ,	"lion_animation/lion.csb"},
-		{5,		""},
-		{6,		""}
-	};
+	
 
 }
 
