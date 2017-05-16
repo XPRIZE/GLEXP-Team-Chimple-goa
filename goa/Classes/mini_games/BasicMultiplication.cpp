@@ -49,15 +49,16 @@ void BasicMultiplication::LearningPlay() {
 	bg->setName("bg");
 	topBoardSetting();
 
-	std::map<int, std::string> popcountSceneMapping = {
+	std::map<int, std::string> animationPath = {
 		{ 1,	"elephant_animation/elephant_animation.csb" },
 		{ 2,	"Giraffe_animation/Giraffe_animation.csb" },
 		{ 3,    "gorillacoin/gorillacoin.csb" },
-		{4 ,	"lion_animation/lion.csb"},
-		{5,		""},
-		{6,		""}
+		{ 4 ,	"lion_animation/lion.csb"},
+		{ 5,	"owl/owlanimation.csb"},
+		{ 6,	"zebra_animation/zebra_animation.csb"}
 	};
 
+	_animationName = animationPath.at(RandomHelper::random_int(1,6));
 }
 
 void BasicMultiplication::topBoardSetting() {
@@ -65,6 +66,8 @@ void BasicMultiplication::topBoardSetting() {
 	int row = RandomHelper::random_int(1, 6);
 	int column = RandomHelper::random_int(1, 10);
 	_answer = row * column;
+	_row = row;
+	_column = column;
 
 	std::ostringstream topBoardEquation;
 	topBoardEquation << row << " X " << column << " = ";
@@ -143,7 +146,29 @@ void BasicMultiplication::topBoardEquationController(Sprite* target) {
 	IndexValuePopup((Sprite*)target);
 
 	if (_counter == _answer) {
-		CCLOG("GAME DONE");
+		playAnimationAnimal();
+	}
+
+}
+
+void BasicMultiplication::playAnimationAnimal() {
+
+	for (int rows = 1; rows <= 6; rows++) {
+		for (int columns = 1; columns <= 10; columns++) {
+			auto sprite = getGridWithIndex(rows, columns);
+
+			if (rows <= _row && columns <= _column) {
+			
+				auto animationAnimalTimeline = CSLoader::createTimeline(_animationName);
+				auto animationAnimal = CSLoader::createNode(_animationName);
+				animationAnimal->runAction(animationAnimalTimeline);
+				animationAnimal->setScale(0.5);
+
+				sprite->addChild(animationAnimal);
+				animationAnimal->setPosition(Vec2(sprite->getContentSize().width/2,sprite->getContentSize().height/2));
+				animationAnimalTimeline->gotoFrameAndPlay(0, true);
+			}
+		}
 	}
 
 }

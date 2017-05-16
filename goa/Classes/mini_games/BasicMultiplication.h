@@ -19,8 +19,9 @@ class BasicMultiplication : public cocos2d::Layer
 
 protected:
 	MenuContext *_menuContext;
-	int _answer = 0, _counter = 0;
-	string _topBoardEquation = "";
+	int _answer = 0, _counter = 0 , _row = 0 , _column = 0;
+	string _topBoardEquation = "", _animationName = "";
+	
 	
 public:
 	~BasicMultiplication();
@@ -39,6 +40,8 @@ public:
 	void addEventsOnGrid(cocos2d::Sprite * object);
 
 	void topBoardEquationController(Sprite* target);
+
+	void playAnimationAnimal();
 
 	void IndexValuePopup(Sprite * target);
 
