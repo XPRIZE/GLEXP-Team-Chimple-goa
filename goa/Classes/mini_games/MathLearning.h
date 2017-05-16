@@ -48,6 +48,7 @@ public:
 	void addTouchEvents(Sprite* touchSprite);
 	void touchEffect(Sprite *obj);
 	string convertIntToString(int num);
+	void playWinAnim();
 	static const char* gameName() { return MATHLEARNING.c_str(); }
 };
 #endif // __MATHLEARNING_SCENE_H__
