@@ -57,7 +57,6 @@ void BasicMultiplication::LearningPlay() {
 		{ 5,	"owl/owlanimation.csb"},
 		{ 6,	"zebra_animation/zebra_animation.csb"}
 	};
-
 	_animationName = animationPath.at(RandomHelper::random_int(1,6));
 }
 
@@ -86,7 +85,6 @@ void BasicMultiplication::topBoardSetting() {
 	labelNumber->setName("board");
 
 	gridGrayAndListnerController(row , column);
-
 }
 
 void BasicMultiplication::gridGrayAndListnerController(int row , int column ) {
@@ -102,7 +100,6 @@ void BasicMultiplication::gridGrayAndListnerController(int row , int column ) {
 				sprite->setColor(Color3B::GRAY);
 		}
 	}
-
 }
 
 
@@ -131,7 +128,6 @@ void BasicMultiplication::addEventsOnGrid(cocos2d::Sprite* object)
 		}
 		return false;
 	};
-
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, object);
 }
 
@@ -151,21 +147,43 @@ void BasicMultiplication::topBoardEquationController(Sprite* target) {
 
 	if (_counter == _answer) {
 
-		auto sequence = Sequence::create(CallFunc::create([=]() {
+		auto sequence = Sequence::create(
+		
+		CallFunc::create([=]() {	// Play Animation Method Calling
 			playAnimationAnimal();
 		}),
-			DelayTime::create(2),
-			CallFunc::create([=]() {
+
+		DelayTime::create(2),		// DeayTime for 2 second
+		
+		CallFunc::create([=]() {	// CallFunc for grid movement ..
+
 			auto gridPanel = getChildByName("bg")->getChildByName("grid");
 			
 			auto action = MoveTo::create(1, Vec2(gridPanel->getPositionX() - 2560, gridPanel->getPositionY()));
 			EaseBackIn *easeAction = EaseBackIn::create(action);
 			gridPanel->runAction(easeAction);
+
+			auto topBoardPanel = getChildByName("bg")->getChildByName("bg")->getChildByName("board");
+
+			auto action1 = MoveTo::create(1, Vec2(topBoardPanel->getPositionX() - 2560, topBoardPanel->getPositionY()));
+			EaseBackIn *easeAction1 = EaseBackIn::create(action1);
+			topBoardPanel->runAction(easeAction1);
+
 		}),
-			NULL);
+
+		DelayTime::create(2),		// DelayTime for 1 second
+
+		CallFunc::create([=]() {	// CallFunc for remove gridPanel
+			getChildByName("bg")->removeChildByName("grid");
+			getChildByName("bg")->getChildByName("bg")->removeChildByName("board");
+		}),
+
+		CallFunc::create([=]() {
+			QuizPlay();
+		}),
+		NULL);
 
 		this->runAction(sequence);
-
 	}
 }
 
@@ -191,7 +209,6 @@ void BasicMultiplication::playAnimationAnimal() {
 			}
 		}
 	}
-
 }
 
 void BasicMultiplication::IndexValuePopup(Sprite* target) {
@@ -240,12 +257,6 @@ Sprite* BasicMultiplication::getGridWithIndex(int row, int column) {
 	return grid;
 }
 
-void BasicMultiplication::QuizPlay() {
-	auto size = Director::getInstance()->getVisibleSize();
-
-	auto topBoard = createSprite("topBoard",size.width * 0.8 , size.height* 0.2 , size.width/2, size.height * 0.75,1);
-}
-
 Sprite* BasicMultiplication::createSprite(string name,int width, int height,int posiX,int posiY,int scaleXY) {
 
 	auto sprite = Sprite::create();
@@ -255,6 +266,20 @@ Sprite* BasicMultiplication::createSprite(string name,int width, int height,int 
 	addChild(sprite);
 	return sprite;
 }
+
+void BasicMultiplication::QuizPlay() {
+	auto size = Director::getInstance()->getVisibleSize();
+
+	auto topBoard = createSprite("topBoard", size.width * 0.8, size.height* 0.2, size.width / 2, size.height * 0.75, 1);
+	CCAction* popupLayer = CCSequence::create(CCScaleTo::create(0.0, 0.0),
+		CCScaleTo::create(0.06, 1.05),
+		CCScaleTo::create(0.08, 0.95),
+		CCScaleTo::create(0.08, 1.0), NULL);
+	topBoard->runAction(popupLayer);
+
+
+}
+
 
 BasicMultiplication::~BasicMultiplication(void)
 {
