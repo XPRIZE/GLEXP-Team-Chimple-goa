@@ -150,9 +150,23 @@ void BasicMultiplication::topBoardEquationController(Sprite* target) {
 	IndexValuePopup((Sprite*)target);
 
 	if (_counter == _answer) {
-		playAnimationAnimal();
-	}
 
+		auto sequence = Sequence::create(CallFunc::create([=]() {
+			playAnimationAnimal();
+		}),
+			DelayTime::create(2),
+			CallFunc::create([=]() {
+			auto gridPanel = getChildByName("bg")->getChildByName("grid");
+			
+			auto action = MoveTo::create(1, Vec2(gridPanel->getPositionX() - 2560, gridPanel->getPositionY()));
+			EaseBackIn *easeAction = EaseBackIn::create(action);
+			gridPanel->runAction(easeAction);
+		}),
+			NULL);
+
+		this->runAction(sequence);
+
+	}
 }
 
 void BasicMultiplication::playAnimationAnimal() {
