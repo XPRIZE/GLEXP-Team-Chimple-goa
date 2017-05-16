@@ -19,7 +19,10 @@ class BasicMultiplication : public cocos2d::Layer
 
 protected:
 	MenuContext *_menuContext;
-
+	int _answer = 0, _counter = 0 , _row = 0 , _column = 0;
+	string _topBoardEquation = "", _animationName = "";
+	
+	
 public:
 	~BasicMultiplication();
 	static cocos2d::Scene* createScene();
@@ -27,6 +30,28 @@ public:
 	static BasicMultiplication* create();
 	void onEnterTransitionDidFinish();
 	void update(float) override;
+
+	void LearningPlay();
+
+	void topBoardSetting();
+
+	void gridGrayAndListnerController(int row, int column);
+
+	void addEventsOnGrid(cocos2d::Sprite * object);
+
+	void topBoardEquationController(Sprite* target);
+
+	void playAnimationAnimal();
+
+	void IndexValuePopup(Sprite * target);
+
+	string getGridNameInString(int row, int column);
+
+	Sprite * getGridWithIndex(int row, int column);
+
+	void QuizPlay();
+
+	Sprite * createSprite(string name, int width, int height, int posiX, int posiY, int scaleXY);
 
 	static const char* gameName() { return BASICMULTIPLICATION.c_str(); }
 };

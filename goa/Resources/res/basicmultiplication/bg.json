@@ -1,0 +1,131 @@
+{
+  "ID": "65c7249e-6938-4e29-b3ed-193b10c2e3fb",
+  "Version": "2.3.4",
+  "Name": "bg",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 134,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 117,
+              "G": 57,
+              "B": 104
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -519.58,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.203,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 1.4608,
+              "Y": 1.0
+            },
+            "LeftMargin": -519.58,
+            "RightMargin": -660.1785,
+            "Tag": 132,
+            "ActionTag": 1854012336,
+            "Size": {
+              "X": 3739.7585,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "basicmultiplication/board.png",
+              "Plist": "basicmultiplication/basicmultiplication.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1274.2513,
+              "Y": 1718.9608
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 193,
+              "G": 178,
+              "B": 206
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4978,
+              "Y": 0.955
+            },
+            "PreSize": {
+              "X": 0.4398,
+              "Y": 0.1089
+            },
+            "LeftMargin": 711.2513,
+            "RightMargin": 722.7487,
+            "TopMargin": -16.9608,
+            "BottomMargin": 1620.9608,
+            "Tag": 133,
+            "ActionTag": 1302842317,
+            "Size": {
+              "X": 1126.0,
+              "Y": 196.0
+            },
+            "Name": "board",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "basicmultiplication.plist",
+        "basicmultiplication.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
