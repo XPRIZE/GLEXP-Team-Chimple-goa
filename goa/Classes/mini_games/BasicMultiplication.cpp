@@ -164,6 +164,8 @@ void BasicMultiplication::playAnimationAnimal() {
 				animationAnimal->runAction(animationAnimalTimeline);
 				animationAnimal->setScale(0.5);
 
+				auto size = sprite->getContentSize();
+
 				sprite->addChild(animationAnimal);
 				animationAnimal->setPosition(Vec2(sprite->getContentSize().width/2,sprite->getContentSize().height/2));
 				animationAnimalTimeline->gotoFrameAndPlay(0, true);
