@@ -33,13 +33,174 @@ bool BasicMultiplication::init()
 }
 
 void BasicMultiplication::onEnterTransitionDidFinish() {
-
 	
+	LearningPlay();
 	this->scheduleUpdate();
 }
 
 void BasicMultiplication::update(float delta) {
 
+}
+
+void BasicMultiplication::LearningPlay() {
+
+	Node* bg = CSLoader::createNode("basicmultiplication/basicmultiplication.csb");
+	addChild(bg);
+	bg->setName("bg");
+	topBoardSetting();
+
+	
+
+}
+
+void BasicMultiplication::topBoardSetting() {
+
+	int row = RandomHelper::random_int(1, 6);
+	int column = RandomHelper::random_int(1, 10);
+	_answer = row * column;
+
+	std::ostringstream topBoardEquation;
+	topBoardEquation << row << " X " << column << " = ";
+	_topBoardEquation = topBoardEquation.str();
+
+	auto board = getChildByName("bg")->getChildByName("bg")->getChildByName("board");
+
+	auto labelNumber = CommonLabelTTF::create(_topBoardEquation, "Helvetica", 150);
+	labelNumber->setColor(Color3B::WHITE);
+	labelNumber->setPosition(Vec2(board->getContentSize().width/2, board->getContentSize().height/2));
+	board->addChild(labelNumber);
+	labelNumber->setName("board");
+
+	gridGrayAndListnerController(row , column);
+
+}
+
+void BasicMultiplication::gridGrayAndListnerController(int row , int column ) {
+
+	// Here apply only on correct grid
+	for (int rows = 1; rows <= 6; rows++) {
+		for (int columns = 1; columns <= 10; columns++) {
+			auto sprite = getGridWithIndex(rows, columns);
+
+			if (rows <= row && columns <= column)
+				addEventsOnGrid(sprite);
+			else
+				sprite->setColor(Color3B::GRAY);
+		}
+	}
+
+}
+
+
+void BasicMultiplication::addEventsOnGrid(cocos2d::Sprite* object)
+{
+	auto listener = cocos2d::EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(false);
+
+	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
+	{
+		auto target = event->getCurrentTarget();
+		Point locationInNode = touch->getLocation();
+	
+		if (target->getBoundingBox().containsPoint(locationInNode)) {
+			target->setColor(Color3B::ORANGE);
+
+			auto action1 = ScaleTo::create(0.1,1.1);
+			auto action2 = ScaleTo::create(0.1, 1);
+
+			auto scaleAction = Sequence::create(action1,action2,NULL);
+			target->runAction(scaleAction);
+
+			topBoardEquationController((Sprite*)target);
+
+			return false;
+		}
+		return false;
+	};
+
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, object);
+}
+
+void BasicMultiplication::topBoardEquationController(Sprite* target) {
+
+	auto board = (CommonLabelTTF*)getChildByName("bg")->getChildByName("bg")->getChildByName("board")->getChildByName("board");
+
+	if (target->getTag() != 528) {
+		_counter++;
+		std::ostringstream topBoardEquation;
+		topBoardEquation << _topBoardEquation << _counter;
+		board->setString(topBoardEquation.str());
+		target->setTag(528);
+	}
+
+	IndexValuePopup((Sprite*)target);
+
+	if (_counter == _answer) {
+		CCLOG("GAME DONE");
+	}
+
+}
+
+void BasicMultiplication::IndexValuePopup(Sprite* target) {
+
+	string TargetName = target->getName();
+	std::ostringstream gridIndexName;
+	std::ostringstream gridIndexNamecolumn;
+
+	gridIndexName << TargetName[0] << "r";
+	auto rightIndexName = gridIndexName.str();
+
+	if (TargetName.length() > 4) 
+		gridIndexNamecolumn << 10 << "c";
+	else
+		gridIndexNamecolumn << TargetName[2] << "c";
+	
+	auto leftIndexName = gridIndexNamecolumn.str();
+
+	auto gridIndexRow = (TextFieldTTF*)getChildByName("bg")->getChildByName("grid")->getChildByName(rightIndexName);
+	auto gridIndexColumn = (TextFieldTTF*)getChildByName("bg")->getChildByName("grid")->getChildByName(leftIndexName);
+
+	auto action1 = ScaleTo::create(0.1, 1.4);
+	auto action2 = ScaleTo::create(0.1, 1);
+
+	auto scaleAction1 = Sequence::create(action1, action2, NULL);
+	gridIndexRow->runAction(scaleAction1);
+
+	auto action3 = ScaleTo::create(0.1, 1.4);
+	auto action4 = ScaleTo::create(0.1, 1);
+
+	auto scaleAction2 = Sequence::create(action3, action4, NULL);
+	gridIndexColumn->runAction(scaleAction2);
+}
+
+string BasicMultiplication::getGridNameInString(int row, int column) {
+	std::ostringstream gridName;	
+	gridName << row << "r" << column << "c";
+	return gridName.str();
+}
+
+Sprite* BasicMultiplication::getGridWithIndex(int row, int column) {
+
+	auto gridName = getGridNameInString(row, column);
+	auto grid = (Sprite*)getChildByName("bg")->getChildByName("grid")->getChildByName(gridName);
+	grid->setTag(1);
+	return grid;
+}
+
+void BasicMultiplication::QuizPlay() {
+	auto size = Director::getInstance()->getVisibleSize();
+
+	auto topBoard = createSprite("topBoard",size.width * 0.8 , size.height* 0.2 , size.width/2, size.height * 0.75,1);
+}
+
+Sprite* BasicMultiplication::createSprite(string name,int width, int height,int posiX,int posiY,int scaleXY) {
+
+	auto sprite = Sprite::create();
+	sprite->setTextureRect(Rect(0, 0,width,height));
+	sprite->setPosition(Vec2(posiX,posiY));
+	sprite->setName(name);
+	addChild(sprite);
+	return sprite;
 }
 
 BasicMultiplication::~BasicMultiplication(void)
