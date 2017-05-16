@@ -63,8 +63,12 @@ void BasicMultiplication::LearningPlay() {
 
 void BasicMultiplication::topBoardSetting() {
 
-	int row = RandomHelper::random_int(1, 6);
+	int row = _menuContext->getCurrentLevel();
 	int column = RandomHelper::random_int(1, 10);
+
+	if (row > 6)
+		row = 6;
+
 	_answer = row * column;
 	_row = row;
 	_column = column;
@@ -159,6 +163,7 @@ void BasicMultiplication::playAnimationAnimal() {
 
 			if (rows <= _row && columns <= _column) {
 			
+				sprite->setColor(Color3B::WHITE);
 				auto animationAnimalTimeline = CSLoader::createTimeline(_animationName);
 				auto animationAnimal = CSLoader::createNode(_animationName);
 				animationAnimal->runAction(animationAnimalTimeline);
