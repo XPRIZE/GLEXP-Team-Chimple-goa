@@ -64,28 +64,22 @@
             "ctype": "PanelObjectData"
           },
           {
-            "ClipAble": false,
-            "ComboBoxIndex": 1,
-            "SingleColor": {
-              "R": 130,
-              "G": 41,
-              "B": 90
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/book.png",
+              "Plist": "mathlearning/mathlearning.plist"
             },
-            "FirstColor": {
-              "R": 150,
-              "G": 200
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
             },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
             },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
             "Position": {
-              "X": 597.127,
-              "Y": 1586.2296
+              "X": 528.8599,
+              "Y": 1458.1608
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -94,49 +88,43 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2333,
-              "Y": 0.8812
+              "X": 0.2066,
+              "Y": 0.8101
             },
             "PreSize": {
-              "X": 0.5324,
-              "Y": 0.1214
+              "X": 0.1484,
+              "Y": 0.1578
             },
-            "LeftMargin": 597.127,
-            "RightMargin": 599.8027,
-            "TopMargin": -4.7905,
-            "BottomMargin": 1586.2296,
-            "Tag": 987,
-            "ActionTag": -1817796359,
+            "LeftMargin": 338.8599,
+            "RightMargin": 1841.1401,
+            "TopMargin": 199.8392,
+            "BottomMargin": 1316.1608,
+            "Tag": 1850,
+            "ActionTag": 236639982,
             "Size": {
-              "X": 1363.0703,
-              "Y": 218.5609
+              "X": 380.0,
+              "Y": 284.0
             },
-            "Name": "board",
-            "ctype": "PanelObjectData"
+            "Name": "book_21",
+            "ctype": "SpriteObjectData"
           },
           {
-            "ClipAble": false,
-            "ComboBoxIndex": 1,
-            "SingleColor": {
-              "R": 130,
-              "G": 41,
-              "B": 90
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/cheese.png",
+              "Plist": "mathlearning/mathlearning.plist"
             },
-            "FirstColor": {
-              "R": 150,
-              "G": 200
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
             },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
             },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
             "Position": {
-              "X": 982.6404,
-              "Y": 184.2507
+              "X": 2442.7346,
+              "Y": 1425.7491
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -145,25 +133,1393 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.3838,
-              "Y": 0.1024
+              "X": 0.9542,
+              "Y": 0.7921
             },
             "PreSize": {
-              "X": 0.2344,
-              "Y": 0.2001
+              "X": 0.0926,
+              "Y": 0.1122
             },
-            "LeftMargin": 982.6404,
-            "RightMargin": 977.2947,
-            "TopMargin": 1255.5527,
-            "BottomMargin": 184.2507,
-            "Tag": 988,
-            "ActionTag": 1426307519,
+            "LeftMargin": 2324.2346,
+            "RightMargin": -1.2346,
+            "TopMargin": 273.2509,
+            "BottomMargin": 1324.7491,
+            "Tag": 1851,
+            "ActionTag": 442269101,
             "Size": {
-              "X": 600.0649,
-              "Y": 360.1966
+              "X": 237.0,
+              "Y": 202.0
             },
-            "Name": "ans",
-            "ctype": "PanelObjectData"
+            "Name": "cheese_22",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/cup.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1951.5073,
+              "Y": 1415.2517
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7623,
+              "Y": 0.7863
+            },
+            "PreSize": {
+              "X": 0.1344,
+              "Y": 0.2011
+            },
+            "LeftMargin": 1779.5073,
+            "RightMargin": 436.4927,
+            "TopMargin": 203.7483,
+            "BottomMargin": 1234.2517,
+            "Tag": 1852,
+            "ActionTag": -1410210115,
+            "Size": {
+              "X": 344.0,
+              "Y": 362.0
+            },
+            "Name": "cup_23",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/donut.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 332.7411,
+              "Y": 221.3031
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.13,
+              "Y": 0.1229
+            },
+            "PreSize": {
+              "X": 0.1176,
+              "Y": 0.1667
+            },
+            "LeftMargin": 182.2411,
+            "RightMargin": 2076.7588,
+            "TopMargin": 1428.6969,
+            "BottomMargin": 71.3031,
+            "Tag": 1853,
+            "ActionTag": 917984739,
+            "Size": {
+              "X": 301.0,
+              "Y": 300.0
+            },
+            "Name": "donut_24",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/fish.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2221.2993,
+              "Y": 539.2762
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8677,
+              "Y": 0.2996
+            },
+            "PreSize": {
+              "X": 0.2121,
+              "Y": 0.1228
+            },
+            "LeftMargin": 1949.7993,
+            "RightMargin": 67.2007,
+            "TopMargin": 1150.2239,
+            "BottomMargin": 428.7762,
+            "Tag": 1854,
+            "ActionTag": 648331914,
+            "Size": {
+              "X": 543.0,
+              "Y": 221.0
+            },
+            "Name": "fish_25",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/shirt.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -96.0409,
+              "Y": 1367.9335
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0375,
+              "Y": 0.76
+            },
+            "PreSize": {
+              "X": 0.1992,
+              "Y": 0.2339
+            },
+            "LeftMargin": -351.0409,
+            "RightMargin": 2401.041,
+            "TopMargin": 221.5665,
+            "BottomMargin": 1157.4335,
+            "Tag": 1855,
+            "ActionTag": 1033149805,
+            "Size": {
+              "X": 510.0,
+              "Y": 421.0
+            },
+            "Name": "shirt_26",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/submarine.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 114.6901,
+              "Y": 557.09
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0448,
+              "Y": 0.3095
+            },
+            "PreSize": {
+              "X": 0.3535,
+              "Y": 0.2944
+            },
+            "LeftMargin": -337.8099,
+            "RightMargin": 1992.8098,
+            "TopMargin": 977.91,
+            "BottomMargin": 292.09,
+            "Tag": 1856,
+            "ActionTag": 25354197,
+            "Size": {
+              "X": 905.0,
+              "Y": 530.0
+            },
+            "Name": "submarine_27",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/tooth.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 669.7784,
+              "Y": 247.1026
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2616,
+              "Y": 0.1373
+            },
+            "PreSize": {
+              "X": 0.0699,
+              "Y": 0.1178
+            },
+            "LeftMargin": 580.2784,
+            "RightMargin": 1800.7216,
+            "TopMargin": 1446.8973,
+            "BottomMargin": 141.1026,
+            "Tag": 1857,
+            "ActionTag": -20651029,
+            "Size": {
+              "X": 179.0,
+              "Y": 212.0
+            },
+            "Name": "tooth_28",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/1.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -326.5776,
+              "Y": 904.046
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1276,
+              "Y": 0.5022
+            },
+            "PreSize": {
+              "X": 0.0484,
+              "Y": 0.1383
+            },
+            "LeftMargin": -388.5776,
+            "RightMargin": 2824.5776,
+            "TopMargin": 771.454,
+            "BottomMargin": 779.546,
+            "Tag": 1858,
+            "ActionTag": 1622949004,
+            "Size": {
+              "X": 124.0,
+              "Y": 249.0
+            },
+            "Name": "Sprite_29",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/apple.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 161.7107,
+              "Y": 955.5898
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0632,
+              "Y": 0.5309
+            },
+            "PreSize": {
+              "X": 0.0895,
+              "Y": 0.1483
+            },
+            "LeftMargin": 47.2107,
+            "RightMargin": 2283.7893,
+            "TopMargin": 710.9102,
+            "BottomMargin": 822.0898,
+            "Tag": 1859,
+            "ActionTag": -1038116433,
+            "Size": {
+              "X": 229.0,
+              "Y": 267.0
+            },
+            "Name": "apple_30",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/2.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1516.6698,
+              "Y": 1444.802
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -31.7674,
+            "RotationSkewY": -31.7674,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5924,
+              "Y": 0.8027
+            },
+            "PreSize": {
+              "X": 0.0676,
+              "Y": 0.1361
+            },
+            "LeftMargin": 1430.1698,
+            "RightMargin": 956.8302,
+            "TopMargin": 232.698,
+            "BottomMargin": 1322.302,
+            "Tag": 1860,
+            "ActionTag": 424474584,
+            "Size": {
+              "X": 173.0,
+              "Y": 245.0
+            },
+            "Name": "Sprite_31",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/3.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1191.8149,
+              "Y": 697.5902
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4656,
+              "Y": 0.3876
+            },
+            "PreSize": {
+              "X": 0.0676,
+              "Y": 0.1383
+            },
+            "LeftMargin": 1105.3149,
+            "RightMargin": 1281.6851,
+            "TopMargin": 977.9098,
+            "BottomMargin": 573.0902,
+            "Tag": 1861,
+            "ActionTag": 10681710,
+            "Size": {
+              "X": 173.0,
+              "Y": 249.0
+            },
+            "Name": "Sprite_32",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/4.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2372.0432,
+              "Y": 903.0536
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9266,
+              "Y": 0.5017
+            },
+            "PreSize": {
+              "X": 0.0754,
+              "Y": 0.1394
+            },
+            "LeftMargin": 2275.5432,
+            "RightMargin": 91.4568,
+            "TopMargin": 771.4463,
+            "BottomMargin": 777.5536,
+            "Tag": 1862,
+            "ActionTag": -1204644665,
+            "Size": {
+              "X": 193.0,
+              "Y": 251.0
+            },
+            "Name": "Sprite_33",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/5.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1979.1642,
+              "Y": 961.4384
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7731,
+              "Y": 0.5341
+            },
+            "PreSize": {
+              "X": 0.0676,
+              "Y": 0.1367
+            },
+            "LeftMargin": 1892.6642,
+            "RightMargin": 494.3359,
+            "TopMargin": 715.5616,
+            "BottomMargin": 838.4384,
+            "Tag": 1863,
+            "ActionTag": -1502288186,
+            "Size": {
+              "X": 173.0,
+              "Y": 246.0
+            },
+            "Name": "Sprite_34",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/6.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 807.8152,
+              "Y": 575.2468
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3156,
+              "Y": 0.3196
+            },
+            "PreSize": {
+              "X": 0.0688,
+              "Y": 0.1383
+            },
+            "LeftMargin": 719.8152,
+            "RightMargin": 1664.1848,
+            "TopMargin": 1100.2532,
+            "BottomMargin": 450.7468,
+            "Tag": 1864,
+            "ActionTag": -853579989,
+            "Size": {
+              "X": 176.0,
+              "Y": 249.0
+            },
+            "Name": "Sprite_35",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/7.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 358.9333,
+              "Y": 1111.7507
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1402,
+              "Y": 0.6176
+            },
+            "PreSize": {
+              "X": 0.0668,
+              "Y": 0.1361
+            },
+            "LeftMargin": 273.4333,
+            "RightMargin": 2115.5667,
+            "TopMargin": 565.7493,
+            "BottomMargin": 989.2507,
+            "Tag": 1865,
+            "ActionTag": 1436903171,
+            "Size": {
+              "X": 171.0,
+              "Y": 245.0
+            },
+            "Name": "Sprite_36",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/8.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1770.0977,
+              "Y": 184.7589
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6914,
+              "Y": 0.1026
+            },
+            "PreSize": {
+              "X": 0.0684,
+              "Y": 0.1378
+            },
+            "LeftMargin": 1682.5977,
+            "RightMargin": 702.4023,
+            "TopMargin": 1491.2411,
+            "BottomMargin": 60.7589,
+            "Tag": 1866,
+            "ActionTag": -541530196,
+            "Size": {
+              "X": 175.0,
+              "Y": 248.0
+            },
+            "Name": "Sprite_37",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/9.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 795.9352,
+              "Y": 1009.0823
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3109,
+              "Y": 0.5606
+            },
+            "PreSize": {
+              "X": 0.0688,
+              "Y": 0.1378
+            },
+            "LeftMargin": 707.9352,
+            "RightMargin": 1676.0648,
+            "TopMargin": 666.9177,
+            "BottomMargin": 885.0823,
+            "Tag": 1867,
+            "ActionTag": 739777448,
+            "Size": {
+              "X": 176.0,
+              "Y": 248.0
+            },
+            "Name": "Sprite_38",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/book.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1657.5867,
+              "Y": 764.6494
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 12.7936,
+            "RotationSkewY": 12.7928,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6475,
+              "Y": 0.4248
+            },
+            "PreSize": {
+              "X": 0.1484,
+              "Y": 0.1578
+            },
+            "LeftMargin": 1467.5867,
+            "RightMargin": 712.4133,
+            "TopMargin": 893.3506,
+            "BottomMargin": 622.6494,
+            "Tag": 1868,
+            "ActionTag": 1147323030,
+            "Size": {
+              "X": 380.0,
+              "Y": 284.0
+            },
+            "Name": "book_21_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/shirt.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2816.2437,
+              "Y": 922.2578
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1001,
+              "Y": 0.5124
+            },
+            "PreSize": {
+              "X": 0.1992,
+              "Y": 0.2339
+            },
+            "LeftMargin": 2561.2437,
+            "RightMargin": -511.2437,
+            "TopMargin": 667.2422,
+            "BottomMargin": 711.7578,
+            "Tag": 1869,
+            "ActionTag": -978944410,
+            "Size": {
+              "X": 510.0,
+              "Y": 421.0
+            },
+            "Name": "shirt_26_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/5.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 924.45,
+              "Y": 1357.2495
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3611,
+              "Y": 0.754
+            },
+            "PreSize": {
+              "X": 0.0676,
+              "Y": 0.1367
+            },
+            "LeftMargin": 837.95,
+            "RightMargin": 1549.05,
+            "TopMargin": 319.7505,
+            "BottomMargin": 1234.2495,
+            "Tag": 1870,
+            "ActionTag": -1249910676,
+            "Size": {
+              "X": 173.0,
+              "Y": 246.0
+            },
+            "Name": "Sprite_34_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/6.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2240.3813,
+              "Y": 1672.9055
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 29.0648,
+            "RotationSkewY": 29.0492,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8751,
+              "Y": 0.9294
+            },
+            "PreSize": {
+              "X": 0.0688,
+              "Y": 0.1383
+            },
+            "LeftMargin": 2152.3813,
+            "RightMargin": 231.6187,
+            "TopMargin": 2.5945,
+            "BottomMargin": 1548.4055,
+            "Tag": 1871,
+            "ActionTag": 854432943,
+            "Size": {
+              "X": 176.0,
+              "Y": 249.0
+            },
+            "Name": "Sprite_35_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/1.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1576.8066,
+              "Y": 1109.7567
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -31.3344,
+            "RotationSkewY": -31.3344,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6159,
+              "Y": 0.6165
+            },
+            "PreSize": {
+              "X": 0.0484,
+              "Y": 0.1383
+            },
+            "LeftMargin": 1514.8066,
+            "RightMargin": 921.1934,
+            "TopMargin": 565.7433,
+            "BottomMargin": 985.2567,
+            "Tag": 1872,
+            "ActionTag": -1495906175,
+            "Size": {
+              "X": 124.0,
+              "Y": 249.0
+            },
+            "Name": "Sprite_29_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/donut.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1175.9967,
+              "Y": 1084.25
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4594,
+              "Y": 0.6024
+            },
+            "PreSize": {
+              "X": 0.1176,
+              "Y": 0.1667
+            },
+            "LeftMargin": 1025.4967,
+            "RightMargin": 1233.5033,
+            "TopMargin": 565.75,
+            "BottomMargin": 934.25,
+            "Tag": 1873,
+            "ActionTag": 994447302,
+            "Size": {
+              "X": 301.0,
+              "Y": 300.0
+            },
+            "Name": "donut_24_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/4.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 228.5187,
+              "Y": 1697.6284
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 38.5571,
+            "RotationSkewY": 38.5675,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0893,
+              "Y": 0.9431
+            },
+            "PreSize": {
+              "X": 0.0754,
+              "Y": 0.1394
+            },
+            "LeftMargin": 132.0187,
+            "RightMargin": 2234.9812,
+            "TopMargin": -23.1284,
+            "BottomMargin": 1572.1284,
+            "Tag": 1874,
+            "ActionTag": 2101094404,
+            "Size": {
+              "X": 193.0,
+              "Y": 251.0
+            },
+            "Name": "Sprite_33_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/9.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2805.3289,
+              "Y": 1543.4956
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -50.1604,
+            "RotationSkewY": -50.1604,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.0958,
+              "Y": 0.8575
+            },
+            "PreSize": {
+              "X": 0.0688,
+              "Y": 0.1378
+            },
+            "LeftMargin": 2717.3289,
+            "RightMargin": -333.3289,
+            "TopMargin": 132.5044,
+            "BottomMargin": 1419.4956,
+            "Tag": 1875,
+            "ActionTag": -1786213875,
+            "Size": {
+              "X": 176.0,
+              "Y": 248.0
+            },
+            "Name": "Sprite_38_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/3.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2474.7334,
+              "Y": 219.4023
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9667,
+              "Y": 0.1219
+            },
+            "PreSize": {
+              "X": 0.0676,
+              "Y": 0.1383
+            },
+            "LeftMargin": 2388.2334,
+            "RightMargin": -1.2334,
+            "TopMargin": 1456.0977,
+            "BottomMargin": 94.9023,
+            "Tag": 1876,
+            "ActionTag": -1853388438,
+            "Size": {
+              "X": 173.0,
+              "Y": 249.0
+            },
+            "Name": "Sprite_32_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/apple.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1734.5859,
+              "Y": 512.0409
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 32.6289,
+            "RotationSkewY": 32.6304,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6776,
+              "Y": 0.2845
+            },
+            "PreSize": {
+              "X": 0.0895,
+              "Y": 0.1483
+            },
+            "LeftMargin": 1620.0859,
+            "RightMargin": 710.9141,
+            "TopMargin": 1154.4591,
+            "BottomMargin": 378.5409,
+            "Tag": 1878,
+            "ActionTag": -1739064556,
+            "Size": {
+              "X": 229.0,
+              "Y": 267.0
+            },
+            "Name": "apple_30_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/cup.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1106.3198,
+              "Y": 176.2496
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4322,
+              "Y": 0.0979
+            },
+            "PreSize": {
+              "X": 0.1344,
+              "Y": 0.2011
+            },
+            "LeftMargin": 934.3198,
+            "RightMargin": 1281.6802,
+            "TopMargin": 1442.7505,
+            "BottomMargin": -4.7504,
+            "Tag": 1879,
+            "ActionTag": 77523561,
+            "Size": {
+              "X": 344.0,
+              "Y": 362.0
+            },
+            "Name": "cup_23_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/7.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2822.3032,
+              "Y": 470.9922
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 31.3335,
+            "RotationSkewY": 31.3752,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 1.1025,
+              "Y": 0.2617
+            },
+            "PreSize": {
+              "X": 0.0668,
+              "Y": 0.1361
+            },
+            "LeftMargin": 2736.8032,
+            "RightMargin": -347.8032,
+            "TopMargin": 1206.5078,
+            "BottomMargin": 348.4922,
+            "Tag": 1880,
+            "ActionTag": -52551484,
+            "Size": {
+              "X": 171.0,
+              "Y": 245.0
+            },
+            "Name": "Sprite_36_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/cheese.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2186.1267,
+              "Y": 225.7608
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -23.7555,
+            "RotationSkewY": -23.7559,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.854,
+              "Y": 0.1254
+            },
+            "PreSize": {
+              "X": 0.0926,
+              "Y": 0.1122
+            },
+            "LeftMargin": 2067.6267,
+            "RightMargin": 255.3733,
+            "TopMargin": 1473.2393,
+            "BottomMargin": 124.7608,
+            "Tag": 1881,
+            "ActionTag": 2017234903,
+            "Size": {
+              "X": 237.0,
+              "Y": 202.0
+            },
+            "Name": "cheese_22_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/board.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1275.2732,
+              "Y": 1707.6545
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4982,
+              "Y": 0.9487
+            },
+            "PreSize": {
+              "X": 0.4398,
+              "Y": 0.1206
+            },
+            "LeftMargin": 712.2732,
+            "RightMargin": 721.7268,
+            "TopMargin": -16.1545,
+            "BottomMargin": 1599.1545,
+            "Tag": 1194,
+            "ActionTag": -1741902129,
+            "Size": {
+              "X": 1126.0,
+              "Y": 217.0
+            },
+            "Name": "board",
+            "ctype": "SpriteObjectData"
           }
         ],
         "Size": {
@@ -173,7 +1529,10 @@
         "Name": "Layer",
         "ctype": "LayerObjectData"
       },
-      "UsedResources": [],
+      "UsedResources": [
+        "mathlearning.plist",
+        "mathlearning.png"
+      ],
       "ctype": "GameFileData"
     }
   },
