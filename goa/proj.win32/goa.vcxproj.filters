@@ -747,6 +747,9 @@
     <ClCompile Include="..\Classes\mini_games\MathLearning.cpp">
       <Filter>Classes\mini_games</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BasicMultiplication.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1458,6 +1461,9 @@
       <Filter>Classes\menu</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\mini_games\MathLearning.h">
+      <Filter>Classes\mini_games</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BasicMultiplication.h">
       <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>

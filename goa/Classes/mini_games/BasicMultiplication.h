@@ -19,11 +19,13 @@ class BasicMultiplication : public cocos2d::Layer
 
 protected:
 	MenuContext *_menuContext;
-	int _answer = 0, _counter = 0 , _row = 0 , _column = 0;
+	int _answer = 0, _counter = 0 , _row = 0 , _column = 0 , _questionCounter = 0 , _quizAnswer = 0;
 	string _topBoardEquation = "", _animationName = "";
-	
-	
+	vector<int> _questionValue , _optionValue;
+	int _totalHit, _wrongHit;
+	bool _optionTouch = true;
 public:
+	vector<int> getRandomValueRange(int min, int max, int getValue);
 	~BasicMultiplication();
 	static cocos2d::Scene* createScene();
 	virtual bool init();
@@ -50,6 +52,18 @@ public:
 	Sprite * getGridWithIndex(int row, int column);
 
 	void QuizPlay();
+
+	void quizTopBoardSetting();
+
+	void TextOnBox(Sprite * sprite, int number);
+
+	void popUp(Sprite * target);
+
+	void optionRandomization();
+
+	void addEventsOnQuizButton(cocos2d::Sprite * object);
+
+	std::vector<int> getRandomOptionValue(int exceptValue, int min, int max, int range);
 
 	Sprite * createSprite(string name, int width, int height, int posiX, int posiY, int scaleXY);
 
