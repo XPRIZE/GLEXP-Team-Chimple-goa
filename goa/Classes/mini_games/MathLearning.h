@@ -20,16 +20,15 @@ protected:
 	MenuContext *_menuContext;
 	HelpLayer* _help;
 	bool _helpFlag = true;
-	int _answer;
-	std::vector<Sprite*> _leftBallBin;
-	std::vector<Sprite*> _rightBallBin;
+	int _answer;  
+	string _operation;
+	std::vector<Sprite*> _leftBallBin, _leftBallBinShadow;
+	std::vector<Sprite*> _rightBallBin, _rightBallBinShadow;
 	bool _leftTouchFlag = false;
-	bool _rightTouchFlag = false;
+	bool _rightTouchFlag = false, _sutractionCorrect = false;
 	int _inputFirst, _inputSecond, _answerUpdate = 0;
 	std::map<int, std::string> _animCsbPath;
 	
-	//cocos2d::LabelTTF* _label;
-
 	MathLearning();
 	~MathLearning();
 	
@@ -46,9 +45,13 @@ public:
 	string getGridNameInString(int ballNumber, string direction);
 	Sprite * getGridWithIndex(int ballNumber, string direction);
 	void addTouchEvents(Sprite* touchSprite);
-	void touchEffect(Sprite *obj);
+	void touchEffectForAddition(Sprite *obj);
+	void touchEffectForSubtraction(Sprite *obj);
 	string convertIntToString(int num);
 	void playWinAnim();
+	void fadingOut();
+	void quiz();
+	void quizPopUp(Sprite*);
 	static const char* gameName() { return MATHLEARNING.c_str(); }
 };
 #endif // __MATHLEARNING_SCENE_H__
