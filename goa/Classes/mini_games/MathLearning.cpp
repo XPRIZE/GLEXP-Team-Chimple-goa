@@ -44,9 +44,12 @@ void MathLearning::onEnterTransitionDidFinish()
 	}
 
 	_animCsbPath = {
-	
-					  {1, "a"},
-
+		{ 1,	"elephant_animation/elephant_animation.csb" },
+		{ 2,	"Giraffe_animation/Giraffe_animation.csb" },
+		{ 3,    "gorillacoin/gorillacoin.csb" },
+		{ 4 ,	"lion_animation/lion.csb" },
+		{ 5,	"owl/owlanimation.csb" },
+		{ 6,	"zebra_animation/zebra_animation.csb" }
 				   };
 
 	int answer;
@@ -248,7 +251,10 @@ void MathLearning::addTouchEvents(Sprite* sprite)
 			}
 			
 			
-			
+			if (_answerUpdate == _answer)
+			{
+				playWinAnim();
+			}
 			
 			//Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
 			return true;
@@ -274,7 +280,6 @@ void MathLearning::touchEffect(Sprite * obj)
 	obj->setColor(cocos2d::Color3B(44, 239, 43));
 
 	obj->setTag(1);
-
 }
 
 string MathLearning::convertIntToString(int num)
@@ -284,4 +289,41 @@ string MathLearning::convertIntToString(int num)
 	initialize << num;
 	str = initialize.str();
 	return str;
+}
+
+void MathLearning::playWinAnim()
+{
+	int random = RandomHelper::random_int(1, 6);
+	string str = _animCsbPath.at(random);
+	for (int i=0; i<_leftBallBin.size(); i++)
+	{
+		_leftBallBin[i]->setColor(cocos2d::Color3B::WHITE);
+
+		auto animationAnimalTimeline = CSLoader::createTimeline(str);
+		auto animationAnimal = CSLoader::createNode(str);
+		animationAnimal->runAction(animationAnimalTimeline);
+		animationAnimal->setScale(0.5);
+
+		auto size = _leftBallBin[i]->getContentSize();
+
+		_leftBallBin[i]->addChild(animationAnimal);
+		animationAnimal->setPosition(Vec2(_leftBallBin[i]->getContentSize().width / 2, _leftBallBin[i]->getContentSize().height / 2));
+		animationAnimalTimeline->gotoFrameAndPlay(0, true);
+	}
+	for (int i = 0; i<_rightBallBin.size(); i++)
+	{
+		_rightBallBin[i]->setColor(cocos2d::Color3B::WHITE);
+
+		auto animationAnimalTimeline = CSLoader::createTimeline(str);
+		auto animationAnimal = CSLoader::createNode(str);
+		animationAnimal->runAction(animationAnimalTimeline);
+		animationAnimal->setScale(0.5);
+
+		auto size = _rightBallBin[i]->getContentSize();
+
+		_rightBallBin[i]->addChild(animationAnimal);
+		animationAnimal->setPosition(Vec2(_rightBallBin[i]->getContentSize().width / 2, _rightBallBin[i]->getContentSize().height / 2));
+		animationAnimalTimeline->gotoFrameAndPlay(0, true);
+	}
+	
 }
