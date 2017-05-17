@@ -49,8 +49,14 @@ void BasicMultiplication::LearningPlay() {
 	bg->setName("bg");
 	topBoardSetting();
 
-	std::map<int, std::string> animationPath = {
-		{ 1,	"elephant_animation/elephant_animation.csb" },
+	if (Director::getInstance()->getVisibleSize().width > 2560) {
+		auto myGameWidth = (Director::getInstance()->getVisibleSize().width - 2560) / 2;
+		bg->setPositionX(myGameWidth);
+	}
+
+	std::map<int, std::string> animationPath = { 
+		//{ 1,	"elephant_animation/elephant_animation.csb" },
+		{ 1,	"round_elep/round_elep.csb" },
 		{ 2,	"Giraffe_animation/Giraffe_animation.csb" },
 		{ 3,    "gorillacoin/gorillacoin.csb" },
 		{ 4 ,	"lion_animation/lion.csb"},
@@ -271,15 +277,38 @@ void BasicMultiplication::QuizPlay() {
 	auto size = Director::getInstance()->getVisibleSize();
 
 	auto topBoard = createSprite("topBoard", size.width * 0.8, size.height* 0.2, size.width / 2, size.height * 0.75, 1);
-	CCAction* popupLayer = CCSequence::create(CCScaleTo::create(0.0, 0.0),
-		CCScaleTo::create(0.06, 1.05),
-		CCScaleTo::create(0.08, 0.95),
-		CCScaleTo::create(0.08, 1.0), NULL);
-	topBoard->runAction(popupLayer);
+	popUp(topBoard);
+	
+	this->runAction(Sequence::create(DelayTime::create(1),CallFunc::create([=]() {	optionCreate();	}),NULL));
 
+	
+}
+
+void BasicMultiplication::TextOnBox(Sprite* sprite , string text) {
 
 }
 
+void BasicMultiplication::optionCreate(){
+	auto size = Director::getInstance()->getVisibleSize();
+
+	auto option1 = createSprite("option1", size.width * 0.35, size.height* 0.20, size.width * .27, size.height * 0.45, 1);
+	popUp(option1);
+	auto option2 = createSprite("option2", size.width * 0.35, size.height* 0.20, size.width * .73, size.height * 0.45, 1);
+	popUp(option2);
+	auto option3 = createSprite("option3", size.width * 0.35, size.height* 0.20, size.width * .27, size.height * 0.2, 1);
+	popUp(option3);
+	auto option4 = createSprite("option4", size.width * 0.35, size.height* 0.20, size.width * .73, size.height * 0.2, 1);
+	popUp(option4);
+}
+
+void BasicMultiplication::popUp(Sprite* target) {
+	auto popupLayer = Sequence::create(
+		ScaleTo::create(0.0, 0.6),
+		ScaleTo::create(0.1, 1.1),
+		ScaleTo::create(0.2, 0.9),
+		ScaleTo::create(0.2, 1.0), NULL);
+	target->runAction(popupLayer);
+}
 
 BasicMultiplication::~BasicMultiplication(void)
 {

@@ -51,6 +51,12 @@ public:
 
 	void QuizPlay();
 
+	void TextOnBox(Sprite * sprite, string text);
+
+	void optionCreate();
+
+	void popUp(Sprite * target);
+
 	Sprite * createSprite(string name, int width, int height, int posiX, int posiY, int scaleXY);
 
 	static const char* gameName() { return BASICMULTIPLICATION.c_str(); }
