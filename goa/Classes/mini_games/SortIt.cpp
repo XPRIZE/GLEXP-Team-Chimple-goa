@@ -960,7 +960,9 @@ void SortIt::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 			auto x = transSprites[target->getTag() - 1]->getPosition().x;
 			auto y = transSprites[target->getTag() - 1]->getPosition().y;
 
-			target->setPosition(x, y);
+			auto action = MoveTo::create(0.5, Vec2(x,y));
+
+			target->runAction(action);
 			enableTouch = true;
 
 			auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
