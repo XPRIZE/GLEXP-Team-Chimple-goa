@@ -35,11 +35,6 @@ bool BasicMultiplication::init()
 void BasicMultiplication::onEnterTransitionDidFinish() {
 	
 	LearningPlay();
-	this->scheduleUpdate();
-}
-
-void BasicMultiplication::update(float delta) {
-
 }
 
 void BasicMultiplication::LearningPlay() {
@@ -92,6 +87,15 @@ void BasicMultiplication::topBoardSetting() {
 
 	gridGrayAndListnerController(row , column);
 
+	if (_menuContext->getCurrentLevel() == 1) {
+
+		auto downGrid = getGridWithIndex(1, 1);
+		auto help = HelpLayer::create(Rect(downGrid->getPositionX(), downGrid->getPositionY(), downGrid->getContentSize().width, downGrid->getContentSize().height), Rect(Director::getInstance()->getVisibleSize().width * 0.5,board->getPositionY(), board->getContentSize().width, board->getContentSize().height));
+		help->click(Vec2(downGrid->getPositionX(), downGrid->getPositionY()));
+		help->setName("helpLayer");
+		this->addChild(help, 4);
+	}
+
 	_questionValue = getRandomValueRange(1, 10, 5);
 }
 
@@ -130,6 +134,9 @@ void BasicMultiplication::addEventsOnGrid(cocos2d::Sprite* object)
 			target->runAction(scaleAction);
 
 			topBoardEquationController((Sprite*)target);
+
+			if (getChildByName("helpLayer"))
+				removeChildByName("helpLayer");
 
 			return false;
 		}

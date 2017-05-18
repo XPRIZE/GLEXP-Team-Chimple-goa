@@ -22,7 +22,7 @@ protected:
 	int _answer = 0, _counter = 0 , _row = 0 , _column = 0 , _questionCounter = 0 , _quizAnswer = 0;
 	string _topBoardEquation = "", _animationName = "";
 	vector<int> _questionValue , _optionValue;
-	int _totalHit, _wrongHit;
+	int _totalHit = 0, _wrongHit = 0 ;
 	bool _optionTouch = true;
 public:
 	vector<int> getRandomValueRange(int min, int max, int getValue);
@@ -31,8 +31,7 @@ public:
 	virtual bool init();
 	static BasicMultiplication* create();
 	void onEnterTransitionDidFinish();
-	void update(float) override;
-
+	
 	void LearningPlay();
 
 	void topBoardSetting();
