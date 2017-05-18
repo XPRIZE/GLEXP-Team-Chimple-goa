@@ -127,6 +127,9 @@ void BasicMultiplication::addEventsOnGrid(cocos2d::Sprite* object)
 		if (target->getBoundingBox().containsPoint(locationInNode)) {
 			target->setColor(Color3B(255, 198, 44));
 
+			auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+			audioBg->playEffect("res/sounds/sfx/grid_pressed_sound.ogg", false);
+
 			auto action1 = ScaleTo::create(0.1,1.1);
 			auto action2 = ScaleTo::create(0.1, 1);
 
@@ -393,13 +396,17 @@ void BasicMultiplication::addEventsOnQuizButton(cocos2d::Sprite* object)
 
 		if (target->getBoundingBox().containsPoint(locationInNode) && _optionTouch) {
 
-			auto action1 = ScaleTo::create(0.1, 1.1);
+			auto action1 = ScaleTo::create(0.1, 0.9);
 			auto action2 = ScaleTo::create(0.1, 1);
 
 			auto scaleAction = Sequence::create(action1, action2, NULL);
 			target->runAction(scaleAction);
 
 			if (target->getChildByName("label")->getTag() != _quizAnswer) {
+
+				auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+				audioBg->playEffect("res/sounds/sfx/error.ogg", false);
+
 				FShake* shake = FShake::actionWithDuration(0.5f, 10.0f);
 				target->runAction(shake);
 				_totalHit++;
@@ -409,6 +416,10 @@ void BasicMultiplication::addEventsOnQuizButton(cocos2d::Sprite* object)
 				_questionCounter++;
 				if (_questionValue.size() > _questionCounter) {
 					_totalHit++;
+
+					auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+					audioBg->playEffect("res/sounds/sfx/success.ogg", false);
+					
 					auto sequence = Sequence::create(
 						CallFunc::create([=]() {
 							_optionTouch = false;
@@ -425,7 +436,18 @@ void BasicMultiplication::addEventsOnQuizButton(cocos2d::Sprite* object)
 				else {
 					_menuContext->setMaxPoints(_totalHit);
 					_menuContext->addPoints(_totalHit - _wrongHit);
-					_menuContext->showScore();
+
+					auto sequence = Sequence::create(
+						CallFunc::create([=]() {
+							_optionTouch = false;
+						}),
+						DelayTime::create(0.5), 
+						
+						CallFunc::create([=]() {
+							_menuContext->showScore();
+							_optionTouch = true;
+						}), NULL);
+					runAction(sequence);
 				}
 			}
 
