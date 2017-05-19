@@ -486,6 +486,10 @@
 		F35CEBC61E98A35F00E0F041 /* Phonicsfree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBBD1E98A35F00E0F041 /* Phonicsfree.cpp */; };
 		F35CEBCC1E9FB98E00E0F041 /* ConnectTheDots.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBCA1E9FB98E00E0F041 /* ConnectTheDots.cpp */; };
 		F35CEBCE1E9FB99D00E0F041 /* ConnectTheDots.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBCA1E9FB98E00E0F041 /* ConnectTheDots.cpp */; };
+		F38DFA671ECEF06500B04635 /* BasicMultiplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DFA631ECEF06500B04635 /* BasicMultiplication.cpp */; };
+		F38DFA681ECEF06500B04635 /* BasicMultiplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DFA631ECEF06500B04635 /* BasicMultiplication.cpp */; };
+		F38DFA691ECEF06500B04635 /* MathLearning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DFA651ECEF06500B04635 /* MathLearning.cpp */; };
+		F38DFA6A1ECEF06500B04635 /* MathLearning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DFA651ECEF06500B04635 /* MathLearning.cpp */; };
 		F3E3AC0A1E8E6CEA00AD906E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC081E8E6CEA00AD906E /* Dot.cpp */; };
 		F3E3AC0B1E8E6CEA00AD906E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC081E8E6CEA00AD906E /* Dot.cpp */; };
 		F3E3AC0E1E8FC5A900AD906E /* DotNum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */; };
@@ -1035,6 +1039,10 @@
 		F35CEBBE1E98A35F00E0F041 /* Phonicsfree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Phonicsfree.h; sourceTree = "<group>"; };
 		F35CEBCA1E9FB98E00E0F041 /* ConnectTheDots.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectTheDots.cpp; sourceTree = "<group>"; };
 		F35CEBCB1E9FB98E00E0F041 /* ConnectTheDots.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConnectTheDots.hpp; sourceTree = "<group>"; };
+		F38DFA631ECEF06500B04635 /* BasicMultiplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicMultiplication.cpp; sourceTree = "<group>"; };
+		F38DFA641ECEF06500B04635 /* BasicMultiplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMultiplication.h; sourceTree = "<group>"; };
+		F38DFA651ECEF06500B04635 /* MathLearning.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathLearning.cpp; sourceTree = "<group>"; };
+		F38DFA661ECEF06500B04635 /* MathLearning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathLearning.h; sourceTree = "<group>"; };
 		F3E3AC081E8E6CEA00AD906E /* Dot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dot.cpp; sourceTree = "<group>"; };
 		F3E3AC091E8E6CEA00AD906E /* Dot.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dot.hpp; sourceTree = "<group>"; };
 		F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DotNum.cpp; sourceTree = "<group>"; };
@@ -1679,6 +1687,10 @@
 		F350418A1E32199F0005DF8D /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				F38DFA631ECEF06500B04635 /* BasicMultiplication.cpp */,
+				F38DFA641ECEF06500B04635 /* BasicMultiplication.h */,
+				F38DFA651ECEF06500B04635 /* MathLearning.cpp */,
+				F38DFA661ECEF06500B04635 /* MathLearning.h */,
 				F35CEBB71E98A35F00E0F041 /* AlphaArrange.cpp */,
 				F35CEBB81E98A35F00E0F041 /* AlphaArrange.h */,
 				F35CEBB91E98A35F00E0F041 /* AlphaPhonics.cpp */,
@@ -2284,6 +2296,7 @@
 				F35042A31E32199F0005DF8D /* LTKInkUtils.cpp in Sources */,
 				F35043611E3219A00005DF8D /* Jasmin_Listenerfile.cpp in Sources */,
 				F35043BD1E3219A00005DF8D /* Sqlite3Helper.cpp in Sources */,
+				F38DFA691ECEF06500B04635 /* MathLearning.cpp in Sources */,
 				F35043031E32199F0005DF8D /* GameMapScene.cpp in Sources */,
 				F35043091E32199F0005DF8D /* Introduction.cpp in Sources */,
 				F35043231E3219A00005DF8D /* AlphamoleLevel.cpp in Sources */,
@@ -2295,6 +2308,7 @@
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				F35042C71E32199F0005DF8D /* MessageContent.cpp in Sources */,
 				F350438F1E3219A00005DF8D /* Table.cpp in Sources */,
+				F38DFA671ECEF06500B04635 /* BasicMultiplication.cpp in Sources */,
 				F35040891E3219890005DF8D /* Alphamon.cpp in Sources */,
 				F35CEBC31E98A35F00E0F041 /* Find.cpp in Sources */,
 				F35042FF1E32199F0005DF8D /* WordManager.cpp in Sources */,
@@ -2385,6 +2399,7 @@
 				F35042921E32199F0005DF8D /* preprocessing.cpp in Sources */,
 				F35043A21E3219A00005DF8D /* ChooseCharacter.cpp in Sources */,
 				F30575F51E88F21C00171925 /* SortIt.cpp in Sources */,
+				F38DFA681ECEF06500B04635 /* BasicMultiplication.cpp in Sources */,
 				F350425A1E32199F0005DF8D /* LTKScreenContext.cpp in Sources */,
 				F350435A1E3219A00005DF8D /* DoorNode.cpp in Sources */,
 				F35043161E32199F0005DF8D /* MenuContext.cpp in Sources */,
@@ -2495,6 +2510,7 @@
 				F35043B21E3219A00005DF8D /* PegWord.cpp in Sources */,
 				F35043B81E3219A00005DF8D /* WordScene.cpp in Sources */,
 				F35043741E3219A00005DF8D /* Owl.cpp in Sources */,
+				F38DFA6A1ECEF06500B04635 /* MathLearning.cpp in Sources */,
 				F35043421E3219A00005DF8D /* CarDrawNode.cpp in Sources */,
 				F350427E1E32199F0005DF8D /* PointFloat.cpp in Sources */,
 				F35042D81E32199F0005DF8D /* WordBubble.cpp in Sources */,
