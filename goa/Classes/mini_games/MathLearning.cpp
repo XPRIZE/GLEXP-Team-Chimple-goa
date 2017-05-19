@@ -44,7 +44,7 @@ void MathLearning::onEnterTransitionDidFinish()
 	}
 
 	_animCsbPath = {
-		{ 1,	"elephant_animation/elephant_animation.csb" },
+		{ 1,	"round_elep/round_elep.csb" },
 		{ 2,	"Giraffe_animation/Giraffe_animation.csb" },
 		{ 3,    "gorillacoin/gorillacoin.csb" },
 		{ 4 ,	"lion_animation/lion.csb" },
@@ -305,11 +305,16 @@ void MathLearning::addTouchEvents(Sprite* sprite)
 				
 				if (_answerUpdate == _answer && !_operation.compare("addition"))
 				{
-					playWinAnim();
+					this->runAction(Sequence::create(DelayTime::create(0.2), CCCallFunc::create([=] {
+						playWinAnim();
+					}), NULL));
+					
 				}
 				else if (!_operation.compare("subtraction") && _sutractionCorrect)
 				{
-					playWinAnim();
+					this->runAction(Sequence::create(DelayTime::create(0.3), CCCallFunc::create([=] {
+						playWinAnim();
+					}), NULL));
 				}
 
 				label->setString(convertIntToString(_answerUpdate));
@@ -317,7 +322,6 @@ void MathLearning::addTouchEvents(Sprite* sprite)
 				auto sequence_F = ScaleTo::create(0.1, 1);
 				label->runAction(Sequence::create(sequence_E, sequence_F, NULL));
 			}
-			
 			
 			//Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
 			return true;
@@ -347,19 +351,31 @@ void MathLearning::touchEffectForAddition(Sprite * obj)
 
 void MathLearning::touchEffectForSubtraction(Sprite * obj)
 {
-	auto scaleTo = ScaleTo::create(0.1, 1.1);
-	auto scaleTo1 = ScaleTo::create(0.1, 1);
+	auto scaleToRightScaleUp = ScaleTo::create(0.1, 1.1);
+	auto scaleToRightScaleDown = ScaleTo::create(0.1, 1);
+	auto scaleToLeftScaleUp = ScaleTo::create(0.1, 1.1);
+	auto scaleToLeftScaleDown = ScaleTo::create(0.1, 1);
+
 	auto index = obj->getTag() - 1001;
-	obj->runAction(Sequence::create(scaleTo, scaleTo1, NULL));
+	obj->runAction(Sequence::create(scaleToRightScaleUp, scaleToRightScaleDown, NULL));
 	obj->setColor(cocos2d::Color3B(44, 239, 43));
 	obj->setTag(1);
-	obj->setVisible(false);
 
 	_inputFirst--;
-	_leftBallBin[_inputFirst]->setColor(cocos2d::Color3B::WHITE);
-	_leftBallBin[_inputFirst]->setVisible(false);
-	_leftBallBinShadow[_inputFirst]->setVisible(false);
-	_rightBallBinShadow[index]->setVisible(false);
+	_leftBallBin[_inputFirst]->runAction(Sequence::create(scaleToLeftScaleUp, scaleToLeftScaleDown, NULL));
+
+	this->runAction(Sequence::create(DelayTime::create(0.2), CCCallFunc::create([=] {
+
+		obj->setVisible(false);
+		
+		_leftBallBin[_inputFirst]->setVisible(false);
+		_leftBallBinShadow[_inputFirst]->setVisible(false);
+		_rightBallBinShadow[index]->setVisible(false);
+
+	}), NULL));
+	
+
+	
 	
 }
 
