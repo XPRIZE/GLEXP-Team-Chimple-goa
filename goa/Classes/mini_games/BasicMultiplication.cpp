@@ -109,7 +109,7 @@ void BasicMultiplication::gridGrayAndListnerController(int row , int column ) {
 			if (rows <= row && columns <= column)
 				addEventsOnGrid(sprite);
 			else
-				sprite->setColor(Color3B::GRAY);
+				sprite->setColor(Color3B(164, 150, 165));
 		}
 	}
 }
@@ -124,7 +124,7 @@ void BasicMultiplication::addEventsOnGrid(cocos2d::Sprite* object)
 		auto target = event->getCurrentTarget();
 		Point locationInNode = touch->getLocation();
 	
-		if (target->getBoundingBox().containsPoint(locationInNode)) {
+		if (target->getBoundingBox().containsPoint(locationInNode) && _optionTouchGrid ) {
 			target->setColor(Color3B(255, 198, 44));
 
 			auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -168,6 +168,7 @@ void BasicMultiplication::topBoardEquationController(Sprite* target) {
 		
 		CallFunc::create([=]() {	// Play Animation Method Calling
 			playAnimationAnimal();
+			_optionTouchGrid = false;
 		}),
 
 		DelayTime::create(2),		// DeayTime for 2 second
