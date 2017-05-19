@@ -312,6 +312,7 @@ void MathLearning::addTouchEvents(Sprite* sprite)
 				}
 				else if (!_operation.compare("subtraction") && _sutractionCorrect)
 				{
+					this->runAction(Sequence::create(DelayTime::create(0.35), CCCallFunc::create([=] {
 						playWinAnim();
 					}), NULL));
 				}
@@ -350,6 +351,10 @@ void MathLearning::touchEffectForAddition(Sprite * obj)
 
 void MathLearning::touchEffectForSubtraction(Sprite * obj)
 {
+	auto scaleToRightScaleUp = ScaleTo::create(0.2, 1.1);
+	auto scaleToRightScaleDown = ScaleTo::create(0.2, 1);
+	auto scaleToLeftScaleUp = ScaleTo::create(0.2, 1.1);
+	auto scaleToLeftScaleDown = ScaleTo::create(0.2, 1);
 
 	auto index = obj->getTag() - 1001;
 	obj->runAction(Sequence::create(scaleToRightScaleUp, scaleToRightScaleDown, NULL));
@@ -359,6 +364,7 @@ void MathLearning::touchEffectForSubtraction(Sprite * obj)
 	_inputFirst--;
 	_leftBallBin[_inputFirst]->runAction(Sequence::create(scaleToLeftScaleUp, scaleToLeftScaleDown, NULL));
 
+	this->runAction(Sequence::create(DelayTime::create(0.25), CCCallFunc::create([=] {
 
 		obj->setVisible(false);
 		
