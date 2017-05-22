@@ -33,9 +33,20 @@ class MenuContext : public cocos2d::Node {
     static bool _gameIsStatic;
 
 public:
+    enum class MATH_OPERATION
+    {
+        IDENTIFY = 0,
+        ADD = 1,
+        SUBTRACT = 2,
+        MULTIPLY = 3
+    };
+    
     static MenuContext* create(Node *main, std::string gameName = "", bool lauchCustomEventOnExit = false, std::string sceneName = "");
     
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
+    void pickWord(std::string targetWord, std::string chosenString);
+    void writeAlphabet(char targetAlphabet, bool correct);
+    void pickNumber(int targetNumber, int chosenNumber, MenuContext::MATH_OPERATION op);
     int getPoints();
     void addPoints(int points);
     void finalizePoints();

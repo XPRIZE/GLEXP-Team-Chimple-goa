@@ -648,6 +648,19 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
     SafariAnalyticsManager::getInstance()->insertAnalyticsInfo(targetAlphabetStr.c_str(), chosenAlphabetStr.c_str(), gameName.c_str());
 }
 
+void MenuContext::pickWord(std::string targetWord, std::string chosenString) {
+    
+}
+
+void MenuContext::writeAlphabet(char targetAlphabet, bool correct) {
+    
+}
+
+void MenuContext::pickNumber(int targetNumber, int chosenNumber, MenuContext::MATH_OPERATION op) {
+    
+}
+
+
 void MenuContext::addPoints(int points) {
     _points += points;
 //    _points = MAX(MIN(_points, _maxPoints), 0);
