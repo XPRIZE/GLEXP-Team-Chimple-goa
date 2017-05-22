@@ -50,43 +50,6 @@
             },
             "Name": "bg",
             "ctype": "ProjectNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "Normal",
-              "Path": "basicmultiplication/grid.json",
-              "Plist": ""
-            },
-            "StretchWidthEnable": false,
-            "StretchHeightEnable": false,
-            "InnerActionSpeed": 1.0,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "PreSize": {
-              "X": 1.0,
-              "Y": 1.0
-            },
-            "Tag": 140,
-            "ActionTag": -1407888434,
-            "Size": {
-              "X": 2560.0,
-              "Y": 1800.0
-            },
-            "Name": "grid",
-            "ctype": "ProjectNodeObjectData"
           }
         ],
         "Size": {
@@ -97,8 +60,7 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "bg.json",
-        "grid.json"
+        "bg.json"
       ],
       "ctype": "GameFileData"
     }
