@@ -24,6 +24,7 @@
 #include "ui/GUIExport.h"
 #include "cocos-ext.h"
 #include "storage/local-storage/LocalStorage.h"
+#include "../util/CommonText.h"
 
 #define SHOW_TEXT_AGAIN_BUTTON "showTextAgain"
 #define NEXT_BUTTON "next"
@@ -174,6 +175,10 @@ private:
     
     bool pointInTriangle(cocos2d::Point p0, cocos2d::Point p1, cocos2d::Point p2, cocos2d::Point p3);
 
+    void positionTextNode(CommonText* textNode, Node* parentNode, Node* storyTextNode, float currentNodeX, float currentNodeY);
+    
+    void renderStoryText(std::string storyText, Node* parentNode, Node* storyTextNode);
+    
 };
 
 
