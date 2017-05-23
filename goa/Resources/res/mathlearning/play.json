@@ -1,7 +1,7 @@
 {
-  "ID": "e208f4e0-771e-402c-b1ae-1e62fca263cf",
+  "ID": "9920f61e-2847-4e19-bc1a-22129ab7b51c",
   "Version": "3.10.0.0",
-  "Name": "grid",
+  "Name": "play",
   "Content": {
     "Content": {
       "Animation": {
@@ -12,7 +12,7 @@
       },
       "AnimationList": [],
       "ObjectData": {
-        "Tag": 989,
+        "Tag": 5052,
         "Children": [
           {
             "ClipAble": false,
@@ -32,551 +32,39 @@
               "B": 113
             },
             "ColorVector": {
-              "ScaleX": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 603.4462,
-              "Y": 723.1521
+              "X": 876.1517,
+              "Y": 1051.6702
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.463,
+            "RotationSkewX": 53.5105,
+            "RotationSkewY": 53.4775,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2357,
-              "Y": 0.4018
+              "X": 0.3422,
+              "Y": 0.5843
             },
             "PreSize": {
               "X": 0.0452,
               "Y": 0.0709
             },
-            "LeftMargin": 603.4462,
-            "RightMargin": 1840.787,
-            "TopMargin": 949.2917,
-            "BottomMargin": 723.1521,
-            "Tag": 556,
-            "ActionTag": 1096747528,
-            "Size": {
-              "X": 115.7668,
-              "Y": 127.5562
-            },
-            "Name": "sl6",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 2,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 111,
-              "G": 21,
-              "B": 71
-            },
-            "EndColor": {
-              "R": 163,
-              "G": 62,
-              "B": 113
-            },
-            "ColorVector": {
-              "ScaleX": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 382.2619,
-              "Y": 720.2243
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.4616,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1493,
-              "Y": 0.4001
-            },
-            "PreSize": {
-              "X": 0.0452,
-              "Y": 0.0709
-            },
-            "LeftMargin": 382.2619,
-            "RightMargin": 2061.9712,
-            "TopMargin": 952.2195,
-            "BottomMargin": 720.2243,
-            "Tag": 557,
-            "ActionTag": 1091508993,
-            "Size": {
-              "X": 115.7668,
-              "Y": 127.5562
-            },
-            "Name": "sl5",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 2,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 111,
-              "G": 21,
-              "B": 71
-            },
-            "EndColor": {
-              "R": 163,
-              "G": 62,
-              "B": 113
-            },
-            "ColorVector": {
-              "ScaleX": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 839.549,
-              "Y": 925.7396
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.463,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3279,
-              "Y": 0.5143
-            },
-            "PreSize": {
-              "X": 0.0452,
-              "Y": 0.0709
-            },
-            "LeftMargin": 839.549,
-            "RightMargin": 1604.6842,
-            "TopMargin": 746.7042,
-            "BottomMargin": 925.7396,
-            "Tag": 552,
-            "ActionTag": 31291436,
-            "Size": {
-              "X": 115.7668,
-              "Y": 127.5562
-            },
-            "Name": "sl8",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 2,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 111,
-              "G": 21,
-              "B": 71
-            },
-            "EndColor": {
-              "R": 163,
-              "G": 62,
-              "B": 113
-            },
-            "ColorVector": {
-              "ScaleX": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 603.7161,
-              "Y": 930.139
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.463,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2358,
-              "Y": 0.5167
-            },
-            "PreSize": {
-              "X": 0.0452,
-              "Y": 0.0709
-            },
-            "LeftMargin": 603.7161,
-            "RightMargin": 1840.5171,
-            "TopMargin": 742.3048,
-            "BottomMargin": 930.139,
-            "Tag": 553,
-            "ActionTag": 1759872151,
-            "Size": {
-              "X": 115.7668,
-              "Y": 127.5562
-            },
-            "Name": "sl2",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 2,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 111,
-              "G": 21,
-              "B": 71
-            },
-            "EndColor": {
-              "R": 163,
-              "G": 62,
-              "B": 113
-            },
-            "ColorVector": {
-              "ScaleX": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 382.5312,
-              "Y": 927.2113
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.4616,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1494,
-              "Y": 0.5151
-            },
-            "PreSize": {
-              "X": 0.0452,
-              "Y": 0.0709
-            },
-            "LeftMargin": 382.5312,
-            "RightMargin": 2061.7021,
-            "TopMargin": 745.2325,
-            "BottomMargin": 927.2113,
-            "Tag": 554,
-            "ActionTag": 1771668,
-            "Size": {
-              "X": 115.7668,
-              "Y": 127.5562
-            },
-            "Name": "sl1",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 2,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 111,
-              "G": 21,
-              "B": 71
-            },
-            "EndColor": {
-              "R": 163,
-              "G": 62,
-              "B": 113
-            },
-            "ColorVector": {
-              "ScaleX": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 161.6005,
-              "Y": 926.9601
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.4616,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0631,
-              "Y": 0.515
-            },
-            "PreSize": {
-              "X": 0.0452,
-              "Y": 0.0709
-            },
-            "LeftMargin": 161.6005,
-            "RightMargin": 2282.6328,
-            "TopMargin": 745.4838,
-            "BottomMargin": 926.9601,
-            "Tag": 555,
-            "ActionTag": 916934293,
-            "Size": {
-              "X": 115.7668,
-              "Y": 127.5562
-            },
-            "Name": "sl7",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 2,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 111,
-              "G": 21,
-              "B": 71
-            },
-            "EndColor": {
-              "R": 163,
-              "G": 62,
-              "B": 113
-            },
-            "ColorVector": {
-              "ScaleX": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 838.338,
-              "Y": 1132.0293
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.463,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3275,
-              "Y": 0.6289
-            },
-            "PreSize": {
-              "X": 0.0452,
-              "Y": 0.0709
-            },
-            "LeftMargin": 838.338,
-            "RightMargin": 1605.8953,
-            "TopMargin": 540.4146,
-            "BottomMargin": 1132.0293,
-            "Tag": 551,
-            "ActionTag": -1700884332,
-            "Size": {
-              "X": 115.7668,
-              "Y": 127.5562
-            },
-            "Name": "sl10",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 2,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 111,
-              "G": 21,
-              "B": 71
-            },
-            "EndColor": {
-              "R": 163,
-              "G": 62,
-              "B": 113
-            },
-            "ColorVector": {
-              "ScaleX": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 602.5049,
-              "Y": 1137.8925
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.463,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2354,
-              "Y": 0.6322
-            },
-            "PreSize": {
-              "X": 0.0452,
-              "Y": 0.0709
-            },
-            "LeftMargin": 602.5049,
-            "RightMargin": 1841.7283,
-            "TopMargin": 534.5514,
-            "BottomMargin": 1137.8925,
-            "Tag": 550,
-            "ActionTag": 901635501,
-            "Size": {
-              "X": 115.7668,
-              "Y": 127.5562
-            },
-            "Name": "sl4",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 2,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 111,
-              "G": 21,
-              "B": 71
-            },
-            "EndColor": {
-              "R": 163,
-              "G": 62,
-              "B": 113
-            },
-            "ColorVector": {
-              "ScaleX": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 382.785,
-              "Y": 1134.9662
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.4616,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1495,
-              "Y": 0.6305
-            },
-            "PreSize": {
-              "X": 0.0452,
-              "Y": 0.0709
-            },
-            "LeftMargin": 382.785,
-            "RightMargin": 2061.4482,
-            "TopMargin": 537.4777,
-            "BottomMargin": 1134.9662,
-            "Tag": 549,
-            "ActionTag": 34165750,
-            "Size": {
-              "X": 115.7668,
-              "Y": 127.5562
-            },
-            "Name": "sl3",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 2,
-            "SingleColor": {
-              "R": 150,
-              "G": 200
-            },
-            "FirstColor": {
-              "R": 111,
-              "G": 21,
-              "B": 71
-            },
-            "EndColor": {
-              "R": 163,
-              "G": 62,
-              "B": 113
-            },
-            "ColorVector": {
-              "ScaleX": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 160.3891,
-              "Y": 1133.2495
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.4616,
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.0627,
-              "Y": 0.6296
-            },
-            "PreSize": {
-              "X": 0.0452,
-              "Y": 0.0709
-            },
-            "LeftMargin": 160.3891,
-            "RightMargin": 2283.8442,
-            "TopMargin": 539.1943,
-            "BottomMargin": 1133.2495,
-            "Tag": 548,
-            "ActionTag": -902268627,
+            "LeftMargin": 876.1517,
+            "RightMargin": 1568.0815,
+            "TopMargin": 620.7737,
+            "BottomMargin": 1051.6702,
+            "Tag": 5053,
+            "ActionTag": -2138383742,
             "Size": {
               "X": 115.7668,
               "Y": 127.5562
@@ -602,38 +90,561 @@
               "B": 113
             },
             "ColorVector": {
-              "ScaleX": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 1632.7371,
-              "Y": 1128.6848
+              "X": 1026.6259,
+              "Y": 1052.8312
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.463,
+            "RotationSkewX": 53.5022,
+            "RotationSkewY": 53.5105,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.6378,
-              "Y": 0.627
+              "X": 0.401,
+              "Y": 0.5849
             },
             "PreSize": {
               "X": 0.0452,
               "Y": 0.0709
             },
-            "LeftMargin": 1632.7371,
-            "RightMargin": 811.4961,
-            "TopMargin": 543.759,
-            "BottomMargin": 1128.6848,
-            "Tag": 567,
-            "ActionTag": 640892328,
+            "LeftMargin": 1026.6259,
+            "RightMargin": 1417.6073,
+            "TopMargin": 619.6127,
+            "BottomMargin": 1052.8312,
+            "Tag": 5054,
+            "ActionTag": 887606863,
+            "Size": {
+              "X": 115.7668,
+              "Y": 127.5562
+            },
+            "Name": "sl3",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 111,
+              "G": 21,
+              "B": 71
+            },
+            "EndColor": {
+              "R": 163,
+              "G": 62,
+              "B": 113
+            },
+            "ColorVector": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1175.2844,
+              "Y": 1054.8113
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "RotationSkewX": 53.5022,
+            "RotationSkewY": 53.5105,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4591,
+              "Y": 0.586
+            },
+            "PreSize": {
+              "X": 0.0452,
+              "Y": 0.0709
+            },
+            "LeftMargin": 1175.2844,
+            "RightMargin": 1268.9487,
+            "TopMargin": 617.6326,
+            "BottomMargin": 1054.8113,
+            "Tag": 5055,
+            "ActionTag": 1780426214,
+            "Size": {
+              "X": 115.7668,
+              "Y": 127.5562
+            },
+            "Name": "sl4",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 111,
+              "G": 21,
+              "B": 71
+            },
+            "EndColor": {
+              "R": 163,
+              "G": 62,
+              "B": 113
+            },
+            "ColorVector": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1334.8439,
+              "Y": 1050.845
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "RotationSkewX": 53.5022,
+            "RotationSkewY": 53.5105,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5214,
+              "Y": 0.5838
+            },
+            "PreSize": {
+              "X": 0.0452,
+              "Y": 0.0709
+            },
+            "LeftMargin": 1334.8439,
+            "RightMargin": 1109.3893,
+            "TopMargin": 621.5989,
+            "BottomMargin": 1050.845,
+            "Tag": 5056,
+            "ActionTag": -1557135759,
+            "Size": {
+              "X": 115.7668,
+              "Y": 127.5562
+            },
+            "Name": "sl10",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 111,
+              "G": 21,
+              "B": 71
+            },
+            "EndColor": {
+              "R": 163,
+              "G": 62,
+              "B": 113
+            },
+            "ColorVector": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 876.9747,
+              "Y": 912.0909
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "RotationSkewX": 53.4661,
+            "RotationSkewY": 53.4733,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3426,
+              "Y": 0.5067
+            },
+            "PreSize": {
+              "X": 0.0452,
+              "Y": 0.0709
+            },
+            "LeftMargin": 876.9747,
+            "RightMargin": 1567.2585,
+            "TopMargin": 760.3529,
+            "BottomMargin": 912.0909,
+            "Tag": 5057,
+            "ActionTag": -1712138567,
+            "Size": {
+              "X": 115.7668,
+              "Y": 127.5562
+            },
+            "Name": "sl7",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 111,
+              "G": 21,
+              "B": 71
+            },
+            "EndColor": {
+              "R": 163,
+              "G": 62,
+              "B": 113
+            },
+            "ColorVector": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1026.4541,
+              "Y": 912.2609
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "RotationSkewX": 53.4588,
+            "RotationSkewY": 53.5364,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.401,
+              "Y": 0.5068
+            },
+            "PreSize": {
+              "X": 0.0452,
+              "Y": 0.0709
+            },
+            "LeftMargin": 1026.4541,
+            "RightMargin": 1417.7791,
+            "TopMargin": 760.1829,
+            "BottomMargin": 912.2609,
+            "Tag": 5058,
+            "ActionTag": 898681209,
+            "Size": {
+              "X": 115.7668,
+              "Y": 127.5562
+            },
+            "Name": "sl1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 111,
+              "G": 21,
+              "B": 71
+            },
+            "EndColor": {
+              "R": 163,
+              "G": 62,
+              "B": 113
+            },
+            "ColorVector": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1176.1027,
+              "Y": 914.2383
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "RotationSkewX": 53.4588,
+            "RotationSkewY": 53.5364,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4594,
+              "Y": 0.5079
+            },
+            "PreSize": {
+              "X": 0.0452,
+              "Y": 0.0709
+            },
+            "LeftMargin": 1176.1027,
+            "RightMargin": 1268.1305,
+            "TopMargin": 758.2056,
+            "BottomMargin": 914.2383,
+            "Tag": 5059,
+            "ActionTag": 1820122923,
+            "Size": {
+              "X": 115.7668,
+              "Y": 127.5562
+            },
+            "Name": "sl2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 111,
+              "G": 21,
+              "B": 71
+            },
+            "EndColor": {
+              "R": 163,
+              "G": 62,
+              "B": 113
+            },
+            "ColorVector": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1335.6653,
+              "Y": 911.2643
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "RotationSkewX": 53.4588,
+            "RotationSkewY": 53.5364,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5217,
+              "Y": 0.5063
+            },
+            "PreSize": {
+              "X": 0.0452,
+              "Y": 0.0709
+            },
+            "LeftMargin": 1335.6653,
+            "RightMargin": 1108.5679,
+            "TopMargin": 761.1796,
+            "BottomMargin": 911.2643,
+            "Tag": 5060,
+            "ActionTag": -1818488396,
+            "Size": {
+              "X": 115.7668,
+              "Y": 127.5562
+            },
+            "Name": "sl8",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 111,
+              "G": 21,
+              "B": 71
+            },
+            "EndColor": {
+              "R": 163,
+              "G": 62,
+              "B": 113
+            },
+            "ColorVector": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1026.2705,
+              "Y": 772.2224
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "RotationSkewX": 53.4588,
+            "RotationSkewY": 53.5364,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4009,
+              "Y": 0.429
+            },
+            "PreSize": {
+              "X": 0.0452,
+              "Y": 0.0709
+            },
+            "LeftMargin": 1026.2705,
+            "RightMargin": 1417.9626,
+            "TopMargin": 900.2214,
+            "BottomMargin": 772.2224,
+            "Tag": 5061,
+            "ActionTag": -2050945290,
+            "Size": {
+              "X": 115.7668,
+              "Y": 127.5562
+            },
+            "Name": "sl5",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 111,
+              "G": 21,
+              "B": 71
+            },
+            "EndColor": {
+              "R": 163,
+              "G": 62,
+              "B": 113
+            },
+            "ColorVector": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1175.92,
+              "Y": 774.2025
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "RotationSkewX": 53.4588,
+            "RotationSkewY": 53.5364,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4593,
+              "Y": 0.4301
+            },
+            "PreSize": {
+              "X": 0.0452,
+              "Y": 0.0709
+            },
+            "LeftMargin": 1175.92,
+            "RightMargin": 1268.3131,
+            "TopMargin": 898.2413,
+            "BottomMargin": 774.2025,
+            "Tag": 5062,
+            "ActionTag": 1980739727,
+            "Size": {
+              "X": 115.7668,
+              "Y": 127.5562
+            },
+            "Name": "sl6",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 2,
+            "SingleColor": {
+              "R": 150,
+              "G": 200
+            },
+            "FirstColor": {
+              "R": 111,
+              "G": 21,
+              "B": 71
+            },
+            "EndColor": {
+              "R": 163,
+              "G": 62,
+              "B": 113
+            },
+            "ColorVector": {
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1872.323,
+              "Y": 1048.5823
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "RotationSkewX": 53.5105,
+            "RotationSkewY": 53.5911,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7314,
+              "Y": 0.5825
+            },
+            "PreSize": {
+              "X": 0.0452,
+              "Y": 0.0709
+            },
+            "LeftMargin": 1872.323,
+            "RightMargin": 571.9102,
+            "TopMargin": 623.8616,
+            "BottomMargin": 1048.5823,
+            "Tag": 5063,
+            "ActionTag": -1111322129,
             "Size": {
               "X": 115.7668,
               "Y": 127.5562
@@ -659,38 +670,39 @@
               "B": 113
             },
             "ColorVector": {
-              "ScaleX": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 1855.1331,
-              "Y": 1130.4019
+              "X": 2022.7897,
+              "Y": 1049.7444
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.463,
+            "RotationSkewX": 53.5105,
+            "RotationSkewY": 53.5911,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7247,
-              "Y": 0.628
+              "X": 0.7902,
+              "Y": 0.5832
             },
             "PreSize": {
               "X": 0.0452,
               "Y": 0.0709
             },
-            "LeftMargin": 1855.1331,
-            "RightMargin": 589.1001,
-            "TopMargin": 542.042,
-            "BottomMargin": 1130.4019,
-            "Tag": 566,
-            "ActionTag": 1633894682,
+            "LeftMargin": 2022.7897,
+            "RightMargin": 421.4436,
+            "TopMargin": 622.6995,
+            "BottomMargin": 1049.7444,
+            "Tag": 5064,
+            "ActionTag": 1920467183,
             "Size": {
               "X": 115.7668,
               "Y": 127.5562
@@ -716,38 +728,39 @@
               "B": 113
             },
             "ColorVector": {
-              "ScaleX": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 2074.8547,
-              "Y": 1133.3269
+              "X": 2171.46,
+              "Y": 1051.7213
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.4574,
+            "RotationSkewX": 53.4072,
+            "RotationSkewY": 53.4588,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8105,
-              "Y": 0.6296
+              "X": 0.8482,
+              "Y": 0.5843
             },
             "PreSize": {
               "X": 0.0452,
               "Y": 0.0709
             },
-            "LeftMargin": 2074.8547,
-            "RightMargin": 369.3784,
-            "TopMargin": 539.1169,
-            "BottomMargin": 1133.3269,
-            "Tag": 565,
-            "ActionTag": 945850538,
+            "LeftMargin": 2171.46,
+            "RightMargin": 272.7732,
+            "TopMargin": 620.7225,
+            "BottomMargin": 1051.7213,
+            "Tag": 5065,
+            "ActionTag": 1166617031,
             "Size": {
               "X": 115.7668,
               "Y": 127.5562
@@ -773,38 +786,39 @@
               "B": 113
             },
             "ColorVector": {
-              "ScaleX": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 2310.6885,
-              "Y": 1127.4634
+              "X": 2331.0151,
+              "Y": 1047.754
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.4574,
+            "RotationSkewX": 53.4072,
+            "RotationSkewY": 53.4588,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.9026,
-              "Y": 0.6264
+              "X": 0.9106,
+              "Y": 0.5821
             },
             "PreSize": {
               "X": 0.0452,
               "Y": 0.0709
             },
-            "LeftMargin": 2310.6885,
-            "RightMargin": 133.5447,
-            "TopMargin": 544.9805,
-            "BottomMargin": 1127.4634,
-            "Tag": 564,
-            "ActionTag": -135047435,
+            "LeftMargin": 2331.0151,
+            "RightMargin": 113.218,
+            "TopMargin": 624.6898,
+            "BottomMargin": 1047.754,
+            "Tag": 5066,
+            "ActionTag": 1317101569,
             "Size": {
               "X": 115.7668,
               "Y": 127.5562
@@ -830,38 +844,39 @@
               "B": 113
             },
             "ColorVector": {
-              "ScaleX": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 1633.948,
-              "Y": 922.3936
+              "X": 1873.1454,
+              "Y": 908.9987
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.463,
+            "RotationSkewX": 53.4588,
+            "RotationSkewY": 53.5994,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.6383,
-              "Y": 0.5124
+              "X": 0.7317,
+              "Y": 0.505
             },
             "PreSize": {
               "X": 0.0452,
               "Y": 0.0709
             },
-            "LeftMargin": 1633.948,
-            "RightMargin": 810.2852,
-            "TopMargin": 750.0502,
-            "BottomMargin": 922.3936,
-            "Tag": 563,
-            "ActionTag": -285349156,
+            "LeftMargin": 1873.1454,
+            "RightMargin": 571.0878,
+            "TopMargin": 763.4451,
+            "BottomMargin": 908.9987,
+            "Tag": 5067,
+            "ActionTag": 213561764,
             "Size": {
               "X": 115.7668,
               "Y": 127.5562
@@ -887,38 +902,39 @@
               "B": 113
             },
             "ColorVector": {
-              "ScaleX": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 1854.8799,
-              "Y": 922.6451
+              "X": 2022.6183,
+              "Y": 909.1709
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.463,
+            "RotationSkewX": 53.4733,
+            "RotationSkewY": 53.5881,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7246,
-              "Y": 0.5126
+              "X": 0.7901,
+              "Y": 0.5051
             },
             "PreSize": {
               "X": 0.0452,
               "Y": 0.0709
             },
-            "LeftMargin": 1854.8799,
-            "RightMargin": 589.3533,
-            "TopMargin": 749.7987,
-            "BottomMargin": 922.6451,
-            "Tag": 562,
-            "ActionTag": 233694080,
+            "LeftMargin": 2022.6183,
+            "RightMargin": 421.615,
+            "TopMargin": 763.2729,
+            "BottomMargin": 909.1709,
+            "Tag": 5068,
+            "ActionTag": 1984940929,
             "Size": {
               "X": 115.7668,
               "Y": 127.5562
@@ -944,38 +960,39 @@
               "B": 113
             },
             "ColorVector": {
-              "ScaleX": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 2076.0659,
-              "Y": 925.5727
+              "X": 2172.2761,
+              "Y": 911.1504
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.4553,
+            "RotationSkewX": 53.3741,
+            "RotationSkewY": 53.4361,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.811,
-              "Y": 0.5142
+              "X": 0.8485,
+              "Y": 0.5062
             },
             "PreSize": {
               "X": 0.0452,
               "Y": 0.0709
             },
-            "LeftMargin": 2076.0659,
-            "RightMargin": 368.1672,
-            "TopMargin": 746.8711,
-            "BottomMargin": 925.5727,
-            "Tag": 561,
-            "ActionTag": -615719927,
+            "LeftMargin": 2172.2761,
+            "RightMargin": 271.957,
+            "TopMargin": 761.2935,
+            "BottomMargin": 911.1504,
+            "Tag": 5069,
+            "ActionTag": -723455841,
             "Size": {
               "X": 115.7668,
               "Y": 127.5562
@@ -1001,38 +1018,39 @@
               "B": 113
             },
             "ColorVector": {
-              "ScaleX": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 2311.9006,
-              "Y": 921.1733
+              "X": 2331.8376,
+              "Y": 908.1744
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.4553,
+            "RotationSkewX": 53.3741,
+            "RotationSkewY": 53.4361,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.9031,
-              "Y": 0.5118
+              "X": 0.9109,
+              "Y": 0.5045
             },
             "PreSize": {
               "X": 0.0452,
               "Y": 0.0709
             },
-            "LeftMargin": 2311.9006,
-            "RightMargin": 132.3325,
-            "TopMargin": 751.2705,
-            "BottomMargin": 921.1733,
-            "Tag": 560,
-            "ActionTag": -771156393,
+            "LeftMargin": 2331.8376,
+            "RightMargin": 112.3955,
+            "TopMargin": 764.2694,
+            "BottomMargin": 908.1744,
+            "Tag": 5070,
+            "ActionTag": 369316500,
             "Size": {
               "X": 115.7668,
               "Y": 127.5562
@@ -1058,38 +1076,39 @@
               "B": 113
             },
             "ColorVector": {
-              "ScaleX": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 1854.6108,
-              "Y": 715.6577
+              "X": 2022.4415,
+              "Y": 769.1309
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.463,
+            "RotationSkewX": 53.4733,
+            "RotationSkewY": 53.5881,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.7245,
-              "Y": 0.3976
+              "X": 0.79,
+              "Y": 0.4273
             },
             "PreSize": {
               "X": 0.0452,
               "Y": 0.0709
             },
-            "LeftMargin": 1854.6108,
-            "RightMargin": 589.6223,
-            "TopMargin": 956.7861,
-            "BottomMargin": 715.6577,
-            "Tag": 559,
-            "ActionTag": 832846690,
+            "LeftMargin": 2022.4415,
+            "RightMargin": 421.7917,
+            "TopMargin": 903.3129,
+            "BottomMargin": 769.1309,
+            "Tag": 5071,
+            "ActionTag": -1030741817,
             "Size": {
               "X": 115.7668,
               "Y": 127.5562
@@ -1115,38 +1134,39 @@
               "B": 113
             },
             "ColorVector": {
-              "ScaleX": 1.0
+              "ScaleX": 1.0,
+              "ScaleY": 0.0
             },
             "Scale9Width": 1,
             "Scale9Height": 1,
             "TouchEnable": true,
             "AnchorPoint": {},
             "Position": {
-              "X": 2075.7957,
-              "Y": 718.5854
+              "X": 2172.0942,
+              "Y": 771.1115
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
-            "RotationSkewX": 53.463,
-            "RotationSkewY": 53.4553,
+            "RotationSkewX": 53.3741,
+            "RotationSkewY": 53.4361,
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8109,
-              "Y": 0.3992
+              "X": 0.8485,
+              "Y": 0.4284
             },
             "PreSize": {
               "X": 0.0452,
               "Y": 0.0709
             },
-            "LeftMargin": 2075.7957,
-            "RightMargin": 368.4375,
-            "TopMargin": 953.8584,
-            "BottomMargin": 718.5854,
-            "Tag": 558,
-            "ActionTag": -550626917,
+            "LeftMargin": 2172.0942,
+            "RightMargin": 272.1389,
+            "TopMargin": 901.3323,
+            "BottomMargin": 771.1115,
+            "Tag": 5072,
+            "ActionTag": 777934920,
             "Size": {
               "X": 115.7668,
               "Y": 127.5562
@@ -1157,7 +1177,7 @@
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
+              "Path": "mathlearning/board.png",
               "Plist": "mathlearning/mathlearning.plist"
             },
             "BlendFunc": {
@@ -1169,8 +1189,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 212.4292,
-              "Y": 1170.249
+              "X": 1176.8035,
+              "Y": 1703.9954
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -1179,24 +1199,24 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.083,
-              "Y": 0.6501
+              "X": 0.4597,
+              "Y": 0.9467
             },
             "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
+              "X": 0.4398,
+              "Y": 0.1206
             },
-            "LeftMargin": 148.4292,
-            "RightMargin": 2283.5708,
-            "TopMargin": 565.751,
-            "BottomMargin": 1106.249,
-            "Tag": 990,
-            "ActionTag": 1878619036,
+            "LeftMargin": 613.8035,
+            "RightMargin": 820.1965,
+            "TopMargin": -12.4954,
+            "BottomMargin": 1595.4954,
+            "Tag": 5073,
+            "ActionTag": 137631075,
             "Size": {
-              "X": 128.0,
-              "Y": 128.0
+              "X": 1126.0,
+              "Y": 217.0
             },
-            "Name": "l9",
+            "Name": "board",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1214,34 +1234,34 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 433.6356,
-              "Y": 1170.2493
+              "X": 2206.052,
+              "Y": 797.8323
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.1694,
-              "Y": 0.6501
+              "X": 0.8617,
+              "Y": 0.4432
             },
             "PreSize": {
               "X": 0.05,
               "Y": 0.0711
             },
-            "LeftMargin": 369.6356,
-            "RightMargin": 2062.3645,
-            "TopMargin": 565.7507,
-            "BottomMargin": 1106.2493,
-            "Tag": 991,
-            "ActionTag": 1017047852,
+            "LeftMargin": 2142.052,
+            "RightMargin": 289.948,
+            "TopMargin": 938.1677,
+            "BottomMargin": 733.8323,
+            "Tag": 5074,
+            "ActionTag": 1553208161,
             "Size": {
               "X": 128.0,
               "Y": 128.0
             },
-            "Name": "l3",
+            "Name": "r6",
             "ctype": "SpriteObjectData"
           },
           {
@@ -1259,782 +1279,29 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 657.1588,
-              "Y": 1170.249
+              "X": 2054.8098,
+              "Y": 797.8326
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.2567,
-              "Y": 0.6501
+              "X": 0.8027,
+              "Y": 0.4432
             },
             "PreSize": {
               "X": 0.05,
               "Y": 0.0711
             },
-            "LeftMargin": 593.1588,
-            "RightMargin": 1838.8412,
-            "TopMargin": 565.751,
-            "BottomMargin": 1106.249,
-            "Tag": 992,
-            "ActionTag": -2062617267,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "l4",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 889.7036,
-              "Y": 1170.249
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3475,
-              "Y": 0.6501
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 825.7036,
-            "RightMargin": 1606.2964,
-            "TopMargin": 565.751,
-            "BottomMargin": 1106.249,
-            "Tag": 993,
-            "ActionTag": 1100985469,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "l10",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 212.4291,
-              "Y": 964.5461
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.083,
-              "Y": 0.5359
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 148.4291,
-            "RightMargin": 2283.5708,
-            "TopMargin": 771.4539,
-            "BottomMargin": 900.5461,
-            "Tag": 994,
-            "ActionTag": 1499774230,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "l7",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 433.6354,
-              "Y": 964.545
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1694,
-              "Y": 0.5359
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 369.6354,
-            "RightMargin": 2062.3645,
-            "TopMargin": 771.4551,
-            "BottomMargin": 900.545,
-            "Tag": 995,
-            "ActionTag": 295341908,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "l1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 657.1588,
-              "Y": 964.5428
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2567,
-              "Y": 0.5359
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 593.1588,
-            "RightMargin": 1838.8412,
-            "TopMargin": 771.4573,
-            "BottomMargin": 900.5428,
-            "Tag": 996,
-            "ActionTag": -89465276,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "l2",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 889.7036,
-              "Y": 964.5417
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3475,
-              "Y": 0.5359
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 825.7036,
-            "RightMargin": 1606.2964,
-            "TopMargin": 771.4583,
-            "BottomMargin": 900.5417,
-            "Tag": 997,
-            "ActionTag": 1355910490,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "l8",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 433.6353,
-              "Y": 758.0889
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.1694,
-              "Y": 0.4212
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 369.6353,
-            "RightMargin": 2062.3647,
-            "TopMargin": 977.9111,
-            "BottomMargin": 694.0889,
-            "Tag": 998,
-            "ActionTag": 412776005,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "l5",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 657.1595,
-              "Y": 758.0864
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.2567,
-              "Y": 0.4212
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 593.1595,
-            "RightMargin": 1838.8406,
-            "TopMargin": 977.9136,
-            "BottomMargin": 694.0864,
-            "Tag": 999,
-            "ActionTag": -53175912,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "l6",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "AnchorPoint": {},
-            "Position": {
-              "X": 1281.248,
-              "Y": 1026.7622
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": true,
-            "PrePosition": {
-              "X": 0.5005,
-              "Y": 0.5704
-            },
-            "PreSize": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "LeftMargin": 1281.248,
-            "RightMargin": 1278.752,
-            "TopMargin": 773.2378,
-            "BottomMargin": 1026.7622,
-            "Tag": 1000,
-            "ActionTag": -2139821961,
-            "Size": {
-              "X": 0.0,
-              "Y": 0.0
-            },
-            "Name": "operation",
-            "ctype": "SingleNodeObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1681.2596,
-              "Y": 1170.2493
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6567,
-              "Y": 0.6501
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 1617.2596,
-            "RightMargin": 814.7404,
-            "TopMargin": 565.7507,
-            "BottomMargin": 1106.2493,
-            "Tag": 1001,
-            "ActionTag": -1846520319,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "r9",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1902.4683,
-              "Y": 1170.2495
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.7432,
-              "Y": 0.6501
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 1838.4683,
-            "RightMargin": 593.5317,
-            "TopMargin": 565.7505,
-            "BottomMargin": 1106.2495,
-            "Tag": 1002,
-            "ActionTag": 971957321,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "r3",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2125.9814,
-              "Y": 1170.2493
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.8305,
-              "Y": 0.6501
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 2061.9814,
-            "RightMargin": 370.0186,
-            "TopMargin": 565.7507,
-            "BottomMargin": 1106.2493,
-            "Tag": 1003,
-            "ActionTag": -1363110371,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "r4",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2358.5288,
-              "Y": 1170.2493
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.9213,
-              "Y": 0.6501
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 2294.5288,
-            "RightMargin": 137.4712,
-            "TopMargin": 565.7507,
-            "BottomMargin": 1106.2493,
-            "Tag": 1004,
-            "ActionTag": 1801933071,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "r10",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1681.2555,
-              "Y": 964.5464
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.6567,
-              "Y": 0.5359
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 1617.2555,
-            "RightMargin": 814.7445,
-            "TopMargin": 771.4536,
-            "BottomMargin": 900.5464,
-            "Tag": 1005,
-            "ActionTag": 1056262530,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "r7",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1902.4647,
-              "Y": 964.5453
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.7432,
-              "Y": 0.5359
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 1838.4647,
-            "RightMargin": 593.5353,
-            "TopMargin": 771.4547,
-            "BottomMargin": 900.5453,
-            "Tag": 1006,
-            "ActionTag": 785506755,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "r1",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2125.9814,
-              "Y": 964.5432
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.8305,
-              "Y": 0.5359
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 2061.9814,
-            "RightMargin": 370.0186,
-            "TopMargin": 771.4568,
-            "BottomMargin": 900.5432,
-            "Tag": 1007,
-            "ActionTag": -1103052223,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "r2",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 2360.4148,
-              "Y": 966.428
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.922,
-              "Y": 0.5369
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 2296.4148,
-            "RightMargin": 135.5852,
-            "TopMargin": 769.572,
-            "BottomMargin": 902.428,
-            "Tag": 1008,
-            "ActionTag": 1419551301,
-            "Size": {
-              "X": 128.0,
-              "Y": 128.0
-            },
-            "Name": "r8",
-            "ctype": "SpriteObjectData"
-          },
-          {
-            "FileData": {
-              "Type": "MarkedSubImage",
-              "Path": "mathlearning/circle.png",
-              "Plist": "mathlearning/mathlearning.plist"
-            },
-            "BlendFunc": {
-              "Src": 1,
-              "Dst": 771
-            },
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1902.4614,
-              "Y": 758.0894
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.7431,
-              "Y": 0.4212
-            },
-            "PreSize": {
-              "X": 0.05,
-              "Y": 0.0711
-            },
-            "LeftMargin": 1838.4614,
-            "RightMargin": 593.5386,
-            "TopMargin": 977.9106,
-            "BottomMargin": 694.0894,
-            "Tag": 1009,
-            "ActionTag": -762783544,
+            "LeftMargin": 1990.8098,
+            "RightMargin": 441.1902,
+            "TopMargin": 938.1674,
+            "BottomMargin": 733.8326,
+            "Tag": 5075,
+            "ActionTag": 1233685595,
             "Size": {
               "X": 128.0,
               "Y": 128.0
@@ -2057,142 +1324,40 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 2125.9814,
-              "Y": 758.0867
+              "X": 2364.6604,
+              "Y": 938.7942
             },
             "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
             },
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.8305,
-              "Y": 0.4212
+              "X": 0.9237,
+              "Y": 0.5216
             },
             "PreSize": {
               "X": 0.05,
               "Y": 0.0711
             },
-            "LeftMargin": 2061.9814,
-            "RightMargin": 370.0186,
-            "TopMargin": 977.9133,
-            "BottomMargin": 694.0867,
-            "Tag": 1010,
-            "ActionTag": -1369600626,
+            "LeftMargin": 2300.6604,
+            "RightMargin": 131.3396,
+            "TopMargin": 797.2058,
+            "BottomMargin": 874.7942,
+            "Tag": 5076,
+            "ActionTag": 972078648,
             "Size": {
               "X": 128.0,
               "Y": 128.0
             },
-            "Name": "r6",
+            "Name": "r8",
             "ctype": "SpriteObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 1,
-            "SingleColor": {
-              "R": 224,
-              "G": 173,
-              "B": 45
-            },
-            "FirstColor": {
-              "R": 150,
-              "G": 200
-            },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 982.64,
-              "Y": 164.31
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3838,
-              "Y": 0.0913
-            },
-            "PreSize": {
-              "X": 0.2344,
-              "Y": 0.2001
-            },
-            "LeftMargin": 982.64,
-            "RightMargin": 977.2952,
-            "TopMargin": 1275.4934,
-            "BottomMargin": 164.31,
-            "Tag": 2246,
-            "ActionTag": 1959751302,
-            "Size": {
-              "X": 600.0649,
-              "Y": 360.1966
-            },
-            "Name": "anss",
-            "ctype": "PanelObjectData"
-          },
-          {
-            "ClipAble": false,
-            "ComboBoxIndex": 1,
-            "SingleColor": {
-              "R": 130,
-              "G": 41,
-              "B": 90
-            },
-            "FirstColor": {
-              "R": 150,
-              "G": 200
-            },
-            "EndColor": {},
-            "ColorVector": {
-              "ScaleY": 1.0
-            },
-            "Scale9Width": 1,
-            "Scale9Height": 1,
-            "TouchEnable": true,
-            "AnchorPoint": {},
-            "Position": {
-              "X": 982.64,
-              "Y": 184.2507
-            },
-            "Scale": {
-              "ScaleX": 1.0,
-              "ScaleY": 1.0
-            },
-            "CColor": {},
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.3838,
-              "Y": 0.1024
-            },
-            "PreSize": {
-              "X": 0.2344,
-              "Y": 0.2001
-            },
-            "LeftMargin": 982.64,
-            "RightMargin": 977.2952,
-            "TopMargin": 1255.5527,
-            "BottomMargin": 184.2507,
-            "Tag": 2247,
-            "ActionTag": 2137319500,
-            "Size": {
-              "X": 600.0649,
-              "Y": 360.1966
-            },
-            "Name": "ans",
-            "ctype": "PanelObjectData"
           },
           {
             "FileData": {
               "Type": "MarkedSubImage",
-              "Path": "mathlearning/board.png",
+              "Path": "mathlearning/circle.png",
               "Plist": "mathlearning/mathlearning.plist"
             },
             "BlendFunc": {
@@ -2204,8 +1369,806 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1275.2732,
-              "Y": 1707.6545
+              "X": 2206.052,
+              "Y": 937.5181
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8617,
+              "Y": 0.5208
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 2142.052,
+            "RightMargin": 289.948,
+            "TopMargin": 798.4819,
+            "BottomMargin": 873.5181,
+            "Tag": 5077,
+            "ActionTag": -498735241,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "r2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2054.8098,
+              "Y": 937.5181
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8027,
+              "Y": 0.5208
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 1990.8098,
+            "RightMargin": 441.1902,
+            "TopMargin": 798.4819,
+            "BottomMargin": 873.5181,
+            "Tag": 5078,
+            "ActionTag": 193146055,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "r1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1905.1493,
+              "Y": 937.5181
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7442,
+              "Y": 0.5208
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 1841.1493,
+            "RightMargin": 590.8507,
+            "TopMargin": 798.4819,
+            "BottomMargin": 873.5181,
+            "Tag": 5079,
+            "ActionTag": 1741831249,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "r7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2363.3867,
+              "Y": 1076.6929
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9232,
+              "Y": 0.5982
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 2299.3867,
+            "RightMargin": 132.6133,
+            "TopMargin": 659.3071,
+            "BottomMargin": 1012.6929,
+            "Tag": 5080,
+            "ActionTag": -1687266346,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "r10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2206.052,
+              "Y": 1076.6929
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8617,
+              "Y": 0.5982
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 2142.052,
+            "RightMargin": 289.948,
+            "TopMargin": 659.3071,
+            "BottomMargin": 1012.6929,
+            "Tag": 5081,
+            "ActionTag": 2071467005,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "r4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2054.8171,
+              "Y": 1076.6937
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.8027,
+              "Y": 0.5982
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 1990.8171,
+            "RightMargin": 441.1829,
+            "TopMargin": 659.3063,
+            "BottomMargin": 1012.6937,
+            "Tag": 5082,
+            "ActionTag": 1012401256,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "r3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1905.1493,
+              "Y": 1076.6929
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7442,
+              "Y": 0.5982
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 1841.1493,
+            "RightMargin": 590.8507,
+            "TopMargin": 659.3071,
+            "BottomMargin": 1012.6929,
+            "Tag": 5083,
+            "ActionTag": -125573038,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "r9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1634.5162,
+              "Y": 979.6208
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.6385,
+              "Y": 0.5442
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1634.5162,
+            "RightMargin": 925.4838,
+            "TopMargin": 820.3792,
+            "BottomMargin": 979.6208,
+            "Tag": 5084,
+            "ActionTag": 1702577525,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "operation",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1212.2611,
+              "Y": 797.8323
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4735,
+              "Y": 0.4432
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 1148.2611,
+            "RightMargin": 1283.7389,
+            "TopMargin": 938.1677,
+            "BottomMargin": 733.8323,
+            "Tag": 5085,
+            "ActionTag": -1561593853,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "l6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1061.0294,
+              "Y": 797.8326
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4145,
+              "Y": 0.4432
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 997.0294,
+            "RightMargin": 1434.9706,
+            "TopMargin": 938.1674,
+            "BottomMargin": 733.8326,
+            "Tag": 5086,
+            "ActionTag": 1095381655,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "l5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1369.5988,
+              "Y": 937.5146
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.535,
+              "Y": 0.5208
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 1305.5988,
+            "RightMargin": 1126.4012,
+            "TopMargin": 798.4854,
+            "BottomMargin": 873.5146,
+            "Tag": 5087,
+            "ActionTag": -205936476,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "l8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1212.2611,
+              "Y": 937.5181
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4735,
+              "Y": 0.5208
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 1148.2611,
+            "RightMargin": 1283.7389,
+            "TopMargin": 798.4819,
+            "BottomMargin": 873.5181,
+            "Tag": 5088,
+            "ActionTag": 1739119047,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "l2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1061.0294,
+              "Y": 937.5181
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4145,
+              "Y": 0.5208
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 997.0294,
+            "RightMargin": 1434.9706,
+            "TopMargin": 798.4819,
+            "BottomMargin": 873.5181,
+            "Tag": 5089,
+            "ActionTag": 2096640741,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "l1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 911.3619,
+              "Y": 937.5181
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.356,
+              "Y": 0.5208
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 847.3619,
+            "RightMargin": 1584.6382,
+            "TopMargin": 798.4819,
+            "BottomMargin": 873.5181,
+            "Tag": 5090,
+            "ActionTag": -1462328846,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "l7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1369.5988,
+              "Y": 1076.6929
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.535,
+              "Y": 0.5982
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 1305.5988,
+            "RightMargin": 1126.4012,
+            "TopMargin": 659.3071,
+            "BottomMargin": 1012.6929,
+            "Tag": 5091,
+            "ActionTag": -2052333690,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "l10",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1212.2611,
+              "Y": 1076.6929
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4735,
+              "Y": 0.5982
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 1148.2611,
+            "RightMargin": 1283.7389,
+            "TopMargin": 659.3071,
+            "BottomMargin": 1012.6929,
+            "Tag": 5092,
+            "ActionTag": -9713403,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "l4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1061.0294,
+              "Y": 1076.6929
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4145,
+              "Y": 0.5982
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 997.0294,
+            "RightMargin": 1434.9706,
+            "TopMargin": 659.3071,
+            "BottomMargin": 1012.6929,
+            "Tag": 5093,
+            "ActionTag": -1858258331,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "l3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/circle.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 911.3619,
+              "Y": 1076.6929
+            },
+            "Scale": {
+              "ScaleX": 0.6766,
+              "ScaleY": 0.6766
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.356,
+              "Y": 0.5982
+            },
+            "PreSize": {
+              "X": 0.05,
+              "Y": 0.0711
+            },
+            "LeftMargin": 847.3619,
+            "RightMargin": 1584.6382,
+            "TopMargin": 659.3071,
+            "BottomMargin": 1012.6929,
+            "Tag": 5094,
+            "ActionTag": -1484088913,
+            "Size": {
+              "X": 128.0,
+              "Y": 128.0
+            },
+            "Name": "l9",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "mathlearning/ans2.png",
+              "Plist": "mathlearning/mathlearning.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2119.8423,
+              "Y": 1702.9348
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -2214,24 +2177,24 @@
             "CColor": {},
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.4982,
-              "Y": 0.9487
+              "X": 0.8281,
+              "Y": 0.9461
             },
             "PreSize": {
-              "X": 0.4398,
+              "X": 0.1469,
               "Y": 0.1206
             },
-            "LeftMargin": 712.2732,
-            "RightMargin": 721.7268,
-            "TopMargin": -16.1545,
-            "BottomMargin": 1599.1545,
-            "Tag": 79,
-            "ActionTag": -1139633696,
+            "LeftMargin": 1931.8423,
+            "RightMargin": 252.1577,
+            "TopMargin": -11.4348,
+            "BottomMargin": 1594.4348,
+            "Tag": 5095,
+            "ActionTag": 1863054350,
             "Size": {
-              "X": 1126.0,
+              "X": 376.0,
               "Y": 217.0
             },
-            "Name": "board",
+            "Name": "ans",
             "ctype": "SpriteObjectData"
           }
         ],

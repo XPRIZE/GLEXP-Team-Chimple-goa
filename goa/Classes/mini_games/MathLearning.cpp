@@ -35,13 +35,13 @@ void MathLearning::onEnterTransitionDidFinish()
 		mathLearningBackground->setPositionX(myGameWidth);
 	}
 
-	Vector <Node*> children = mathLearningBackground->getChildren();
+	/*Vector <Node*> children = mathLearningBackground->getChildren();
 	int size = children.size();
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
 		Node *monsterItem = *item;
 		std::string str = monsterItem->getName().c_str();
 		CCLOG("name : %s", str.c_str());
-	}
+	}*/
 
 	_animCsbPath = {
 		{ 1,	"round_elep/round_elep.csb" },
@@ -101,20 +101,32 @@ void MathLearning::onEnterTransitionDidFinish()
 			
 		}
 
-		auto sign = (Sprite*)getChildByName("bg")->getChildByName("grid")->getChildByName("operation");
-		auto operation = setAllLabelProperties(operationSymbol, 0, sign->getPositionX(), sign->getPositionY(), true, 0.5, 0.5, 0, 1, 1, 250);
+		auto grid = CSLoader::createNode("mathlearning/grid.csb");
+		this->addChild(grid, 0);
+		grid->setName("grid");
+
+		Vector <Node*> children1 = grid->getChildren();
+		int size1 = children1.size();
+		for (auto item = children1.rbegin(); item != children1.rend(); ++item) {
+			Node *monsterItem = *item;
+			std::string str = monsterItem->getName().c_str();
+			CCLOG("name : %s", str.c_str());
+		}
+
+		auto sign = grid->getChildByName("operation");
+		auto operation = setAllLabelProperties(operationSymbol, 0, sign->getContentSize().width/2, sign->getContentSize().height/2, true, 0.5, 0.5, 0, 1, 1, 250);
 		operation->setColor(cocos2d::Color3B(255, 255, 255));
 		operation->setName("operationSymbol");
-		this->addChild(operation, 0);
+		sign->addChild(operation, 0);
 
-		
-		auto label = setAllLabelProperties(textOnDisplay, 0, visibleSize.width*0.5, visibleSize.height*0.95, true, 0.5, 0.5, 0, 1, 1, 180);
+		auto board = grid->getChildByName("board");
+		auto label = setAllLabelProperties(textOnDisplay, 0, board->getContentSize().width / 2, board->getContentSize().height / 2, true, 0.5, 0.5, 0, 1, 1, 180);
 		label->setColor(cocos2d::Color3B(255, 255, 255));
 		label->setName("question");
-		this->addChild(label, 0);
+		board->addChild(label, 0);
 
 		ansStr = convertIntToString(0);
-		auto ans = (Sprite*)getChildByName("bg")->getChildByName("grid")->getChildByName("ans");
+		auto ans = grid->getChildByName("ans");
 		auto answerLabel = setAllLabelProperties(ansStr, 0, ans->getContentSize().width*0.5, ans->getContentSize().height*0.5, true, 0.5, 0.5, 0, 1, 1, 240);
 		answerLabel->setColor(cocos2d::Color3B(255, 255, 255));
 		answerLabel->setName("answer");
@@ -122,56 +134,7 @@ void MathLearning::onEnterTransitionDidFinish()
 		ans->addChild(answerLabel, 0);
 
 
-		for (int i = 1; i <= 10; i++)
-		{
-			auto left = getGridWithIndex(i, "l");
-			auto right = getGridWithIndex(i, "r");
-			auto leftShadow = getGridWithIndex(i, "sl");
-			auto rightShadow = getGridWithIndex(i, "sr");
-			
-			left->setVisible(false);
-			right->setVisible(false);
-			leftShadow->setVisible(false);
-			rightShadow->setVisible(false);
-			right->setTag(1000 + i);
-
-			left->setName("left");
-			right->setName("right");
-
-			_leftBallBin.push_back(left);
-			_rightBallBin.push_back(right);
-			_leftBallBinShadow.push_back(leftShadow);
-			_rightBallBinShadow.push_back(rightShadow);
-		}
-		float delayLeft = 0;
-		float delayRight = 0;
-		for (int i = 0; i < _inputFirst; i++)
-		{
-			this->runAction(Sequence::create(DelayTime::create(delayLeft), CallFunc::create([=] {
-				_leftBallBin[i]->setScale(0.001);
-				_leftBallBin[i]->setVisible(true);
-				_leftBallBinShadow[i]->setVisible(true);
-				auto scaleTo = ScaleTo::create(1, 1);
-				EaseElasticOut *easeAction = EaseElasticOut::create(scaleTo);
-				_leftBallBin[i]->runAction(easeAction);
-				addTouchEvents(_leftBallBin[i]);
-			}), NULL));
-			delayLeft += 0.3;
-		}
-		for (int j = 0; j < _inputSecond; j++)
-		{
-			this->runAction(Sequence::create(DelayTime::create(delayRight), CallFunc::create([=] {
-			
-				_rightBallBin[j]->setScale(0.001);
-				_rightBallBin[j]->setVisible(true);
-				_rightBallBinShadow[j]->setVisible(true);
-				auto scaleTo = ScaleTo::create(1, 1);
-				EaseElasticOut *easeAction = EaseElasticOut::create(scaleTo);
-				_rightBallBin[j]->runAction(easeAction);
-				addTouchEvents(_rightBallBin[j]);
-			}), NULL));
-			delayRight += 0.3;
-		}
+		ballArrangments(_inputFirst, _inputSecond, true);
 
 		if (_inputFirst >= _inputSecond)
 		{
@@ -234,27 +197,47 @@ string MathLearning::getGridNameInString(int ballNumber, string direction) {
 	return gridName.str();
 }
 
-Sprite* MathLearning::getGridWithIndex(int ballNumber, string direction) {
+Sprite* MathLearning::getGridWithIndex(int ballNumber, string direction, bool flag) {
 
 	auto gridName = getGridNameInString(ballNumber, direction);
-	auto grid = (Sprite*)getChildByName("bg")->getChildByName("grid")->getChildByName(gridName);
+	Sprite* grid;
+	if(flag)
+
+		 grid = (Sprite*)this->getChildByName("grid")->getChildByName(gridName);
+	else
+		 grid = (Sprite*)this->getChildByName("quizzz")->getChildByName("play")->getChildByName(gridName);
+	
 	return grid;
 }
 
-void MathLearning::addTouchEvents(Sprite* sprite)
+void MathLearning::addTouchEvents(Sprite* sprite, bool flag)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
+	LabelTTF* label;
 	
-	auto label = (LabelTTF*)getChildByName("bg")->getChildByName("grid")->getChildByName("ans")->getChildByName("answer");
+	if (flag)
+	{
+		auto parent = this->getChildByName("grid")->getChildByName("ans");
+		label = (LabelTTF*)parent->getChildByName("answer");
+	}
+	else
+	{
+		auto parent = this->getChildByName("quizzz")->getChildByName("play")->getChildByName("ans");
+		label = (LabelTTF*)parent->getChildByName("quizAnswer");
+	}
 	
 
 	listener->onTouchBegan = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
 		auto target = event->getCurrentTarget();
-		if (target->getBoundingBox().containsPoint(touch->getLocation()) && _leftTouchFlag )
+		if (target->getBoundingBox().containsPoint(touch->getLocation()) && _leftTouchFlag  && !_touchDelay)
 		{
-			
+			_touchDelay = true;
+			this->runAction(Sequence::create(DelayTime::create(0.2), CCCallFunc::create([=] {
+				_touchDelay = false;
+			}), NULL));
+
 			if (!(target->getName().compare("left")) && (target->getTag() != 1))
 			{
 				label->setVisible(true);
@@ -323,18 +306,15 @@ void MathLearning::addTouchEvents(Sprite* sprite)
 				label->runAction(Sequence::create(sequence_E, sequence_F, NULL));
 			}
 			
-			//Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
 			return true;
 		}
 		return false;
 	};
 	listener->onTouchMoved = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
-
 	};
 	listener->onTouchEnded = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
-		
 	};
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, sprite);
 }
@@ -364,7 +344,7 @@ void MathLearning::touchEffectForSubtraction(Sprite * obj)
 	_inputFirst--;
 	_leftBallBin[_inputFirst]->runAction(Sequence::create(scaleToLeftScaleUp, scaleToLeftScaleDown, NULL));
 
-	this->runAction(Sequence::create(DelayTime::create(0.25), CCCallFunc::create([=] {
+	this->runAction(Sequence::create(DelayTime::create(0.15), CCCallFunc::create([=] {
 
 		obj->setVisible(false);
 		
@@ -373,9 +353,6 @@ void MathLearning::touchEffectForSubtraction(Sprite * obj)
 		_rightBallBinShadow[index]->setVisible(false);
 
 	}), NULL));
-	
-
-	
 	
 }
 
@@ -425,40 +402,28 @@ void MathLearning::playWinAnim()
 			animationAnimal->setPosition(Vec2(_leftBallBin[i]->getContentSize().width / 2, _leftBallBin[i]->getContentSize().height / 2));
 			animationAnimalTimeline->gotoFrameAndPlay(0, true);
 		}
-		this->runAction(Sequence::create(DelayTime::create(2.3), CCCallFunc::create([=] {  fadingOut();    }),
-			DelayTime::create(1.5), CCCallFunc::create([=] {
+		if (!_quizMode)
+		{
+			this->runAction(Sequence::create(DelayTime::create(2.3), CCCallFunc::create([=] { // fadingOut();  
+			}),
+				DelayTime::create(1.5), CCCallFunc::create([=] {
 
-		auto grid = (Sprite*)getChildByName("bg")->getChildByName("grid");
-		MoveTo *scaleTo = MoveTo::create(1.3, Vec2(-2600, grid->getPositionY()));
-		EaseBackIn *easeAction = EaseBackIn::create(scaleTo);
-		grid->runAction(easeAction);
+				auto grid = this->getChildByName("grid");
+				MoveTo *moveTo = MoveTo::create(1.3, Vec2(-2600, grid->getPositionY()));
+				EaseBackIn *easeAction = EaseBackIn::create(moveTo);
+				grid->runAction(easeAction);
 
-		}), DelayTime::create(2), CCCallFunc::create([=] {  quiz();    }), NULL));
+			}), DelayTime::create(2), CCCallFunc::create([=] { removeChildByName("grid"); quiz();    }), NULL));
+		}
+		
+		else if (_quizMode)
+		{
+			_optionSelectionTime = true;
+		}
 }
-
-void MathLearning::fadingOut()
-{
-	auto ans = (Sprite*)getChildByName("bg")->getChildByName("grid")->getChildByName("ans");;
-	auto anss = (Sprite*)getChildByName("bg")->getChildByName("grid")->getChildByName("anss");
-	auto sign = this->getChildByName("operationSymbol");
-	auto question = this->getChildByName("question");
-	auto board = (Sprite*)getChildByName("bg")->getChildByName("bg")->getChildByName("board");
-
-	FadeOut *fadeOut1 = FadeOut::create(1.5);
-	FadeOut *fadeOut2 = FadeOut::create(1.5);
-	FadeOut *fadeOut3 = FadeOut::create(1.5);
-	FadeOut *fadeOut4 = FadeOut::create(1.5);
-	FadeOut *fadeOut5 = FadeOut::create(1.5);
-
-	ans->runAction(fadeOut1);
-	sign->runAction(fadeOut2);
-	question->runAction(fadeOut3);
-	board->runAction(fadeOut4);
-	anss->runAction(fadeOut5);
-}
-
 void MathLearning::quiz()
 {
+	_quizMode = true;
 	auto a =getChildByTag(1000);
 	if(a)
 	{
@@ -469,29 +434,97 @@ void MathLearning::quiz()
 	quiz->setName("quizzz");
 	quiz->setTag(1000);
 
+	reInitialize();
 	auto option1 = (Sprite*)quiz->getChildByName("1");
 	auto option2 = (Sprite*)quiz->getChildByName("2");
 	auto option3 = (Sprite*)quiz->getChildByName("3");
 	auto option4 = (Sprite*)quiz->getChildByName("4");
-	auto board = (Sprite*)quiz->getChildByName("quiz");
+	auto play = (Sprite*)quiz->getChildByName("play");
+	auto ans = (Sprite*)play->getChildByName("ans");
+	auto board = (Sprite*)play->getChildByName("board");
+	auto sign = (Sprite*)play->getChildByName("operation");
 
-	quizPopUp(option1); quizPopUp(option2); quizPopUp(option3); quizPopUp(option4); quizPopUp(board);
-
-	auto option = makeQuiz();
-	displayOption(option1, option[0]);
-	displayOption(option2, option[1]);
-	displayOption(option3, option[2]);
-	displayOption(option4, option[3]);
-	
-
-	
-	Vector <Node*> children = quiz->getChildren();
+	Vector <Node*> children = play->getChildren();
 	int size = children.size();
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
 		Node *monsterItem = *item;
 		std::string str = monsterItem->getName().c_str();
 		CCLOG("name : %s", str.c_str());
 	}
+	quizPopUp(option1); quizPopUp(option2); quizPopUp(option3); quizPopUp(option4);
+	quizPopUp(ans); quizPopUp(board); quizPopUp(sign);
+	auto option = makeQuiz();
+	displayOption(option1, option[0]);
+	displayOption(option2, option[1]);
+	displayOption(option3, option[2]);
+	displayOption(option4, option[3]);
+	
+}
+
+void MathLearning::reInitialize()
+{
+	_leftBallBin.clear();  _leftBallBinShadow.clear();
+	_rightBallBin.clear(); _rightBallBinShadow.clear();
+	 _leftTouchFlag = false;
+	 _rightTouchFlag = false; _sutractionCorrect = false;
+	 _answerUpdate = 0;
+	 _optionSelectionTime = false;
+
+}
+
+void MathLearning::ballArrangments(int start, int end, bool choose)
+{
+	for (int i = 1; i <= 10; i++)
+	{
+		auto left = getGridWithIndex(i, "l", choose);
+		auto right = getGridWithIndex(i, "r", choose);
+		auto leftShadow = getGridWithIndex(i, "sl", choose);
+		auto rightShadow = getGridWithIndex(i, "sr", choose);
+
+		left->setVisible(false);
+		right->setVisible(false);
+		leftShadow->setVisible(false);
+		rightShadow->setVisible(false);
+		right->setTag(1000 + i);
+
+		left->setName("left");
+		right->setName("right");
+
+		_leftBallBin.push_back(left);
+		_rightBallBin.push_back(right);
+		_leftBallBinShadow.push_back(leftShadow);
+		_rightBallBinShadow.push_back(rightShadow);
+	}
+	float delayLeft = 0;
+	float delayRight = 0;
+	for (int i = 0; i < start; i++)
+	{
+		this->runAction(Sequence::create(DelayTime::create(delayLeft), CallFunc::create([=] {
+			_leftBallBin[i]->setScale(0.001);
+			_leftBallBin[i]->setVisible(true);
+			_leftBallBinShadow[i]->setVisible(true);
+			auto scaleTo = ScaleTo::create(1, 1);
+			EaseElasticOut *easeAction = EaseElasticOut::create(scaleTo);
+			_leftBallBin[i]->runAction(easeAction);
+			addTouchEvents(_leftBallBin[i], choose);
+		}), NULL));
+		delayLeft += 0.3;
+	}
+	for (int j = 0; j < end; j++)
+	{
+		this->runAction(Sequence::create(DelayTime::create(delayRight), CallFunc::create([=] {
+
+			_rightBallBin[j]->setScale(0.001);
+			_rightBallBin[j]->setVisible(true);
+			_rightBallBinShadow[j]->setVisible(true);
+			auto scaleTo = ScaleTo::create(1, 1);
+			EaseElasticOut *easeAction = EaseElasticOut::create(scaleTo);
+			_rightBallBin[j]->runAction(easeAction);
+			addTouchEvents(_rightBallBin[j], choose);
+		}), NULL));
+		delayRight += 0.3;
+	}
+
 }
 
 void MathLearning::quizPopUp(Sprite* obj)
@@ -520,11 +553,12 @@ std::vector<int> MathLearning::makeQuiz()
 
 	firstInput = convertIntToString(_inputFirst);
 	secondInput = convertIntToString(_inputSecond);
-
+	string operationSymbol;
 	if (!_operation.compare("addition"))
 	{
 		textOnDisplay = firstInput + " + " + secondInput;
 		_answer = _inputFirst + _inputSecond;
+		operationSymbol = " + ";
 		
 	}
 	else
@@ -534,13 +568,42 @@ std::vector<int> MathLearning::makeQuiz()
 		}
 		textOnDisplay = firstInput + " - " + secondInput;
 		_answer = _inputFirst - _inputSecond;
+		operationSymbol = " - ";
+	}
+	if (_inputFirst >= _inputSecond)
+	{
+		this->runAction(Sequence::create(DelayTime::create(0.4* _inputFirst), CallFunc::create([=] {
+			_leftTouchFlag = true;
+		}), NULL));
+	}
+	else
+	{
+		this->runAction(Sequence::create(DelayTime::create(0.4 * _inputSecond), CallFunc::create([=] {
+			_leftTouchFlag = true;
+		}), NULL));
 	}
 
-	auto board =(Sprite*) this->getChildByTag(1000)->getChildByName("quiz");
+	ballArrangments(_inputFirst, _inputSecond, false);
+
+	auto board =(Sprite*) this->getChildByTag(1000)->getChildByName("play")->getChildByName("board");
 	auto label = setAllLabelProperties(textOnDisplay, 0, board->getContentSize().width/2, board->getContentSize().height / 2, true, 0.5, 0.5, 0, 1, 1, 240);
 	label->setColor(cocos2d::Color3B(255, 255, 255));
 	label->setName("quizQuestion");
 	board->addChild(label, 0);
+
+	auto ansStr = convertIntToString(0);
+	auto ans = this->getChildByName("quizzz")->getChildByName("play")->getChildByName("ans");
+	auto answerLabel = setAllLabelProperties(ansStr, 0, ans->getContentSize().width*0.5, ans->getContentSize().height*0.5, true, 0.5, 0.5, 0, 1, 1, 240);
+	answerLabel->setColor(cocos2d::Color3B(255, 255, 255));
+	answerLabel->setName("quizAnswer");
+	answerLabel->setVisible(false);
+	ans->addChild(answerLabel, 0);
+
+	auto sign = this->getChildByName("quizzz")->getChildByName("play")->getChildByName("operation");
+	auto operation = setAllLabelProperties(operationSymbol, 0, sign->getContentSize().width / 2, sign->getContentSize().height / 2, true, 0.5, 0.5, 0, 1, 1, 250);
+	operation->setColor(cocos2d::Color3B(255, 255, 255));
+	operation->setName("operationSymbol");
+	sign->addChild(operation, 0);
 
 	if (_answer > 2)
 	{
@@ -562,18 +625,24 @@ void MathLearning::quizTouchEvents(Sprite* sprite)
 	listener->onTouchBegan = [=](cocos2d::Touch *touch, cocos2d::Event *event)
 	{
 		auto target = event->getCurrentTarget();
-		if (target->getBoundingBox().containsPoint(touch->getLocation()) )
+		if (target->getBoundingBox().containsPoint(touch->getLocation()) && _optionSelectionTime == true)
 		{
 			auto scaleTo = ScaleTo::create(0.1, 0.9);
 			auto scaleTo1 = ScaleTo::create(0.1, 1);
 			target->runAction(Sequence::create(scaleTo, scaleTo1, NULL));
 			if (target->getChildByName("option")->getTag() == _answer)
 			{
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/success.ogg", false);
+				cocos2d::Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
 				_totalHit++;
 				    _repeatQuizCounter++;
 					if(_repeatQuizCounter <= 4)
 					{
-						this->runAction(Sequence::create(DelayTime::create(0.7), CCCallFunc::create([=] { quiz(); }), NULL));
+						this->runAction(Sequence::create(DelayTime::create(0.7), CCCallFunc::create([=] { 
+							this->removeChildByTag(1000);
+							
+							quiz(); }), NULL));
 					}
 					else
 					{
@@ -588,6 +657,9 @@ void MathLearning::quizTouchEvents(Sprite* sprite)
 				_wrongHit++;
 				FShake* shake = FShake::actionWithDuration(0.5f, 5.0f);
 				target->runAction(shake);
+
+				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
+				audio->playEffect("sounds/sfx/error.ogg", false);
 			}
 			return true;
 		}
