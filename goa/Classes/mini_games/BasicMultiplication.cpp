@@ -49,7 +49,7 @@ void BasicMultiplication::LearningPlay() {
 		bg->setPositionX(myGameWidth);
 	}
 
-	std::map<int, std::string> animationPath = { 
+	_animationPath = { 
 		{ 1,	"round_elep/round_elep.csb" },
 		{ 2,	"Giraffe_animation/Giraffe_animation.csb" },
 		{ 3,    "gorillacoin/gorillacoin.csb" },
@@ -57,7 +57,7 @@ void BasicMultiplication::LearningPlay() {
 		{ 5,	"owl/owlanimation.csb"},
 		{ 6,	"zebra_animation/zebra_animation.csb"}
 	};
-	_animationName = animationPath.at(RandomHelper::random_int(1,6));
+	_animationName = _animationPath.at(RandomHelper::random_int(1,6));
 
 }
 
@@ -113,10 +113,13 @@ void BasicMultiplication::gridGrayAndListnerController(string gridName,int row ,
 		for (int columns = 1; columns <= 10; columns++) {
 			auto sprite = getGridWithIndex(gridName,rows, columns);
 
-			if (rows <= row && columns <= column)
+			if (rows <= row && columns <= column) {
 				addEventsOnGrid(sprite);
-			else
-				sprite->setColor(Color3B(164, 150, 165));
+			}
+			else {
+				if(sprite)
+					sprite->setColor(Color3B(164, 150, 165));
+			}
 		}
 	}
 }
@@ -329,7 +332,8 @@ Sprite* BasicMultiplication::getGridWithIndex(string gridSource,int row, int col
 	else {
 		grid = (Sprite*)getChildByName("quiz")->getChildByName(gridSource)->getChildByName(gridName);
 	}
-	grid->setTag(1);
+	if(grid)
+		grid->setTag(1);
 	return grid;
 }
 
@@ -344,7 +348,8 @@ Sprite* BasicMultiplication::createSprite(string name,int width, int height,int 
 }
 
 void BasicMultiplication::QuizPlay() {
-	
+	_animationName = _animationPath.at(RandomHelper::random_int(1, 6));
+
 	Node* quiz = CSLoader::createNode("basicmultiplication/quiz.csb");
 	addChild(quiz);
 	quiz->setName("quiz");
@@ -366,7 +371,7 @@ void BasicMultiplication::QuizPlay() {
 	TextOnBox(option3, _optionValue[2] * _menuContext->getCurrentLevel());
 	TextOnBox(option4, _optionValue[3] * _menuContext->getCurrentLevel());
 
-	float popUpSize = 0.2, OriginalSize = 1;
+	float popUpSize = 0.3, OriginalSize = 1;
 	auto grid = getChildByName("quiz")->getChildByName("grid");
 	grid->setScale(popUpSize);
 	auto scaleTo = ScaleTo::create(1, OriginalSize);
@@ -434,14 +439,8 @@ void BasicMultiplication::TextOnBox(Sprite* sprite , int number) {
 
 void BasicMultiplication::popUp(Sprite* target) {
 
-	float popUpSize = 0.2, OriginalSize = 0.6899;
-
-	if (_gridName == "quizlearning") {
-		popUpSize = 0.3, OriginalSize = 1;
-	}
-
-	target->setScale(popUpSize);
-	auto scaleTo = ScaleTo::create(1, OriginalSize);
+	target->setScale(0.3);
+	auto scaleTo = ScaleTo::create(1, 1);
 	EaseElasticOut *easeAction = EaseElasticOut::create(scaleTo);
 	target->runAction(easeAction);
 
@@ -484,8 +483,8 @@ void BasicMultiplication::addEventsOnQuizButton(cocos2d::Sprite* object)
 
 		if (target->getBoundingBox().containsPoint(locationInNode) && _optionTouch) {
 
-			auto action1 = ScaleTo::create(0.1, 0.5);
-			auto action2 = ScaleTo::create(0.1, 0.6898);
+			auto action1 = ScaleTo::create(0.1, 0.9);
+			auto action2 = ScaleTo::create(0.1, 1);
 
 			auto scaleAction = Sequence::create(action1, action2, NULL);
 			target->runAction(scaleAction);

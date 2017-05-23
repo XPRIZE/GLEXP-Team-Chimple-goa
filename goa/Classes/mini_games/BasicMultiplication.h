@@ -24,6 +24,7 @@ protected:
 	vector<int> _questionValue , _optionValue;
 	int _totalHit = 0, _wrongHit = 0 ;
 	bool _optionTouch = true , _optionTouchGrid = true;
+	std::map<int, std::string> _animationPath;
 public:
 	vector<int> getRandomValueRange(int min, int max, int getValue);
 	~BasicMultiplication();
