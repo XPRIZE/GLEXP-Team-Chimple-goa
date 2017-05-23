@@ -20,7 +20,7 @@ class BasicMultiplication : public cocos2d::Layer
 protected:
 	MenuContext *_menuContext;
 	int _answer = 0, _counter = 0 , _row = 0 , _column = 0 , _questionCounter = 0 , _quizAnswer = 0;
-	string _topBoardEquation = "", _animationName = "";
+	string _topBoardEquation = "", _animationName = "" , _gridName = "gridlearning";
 	vector<int> _questionValue , _optionValue;
 	int _totalHit = 0, _wrongHit = 0 ;
 	bool _optionTouch = true , _optionTouchGrid = true;
@@ -36,19 +36,21 @@ public:
 
 	void topBoardSetting();
 
-	void gridGrayAndListnerController(int row, int column);
+	void gridGrayAndListnerController(string gridName,int row, int column);
 
 	void addEventsOnGrid(cocos2d::Sprite * object);
 
 	void topBoardEquationController(Sprite* target);
 
-	void playAnimationAnimal();
+	void topBoardEquationControllerQuiz(Sprite * target);
+
+	void playAnimationAnimal(string gridName);
 
 	void IndexValuePopup(Sprite * target);
 
 	string getGridNameInString(int row, int column);
 
-	Sprite * getGridWithIndex(int row, int column);
+	Sprite * getGridWithIndex(string gridSource, int row, int column);
 
 	void QuizPlay();
 

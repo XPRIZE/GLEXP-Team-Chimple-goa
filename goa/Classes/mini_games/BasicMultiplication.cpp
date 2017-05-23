@@ -68,7 +68,11 @@ void BasicMultiplication::topBoardSetting() {
 
 	if (row > 6)
 		row = 6;
-
+	
+	Node* gridlearning = CSLoader::createNode("basicmultiplication/gridlearning.csb");
+	addChild(gridlearning);
+	gridlearning ->setName("gridlearning");
+	
 	_answer = row * column;
 	_row = row;
 	_column = column;
@@ -77,7 +81,7 @@ void BasicMultiplication::topBoardSetting() {
 	topBoardEquation << row << " x " << column << " = ";
 	_topBoardEquation = topBoardEquation.str();
 
-	auto board = getChildByName("bg")->getChildByName("bg")->getChildByName("board");
+	auto board = getChildByName("gridlearning")->getChildByName("board");
 
 	auto labelNumber = CommonLabelTTF::create(_topBoardEquation, "Helvetica", 150);
 	labelNumber->setColor(Color3B::WHITE);
@@ -85,11 +89,11 @@ void BasicMultiplication::topBoardSetting() {
 	board->addChild(labelNumber);
 	labelNumber->setName("board");
 
-	gridGrayAndListnerController(row , column);
+	gridGrayAndListnerController("gridlearning",row , column);
 
 	if (_menuContext->getCurrentLevel() == 1) {
 
-		auto downGrid = getGridWithIndex(1, 1);
+		auto downGrid = getGridWithIndex("gridlearning",1, 1);
 		auto help = HelpLayer::create(Rect(downGrid->getPositionX(), downGrid->getPositionY(), downGrid->getContentSize().width, downGrid->getContentSize().height), Rect(Director::getInstance()->getVisibleSize().width * 0.5,board->getPositionY(), board->getContentSize().width, board->getContentSize().height));
 		help->click(Vec2(downGrid->getPositionX(), downGrid->getPositionY()));
 		help->setName("helpLayer");
@@ -99,12 +103,15 @@ void BasicMultiplication::topBoardSetting() {
 	_questionValue = getRandomValueRange(1, 10, 5);
 }
 
-void BasicMultiplication::gridGrayAndListnerController(int row , int column ) {
+void BasicMultiplication::gridGrayAndListnerController(string gridName,int row , int column ) {
+	int rowValue = 6;
+	if (gridName != "gridlearning")
+		rowValue = 8;
 
 	// Here apply only on correct grid
-	for (int rows = 1; rows <= 6; rows++) {
+	for (int rows = 1; rows <= rowValue; rows++) {
 		for (int columns = 1; columns <= 10; columns++) {
-			auto sprite = getGridWithIndex(rows, columns);
+			auto sprite = getGridWithIndex(gridName,rows, columns);
 
 			if (rows <= row && columns <= column)
 				addEventsOnGrid(sprite);
@@ -130,13 +137,21 @@ void BasicMultiplication::addEventsOnGrid(cocos2d::Sprite* object)
 			auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 			audioBg->playEffect("res/sounds/sfx/grid_pressed_sound.ogg", false);
 
-			auto action1 = ScaleTo::create(0.1,1.1);
-			auto action2 = ScaleTo::create(0.1, 1);
+			float popUpSize = 1.1, OriginalSize = 1;
 
-			auto scaleAction = Sequence::create(action1,action2,NULL);
+			if (_gridName != "quiz") {
+				topBoardEquationController((Sprite*)target);
+			}
+			else {
+				popUpSize = 1.1, OriginalSize = 0.6899;
+				topBoardEquationControllerQuiz((Sprite*)target);
+			}
+				
+			auto action1 = ScaleTo::create(0.1, popUpSize);
+			auto action2 = ScaleTo::create(0.1, OriginalSize);
+
+			auto scaleAction = Sequence::create(action1, action2, NULL);
 			target->runAction(scaleAction);
-
-			topBoardEquationController((Sprite*)target);
 
 			if (getChildByName("helpLayer"))
 				removeChildByName("helpLayer");
@@ -150,12 +165,64 @@ void BasicMultiplication::addEventsOnGrid(cocos2d::Sprite* object)
 
 void BasicMultiplication::topBoardEquationController(Sprite* target) {
 
-	auto board = (CommonLabelTTF*)getChildByName("bg")->getChildByName("bg")->getChildByName("board")->getChildByName("board");
+	auto board = (CommonLabelTTF*)getChildByName("gridlearning")->getChildByName("board")->getChildByName("board");
 
 	if (target->getTag() != 528) {
 		_counter++;
 		std::ostringstream topBoardEquation;
 		topBoardEquation << _topBoardEquation << _counter;
+		board->setString(topBoardEquation.str());
+		target->setTag(528);
+	}
+	IndexValuePopup((Sprite*)target);
+
+	if (_counter == _answer) {
+
+		auto sequence = Sequence::create(
+		
+		CallFunc::create([=]() {	// Play Animation Method Calling
+			playAnimationAnimal("gridlearning");
+			_optionTouchGrid = false;
+		}),
+
+		DelayTime::create(2),		// DeayTime for 2 second
+		
+		CallFunc::create([=]() {	// CallFunc for grid movement ..
+
+			auto gridPanel = getChildByName("gridlearning");
+			
+			auto action = MoveTo::create(1, Vec2(gridPanel->getPositionX() - 2560, gridPanel->getPositionY()));
+			EaseBackIn *easeAction = EaseBackIn::create(action);
+			gridPanel->runAction(easeAction);
+
+		}),
+
+		DelayTime::create(1.5),		// DelayTime for 1 second
+
+		CallFunc::create([=]() {	// CallFunc for remove gridPanel
+			removeChildByName("gridlearning");
+			_optionTouchGrid = true;
+			_gridName = "quiz";
+		}),
+
+		CallFunc::create([=]() {
+			_counter = 0;
+			QuizPlay();
+		}),
+		NULL);
+
+		this->runAction(sequence);
+	}
+}
+
+void BasicMultiplication::topBoardEquationControllerQuiz(Sprite* target) {
+
+	auto board = (CommonLabelTTF*)getChildByName("quiz")->getChildByName("ans")->getChildByName("answer");
+
+	if (target->getTag() != 528) {
+		_counter++;
+		std::ostringstream topBoardEquation;
+		topBoardEquation << _counter;
 		board->setString(topBoardEquation.str());
 		target->setTag(528);
 	}
@@ -165,51 +232,25 @@ void BasicMultiplication::topBoardEquationController(Sprite* target) {
 	if (_counter == _answer) {
 
 		auto sequence = Sequence::create(
-		
-		CallFunc::create([=]() {	// Play Animation Method Calling
-			playAnimationAnimal();
+
+			CallFunc::create([=]() {	// Play Animation Method Calling
+			playAnimationAnimal("grid");
 			_optionTouchGrid = false;
 		}),
-
-		DelayTime::create(2),		// DeayTime for 2 second
-		
-		CallFunc::create([=]() {	// CallFunc for grid movement ..
-
-			auto gridPanel = getChildByName("bg")->getChildByName("grid");
-			
-			auto action = MoveTo::create(1, Vec2(gridPanel->getPositionX() - 2560, gridPanel->getPositionY()));
-			EaseBackIn *easeAction = EaseBackIn::create(action);
-			gridPanel->runAction(easeAction);
-
-			auto topBoardPanel = getChildByName("bg")->getChildByName("bg")->getChildByName("board");
-
-			auto action1 = MoveTo::create(1, Vec2(topBoardPanel->getPositionX() - 2560, topBoardPanel->getPositionY()));
-			EaseBackIn *easeAction1 = EaseBackIn::create(action1);
-			topBoardPanel->runAction(easeAction1);
-
+			CallFunc::create([=]() {
+			_counter = 0;
 		}),
-
-		DelayTime::create(2),		// DelayTime for 1 second
-
-		CallFunc::create([=]() {	// CallFunc for remove gridPanel
-			getChildByName("bg")->removeChildByName("grid");
-			getChildByName("bg")->getChildByName("bg")->removeChildByName("board");
-		}),
-
-		CallFunc::create([=]() {
-			QuizPlay();
-		}),
-		NULL);
+			NULL);
 
 		this->runAction(sequence);
 	}
 }
 
-void BasicMultiplication::playAnimationAnimal() {
+void BasicMultiplication::playAnimationAnimal(string gridName) {
 
 	for (int rows = 1; rows <= 6; rows++) {
 		for (int columns = 1; columns <= 10; columns++) {
-			auto sprite = getGridWithIndex(rows, columns);
+			auto sprite = getGridWithIndex(gridName,rows, columns);
 
 			if (rows <= _row && columns <= _column) {
 			
@@ -245,17 +286,28 @@ void BasicMultiplication::IndexValuePopup(Sprite* target) {
 	
 	auto leftIndexName = gridIndexNamecolumn.str();
 
-	auto gridIndexRow = (TextFieldTTF*)getChildByName("bg")->getChildByName("grid")->getChildByName(rightIndexName);
-	auto gridIndexColumn = (TextFieldTTF*)getChildByName("bg")->getChildByName("grid")->getChildByName(leftIndexName);
+	TextFieldTTF* gridIndexRow, *gridIndexColumn;
+	
+	float popUpSize = 1.4, OriginalSize = 1;
 
-	auto action1 = ScaleTo::create(0.1, 1.4);
-	auto action2 = ScaleTo::create(0.1, 1);
+	if (_gridName != "quiz") {
+		gridIndexRow = (TextFieldTTF*)getChildByName("gridlearning")->getChildByName(rightIndexName);
+		gridIndexColumn = (TextFieldTTF*)getChildByName("gridlearning")->getChildByName(leftIndexName);
+	}
+	else {
+		popUpSize = 1.1, OriginalSize = 0.6899;
+		gridIndexRow = (TextFieldTTF*)getChildByName("quiz")->getChildByName("grid")->getChildByName(rightIndexName);
+		gridIndexColumn = (TextFieldTTF*)getChildByName("quiz")->getChildByName("grid")->getChildByName(leftIndexName);
+	}
+
+	auto action1 = ScaleTo::create(0.1, popUpSize);
+	auto action2 = ScaleTo::create(0.1, OriginalSize);
 
 	auto scaleAction1 = Sequence::create(action1, action2, NULL);
 	gridIndexRow->runAction(scaleAction1);
 
-	auto action3 = ScaleTo::create(0.1, 1.4);
-	auto action4 = ScaleTo::create(0.1, 1);
+	auto action3 = ScaleTo::create(0.1, popUpSize);
+	auto action4 = ScaleTo::create(0.1, OriginalSize);
 
 	auto scaleAction2 = Sequence::create(action3, action4, NULL);
 	gridIndexColumn->runAction(scaleAction2);
@@ -267,10 +319,16 @@ string BasicMultiplication::getGridNameInString(int row, int column) {
 	return gridName.str();
 }
 
-Sprite* BasicMultiplication::getGridWithIndex(int row, int column) {
+Sprite* BasicMultiplication::getGridWithIndex(string gridSource,int row, int column) {
 
 	auto gridName = getGridNameInString(row, column);
-	auto grid = (Sprite*)getChildByName("bg")->getChildByName("grid")->getChildByName(gridName);
+	Sprite* grid;
+	if (gridSource == "gridlearning") {
+		grid = (Sprite*)getChildByName(gridSource)->getChildByName(gridName);
+	}
+	else {
+		grid = (Sprite*)getChildByName("quiz")->getChildByName(gridSource)->getChildByName(gridName);
+	}
 	grid->setTag(1);
 	return grid;
 }
@@ -308,11 +366,20 @@ void BasicMultiplication::QuizPlay() {
 	TextOnBox(option3, _optionValue[2] * _menuContext->getCurrentLevel());
 	TextOnBox(option4, _optionValue[3] * _menuContext->getCurrentLevel());
 
+	float popUpSize = 0.2, OriginalSize = 1;
+	auto grid = getChildByName("quiz")->getChildByName("grid");
+	grid->setScale(popUpSize);
+	auto scaleTo = ScaleTo::create(1, OriginalSize);
+	EaseElasticOut *easeAction = EaseElasticOut::create(scaleTo);
+	grid->runAction(easeAction);
+
+	popUp((Sprite*)quiz->getChildByName("ans"));
 	popUp((Sprite*)quiz->getChildByName("board"));
 	popUp(option1);
 	popUp(option2);
 	popUp(option3);
 	popUp(option4);
+
 
 	addEventsOnQuizButton(option1);
 	addEventsOnQuizButton(option2);
@@ -333,8 +400,21 @@ void BasicMultiplication::quizTopBoardSetting() {
 	board->addChild(label);
 	label->setName("label");
 
+	_answer = _menuContext->getCurrentLevel() * _questionValue[_questionCounter];
+	_row = _menuContext->getCurrentLevel();
+	_column = _questionValue[_questionCounter];
+
+	auto answer = getChildByName("quiz")->getChildByName("ans");
+
+	auto labelNumber = CommonLabelTTF::create("0", "Helvetica", 150);
+	labelNumber->setColor(Color3B::WHITE);
+	labelNumber->setPosition(Vec2(answer->getContentSize().width / 2, answer->getContentSize().height / 2));
+	answer->addChild(labelNumber);
+	labelNumber->setName("answer");
+
 	_optionValue.clear();
 	optionRandomization();
+	gridGrayAndListnerController("grid",_row, _column);
 
 }
 
@@ -353,8 +433,15 @@ void BasicMultiplication::TextOnBox(Sprite* sprite , int number) {
 }
 
 void BasicMultiplication::popUp(Sprite* target) {
-	target->setScale(0.3);
-	auto scaleTo = ScaleTo::create(1, 1);
+
+	float popUpSize = 0.2, OriginalSize = 0.6899;
+
+	if (_gridName == "quizlearning") {
+		popUpSize = 0.3, OriginalSize = 1;
+	}
+
+	target->setScale(popUpSize);
+	auto scaleTo = ScaleTo::create(1, OriginalSize);
 	EaseElasticOut *easeAction = EaseElasticOut::create(scaleTo);
 	target->runAction(easeAction);
 
@@ -397,8 +484,8 @@ void BasicMultiplication::addEventsOnQuizButton(cocos2d::Sprite* object)
 
 		if (target->getBoundingBox().containsPoint(locationInNode) && _optionTouch) {
 
-			auto action1 = ScaleTo::create(0.1, 0.9);
-			auto action2 = ScaleTo::create(0.1, 1);
+			auto action1 = ScaleTo::create(0.1, 0.5);
+			auto action2 = ScaleTo::create(0.1, 0.6898);
 
 			auto scaleAction = Sequence::create(action1, action2, NULL);
 			target->runAction(scaleAction);
@@ -429,6 +516,8 @@ void BasicMultiplication::addEventsOnQuizButton(cocos2d::Sprite* object)
 
 						CallFunc::create([=]() {
 							removeChildByName("quiz");
+							_optionTouchGrid = true;
+							_gridName = "quiz";
 							QuizPlay();
 							_optionTouch = true;
 						}),NULL);
