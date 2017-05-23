@@ -17,6 +17,11 @@ bool CommonText::touchSpeak(cocos2d::Touch* touch, cocos2d::Event* event) {
         auto rect = this->getBoundingBox();
         if(rect.containsPoint(n))
         {
+            auto scaleUp = ScaleTo::create(0.5, 1.5);
+            auto elasticUp = EaseOut::create(scaleUp, 2.0);
+            auto scaleDown = ScaleTo::create(0.5, 1.0);
+            auto elasticDown = EaseIn::create(scaleDown, 2.0);
+            runAction(Sequence::create(elasticUp, elasticDown, NULL));
             MenuContext::pronounceWord(this->getString());
         }
     }

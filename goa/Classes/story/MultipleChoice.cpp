@@ -31,6 +31,11 @@ void MultipleChoice::onEnterTransitionDidFinish() {
     runAction(FadeIn::create(1.0f));
 }
 
+void MultipleChoice::onExitTransitionDidStart() {
+    _questionTextField->onExitTransitionDidStart();
+}
+
+
 MultipleChoice::MultipleChoice() {
     
 }
@@ -53,8 +58,19 @@ bool MultipleChoice::initWithQuestions(QuestionHandler* qHandler, std::vector<st
     bg->setName("bg");
     addChild(bg);
     if(_questions.size() == 6) {
-        auto qNode = static_cast<TextField*> (bg->getChildByName("TextField_2"));
+        auto qOriginalNode = static_cast<TextField*> (bg->getChildByName("TextField_2"));
+        _questionTextField = CommonTextField::create();
+        _questionTextField->setPosition(qOriginalNode->getPosition());
+        _questionTextField->setName(qOriginalNode->getName());
+        _questionTextField->setTextColor(qOriginalNode->getTextColor());
+        _questionTextField->setFontSize(qOriginalNode->getFontSize());
+        _questionTextField->setFontName(qOriginalNode->getFontName());
+        qOriginalNode->getParent()->addChild(_questionTextField);
+        qOriginalNode->getParent()->removeChild(qOriginalNode);
+        auto qNode = _questionTextField;
+        
         if(qNode) {
+            qNode->setOriginalText(_questions[1]);
             qNode->setString(QuestionHandler::wrapString(_questions[1], 40));
             qNode->setEnabled(false);
             qNode->setTouchEnabled(false);
@@ -70,10 +86,11 @@ bool MultipleChoice::initWithQuestions(QuestionHandler* qHandler, std::vector<st
             "Button_10"
         };
         std::random_shuffle ( buttons.begin(), buttons.end() );
-        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[0]), "1", _questions[2], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
-        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[1]), "0", _questions[3], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
-        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[2]), "0", _questions[4], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
-        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[3]), "0", _questions[5], CC_CALLBACK_2(MultipleChoice::buttonSelected, this));
+        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[0]), "1", _questions[2], CC_CALLBACK_2(MultipleChoice::buttonSelected, this), CC_CALLBACK_2(MultipleChoice::soundSelected, this));
+        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[1]), "0", _questions[3], CC_CALLBACK_2(MultipleChoice::buttonSelected, this), CC_CALLBACK_2(MultipleChoice::soundSelected, this));
+        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[2]), "0", _questions[4], CC_CALLBACK_2(MultipleChoice::buttonSelected, this), CC_CALLBACK_2(MultipleChoice::soundSelected, this));
+        QuestionHandler::setButtonProperties(bg->getChildByName(buttons[3]), "0", _questions[5], CC_CALLBACK_2(MultipleChoice::buttonSelected, this), CC_CALLBACK_2(MultipleChoice::soundSelected, this));
+        
 #if defined(AUTO_CLICK) && (AUTO_CLICK > 0)
         runAction(Sequence::create(DelayTime::create(2.0), CallFunc::create([=]() {
             auto bg = this->getChildByName("bg");
@@ -86,8 +103,16 @@ bool MultipleChoice::initWithQuestions(QuestionHandler* qHandler, std::vector<st
     return true;
 }
 
+void MultipleChoice::soundSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
+    std::string word = clickedButton->getTitleText();    
+    _qHandler->getMenuContext()->pronounceWord(word);
+}
+
 void MultipleChoice::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
+    cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)clickedButton->getComponent("ComExtensionData");
+    
     switch (eEventType) {
         case ui::Widget::TouchEventType::ENDED:
         {

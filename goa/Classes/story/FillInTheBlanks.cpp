@@ -7,6 +7,7 @@
 //
 
 #include "FillInTheBlanks.hpp"
+#include "../util/CommonTextField.hpp"
 #include "../effects/FShake.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "platform/CCFileUtils.h"
@@ -30,7 +31,13 @@ void FillInTheBlanks::onEnterTransitionDidFinish() {
     MultipleChoice::onEnterTransitionDidFinish();
 }
 
-FillInTheBlanks::FillInTheBlanks() {
+void FillInTheBlanks::onExitTransitionDidStart() {
+    MultipleChoice::onExitTransitionDidStart();
+}
+
+
+FillInTheBlanks::FillInTheBlanks()
+{
     
 }
 
@@ -38,12 +45,13 @@ FillInTheBlanks::~FillInTheBlanks() {
     
 }
 
+
 bool FillInTheBlanks::initWithQuestions(QuestionHandler* qHandler, std::vector<std::string> questions) {
     if(MultipleChoice::initWithQuestions(qHandler, questions)) {
-        auto bg = getChildByName("bg");
-        auto qNode = bg->getChildByName<TextField*>("TextField_2");
+        auto qNode = _questionTextField;
         if(qNode) {
             auto fitb = _questions[1];
+//            _questionTextField->setOriginalText(_questions[1]);
             std::transform(fitb.begin(), fitb.end(), fitb.begin(), ::tolower);
             auto fitbOrig = _questions[1];
             std::string blanks = "______________";
@@ -53,7 +61,15 @@ bool FillInTheBlanks::initWithQuestions(QuestionHandler* qHandler, std::vector<s
             if(pos != std::string::npos) {
                 fitbOrig.replace(pos, filler.size(), blanks);
             }
+            _questionTextField->setOriginalText(fitbOrig);
             qNode->setString(QuestionHandler::wrapString(fitbOrig, 40));
+            
+            _soundButton = Button::create("template/template_02/sound_button.png", "template/template_02/click_sound_button.png", "template/template_02/click_sound_button.png", ui::Widget::TextureResType::PLIST);
+            _soundButton->setScale(1);
+            _soundButton->setPosition(Vec2(qNode->getPosition().x + qNode->getBoundingBox().size.width/2 + 250.0f, qNode->getPosition().y + qNode->getBoundingBox().size.height/2 + 50.0f));
+            
+            qNode->getParent()->addChild(_soundButton);
+
         }
         return true;
     }
@@ -62,6 +78,12 @@ bool FillInTheBlanks::initWithQuestions(QuestionHandler* qHandler, std::vector<s
 
 void FillInTheBlanks::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
+    cocostudio::ComExtensionData* data = (cocostudio::ComExtensionData*)clickedButton->getComponent("ComExtensionData");
+    if(data != NULL && !data->getCustomProperty().empty()) {
+        std::string word = data->getCustomProperty();        
+        _qHandler->getMenuContext()->pronounceWord(word);
+    }
+    
     switch (eEventType) {
         case ui::Widget::TouchEventType::ENDED:
         {

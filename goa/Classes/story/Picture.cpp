@@ -38,6 +38,10 @@ bool Picture::initWithQuestions(QuestionHandler* qHandler, std::vector<std::stri
     return Meaning::initWithQuestions(qHandler, questions);
 }
 
+void Picture::soundSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
+    Meaning::soundSelected(pSender, eEventType);
+}
+
 void Picture::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
     Meaning::buttonSelected(pSender, eEventType);
 }
@@ -84,8 +88,8 @@ void Picture::adjustButtons() {
         "8"
     };
     std::random_shuffle ( buttons.begin(), buttons.end() );
-    QuestionHandler::setButtonProperties(bg->getChildByName("Node_" + buttons[0])->getChildByName("Button_"+buttons[0]), "1_answer", _questions[2], CC_CALLBACK_2(Meaning::buttonSelected, this), 36);
-    QuestionHandler::setButtonProperties(bg->getChildByName("Node_" + buttons[1])->getChildByName("Button_"+buttons[1]), "2_answer", _questions[4], CC_CALLBACK_2(Meaning::buttonSelected, this), 36);
-    QuestionHandler::setButtonProperties(bg->getChildByName("Node_" + buttons[2])->getChildByName("Button_"+buttons[2]), "3_answer", _questions[6], CC_CALLBACK_2(Meaning::buttonSelected, this), 36);
-    QuestionHandler::setButtonProperties(bg->getChildByName("Node_" + buttons[3])->getChildByName("Button_"+buttons[3]), "4_answer", _questions[8], CC_CALLBACK_2(Meaning::buttonSelected, this), 36);
+    QuestionHandler::setButtonProperties(bg->getChildByName("Node_" + buttons[0])->getChildByName("Button_"+buttons[0]), "1_answer", _questions[2], CC_CALLBACK_2(Meaning::buttonSelected, this), CC_CALLBACK_2(Meaning::soundSelected, this), 36);
+    QuestionHandler::setButtonProperties(bg->getChildByName("Node_" + buttons[1])->getChildByName("Button_"+buttons[1]), "2_answer", _questions[4], CC_CALLBACK_2(Meaning::buttonSelected, this), CC_CALLBACK_2(Meaning::soundSelected, this),36);
+    QuestionHandler::setButtonProperties(bg->getChildByName("Node_" + buttons[2])->getChildByName("Button_"+buttons[2]), "3_answer", _questions[6], CC_CALLBACK_2(Meaning::buttonSelected, this), CC_CALLBACK_2(Meaning::soundSelected, this), 36);
+    QuestionHandler::setButtonProperties(bg->getChildByName("Node_" + buttons[3])->getChildByName("Button_"+buttons[3]), "4_answer", _questions[8], CC_CALLBACK_2(Meaning::buttonSelected, this), CC_CALLBACK_2(Meaning::soundSelected, this), 36);
 }

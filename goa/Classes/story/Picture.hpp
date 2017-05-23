@@ -16,6 +16,7 @@ public:
     static Picture *create(QuestionHandler* qHandler, std::vector<std::string> questions);
     void onEnterTransitionDidFinish() override;
     virtual void buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) override;
+    virtual void soundSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType) override;
     
 CC_CONSTRUCTOR_ACCESS:
     Picture();

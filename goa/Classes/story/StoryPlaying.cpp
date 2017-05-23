@@ -616,7 +616,7 @@ void StoryPlaying::createDialogBubble() {
         if(_soundEnabled.compare("true") == 0) {
             
             std::string pageI = MenuContext::to_string(_pageIndex + 1);
-            _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
+            _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".mp3";
             
             if(!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
                 this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
@@ -624,15 +624,25 @@ void StoryPlaying::createDialogBubble() {
         }
         
         Node* chooseText = _talkBubbleNode->getChildByName(STORY_TEXT);
+        CCLOG("_talkBubbleNode width %f", _talkBubbleNode->getBoundingBox().size.width);
+        CCLOG("_talkBubbleNode height %f", _talkBubbleNode->getBoundingBox().size.height);
+        
+        CCLOG("chooseText width %f", chooseText->getBoundingBox().size.width);
+        CCLOG("chooseText height %f", chooseText->getBoundingBox().size.height);
+
+        
+        renderStoryText(contentPageText, _talkBubbleNode, chooseText);
+        
         if(chooseText != NULL) {
             cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
             if(chooseLabel != NULL) {
-                contentPageText = QuestionHandler::wrapString(contentPageText, 50);
-                chooseLabel->setTouchEnabled(false);
-                chooseLabel->setString(contentPageText);
-                chooseLabel->setFontSize(75);
-                chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
-                chooseLabel->setTextColor(Color4B::BLACK);
+//                contentPageText = QuestionHandler::wrapString(contentPageText, 50);
+//                chooseLabel->setTouchEnabled(false);
+//                chooseLabel->setString(contentPageText);
+//                CCLOG("chooseLabel real position %f, %f", chooseLabel->getPosition().x, chooseLabel->getPosition().y);
+//                chooseLabel->setFontSize(75);
+//                chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
+//                chooseLabel->setTextColor(Color4B::BLACK);
             }
         }
     } else {
@@ -643,6 +653,69 @@ void StoryPlaying::createDialogBubble() {
             _prevButton->setVisible(true);
         }
 
+    }
+}
+
+
+void StoryPlaying::positionTextNode(CommonText* textNode, Node* parentNode, Node* storyTextNode, float currentNodeX, float currentNodeY) {
+    float xPos = 0.0f;
+    float yPos = 0.0f;
+    if(currentNodeX == 0.0f) {
+        xPos = storyTextNode->getPosition().x - storyTextNode->getBoundingBox().size.width/2 + 50.0f;
+    } else {
+        xPos = currentNodeX;
+    }
+    
+    if(currentNodeY == 0.0f) {
+        yPos = storyTextNode->getPosition().y + storyTextNode->getBoundingBox().size.height/2 - 50.0f;
+    } else {
+        yPos = currentNodeY;
+    }
+    
+    textNode->setPosition(Vec2(xPos, yPos));
+}
+
+void StoryPlaying::renderStoryText(std::string storyText, Node* parentNode, Node* storyTextNode) {
+    if (!storyText.empty() && storyText[storyText.length()-1] == '\n') {
+        storyText.erase(storyText.length()-1);
+    }
+    std::vector<std::string> individualTexts = _menuContext->split(storyText, ' ');
+    Vec2 lastRenderedLabelPosition = Vec2(0.0f,0.0f);
+    Node* lastRenderedLabel;
+    bool firstPassFinished = false;
+    float yOffset = 0;
+    int howManyTimes = 0;
+    for (std::vector<std::string>::iterator it = individualTexts.begin() ; it != individualTexts.end(); ++it) {
+        std::string token = *it;
+        token = ' ' + token;
+        //create CommonText node
+        auto label = CommonText::create();
+        label->setString(token);
+        label->setFontSize(75);
+        label->setFontName("fonts/Roboto-Regular.ttf");
+        label->setTextColor(Color4B::BLACK);
+        if(firstPassFinished)
+        {
+            if(lastRenderedLabel->getPosition().x + lastRenderedLabel->getBoundingBox().size.width/2 + label->getBoundingBox().size.width > parentNode->getBoundingBox().size.width - 250.0f)
+            {
+                //wrap
+                howManyTimes++;
+                float adjustedY = yOffset - (howManyTimes * lastRenderedLabel->getBoundingBox().size.height);
+                float initialX = storyTextNode->getPosition().x - storyTextNode->getBoundingBox().size.width/2 + 100.0f;
+                lastRenderedLabelPosition = Vec2(initialX, adjustedY);
+            } else {
+                lastRenderedLabelPosition = Vec2(lastRenderedLabel->getPosition().x + lastRenderedLabel->getBoundingBox().size.width/2 + label->getBoundingBox().size.width/2, lastRenderedLabel->getPosition().y);
+            }
+        
+            positionTextNode(label, parentNode, storyTextNode, lastRenderedLabelPosition.x, lastRenderedLabelPosition.y);
+        } else {
+            positionTextNode(label, parentNode, storyTextNode, 0.0f, 0.0f);
+            yOffset = label->getPosition().y;
+        }
+        
+        lastRenderedLabel = label;
+        firstPassFinished = true;
+        parentNode->addChild(label);
     }
 }
 
@@ -1075,7 +1148,7 @@ void StoryPlaying::pronounceWord(Ref* pSender, ui::Widget::TouchEventType eEvent
             break;
         case ui::Widget::TouchEventType::ENDED:
         {
-            _menuContext->pronounceWord(_pronouceWord);
+            _menuContext->pronounceWord(_pronouceWord, false);
             break;
         }
             
