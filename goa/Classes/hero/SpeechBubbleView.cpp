@@ -97,6 +97,7 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
     for ( auto it = textMap.begin(); it != textMap.end(); ++it ) {
         
         _button = Button::create("Button_Normal.png", "Button_Press.png", "Button_Disable.png", ui::Widget::TextureResType::LOCAL);
+        _soundButton = Button::create("template/template_02/sound_button.png", "template/template_02/click_sound_button.png", "template/template_02/click_sound_button.png", ui::Widget::TextureResType::PLIST);
         Size visibleSize = Director::getInstance()->getVisibleSize();
         
         
@@ -143,7 +144,12 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
         }
         
         
-
+        _soundButton->setPosition(Vec2( _button->getBoundingBox().size.width, _button->getBoundingBox().size.height/2));
+        _soundButton->setScale(0.5);
+        _soundButton->addTouchEventListener(CC_CALLBACK_2(SpeechBubbleView::soundSelected, this));
+        
+        _button->addChild(_soundButton);
+        
         this->textButtons.push_back(_button);
         this->addChild(_button, priority);
 
@@ -158,11 +164,7 @@ bool SpeechBubbleView::initialize(std::unordered_map<int, std::string> textMap, 
         delta += 100.0f;
         priority += 1;
         
-        
-        //pronounce text
-        MenuContext::pronounceWord(joinedStr);
-        
-    }
+}
 
     
     //bind listeners
@@ -237,4 +239,28 @@ void SpeechBubbleView::destroySpeechBubbles() {
         button->removeFromParentAndCleanup(true);
     }
     this->removeFromParentAndCleanup(true);
+}
+
+
+void SpeechBubbleView::soundSelected(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    switch (eEventType) {
+        case ui::Widget::TouchEventType::BEGAN:
+        {
+            break;
+        }
+        case ui::Widget::TouchEventType::MOVED:
+            break;
+        case ui::Widget::TouchEventType::ENDED:
+        {
+            MenuContext::pronounceWord(_button->getTitleText());
+            break;
+        }
+            
+        case ui::Widget::TouchEventType::CANCELED:
+            break;
+        default:
+            break;
+    }
+    
 }

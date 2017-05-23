@@ -10,6 +10,7 @@
 #define MultipleChoice_hpp
 
 #include "QuestionHandler.h"
+#include "../util/CommonTextField.hpp"
 #include "cocos2d.h"
 #include "ui/CocosGUI.h"
 
@@ -17,7 +18,9 @@ class MultipleChoice: public cocos2d::Node {
 public:
     static MultipleChoice *create(QuestionHandler* qHandler, std::vector<std::string> questions);
     void onEnterTransitionDidFinish() override;
+    void onExitTransitionDidStart() override;
     virtual void buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    virtual void soundSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
 CC_CONSTRUCTOR_ACCESS:
     MultipleChoice();
@@ -28,6 +31,7 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
     std::vector<std::string> _questions;
     QuestionHandler* _qHandler;
+    CommonTextField* _questionTextField;
 };
 
 #endif /* MultipleChoice_hpp */

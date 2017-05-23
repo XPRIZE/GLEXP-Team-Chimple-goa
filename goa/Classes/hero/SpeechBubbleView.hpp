@@ -52,6 +52,8 @@ public:
     
     virtual void destroySpeechBubbles();
     
+    void soundSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
+    
     void performAction();
 
     ExternalSkeletonCharacter* _externalCharacter;
@@ -62,6 +64,7 @@ protected:
 //    std::vector<cocos2d::Label*> texts;
     std::vector<cocos2d::ui::Button*> textButtons;
     cocos2d::ui::Button* _button;
+    cocos2d::ui::Button* _soundButton;
     
     
 };

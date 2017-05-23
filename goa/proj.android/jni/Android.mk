@@ -221,7 +221,8 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/util/Calculator.cpp \
          ../../Classes/util/CommonLabel.cpp \
          ../../Classes/util/CommonLabelTTF.cpp \
-         ../../Classes/util/CommonText.cpp 
+         ../../Classes/util/CommonText.cpp \
+		 ../../Classes/util/CommonTextField.cpp
 
 LOCAL_C_INCLUDES := $(LOCAL_PATH)/../../Classes
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../../Classes/ext

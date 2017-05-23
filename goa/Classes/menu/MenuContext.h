@@ -33,9 +33,20 @@ class MenuContext : public cocos2d::Node {
     static bool _gameIsStatic;
 
 public:
+    enum class MATH_OPERATION
+    {
+        IDENTIFY = 0,
+        ADD = 1,
+        SUBTRACT = 2,
+        MULTIPLY = 3
+    };
+    
     static MenuContext* create(Node *main, std::string gameName = "", bool lauchCustomEventOnExit = false, std::string sceneName = "");
     
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
+    void pickWord(std::string targetWord, std::string chosenString);
+    void writeAlphabet(char targetAlphabet, bool correct);
+    void pickNumber(int targetNumber, int chosenNumber, MenuContext::MATH_OPERATION op);
     int getPoints();
     void addPoints(int points);
     void finalizePoints();
@@ -56,8 +67,8 @@ public:
     
     std::vector<std::vector<cocos2d::Point>> getTrianglePointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold);
     
-    static void pronounceWord(std::string word);
-    static void pronounceHashedText(std::string word);
+    static void pronounceWord(std::string word, bool shouldReplaceWithSpace = true);
+    static void pronounceHashedText(std::string word, bool shouldReplaceWithSpace = true);
     static std::string _lastAudioId;
     static bool isGameStatic();
 	void wordPairList(std::string question, std::string answer = "it is a word",bool isInitialSyllable = false);

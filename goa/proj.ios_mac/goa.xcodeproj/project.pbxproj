@@ -78,6 +78,8 @@
 		F30575F31E88F21C00171925 /* BubbleShooter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575E91E88F21C00171925 /* BubbleShooter.cpp */; };
 		F30575F41E88F21C00171925 /* SortIt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575EC1E88F21C00171925 /* SortIt.cpp */; };
 		F30575F51E88F21C00171925 /* SortIt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575EC1E88F21C00171925 /* SortIt.cpp */; };
+		F32182471ED4317A007B0F87 /* CommonTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F32182451ED4317A007B0F87 /* CommonTextField.cpp */; };
+		F32182481ED4317A007B0F87 /* CommonTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F32182451ED4317A007B0F87 /* CommonTextField.cpp */; };
 		F35040891E3219890005DF8D /* Alphamon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35040831E3219890005DF8D /* Alphamon.cpp */; };
 		F350408A1E3219890005DF8D /* Alphamon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35040831E3219890005DF8D /* Alphamon.cpp */; };
 		F350408B1E3219890005DF8D /* HPMeter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35040851E3219890005DF8D /* HPMeter.cpp */; };
@@ -608,6 +610,8 @@
 		F30575EB1E88F21C00171925 /* BubbleShooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BubbleShooter.h; sourceTree = "<group>"; };
 		F30575EC1E88F21C00171925 /* SortIt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SortIt.cpp; sourceTree = "<group>"; };
 		F30575ED1E88F21C00171925 /* SortIt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortIt.h; sourceTree = "<group>"; };
+		F32182451ED4317A007B0F87 /* CommonTextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonTextField.cpp; sourceTree = "<group>"; };
+		F32182461ED4317A007B0F87 /* CommonTextField.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CommonTextField.hpp; sourceTree = "<group>"; };
 		F35040831E3219890005DF8D /* Alphamon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Alphamon.cpp; sourceTree = "<group>"; };
 		F35040841E3219890005DF8D /* Alphamon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alphamon.h; sourceTree = "<group>"; };
 		F35040851E3219890005DF8D /* HPMeter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HPMeter.cpp; sourceTree = "<group>"; };
@@ -1927,6 +1931,8 @@
 		F35042421E32199F0005DF8D /* util */ = {
 			isa = PBXGroup;
 			children = (
+				F32182451ED4317A007B0F87 /* CommonTextField.cpp */,
+				F32182461ED4317A007B0F87 /* CommonTextField.hpp */,
 				F35042431E32199F0005DF8D /* Calculator.cpp */,
 				F35042441E32199F0005DF8D /* Calculator.h */,
 				F35042451E32199F0005DF8D /* CommonLabel.cpp */,
@@ -2305,6 +2311,7 @@
 				F35043211E3219A00005DF8D /* Alphamole.cpp in Sources */,
 				F35043C91E3219A00005DF8D /* QuestionHandler.cpp in Sources */,
 				F350439B1E3219A00005DF8D /* Units.cpp in Sources */,
+				F32182471ED4317A007B0F87 /* CommonTextField.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				F35042C71E32199F0005DF8D /* MessageContent.cpp in Sources */,
 				F350438F1E3219A00005DF8D /* Table.cpp in Sources */,
@@ -2513,6 +2520,7 @@
 				F38DFA6A1ECEF06500B04635 /* MathLearning.cpp in Sources */,
 				F35043421E3219A00005DF8D /* CarDrawNode.cpp in Sources */,
 				F350427E1E32199F0005DF8D /* PointFloat.cpp in Sources */,
+				F32182481ED4317A007B0F87 /* CommonTextField.cpp in Sources */,
 				F35042D81E32199F0005DF8D /* WordBubble.cpp in Sources */,
 				F35042761E32199F0005DF8D /* LTKShapeRecoUtil.cpp in Sources */,
 				F35043D81E3219A00005DF8D /* CommonText.cpp in Sources */,

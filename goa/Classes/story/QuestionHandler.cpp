@@ -212,7 +212,7 @@ MenuContext* QuestionHandler::getMenuContext() {
     return _menuContext;
 }
 
-void QuestionHandler::setButtonProperties(Node* button, std::string name, std::string text, const ui::Widget::ccWidgetTouchCallback& callback, size_t length) {
+void QuestionHandler::setButtonProperties(Node* button, std::string name, std::string text, const ui::Widget::ccWidgetTouchCallback& callback, const ui::Widget::ccWidgetTouchCallback& soundCallback, size_t length) {
     auto button1 = static_cast<Button*> (button);
     if(button1) {
         button1->setName(name);
@@ -228,6 +228,20 @@ void QuestionHandler::setButtonProperties(Node* button, std::string name, std::s
                 button1->getParent()->addChild(label);
             }
         }
+        
+        Button* _soundButton = Button::create("template/template_02/sound_button.png", "template/template_02/click_sound_button.png", "template/template_02/click_sound_button.png", ui::Widget::TextureResType::PLIST);
+        _soundButton->setAnchorPoint(Vec2(1,1));
+        _soundButton->setScale(0.5);
+        _soundButton->setPosition(Vec2(button1->getPosition().x + button1->getBoundingBox().size
+                                       .width/2,button1->getPosition().y + button1->getBoundingBox().size.height/2));
+        if(!button1->getTitleText().empty())
+        {
+            _soundButton->setTitleText(button1->getTitleText());
+        } else {
+            _soundButton->setTitleText(text);
+        }
+        _soundButton->addTouchEventListener(soundCallback);
+        button1->getParent()->addChild(_soundButton);
         button1->addTouchEventListener(callback);
     }
 

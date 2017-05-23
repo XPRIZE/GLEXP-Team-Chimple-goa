@@ -648,6 +648,19 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
     SafariAnalyticsManager::getInstance()->insertAnalyticsInfo(targetAlphabetStr.c_str(), chosenAlphabetStr.c_str(), gameName.c_str());
 }
 
+void MenuContext::pickWord(std::string targetWord, std::string chosenString) {
+    
+}
+
+void MenuContext::writeAlphabet(char targetAlphabet, bool correct) {
+    
+}
+
+void MenuContext::pickNumber(int targetNumber, int chosenNumber, MenuContext::MATH_OPERATION op) {
+    
+}
+
+
 void MenuContext::addPoints(int points) {
     _points += points;
 //    _points = MAX(MIN(_points, _maxPoints), 0);
@@ -1476,7 +1489,7 @@ std::vector<std::vector<cocos2d::Point>> MenuContext::getTrianglePointsForSprite
     return points;
 }
 
-void MenuContext::pronounceHashedText(std::string joinedStr) {
+void MenuContext::pronounceHashedText(std::string joinedStr, bool shouldReplaceWithSpace) {
     
     
     unsigned long generatedHash = RPGConfig::hash(joinedStr);
@@ -1491,13 +1504,15 @@ void MenuContext::pronounceHashedText(std::string joinedStr) {
 
 }
 
-void MenuContext::pronounceWord(std::string word) {
+void MenuContext::pronounceWord(std::string word, bool shouldReplaceWithSpace) {
     if(!MenuContext::_lastAudioId.empty()) {
         CCLOG("unloadEffect: %s", MenuContext::_lastAudioId.c_str());
         CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect(MenuContext::_lastAudioId.c_str());
     }
-    
-    std::replace(word.begin(), word.end(), '_', ' ');
+    if(shouldReplaceWithSpace)
+    {
+       std::replace(word.begin(), word.end(), '_', ' ');
+    }
     word = LangUtil::getInstance()->translateString(word);
     std::string fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(word);
     if(FileUtils::getInstance()->isFileExist(fileName)) {
@@ -1523,10 +1538,13 @@ void MenuContext::pronounceWord(std::string word) {
 //
 //        #endif
 //    }
-//    else {
-//        std::replace(word.begin(), word.end(), '_', ' ');
-//        pronounceHashedText(word);
-//    }
+    else {
+        if(shouldReplaceWithSpace)
+        {
+            std::replace(word.begin(), word.end(), '_', ' ');
+        }
+        pronounceHashedText(word, shouldReplaceWithSpace);
+    }
 }
 
 std::vector<cocos2d::Vec2> MenuContext::getPolygonPointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold) {
