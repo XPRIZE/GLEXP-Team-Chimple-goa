@@ -25,8 +25,8 @@ protected:
 	string _operation;
 	std::vector<Sprite*> _leftBallBin, _leftBallBinShadow;
 	std::vector<Sprite*> _rightBallBin, _rightBallBinShadow;
-	bool _leftTouchFlag = false;
-	bool _rightTouchFlag = false, _sutractionCorrect = false;
+	bool _leftTouchFlag = false, _quizMode = false, _optionSelectionTime = false;
+	bool _rightTouchFlag = false, _sutractionCorrect = false, _touchDelay = false;
 	int _inputFirst, _inputSecond, _answerUpdate = 0, _repeatQuizCounter = 0;
 	std::map<int, std::string> _animCsbPath;
 	
@@ -44,15 +44,16 @@ public:
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
 	string getGridNameInString(int ballNumber, string direction);
-	Sprite * getGridWithIndex(int ballNumber, string direction);
-	void addTouchEvents(Sprite* touchSprite); 
+	Sprite * getGridWithIndex(int ballNumber, string direction, bool flag);
+	void addTouchEvents(Sprite* touchSprite, bool flag); 
 	void quizTouchEvents(Sprite* touchSprite);
 	void touchEffectForAddition(Sprite *obj);
 	void touchEffectForSubtraction(Sprite *obj);
 	string convertIntToString(int num);
 	void playWinAnim();
-	void fadingOut();
 	void quiz();
+	void reInitialize();
+	void ballArrangments(int start, int end, bool choose);
 	std::vector<int> makeQuiz();
 	std::vector<int> optionMaker(int start, int end);
 	void displayOption(Sprite* obj, int num);
