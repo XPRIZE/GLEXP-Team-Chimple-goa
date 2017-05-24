@@ -123,8 +123,8 @@ void Owl::onEnterTransitionDidFinish()
 	
 	std::map<int, std::string> owlSceneMapping = {
 		{ 1,	"owlCity" },
-		{ 2,	"owlisland" },
-		{ 3,    "owljungle" }
+		{ 3,	"owlisland" },
+		{ 2,    "owljungle" }
 	};
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
@@ -169,11 +169,14 @@ void Owl::onEnterTransitionDidFinish()
 		_data = TextGenerator::getInstance()->getHomonyms(5, std::get<2>(levelKeyNumber));
 	}
 
+	
+
 	_owlCurrentTheme = owlSceneMapping.at(std::get<1>(levelKeyNumber));
 
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	Node* bg = CSLoader::createNode(themeResourcePath.at("bg"));
 	addChild(bg);
+	bg->setName("bg");
 	
 	if (visibleSize.width > 2560) {
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
@@ -249,6 +252,8 @@ void Owl::onEnterTransitionDidFinish()
 	auto board = bg->getChildByName(themeResourcePath.at("topBoard"));
 	board->setName("topBoard");
 	
+
+
 	std::ostringstream boardName;	
 	boardName << _sentence << _data_key[_textBoard];
 
@@ -396,6 +401,12 @@ string Owl::getConvertInUpperCase(string data)
 }
 
 void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
+
+	if (LevelInfoForSpeaker()) {
+		_wrongCounter = 0;
+		pronounceWord();
+	}
+
 	CCLOG("Letters on new building : %s ", displayWord.c_str());
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	auto blockObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("orangebase"));
@@ -736,6 +747,9 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							whiteTrans->setOpacity(80);
 							whiteTrans->setName("transImg");
 							
+							if(LevelInfoForSpeaker())
+								checkMistakeOnWord();
+
 							auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 							audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 
@@ -794,6 +808,107 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 					}
 				}
 			}
+		return false;
+	};
+
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
+}
+
+void Owl::checkMistakeOnWord() {
+
+	_wrongCounter++;
+
+	if (_wrongCounter >= 3) {
+		_wrongCounter = 0;
+		_textLabel->stopAllActions();
+		popUpText();
+	}
+}
+
+void Owl::pronounceWord() {
+
+	auto topBoard = getChildByName("bg")->getChildByName("topBoard");
+	auto size = topBoard->getContentSize();
+
+	if (getChildByName("speaker"))
+		removeChildByName("speaker");
+
+	auto speaker = Sprite::create();
+	speaker->setTextureRect(Rect(0, 0, 100,100));
+	speaker->setColor(Color3B(255, 255, 255));
+	speaker->setPosition(Vec2(topBoard->getPositionX() + size.width * 0.72, topBoard->getPositionY() + size.height/2));
+
+	addChild(speaker, 1);
+	speaker->setName("speaker");
+	speaker->setTag(1);
+	addEventsOnSpeaker(speaker);
+	popUpText();
+}
+
+void Owl::popUpText() {
+
+	auto action1 = ScaleTo::create(0.2, 1.1);
+	auto action2 = ScaleTo::create(0.2, 1);
+	auto action3 = ScaleTo::create(0.2, 1.1);
+	auto action4 = ScaleTo::create(0.2, 1);
+	auto self = this;
+	auto scaleAction = Sequence::create(
+		CallFunc::create([=]() {
+			std::ostringstream boardName;
+			boardName << _sentence<< _data_key[_textBoard];
+			_textLabel->setString(boardName.str());
+			auto speaker = self->getChildByName("speaker");
+			speaker->setVisible(false);
+			speaker->setTag(0);
+		}),
+		action1, action2, action3, action4,DelayTime::create(2),
+	
+		CallFunc::create([=]() {
+			std::ostringstream boardName;
+			boardName << _sentence;
+			_textLabel->setString(boardName.str());
+			auto speaker = self->getChildByName("speaker");
+			speaker->setVisible(true);
+			speaker->setTag(1);
+		}),
+	NULL);
+
+	_textLabel->runAction(scaleAction);
+
+}
+
+bool Owl::LevelInfoForSpeaker() {
+
+	int levelInfo[] = { 1, 2, 3, 4, 5, 26, 27, 28, 29, 30, 51, 52, 53, 54, 55, 76, 77, 78, 79, 80 };
+	auto lenght = sizeof(levelInfo) / sizeof(levelInfo[0]);
+	for (int i = 0; i < lenght; i++) {
+		if (_menuContext->getCurrentLevel() == levelInfo[i])
+			return true;
+	}
+	return false;
+}
+
+void Owl::addEventsOnSpeaker(cocos2d::Sprite* callerObject)
+{
+	auto listener = cocos2d::EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(false);
+
+	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
+	{
+		auto target = event->getCurrentTarget();
+		Size s = target->getContentSize();
+		Rect rect = Rect(0, 0, s.width, s.height);
+		if (target->getBoundingBox().containsPoint(touch->getLocation()) &&  target->getTag() == 1) {
+
+			auto action1 = ScaleTo::create(0.1, 0.9);
+			auto action2 = ScaleTo::create(0.1, 1);
+			auto scaleAction = Sequence::create(action1, action2, NULL);
+			target->runAction(scaleAction);
+			
+			_menuContext->pronounceWord(_data_key[_textBoard]);
+
+			return true;
+		}
 		return false;
 	};
 

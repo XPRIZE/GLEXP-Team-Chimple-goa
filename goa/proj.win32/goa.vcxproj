@@ -358,6 +358,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\util\CommonLabel.cpp" />
     <ClCompile Include="..\Classes\util\CommonLabelTTF.cpp" />
     <ClCompile Include="..\Classes\util\CommonText.cpp" />
+    <ClCompile Include="..\Classes\util\CommonTextField.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -598,6 +599,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\util\CommonLabel.h" />
     <ClInclude Include="..\Classes\util\CommonLabelTTF.h" />
     <ClInclude Include="..\Classes\util\CommonText.h" />
+    <ClInclude Include="..\Classes\util\CommonTextField.hpp" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>
