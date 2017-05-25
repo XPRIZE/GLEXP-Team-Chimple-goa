@@ -586,21 +586,21 @@ std::vector<int> MathLearning::makeQuiz()
 	ballArrangments(_inputFirst, _inputSecond, false);
 
 	auto board =(Sprite*) this->getChildByTag(1000)->getChildByName("play")->getChildByName("board");
-	auto label = setAllLabelProperties(textOnDisplay, 0, board->getContentSize().width/2, board->getContentSize().height / 2, true, 0.5, 0.5, 0, 1, 1, 240);
+	auto label = setAllLabelProperties(textOnDisplay, 0, board->getContentSize().width/2, board->getContentSize().height / 2, true, 0.5, 0.5, 0, 1, 1, 180);
 	label->setColor(cocos2d::Color3B(255, 255, 255));
 	label->setName("quizQuestion");
 	board->addChild(label, 0);
 
 	auto ansStr = convertIntToString(0);
 	auto ans = this->getChildByName("quizzz")->getChildByName("play")->getChildByName("ans");
-	auto answerLabel = setAllLabelProperties(ansStr, 0, ans->getContentSize().width*0.5, ans->getContentSize().height*0.5, true, 0.5, 0.5, 0, 1, 1, 240);
+	auto answerLabel = setAllLabelProperties(ansStr, 0, ans->getContentSize().width*0.5, ans->getContentSize().height*0.5, true, 0.5, 0.5, 0, 1, 1, 180);
 	answerLabel->setColor(cocos2d::Color3B(255, 255, 255));
 	answerLabel->setName("quizAnswer");
 	answerLabel->setVisible(false);
 	ans->addChild(answerLabel, 0);
 
 	auto sign = this->getChildByName("quizzz")->getChildByName("play")->getChildByName("operation");
-	auto operation = setAllLabelProperties(operationSymbol, 0, sign->getContentSize().width / 2, sign->getContentSize().height / 2, true, 0.5, 0.5, 0, 1, 1, 250);
+	auto operation = setAllLabelProperties(operationSymbol, 0, sign->getContentSize().width / 2, sign->getContentSize().height / 2, true, 0.5, 0.5, 0, 1, 1,200);
 	operation->setColor(cocos2d::Color3B(255, 255, 255));
 	operation->setName("operationSymbol");
 	sign->addChild(operation, 0);
@@ -694,7 +694,7 @@ std::vector<int> MathLearning::optionMaker(int start, int end)
 
 void MathLearning::displayOption(Sprite* obj, int num)
 {
-	auto label = setAllLabelProperties(convertIntToString(num), 0, obj->getContentSize().width / 2, obj->getContentSize().height / 2, true, 0.5, 0.5, 0, 1, 1, 200);
+	auto label = setAllLabelProperties(convertIntToString(num), 0, obj->getContentSize().width / 2, obj->getContentSize().height / 2, true, 0.5, 0.5, 0, 1, 1, 150);
 	label->setColor(cocos2d::Color3B(255, 255, 255));
 	label->setName("option");
 	label->setTag(num);
