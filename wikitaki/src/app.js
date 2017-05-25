@@ -52,6 +52,13 @@ var HelloWorldLayer = cc.Layer.extend({
 
         this._panel = new chimple.ScrollableButtonPanel(cc.p(0, 0), cc.size(cc.director.getWinSize().width, cc.director.getWinSize().height - this._tabHeight), 4, 4, displayPages, this.loadOptions, this);
         this.addChild(this._panel);
+
+        // var load = ccs.load("/res/hero.json");
+        // load.node.setPosition(cc.size(cc.director.getWinSize().width/2, 10));
+        // load.node.setScale(0.5, 0.5);
+        // this.addChild(load.node);
+        // load.node.runAction(load.action);
+        
     },
 
     createOrCopyPage: function () {

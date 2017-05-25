@@ -1337,7 +1337,29 @@
               "type": "character"
             }            
           ]
-        }        
+        },
+        {
+					"name": "heros",
+					"cIcon": "icons/character_onclick.png",
+					"icon": "icons/character_onclick.png",
+					"items": [
+                        {
+							"icon": "human/costume/austronaut_thumbnail.png",
+							"json": "/res/hero.json",
+							"skinNameMap": "astronaut",
+							"colorSkins": [{
+									"skins": "bodySkin",
+									"color": "#e5ad8f"
+								},
+								{
+									"skins": "hairSkin",
+									"color": "#000000"
+								}
+							],
+							"type": "character"
+						}						
+					]
+				}                
       ]
     },
     {
