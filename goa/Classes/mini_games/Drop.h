@@ -35,15 +35,16 @@ protected:
 	std::vector<cocostudio::timeline::ActionTimeline *> _basketAnimBin;
 	std::vector<Sprite *>_dropHeroTrailerImageBin;
 	cocos2d::LabelTTF* _label = NULL;
-	int _dropHelpSelector = 0;
+	int _dropHelpSelector = 0, _speakerTouchCount = 0;
 	Sprite* _basketImg;
 	HelpLayer* _help;
 	int _middleBasketIndex = NULL, _index =0, _pointCounter = 0;
-	bool _helpFlag = false, _initObj = true, _flagForIndex= true;
+	bool _helpFlag = false, _initObj = true, _flagForIndex= true, _speakerTouchFlag =true;
 	float _gapBetweenTwoBasket;
-	string _levelOneString;
+	string _levelOneString, _wordToDisplay;
 	std::string _labelPrefix = "";
 	bool _isGameDone = false, _stopMovingHelpObject = false;
+	
 
 public:
 	~Drop();
@@ -65,7 +66,10 @@ public:
 	void layingOutBasket(bool flag, float gap, std::string str, int i);
 	void onEnterTransitionDidFinish();
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
-	
+	void addSpeaker(string word);
+	bool isSpeakerAddLevel();
+	void addSpeakerTouchEvents(Sprite *obj);
+	void wordPopUp();
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
 	std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> setAnimationAndProperties(std::string csbString, float posX, float posY, int zOrder);

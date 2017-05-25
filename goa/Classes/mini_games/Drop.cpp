@@ -156,6 +156,7 @@ void Drop::onEnterTransitionDidFinish()
 		_labelPrefix = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
 	}
 
+	_wordToDisplay = wordOnLabel;
 	_scenePath = dropSceneMap.at(_dropCurrentTheme);
 	_sceneBasedNumericalVal = dropSceneNumValue.at(_dropCurrentTheme);
 
@@ -202,10 +203,23 @@ void Drop::onEnterTransitionDidFinish()
 	////aa->drawRect(Vec2(i*gap + gap / 2 - basketImg->getContentSize().width / 2, visibleSize.height*0.08) , Vec2(i*gap + gap / 2 + basketImg->getContentSize().width / 2, visibleSize.height*0.08 + basketImg->getContentSize().height), Color4F(0, 0, 255, 22)); //jungle drop
 	//aab->drawRect(Vec2((visibleSize.width*0.13) - _removalPole->getContentSize().width / 2, (visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"))- _removalPole->getContentSize().height*0.1), Vec2((visibleSize.width*0.13) + _removalPole->getContentSize().width / 2, visibleSize.height *_sceneBasedNumericalVal.at("floatBoxHeightFactor") + _removalPole->getContentSize().height/2), Color4F(0, 0, 255, 22));
 
-	std::ostringstream boardName;
-	boardName << _labelPrefix << wordOnLabel;
-	_label = setAllLabelProperties(boardName.str(), 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 100);
-	this->addChild(_label, 2);
+	bool levelForSpeaker = isSpeakerAddLevel();
+	if (levelForSpeaker)
+	{
+		std::ostringstream boardName;
+		boardName << _labelPrefix ;
+		_label = setAllLabelProperties(boardName.str(), 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 100);
+		this->addChild(_label, 2);
+
+		addSpeaker(wordOnLabel);
+	}
+	else
+	{
+		std::ostringstream boardName;
+		boardName << _labelPrefix << wordOnLabel;
+		_label = setAllLabelProperties(boardName.str(), 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 100);
+		this->addChild(_label, 2);
+	}
 
 	//Random index getter for blanks
 	std::vector<int> randomIndex;
@@ -414,6 +428,33 @@ void Drop::update(float delta) {
 	}
 }
 
+void Drop::addSpeaker(string word)
+{
+	std::ostringstream boardName;
+	boardName << _labelPrefix;
+
+	auto speaker = Sprite::createWithSpriteFrameName("dropjungle/ball.png");
+	speaker->setName("speaker");
+	setAllSpriteProperties(speaker, 0, (_label->getContentSize().width/2 + visibleSize.width/2 +20), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1);
+	this->addChild(speaker, 1);
+
+	addSpeakerTouchEvents(speaker);
+}
+
+bool Drop::isSpeakerAddLevel()
+{
+	std::vector<int> levelNumber = { 1,2,3,4,5,16,17,18,19,20,31,32,33,34,35,46,47,48,49,50 };
+	for (int index = 0; index < levelNumber.size(); index++)
+	{
+		if (levelNumber[index] == _menuContext->getCurrentLevel())
+		{
+			return true;
+		}
+	}
+	
+	return false;
+}
+
 Drop::~Drop(void)
 {
 	this->removeAllChildrenWithCleanup(true);
@@ -576,6 +617,61 @@ void Drop::addEvents(Sprite* clickedObject)
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, clickedObject);
 }
 
+void Drop::addSpeakerTouchEvents(Sprite* clickedObject)
+{
+	auto listener = cocos2d::EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(false);
+
+	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
+	{
+		auto target = event->getCurrentTarget();
+		Point locationInNode = target->convertToNodeSpace(touch->getLocation());
+		Size s = target->getContentSize();
+		Rect rect = target->getBoundingBox();
+		
+		if (rect.containsPoint(touch->getLocation()) && _speakerTouchFlag)
+		{
+			_speakerTouchCount++;
+			auto scaleTo = ScaleTo::create(0.1, 0.9);
+			auto scaleTo1 = ScaleTo::create(0.1, 1);
+			target->runAction(Sequence::create(scaleTo, scaleTo1, NULL));
+
+			if (_speakerTouchCount == 4)
+			{
+				_speakerTouchFlag = false;
+				this->runAction(Sequence::create(DelayTime::create(0.5), CCCallFunc::create([=] {
+				
+					 wordPopUp();
+				}), NULL));
+			}
+		}
+		return false;
+	};
+	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, clickedObject);
+}
+
+void Drop::wordPopUp()
+{
+	std::ostringstream boardName;
+	boardName << _labelPrefix << _wordToDisplay;
+
+	_label->setString(boardName.str());
+	 this->getChildByName("speaker")->setVisible(false);
+
+	 this->runAction(Sequence::create(DelayTime::create(2), CCCallFunc::create([=] {
+
+		 std::ostringstream name;
+		 name << _labelPrefix ;
+		 _label->setString(name.str());
+		 this->getChildByName("speaker")->setVisible(true);
+		 _speakerTouchFlag = true;
+		 _speakerTouchCount = 0;
+		 
+	 }), NULL));
+
+}
+
+
 void Drop::removeLetterHolder()
 {
 	for (int i = 0; i < _letterHolderSpriteBin.size(); i++)
@@ -645,6 +741,7 @@ void Drop::basketLetterCollisionChecker()
 				}
 				else
 				{
+					
 					audio->playEffect("sounds/sfx/error.ogg", false);
 					CCLOG("LINE NO : 625");
 					_basketAnimBin[i]->play(_scenePath.at("wrongAnimName"), false);
