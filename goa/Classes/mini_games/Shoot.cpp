@@ -206,6 +206,11 @@ void Shoot::onEnterTransitionDidFinish() {
 		addChild(help, 4);
 	}
 
+	if (LevelInfoForSpeaker()) {
+		_wrongCounter = 0;
+		pronounceWord();
+	}
+
 	bgListner();
 	choosingListner();
 
@@ -451,8 +456,12 @@ void Shoot::choosingListner() {
 						auto audioEngine2 = CocosDenshion::SimpleAudioEngine::getInstance();
 						audioEngine2->playEffect("sounds/sfx/pinata_select.ogg", false);
 						targetA->setVisible(false);
+
 					}
 				}
+
+				if (LevelInfoForSpeaker())
+					checkMistakeOnWord();
 			}
 
 			auto changeFlagInTouch = CallFunc::create([=]()
@@ -607,6 +616,8 @@ void Shoot::reCreateSceneElement() {
 	auto boardText = board->getChildByName(board->getName());
 	((CommonLabelTTF*)boardText)->setString(this->mapKey);
 	this->getChildByName("bg")->getChildByName("board")->setTag(0);
+	boardText->setVisible(true);
+
 
 	this->targetPlayer->setPositionX(this->targetXcoordSave);
 	this->targetPlayer->getActionManager()->removeAllActions();
@@ -780,6 +791,10 @@ void Shoot::stateShootBubble(float dt) {
 }
 
  void Shoot::gamePlay(Node* correctObject) {
+
+		if (getChildByName("speaker"))
+			getChildByName("speaker")->setVisible(false);
+
 		((Sprite*)this->getChildByName("topBoard"))->setVisible(false);
 		float size = 0.5;
 		if (bubblePlayer->getName() == "pinatacity") { size = 0.7; };
@@ -952,6 +967,113 @@ vector<int> Shoot::getRandomValueRange(int min, int max, int getValue) {
 	return objectVector;
 }
 
+
+void Shoot::checkMistakeOnWord() {
+
+	_wrongCounter++;
+
+	if (_wrongCounter >= 2) {
+		_wrongCounter = 0;
+		auto boardText = getChildByName("bg")->getChildByName("board")->getChildByName("board");
+		boardText->stopAllActions();
+		popUpText();
+	}
+}
+
+void Shoot::pronounceWord() {
+
+	auto boardText = getChildByName("bg")->getChildByName("board")->getChildByName("board");
+	auto size = boardText->getContentSize();
+
+	if (getChildByName("speaker"))
+		removeChildByName("speaker");
+
+	auto speaker = Sprite::create();
+	speaker->setTextureRect(Rect(0, 0, 100, 100));
+	speaker->setColor(Color3B(255, 255, 255));
+	speaker->setPosition(Vec2(boardText->getParent()->getPositionX(), boardText->getParent()->getPositionY()));
+
+	addChild(speaker, 1);
+	speaker->setName("speaker");
+	speaker->setTag(1);
+	addEventsOnSpeaker(speaker);
+	popUpText();
+}
+
+void Shoot::popUpText() {
+
+	auto action1 = ScaleTo::create(0.2, 1.1);
+	auto action2 = ScaleTo::create(0.2, 1);
+	auto action3 = ScaleTo::create(0.2, 1.1);
+	auto action4 = ScaleTo::create(0.2, 1);
+	auto self = this;
+
+	auto boardText = getChildByName("bg")->getChildByName("board")->getChildByName("board");
+
+	auto scaleAction = Sequence::create(
+		CallFunc::create([=]() {
+
+		auto speaker = self->getChildByName("speaker");
+		if (speaker) {
+			boardText->setVisible(true);
+			speaker->setVisible(false);
+			speaker->setTag(0);
+		}
+	}),
+		action1, action2, action3, action4, DelayTime::create(2),
+
+		CallFunc::create([=]() {
+
+		auto speaker = self->getChildByName("speaker");
+		if (speaker) {
+			boardText->setVisible(false);
+			speaker->setVisible(true);
+			speaker->setTag(1);
+		}
+	}),
+		NULL);
+
+	boardText->runAction(scaleAction);
+
+}
+
+bool Shoot::LevelInfoForSpeaker() {
+
+	int levelInfo[] = { 1,2,3,4,5,16,17,18,19,20,31,32,33,34,35,46,47,48,49,50,61,62,63,64,65 };
+	auto lenght = sizeof(levelInfo) / sizeof(levelInfo[0]);
+	for (int i = 0; i < lenght; i++) {
+		if (_menuContext->getCurrentLevel() == levelInfo[i])
+			return true;
+	}
+	return false;
+}
+
+void Shoot::addEventsOnSpeaker(cocos2d::Sprite* callerObject)
+{
+	auto listener = cocos2d::EventListenerTouchOneByOne::create();
+	listener->setSwallowTouches(false);
+
+	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
+	{
+		auto target = event->getCurrentTarget();
+		Size s = target->getContentSize();
+		Rect rect = Rect(0, 0, s.width, s.height);
+		if (target->getBoundingBox().containsPoint(touch->getLocation()) && target->getTag() == 1) {
+
+			auto action1 = ScaleTo::create(0.1, 0.9);
+			auto action2 = ScaleTo::create(0.1, 1);
+			auto scaleAction = Sequence::create(action1, action2, NULL);
+			target->runAction(scaleAction);
+
+			_menuContext->pronounceWord(this->mapKey);
+
+			return true;
+		}
+		return false;
+	};
+
+	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
+}
 Shoot::~Shoot(void)
 {
 	this->removeAllChildrenWithCleanup(true);

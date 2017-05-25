@@ -23,7 +23,7 @@ public:
 	int counterlevelStatus = 1 , xPosi = 0 , counterHit = 0 , targetXcoordSave = 0 , targetYcoordSave = 0;
 	Color4F stringColor = Color4F(Color4B(255,255,255,255));
 	bool soundReleaseBall = true , isItinOriginalPosition = true , shootingFlag = false , flagSingleTouchFirst = true , stopTouchingBg = false;
-	
+	int _wrongCounter = 0;
 	struct backUp {
 		int category = 0;
 		int level = 0;
@@ -48,6 +48,8 @@ public:
 	DrawNode* leftLine = NULL;
 	
 public:
+	bool LevelInfoForSpeaker();
+	void addEventsOnSpeaker(cocos2d::Sprite * callerObject);
 	~Shoot();
 	static cocos2d::Scene* createScene();
 	virtual bool init();
@@ -71,6 +73,9 @@ public:
 	std::tuple<int, int, int> levelAllInfo(int currentLevel, int totalCategory, int eachCategoryGroup, int totalSceneTheme, int SceneChangeAfterLevel);
 	void setSpriteProperties(Sprite * ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder);
 	vector<int> getRandomValueRange(int min, int max, int getValue);
+	void checkMistakeOnWord();
+	void pronounceWord();
+	void popUpText();
 	static const char* gameName() { return PINATA.c_str(); }
 };
 
