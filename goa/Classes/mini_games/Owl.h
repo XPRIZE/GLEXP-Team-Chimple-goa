@@ -16,7 +16,7 @@ class Owl : public cocos2d::Layer
 {
 protected:
 	MenuContext *_menuContext;
-	int _ticks, _ticksTotal, _ticks2, _ticksTotal2;
+	int _ticks, _ticksTotal, _ticks2, _ticksTotal2, _wrongCounter = 0;
 	bool _flagDemo = true,_flagTurnHelp = true, _flagDemoSecond = true, _removeCharacterAnimation = true;
 	Node *_sprite = NULL, *_opponent = NULL;
 
@@ -57,6 +57,16 @@ public:
 	void setBuildingBlockSecond(int blockLevel);
 
 	void addEventsOnGrid(cocos2d::Sprite * callerObject);
+
+	void checkMistakeOnWord();
+
+	void pronounceWord();
+
+	void popUpText();
+
+	bool LevelInfoForSpeaker();
+
+	void addEventsOnSpeaker(cocos2d::Sprite * callerObject);
 
 	static const char* gameName() { return OWL.c_str(); }
 };

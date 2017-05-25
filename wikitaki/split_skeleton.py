@@ -1,11 +1,12 @@
 import os
 import json
+import sys
 
-def rec(str, name):
+def rec(str, name, filename):
 	if(type(str)) is list:
 		dellist = []
 		for i in str:
-			if(rec(i, name)):
+			if(rec(i, name, filename)):
 				dellist.append(i)
 		#print(dellist)
 		for m in dellist:
@@ -18,8 +19,10 @@ def rec(str, name):
 				return False
 			else:
 				spritename = str['Name']
-				fname = 'res/characters/Human_Skeleton/'+spritename+'.json'
+				fname = 'res/characters/' + filename + '/'+spritename+'.json'
 				print(fname)
+				if not os.path.exists('res/characters/' + filename):
+    				os.mkdir('res/characters/' + filename)
 				#os.remove(fname)
 				#os.system('touch ' + fname)
 				jf = open(fname, 'w')
@@ -33,15 +36,16 @@ def rec(str, name):
 			if('Name' in str):
 				iname = str['Name']
 			for i in str:
-				rec(str[i], iname)
+				rec(str[i], iname, filename)
 	else:
 		#print(str)
 		return False
 
+fname = sys.argv[1]
 
-f = open('res/human_skeleton_original.json')
+f = open('res/' + fname + '.json')
 j = json.load(f)
-rec(j, '')
-nf = open('res/human_skeleton.json','w')
+rec(j, '', fname)
+nf = open('res/split_' + fname + '.json','w')
 json.dump(j, nf)
 nf.close()
