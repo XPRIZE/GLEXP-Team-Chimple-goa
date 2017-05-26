@@ -833,11 +833,9 @@ void Owl::pronounceWord() {
 	if (getChildByName("speaker"))
 		removeChildByName("speaker");
 
-	auto speaker = Sprite::create();
-	speaker->setTextureRect(Rect(0, 0, 100,100));
-	speaker->setColor(Color3B(255, 255, 255));
+	auto speaker = Sprite::create("speaker/speaker.png");
 	speaker->setPosition(Vec2(topBoard->getPositionX() + size.width * 0.72, topBoard->getPositionY() + size.height/2));
-
+	speaker->setScale(0.5);
 	addChild(speaker, 1);
 	speaker->setName("speaker");
 	speaker->setTag(1);
@@ -900,8 +898,8 @@ void Owl::addEventsOnSpeaker(cocos2d::Sprite* callerObject)
 		Rect rect = Rect(0, 0, s.width, s.height);
 		if (target->getBoundingBox().containsPoint(touch->getLocation()) &&  target->getTag() == 1) {
 
-			auto action1 = ScaleTo::create(0.1, 0.9);
-			auto action2 = ScaleTo::create(0.1, 1);
+			auto action1 = ScaleTo::create(0.1, 0.4);
+			auto action2 = ScaleTo::create(0.1, 0.5);
 			auto scaleAction = Sequence::create(action1, action2, NULL);
 			target->runAction(scaleAction);
 			

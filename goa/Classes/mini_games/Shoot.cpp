@@ -339,7 +339,7 @@ void Shoot::update(float dt) {
 			this->runAction(Sequence::create(DelayTime::create(1.2),checkGameCompleteOrNot,DelayTime::create(1),NULL));
 		}
 	}
-	if (_dummy == 1) {
+	if (_dummy == 1 && LevelInfoForSpeaker()) {
 		dummyTextLabelPopUp();
 		_dummy = 0;
 	}
@@ -624,7 +624,8 @@ void Shoot::reCreateSceneElement() {
 	auto boardText = board->getChildByName(board->getName());
 	((CommonLabelTTF*)boardText)->setString(this->mapKey);
 	this->getChildByName("bg")->getChildByName("board")->setTag(0);
-	boardText->setVisible(false);
+	if(LevelInfoForSpeaker())
+		boardText->setVisible(false);
 
 	this->targetPlayer->setPositionX(this->targetXcoordSave);
 	this->targetPlayer->getActionManager()->removeAllActions();
@@ -800,10 +801,12 @@ void Shoot::stateShootBubble(float dt) {
  void Shoot::gamePlay(Node* correctObject) {
 
 	     _gamePlay = 1;
-		 if (getChildByName("speaker")->isVisible()) {
-			 this->_wrongCounter = 0;
-			 this->getChildByName("speaker")->setVisible(false);
-			 this->getChildByName("bg")->getChildByName("board")->getChildByName("board")->stopAllActions();
+		 if (getChildByName("speaker")) {
+				 if (getChildByName("speaker")->isVisible()) {
+				 this->_wrongCounter = 0;
+				 this->getChildByName("speaker")->setVisible(false);
+				 this->getChildByName("bg")->getChildByName("board")->getChildByName("board")->stopAllActions();
+			 }
 		 }
 
 		((Sprite*)this->getChildByName("topBoard"))->setVisible(false);
@@ -1007,7 +1010,7 @@ void Shoot::dummyTextLabelPopUp() {
 	else {
 		auto textLabel = CommonLabelTTF::create(this->mapKey, "res/fonts/BalooBhai-Regular.ttf", 120);
 		textLabel->setPosition(board->getPositionX(), board->getPositionY());
-		textLabel->setColor(Color3B::GREEN);
+		textLabel->setColor(board->getChildByName("board")->getColor());
 		this->addChild(textLabel);
 		textLabel->setName("dummy");
 	}
@@ -1028,11 +1031,9 @@ void Shoot::pronounceWord() {
 	if (getChildByName("speaker"))
 		removeChildByName("speaker");
 
-	auto speaker = Sprite::create();
-	speaker->setTextureRect(Rect(0, 0, 100, 100));
-	speaker->setColor(Color3B(255, 255, 255));
+	auto speaker = Sprite::create("speaker/speaker.png");
 	speaker->setPosition(Vec2(boardText->getParent()->getPositionX(), boardText->getParent()->getPositionY()));
-
+	speaker->setScale(0.6);
 	addChild(speaker, 1);
 	speaker->setName("speaker");
 	speaker->setTag(1);
@@ -1100,8 +1101,8 @@ void Shoot::addEventsOnSpeaker(cocos2d::Sprite* callerObject)
 		Rect rect = Rect(0, 0, s.width, s.height);
 		if (target->getBoundingBox().containsPoint(touch->getLocation()) && target->getTag() == 1) {
 
-			auto action1 = ScaleTo::create(0.1, 0.9);
-			auto action2 = ScaleTo::create(0.1, 1);
+			auto action1 = ScaleTo::create(0.1, 0.5);
+			auto action2 = ScaleTo::create(0.1, 0.6);
 			auto scaleAction = Sequence::create(action1, action2, NULL);
 			target->runAction(scaleAction);
 
