@@ -23,7 +23,7 @@ public:
 	int counterlevelStatus = 1 , xPosi = 0 , counterHit = 0 , targetXcoordSave = 0 , targetYcoordSave = 0;
 	Color4F stringColor = Color4F(Color4B(255,255,255,255));
 	bool soundReleaseBall = true , isItinOriginalPosition = true , shootingFlag = false , flagSingleTouchFirst = true , stopTouchingBg = false;
-	int _wrongCounter = 0;
+	int _wrongCounter = 0 , _gamePlay = 0 , _dummy = 0;
 	struct backUp {
 		int category = 0;
 		int level = 0;
@@ -74,6 +74,7 @@ public:
 	void setSpriteProperties(Sprite * ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder);
 	vector<int> getRandomValueRange(int min, int max, int getValue);
 	void checkMistakeOnWord();
+	void dummyTextLabelPopUp();
 	void pronounceWord();
 	void popUpText();
 	static const char* gameName() { return PINATA.c_str(); }

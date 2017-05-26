@@ -213,7 +213,6 @@ void Shoot::onEnterTransitionDidFinish() {
 
 	bgListner();
 	choosingListner();
-
 	this->scheduleUpdate();
 }
 
@@ -333,12 +332,19 @@ void Shoot::update(float dt) {
 				else {
 					classReference->counterlevelStatus++;
 					classReference->reCreateSceneElement();
+					_dummy = 1;
 				}
 			});
-			this->runAction(Sequence::create(DelayTime::create(1.2),checkGameCompleteOrNot,NULL));
 
+			this->runAction(Sequence::create(DelayTime::create(1.2),checkGameCompleteOrNot,DelayTime::create(1),NULL));
 		}
 	}
+	if (_dummy == 1) {
+		dummyTextLabelPopUp();
+		_dummy = 0;
+	}
+
+
 }
 
 void Shoot::choosingListner() {
@@ -601,6 +607,8 @@ void Shoot::bgListner() {
 
 void Shoot::reCreateSceneElement() {
 
+	//dummyTextLabelPopUp();
+	_gamePlay = 0;
 	this->getChildByName("topBoard")->setVisible(true);
 	auto optionValue = this->getBoardAndOptionWord();
 
@@ -616,8 +624,7 @@ void Shoot::reCreateSceneElement() {
 	auto boardText = board->getChildByName(board->getName());
 	((CommonLabelTTF*)boardText)->setString(this->mapKey);
 	this->getChildByName("bg")->getChildByName("board")->setTag(0);
-	boardText->setVisible(true);
-
+	boardText->setVisible(false);
 
 	this->targetPlayer->setPositionX(this->targetXcoordSave);
 	this->targetPlayer->getActionManager()->removeAllActions();
@@ -792,8 +799,12 @@ void Shoot::stateShootBubble(float dt) {
 
  void Shoot::gamePlay(Node* correctObject) {
 
-		if (getChildByName("speaker"))
-			getChildByName("speaker")->setVisible(false);
+	     _gamePlay = 1;
+		 if (getChildByName("speaker")->isVisible()) {
+			 this->_wrongCounter = 0;
+			 this->getChildByName("speaker")->setVisible(false);
+			 this->getChildByName("bg")->getChildByName("board")->getChildByName("board")->stopAllActions();
+		 }
 
 		((Sprite*)this->getChildByName("topBoard"))->setVisible(false);
 		float size = 0.5;
@@ -980,6 +991,35 @@ void Shoot::checkMistakeOnWord() {
 	}
 }
 
+void Shoot::dummyTextLabelPopUp() {
+	
+	auto action1 = ScaleTo::create(0.2, 1.1);
+	auto action2 = ScaleTo::create(0.2, 1);
+	auto action3 = ScaleTo::create(0.2, 1.1);
+	auto action4 = ScaleTo::create(0.2, 1);
+
+	auto board = getChildByName("bg")->getChildByName("board");
+	
+	if (getChildByName("dummy")){
+		getChildByName("dummy")->setVisible(true);
+		((CommonLabelTTF*)getChildByName("dummy"))->setString(this->mapKey);
+	}
+	else {
+		auto textLabel = CommonLabelTTF::create(this->mapKey, "res/fonts/BalooBhai-Regular.ttf", 120);
+		textLabel->setPosition(board->getPositionX(), board->getPositionY());
+		textLabel->setColor(Color3B::GREEN);
+		this->addChild(textLabel);
+		textLabel->setName("dummy");
+	}
+
+	getChildByName("dummy")->runAction(Sequence::create(action1, action2, action3, action4, CallFunc::create([=]() {getChildByName("dummy")->setVisible(false);
+		if (getChildByName("speaker"))
+			getChildByName("speaker")->setVisible(true);
+
+	}), NULL));
+
+}
+
 void Shoot::pronounceWord() {
 
 	auto boardText = getChildByName("bg")->getChildByName("board")->getChildByName("board");
@@ -1025,7 +1065,7 @@ void Shoot::popUpText() {
 		CallFunc::create([=]() {
 
 		auto speaker = self->getChildByName("speaker");
-		if (speaker) {
+		if (speaker && (_gamePlay == 0)) {
 			boardText->setVisible(false);
 			speaker->setVisible(true);
 			speaker->setTag(1);
