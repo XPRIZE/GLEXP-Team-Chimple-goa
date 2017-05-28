@@ -392,8 +392,6 @@ void EndlessRunner::startingIntersectMode() {
 						this->removeChild(allLabels[i]);
 						allLabels.erase(allLabels.begin() + i);
 						Character.action->play("correct_catch", false);
-						_menuContext->addPoints(1);
-						_menuContext->pickAlphabet(_alphabets[letterBoardAlphaLength],allLabels[i]->getString()[0]);
 						allMonster[k]->getChildByName("monster_egg")->setVisible(false);
 						hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(true);	
 						hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(false);
@@ -432,8 +430,6 @@ void EndlessRunner::startingIntersectMode() {
 						Character.action->play("worng_catch", false);
 						this->removeChild(allLabels[i]);
 						allLabels.erase(allLabels.begin() + i);
-						_menuContext->addPoints(-1);
-						_menuContext->pickAlphabet(_alphabets[letterBoardAlphaLength], allLabels[i]->getString()[0]);
 						hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(true);
 						hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(false);
 						allMonster[k]->getChildByName("monster_egg")->setVisible(false);
