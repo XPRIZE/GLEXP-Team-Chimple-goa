@@ -1,1 +1,59 @@
-{"ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798","Version": "3.10.0.0","Name": "MainScene","Content": {"Content": {"ObjectData":{"IconVisible": false, "RotationSkewY": 90.0, "AnchorPoint": {"ScaleX": 0.5, "ScaleY": 0.5}, "VisibleForFrame": false, "Size": {"Y": 667.0, "X": 494.0}, "LeftMargin": -20.3146, "PreSize": {"Y": 0.0, "X": 0.0}, "RightMargin": -473.6854, "Scale": {"ScaleX": 0.75, "ScaleY": 0.75}, "PrePosition": {"Y": 0.0, "X": 0.0}, "TopMargin": -310.33, "ActionTag": 1054460658, "Name": "astronaut_shirt", "FileData": {"Type": "MarkedSubImage", "Path": "costume/astronaut/astronaut_shirt.png", "Plist": "human_skeleton.plist"}, "Position": {"Y": -23.17, "X": 226.6854}, "BottomMargin": -356.67, "CColor": {}, "BlendFunc": {"Src": 1, "Dst": 771}, "Tag": 329, "RotationSkewX": 90.0, "ctype": "SpriteObjectData"},"ctype": "GameFileData"}},"Type": "Scene"}
+{
+	"ID": "a2ee0952-26b5-49ae-8bf9-4f1d6279b798",
+	"Version": "3.10.0.0",
+	"Name": "MainScene",
+	"Content": {
+		"Content": {
+			"ObjectData": {
+				"IconVisible": false,
+				"RotationSkewY": 90.0,
+				"AnchorPoint": {
+					"ScaleX": 0.5,
+					"ScaleY": 0.5
+				},
+				"VisibleForFrame": false,
+				"Size": {
+					"Y": 667.0,
+					"X": 494.0
+				},
+				"LeftMargin": -20.3146,
+				"PreSize": {
+					"Y": 0.0,
+					"X": 0.0
+				},
+				"RightMargin": -473.6854,
+				"Scale": {
+					"ScaleX": 0.75,
+					"ScaleY": 0.75
+				},
+				"PrePosition": {
+					"Y": 0.0,
+					"X": 0.0
+				},
+				"TopMargin": -310.33,
+				"ActionTag": 1054460658,
+				"Name": "astronaut_shirt",
+				"FileData": {
+					"Type": "MarkedSubImage",
+					"Path": "costume/astronaut/astronaut_shirt.png",
+					"Plist": "human_skeleton.plist"
+				},
+				"Position": {
+					"Y": -23.17,
+					"X": 226.6854
+				},
+				"BottomMargin": -356.67,
+				"CColor": {},
+				"BlendFunc": {
+					"Src": 1,
+					"Dst": 771
+				},
+				"Tag": 329,
+				"RotationSkewX": 90.0,
+				"ctype": "SpriteObjectData"
+			},
+			"ctype": "GameFileData"
+		}
+	},
+	"Type": "Scene"
+}

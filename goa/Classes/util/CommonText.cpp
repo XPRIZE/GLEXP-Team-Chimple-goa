@@ -30,11 +30,15 @@ bool CommonText::touchSpeak(cocos2d::Touch* touch, cocos2d::Event* event) {
 
 void CommonText::onEnterTransitionDidFinish() {
     ui::Text::onEnterTransitionDidFinish();
-    auto scaleUp = ScaleTo::create(0.5, 1.1);
-    auto elasticUp = EaseOut::create(scaleUp, 2.0);
-    auto scaleDown = ScaleTo::create(0.5, 1.0);
-    auto elasticDown = EaseIn::create(scaleDown, 2.0);
-    runAction(Sequence::create(elasticUp, elasticDown, NULL));
+    if(!isInStory)
+    {
+        auto scaleUp = ScaleTo::create(0.5, 1.1);
+        auto elasticUp = EaseOut::create(scaleUp, 2.0);
+        auto scaleDown = ScaleTo::create(0.5, 1.0);
+        auto elasticDown = EaseIn::create(scaleDown, 2.0);
+        runAction(Sequence::create(elasticUp, elasticDown, NULL));
+        
+    }
     
 //    MenuContext::pronounceWord(this->getString());
 }
@@ -55,6 +59,10 @@ bool CommonText::init() {
     return false;
 }
 
+void CommonText::setCommonTextInStory(bool fromStory) {
+    this->isInStory = fromStory;
+}
+
 CommonText *CommonText::create() {
     CommonText *commonText = new (std::nothrow) CommonText();
     if(commonText && commonText->init()) {
@@ -65,7 +73,7 @@ CommonText *CommonText::create() {
     return nullptr;
 }
 
-CommonText::CommonText() {
+CommonText::CommonText():isInStory(false) {
     
 }
 
