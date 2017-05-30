@@ -33,7 +33,7 @@ class MenuContext : public cocos2d::Node {
     static bool _gameIsStatic;
 
 public:
-    enum class MATH_OPERATION
+    enum MATH_OPERATION
     {
         IDENTIFY = 0,
         ADD = 1,
