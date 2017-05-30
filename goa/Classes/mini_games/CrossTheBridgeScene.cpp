@@ -350,7 +350,7 @@ void CrossTheBridge::alphaDeletion()
 					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 					audio->playEffect("sounds/sfx/success.ogg", false);
 
-					_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
+					//_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
 					sparkle->setVisible(true);
 					sparkle->setPosition(Vec2(letterContainer[letterDisplayCounter]->getPosition().x + origin.x, letterContainer[letterDisplayCounter]->getPosition().y + origin.y));
 					star->gotoFrameAndPlay(0, false);
@@ -379,7 +379,7 @@ void CrossTheBridge::alphaDeletion()
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("crossthebridge/misc/punch.wav", false);
 
-				_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
+				//_menuContext->pickAlphabet(letterToDisplay, alphaContainer[i]->getAlphabet(), true);
 				alphaBackFlag = false;
 				auto moveBack = CallFunc::create([=]() {
 					alphaContainer[i]->setContentSize(cocos2d::Size(-4.0f, -4.0f));
