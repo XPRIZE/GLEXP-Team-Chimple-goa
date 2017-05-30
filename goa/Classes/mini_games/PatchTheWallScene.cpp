@@ -175,9 +175,13 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
                                                                              CallFunc::create([=] {
                     this->removeChild(_patchDetails.at(i)._label);
 //                    _position.at(_patchDetails.at(i)._sequence)._flag = 0;
-                    _patchDetails.erase(_patchDetails.begin() + i);
-                    _moveFlag = 0;
+                   
                     _menuContext->addPoints(1);
+					auto a = (char)tolower(_patchDetails.at(i)._id);
+					auto b = (char)tolower(_spriteDetails.at(_index)._id);
+					_menuContext->pickAlphabet(a,b , true);
+					_patchDetails.erase(_patchDetails.begin() + i);
+					_moveFlag = 0;
                     _totalCount++;
                     CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
                     success->playEffect("sounds/sfx/success.ogg", false);
@@ -204,6 +208,20 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
                 CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();
                 error->playEffect("sounds/sfx/error.ogg", false);
                 _menuContext->addPoints(-1);
+
+
+				auto letterPick = _spriteDetails.at(_index)._id;
+				auto charString = LangUtil::getInstance()->getAllCharacters();
+				auto templetterPick = letterPick;
+
+				while (true) {
+					templetterPick = charString[RandomHelper::random_int(1, LangUtil::getInstance()->getNumberOfCharacters() - 2)];
+					if (letterPick != templetterPick)
+						break;
+				}
+
+				_menuContext->pickAlphabet(tolower(letterPick), tolower(templetterPick), true);
+
             }), NULL));
         }
     };
