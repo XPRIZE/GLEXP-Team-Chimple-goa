@@ -701,7 +701,7 @@ void MathLearning::displayOption(Sprite* obj, int num)
 	obj->addChild(label, 0);
 	quizTouchEvents(obj);
 }
-
+/*
 void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
 void pickWord(std::string targetWord, std::string chosenString);
 void writeAlphabet(char targetAlphabet, bool correct);
@@ -710,3 +710,4 @@ in MenuContext
 Right now the methods are dummy
 but we will add to it
 if you call thsi API.that should be good
+*/

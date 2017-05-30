@@ -217,7 +217,8 @@ void AlphaArrange::createBox() {
 	label->setString(LangUtil::getInstance()->translateString(_alphabets[_currentAlphabet]));
 	label->setFontSize(_labelFontSize);
 	label->setFontName("fonts/BalooBhai-Regular.ttf");
-
+	label->setName(_alphabets[_currentAlphabet]);
+	label->setTag(101);
 
 	//label->setPosition(Vec2(visibleSize.width * 0.079, visibleSize.height * 0.05));
 	label->setAnchorPoint(Vec2(0.5, 0.5));
@@ -325,6 +326,22 @@ void AlphaArrange::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 	}
 
 	if (overlapped == 0) {
+
+		auto mystr = target->getChildByTag(101)->getName();
+		auto letterPick = LangUtil::getInstance()->convertStringToUTF16Char(mystr);
+		auto charString = LangUtil::getInstance()->getAllCharacters();
+		auto templetterPick = letterPick;
+
+		while (true) {
+			templetterPick = charString[RandomHelper::random_int(1, LangUtil::getInstance()->getNumberOfCharacters() - 2)];
+			if (letterPick != templetterPick)
+				break;
+		}
+
+		_menuContext ->pickAlphabet(towupper(letterPick), templetterPick, true);
+
+
+
 		auto moveBack = MoveTo::create(1, _randomPositions[position]);
 
 
@@ -377,6 +394,12 @@ void AlphaArrange::onTouchMoved(cocos2d::Touch *touch, cocos2d::Event *event) {
 			
 			overlapped = 1;
 			matches++;
+
+
+			auto mystr = target->getChildByTag(101)->getName();
+			auto letterPick = LangUtil::getInstance()->convertStringToUTF16Char(mystr);
+		
+			_menuContext->pickAlphabet(towupper(letterPick), towupper(letterPick), true);
 
 			Director::getInstance()->getEventDispatcher()->removeEventListenersForTarget(target);
 
