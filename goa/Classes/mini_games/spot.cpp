@@ -246,7 +246,7 @@ void spot::update(float delta) {
 
 			_calculateFlag = 0;
 		});
-
+		_menuContext->pickNumber(_answerValue, _calculator->_answer, _menuContext->IDENTIFY);
 		auto deductPointsSequenceOne = Sequence::create(DelayTime::create(0.5), deductPoints, NULL);
 		this->runAction(deductPointsSequenceOne);
 	}
@@ -256,7 +256,7 @@ void spot::update(float delta) {
 
 		CCLOG("correct answer");
 		_calculateFlag = 1;
-
+		_menuContext->pickNumber(_answerValue, _calculator->_answer, _menuContext->IDENTIFY);
 		auto ShowScore = CallFunc::create([=] {
 
 			
