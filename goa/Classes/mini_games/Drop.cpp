@@ -145,7 +145,7 @@ void Drop::onEnterTransitionDidFinish()
 		auto word = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY,1,level);
 		wordOnLabel = getConvertInUpperCase(word[0]);
 		wordOnLayout = wordOnLabel;
-		_labelPrefix = LangUtil::getInstance()->translateString("Make same word : ");
+		_labelPrefix = LangUtil::getInstance()->translateString("Make same word ");
 	}
 	else
 	{
@@ -431,12 +431,13 @@ void Drop::update(float delta) {
 void Drop::addSpeaker(string word)
 {
 	std::ostringstream boardName;
-	boardName << _labelPrefix;
+	boardName << _labelPrefix << " : ";
 
-	auto speaker = Sprite::createWithSpriteFrameName("dropjungle/ball.png");
+	auto speaker = Sprite::create("speaker/speaker.png");;
 	speaker->setName("speaker");
-	setAllSpriteProperties(speaker, 0, (_label->getContentSize().width/2 + visibleSize.width/2 +20), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1);
+	setAllSpriteProperties(speaker, 0, (_label->getContentSize().width/2 + visibleSize.width/2 +95), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1);
 	this->addChild(speaker, 1);
+	speaker->setScale(0.5);
 
 	addSpeakerTouchEvents(speaker);
 }
@@ -632,8 +633,8 @@ void Drop::addSpeakerTouchEvents(Sprite* clickedObject)
 		if (rect.containsPoint(touch->getLocation()) && _speakerTouchFlag)
 		{
 			_speakerTouchCount++;
-			auto scaleTo = ScaleTo::create(0.1, 0.9);
-			auto scaleTo1 = ScaleTo::create(0.1, 1);
+			auto scaleTo = ScaleTo::create(0.1, 0.4);
+			auto scaleTo1 = ScaleTo::create(0.1, 0.5);
 			target->runAction(Sequence::create(scaleTo, scaleTo1, NULL));
 
 			if (_speakerTouchCount == 4)
@@ -653,7 +654,7 @@ void Drop::addSpeakerTouchEvents(Sprite* clickedObject)
 void Drop::wordPopUp()
 {
 	std::ostringstream boardName;
-	boardName << _labelPrefix << _wordToDisplay;
+	boardName << _labelPrefix << " : " << _wordToDisplay;
 
 	_label->setString(boardName.str());
 	 this->getChildByName("speaker")->setVisible(false);
