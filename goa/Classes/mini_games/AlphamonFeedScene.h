@@ -53,7 +53,6 @@ public:
 protected:
 	bool isTouching , _helpLayer, _isPlayFirst, _touched = false;
 	MenuContext * menu;
-	MenuContext* _menuContext;
     cocos2d::EventListenerTouchOneByOne* listener;
 	CocosDenshion::SimpleAudioEngine * audio;
 	CocosDenshion::SimpleAudioEngine * backgroundMusic;

@@ -284,6 +284,8 @@ void Alphamole::onAlphabetSelect(EventCustom *event) {
 	if (_mychar == buf1[0]) {
 		_score++;
 		menu->addPoints(1);
+		menu->pickAlphabet(_mychar, buf1[0], true);
+
 		CCLOG("right = %d",_score);
 		std::stringstream ss;
 		ss << _score;
@@ -293,6 +295,7 @@ void Alphamole::onAlphabetSelect(EventCustom *event) {
 	}else{
 		CCLOG("wrong");
 		menu->addPoints(-1);
+		menu->pickAlphabet(_mychar, buf1[0], true);
 		_mainChar->alphamonMouthAnimation("spit", false);
 		_mainChar->alphamonEyeAnimation("angry1", false);
 		auto animation = _mainChar->shakeAction();
