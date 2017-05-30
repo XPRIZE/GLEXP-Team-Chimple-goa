@@ -1,0 +1,128 @@
+{
+    "baseSkin": {
+        "body": "body"
+    },    
+    "skinChoices": [
+        {
+            "name": "shirt",
+            "cIcon": "icons/shirt_onclick.png",
+            "icon": "icons/shirt.png",
+            "items": [
+                {
+                    "icon": "human/shirts/Housewife_shirt_thumbnail.png",
+                    "skins": [
+                        {
+                            "skin": "arm_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "arm_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "shirt_a_01",
+                            "bone": "body"
+                        }
+                    ]
+                },
+                {
+                    "icon": "icons/none.png",
+                    "skins": [
+                        {
+                            "skin": "arm_upper_right",
+                            "bone": "arm_upper_right"
+                        },
+                        {
+                            "skin": "arm_upper_left",
+                            "bone": "arm_upper_left"
+                        },
+                        {
+                            "skin": "arm_lower_right",
+                            "bone": "arm_lower_right"
+                        },
+                        {
+                            "skin": "arm_lower_left",
+                            "bone": "arm_lower_left"
+                        },
+                        {
+                            "skin": "body",
+                            "bone": "body"
+                        },
+                        {
+                            "skin": "body_accessories",
+                            "bone": "body_accessories"
+                        }
+                    ]
+                }
+            ]
+        }             
+    ],
+    "skinNameMaps": {
+         "astronaut": {
+            "arm_upper_right": "astronaut_shirt_sleave_upper_right",
+            "arm_upper_left": "astronaut_shirt_sleave_upper_left",
+            "arm_lower_right":"astronaut_shirt_sleave_lower_right",
+            "arm_lower_left":"astronaut_coat_sleave_lower_left",
+            "arm_hand_right":"astronaut_glove_right",
+            "arm_hand_left":"astronaut_glove_left_0",
+            "hair": "hair",
+            "body": "astronaut_shirt",
+            "leg_foot_right": "astronaut_shoe_right",
+            "leg_foot_left": "astronaut_shoe_left",
+            "leg_lower_right": "astronaut_pant_lower_right",
+            "leg_lower_left": "astronaut_pant_lower_left",
+            "leg_upper_left": "astronaut_pant_upper_left",
+            "leg_upper_right": "astronaut_pant_upper_right",
+            "hip": "astronaut_pant_hip",
+            "head_accessories":"astronaut_helmet"
+        }
+    },
+    "colorSkins": {
+        "bodySkin": {
+            "face": "face",            
+            "body": "body",
+            "neck": "neck",
+            "arm_lower_left" : "arm_lower_left",
+            "arm_upper_left": "arm_upper_left",
+            "arm_lower_right" : "arm_lower_right",
+            "arm_upper_right": "arm_upper_right",
+            "leg_foot_left": "leg_foot_left",
+            "leg_lower_left" : "leg_lower_left",
+            "leg_upper_left": "leg_upper_left",
+            "leg_foot_right" : "leg_foot_right",
+            "leg_lower_right": "leg_lower_right",
+            "leg_upper_right" : "leg_upper_right",
+            "arm_hand_left" : "arm_hand_left",
+            "arm_hand_right" : "arm_hand_right",
+            "hip" : "hip"
+        },
+        "hairSkin": { 
+        }
+    },
+    "animations": [
+        {
+          "icon": "icons/walk.png",
+          "name": "walk"
+        },
+        {
+          "icon": "icons/run.png",
+          "name": "run"  
+        },
+        {
+          "icon": "icons/waving.png",
+          "name": "hi"  
+        },
+         {
+          "icon": "icons/jumping.png",
+          "name": "hop"  
+        }
+    ]
+}

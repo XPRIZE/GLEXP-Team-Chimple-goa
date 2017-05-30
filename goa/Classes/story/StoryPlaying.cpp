@@ -616,7 +616,7 @@ void StoryPlaying::createDialogBubble() {
         if(_soundEnabled.compare("true") == 0) {
             
             std::string pageI = MenuContext::to_string(_pageIndex + 1);
-            _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".mp3";
+            _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
             
             if(!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
                 this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
@@ -636,9 +636,11 @@ void StoryPlaying::createDialogBubble() {
         if(chooseText != NULL) {
             cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
             if(chooseLabel != NULL) {
+                chooseLabel->setTouchEnabled(false);
+                chooseLabel->setString("");
+                chooseLabel->setPlaceHolder("");
+                
 //                contentPageText = QuestionHandler::wrapString(contentPageText, 50);
-//                chooseLabel->setTouchEnabled(false);
-//                chooseLabel->setString(contentPageText);
 //                CCLOG("chooseLabel real position %f, %f", chooseLabel->getPosition().x, chooseLabel->getPosition().y);
 //                chooseLabel->setFontSize(75);
 //                chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
@@ -690,6 +692,7 @@ void StoryPlaying::renderStoryText(std::string storyText, Node* parentNode, Node
         token = ' ' + token;
         //create CommonText node
         auto label = CommonText::create();
+        label->setCommonTextInStory(true);
         label->setString(token);
         label->setFontSize(75);
         label->setFontName("fonts/Roboto-Regular.ttf");

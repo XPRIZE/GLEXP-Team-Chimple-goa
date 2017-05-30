@@ -1346,7 +1346,6 @@
                         {
 							"icon": "human/costume/austronaut_thumbnail.png",
 							"json": "/res/hero.json",
-							"skinNameMap": "astronaut",
 							"colorSkins": [{
 									"skins": "bodySkin",
 									"color": "#e5ad8f"
@@ -1359,7 +1358,70 @@
 							"type": "character"
 						}						
 					]
-				}                
+				},
+        {
+					"name": "africanHeroBoy",
+					"cIcon": "icons/character_onclick.png",
+					"icon": "icons/character_onclick.png",
+					"items": [
+                        {
+							"icon": "human/costume/austronaut_thumbnail.png",
+							"json": "/res/human_skeleton_boy.json",
+							"colorSkins": [{
+									"skins": "bodySkin",
+									"color": "#e5ad8f"
+								},
+								{
+									"skins": "hairSkin",
+									"color": "#000000"
+								}
+							],
+							"type": "character"
+						}						
+					]
+				},        
+        {
+					"name": "nates",
+					"cIcon": "icons/character_onclick.png",
+					"icon": "icons/character_onclick.png",
+					"items": [
+                        {
+							"icon": "human/costume/austronaut_thumbnail.png",
+							"json": "/res/nate.json",
+							"colorSkins": [{
+									"skins": "bodySkin",
+									"color": "#e5ad8f"
+								},
+								{
+									"skins": "hairSkin",
+									"color": "#000000"
+								}
+							],
+							"type": "character"
+						}						
+					]
+				},
+        {
+					"name": "poppy",
+					"cIcon": "icons/character_onclick.png",
+					"icon": "icons/character_onclick.png",
+					"items": [
+                        {
+							"icon": "human/costume/austronaut_thumbnail.png",
+							"json": "/res/poppy.json",
+							"colorSkins": [{
+									"skins": "bodySkin",
+									"color": "#e5ad8f"
+								},
+								{
+									"skins": "hairSkin",
+									"color": "#000000"
+								}
+							],
+							"type": "character"
+						}						
+					]
+				}                                   
       ]
     },
     {
@@ -2624,6 +2686,134 @@
       "icon": "icons/animation.png"
     }
   ],
+  "Hero_Skeleton": [
+    {
+      "name": "translate",
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "scale",
+      "cIcon": "icons/scale_onclick.png",
+      "icon": "icons/scale.png"
+    },
+    {
+      "name": "delete",
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    },
+    {
+      "name": "customize",
+      "cIcon": "icons/avatar_onclick.png",
+      "icon": "icons/avatar.png"
+    },
+    {
+      "name": "animation",
+      "cIcon": "icons/animation_onclick.png",
+      "icon": "icons/animation.png"
+    }
+  ],  
+  "Nate_Skeleton": [
+    {
+      "name": "translate",
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "scale",
+      "cIcon": "icons/scale_onclick.png",
+      "icon": "icons/scale.png"
+    },
+    {
+      "name": "delete",
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    },
+    {
+      "name": "customize",
+      "cIcon": "icons/avatar_onclick.png",
+      "icon": "icons/avatar.png"
+    },
+    {
+      "name": "animation",
+      "cIcon": "icons/animation_onclick.png",
+      "icon": "icons/animation.png"
+    }
+  ],
+  "Poppy_Skeleton": [
+    {
+      "name": "translate",
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "scale",
+      "cIcon": "icons/scale_onclick.png",
+      "icon": "icons/scale.png"
+    },
+    {
+      "name": "delete",
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    },
+    {
+      "name": "customize",
+      "cIcon": "icons/avatar_onclick.png",
+      "icon": "icons/avatar.png"
+    },
+    {
+      "name": "animation",
+      "cIcon": "icons/animation_onclick.png",
+      "icon": "icons/animation.png"
+    }
+  ],    
+  "African_Hero_Boy_Skeleton": [
+    {
+      "name": "translate",
+      "cIcon": "icons/move_onclick.png",
+      "icon": "icons/move.png"
+    },
+    {
+      "name": "rotateScale",
+      "cIcon": "icons/rotate_onclick.png",
+      "icon": "icons/rotate.png"
+    },
+    {
+      "name": "scale",
+      "cIcon": "icons/scale_onclick.png",
+      "icon": "icons/scale.png"
+    },
+    {
+      "name": "delete",
+      "cIcon": "icons/delete_onclick.png",
+      "icon": "icons/delete.png"
+    },
+    {
+      "name": "customize",
+      "cIcon": "icons/avatar_onclick.png",
+      "icon": "icons/avatar.png"
+    },
+    {
+      "name": "animation",
+      "cIcon": "icons/animation_onclick.png",
+      "icon": "icons/animation.png"
+    }
+  ],   
   "animalskeleton": [
     {
       "name": "translate",
