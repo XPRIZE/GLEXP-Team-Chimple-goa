@@ -18,6 +18,7 @@ public:
     static CommonText *create();
     virtual void onEnterTransitionDidFinish() override;
     virtual void  onExitTransitionDidStart() override;
+    void setCommonTextInStory(bool fromStory);
 CC_CONSTRUCTOR_ACCESS:
     CommonText();
     virtual ~CommonText();
@@ -25,6 +26,7 @@ CC_CONSTRUCTOR_ACCESS:
     bool touchSpeak(cocos2d::Touch* touch, cocos2d::Event* event);
 protected:
     cocos2d::EventListenerTouchOneByOne *_listener;
+    bool isInStory;
 };
 
 #endif /* CommonText_h */

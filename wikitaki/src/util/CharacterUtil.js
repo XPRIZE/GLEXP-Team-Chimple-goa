@@ -20,6 +20,17 @@ chimple.CharacterUtil.displaySkins = function (character, skins) {
             //find all resources to be loaded
             if (!skinLoaded) {
                 var resourceName = defaultFolder + element.skin + ".json";
+                if(character.getName() === 'Hero_Skeleton') {
+                    resourceName = defaultFolder + "/characters/hero/" + element.skin + ".json";
+                } else if(character.getName() === 'Nate_Skeleton') {
+                    resourceName = defaultFolder + "/characters/nate/" + element.skin + ".json";
+                } else if(character.getName() === 'Poppy_Skeleton') {
+                    resourceName = defaultFolder + "/characters/poppy/" + element.skin + ".json";
+                } else if(character.getName() === 'African_Hero_Boy_Skeleton') {
+                    resourceName = defaultFolder + "/characters/human_skeleton_boy/" + element.skin + ".json";
+                } 
+                
+                
                 dynamicResources.push(resourceName);
                 skinBones.push({
                         boneName: element.bone,
@@ -137,7 +148,20 @@ chimple.CharacterUtil.loadSkeletonConfig = function (skeleton, selectedConfigura
     } else if (skeleton._userData && skeleton._userData.skeletonConfigJson) {
         skeletonConfigJson = skeleton._userData.skeletonConfigJson;
     } else {
-        skeletonConfigJson = 'res/characters/skeletonConfig/' + skeleton.getName() + '.json';
+        if(skeleton.getName() === 'Hero_Skeleton') {
+            skeletonConfigJson = 'res/characters/hero/' + skeleton.getName() + '.json';
+        } else if(skeleton.getName() === 'Nate_Skeleton') {
+            skeletonConfigJson = 'res/characters/nate/' + skeleton.getName() + '.json';
+        } else if(skeleton.getName() === 'Poppy_Skeleton') {
+            skeletonConfigJson = 'res/characters/poppy/' + skeleton.getName() + '.json';
+        } 
+        else if(skeleton.getName() === 'African_Hero_Boy_Skeleton') {
+            skeletonConfigJson = 'res/characters/human_skeleton_boy/' + skeleton.getName() + '.json';
+        } 
+        else {
+            skeletonConfigJson = 'res/characters/skeletonConfig/' + skeleton.getName() + '.json';
+        }
+        
         skeleton._userData.skeletonConfigJson = skeletonConfigJson;
     }
     cc.loader.loadJson(skeletonConfigJson, function (error, data) {

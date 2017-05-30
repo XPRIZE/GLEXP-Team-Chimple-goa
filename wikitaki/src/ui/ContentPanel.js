@@ -528,8 +528,6 @@ chimple.ContentPanel = chimple.AbstractContentPanel.extend({
         cc.log(new Date());
 
         chimple.CharacterUtil.loadSkeletonConfig(load.node, configuration);
-        cc.log(new Date());
-
         load.node.setPosition(this.getContentSize().width / 2, this.getContentSize().height / 6);
         load.node.setScale(0.5, 0.5);
         // this._constructedScene.addChild(load.node);        

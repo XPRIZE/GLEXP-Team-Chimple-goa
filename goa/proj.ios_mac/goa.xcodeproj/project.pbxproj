@@ -59,6 +59,8 @@
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
+		9C6D78481EDCF7C100ABCD63 /* StoryTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D78461EDCF7C100ABCD63 /* StoryTextField.cpp */; };
+		9C6D78491EDCF7C100ABCD63 /* StoryTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D78461EDCF7C100ABCD63 /* StoryTextField.cpp */; };
 		9CD115F31EAF8BBE00BE09DE /* MainMenuHome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD115F11EAF8BBE00BE09DE /* MainMenuHome.cpp */; };
 		9CD115F41EAF8BBE00BE09DE /* MainMenuHome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD115F11EAF8BBE00BE09DE /* MainMenuHome.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -591,6 +593,8 @@
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		9C6D78461EDCF7C100ABCD63 /* StoryTextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryTextField.cpp; sourceTree = "<group>"; };
+		9C6D78471EDCF7C100ABCD63 /* StoryTextField.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryTextField.hpp; sourceTree = "<group>"; };
 		9CD115F11EAF8BBE00BE09DE /* MainMenuHome.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuHome.cpp; sourceTree = "<group>"; };
 		9CD115F21EAF8BBE00BE09DE /* MainMenuHome.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MainMenuHome.hpp; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1942,6 +1946,8 @@
 				F35042491E32199F0005DF8D /* CommonText.cpp */,
 				F350424A1E32199F0005DF8D /* CommonText.h */,
 				F350424B1E32199F0005DF8D /* lib */,
+				9C6D78461EDCF7C100ABCD63 /* StoryTextField.cpp */,
+				9C6D78471EDCF7C100ABCD63 /* StoryTextField.hpp */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -2154,6 +2160,7 @@
 				F35042911E32199F0005DF8D /* preprocessing.cpp in Sources */,
 				F35042551E32199F0005DF8D /* LTKChannel.cpp in Sources */,
 				F35043471E3219A00005DF8D /* Chain.cpp in Sources */,
+				9C6D78481EDCF7C100ABCD63 /* StoryTextField.cpp in Sources */,
 				F35043AF1E3219A00005DF8D /* GraphemeGrid.cpp in Sources */,
 				F350430F1E32199F0005DF8D /* LevelMenu.cpp in Sources */,
 				F35042F51E32199F0005DF8D /* LangUtil.cpp in Sources */,
@@ -2527,6 +2534,7 @@
 				F35CEBC21E98A35F00E0F041 /* AlphaPhonics.cpp in Sources */,
 				F35043A01E3219A00005DF8D /* CharacterConfiguration.cpp in Sources */,
 				F350435C1E3219A00005DF8D /* Drop.cpp in Sources */,
+				9C6D78491EDCF7C100ABCD63 /* StoryTextField.cpp in Sources */,
 				F35043081E32199F0005DF8D /* HelpLayer.cpp in Sources */,
 				F350439C1E3219A00005DF8D /* Units.cpp in Sources */,
 				F35043CE1E3219A00005DF8D /* StoryCoverPage.cpp in Sources */,
