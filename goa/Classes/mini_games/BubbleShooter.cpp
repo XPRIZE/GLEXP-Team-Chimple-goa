@@ -1070,6 +1070,11 @@ void BubbleShooter::stateRemoveCluster() {
 						//   this.bubbleName[tile.x][tile.y].setGlobalZOrder(5);
 						//   this.LetterName[tile.x][tile.y].setGlobalZOrder(5);
 
+						auto letterValue = letterSprite[player->bubble.tiletype];
+						auto letterInchar = LangUtil::getInstance()->convertStringToUTF16Char(letterValue);
+
+						_menuContext->pickAlphabet(letterInchar, letterInchar,true);
+
 						_bubbleName[tile->x][tile->y]->setAnchorPoint(Vec2(0.5,0.5));
 						_LetterName[tile->x][tile->y]->setAnchorPoint(Vec2(0.5, 0.5));
 

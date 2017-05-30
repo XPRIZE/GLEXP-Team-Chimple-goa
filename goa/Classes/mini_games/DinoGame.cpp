@@ -220,12 +220,27 @@ void DinoGame::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			_gameScore++;
 			_eventDispatcher->removeEventListenersForTarget(target);
 			_menu->addPoints(1);
+			auto letterPick = LangUtil::getInstance()->convertStringToUTF16Char(mystr);
+			_menu->pickAlphabet(letterPick, letterPick,true);
 			_audioEffect->playEffect("sounds/sfx/drop_obj.ogg");
 		}
 		else {
 			_menu->addPoints(-1);
 			_audioEffect->playEffect("sounds/sfx/error.ogg");
 			auto moveTo = MoveTo::create(2, _previousPosition);
+
+			auto letterPick = LangUtil::getInstance()->convertStringToUTF16Char(mystr);
+			auto charString = LangUtil::getInstance()->getAllCharacters();
+			auto templetterPick = letterPick;
+
+			while (true) {
+				templetterPick = charString[RandomHelper::random_int(1, LangUtil::getInstance()->getNumberOfCharacters() - 2)];
+				if (letterPick != templetterPick)
+					break;
+			}
+			
+			_menu->pickAlphabet(towupper(letterPick), templetterPick, true);
+
 			target->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
 				_isTouched = true;
 				CCLOG("touch End11111111111111111111111111111");
@@ -251,6 +266,19 @@ void DinoGame::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 		else {
 			_audioEffect->playEffect("sounds/sfx/error.ogg");
 			_menu->addPoints(-1);
+
+			auto letterPick = LangUtil::getInstance()->convertStringToUTF16Char(mystr);
+			auto charString = LangUtil::getInstance()->getAllCharacters();
+			auto templetterPick = letterPick;
+
+			while (true) {
+				templetterPick = charString[RandomHelper::random_int(1, LangUtil::getInstance()->getNumberOfCharacters() - 2)];
+				if (letterPick != templetterPick)
+					break;
+			}
+
+			_menu->pickAlphabet(towupper(letterPick), templetterPick, true);
+
 			auto moveTo = MoveTo::create(2, _previousPosition);
 			target->runAction(Sequence::create(moveTo, CallFunc::create([=]() {
 				_isTouched = true;

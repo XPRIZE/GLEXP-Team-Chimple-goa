@@ -348,7 +348,7 @@ void EndlessRunner::startingIntersectMode() {
 					popUp = false;
 				}
 				_menuContext->pickAlphabet(tempChar,allLabels[i]->getChar(), true);
-
+				_menuContext->addPoints(1);
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getChar());
 				audio->playEffect(path.c_str(), false);
@@ -392,7 +392,6 @@ void EndlessRunner::startingIntersectMode() {
 						this->removeChild(allLabels[i]);
 						allLabels.erase(allLabels.begin() + i);
 						Character.action->play("correct_catch", false);
-						_menuContext->addPoints(1);
 						allMonster[k]->getChildByName("monster_egg")->setVisible(false);
 						hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(true);	
 						hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(false);
@@ -403,6 +402,7 @@ void EndlessRunner::startingIntersectMode() {
 			}
 			else {
 				_menuContext->pickAlphabet(tempChar, allLabels[i]->getChar(), true);
+				_menuContext->addPoints(-1);
 				hpUi->getChildByName("happy_mad")->setScale(1);
 				
 				if (!popUp) {
@@ -431,7 +431,6 @@ void EndlessRunner::startingIntersectMode() {
 						Character.action->play("worng_catch", false);
 						this->removeChild(allLabels[i]);
 						allLabels.erase(allLabels.begin() + i);
-						_menuContext->addPoints(-1);
 						hpUi->getChildByName("happy_mad")->getChildByName("mad")->setVisible(true);
 						hpUi->getChildByName("happy_mad")->getChildByName("happy")->setVisible(false);
 						allMonster[k]->getChildByName("monster_egg")->setVisible(false);

@@ -791,11 +791,11 @@ void MainGame::update(float dt)
 					timeline->setAnimationEndCallFunc("meteor_blast", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
 					MainGame::audioBg->playEffect("cannonball/gamesound/meteorblast.ogg", false, 1, 1, .2);
 
+					_menuContext->pickAlphabet(MainGame::bulletArray[j]->id, MainGame::letterArray[i]->id, true);
+
 					this->removeChild(MainGame::bulletArray_actualImage[j]);
 					this->removeChild(MainGame::letterArray[i]);
 					this->removeChild(MainGame::bulletArray_Animation[j]);
-
-					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
 
 //					int score = _menuContext->getPoints();
 //					if (score == 15)
@@ -844,11 +844,11 @@ void MainGame::update(float dt)
 						}
 					}
 
-					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
-						
 					auto timeline = CSLoader::createTimeline("cannonball_meteoranimation.csb");
 					Node *mycannon = (Node *)CSLoader::createNode("cannonball_meteoranimation.csb");
 					mycannon->setPosition(MainGame::letterArray[i]->getBoundingBox().origin.x + (MainGame::letterArray[i]->getContentSize().width * 80/100), MainGame::letterArray[i]->getBoundingBox().origin.y + (MainGame::letterArray[i]->getContentSize().height / 2));
+
+					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
 
 					self->addChild(mycannon);	// add cannon animation
 					mycannon->runAction(timeline);
