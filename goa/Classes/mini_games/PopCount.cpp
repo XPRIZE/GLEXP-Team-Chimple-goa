@@ -347,6 +347,9 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		if (target->getBoundingBox().containsPoint(locationInNode) && (target->getName() == "smallGrid") && _popStartListner) {
 			if (target->getTag() == _popUpAnswer) {
 				CCLOG(" THIS IS CORRECT ");
+
+				_menuContext->pickNumber(_popUpAnswer,target->getTag(), _menuContext->IDENTIFY);
+
 				_popMidButtonClickPermision = false;
 				this->getChildByName("midButton")->setVisible(false);
 				_timelineCenterStarFish->play("correct", true);
@@ -384,6 +387,9 @@ void PopCount::addEventsOnGrid(cocos2d::Sprite* callerObject)
 				}
 			}
 			else {
+
+				_menuContext->pickNumber(_popUpAnswer, target->getTag(), _menuContext->IDENTIFY);
+
 				float distance = Director::getInstance()->getVisibleSize().width * 0.8;
 				FShake* shake1 = FShake::actionWithDuration(0.5f,10.0f);
 				this->getChildByName("gridpanel")->runAction(shake1);
