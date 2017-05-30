@@ -561,6 +561,7 @@ void ATM::answerCheck()
 		auto star = this->getChildByName("bg")->getChildByName("star");
 		auto timeLine = CSLoader::createTimeline("ATM/star.csb");
 		star->runAction(timeLine);
+		menu->pickNumber(_targetedNumber, _totalCount, menu->ADD);
 		//timeLine->play("win", true);
 		audio->playEffect("sounds/sfx/success.ogg", false);
 		this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
@@ -575,7 +576,7 @@ void ATM::answerCheck()
 			_touched = true;
 		}), NULL));
 		audio->playEffect("sounds/sfx/error.ogg", false);
-		//menu->addPoints(-1);	
+		menu->pickNumber(_targetedNumber, _totalCount, menu->ADD);
 	}
 }
 
