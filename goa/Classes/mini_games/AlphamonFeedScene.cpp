@@ -231,12 +231,18 @@ void AlphamonFeed:: update(float dt) {
                         laughing->setVisible(true);
                         score = score + 10;
 						menu->addPoints(1);
+						char mainMonster = (char)mySpriteName;
+						char chosenAlpha = (char)atoi(fruitReff.at(i)->getName().c_str());
+						//menu->pickAlphabet(mainMonster, chosenAlpha, true);
                         slideBar->setPercent(score);
                         angry->setVisible(false);
                         this->removeChild(fruitReff.at(i));
                         fruitReff.erase(i);
                     } else {
 						menu->addPoints(-1);
+						char mainMonster = (char)mySpriteName;
+						char chosenAlpha = (char)atoi(fruitReff.at(i)->getName().c_str());
+						//menu->pickAlphabet(mainMonster, chosenAlpha, true);
                         sprite1->alphamonMouthAnimation("spit", false);
                         sprite1->alphamonEyeAnimation("angry1",false);
                         auto animation = sprite1->shakeAction();
