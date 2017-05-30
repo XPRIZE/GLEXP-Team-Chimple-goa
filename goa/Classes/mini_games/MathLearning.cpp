@@ -635,6 +635,18 @@ void MathLearning::quizTouchEvents(Sprite* sprite)
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("sounds/sfx/success.ogg", false);
 				cocos2d::Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
+
+				auto chooseNum = target->getChildByName("option")->getTag();
+				if (!_operation.compare("addition"))
+				{
+					_menuContext->pickNumber(_answer, chooseNum, _menuContext->ADD);
+				}
+				else
+				{
+					_menuContext->pickNumber(_answer, chooseNum, _menuContext->SUBTRACT);
+				}
+				
+
 				_totalHit++;
 				    _repeatQuizCounter++;
 					if(_repeatQuizCounter <= 4)
@@ -660,6 +672,16 @@ void MathLearning::quizTouchEvents(Sprite* sprite)
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("sounds/sfx/error.ogg", false);
+
+				 auto chooseNum = target->getChildByName("option")->getTag();
+				 if (!_operation.compare("addition"))
+				 {
+					 _menuContext->pickNumber(_answer, chooseNum, _menuContext->ADD);
+				 }
+				 else
+				 {
+					 _menuContext->pickNumber(_answer, chooseNum, _menuContext->SUBTRACT);
+				 }
 			}
 			return true;
 		}
