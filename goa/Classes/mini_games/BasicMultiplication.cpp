@@ -494,6 +494,8 @@ void BasicMultiplication::addEventsOnQuizButton(cocos2d::Sprite* object)
 				auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 				audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 
+				_menuContext->pickNumber(_quizAnswer, target->getChildByName("label")->getTag(), _menuContext->MULTIPLY);
+
 				FShake* shake = FShake::actionWithDuration(0.5f, 10.0f);
 				target->runAction(shake);
 				_totalHit++;
@@ -507,6 +509,8 @@ void BasicMultiplication::addEventsOnQuizButton(cocos2d::Sprite* object)
 					auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 					audioBg->playEffect("res/sounds/sfx/success.ogg", false);
 					
+					_menuContext->pickNumber(_quizAnswer, target->getChildByName("label")->getTag(),_menuContext->MULTIPLY);
+
 					auto sequence = Sequence::create(
 						CallFunc::create([=]() {
 							_optionTouch = false;

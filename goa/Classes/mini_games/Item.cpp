@@ -472,6 +472,8 @@ void Item::result()
 			this->addChild(_particle);
 			this->scheduleOnce(schedule_selector(Item::scoreBoard), 3);
 		
+			menu->pickNumber(_count1, _num1, menu->IDENTIFY);
+			menu->pickNumber(_count2, _num2, menu->IDENTIFY);
 	
 		_scoreMax++;
 	}
@@ -481,6 +483,9 @@ void Item::result()
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 		_done->runAction(shake);
 		
+		menu->pickNumber(_count1, _num1, menu->IDENTIFY);
+		menu->pickNumber(_count2, _num2, menu->IDENTIFY);
+
 		_scoreMax++;
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		audio->playEffect("sounds/sfx/error.ogg", false);
@@ -504,29 +509,38 @@ void Item::verify()
 	if (_frog1Num == _frogCount1 && _fillNum !=0)
 	{
 		menu->addPoints(1);
+		menu->pickNumber(_frog1Num, _frogCount1,menu->IDENTIFY);
 	}
 	else 
 	{  
-		if(_fillNum != 0)
-		menu->addPoints(-1);
+		if (_fillNum != 0) {
+			menu->pickNumber(_frog1Num, _frogCount1, menu->IDENTIFY);
+			menu->addPoints(-1);
+		}
 	}
 	if (_frog2Num == _frogCount2 && _fillNum != 1)
 	{
 		menu->addPoints(1);
+		menu->pickNumber(_frog2Num, _frogCount2, menu->IDENTIFY);
 	}
 	else 
 	{
-		if (_fillNum != 1)
-		menu->addPoints(-1);
+		if (_fillNum != 1) {
+			menu->addPoints(-1);
+			menu->pickNumber(_frog2Num, _frogCount2, menu->IDENTIFY);
+		}
 	}
 	if ((_frog1Num + _frog2Num) == _frogCount3 && _fillNum != 2)
 	{
 		menu->addPoints(2);
+		menu->pickNumber(_frog1Num + _frog2Num , _frogCount3 , menu->ADD);
 	}
 	else 
 	{
-		if (_fillNum != 2)
-		menu->addPoints(-2);
+		if (_fillNum != 2) {
+			menu->addPoints(-2);
+			menu->pickNumber(_frog1Num + _frog2Num, _frogCount3, menu->ADD);
+		}
 	}
 	if (_frog1Num == _frogCount1 && _frog2Num == _frogCount2 && (_frog1Num+ _frog2Num) == _frogCount3)
 	{
