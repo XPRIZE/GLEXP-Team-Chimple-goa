@@ -423,6 +423,9 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			hit();
 			click++;
 			menu->addPoints(1);
+
+			menu->pickAlphabet(mychar, myletter, true);
+
 			if (_helpFlage) {
 				this->removeChildByName("helpLayer");
 				_helpFlage = false;
@@ -450,6 +453,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			maskedFill->runAction(shake);
 			menu->addPoints(-1);
+			menu->pickAlphabet(mychar, myletter, true);
 			
 			
 			return false;
