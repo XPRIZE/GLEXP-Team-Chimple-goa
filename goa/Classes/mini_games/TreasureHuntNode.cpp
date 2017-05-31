@@ -59,6 +59,7 @@ std::vector<std::string> TreasureHuntNode::getPosibileCharacter()
 void TreasureHuntNode::clearDrawing(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEventType eEventType) {
 	if (eEventType == cocos2d::ui::Widget::TouchEventType::ENDED) {
 		_paintingNode->clear();
+		menu->writeAlphabet(LangUtil::getInstance()->convertStringToUTF16Char(_Treasurehunt->_currentLetter), false);
 		//_canvas->clear(0, 0, _canvasWidth, _canvasHeight);
 		_strokes.clear();
 		 //_drawingBoard->removeChild(_clearButton, true);
