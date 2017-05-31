@@ -385,6 +385,15 @@ void Door::nextDoor()
 		refreshButton->setEnabled(true);
 		
 		menu->addPoints(1);
+		if (menu->getCurrentLevel() >= 53 && menu->getCurrentLevel() <= 62)
+		{
+			menu->pickNumber(stoi(LangUtil::getInstance()->convertUTF16CharToString(_randomWord.at(0))), stoi(LangUtil::getInstance()->convertUTF16CharToString(_randomWord.at(0))), menu->IDENTIFY);
+		}
+		else
+		{
+			menu->writeAlphabet(_randomWord.at(0), true);
+		}
+		
 	}
 	
 	
@@ -398,6 +407,14 @@ void Door::showScore(float dt)
 void Door::clearScreen()
 {
 	menu->addPoints(-1);
+	if (menu->getCurrentLevel() >= 53 && menu->getCurrentLevel() <= 62)
+	{
+		menu->pickNumber(stoi(LangUtil::getInstance()->convertUTF16CharToString(_randomWord.at(0))), RandomHelper::random_int(11,20), menu->IDENTIFY);
+	}
+	else
+	{
+		menu->writeAlphabet(_randomWord.at(0), false);
+	}
 }
 void Door::postTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event, cocos2d::Point touchPoint)
 {
