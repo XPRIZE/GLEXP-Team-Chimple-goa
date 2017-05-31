@@ -1,3 +1,11 @@
+//
+//  BubbleShooter.h
+//  goa
+//
+//  Created by Karim Mirazul  on 05/11/16
+//
+//
+
 #ifndef __BUBBLE_SHOOTER_SCENE_H__
 #define __BUBBLE_SHOOTER_SCENE_H__
 

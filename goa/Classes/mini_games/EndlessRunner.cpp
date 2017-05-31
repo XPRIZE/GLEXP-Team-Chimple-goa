@@ -1,3 +1,11 @@
+//
+//  EndlessRunner.cpp 
+//  goa
+//
+//  Created by Karim Mirazul  on 13/09/16
+//
+//
+
 #include "EndlessRunner.h"
 #include <vector>
 #include "SpriteCreate.h"
