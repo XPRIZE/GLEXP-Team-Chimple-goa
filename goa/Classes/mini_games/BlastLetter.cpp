@@ -228,6 +228,12 @@ void BlastLetter::removeAllWritingScene()
 	((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
 	_bang = false;
 	_menuContext->addPoints(-1);
+
+	if (_menuContext->getCurrentLevel() >= 27 && _menuContext->getCurrentLevel() <= 36)
+		_menuContext->pickNumber(stoi(LangUtil::getInstance()->convertUTF16CharToString(_data_value[_counterLetter])),RandomHelper::random_int(11,30),_menuContext->IDENTIFY);
+	else
+		_menuContext->writeAlphabet(_data_value[_counterLetter], false);
+	
 	runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
 		std::ostringstream stringStream;
 		stringStream << "Node" << (_counterLetter + 1);
@@ -428,6 +434,12 @@ void BlastLetter::checkAlphabets()
 
 	if (checkRecognizeLetter(LangUtil::convertUTF16CharToString(_data_value[_counterLetter]))) {
 		_menuContext->addPoints(1);
+
+		if (_menuContext->getCurrentLevel() >= 27 && _menuContext->getCurrentLevel() <= 36)
+			_menuContext->pickNumber(stoi(LangUtil::getInstance()->convertUTF16CharToString(_data_value[_counterLetter])), stoi(LangUtil::getInstance()->convertUTF16CharToString(_data_value[_counterLetter])), _menuContext->IDENTIFY);
+		else
+			_menuContext->writeAlphabet(_data_value[_counterLetter], true);
+		
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->_drawingBoard->removeAllChildren();
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->setScale(1.0f / 3.0f);
 		((BlastLetterNode *)this->getChildByName(stringStream.str()))->drawAllowance(false);

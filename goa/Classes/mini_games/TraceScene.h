@@ -34,6 +34,7 @@ CC_CONSTRUCTOR_ACCESS:
 	void startGame();
 	void onEnterTransitionDidFinish() override;
 	const wchar_t *_alpha;
+	int _alphaIndex = 0;
 	HelpLayer * _help;
     static const char* classname() { return KUNG_FU_ALPHA.c_str();}
     void onExitTransitionDidStart() override;
