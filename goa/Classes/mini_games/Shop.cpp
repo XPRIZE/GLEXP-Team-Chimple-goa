@@ -304,7 +304,7 @@ void Shop::update(float dt)
 		auto Wait = _total*0.1 + 0.5;
 		auto scoreSequenceOne = Sequence::create(coinAppear, DelayTime::create(Wait),vegeIntoBag, DelayTime::create(1.5), vegeDisappear, vegeAppear, DelayTime::create(3), CallFunc::create([=] {
 				
-			
+			   _menuContext->pickNumber(_total, _calculator->_answer, _menuContext->ADD);
 				if (_gameCounter == 3)
 				{
 					 auto a = _isEnterPressedCounter;
@@ -361,6 +361,7 @@ void Shop::update(float dt)
 		this->runAction(Sequence::create(DelayTime::create(0.5), openSequence, NULL));
 		_menuContext->addPoints(-1);
 		CCLOG("points : %d", _menuContext->getPoints());
+		_menuContext->pickNumber(_total, _calculator->_answer, _menuContext->ADD);
 		_isEnterPressedCounter++;
 	}
 }

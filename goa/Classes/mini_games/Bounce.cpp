@@ -708,6 +708,7 @@ void BounceBall::animateBounce(bool automatic)
 				_layer->_tries = 0;
 				if (!automatic) {
 					_layer->_menuContext->addPoints(1);//NTC
+					_layer->_menuContext->pickNumber(_layer->_sum, holder->_num, _layer->_menuContext->ADD);
 				}
 				auto additionDisplay = new AdditionDisplay(components, _layer->_sum);
 				this->_layer->addChild(additionDisplay);
@@ -732,7 +733,7 @@ void BounceBall::animateBounce(bool automatic)
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("sounds/sfx/error.ogg", false);
-
+				_layer->_menuContext->pickNumber(_layer->_sum, holder->_num, _layer->_menuContext->ADD);
 				this->setPosition(_layer->_bounceDrop->getPosition());
 				this->_animating = false;
 				this->getParent()->stopAction(_follow);
