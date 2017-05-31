@@ -243,7 +243,7 @@ void Card::addEvents(struct SpriteDetails sprite)
 							CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
 							success->playEffect("sounds/sfx/success.ogg", false);
 							_menuContext->addPoints(_pairCard);
-
+							_menuContext->pickNumber(_pairSum, _totalSum, _menuContext->ADD);
 							for (int i = 0; i < _spriteDetails.size(); i++)
 							{
 								if (_spriteDetails.at(i)._flag == 1)
@@ -285,6 +285,7 @@ void Card::addEvents(struct SpriteDetails sprite)
 						error->playEffect("sounds/sfx/error.ogg", false);
 						_menuContext->addPoints(1 - _pairCard);
 						this->runAction(Sequence::create(DelayTime::create(.3), CallFunc::create([=]() {
+						_menuContext->pickNumber(_pairSum, _totalSum, _menuContext->ADD);
 
 							for (int i = 0; i < _spriteDetails.size(); i++)
 							{
