@@ -120,13 +120,16 @@ void Trace::onEnterTransitionDidFinish() {
     //_background = CSLoader::createNode(std::string(path) + alphabet +  std::string(".csb"));
 	if (LangUtil::getInstance()->getLang() == "swa") {
 		if (_menuContext->getCurrentLevel() == 25) {
-			_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[RandomHelper::random_int(0, 12)], "Alpha Kombat"));
+			_alphaIndex = RandomHelper::random_int(0, 12);
+			_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[_alphaIndex], "Alpha Kombat"));
 		}
 		else if (_menuContext->getCurrentLevel() == 26) {
-				_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[RandomHelper::random_int(13, 23)], "Alpha Kombat"));
+			_alphaIndex = RandomHelper::random_int(13, 23);
+			_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[_alphaIndex], "Alpha Kombat"));
 		}
 		else {
-			_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[_menuContext->getCurrentLevel() - 1], "Alpha Kombat"));
+			_alphaIndex = _menuContext->getCurrentLevel() - 1;
+			_background = CSLoader::createNode(LangUtil::getInstance()->getSpecialAnimationFileName(_alpha[_alphaIndex], "Alpha Kombat"));
 		}
 	}
 	else {
@@ -282,6 +285,7 @@ bool Trace::onTouchBegan(Touch* touch, Event* event){
 void Trace::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 //    CCLOG("onTouchEnded");
 	_menuContext->addPoints(-1);
+	_menuContext->writeAlphabet(_alpha[_alphaIndex], false);
 	//setDotsVisibility(false);
     if (_currentNodeIndex >= _nodes[_currentStroke].size()) {
         /*_currentStroke++;
@@ -455,7 +459,7 @@ void Trace::finishedAll() {
 	std::string randomAnimation = animations[RandomHelper::random_int(0, 3)];
 
 	_menuContext->addPoints(1);
-
+	_menuContext->writeAlphabet(_alpha[_alphaIndex] , true);
 
 	timeline->play(randomAnimation, false);
 

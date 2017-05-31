@@ -528,6 +528,7 @@ void BasicMultiplication::addEventsOnQuizButton(cocos2d::Sprite* object)
 							removeChildByName("quiz");
 							_optionTouchGrid = true;
 							_gridName = "quiz";
+							_counter = 0;
 							QuizPlay();
 							_optionTouch = true;
 						}),NULL);
