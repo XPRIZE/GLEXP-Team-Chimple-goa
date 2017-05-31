@@ -1,3 +1,11 @@
+//
+//  Owl.cpp 
+//  goa
+//
+//  Created by Karim Mirazul  on 20/09/16
+//
+//
+
 #include "Owl.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabelTTF.h"

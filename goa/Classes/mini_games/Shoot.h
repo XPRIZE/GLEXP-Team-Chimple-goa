@@ -1,3 +1,11 @@
+//
+//  Shoot.h 
+//  goa
+//
+//  Created by Karim Mirazul  on 05/12/16
+//
+//
+
 #pragma once
 #ifndef __Shoot_SCENE_H__
 #define __Shoot_SCENE_H__

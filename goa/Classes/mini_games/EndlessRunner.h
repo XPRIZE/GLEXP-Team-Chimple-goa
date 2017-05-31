@@ -1,3 +1,11 @@
+//
+//  EndlessRunner.h 
+//  goa
+//
+//  Created by Karim Mirazul  on 13/09/16
+//
+//
+
 #ifndef __ENDLESSRUNNER_SCENE_H__
 #define __ENDLESSRUNNER_SCENE_H__
 

@@ -196,7 +196,7 @@ void Units::update(float delta) {
 
 		_calculateFlag = 1;
 		_calculator->deductPoint();
-		
+		_menuContext->pickNumber(_answerValue, _calculator->_answer, _menuContext->IDENTIFY);
 		auto openSequence = CallFunc::create([=] {
 
 			_calculateFlag = 0;
@@ -206,13 +206,13 @@ void Units::update(float delta) {
 		this->runAction(deductPointSequence);
 
 	}
-
-		
-		
+	
 		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
 		
 		CCLOG("correct answer");
 		_calculateFlag = 1;
+
+		_menuContext->pickNumber(_answerValue,_calculator->_answer,_menuContext->IDENTIFY);
 
 		auto ShowScore = CallFunc::create([=] {
 			
@@ -243,9 +243,6 @@ void Units::update(float delta) {
 		this->runAction(scoreSequenceOne);
 		
 		}
-	
-
-		
 		
 }
 

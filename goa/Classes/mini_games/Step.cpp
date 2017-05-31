@@ -314,6 +314,17 @@ void Step::addEvents(struct LoadingBarDetails sprite)
 			if (atoi(_loadingBarDetails.at(i)._label->getString().c_str()) == _loadingBarDetails.at(i)._answer)
 			{
 				_touchFlag++;
+				CCLOG("%s value for bar ", _loadingBarDetails.at(i)._label->getString().c_str());
+
+				_menuContext->pickNumber(std::stoi(_loadingBarDetails.at(i)._label->getString().c_str()), std::stoi(_loadingBarDetails.at(i)._label->getString().c_str()), _menuContext->IDENTIFY);
+			}
+			else {
+				if (_loadingBarDetails.at(i)._label->getString().compare("?") && 
+					atoi(_loadingBarDetails.at(i)._label->getString().c_str()) != _loadingBarDetails.at(i)._answer) {
+
+					CCLOG("%s value for bar wrong ", _loadingBarDetails.at(i)._label->getString().c_str());
+					_menuContext->pickNumber(std::stoi(_loadingBarDetails.at(i)._label->getString().c_str()), _loadingBarDetails.at(i)._answer , _menuContext->IDENTIFY);
+				}
 			}
 		}
 		_moveFlag = 0;

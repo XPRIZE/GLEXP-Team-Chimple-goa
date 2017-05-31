@@ -1,3 +1,10 @@
+//
+//  BasicMultiplication.h 
+//  goa
+//
+//  Created by Karim Mirazul  on 20/05/17
+//
+//
 #ifndef __BASIC_MULTIPLICATION_SCENE_H__
 #define __BASIC_MULTIPLICATION_SCENE_H__
 

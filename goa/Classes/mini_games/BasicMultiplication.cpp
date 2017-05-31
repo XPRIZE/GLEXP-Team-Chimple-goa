@@ -1,3 +1,10 @@
+//
+//  BasicMultiplication.cpp 
+//  goa
+//
+//  Created by Karim Mirazul  on 20/05/17
+//
+//
 #include "BasicMultiplication.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabelTTF.h"

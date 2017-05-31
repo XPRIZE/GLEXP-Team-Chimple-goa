@@ -1,3 +1,11 @@
+//
+//  BlastLetter.cpp 
+//  goa
+//
+//  Created by Karim Mirazul  on 05/10/16
+//
+//
+
 #include "BlastLetter.h"
 #include "../util/CommonLabelTTF.h"
 #include "AlphabetWriting.h"

@@ -1,3 +1,11 @@
+//
+//  AlphaPhonics.cpp 
+//  goa
+//
+//  Created by Karim Mirazul  on 13/04/17
+//
+//
+
 #include "AlphaPhonics.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabelTTF.h"
