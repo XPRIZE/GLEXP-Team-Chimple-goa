@@ -314,7 +314,7 @@ bool JumpingNumber::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			_maxScore++;
 			audio->playEffect("sounds/sfx/success.ogg", false);
 
-			menu->pickNumber(stoi(target->getName()),stoi(str),menu->IDENTIFY);
+			//menu->pickNumber(stoi(target->getName()),stoi(str),menu->IDENTIFY);
 
 		} 
 		else if (target->getName().compare("base") == 0 && _passingNumber == _lastNumber) {
@@ -323,7 +323,7 @@ bool JumpingNumber::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			jumpAnimation(target->getPosition(), true);
 		} 
 		else {
-			menu->pickNumber(stoi(target->getName()), stoi(str), menu->IDENTIFY);
+			//menu->pickNumber(stoi(target->getName()), stoi(str), menu->IDENTIFY);
 			menu->addPoints(-1);
 			audio->playEffect("sounds/sfx/error.ogg", false);
 			this->getChildByName("character")->stopAllActions();
