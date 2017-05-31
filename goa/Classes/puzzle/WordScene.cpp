@@ -324,6 +324,10 @@ void WordScene::processGrapheme(Grapheme* grapheme) {
                 } else {
                     _menuContext->addPoints(-2);
                 }
+
+				_menuContext->pickAlphabet(LangUtil::getInstance()->convertStringToUTF16Char(_answerGraphemes.at(i))
+					, LangUtil::getInstance()->convertStringToUTF16Char(grapheme->getGraphemeString()), true);
+
                 return;
             }
             i++;
