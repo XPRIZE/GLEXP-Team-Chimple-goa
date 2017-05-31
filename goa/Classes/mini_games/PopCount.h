@@ -1,3 +1,11 @@
+//
+//  PopCount.h 
+//  goa
+//
+//  Created by Karim Mirazul  on 08/11/16
+//
+//
+
 #ifndef __POPCOUNT_SCENE_H__
 #define __POPCOUNT_SCENE_H__
 

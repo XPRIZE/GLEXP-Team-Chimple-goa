@@ -1,3 +1,11 @@
+//
+//  Popcount.cpp 
+//  goa
+//
+//  Created by Karim Mirazul  on 08/11/16
+//
+//
+
 #include "PopCount.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabelTTF.h"

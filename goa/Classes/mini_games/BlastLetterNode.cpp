@@ -1,4 +1,10 @@
-
+//
+//  BlastLetterNode.cpp 
+//  goa
+//
+//  Created by Karim Mirazul  on 05/10/16
+//
+//
 #include "BlastLetterNode.h"
 #include "CarDraw.h"
 #include "../ext/WordSceneLipiTKNode.h"

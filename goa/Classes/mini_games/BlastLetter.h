@@ -1,3 +1,11 @@
+//
+//  BlastLetter.h 
+//  goa
+//
+//  Created by Karim Mirazul  on 05/10/16
+//
+//
+
 #ifndef __BLASTLETTER_SCENE_H__
 #define __BLASTLETTER_SCENE_H__
 

@@ -1,3 +1,11 @@
+//
+//  Baja.cpp 
+//  goa
+//
+//  Created by Karim Mirazul  on 08/08/16
+//
+//
+
 #include "Baja.h"
 
 USING_NS_CC;

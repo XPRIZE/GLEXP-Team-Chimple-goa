@@ -1,4 +1,10 @@
-
+//
+//  BlastLetterNode.cpp 
+//  goa
+//
+//  Created by Karim Mirazul  on 05/10/16
+//
+//
 #ifndef __BLASTLETTERNODE_NODE_H__
 #define __BLASTLETTERNODE_NODE_H__
 

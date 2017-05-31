@@ -1,3 +1,11 @@
+//
+//  Shoot.cpp 
+//  goa
+//
+//  Created by Karim Mirazul  on 05/12/16
+//
+//
+
 #include "Shoot.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabelTTF.h"
