@@ -74,6 +74,7 @@ private:
     int _pageIndex;
     bool _isPlayEnded;
     bool _isPlayStarted;
+    bool _isTextShown;
     int _totalStoryPages;
     Node* _talkBubbleNode;
     Node* _contentPageNode;
@@ -129,7 +130,7 @@ private:
     
     void onTouchMovedOnSkeleton(cocos2d::Touch *touch, cocos2d::Event *event);
     
-    void bindListenerToCompositeNode(cocos2d::Node* node) ;
+    void bindListenerToCompositeNode(cocos2d::Node* node);    
     
     bool onTouchBeganOnComposite(cocos2d::Touch* touch, cocos2d::Event* event);
     
