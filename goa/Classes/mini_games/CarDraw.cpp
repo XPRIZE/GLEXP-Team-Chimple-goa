@@ -144,6 +144,7 @@ void CarDraw::characterRecogination(std::vector<string> str)
             std::string res = *itStr;
             if(res.compare(_myChar) == 0 && _gameEnd)
             {
+				menu->writeAlphabet(LangUtil::getInstance()->convertStringToUTF16Char(_myChar),true);
 				menu->addPoints(5);
 				cocos2d::ui::Button* refreshButton = _carDrawNodeLiPi->_button;
 				refreshButton->setEnabled(false);
@@ -320,6 +321,7 @@ void CarDraw::clearScreen(float ft)
 	//CC_CALLBACK_2()
 	CCLOG("clearScreen");
 	menu->addPoints(-1);
+	menu->writeAlphabet(LangUtil::getInstance()->convertStringToUTF16Char(_myChar), false);
 	_carStrokes.clear();
 //	_carDrawNodeLiPi->clearDrawing(nullptr, cocos2d::ui::Widget::TouchEventType::ENDED);
 	this->removeChildByName("Alphabet");
