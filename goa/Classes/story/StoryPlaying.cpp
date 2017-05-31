@@ -682,7 +682,7 @@ void StoryPlaying::renderStoryText(std::string storyText, Node* parentNode, Node
     _isTextShown = true;
     if (!storyText.empty() && storyText[storyText.length()-1] == '\n') {
         storyText.erase(storyText.length()-1);
-        std::replace( storyText.begin(), storyText.end(), 'x', 'y'); // replace all 'x' to 'y'
+        std::replace( storyText.begin(), storyText.end(), '\n', ' '); // replace all 'x' to 'y'
     }
     
     
