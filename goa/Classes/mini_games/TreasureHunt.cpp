@@ -171,6 +171,7 @@ void TreasureHunt::update(float delta) {
 
 		auto gameOver = CallFunc::create([=] {
 			_menuContext->addPoints(1);
+			_menuContext->writeAlphabet(LangUtil::getInstance()->convertStringToUTF16Char(_currentLetter), true);
 			_menuContext->showScore();
 		});
 
