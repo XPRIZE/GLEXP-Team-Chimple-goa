@@ -526,6 +526,8 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			{
 				this->removeChildByName("help");
 			}
+			menu->pickNumber(stoi(target->getName()),stoi(_nodeRef.at(i)->getName()),menu->IDENTIFY);
+
 			target->setPositionX(_nodeRef.at(i)->getPositionX()+ extraX);
 			target->setPositionY(_nodeRef.at(i)->getPositionY());
 			target->setAnchorPoint(Vec2(0.5, 0.4));
@@ -560,6 +562,14 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			}), NULL));
 			menu->addPoints(-1);
 			//_flag = true;
+			auto randomNumber = 0;
+			
+			while (true) {
+				randomNumber = RandomHelper::random_int(1, 10);
+				if (randomNumber != stoi(target->getName()))
+					break;
+			}
+			menu->pickNumber(stoi(target->getName()), randomNumber, menu->IDENTIFY);
 			
 		}
 	
