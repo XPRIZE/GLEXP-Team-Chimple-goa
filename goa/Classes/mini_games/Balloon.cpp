@@ -197,6 +197,7 @@ void Balloon::update(float dt)
 	{
 		_pointCounter++;
 		_menuContext->addPoints(1);
+		_menuContext->pickNumber(_answer, _calculator->_answer, _menuContext->SUBTRACT);
 		_isGameDone = true;
 		//Director::getInstance()->getEventDispatcher()->removeAllEventListeners();
 		this->runAction(Sequence::create(DelayTime::create(1),
@@ -212,6 +213,7 @@ void Balloon::update(float dt)
 		_pointCounter++;
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		audio->playEffect("sounds/sfx/error.ogg", false);
+		_menuContext->pickNumber(_answer, _calculator->_answer, _menuContext->SUBTRACT);
 		makingBalloons();
 	}
 	else if (_isCalculatorThere && _calculator->checkAnswer(_answer) && _calculator->isEnterPressed() && _balloonsBin.size() != _answer)
@@ -220,7 +222,8 @@ void Balloon::update(float dt)
 		_pointCounter++;
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		audio->playEffect("sounds/sfx/error.ogg", false);
-		makingBalloons();
+		_menuContext->pickNumber(_answer, _calculator->_answer, _menuContext->SUBTRACT);
+		 makingBalloons();
 	}
 }
 void Balloon::makingBalloons()
@@ -424,7 +427,7 @@ void Balloon::addTouchEvents(Sprite* obj)
 			{
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("sounds/sfx/error.ogg", false);
-
+				_menuContext->pickNumber(_answer, _balloonsBin.size(), _menuContext->SUBTRACT);
 				_burstFlag = false;
 				_label->setColor(cocos2d::Color3B(237, 33, 53));
 				auto sequence_A = ScaleTo::create(0.3, (1.15));
@@ -444,6 +447,7 @@ void Balloon::addTouchEvents(Sprite* obj)
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 				audio->playEffect("sounds/sfx/success.ogg", false);
 				_menuContext->addPoints(1);
+				_menuContext->pickNumber(_answer, _balloonsBin.size(), _menuContext->SUBTRACT);
 				if (_answer == _isBiggerNoAnswer)
 				{
 					std::ostringstream firstNo;
