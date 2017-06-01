@@ -64,7 +64,8 @@ _animationToPlayWhenTouched(""),
 _originalSpriteColor(Color3B::GRAY),
 _wordBubbleNode(nullptr),
 _textDisplayAnimationRunning(false),
-_pronouceWord("")
+_pronouceWord(""),
+_isTextShown(false)
 {
 }
 
@@ -97,7 +98,7 @@ void StoryPlaying::bindListenerToSkeletonNode(cocostudio::timeline::SkeletonNode
 
 
 bool StoryPlaying::onTouchBeganOnSkeleton(Touch* touch, Event* event){
-    if(this->_isPlayStarted) {
+    if(this->_isPlayStarted || this->_isTextShown) {
         return false;
     }
     
@@ -213,7 +214,7 @@ void StoryPlaying::bindListenerToCompositeNode(Node* node) {
 
 
 bool StoryPlaying::onTouchBeganOnComposite(Touch* touch, Event* event){
-    if(this->_isPlayStarted) {
+    if(this->_isPlayStarted || this->_isTextShown) {
         return false;
     }
     
@@ -265,7 +266,7 @@ void StoryPlaying::bindListenerToNode(Node* node) {
 
 
 bool StoryPlaying::onTouchBeganOnNode(Touch* touch, Event* event){
-    if(this->_isPlayStarted) {
+    if(this->_isPlayStarted || this->_isTextShown) {
         return false;
     }
     
@@ -678,9 +679,14 @@ void StoryPlaying::positionTextNode(CommonText* textNode, Node* parentNode, Node
 }
 
 void StoryPlaying::renderStoryText(std::string storyText, Node* parentNode, Node* storyTextNode) {
+    _isTextShown = true;
     if (!storyText.empty() && storyText[storyText.length()-1] == '\n') {
         storyText.erase(storyText.length()-1);
+        std::replace( storyText.begin(), storyText.end(), '\n', ' '); // replace all 'x' to 'y'
     }
+    
+    
+
     std::vector<std::string> individualTexts = _menuContext->split(storyText, ' ');
     Vec2 lastRenderedLabelPosition = Vec2(0.0f,0.0f);
     Node* lastRenderedLabel;
@@ -793,7 +799,7 @@ void StoryPlaying::closeDialog(Ref* pSender, ui::Widget::TouchEventType eEventTy
 
             clickedButton->setEnabled(false);
             _talkBubbleNode->removeFromParentAndCleanup(true);
-            
+            _isTextShown = false;
             _showAgainTextButton->setEnabled(true);
             _showAgainTextButton->setVisible(true);
             //show next/prev buttons
@@ -1000,7 +1006,6 @@ void StoryPlaying::onExitTransitionDidStart() {
     }
     
 }
-
 
 void StoryPlaying::onEnterTransitionDidFinish() {
     Node::onEnterTransitionDidFinish();
