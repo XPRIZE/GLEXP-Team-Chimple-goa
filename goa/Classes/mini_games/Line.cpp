@@ -526,7 +526,7 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			{
 				this->removeChildByName("help");
 			}
-			menu->pickNumber(stoi(target->getName()),stoi(_nodeRef.at(i)->getName()),menu->IDENTIFY);
+			menu->pickNumber(atoi(target->getName().c_str()),atoi(_nodeRef.at(i)->getName().c_str()),menu->IDENTIFY);
 
 			target->setPositionX(_nodeRef.at(i)->getPositionX()+ extraX);
 			target->setPositionY(_nodeRef.at(i)->getPositionY());
@@ -566,10 +566,10 @@ void Line::onTouchEnded(cocos2d::Touch * touch, cocos2d::Event * event)
 			
 			while (true) {
 				randomNumber = RandomHelper::random_int(1, 10);
-				if (randomNumber != stoi(target->getName()))
+				if (randomNumber != atoi(target->getName().c_str()))
 					break;
 			}
-			menu->pickNumber(stoi(target->getName()), randomNumber, menu->IDENTIFY);
+			menu->pickNumber(atoi(target->getName().c_str()), randomNumber, menu->IDENTIFY);
 			
 		}
 	
