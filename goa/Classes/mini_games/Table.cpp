@@ -360,7 +360,7 @@ void Table::calculatedResult(std::string result)
 			if (_catchedFish.at(i)->getName().compare(result) == 0) {
 				menu->addPoints(1);
 
-				menu->pickNumber(stoi(_targetedFishName),stoi(result),menu->MULTIPLY);
+				menu->pickNumber(atoi(_targetedFishName.c_str()),atoi(result.c_str()),menu->MULTIPLY);
 
 				audioEffect->playEffect("sounds/sfx/success.ogg", false);
 				this->removeChildByName("calculator");
@@ -385,7 +385,7 @@ void Table::calculatedResult(std::string result)
 		this->removeChildByName("calculator");
 		this->removeChildByName("hintLabel");
 		menu->addPoints(-1);
-		menu->pickNumber(stoi(_targetedFishName), stoi(result), menu->MULTIPLY);
+		menu->pickNumber(atoi(_targetedFishName.c_str()), atoi(result.c_str()), menu->MULTIPLY);
 		audioEffect->playEffect("sounds/sfx/error.ogg", false);
 		FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 		_target->runAction(Sequence::create(shake, CallFunc::create([=](){

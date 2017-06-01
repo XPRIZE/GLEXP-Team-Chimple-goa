@@ -229,11 +229,15 @@ void BlastLetter::removeAllWritingScene()
 	_bang = false;
 	_menuContext->addPoints(-1);
 
-	if (_menuContext->getCurrentLevel() >= 27 && _menuContext->getCurrentLevel() <= 36)
-		_menuContext->pickNumber(stoi(LangUtil::getInstance()->convertUTF16CharToString(_data_value[_counterLetter])),RandomHelper::random_int(11,30),_menuContext->IDENTIFY);
-	else
+	if (_menuContext->getCurrentLevel() >= 27 && _menuContext->getCurrentLevel() <= 36) {
+		char targetChar = '122';
+		int targetNumber = targetChar - '0';
+
+		_menuContext->pickNumber(atoi(LangUtil::getInstance()->convertUTF16CharToString(_data_value[_counterLetter]).c_str()), RandomHelper::random_int(11, 30), _menuContext->IDENTIFY);
+	}
+	else{
 		_menuContext->writeAlphabet(_data_value[_counterLetter], false);
-	
+	}
 	runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
 		std::ostringstream stringStream;
 		stringStream << "Node" << (_counterLetter + 1);
@@ -436,7 +440,7 @@ void BlastLetter::checkAlphabets()
 		_menuContext->addPoints(1);
 
 		if (_menuContext->getCurrentLevel() >= 27 && _menuContext->getCurrentLevel() <= 36)
-			_menuContext->pickNumber(stoi(LangUtil::getInstance()->convertUTF16CharToString(_data_value[_counterLetter])), stoi(LangUtil::getInstance()->convertUTF16CharToString(_data_value[_counterLetter])), _menuContext->IDENTIFY);
+			_menuContext->pickNumber(atoi(LangUtil::getInstance()->convertUTF16CharToString(_data_value[_counterLetter]).c_str()), atoi(LangUtil::getInstance()->convertUTF16CharToString(_data_value[_counterLetter]).c_str()), _menuContext->IDENTIFY);
 		else
 			_menuContext->writeAlphabet(_data_value[_counterLetter], true);
 		
