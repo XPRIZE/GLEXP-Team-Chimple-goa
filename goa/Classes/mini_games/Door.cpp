@@ -387,7 +387,7 @@ void Door::nextDoor()
 		menu->addPoints(1);
 		if (menu->getCurrentLevel() >= 53 && menu->getCurrentLevel() <= 62)
 		{
-			menu->pickNumber(stoi(LangUtil::getInstance()->convertUTF16CharToString(_randomWord.at(0))), stoi(LangUtil::getInstance()->convertUTF16CharToString(_randomWord.at(0))), menu->IDENTIFY);
+			menu->pickNumber(atoi(LangUtil::getInstance()->convertUTF16CharToString(_randomWord.at(0)).c_str()), atoi(LangUtil::getInstance()->convertUTF16CharToString(_randomWord.at(0)).c_str()), menu->IDENTIFY);
 		}
 		else
 		{
@@ -409,7 +409,7 @@ void Door::clearScreen()
 	menu->addPoints(-1);
 	if (menu->getCurrentLevel() >= 53 && menu->getCurrentLevel() <= 62)
 	{
-		menu->pickNumber(stoi(LangUtil::getInstance()->convertUTF16CharToString(_randomWord.at(0))), RandomHelper::random_int(11,20), menu->IDENTIFY);
+		menu->pickNumber(atoi(LangUtil::getInstance()->convertUTF16CharToString(_randomWord.at(0)).c_str()), RandomHelper::random_int(11,20), menu->IDENTIFY);
 	}
 	else
 	{
