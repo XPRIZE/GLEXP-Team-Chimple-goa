@@ -151,7 +151,7 @@ void MathLearning::onEnterTransitionDidFinish()
 		
 		if (_menuContext->getCurrentLevel() == 1 && _helpFlag && (_repeatQuizCounter == 0)) {
 			_helpFlag = false;
-			auto board = (Sprite*)getChildByName("bg")->getChildByName("bg")->getChildByName("board");
+			auto board = (Sprite*)grid->getChildByName("board");
 			auto downGrid = _leftBallBin[0];
 			auto help = HelpLayer::create(Rect(downGrid->getPositionX(), downGrid->getPositionY(), downGrid->getContentSize().width, downGrid->getContentSize().height), Rect(visibleSize.width * 0.5, board->getPositionY(), board->getContentSize().width, board->getContentSize().height));
 			help->click(Vec2(downGrid->getPositionX(), downGrid->getPositionY()));
