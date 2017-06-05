@@ -439,7 +439,7 @@ void Drop::addSpeaker(string word)
 	this->addChild(speaker, 1);
 	speaker->setScale(0.5);
 
-	addSpeakerTouchEvents(speaker);
+	addSpeakerTouchEvents(speaker, word);
 }
 
 bool Drop::isSpeakerAddLevel()
@@ -618,7 +618,7 @@ void Drop::addEvents(Sprite* clickedObject)
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, clickedObject);
 }
 
-void Drop::addSpeakerTouchEvents(Sprite* clickedObject)
+void Drop::addSpeakerTouchEvents(Sprite* clickedObject, string word)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
@@ -636,7 +636,8 @@ void Drop::addSpeakerTouchEvents(Sprite* clickedObject)
 			auto scaleTo = ScaleTo::create(0.1, 0.4);
 			auto scaleTo1 = ScaleTo::create(0.1, 0.5);
 			target->runAction(Sequence::create(scaleTo, scaleTo1, NULL));
-
+			_menuContext->pronounceWord(word);
+			
 			if (_speakerTouchCount == 4)
 			{
 				_speakerTouchFlag = false;

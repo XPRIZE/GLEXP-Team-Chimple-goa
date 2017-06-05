@@ -68,7 +68,7 @@ public:
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
 	void addSpeaker(string word);
 	bool isSpeakerAddLevel();
-	void addSpeakerTouchEvents(Sprite *obj);
+	void addSpeakerTouchEvents(Sprite *obj, string word);
 	void wordPopUp();
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
