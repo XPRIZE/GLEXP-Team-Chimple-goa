@@ -145,7 +145,7 @@ void Drop::onEnterTransitionDidFinish()
 		auto word = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY,1,level);
 		wordOnLabel = getConvertInUpperCase(word[0]);
 		wordOnLayout = wordOnLabel;
-		_labelPrefix = LangUtil::getInstance()->translateString("Make same word ");
+		_labelPrefix = LangUtil::getInstance()->translateString("Make same word : ");
 	}
 	else
 	{
@@ -207,11 +207,18 @@ void Drop::onEnterTransitionDidFinish()
 	if (levelForSpeaker)
 	{
 		std::ostringstream boardName;
-		boardName << _labelPrefix ;
+		boardName << _labelPrefix << wordOnLabel;
 		_label = setAllLabelProperties(boardName.str(), 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 100);
 		this->addChild(_label, 2);
 
-		addSpeaker(wordOnLabel);
+		this->runAction(Sequence::create(   DelayTime::create(2),  CCCallFunc::create([=] {
+			std::ostringstream nameOnBoard1;
+			nameOnBoard1 << _labelPrefix ;
+			_label->setString(nameOnBoard1.str());
+			addSpeaker(wordOnLabel);
+		}), NULL));
+
+		
 	}
 	else
 	{
@@ -431,15 +438,15 @@ void Drop::update(float delta) {
 void Drop::addSpeaker(string word)
 {
 	std::ostringstream boardName;
-	boardName << _labelPrefix << " : ";
+	boardName << _labelPrefix;
 
 	auto speaker = Sprite::create("speaker/speaker.png");;
 	speaker->setName("speaker");
-	setAllSpriteProperties(speaker, 0, (_label->getContentSize().width/2 + visibleSize.width/2 +95), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1);
+	setAllSpriteProperties(speaker, 0, (_label->getContentSize().width/2 + visibleSize.width/2 + 40), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1);
 	this->addChild(speaker, 1);
 	speaker->setScale(0.5);
 
-	addSpeakerTouchEvents(speaker, word);
+	addSpeakerTouchEvents(speaker,word );
 }
 
 bool Drop::isSpeakerAddLevel()
@@ -465,7 +472,7 @@ void Drop::creatHelp(float gap)
 	_help = HelpLayer::create(Rect((_middleBasketIndex*gap + gap / 2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), _letterHolderSpriteBin[0]->getContentSize().width, _letterHolderSpriteBin[0]->getContentSize().height), Rect((visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), visibleSize.width*0.35, visibleSize.height*0.1));
 	_help->click(Vec2((_middleBasketIndex*gap + gap / 2), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor")));
 	 this->addChild(_help, 6);
-	 _help->setName("helpLayer");
+	_help->setName("helpLayer");
 }
 void Drop::letterAndHolderMaker(float dt)
 {
@@ -655,7 +662,7 @@ void Drop::addSpeakerTouchEvents(Sprite* clickedObject, string word)
 void Drop::wordPopUp()
 {
 	std::ostringstream boardName;
-	boardName << _labelPrefix << " : " << _wordToDisplay;
+	boardName << _labelPrefix << _wordToDisplay;
 
 	_label->setString(boardName.str());
 	 this->getChildByName("speaker")->setVisible(false);
