@@ -93,6 +93,7 @@
 #include "../mini_games/Find.h"
 #include "../mini_games/MathLearning.h"
 #include "../mini_games/BasicMultiplication.h"
+#include "../ext/util/lib/LTKStringUtil.h"
 
 
 USING_NS_CC;
@@ -1514,6 +1515,7 @@ void MenuContext::pronounceWord(std::string word, bool shouldReplaceWithSpace) {
        std::replace(word.begin(), word.end(), '_', ' ');
     }
     word = LangUtil::getInstance()->translateString(word);
+    LTKStringUtil::trimString(word);
     std::string fileName = LangUtil::getInstance()->getPronounciationFileNameForWord(word);
     if(FileUtils::getInstance()->isFileExist(fileName)) {
         CCLOG("fileName to pronounce %s", fileName.c_str());
