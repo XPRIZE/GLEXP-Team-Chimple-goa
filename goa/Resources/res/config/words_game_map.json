@@ -265,5 +265,161 @@
     "maingroundJson": "hippolevel/mainground.json",
     "menuPlist": "hippolevel/hippolevel.plist",
     "menuPng": "hippolevel/hippolevel.png"
+  },
+  {
+    "name": "phonicsfree",
+    "title": "Stack the Words",
+    "cIcon": "gameicons/Phonicsfree_pressed.png",
+    "icon": "gameicons/Phonicsfree.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "1",
+    "numLevels": "3",
+    "rewards": {
+      "1": {
+        "unlock": "table"
+      },
+      "5": {
+        "badge": "s/golden_boot"
+      }
+    },
+    "backgroundJson": "phonicsfreelevel/background.json",
+    "foregroundJson": "phonicsfreelevel/foreground.json",
+    "frontgroundJson": "phonicsfreelevel/frontground.json",
+    "maingroundJson": "phonicsfreelevel/mainground.json",
+    "menuPlist": "phonicsfreelevel/phonicsfreelevel.plist",
+    "menuPng": "phonicsfreelevel/phonicsfreelevel.png"
+  },
+  {
+    "name": "alphaphonics",
+    "title": "Alpha Phonics",
+    "cIcon": "gameicons/AlphaPhonics_pressed.png",
+    "icon": "gameicons/AlphaPhonics.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "4",
+    "numLevels": "26",
+    "rewards": {
+      "1": {
+        "unlock": "table"
+      },
+      "5": {
+        "badge": "s/golden_boot"
+      }
+    },
+    "backgroundJson": "plevelscreen2/aplevelbg.json",
+    "foregroundJson": "plevelscreen2/aplevelfrg.json",
+    "frontgroundJson": "plevelscreen2/aplevelfng.json",
+    "maingroundJson": "plevelscreen2/aplevelmng.json",
+    "menuPlist": "plevelscreen2/plevelscreen2.plist",
+    "menuPng": "plevelscreen2/plevelscreen2.png",
+    "lang": {
+      "swa": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "Y",
+          "Z"
+        ],
+        "numLevels": "24"
+      },
+      "eng": {
+        "labels": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E",
+          "F",
+          "G",
+          "H",
+          "I",
+          "J",
+          "K",
+          "L",
+          "M",
+          "N",
+          "O",
+          "P",
+          "Q",
+          "R",
+          "S",
+          "T",
+          "U",
+          "V",
+          "W",
+          "X",
+          "Y",
+          "Z"
+        ],
+        "numLevels": "26"
+      }
+    }
+  },
+  {
+    "name": "find",
+    "title": "Find",
+    "cIcon": "gameicons/find_pressed.png",
+    "icon": "gameicons/find.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "2",
+    "numLevels": "10",
+    "rewards": {
+      "22": {
+        "unlock": "train"
+      },
+      "10": {
+        "badge": "s/popping_balloon"
+      },
+      "20": {
+        "badge": "m/leaf_bomb"
+      },
+      "30": {
+        "badge": "b/droping_ball"
+      },
+      "40": {
+        "badge": "g/cute_bow"
+      },
+      "50": {
+        "badge": "c/ball_of_leaves"
+      },
+      "60": {
+        "badge": "p/happiness_box"
+      },
+      "25": {
+        "unlockMin": "map",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "findlevel/background.json",
+    "foregroundJson": "findlevel/foreground.json",
+    "frontgroundJson": "findlevel/frontground.json",
+    "maingroundJson": "findlevel/mainground.json",
+    "menuPlist": "findlevel/findlevel.plist",
+    "menuPng": "findlevel/findlevel.png"
   }
 ]
