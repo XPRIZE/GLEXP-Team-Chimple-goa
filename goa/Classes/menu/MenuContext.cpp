@@ -94,6 +94,7 @@
 #include "../mini_games/MathLearning.h"
 #include "../mini_games/BasicMultiplication.h"
 #include "../ext/util/lib/LTKStringUtil.h"
+#include "../mini_games/BasicLetterCase.h"
 
 
 USING_NS_CC;
@@ -1105,6 +1106,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		}
 		else if (gameName == BASICMULTIPLICATION) {
 			Director::getInstance()->replaceScene(BasicMultiplication::createScene());
+		}
+		else if (gameName == BASICLETTERCASE) {
+			Director::getInstance()->replaceScene(BasicLetterCase::createScene());
 		}
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());

@@ -83,6 +83,7 @@ static const std::string ALPHAARRANGE = "alphaarrange";
 static const std::string ALPHAPHONICS = "alphaphonics";
 static const std::string FIND = "find";
 static const std::string MATHLEARNING = "mathlearning";
+static const std::string BASICLETTERCASE = "basiclettercase";
 static const std::string CITY1 = "city1";
 static const std::string CITY2 = "city2";
 static const std::string CITY3 = "city3";
