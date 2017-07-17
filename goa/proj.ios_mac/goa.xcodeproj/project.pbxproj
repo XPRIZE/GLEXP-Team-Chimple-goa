@@ -61,6 +61,8 @@
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		9C6D78481EDCF7C100ABCD63 /* StoryTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D78461EDCF7C100ABCD63 /* StoryTextField.cpp */; };
 		9C6D78491EDCF7C100ABCD63 /* StoryTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C6D78461EDCF7C100ABCD63 /* StoryTextField.cpp */; };
+		9C7148391F1B2149008C65E5 /* BasicLetterCase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7148371F1B2149008C65E5 /* BasicLetterCase.cpp */; };
+		9C71483B1F1B214D008C65E5 /* BasicLetterCase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C7148371F1B2149008C65E5 /* BasicLetterCase.cpp */; };
 		9CD115F31EAF8BBE00BE09DE /* MainMenuHome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD115F11EAF8BBE00BE09DE /* MainMenuHome.cpp */; };
 		9CD115F41EAF8BBE00BE09DE /* MainMenuHome.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9CD115F11EAF8BBE00BE09DE /* MainMenuHome.cpp */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
@@ -595,6 +597,8 @@
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9C6D78461EDCF7C100ABCD63 /* StoryTextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StoryTextField.cpp; sourceTree = "<group>"; };
 		9C6D78471EDCF7C100ABCD63 /* StoryTextField.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = StoryTextField.hpp; sourceTree = "<group>"; };
+		9C7148371F1B2149008C65E5 /* BasicLetterCase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicLetterCase.cpp; sourceTree = "<group>"; };
+		9C7148381F1B2149008C65E5 /* BasicLetterCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicLetterCase.h; sourceTree = "<group>"; };
 		9CD115F11EAF8BBE00BE09DE /* MainMenuHome.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainMenuHome.cpp; sourceTree = "<group>"; };
 		9CD115F21EAF8BBE00BE09DE /* MainMenuHome.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MainMenuHome.hpp; sourceTree = "<group>"; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1695,6 +1699,8 @@
 		F350418A1E32199F0005DF8D /* mini_games */ = {
 			isa = PBXGroup;
 			children = (
+				9C7148371F1B2149008C65E5 /* BasicLetterCase.cpp */,
+				9C7148381F1B2149008C65E5 /* BasicLetterCase.h */,
 				F38DFA631ECEF06500B04635 /* BasicMultiplication.cpp */,
 				F38DFA641ECEF06500B04635 /* BasicMultiplication.h */,
 				F38DFA651ECEF06500B04635 /* MathLearning.cpp */,
@@ -2165,6 +2171,7 @@
 				F350430F1E32199F0005DF8D /* LevelMenu.cpp in Sources */,
 				F35042F51E32199F0005DF8D /* LangUtil.cpp in Sources */,
 				F35CEBCC1E9FB98E00E0F041 /* ConnectTheDots.cpp in Sources */,
+				9C7148391F1B2149008C65E5 /* BasicLetterCase.cpp in Sources */,
 				F350433B1E3219A00005DF8D /* Cannon_Ball_Main.cpp in Sources */,
 				F35043B31E3219A00005DF8D /* StoryWordBoard.cpp in Sources */,
 				F35042F71E32199F0005DF8D /* SafariAnalyticsManager.cpp in Sources */,
@@ -2555,6 +2562,7 @@
 				F35042981E32199F0005DF8D /* LTKCheckSumGenerate.cpp in Sources */,
 				F35043AA1E3219A00005DF8D /* CharGenerator.cpp in Sources */,
 				F35043361E3219A00005DF8D /* BlastLetter.cpp in Sources */,
+				9C71483B1F1B214D008C65E5 /* BasicLetterCase.cpp in Sources */,
 				F35043281E3219A00005DF8D /* AlphamonFeedScene.cpp in Sources */,
 				F35043A41E3219A00005DF8D /* PhotoCaptureScene.cpp in Sources */,
 				F35043261E3219A00005DF8D /* AlphamonFeedLevelScene.cpp in Sources */,

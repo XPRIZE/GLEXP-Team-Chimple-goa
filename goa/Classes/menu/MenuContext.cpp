@@ -1509,6 +1509,13 @@ void MenuContext::pronounceHashedText(std::string joinedStr, bool shouldReplaceW
 
 }
 
+void MenuContext::pronounceSplitFileFromStory(std::string fileName) {
+    if(FileUtils::getInstance()->isFileExist(fileName)) {
+        auto musicId = cocos2d::experimental::AudioEngine::play2d(fileName);
+        cocos2d::experimental::AudioEngine::setVolume(musicId, 1.0f);
+    }
+}
+
 void MenuContext::pronounceWord(std::string word, bool shouldReplaceWithSpace) {
     if(!MenuContext::_lastAudioId.empty()) {
         CCLOG("unloadEffect: %s", MenuContext::_lastAudioId.c_str());
