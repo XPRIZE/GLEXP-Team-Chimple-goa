@@ -355,6 +355,8 @@ void EndlessRunner::startingIntersectMode() {
 				else {
 					popUp = false;
 				}
+
+				// If correct alphabet picked ...
 				_menuContext->pickAlphabet(tempChar,allLabels[i]->getChar(), true);
 				_menuContext->addPoints(1);
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -409,6 +411,7 @@ void EndlessRunner::startingIntersectMode() {
 				}
 			}
 			else {
+				// If wrong alphabet picked ...
 				_menuContext->pickAlphabet(tempChar, allLabels[i]->getChar(), true);
 				_menuContext->addPoints(-1);
 				hpUi->getChildByName("happy_mad")->setScale(1);
