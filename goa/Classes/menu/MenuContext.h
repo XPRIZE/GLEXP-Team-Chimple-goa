@@ -68,6 +68,7 @@ public:
     std::vector<std::vector<cocos2d::Point>> getTrianglePointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold);
     
     static void pronounceWord(std::string word, bool shouldReplaceWithSpace = true);
+    static void pronounceSplitFileFromStory(std::string fileName);
     static void pronounceHashedText(std::string word, bool shouldReplaceWithSpace = true);
     static std::string _lastAudioId;
     static bool isGameStatic();
