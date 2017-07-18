@@ -19,25 +19,17 @@
 #include "../lang/TextGenerator.h"
 #include "../effects/FShake.h"
 #include "SimpleAudioEngine.h"
+#include "../util/CommonLabelTTF.h"
 
 using namespace cocos2d;
 using namespace std;
 
 class BasicLetterCase : public cocos2d::Layer
 {
-
 protected:
 	MenuContext *_menuContext;
-	vector<std::pair<float, float>> _coordinate;
-	std::map<std::string, std::map<std::string, std::string>> _sceneMap;
-	std::map<std::string, std::map<std::string, float>> _popcountPropertyMap;
-	string _popcountCurrentTheme = "", _popCharacter = "";
-	int _popUpAnswer = 0, _popElementCount = 5, _maxPopStarLimits = 10, _totalHit = 0, _wrongHit = 0;
-	float _popStayDelay = 4.0f, _delayNumber = 0.0f;
-	vector<int> _getElementObject;
-	cocostudio::timeline::ActionTimeline *_timelineCenterStarFish;
-	bool _popMidButtonClickPermision = true, _popStartListner = false, _tempToHoldCenterButton = false;
-	bool _setHelpLayerMode = true;
+	bool _touchFlag = true;
+	int _counterGameDone = 0 , _counterTotalHit = 0 , _counterWorng = 0;
 
 public:
 	~BasicLetterCase();
@@ -46,8 +38,14 @@ public:
 	static BasicLetterCase* create();
 	void onEnterTransitionDidFinish();
 	void update(float) override;
-	void setSpriteProperties(Sprite * ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder);
+	void setSpriteProperties(Node * ImageObject, float positionX, float positionY, float scale, float anchorX, float anchorY, float rotation, int zorder);
+	CommonLabelTTF* createText(string text, string name, float positionX, float positionY);
+	void createIceCreams();
+	vector<int> getLettersAccordingToLevels();
 	void addEventsOnCream(cocos2d::Sprite * callerObject);
+	void GameDone();
+	vector<int> getRandomValueRange(int min, int max, int getValue);
+	string getConvertInUpperCase(string data);
 	static const char* gameName() { return BASICLETTERCASE.c_str(); }
 };
 
