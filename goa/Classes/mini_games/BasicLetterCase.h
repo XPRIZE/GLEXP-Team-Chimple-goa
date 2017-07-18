@@ -28,8 +28,8 @@ class BasicLetterCase : public cocos2d::Layer
 {
 protected:
 	MenuContext *_menuContext;
-	cocostudio::timeline::ActionTimeline *_timelineCenterStarFish;
-	vector<Node*> _icecream , _iceCone;
+	bool _touchFlag = true;
+	int _counterGameDone = 0 , _counterTotalHit = 0 , _counterWorng = 0;
 
 public:
 	~BasicLetterCase();
@@ -38,12 +38,14 @@ public:
 	static BasicLetterCase* create();
 	void onEnterTransitionDidFinish();
 	void update(float) override;
-	void setSpriteProperties(Node * ImageObject, float positionX, float positionY, float scale, float anchorX, float anchorY, float rotation, int zorder , int tagValue);
-	CommonLabelTTF* createText(string text, string name, float positionX, float positionY , int tagValue);
+	void setSpriteProperties(Node * ImageObject, float positionX, float positionY, float scale, float anchorX, float anchorY, float rotation, int zorder);
+	CommonLabelTTF* createText(string text, string name, float positionX, float positionY);
 	void createIceCreams();
+	vector<int> getLettersAccordingToLevels();
 	void addEventsOnCream(cocos2d::Sprite * callerObject);
-	void backToOriginalPosition(Node * creamNode);
+	void GameDone();
 	vector<int> getRandomValueRange(int min, int max, int getValue);
+	string getConvertInUpperCase(string data);
 	static const char* gameName() { return BASICLETTERCASE.c_str(); }
 };
 

@@ -52,7 +52,6 @@ void BasicLetterCase::onEnterTransitionDidFinish() {
 		bg->setPositionX(myGameWidth);
 	}
 
-	
 	this->scheduleUpdate();
 }
 
@@ -60,22 +59,20 @@ void BasicLetterCase::update(float delta) {
 
 }
 
-void BasicLetterCase::setSpriteProperties(Node* ImageObject, float positionX, float positionY, float scale, float anchorX, float anchorY, float rotation, int zorder, int tagValue) {
+void BasicLetterCase::setSpriteProperties(Node* ImageObject, float positionX, float positionY, float scale, float anchorX, float anchorY, float rotation, int zorder) {
 	ImageObject->setPosition(Vec2(positionX, positionY));
 	ImageObject->setScale(scale);
-	ImageObject->setAnchorPoint(Vec2(anchorX, anchorY));
+	//ImageObject->setAnchorPoint(Vec2(anchorX, anchorY));
 	ImageObject->setRotation(rotation);
 	ImageObject->setZOrder(zorder);
-	ImageObject->setTag(tagValue);
 }
 
-CommonLabelTTF* BasicLetterCase::createText(string text,string name,float positionX , float positionY , int tagValue) {
+CommonLabelTTF* BasicLetterCase::createText(string text,string name,float positionX , float positionY) {
 	auto label = CommonLabelTTF::create(text, "Helvetica", 150);
 	label->setColor(Color3B::BLACK);
 	label->setScale(1);
 	label->setPosition(Vec2(positionX , positionY));
 	label->setName(name);
-	label->setTag(tagValue);
 	return label;
 }
 
@@ -83,37 +80,101 @@ CommonLabelTTF* BasicLetterCase::createText(string text,string name,float positi
 void BasicLetterCase::createIceCreams() {
 
 	//set Info for each Item ...
-	auto indexCream = getRandomValueRange(1, 7, 3);
-	float positionX[3] = { 0.20 , 0.50 , 0.80 };
-	int tagItem[4] = { 1002 , 1003 , 1004 , 1005 };
+	auto indexCream = getRandomValueRange(1, 7, 4);
+	float positionX[] = { 0.20 , 0.40 , 0.60 , 0.80};
 
+	vector<int> letterVector = getLettersAccordingToLevels();
+
+	vector<char> coneLetter, creamLetter;
+
+	// Get all Upper and Lower Case from API ....
+	for (int i = 0; i < letterVector.size(); i++) {
+		coneLetter.push_back(LangUtil::getInstance()->getAllCharacters()[letterVector[i]]);
+		creamLetter.push_back(LangUtil::getInstance()->getAllLowerCaseCharacters()[letterVector[i]]);
+	}
+
+	// Change Letter Case arrangment , either it is on up or down also ...
+	if (_menuContext->getCurrentLevel() > 6) {
+		for(int i = 0 ; i < coneLetter.size(); i++)
+			if (RandomHelper::random_int(0, 1) == 1) {
+				swap(coneLetter[i],creamLetter[i]);
+			}
+	}
+
+	// Change the Order of Letter arrangment ...
+	if (_menuContext->getCurrentLevel() > 3) {
+		std::random_shuffle(coneLetter.begin(),coneLetter.end());
+		std::random_shuffle(creamLetter.begin(), creamLetter.end());
+	}
+	 
 	auto size = Director::getInstance()->getVisibleSize();
 	for (size_t i = 0; i < indexCream.size(); i++) {
-		std::ostringstream creamName;	creamName << i;
+		
 		//create cone and Text....
 		auto cone = CSLoader::createNode("basiclettercase/cone.csb");
-		setSpriteProperties(cone,size.width * positionX[i] , size.height * 0.25 , 0.3 , 0.5,0.5,0,0 , tagItem[i]);
+		setSpriteProperties(cone,size.width * positionX[i] , size.height * 0.25 , 0.3, 0.5,0.5,0,0);
 		cone->runAction(EaseElasticOut::create(ScaleTo::create(1, 1)));
 		addChild(cone);
-		auto coneText = createText("a","a",0,0, tagItem[i]);
-		cone->setName(creamName.str());
+
+		// coneAlphabet and Text config ...
+		auto coneAlpha = LangUtil::getInstance()->convertUTF16CharToString(coneLetter[i]);
+		auto coneText = createText(coneAlpha, getConvertInUpperCase(coneAlpha) ,0,0);
+		cone->setName(getConvertInUpperCase(coneAlpha));
+		cone->setTag( 100 + i);
 		cone->addChild(coneText);
 
 		//create cream and Text....
 		std::ostringstream creamTextValue;	creamTextValue << "basiclettercase/icecream" << indexCream[i] << ".csb";
 		auto cream = CSLoader::createNode(creamTextValue.str());
-		setSpriteProperties(cream, cone->getPositionX(), size.height * 0.65, 0.3, 0.5, 0.5, 0, 0, tagItem[i]);
+		setSpriteProperties(cream, cone->getPositionX(), size.height * 0.65, 0.3, 0.5, 0.5, 0, 0);
 		cream->runAction(EaseElasticOut::create(ScaleTo::create(1, 1)));
+		cream->setTag( 200 + i);
 		addChild(cream);
-		auto creamText = createText("A", "A", 0, 20 , tagItem[i]);
+
+		//cream alphabet and TextLabel config ...
+		auto creamAlpha = LangUtil::getInstance()->convertUTF16CharToString(creamLetter[i]);
+		auto creamText = createText(creamAlpha, getConvertInUpperCase(creamAlpha) , 0, 20);
 		cream->addChild(creamText);
-		cream->setName(creamName.str());
+		cream->setName(getConvertInUpperCase(creamAlpha));
 		addEventsOnCream((Sprite*)cream->getChildByName("icecream"));
 	}
 }
 
+vector<int> BasicLetterCase::getLettersAccordingToLevels() {
+
+	vector<int> letterValue;
+
+	auto maxLetterForCurrentLevel = (_menuContext->getCurrentLevel() * 4);
+
+	for (int i = maxLetterForCurrentLevel - 4 ; i < maxLetterForCurrentLevel; i++) {
+		auto no = LangUtil::getInstance()->getNumberOfCharacters();
+		if(no > i)
+			letterValue.push_back(i);
+		else
+		{
+			auto value = getRandomValueRange(0, LangUtil::getInstance()->getNumberOfCharacters()-1, 1)[0];
+			while (true) {
+				bool flag = true;
+				for (int i = 0; i < letterValue.size(); i++) {
+					if (value == letterValue[i]) {
+						flag = false;
+					}
+				}
+				if (flag) {
+					letterValue.push_back(value);
+					break;
+				}
+				value = getRandomValueRange(0, LangUtil::getInstance()->getNumberOfCharacters() - 1, 1)[0];
+			}
+		}
+	}
+
+	return letterValue;
+}
+
 void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 {
+	auto classRefer = this;
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
 
@@ -122,8 +183,10 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 		auto target = event->getCurrentTarget();
 		auto locationInNode = target->convertToNodeSpace(touch->getLocation());
 		auto targetRect = Rect(target->getPosition(), target->getContentSize());
-		if (targetRect.containsPoint(locationInNode)) {
-
+		if (targetRect.containsPoint(locationInNode) && _touchFlag && target->getParent()->getTag() > 0) {
+			target->getParent()->setZOrder(4);
+			target->getParent()->setScale(1.2);
+			_touchFlag = false;
 			return true;
 		}
 		return false;
@@ -139,37 +202,62 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 	{
 		auto target = event->getCurrentTarget();
 		auto locationInNode = target->convertToNodeSpace(touch->getLocation());
-		auto targetRect = Rect(target->getPosition(), target->getContentSize());
+		auto targetRect = Rect(target->getParent()->getPosition(), target->getContentSize());
+		target->getParent()->runAction(ScaleTo::create(0.5,1));
+		target->getParent()->setZOrder(1);
+	
+		bool flag = true;
+		auto size = Director::getInstance()->getVisibleSize();
+		for (int i = 0; i < 4; i++) {
+			auto cone = getChildByTag(100 + i);
+			if (cone) {
+				auto coneRect = Rect(Vec2(cone->getPositionX(), cone->getPositionY() - cone->getChildByName("cone")->getContentSize().height * 0.3), cone->getChildByName("cone")->getContentSize());
+				
+				if (targetRect.intersectsRect(coneRect)) {
+					_counterTotalHit++;
+					flag = false;
+					if (target->getParent()->getName().compare(cone->getName()) == 0) {
+						CCLOG("CORRECT");
+						_counterGameDone++;
+						target->getParent()->setTag(-1);
+						auto y = cone->getChildByName("cone")->getContentSize().height*0.5;
+						target->getParent()->runAction(MoveTo::create(0.5, Vec2(cone->getPositionX(),cone->getPositionY()+ y)));
 
-		if(targetRect.intersectsRect())
+						if (_counterGameDone >= 4) { // If Kid choose correct 4 letterCase then Game Done
+							GameDone();
+						}
+					}
+					else {
+						CCLOG("WRONG");
+						_counterWorng++;
+						float positionX[] = { 0.20 , 0.40 , 0.60 , 0.80 };
+						auto indexPosition = (target->getParent()->getTag() - 200);
+						target->getParent()->runAction(MoveTo::create(0.5,Vec2(size.width * positionX[indexPosition],size.height * 0.65)));
+					}
+					break;
+				}
+			}
+		}
 
+		if (flag) {
+			CCLOG("NOT CONTACT WITH ANYONE");
+			float positionX[] = { 0.20 , 0.40 , 0.60 , 0.80 };
+			auto indexPosition = (target->getParent()->getTag() - 200);
+			target->getParent()->runAction(MoveTo::create(0.5, Vec2(size.width * positionX[indexPosition], size.height * 0.65)));
+		}
+		
+		classRefer->runAction(Sequence::create(DelayTime::create(0.8), CallFunc::create([=] { _touchFlag = true; }), NULL));
 		return false;
 	};
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
 }
 
-void BasicLetterCase::backToOriginalPosition(Node* creamNode) {
-	
-	float positionX[] = { 0.20 , 0.40 , 0.60 , 0.80};
-	auto size = Director::getInstance()->getVisibleSize();
-	if (creamNode->getName().compare("1") == 0) {
-		creamNode->runAction(MoveTo::create(1,Vec2(size.width*positionX[0],size.height*0.65)));
-	}
-	else if(creamNode->getName().compare("2") == 0){
-		creamNode->runAction(MoveTo::create(1, Vec2(size.width*positionX[1], size.height*0.65)));
+void BasicLetterCase::GameDone() {
 
-	}else if (creamNode->getName().compare("3") == 0) {
-		creamNode->runAction(MoveTo::create(1, Vec2(size.width*positionX[2], size.height*0.65)));
-
-	}
-	else if (creamNode->getName().compare("4") == 0) {
-		creamNode->runAction(MoveTo::create(1, Vec2(size.width*positionX[3], size.height*0.65)));
-
-	}
-	else {
-		CCLOG("THE BACK IN ORIGINAL POSITION ISSUE FOR CREAM...");
-	}
+	_menuContext->setMaxPoints(_counterTotalHit);
+	_menuContext->addPoints(_counterTotalHit - _counterWorng);
+	runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=] { _menuContext->showScore(); }), NULL));
 
 }
 
@@ -195,6 +283,18 @@ vector<int> BasicLetterCase::getRandomValueRange(int min, int max, int getValue)
 
 	sort(objectVector.begin(), objectVector.end());
 	return objectVector;
+}
+
+string BasicLetterCase::getConvertInUpperCase(string data)
+{
+	std::ostringstream blockName;
+	int i = 0;
+	while (data[i])
+	{
+		blockName << (char)toupper(data[i]);
+		i++;
+	}
+	return blockName.str();
 }
 
 BasicLetterCase::~BasicLetterCase(void)
