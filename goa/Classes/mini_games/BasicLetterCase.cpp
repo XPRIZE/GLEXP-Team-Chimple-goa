@@ -186,6 +186,13 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 		if (targetRect.containsPoint(locationInNode) && _touchFlag && target->getParent()->getTag() > 0) {
 			target->getParent()->setZOrder(4);
 			target->getParent()->setScale(1.2);
+
+			CCParticleSystemQuad *particle = CCParticleSystemQuad::create("res/basiclettercase/creameffect.plist");
+			particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("res/basiclettercase/creameffect.png"));
+			particle->setPosition(target->getParent()->getPosition());
+			particle->setName("creameffect");
+			this->addChild(particle, 0);
+
 			_touchFlag = false;
 			return true;
 		}
