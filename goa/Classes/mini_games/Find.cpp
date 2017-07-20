@@ -55,7 +55,7 @@ void Find::onEnterTransitionDidFinish()
 	_initial = getConvertInUpperCase(initial);
 	auto wordForInitial = TextGenerator::getInstance()->getWordsForInitial(chooseInitial, _noOfWordStartFromInitial);
 
-	auto wordNotForInitial = TextGenerator::getInstance()->getWordsNotForInitial(chooseInitial, (8- _noOfWordStartFromInitial));
+	auto wordNotForInitial = TextGenerator::getInstance()->getWordsNotForInitial(chooseInitial, (8 - _noOfWordStartFromInitial));
 
 	std::map<std::string, std::string> newMap;
 
@@ -116,7 +116,6 @@ void Find::onEnterTransitionDidFinish()
 		E->drawRect(Vec2(a, b),
 			Vec2(a + temp->getContentSize().width*0.5, b + temp->getContentSize().height*0.5),
 			Color4F(0, 0, 255, 22));*/
-
 	}
 	
 	float delay = 0;
@@ -235,6 +234,8 @@ void Find::addTouchEvents(Sprite* sprite)
 				for (auto it = _propsBin.begin(); it != _propsBin.end(); it++)
 				{
 					Sprite *temp = *it;
+					auto name1 = temp->getName();
+					auto name2 = target->getName();
 					if(!temp->getName().compare(target->getName()))
 					Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(temp);
 				}
@@ -242,13 +243,13 @@ void Find::addTouchEvents(Sprite* sprite)
 				//Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
 				auto *funcAct = CCCallFunc::create([=] {
 					
-					ScaleTo *scaleTo = ScaleTo::create(1, 0.0001);
+					ScaleTo *scaleTo = ScaleTo::create(0.8, 0.0001);
 					EaseElasticIn *easeAction = EaseElasticIn::create(scaleTo);
 					target->runAction(easeAction);
 					
 					//Director::getInstance()->getEventDispatcher()->pauseEventListenersForTarget(target);
 				});
-				this->runAction(Sequence::create(funcAct, DelayTime::create(1), CCCallFunc::create([=] {_touchFlag = true; }), NULL));
+				this->runAction(Sequence::create(DelayTime::create(0.5), funcAct, DelayTime::create(1), CCCallFunc::create([=] {_touchFlag = true; }), NULL));
 			}
 			else
 			{
