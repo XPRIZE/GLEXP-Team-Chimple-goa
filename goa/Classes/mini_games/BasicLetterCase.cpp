@@ -80,7 +80,7 @@ CommonLabelTTF* BasicLetterCase::createText(string text,string name,float positi
 void BasicLetterCase::createIceCreams() {
 
 	//set Info for each Item ...
-	auto indexCream = getRandomValueRange(1, 7, 4);
+	auto indexCream = getRandomValueRange(1, 9, 4);
 	float positionX[] = { 0.20 , 0.40 , 0.60 , 0.80};
 
 	vector<int> letterVector = getLettersAccordingToLevels();
@@ -186,6 +186,13 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 		if (targetRect.containsPoint(locationInNode) && _touchFlag && target->getParent()->getTag() > 0) {
 			target->getParent()->setZOrder(4);
 			target->getParent()->setScale(1.2);
+
+			CCParticleSystemQuad *particle = CCParticleSystemQuad::create("res/basiclettercase/creameffect.plist");
+			particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("res/basiclettercase/creameffect.png"));
+			particle->setPosition(target->getParent()->getPosition());
+			particle->setName("creameffect");
+			this->addChild(particle, 0);
+
 			_touchFlag = false;
 			return true;
 		}
@@ -218,8 +225,12 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 					flag = false;
 					if (target->getParent()->getName().compare(cone->getName()) == 0) {
 						CCLOG("CORRECT");
+
+						_menuContext->pickAlphabet(cone->getName()[0],target->getParent()->getName()[0],true);
+
 						_counterGameDone++;
 						target->getParent()->setTag(-1);
+						target->getParent()->getChildByName("cherry")->setVisible(true);
 						auto y = cone->getChildByName("cone")->getContentSize().height*0.5;
 						target->getParent()->runAction(MoveTo::create(0.5, Vec2(cone->getPositionX(),cone->getPositionY()+ y)));
 
@@ -230,6 +241,9 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 					else {
 						CCLOG("WRONG");
 						_counterWorng++;
+
+						_menuContext->pickAlphabet(cone->getName()[0], target->getParent()->getName()[0], true);
+
 						float positionX[] = { 0.20 , 0.40 , 0.60 , 0.80 };
 						auto indexPosition = (target->getParent()->getTag() - 200);
 						target->getParent()->runAction(MoveTo::create(0.5,Vec2(size.width * positionX[indexPosition],size.height * 0.65)));
