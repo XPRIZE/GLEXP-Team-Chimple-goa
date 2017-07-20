@@ -188,6 +188,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
 		 ../../Classes/mini_games/Find.cpp \
 		 ../../Classes/mini_games/MathLearning.cpp \
 		 ../../Classes/mini_games/BasicMultiplication.cpp \
+		 ../../Classes/mini_games/BasicLetterCase.cpp \
          ../../Classes/misc/CharacterConfiguration.cpp \
          ../../Classes/misc/ChooseCharacter.cpp \
          ../../Classes/misc/PhotoCaptureScene.cpp \

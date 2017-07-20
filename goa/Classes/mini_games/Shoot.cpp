@@ -208,8 +208,8 @@ void Shoot::onEnterTransitionDidFinish() {
 		this->getChildByName("bg")->getChildByName("slingshot_16")->setVisible(false);
 
 	if (_menuContext->getCurrentLevel() == 1) {
-		auto help = HelpLayer::create(Rect((xPosi / 2) + targetB->getPositionX(), targetB->getPositionY(), targetB->getContentSize().width + targetB->getContentSize().width * 0.3, targetB->getContentSize().height + targetB->getContentSize().height * 0.1), Rect((xPosi / 2) + board->getPositionX(), board->getPositionY(), board->getContentSize().width, board->getContentSize().height));
-		help->click(Vec2((xPosi / 2) + targetB->getPositionX(), targetB->getPositionY()));
+		auto help = HelpLayer::create(Rect((xPosi / 2) + board->getPositionX(), board->getPositionY(), board->getContentSize().width, board->getContentSize().height),Rect((xPosi / 2) + targetB->getPositionX(), targetB->getPositionY(), targetB->getContentSize().width + targetB->getContentSize().width * 0.3, targetB->getContentSize().height + targetB->getContentSize().height * 0.1));
+		help->click(Vec2((xPosi / 2) + board->getPositionX(), board->getPositionY()));
 		help->setName("helpLayer");
 		addChild(help, 4);
 	}
@@ -372,9 +372,6 @@ void Shoot::choosingListner() {
 
 			classRefer->flagSingleTouchFirst = false;
 
-			if (_menuContext->getCurrentLevel() == 1) {
-				classRefer->removeChildByName("helpLayer");
-			}
 			std::string path = "";
 
 			if (classRefer->bubblePlayer->getName() == "pinatacity") {
@@ -1101,13 +1098,17 @@ void Shoot::addEventsOnSpeaker(cocos2d::Sprite* callerObject)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
-
+	auto classRefer = this;
 	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
 		auto target = event->getCurrentTarget();
 		Size s = target->getContentSize();
 		Rect rect = Rect(0, 0, s.width, s.height);
 		if (target->getBoundingBox().containsPoint(touch->getLocation()) && target->getTag() == 1) {
+
+			if (classRefer->getChildByName("helpLayer")) {
+				classRefer->removeChildByName("helpLayer");
+			}
 
 			auto action1 = ScaleTo::create(0.1, 0.5);
 			auto action2 = ScaleTo::create(0.1, 0.6);

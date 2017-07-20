@@ -753,6 +753,9 @@
     <ClCompile Include="..\Classes\util\CommonTextField.cpp">
       <Filter>Classes\utile</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\mini_games\BasicLetterCase.cpp">
+      <Filter>Classes\mini_games</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1471,6 +1474,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\util\CommonTextField.hpp">
       <Filter>Classes\utile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\mini_games\BasicLetterCase.h">
+      <Filter>Classes\mini_games</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
