@@ -221,11 +221,14 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 				auto coneRect = Rect(Vec2(cone->getPositionX(), cone->getPositionY() - cone->getChildByName("cone")->getContentSize().height * 0.3), cone->getChildByName("cone")->getContentSize());
 				
 				if (targetRect.intersectsRect(coneRect)) {
+
+					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 					_counterTotalHit++;
 					flag = false;
 					if (target->getParent()->getName().compare(cone->getName()) == 0) {
 						CCLOG("CORRECT");
 
+						audio->playEffect("sounds/sfx/success.ogg", false);
 						_menuContext->pickAlphabet(cone->getName()[0],target->getParent()->getName()[0],true);
 
 						_counterGameDone++;
@@ -241,6 +244,7 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 					else {
 						CCLOG("WRONG");
 						_counterWorng++;
+						audio->playEffect("sounds/sfx/error.ogg", false);
 
 						_menuContext->pickAlphabet(cone->getName()[0], target->getParent()->getName()[0], true);
 
