@@ -137,6 +137,7 @@ const std::vector<std::string> StartMenu::getGameNames() {
 	gameNames.push_back(SPOT);
 	gameNames.push_back(BALLOON);
 	gameNames.push_back(MATHLEARNING);
+	gameNames.push_back(BASICLETTERCASE);
     return gameNames;
 
 }

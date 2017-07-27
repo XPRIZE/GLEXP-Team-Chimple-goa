@@ -19,6 +19,7 @@ public:
     virtual void onEnterTransitionDidFinish() override;
     virtual void  onExitTransitionDidStart() override;
     void setCommonTextInStory(bool fromStory);
+    void setSplitFileNameInStory(std::string fileName);
 CC_CONSTRUCTOR_ACCESS:
     CommonText();
     virtual ~CommonText();
@@ -27,6 +28,7 @@ CC_CONSTRUCTOR_ACCESS:
 protected:
     cocos2d::EventListenerTouchOneByOne *_listener;
     bool isInStory;
+    std::string inStoryWhichFilename;
 };
 
 #endif /* CommonText_h */

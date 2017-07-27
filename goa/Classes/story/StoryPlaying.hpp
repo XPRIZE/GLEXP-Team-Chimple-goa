@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include "../menu/MenuContext.h"
 #include "cocos2d.h"
+#include "audio/include/AudioEngine.h"
 #include "../hero/RPGConfig.h"
 #include "../menu/MenuContext.h"
 #include "../lang/LangUtil.h"
@@ -87,6 +88,10 @@ private:
     Color3B _originalSpriteColor;
     std::string _pronouceWord;
     int _zOrder;
+    std::string _contentPageText;
+    bool _isAudionEngineInitialized;
+    unsigned long _currentSplitWordIndex;
+    unsigned long _totalSplitWords;
     
     std::map<std::string, Color3B> skinColors;
     std::map<std::string, std::string> _wordMappings;
@@ -95,6 +100,10 @@ private:
     
     
     std::vector<std::string> _loadedEffects;
+    std::vector<std::string> _loadedSplitWordsEffects;
+    std::vector<CommonText*> _contentCommonTextTokens;
+    std::vector<std::string> _individualTextsTokens;
+    std::string _splitSoundFilesDirectoryUrl;
     
     cocostudio::timeline::ActionTimeline* _mainTimeLine;
     
@@ -120,6 +129,8 @@ private:
     
     void narrateDialog(float dt);
     
+    void highlightedNarrateDialog(float dt);
+    
     void processScene(cocos2d::Node* parent);
     
     void bindListenerToSkeletonNode(cocostudio::timeline::SkeletonNode* skeletonNode);
@@ -130,7 +141,7 @@ private:
     
     void onTouchMovedOnSkeleton(cocos2d::Touch *touch, cocos2d::Event *event);
     
-    void bindListenerToCompositeNode(cocos2d::Node* node);    
+    void bindListenerToCompositeNode(cocos2d::Node* node);
     
     bool onTouchBeganOnComposite(cocos2d::Touch* touch, cocos2d::Event* event);
     
@@ -168,6 +179,8 @@ private:
     
     void wordBubbleDisappeared();
     
+    void preloadAllAudio();
+    
     void pronounceWord(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
     
     void processPixelPerfectNodes(cocos2d::Node* parent);
@@ -175,10 +188,16 @@ private:
     void playMasterAnimation();
     
     bool pointInTriangle(cocos2d::Point p0, cocos2d::Point p1, cocos2d::Point p2, cocos2d::Point p3);
-
+    
     void positionTextNode(CommonText* textNode, Node* parentNode, Node* storyTextNode, float currentNodeX, float currentNodeY);
     
-    void renderStoryText(std::string storyText, Node* parentNode, Node* storyTextNode);
+    void renderStoryText(Node* parentNode, Node* storyTextNode);
+    
+    void playSplitAudio(std::string audioFile, CommonText* text);
+    
+    void playNextSplitWordCallBack(int id, const std::string& file);
+    
+    void loadContentPageText();
     
 };
 

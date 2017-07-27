@@ -11,10 +11,13 @@
 #include "../lang/TextGenerator.h"
 #include "QuestionHandler.h"
 
+
 static const std::string STORY_JSON = ".storyJSON";
 static const std::string SOUND_ENABLED_FOR_STORIES = ".soundEnabledForStories";
 
 USING_NS_CC;
+using namespace cocos2d::experimental;
+
 
 Scene* StoryPlaying::createScene(int pageIndex, std::string storyId)
 {
@@ -65,7 +68,12 @@ _originalSpriteColor(Color3B::GRAY),
 _wordBubbleNode(nullptr),
 _textDisplayAnimationRunning(false),
 _pronouceWord(""),
-_isTextShown(false)
+_isTextShown(false),
+_contentPageText(""),
+_isAudionEngineInitialized(false),
+_currentSplitWordIndex(0),
+_totalSplitWords(0),
+_splitSoundFilesDirectoryUrl("")
 {
 }
 
@@ -169,7 +177,7 @@ void StoryPlaying::cleanUpWhenTouchEnded(cocos2d::Touch *touch, cocos2d::Event *
     
     if(action != NULL) {
         cocostudio::timeline::ActionTimeline* animationAction = dynamic_cast<cocostudio::timeline::ActionTimeline *>(action);
-    
+        
         if(animationAction != NULL) {
             animationAction->pause();
             animationAction = NULL;
@@ -194,7 +202,7 @@ void StoryPlaying::cleanUpWhenTouchEnded(cocos2d::Touch *touch, cocos2d::Event *
             Node* n = *it;
             if(skinColors.find(n->getName()) != skinColors.end()) {
                 Color3B originalColor = skinColors.at(n->getName());
-                 n->setColor(originalColor);
+                n->setColor(originalColor);
             }
         }
     }
@@ -220,7 +228,7 @@ bool StoryPlaying::onTouchBeganOnComposite(Touch* touch, Event* event){
     
     Node* target = event->getCurrentTarget();
     auto n = convertTouchToNodeSpace(touch);
-
+    
     auto boundingBox = utils::getCascadeBoundingBox(target);
     if(target != NULL && boundingBox.containsPoint(n)) {
         auto tLocation = target->getParent()->convertToNodeSpace(touch->getLocation());
@@ -232,7 +240,7 @@ bool StoryPlaying::onTouchBeganOnComposite(Touch* touch, Event* event){
         
         return true;
     }
-
+    
     return false;
 }
 
@@ -274,7 +282,7 @@ bool StoryPlaying::onTouchBeganOnNode(Touch* touch, Event* event){
     Node* target = event->getCurrentTarget();
     
     //check for pixel perfect touch if possible
-
+    
     if(target->getBoundingBox().containsPoint(n)) {
         if(_nodesToTringlePointsMapping.find(target->getName()) != _nodesToTringlePointsMapping.end()) {
             auto tLocation = target->convertToNodeSpace(touch->getLocation());
@@ -286,12 +294,12 @@ bool StoryPlaying::onTouchBeganOnNode(Touch* touch, Event* event){
                     Point p1 = v2.at(0);
                     Point p2 = v2.at(1);
                     Point p3 = v2.at(2);
-//                    CCLOG("p1.x %f", p1.x);
-//                    CCLOG("p1.y %f", p1.y);
-//                    CCLOG("p2.x %f", p2.x);
-//                    CCLOG("p2.y %f", p2.y);
-//                    CCLOG("p3.x %f", p3.x);
-//                    CCLOG("p3.y %f", p3.y);
+                    //                    CCLOG("p1.x %f", p1.x);
+                    //                    CCLOG("p1.y %f", p1.y);
+                    //                    CCLOG("p2.x %f", p2.x);
+                    //                    CCLOG("p2.y %f", p2.y);
+                    //                    CCLOG("p3.x %f", p3.x);
+                    //                    CCLOG("p3.y %f", p3.y);
                     if(pointInTriangle(tLocation, p1, p2, p3)) {
                         result = true;
                         break;
@@ -463,6 +471,14 @@ void StoryPlaying::processScene(Node* parent) {
 
 void StoryPlaying::load() {
     
+    if(AudioEngine::lazyInit())
+    {
+        _isAudionEngineInitialized = true;
+    }else
+    {
+        _isAudionEngineInitialized = false;
+    }
+    
     std::string data;
     localStorageGetItem(STORY_JSON, &data);
     
@@ -498,6 +514,40 @@ void StoryPlaying::load() {
         
         playMasterAnimation();
         
+        loadContentPageText();
+        
+        preloadAllAudio();
+        
+    }
+}
+
+void StoryPlaying::preloadAllAudio() {
+    _loadedSplitWordsEffects.clear();
+    std::string pageI = MenuContext::to_string(_pageIndex + 1);
+    _splitSoundFilesDirectoryUrl = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI;
+    
+    if(!_splitSoundFilesDirectoryUrl.empty() && FileUtils::getInstance()->isFileExist(_splitSoundFilesDirectoryUrl))
+    {
+        int prefix = 0;
+        for (int i=0; i<_individualTextsTokens.size(); i++)
+        {
+            prefix = i * 10 % 10;
+            std::string _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".ogg";
+            
+            if(!_splitFile.empty() && FileUtils::getInstance()->isFileExist(_splitFile)) {
+                _loadedSplitWordsEffects.push_back(_splitFile);
+            }
+        }
+        
+        for (std::vector<std::string>::iterator it = _loadedSplitWordsEffects.begin() ; it != _loadedSplitWordsEffects.end(); ++it)
+        {
+            std::string effect = (std::string) *it;
+            if(_isAudionEngineInitialized) {
+                if(!effect.empty()) {
+                    AudioEngine::preload(effect.c_str());
+                }
+            }
+        }
     }
 }
 
@@ -544,9 +594,7 @@ void StoryPlaying::createWordBubble() {
     }
 }
 
-void StoryPlaying::createDialogBubble() {
-    
-    std::string contentPageText = "";
+void StoryPlaying::loadContentPageText() {
     std::string textFileUrl = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + ".json";
     if(!textFileUrl.empty() && FileUtils::getInstance()->isFileExist(textFileUrl))
     {
@@ -565,23 +613,30 @@ void StoryPlaying::createDialogBubble() {
                 std::string sValue = value;
                 
                 if(i == _pageIndex + 1) {
-                    contentPageText = value;
+                    _contentPageText = value;
+                    
+                    if (!_contentPageText.empty() && _contentPageText[_contentPageText.length()-1] == '\n') {
+                        _contentPageText.erase(_contentPageText.length()-1);
+                        std::replace( _contentPageText.begin(), _contentPageText.end(), '\n', ' ');
+                    }
+                    
+                    _individualTextsTokens = _menuContext->split(_contentPageText, ' ');
                     break;
                 }
-                
                 i++;
-                
             }
         }
     }
     
     
-    if(!contentPageText.empty())
+}
+
+void StoryPlaying::createDialogBubble() {
+    if(!_contentPageText.empty())
     {
-        
         _talkBubbleNode = CSLoader::createNode("template/bubble_tem.csb");
         this->addChild(_talkBubbleNode, 1);
-
+        
         Node* closeNode = _talkBubbleNode->getChildByName(CLOSE_BUTTON);
         if(closeNode != NULL) {
             cocos2d::ui::Button* closeButton = dynamic_cast<cocos2d::ui::Button *>(closeNode);
@@ -614,25 +669,28 @@ void StoryPlaying::createDialogBubble() {
             }
         }
         
-        if(_soundEnabled.compare("true") == 0) {
-            
-            std::string pageI = MenuContext::to_string(_pageIndex + 1);
-            _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
-            
-            if(!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
-                this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
-            }
-        }
-        
         Node* chooseText = _talkBubbleNode->getChildByName(STORY_TEXT);
         CCLOG("_talkBubbleNode width %f", _talkBubbleNode->getBoundingBox().size.width);
         CCLOG("_talkBubbleNode height %f", _talkBubbleNode->getBoundingBox().size.height);
         
         CCLOG("chooseText width %f", chooseText->getBoundingBox().size.width);
         CCLOG("chooseText height %f", chooseText->getBoundingBox().size.height);
-
         
-        renderStoryText(contentPageText, _talkBubbleNode, chooseText);
+        
+        renderStoryText(_talkBubbleNode, chooseText);
+        std::string pageI = MenuContext::to_string(_pageIndex + 1);
+        _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
+        
+        if(_soundEnabled.compare("true") == 0 && !_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
+            
+            if(_isAudionEngineInitialized && _loadedSplitWordsEffects.size() > 0)
+            {
+                this->scheduleOnce(schedule_selector(StoryPlaying::highlightedNarrateDialog), 1.0f);
+            } else {
+                this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
+            }
+        }
+        
         
         if(chooseText != NULL) {
             cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
@@ -640,22 +698,16 @@ void StoryPlaying::createDialogBubble() {
                 chooseLabel->setTouchEnabled(false);
                 chooseLabel->setString("");
                 chooseLabel->setPlaceHolder("");
-                
-//                contentPageText = QuestionHandler::wrapString(contentPageText, 50);
-//                CCLOG("chooseLabel real position %f, %f", chooseLabel->getPosition().x, chooseLabel->getPosition().y);
-//                chooseLabel->setFontSize(75);
-//                chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
-//                chooseLabel->setTextColor(Color4B::BLACK);
             }
         }
     } else {
         _nextButton->setEnabled(true);
-        _nextButton->setVisible(true);        
+        _nextButton->setVisible(true);
         if(_pageIndex != 0) {
             _prevButton->setEnabled(true);
             _prevButton->setVisible(true);
         }
-
+        
     }
 }
 
@@ -678,27 +730,28 @@ void StoryPlaying::positionTextNode(CommonText* textNode, Node* parentNode, Node
     textNode->setPosition(Vec2(xPos, yPos));
 }
 
-void StoryPlaying::renderStoryText(std::string storyText, Node* parentNode, Node* storyTextNode) {
+void StoryPlaying::renderStoryText(Node* parentNode, Node* storyTextNode) {
     _isTextShown = true;
-    if (!storyText.empty() && storyText[storyText.length()-1] == '\n') {
-        storyText.erase(storyText.length()-1);
-        std::replace( storyText.begin(), storyText.end(), '\n', ' '); // replace all 'x' to 'y'
-    }
-    
-    
-
-    std::vector<std::string> individualTexts = _menuContext->split(storyText, ' ');
+    std::vector<std::string> individualTexts = _individualTextsTokens;
     Vec2 lastRenderedLabelPosition = Vec2(0.0f,0.0f);
     Node* lastRenderedLabel;
     bool firstPassFinished = false;
     float yOffset = 0;
     int howManyTimes = 0;
+    int whichToken = 0;
     for (std::vector<std::string>::iterator it = individualTexts.begin() ; it != individualTexts.end(); ++it) {
         std::string token = *it;
         token = ' ' + token;
         //create CommonText node
         auto label = CommonText::create();
         label->setCommonTextInStory(true);
+        if(whichToken < _loadedSplitWordsEffects.size())
+        {
+            std::string audioFile = _loadedSplitWordsEffects.at(whichToken);
+            label->setSplitFileNameInStory(audioFile);
+        }
+        
+        whichToken++;
         label->setString(token);
         label->setFontSize(75);
         label->setFontName("fonts/Roboto-Regular.ttf");
@@ -715,7 +768,7 @@ void StoryPlaying::renderStoryText(std::string storyText, Node* parentNode, Node
             } else {
                 lastRenderedLabelPosition = Vec2(lastRenderedLabel->getPosition().x + lastRenderedLabel->getBoundingBox().size.width/2 + label->getBoundingBox().size.width/2, lastRenderedLabel->getPosition().y);
             }
-        
+            
             positionTextNode(label, parentNode, storyTextNode, lastRenderedLabelPosition.x, lastRenderedLabelPosition.y);
         } else {
             positionTextNode(label, parentNode, storyTextNode, 0.0f, 0.0f);
@@ -724,27 +777,80 @@ void StoryPlaying::renderStoryText(std::string storyText, Node* parentNode, Node
         
         lastRenderedLabel = label;
         firstPassFinished = true;
+        _contentCommonTextTokens.push_back(label);
         parentNode->addChild(label);
     }
 }
 
 
-void StoryPlaying::narrateDialog(float dt) {
-    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
-    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(_soundFile.c_str(), false);
+void StoryPlaying::playNextSplitWordCallBack(int id, const std::string& file) {
+    CCLOG("%s> id=%d,file=%s,time=%g/%g",__func__,id
+          ,file.c_str()
+          ,cocos2d::experimental::AudioEngine::getCurrentTime(id)
+          ,cocos2d::experimental::AudioEngine::getDuration(id)
+          );
+    
+    AudioEngine::stop(id);
+    CommonText* preHighlighteWord = _contentCommonTextTokens.at(_currentSplitWordIndex - 1);
+    //unhighlited word
+    preHighlighteWord->setTextColor(Color4B::BLACK);
+    
+    if(_currentSplitWordIndex < _totalSplitWords)
+    {
+        std::string audioFile = _loadedSplitWordsEffects.at(_currentSplitWordIndex);
+        CommonText* highlighteWord = _contentCommonTextTokens.at(_currentSplitWordIndex);
+        StoryPlaying::playSplitAudio(audioFile, highlighteWord);
+    }
 }
 
-void StoryPlaying::playSound(Ref* pSender, ui::Widget::TouchEventType eEventType)
+
+void StoryPlaying::playSplitAudio(std::string audioFile, CommonText* text) {
+    
+    if(!audioFile.empty() && FileUtils::getInstance()->isFileExist(audioFile))
+    {
+        text->setTextColor(Color4B::BLUE);
+        auto musicId = cocos2d::experimental::AudioEngine::play2d(audioFile);
+        cocos2d::experimental::AudioEngine::setVolume(musicId, 1.0f);
+        _currentSplitWordIndex++;
+        cocos2d::experimental::AudioEngine::setFinishCallback(musicId,CC_CALLBACK_2(StoryPlaying::playNextSplitWordCallBack, this));
+    }
+}
+
+void StoryPlaying::highlightedNarrateDialog(float dt) {
+    if(_loadedSplitWordsEffects.size() >0 && _contentCommonTextTokens.size() > 0)
+    {
+        _currentSplitWordIndex = 0;
+        _totalSplitWords = _loadedSplitWordsEffects.size();
+        
+        
+        if(_currentSplitWordIndex < _loadedSplitWordsEffects.size() &&
+           _currentSplitWordIndex < _contentCommonTextTokens.size() &&
+           _currentSplitWordIndex < _totalSplitWords)
+        {
+            std::string audioFile = _loadedSplitWordsEffects.at(_currentSplitWordIndex);
+            CommonText* highlightedWord = _contentCommonTextTokens.at(_currentSplitWordIndex);
+            StoryPlaying::playSplitAudio(audioFile, highlightedWord);
+        }
+    }
+    
+}
+
+void StoryPlaying::narrateDialog(float dt) {
+    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(_soundFile.c_str(), false);
+}
+
+void StoryPlaying::playSound(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
     switch (eEventType) {
-        case ui::Widget::TouchEventType::BEGAN:
+        case cocos2d::ui::Widget::TouchEventType::BEGAN:
         {
             break;
         }
-        case ui::Widget::TouchEventType::MOVED:
+        case cocos2d::ui::Widget::TouchEventType::MOVED:
             break;
-        case ui::Widget::TouchEventType::ENDED:
+        case cocos2d::ui::Widget::TouchEventType::ENDED:
         {
             
             if(_soundEnabled.compare("true") == 0) {
@@ -770,7 +876,7 @@ void StoryPlaying::playSound(Ref* pSender, ui::Widget::TouchEventType eEventType
             break;
         }
             
-        case ui::Widget::TouchEventType::CANCELED:
+        case cocos2d::ui::Widget::TouchEventType::CANCELED:
             break;
         default:
             break;
@@ -779,24 +885,25 @@ void StoryPlaying::playSound(Ref* pSender, ui::Widget::TouchEventType eEventType
 }
 
 
-void StoryPlaying::closeDialog(Ref* pSender, ui::Widget::TouchEventType eEventType)
+void StoryPlaying::closeDialog(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
     switch (eEventType) {
-        case ui::Widget::TouchEventType::BEGAN:
+        case cocos2d::ui::Widget::TouchEventType::BEGAN:
         {
+            _contentCommonTextTokens.clear();
             clickedButton->setHighlighted(true);
             break;
         }
-        case ui::Widget::TouchEventType::MOVED:
+        case cocos2d::ui::Widget::TouchEventType::MOVED:
             break;
-        case ui::Widget::TouchEventType::ENDED:
+        case cocos2d::ui::Widget::TouchEventType::ENDED:
         {
             if(CocosDenshion::SimpleAudioEngine::getInstance()->isBackgroundMusicPlaying())
             {
                 CocosDenshion::SimpleAudioEngine::getInstance()->stopBackgroundMusic();
             }
-
+            
             clickedButton->setEnabled(false);
             _talkBubbleNode->removeFromParentAndCleanup(true);
             _isTextShown = false;
@@ -822,7 +929,7 @@ void StoryPlaying::closeDialog(Ref* pSender, ui::Widget::TouchEventType eEventTy
             break;
         }
             
-        case ui::Widget::TouchEventType::CANCELED:
+        case cocos2d::ui::Widget::TouchEventType::CANCELED:
             break;
         default:
             break;
@@ -845,7 +952,7 @@ void StoryPlaying::createNextAndPreviousButtons() {
     this->addChild(_nextButton, 2);
     _nextButton->setEnabled(false);
     _nextButton->setVisible(false);
-        
+    
     
     if(_pageIndex != 0) {
         _prevButton = cocos2d::ui::Button::create("template/template_02/side_arrow.png", "template/template_02/click_side_arrow.png", "template/template_02/side_arrow.png", cocos2d::ui::Widget::TextureResType::PLIST);
@@ -866,7 +973,7 @@ void StoryPlaying::createNextAndPreviousButtons() {
     this->addChild(_showAgainTextButton, 2);
     _showAgainTextButton->setEnabled(false);
     _showAgainTextButton->setVisible(false);
-
+    
     
 }
 
@@ -923,7 +1030,7 @@ void StoryPlaying::processPixelPerfectNodes(Node* parent) {
                     
                     _pixelPerfectMapping.insert({itr->name.GetString(), itr->value.GetString()});
                 }
-
+                
             }
         }
     }
@@ -954,7 +1061,7 @@ bool StoryPlaying::pointInTriangle(Point p, Point p0, Point p1, Point p2) {
     float t = (p0.x * p1.y - p0.y * p1.x + (p0.y - p1.y) * p.x + (p1.x - p0.x) * p.y) * sign;
     
     return s > 0 && t > 0 && (s + t) < 2 * A * sign;
-
+    
 }
 
 void StoryPlaying::playMasterAnimation() {
@@ -971,7 +1078,7 @@ void StoryPlaying::playMasterAnimation() {
     } else {
         playEnded();
     }
-
+    
 }
 
 void StoryPlaying::loadContentPage(std::string contentPageName) {
@@ -982,9 +1089,6 @@ void StoryPlaying::loadContentPage(std::string contentPageName) {
     _contentPageNode->runAction(_mainTimeLine);
     
     this->addChild(_contentPageNode);
-    
-    
-    
     //find sound configuration
     
     _soundEnabled = "";
@@ -1005,23 +1109,30 @@ void StoryPlaying::onExitTransitionDidStart() {
         }
     }
     
+    
+    if(_isAudionEngineInitialized)
+    {
+        AudioEngine::uncacheAll();
+        AudioEngine::end();
+    }
+    
 }
 
 void StoryPlaying::onEnterTransitionDidFinish() {
     Node::onEnterTransitionDidFinish();
 }
 
-void StoryPlaying::nextStory(Ref* pSender, ui::Widget::TouchEventType eEventType)
+void StoryPlaying::nextStory(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
     switch (eEventType) {
-        case ui::Widget::TouchEventType::BEGAN:
+        case cocos2d::ui::Widget::TouchEventType::BEGAN:
         {
             break;
         }
-        case ui::Widget::TouchEventType::MOVED:
+        case cocos2d::ui::Widget::TouchEventType::MOVED:
             break;
-        case ui::Widget::TouchEventType::ENDED:
+        case cocos2d::ui::Widget::TouchEventType::ENDED:
         {
             clickedButton->setEnabled(false);
             clickedButton->setVisible(false);
@@ -1033,7 +1144,7 @@ void StoryPlaying::nextStory(Ref* pSender, ui::Widget::TouchEventType eEventType
             break;
         }
             
-        case ui::Widget::TouchEventType::CANCELED:
+        case cocos2d::ui::Widget::TouchEventType::CANCELED:
             break;
         default:
             break;
@@ -1041,18 +1152,18 @@ void StoryPlaying::nextStory(Ref* pSender, ui::Widget::TouchEventType eEventType
     
 }
 
-void StoryPlaying::previousStory(Ref* pSender, ui::Widget::TouchEventType eEventType)
+void StoryPlaying::previousStory(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
     switch (eEventType) {
-        case ui::Widget::TouchEventType::BEGAN:
+        case cocos2d::ui::Widget::TouchEventType::BEGAN:
         {
             clickedButton->setHighlighted(true);
             break;
         }
-        case ui::Widget::TouchEventType::MOVED:
+        case cocos2d::ui::Widget::TouchEventType::MOVED:
             break;
-        case ui::Widget::TouchEventType::ENDED:
+        case cocos2d::ui::Widget::TouchEventType::ENDED:
         {
             clickedButton->setEnabled(false);
             clickedButton->setVisible(false);
@@ -1063,7 +1174,7 @@ void StoryPlaying::previousStory(Ref* pSender, ui::Widget::TouchEventType eEvent
             break;
         }
             
-        case ui::Widget::TouchEventType::CANCELED:
+        case cocos2d::ui::Widget::TouchEventType::CANCELED:
             break;
         default:
             break;
@@ -1143,24 +1254,24 @@ bool StoryPlaying::translatedText(std::string text) {
 }
 
 
-void StoryPlaying::pronounceWord(Ref* pSender, ui::Widget::TouchEventType eEventType)
+void StoryPlaying::pronounceWord(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
     switch (eEventType) {
-        case ui::Widget::TouchEventType::BEGAN:
+        case cocos2d::ui::Widget::TouchEventType::BEGAN:
         {
             clickedButton->setHighlighted(true);
             break;
         }
-        case ui::Widget::TouchEventType::MOVED:
+        case cocos2d::ui::Widget::TouchEventType::MOVED:
             break;
-        case ui::Widget::TouchEventType::ENDED:
+        case cocos2d::ui::Widget::TouchEventType::ENDED:
         {
             _menuContext->pronounceWord(_pronouceWord, false);
             break;
         }
             
-        case ui::Widget::TouchEventType::CANCELED:
+        case cocos2d::ui::Widget::TouchEventType::CANCELED:
             break;
         default:
             break;
@@ -1168,18 +1279,18 @@ void StoryPlaying::pronounceWord(Ref* pSender, ui::Widget::TouchEventType eEvent
 }
 
 
-void StoryPlaying::showTextAgain(Ref* pSender, ui::Widget::TouchEventType eEventType)
+void StoryPlaying::showTextAgain(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
     cocos2d::ui::Button* clickedButton = dynamic_cast<cocos2d::ui::Button *>(pSender);
     switch (eEventType) {
-        case ui::Widget::TouchEventType::BEGAN:
+        case cocos2d::ui::Widget::TouchEventType::BEGAN:
         {
             clickedButton->setHighlighted(true);
             break;
         }
-        case ui::Widget::TouchEventType::MOVED:
+        case cocos2d::ui::Widget::TouchEventType::MOVED:
             break;
-        case ui::Widget::TouchEventType::ENDED:
+        case cocos2d::ui::Widget::TouchEventType::ENDED:
         {
             clickedButton->setVisible(false);
             clickedButton->setEnabled(false);
@@ -1187,7 +1298,7 @@ void StoryPlaying::showTextAgain(Ref* pSender, ui::Widget::TouchEventType eEvent
             break;
         }
             
-        case ui::Widget::TouchEventType::CANCELED:
+        case cocos2d::ui::Widget::TouchEventType::CANCELED:
             break;
         default:
             break;

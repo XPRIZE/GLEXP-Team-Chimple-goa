@@ -94,6 +94,7 @@
 #include "../mini_games/MathLearning.h"
 #include "../mini_games/BasicMultiplication.h"
 #include "../ext/util/lib/LTKStringUtil.h"
+#include "../mini_games/BasicLetterCase.h"
 
 
 USING_NS_CC;
@@ -1106,6 +1107,9 @@ void MenuContext::launchGameFinally(std::string gameName) {
 		else if (gameName == BASICMULTIPLICATION) {
 			Director::getInstance()->replaceScene(BasicMultiplication::createScene());
 		}
+		else if (gameName == BASICLETTERCASE) {
+			Director::getInstance()->replaceScene(BasicLetterCase::createScene());
+		}
 		else{
             CCLOG("Failed starting scene: %s", gameName.c_str());
         }
@@ -1503,6 +1507,13 @@ void MenuContext::pronounceHashedText(std::string joinedStr, bool shouldReplaceW
         audio->playEffect(fileName.c_str());
     }
 
+}
+
+void MenuContext::pronounceSplitFileFromStory(std::string fileName) {
+    if(FileUtils::getInstance()->isFileExist(fileName)) {
+        auto musicId = cocos2d::experimental::AudioEngine::play2d(fileName);
+        cocos2d::experimental::AudioEngine::setVolume(musicId, 1.0f);
+    }
 }
 
 void MenuContext::pronounceWord(std::string word, bool shouldReplaceWithSpace) {

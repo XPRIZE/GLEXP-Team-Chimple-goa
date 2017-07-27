@@ -2,6 +2,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include <sstream>
 #include "../util/CommonLabelTTF.h"
+#include "ui/CocosGUI.h"
 
 USING_NS_CC;
 
@@ -46,6 +47,15 @@ void Phonicsfree::onEnterTransitionDidFinish()
 		_segmentsForPhonic = TextGenerator::getInstance()->getSegmentsForPhonic(_level, 10);
 		_segmentsNotForPhonic = TextGenerator::getInstance()->getSegmentsNotForPhonic(_level, 10);
 
+		std::vector<String> firstCol, secondCol, thirdCol;
+
+		for (int i = 0; i < 10; i++)
+		{
+			firstCol.push_back(_segmentsForPhonic.at(i).at(0));
+			secondCol.push_back(_segmentsForPhonic.at(i).at(1));
+			thirdCol.push_back(_segmentsForPhonic.at(i).at(2));
+		}
+
 		_differntPosition = {
 
 			{ 0,	//	position of box if number_of_segments are 2
@@ -87,22 +97,59 @@ void Phonicsfree::onEnterTransitionDidFinish()
 			Sprite *_box = Sprite::createWithSpriteFrameName("phonicsfree/small box.png");
 			_box->setPosition(Vec2(_differntPosition.at(num_of_segments - 2).at(i+1), _differntPosition.at(num_of_segments - 2).at(0)));
 			this->addChild(_box);
+			//_box->setVisible(false);
 			_boxDetails.push_back(_box);
 
 			Sprite *_trans = Sprite::createWithSpriteFrameName("phonicsfree/trans bar_1.png");
 			_trans->setPosition(Vec2(_differntPosition.at(num_of_segments - 2).at(i + 1), _differntPosition.at(num_of_segments - 2).at(0)));
 			this->addChild(_trans, 5);
+			_trans->setVisible(false);
 
 			if (_phonicSegmentForLevel.fixed_index != (i + 1))
 			{
 				PageViewDetails._pageView = ui::PageView::create();
-				PageViewDetails._pageView->setPosition(Vec2(_differntPosition.at(num_of_segments).at(i + 1), _differntPosition.at(num_of_segments).at(0)));
+				PageViewDetails._pageView->setPosition(Vec2(_differntPosition.at(num_of_segments).at(i + 1), _differntPosition.at(num_of_segments).at(0)-10));
 				PageViewDetails._id = _pageViewMap.size();
-				PageViewDetails._pageView->setContentSize(Size(250, _trans->getBoundingBox().size.height));
+				PageViewDetails._pageView->setContentSize(Size(250,( _box->getBoundingBox().size.height) -10));
+				//PageViewDetails._pageView->setContentSize(Size(250, _trans->getBoundingBox().size.height ));
+				PageViewDetails._pageView->setAnchorPoint(Vec2(0, -1.313));//-1.313
 				PageViewDetails._pageView->setDirection(cocos2d::ui::ScrollView::Direction::VERTICAL);
 				PageViewDetails._pageView->setInnerContainerSize(Size(250, (200 * (_segmentsForPhonic.size()))));
 				this->addChild(PageViewDetails._pageView);
 				_pageViewMap.push_back(PageViewDetails);
+
+				//ScrollViewDetails._scrollView = ui::ScrollView::create();
+				//ScrollViewDetails._scrollView->setPosition(Vec2(1800, 1500));
+				//ScrollViewDetails._scrollView->setDirection(ui::ScrollView::Direction::VERTICAL);
+				//ScrollViewDetails._scrollView->setContentSize(Size(250, _box->getBoundingBox().size.height - 10));
+				//ScrollViewDetails._scrollView->setInnerContainerSize(Size(250, (200 * (_segmentsForPhonic.size()))));
+				//ScrollViewDetails._scrollView->setBounceEnabled(true);
+				////ScrollViewDetails._scrollView->setAnchorPoint(Vec2(0.5, 0.5));
+				//this->addChild(ScrollViewDetails._scrollView);
+				//_scrollViewMap.push_back(ScrollViewDetails);
+
+				/*Size scollFrameSize =Size(250, _box->getBoundingBox().size.height - 10);
+				auto scrollView = cocos2d::ui::ScrollView::create();
+				scrollView->setContentSize(scollFrameSize);
+				scrollView->setBackGroundColorType(cocos2d::ui::Layout::BackGroundColorType::SOLID);
+				scrollView->setBackGroundColor(Color3B(200, 200, 200));
+				scrollView->setPosition(Point(_visibleSize.width/2, 400));
+				scrollView->setDirection(cocos2d::ui::ScrollView::Direction::VERTICAL);
+				scrollView->setBounceEnabled(true);
+				scrollView->setTouchEnabled(true);
+				scrollView->setAnchorPoint(Vec2(0.5, 0.5));
+				auto containerSize = Size(250, (200 * (_segmentsForPhonic.size())));
+				scrollView->setInnerContainerSize(containerSize);
+
+				this->addChild(scrollView);
+
+				for (int i = 0; i < 10; i++)
+				{
+					auto fixLabel = CommonLabelTTF::create("A", "Helvetica",90);
+					fixLabel->setAnchorPoint(Vec2(0.5,0.5));
+					fixLabel->setPosition(Vec2(scrollView->getContentSize().width/2, i* scrollView->getContentSize().height));
+					scrollView->addChild(fixLabel);
+				}*/
 			}
 		}
 
@@ -120,22 +167,27 @@ void Phonicsfree::onEnterTransitionDidFinish()
 					auto page = ui::Widget::create();
 					page->setContentSize(Size(250, 250));
 					_pageViewMap.at(k)._pageView->addChild(page);
-
+					//_scrollViewMap.at(k)._scrollView->addChild(page);
 					SpriteDetails._label = CommonLabelTTF::create(_segmentsForPhonic.at(i).at(j), "Helvetica", 130, CCSizeMake(250, 200));
 					SpriteDetails._label->setAnchorPoint(Vec2(0, 0));
-					SpriteDetails._label->setPosition(Vec2(0, _pageViewMap.at(k)._pageView->getContentSize().height * .38));
+					SpriteDetails._label->setPosition(Vec2(0,_pageViewMap.at(k)._pageView->getContentSize().height*0.055));
+					//SpriteDetails._label->setPosition(Vec2(0, _pageViewMap.at(k)._pageView->getContentSize().height * 0.70));//0.38
 					SpriteDetails._sequence = j;
 					SpriteDetails._id = _segmentsForPhonic.at(i).at(j);
 					page->addChild(SpriteDetails._label);
 					_spriteDetails.push_back(SpriteDetails);
 					k++;
+
+					Vec2 pnt = SpriteDetails._label->getParent()->convertToNodeSpace(SpriteDetails._label->getPosition());
 				}
 				else if (_fixLabel == NULL)
 				{
 					_fixLabel = CommonLabelTTF::create(_segmentsForPhonic.at(i).at(j), "Helvetica", 130, CCSizeMake(250, 300));
 					_fixLabel->setAnchorPoint(Vec2(0.5, 0.8));
 					_fixLabel->setPosition(Vec2(_boxDetails.at(_phonicSegmentForLevel.fixed_index - 1)->getPositionX(), _boxDetails.at(_phonicSegmentForLevel.fixed_index - 1)->getPositionY()));
-					this->addChild(_fixLabel);
+				   	this->addChild(_fixLabel);
+
+					Vec2 pnt1 = _fixLabel->getPosition();
 				}
 			}
 			_allWords.push_back(_string);

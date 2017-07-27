@@ -37,6 +37,12 @@ public:
 		int _id;
 	}PageViewDetails;
 
+	struct ScrollViewDetails
+	{
+		ui::ScrollView *_scrollView;
+		int _id;
+	}ScrollViewDetails;
+
 	Node *phonicsfreebg;
 	HelpLayer *_help;
 	cocos2d::Size _visibleSize;
@@ -57,6 +63,7 @@ public:
 	std::vector<std::vector<std::string>> _segmentsForPhonic;
 	std::vector<std::vector<std::string>> _segmentsNotForPhonic;
 	std::vector<struct PageViewDetails> _pageViewMap;
+	std::vector<struct ScrollViewDetails> _scrollViewMap;
 	std::vector<cocos2d::Sprite*> _boxDetails;
 
 protected:

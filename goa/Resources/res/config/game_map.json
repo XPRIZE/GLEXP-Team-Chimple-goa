@@ -3724,5 +3724,37 @@
     "maingroundJson": "mathlearninglevel/mainground.json",
     "menuPlist": "mathlearninglevel/mathlearninglevel.plist",
     "menuPng": "mathlearninglevel/mathlearninglevel.png"
+  },
+  {
+    "name": "basiclettercase",
+    "title": "Letter Case",
+    "cIcon": "gameicons/basiclettercase_pressed.png",
+    "icon": "gameicons/basiclettercase.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "unlock": true,
+    "span": "2",
+    "numLevels": "10",
+    "backgroundJson": "endlessrunner/Layer1.json",
+    "foregroundJson": "endlessrunner/Layer3.json",
+    "frontgroundJson": "endlessrunner/Layer4.json",
+    "maingroundJson": "endlessrunner/Layer2.json",
+    "menuPlist": "endlessrunner/endlessrunner_01.plist",
+    "menuPng": "endlessrunner/endlessrunner_01.png",
+    "rewards": {
+      "9": {
+        "unlock": "Cannon Ball"
+      },
+      "5": {
+        "badge": "s/butterfly_net"
+      },
+      "10": {
+        "badge": "m/speed_runner"
+      },
+      "15": {
+        "badge": "p/cracked_egg"
+      }
+    }
   }
 ]
