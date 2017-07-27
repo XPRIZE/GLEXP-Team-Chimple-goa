@@ -78,7 +78,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	
 	if (_menuContext->getCurrentLevel() <= 8 && _menuContext->getCurrentLevel() >= 1) {
 		
-		_menuContext->setMaxPoints(10);
+		//_menuContext->setMaxPoints(10);
 		_sceneNumber = 1;
 		switch (_menuContext->getCurrentLevel()) {
 
@@ -1227,6 +1227,8 @@ void BalloonHero::generateObjectsAndMove() {
 void BalloonHero::update(float delta) {
 
 	if (_fuelBar->getPercent() <= 0) {
+		_menuContext->setMaxPoints(_totalHit);
+		_menuContext->addPoints(_totalHit-_wrongHit);
 		_menuContext->showScore();
 	}
 
@@ -1262,7 +1264,9 @@ void BalloonHero::update(float delta) {
 	if (_fireflyBB.intersectsRect(_cloud1BB) && _cloud1->getName() == "m" && _flag1) {
 		_flag1 = false;
 		fuelMeterMinus();
-		_menuContext->addPoints(-1);
+		//_menuContext->addPoints(-1);
+		_wrongHit--;
+		_totalHit++;
 		_cloud1->setVisible(false);
 
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -1304,7 +1308,9 @@ void BalloonHero::update(float delta) {
 		
 		_flag2 = false;
 		fuelMeterMinus();
-		_menuContext->addPoints(-1);
+		//_menuContext->addPoints(-1);
+		_wrongHit--;
+		_totalHit++;
 		_cloud2->setVisible(false);
 		
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -1346,7 +1352,9 @@ void BalloonHero::update(float delta) {
 		_flag3 = false;
 		
 		fuelMeterMinus();
-		_menuContext->addPoints(-1);
+		//_menuContext->addPoints(-1);
+		_wrongHit--;
+		_totalHit++;
 		_cloud3->setVisible(false);
 
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -1386,7 +1394,9 @@ void BalloonHero::update(float delta) {
 		
 		_flag4 = false;
 		fuelMeterMinus();
-		_menuContext->addPoints(-1);
+		//_menuContext->addPoints(-1);
+		_wrongHit--;
+		_totalHit++;
 		_cloud4->setVisible(false);
 
 		auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -1425,7 +1435,8 @@ void BalloonHero::update(float delta) {
 
 	if (_fireflyBB.intersectsRect(_cloud1BB) && _cloud1->getName() == "balloon" && _flagCorrect1) {
 		fuelMeterPlus();
-		_menuContext->addPoints(1);
+		//_menuContext->addPoints(1);
+		_totalHit++;
 		_cloud1->setVisible(false);
 
 
@@ -1442,7 +1453,8 @@ void BalloonHero::update(float delta) {
 
 	if (_fireflyBB.intersectsRect(_cloud2BB) && _cloud2->getName() == "balloon" && _flagCorrect2) {
 		fuelMeterPlus();
-		_menuContext->addPoints(1);
+		//_menuContext->addPoints(1);
+		_totalHit++;
 		_cloud2->setVisible(false);
 
 		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -1457,7 +1469,8 @@ void BalloonHero::update(float delta) {
 
 	if (_fireflyBB.intersectsRect(_cloud3BB) && _cloud3->getName() == "balloon" && _flagCorrect3) {
 		fuelMeterPlus();
-		_menuContext->addPoints(1);
+		//_menuContext->addPoints(1);
+		_totalHit++;
 		_cloud3->setVisible(false);
 
 		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -1472,7 +1485,8 @@ void BalloonHero::update(float delta) {
 
 	if (_fireflyBB.intersectsRect(_cloud4BB) && _cloud4->getName() == "balloon" && _flagCorrect4) {
 		fuelMeterPlus();
-		_menuContext->addPoints(1);
+		//_menuContext->addPoints(1);
+		_totalHit++;
 		_cloud4->setVisible(false);
 
 		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
