@@ -84,6 +84,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     // initialize director
     auto director = Director::getInstance();
     auto console = director->getConsole()->listenOnTCP(1234);
+    director->getConsole()->addCommand({"xscenegraph", "Print the extended scene graph", CC_CALLBACK_2(AppDelegate::commandExtendedSceneGraph, this)});
     auto glview = director->getOpenGLView();
     if(!glview) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
@@ -138,6 +139,42 @@ bool AppDelegate::applicationDidFinishLaunching()
     Application::getInstance()->getCurrentLanguage();
     return true;
 }
+
+void AppDelegate::commandExtendedSceneGraph(int fd, const std::string& /*args*/)
+{
+    Scheduler *sched = Director::getInstance()->getScheduler();
+    sched->performFunctionInCocosThread( std::bind(&AppDelegate::printExtendedSceneGraphBoot, this, fd) );
+}
+
+int AppDelegate::printExtendedSceneGraph(int fd, Node* node, int level)
+{
+    int total = 1;
+    for(int i=0; i<level; ++i)
+        Console::Utility::sendToConsole(fd, "-", 1);
+    float x = 0.0;
+    float y = 0.0;
+    if(node->getParent()!=nullptr) {
+        auto nodeInWorld = node->getParent()->convertToWorldSpace(node->getPosition());
+        x = nodeInWorld.x;
+        y = nodeInWorld.y;
+    }
+    Console::Utility::mydprintf(fd, " %s x=%f y=%f\n", node->getDescription().c_str(), x, y);
+    
+    for(const auto& child: node->getChildren())
+        total += printExtendedSceneGraph(fd, child, level+1);
+    
+    return total;
+}
+
+void AppDelegate::printExtendedSceneGraphBoot(int fd)
+{
+    Console::Utility::sendToConsole(fd,"\n",1);
+    auto scene = Director::getInstance()->getRunningScene();
+    int total = printExtendedSceneGraph(fd, scene, 0);
+    Console::Utility::mydprintf(fd, "Total Nodes: %d\n", total);
+    Console::Utility::sendPrompt(fd);
+}
+
 
 bool AppDelegate::findCachedCharacterConfiguration(std::string* cachedCharacterInformation) {
     return localStorageGetItem("cachedCharacterConfig", cachedCharacterInformation);

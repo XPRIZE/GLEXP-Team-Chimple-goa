@@ -43,6 +43,11 @@ public:
     virtual void applicationWillEnterForeground();
     
     bool findCachedCharacterConfiguration(std::string* s1);
+    void commandExtendedSceneGraph(int fd, const std::string& args);
+private:
+    int printExtendedSceneGraph(int fd, cocos2d::Node* node, int level);
+    void printExtendedSceneGraphBoot(int fd);
+
 };
 
 #endif // _APP_DELEGATE_H_
