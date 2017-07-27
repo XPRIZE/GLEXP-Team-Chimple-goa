@@ -578,6 +578,9 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			}
 			_gameScore++;
 			menu->addPoints(1);
+			auto audioEffect = CocosDenshion::SimpleAudioEngine::getInstance();
+			audioEffect->playEffect("sounds/sfx/success.ogg");
+
 			_rightWords.push_back(_gameWord + "Y");
 			_choiceLabel.clear();
 			updatePlayerPosition("mycharacter",_gameScore);
@@ -598,6 +601,9 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		}
 		else {
 			menu->addPoints(-1);
+			auto audioEffect = CocosDenshion::SimpleAudioEngine::getInstance();
+			audioEffect->playEffect("sounds/sfx/error.ogg");
+
 			_rightWords.push_back(_gameWord + "N");
 			if (_scenePath.at("wrong_animation").compare("null") != 0) {
 				auto sadAnimation = CSLoader::createTimeline(_scenePath.at("character"));
