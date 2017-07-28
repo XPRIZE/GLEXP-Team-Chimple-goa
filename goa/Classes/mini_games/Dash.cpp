@@ -464,6 +464,7 @@ void Dash::wordGenerateWithOptions()
 		myLabel->setPositionY(_choiceButton.at(i)->getPositionY());
 		myLabel->setColor(Color3B(0, 0, 0));
 		this->addChild(myLabel);
+		myLabel->setTag(i);
 		_choiceLabel.pushBack(myLabel);
 		auto listener = EventListenerTouchOneByOne::create();
 		listener->setSwallowTouches(true);
@@ -571,6 +572,13 @@ bool Dash::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
     
 
 	if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+
+		auto button = _choiceButton.at(target->getTag());
+		if (button) {
+			button->runAction(Sequence::create(CallFunc::create([=] {button->setColor(Color3B::GRAY); }), DelayTime::create(0.3),
+				CallFunc::create([=] {button->setColor(Color3B::WHITE); }), NULL));
+		}
+
 		if (target->getName().compare(_synonyms.at(_gameWord)) == 0) {
 			this->removeChild(_topLabel);
 			for (int i = 0; i < _choiceLabel.size(); i++) {
