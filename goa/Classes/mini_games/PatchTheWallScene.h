@@ -5,7 +5,8 @@
 #include <vector>
 #include "../menu/MenuContext.h"
 #include "../puzzle/Alphabet.h"
-#include "SimpleAudioEngine.h"
+#include "../util/CommonLabel.h"
+#include "../lang/TextGenerator.h"
 #include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
 
@@ -27,7 +28,7 @@ public:
 
 	struct SpriteDetails
 	{
-		Alphabet *_label;
+		CommonLabel *_label;
 		cocos2d::Sprite *_sprite;
 		wchar_t _id;
 		float xP, yP;

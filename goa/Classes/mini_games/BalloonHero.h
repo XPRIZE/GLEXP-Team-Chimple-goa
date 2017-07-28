@@ -72,6 +72,7 @@ protected:
 	void addGrid();
 	std::string _hint;
 	MenuContext *_menuContext;
+	int _totalHit = 0, _wrongHit = 0;
 
 };
 
