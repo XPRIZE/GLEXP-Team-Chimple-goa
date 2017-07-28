@@ -16,6 +16,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/alphamon/HPMeter.cpp \
          ../../Classes/alphamon/SelectAlphamonScene.cpp \
          ../../Classes/AppDelegate.cpp \
+         ../../Classes/HelloDragonBones.cpp \
          ../../Classes/effects/FShake.cpp \
          ../../Classes/ext/AsyncTask.cpp \
          ../../Classes/ext/common/LTKCaptureDevice.cpp \
@@ -63,6 +64,28 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/ext/util/logger/logger.cpp \
          ../../Classes/ext/util/logger/LTKLogger.cpp \
          ../../Classes/ext/WordSceneLipiTKNode.cpp \
+         ../../Classes/ext/dragonBones/animation/Animation.cpp \
+         ../../Classes/ext/dragonBones/animation/AnimationState.cpp \
+         ../../Classes/ext/dragonBones/animation/TimelineState.cpp \
+         ../../Classes/ext/dragonBones/animation/WorldClock.cpp \
+         ../../Classes/ext/dragonBones/armature/Armature.cpp \
+         ../../Classes/ext/dragonBones/armature/Bone.cpp \
+         ../../Classes/ext/dragonBones/armature/Slot.cpp \
+         ../../Classes/ext/dragonBones/cocos2dx/CCArmatureDisplay.cpp \
+         ../../Classes/ext/dragonBones/cocos2dx/CCFactory.cpp \
+         ../../Classes/ext/dragonBones/cocos2dx/CCSlot.cpp \
+         ../../Classes/ext/dragonBones/cocos2dx/CCTextureData.cpp \
+         ../../Classes/ext/dragonBones/core/BaseObject.cpp \
+         ../../Classes/ext/dragonBones/events/EventObject.cpp \
+         ../../Classes/ext/dragonBones/factories/BaseFactory.cpp \
+         ../../Classes/ext/dragonBones/model/AnimationData.cpp \
+         ../../Classes/ext/dragonBones/model/ArmatureData.cpp \
+         ../../Classes/ext/dragonBones/model/DragonBonesData.cpp \
+         ../../Classes/ext/dragonBones/model/FrameData.cpp \
+         ../../Classes/ext/dragonBones/model/TimelineData.cpp \
+         ../../Classes/ext/dragonBones/parsers/DataParser.cpp \
+         ../../Classes/ext/dragonBones/parsers/JSONDataParser.cpp \
+         ../../Classes/ext/dragonBones/textures/TextureData.cpp \
          ../../Classes/hero/character/ExternalSkeletonCharacter.cpp \
          ../../Classes/hero/character/SkeletonCharacter.cpp \
          ../../Classes/hero/character/SkeletonConfiguration.cpp \

@@ -8,7 +8,7 @@
 #include "misc/PhotoCaptureScene.hpp"
 #include "menu/Introduction.hpp"
 #include "splash/SplashScene.hpp"
-
+#include "HelloDragonBones.h"
 #include "audio/include/SimpleAudioEngine.h"
 #include "storage/local-storage/LocalStorage.h"
 
@@ -135,6 +135,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0f / 60);
     director->runWithScene(SplashScene::createScene());
+//    director->runWithScene(HelloDragonBones::createScene());
     
     Application::getInstance()->getCurrentLanguage();
     return true;
