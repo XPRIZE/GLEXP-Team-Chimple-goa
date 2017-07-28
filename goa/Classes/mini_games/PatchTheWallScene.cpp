@@ -75,8 +75,10 @@ void PatchTheWall::onEnterTransitionDidFinish()
             SpriteDetails._sprite = Sprite::createWithSpriteFrameName("patchthewall/alphagrid.png");
             SpriteDetails._sprite->setPosition(Vec2(_gridX, _gridY));
             this->addChild(SpriteDetails._sprite);
-            
-            SpriteDetails._label = Alphabet::createWithSize(_matrix[j][i], 200);
+
+            auto aplhabets = CommonLabel::createWithTTF(LangUtil::getInstance()->convertUTF16CharToString(_matrix[j][i]), "fonts/Roboto-Regular.ttf", 170);
+			SpriteDetails._label = aplhabets;
+
             SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
             this->addChild(SpriteDetails._label);
             SpriteDetails._id = _matrix[j][i];
@@ -137,7 +139,7 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
         
         if (rect.containsPoint(locationInNode) && _moveFlag==0)
         {
-			target->setScale(1);
+			target->setScale(1.5);
             if (_helpFlag == 1)
             {
                 this->removeChild(_help);
@@ -185,7 +187,7 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
                     _totalCount++;
                     CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
                     success->playEffect("sounds/sfx/success.ogg", false);
-					target->setScale(0.333333343);
+					target->setScale(1);
                     _spriteDetails.at(_index)._label->setPosition(Vec2(_spriteDetails.at(_index).xP, _spriteDetails.at(_index).yP));
                     _slideBar->setPercent(_slideBar->getPercent() + 5);
                     if (_totalCount == 20)
@@ -202,7 +204,7 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
         
         if (flag == 0)
         {
-			target->setScale(0.333333343);
+			target->setScale(1);
             target->runAction(Sequence::create(MoveTo::create(.5, Vec2(_spriteDetails.at(_index).xP, _spriteDetails.at(_index).yP)), CallFunc::create([=]{
                 _moveFlag = 0;
                 CocosDenshion::SimpleAudioEngine *error = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -272,8 +274,10 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
 
     int _randomRow = cocos2d::RandomHelper::random_int(0, 4);
     int _randomCol = cocos2d::RandomHelper::random_int(0, 1);
-    
-    SpriteDetails._label = Alphabet::createWithSize(_matrix[_randomCol][_randomRow], 200);
+
+	auto aplhabets = CommonLabel::createWithTTF(LangUtil::getInstance()->convertUTF16CharToString(_matrix[_randomCol][_randomRow]), "fonts/Roboto-Regular.ttf", 170);
+	SpriteDetails._label = aplhabets;
+
     SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
     this->addChild(SpriteDetails._label);
     SpriteDetails._id = _matrix[_randomCol][_randomRow];
