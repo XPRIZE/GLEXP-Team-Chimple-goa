@@ -150,8 +150,8 @@ void AppDelegate::commandExtendedSceneGraph(int fd, const std::string& /*args*/)
 int AppDelegate::printExtendedSceneGraph(int fd, Node* node, int level)
 {
     int total = 1;
-    for(int i=0; i<level; ++i)
-        Console::Utility::sendToConsole(fd, "-", 1);
+//    for(int i=0; i<level; ++i)
+//        Console::Utility::sendToConsole(fd, "-", 1);
     float x = 0.0;
     float y = 0.0;
     if(node->getParent()!=nullptr) {
@@ -159,7 +159,7 @@ int AppDelegate::printExtendedSceneGraph(int fd, Node* node, int level)
         x = nodeInWorld.x;
         y = nodeInWorld.y;
     }
-    Console::Utility::mydprintf(fd, " %s x=%f y=%f\n", node->getDescription().c_str(), x, y);
+//    Console::Utility::mydprintf(fd, " %s x=%f y=%f\n", node->getDescription().c_str(), x, y);
     
     for(const auto& child: node->getChildren())
         total += printExtendedSceneGraph(fd, child, level+1);
@@ -169,11 +169,11 @@ int AppDelegate::printExtendedSceneGraph(int fd, Node* node, int level)
 
 void AppDelegate::printExtendedSceneGraphBoot(int fd)
 {
-    Console::Utility::sendToConsole(fd,"\n",1);
+//    Console::Utility::sendToConsole(fd,"\n",1);
     auto scene = Director::getInstance()->getRunningScene();
     int total = printExtendedSceneGraph(fd, scene, 0);
-    Console::Utility::mydprintf(fd, "Total Nodes: %d\n", total);
-    Console::Utility::sendPrompt(fd);
+//    Console::Utility::mydprintf(fd, "Total Nodes: %d\n", total);
+//    Console::Utility::sendPrompt(fd);
 }
 
 
