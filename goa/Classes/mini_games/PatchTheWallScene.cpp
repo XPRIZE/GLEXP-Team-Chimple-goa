@@ -75,6 +75,7 @@ void PatchTheWall::onEnterTransitionDidFinish()
             SpriteDetails._sprite = Sprite::createWithSpriteFrameName("patchthewall/alphagrid.png");
             SpriteDetails._sprite->setPosition(Vec2(_gridX, _gridY));
             this->addChild(SpriteDetails._sprite);
+			SpriteDetails._sprite->setColor(Color3B(205, 133, 63));
 
             auto aplhabets = CommonLabel::createWithTTF(LangUtil::getInstance()->convertUTF16CharToString(_matrix[j][i]), "fonts/Roboto-Regular.ttf", 170);
 			SpriteDetails._label = aplhabets;
