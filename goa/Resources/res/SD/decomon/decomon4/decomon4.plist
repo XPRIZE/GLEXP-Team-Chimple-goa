@@ -4,6 +4,21 @@
     <dict>
         <key>frames</key>
         <dict>
+            <key>decomon/decomon4/backbutton.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{20,14}</string>
+                <key>spriteSourceSize</key>
+                <string>{20,14}</string>
+                <key>textureRect</key>
+                <string>{{376,210},{20,14}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
             <key>decomon/decomon4/decomon_bg1stand.png</key>
             <dict>
                 <key>aliases</key>
@@ -15,9 +30,9 @@
                 <key>spriteSourceSize</key>
                 <string>{386,44}</string>
                 <key>textureRect</key>
-                <string>{{1,1},{386,44}}</string>
+                <string>{{1,408},{386,44}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>decomon/decomon4/decomon_cloud1.png</key>
             <dict>
@@ -30,9 +45,9 @@
                 <key>spriteSourceSize</key>
                 <string>{311,130}</string>
                 <key>textureRect</key>
-                <string>{{47,75},{311,130}}</string>
+                <string>{{1,276},{311,130}}</string>
                 <key>textureRotated</key>
-                <true/>
+                <false/>
             </dict>
             <key>decomon/decomon4/decomon_cloud2.png</key>
             <dict>
@@ -45,9 +60,9 @@
                 <key>spriteSourceSize</key>
                 <string>{141,72}</string>
                 <key>textureRect</key>
-                <string>{{47,1},{141,72}}</string>
+                <string>{{376,1},{141,72}}</string>
                 <key>textureRotated</key>
-                <false/>
+                <true/>
             </dict>
             <key>decomon/decomon4/decomon_nail.png</key>
             <dict>
@@ -60,7 +75,52 @@
                 <key>spriteSourceSize</key>
                 <string>{10,10}</string>
                 <key>textureRect</key>
-                <string>{{179,75},{10,10}}</string>
+                <string>{{314,320},{10,10}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>decomon/decomon4/game_tile.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{64,64}</string>
+                <key>spriteSourceSize</key>
+                <string>{64,64}</string>
+                <key>textureRect</key>
+                <string>{{376,144},{64,64}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>decomon/decomon4/spiral.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{55,42}</string>
+                <key>spriteSourceSize</key>
+                <string>{55,42}</string>
+                <key>textureRect</key>
+                <string>{{314,276},{55,42}}</string>
+                <key>textureRotated</key>
+                <false/>
+            </dict>
+            <key>decomon/decomon4/splash.png</key>
+            <dict>
+                <key>aliases</key>
+                <array/>
+                <key>spriteOffset</key>
+                <string>{0,0}</string>
+                <key>spriteSize</key>
+                <string>{373,273}</string>
+                <key>spriteSourceSize</key>
+                <string>{373,273}</string>
+                <key>textureRect</key>
+                <string>{{1,1},{373,273}}</string>
                 <key>textureRotated</key>
                 <false/>
             </dict>
@@ -76,9 +136,9 @@
             <key>realTextureFileName</key>
             <string>decomon4.png</string>
             <key>size</key>
-            <string>{190,388}</string>
+            <string>{449,453}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:9b83b209fbc77fe4579d6f1e94002e43:63734b7ca0b6c0c66c208dd683e6db7a:8c3c6043c74b97d2fd655001e1f102ae$</string>
+            <string>$TexturePacker:SmartUpdate:eb3f3e99ca3fa6438dcd8e04f2b7a146:1535e902b1ec085210d4673776c1b779:8c3c6043c74b97d2fd655001e1f102ae$</string>
             <key>textureFileName</key>
             <string>decomon4.png</string>
         </dict>

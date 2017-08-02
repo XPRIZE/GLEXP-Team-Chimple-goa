@@ -28,7 +28,7 @@ cocos2d::Layer* DecomonGallery::_decomonLayer;
 //}
 cocos2d::Scene * DecomonGallery::createScene()
 {
-	
+
 	auto scene = cocos2d::Scene::create();
 	DecomonGallery::_decomonLayer = cocos2d::Layer::create();
 	auto layer = DecomonGallery::create();
@@ -36,9 +36,20 @@ cocos2d::Scene * DecomonGallery::createScene()
 	scene->addChild(layer);
 	layer->menu = MenuContext::create(layer, "decomone");
 	scene->addChild(layer->menu);
-	scene->addChild(DecomonGallery::_decomonLayer,1);
-	
+	scene->addChild(DecomonGallery::_decomonLayer, 1);
+
 	return scene;
+}
+
+DecomonGallery *DecomonGallery::create() {
+	DecomonGallery *baja = new (std::nothrow) DecomonGallery();
+	if (baja && baja->init()) {
+		baja->autorelease();
+		return baja;
+	}
+	CC_SAFE_DELETE(baja);
+	return nullptr;
+
 }
 
 DecomonGallery::DecomonGallery()
@@ -115,11 +126,23 @@ bool DecomonGallery::init() {
 			for (int j = 0; j < numCols; j++) {
 				if (index < elems.size()) {
 					std::string gameName = elems.at(index);
+
 					auto testImage = Sprite::create(elems.at(index));
 					auto imageSize = testImage->getContentSize();
-					auto sp = Sprite::create(elems.at(index), Rect(imageSize.width * 0.25, imageSize.height * 0.1, imageSize.width * 0.5, imageSize.height * 0.7));
+
+					Rect rect;
+					auto position = gameName.find("drawAZ09");
+					if (gameName.find("drawAZ09") < 500 && gameName[position] == 'd' && gameName[position + 1] == 'r')
+					{
+						rect = Rect(180, imageSize.height * 0.14, imageSize.width * 0.82, imageSize.height * 0.69);
+					}
+					else {
+						rect = Rect(imageSize.width * 0.25, imageSize.height * 0.1, imageSize.width * 0.5, imageSize.height * 0.7);
+					}
+
+					auto sp = Sprite::create(elems.at(index), rect);
 					sp->setPosition(Vec2(k * visibleSize.width + (j + 0.5) * visibleSize.width / numCols, visibleSize.height - (2 * i + initialYOffSet) * (visibleSize.height / numCols) - 30));
-				//	sp->setAnchorPoint(Vec2(0, 0.5));
+					//	sp->setAnchorPoint(Vec2(0, 0.5));
 					CCLOG("path %s", gameName.c_str());
 					sp->setScale(0.75);
 					this->addChild(sp);
