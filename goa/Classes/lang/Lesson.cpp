@@ -28,8 +28,8 @@ std::vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choice
         mc.question = allUpperStrings[i % allUpperStrings.size()];
         mc.correctAnswer = 0;
         std::vector<std::string> answers;
-        answers.reserve(choices);
-        for (int j = 0; j < choices; j++) {
+        answers.reserve(choices + 1);
+        for (int j = 0; j < choices + 1; j++) {
             answers.insert(answers.begin() + j, allLowerStrings[j % allLowerStrings.size()]);
         }
         mc.answers = answers;
