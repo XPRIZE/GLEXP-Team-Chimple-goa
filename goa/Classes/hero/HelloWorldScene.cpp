@@ -914,12 +914,6 @@ void HelloWorld::hideWordBubbles(EventCustom * event) {
 
 
 
-void HelloWorld::transitionToDuelScene(wchar_t alphabet) {
-    std::string firstParam = LangUtil::getInstance()->convertUTF16CharToString(CharGenerator::getInstance()->generateAChar());
-    std::string secondParam = LangUtil::getInstance()->convertUTF16CharToString(alphabet);
-    StartMenu::startScene(DUEL_SCENE_NAME, firstParam, secondParam);
-}
-
 void HelloWorld::processTextMessage(std::unordered_map<int, std::string> textMap, std::string ownerOfMessage)
 {
     

@@ -148,9 +148,9 @@ const std::vector<int> KannadaUtil::getNumCharsInRows() {
 }
 
 
-std::string KannadaUtil::getMonsterAnimationFileName(wchar_t alpha) {
+std::string KannadaUtil::getMonsterAnimationFileName(std::string alpha) {
  
-    return std::string("kannada/")+ langMap.at(alpha) +".csb";
+    return std::string("kannada/")+ stringLangMap.at(alpha) +".csb";
 }
 
 std::string KannadaUtil::getSpecialAnimationFileName(wchar_t alpha, std::string suffix) {

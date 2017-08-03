@@ -69,7 +69,7 @@ void AlphabetGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
     }
 }
 
-void AlphabetGrid::setCharacters(std::vector<std::vector<wchar_t> > charArray) {
+void AlphabetGrid::setCharacters(std::vector<std::vector<std::string> > charArray) {
     _alphabetLayer->removeAllChildren();
     const float squareWidth = _width / _numCols;
     const float squareHeight = _height / _numRows;
@@ -97,13 +97,13 @@ bool AlphabetGrid::onTouchBegan(Touch* touch, Event* event){
 }
 
 
-std::vector<Alphabet *> AlphabetGrid::getAlphabetsWhichMatch(wchar_t a) {
+std::vector<Alphabet *> AlphabetGrid::getAlphabetsWhichMatch(std::string a) {
     std::vector<Alphabet *> matchingAlphabets = std::vector<Alphabet *>();
     for (int i = 0; i < _numRows; i++) {
         for (int j = 0; j < _numCols; j++) {
             Alphabet *alpha = _alphabetMatrix[i][j];
             if(alpha->isSelected() && alpha->getChar() == a) {
-                CCLOG("matched %c", alpha->getChar());
+                CCLOG("matched %s", alpha->getChar().c_str());
                 matchingAlphabets.push_back(_alphabetMatrix[i][j]);
             }
         }
@@ -111,7 +111,7 @@ std::vector<Alphabet *> AlphabetGrid::getAlphabetsWhichMatch(wchar_t a) {
     return matchingAlphabets;
 }
 
-int AlphabetGrid::getCountOfAlphabetsWhichMatch(wchar_t a) {
+int AlphabetGrid::getCountOfAlphabetsWhichMatch(std::string a) {
     int count = 0;
     for (int i = 0; i < _numRows; i++) {
         for (int j = 0; j < _numCols; j++) {

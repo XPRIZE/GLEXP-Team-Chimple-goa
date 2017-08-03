@@ -62,7 +62,7 @@ bool SelectAlphamon::init() {
         int countInRow = 0;
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < numCols; j++) {
-                auto alphamon = Alphamon::createWithAlphabet(allChars[count]);
+                auto alphamon = Alphamon::createWithAlphabet(LangUtil::convertUTF16CharToString(allChars[count]));
                 alphamon->setPosition(Vec2(origin.x + visibleSize.width * (j + 0.5 )/ numCols, - ALPHA_WIDTH * (totalNumRows + 0.75) * HEIGHT_FACTOR));
                 alphamon->setScale(0.6);
                 _layer->addChild(alphamon);
@@ -92,9 +92,9 @@ void SelectAlphamon::onAlphabetSelected(EventCustom *event) {
     _firstChar = buf[0];
     auto firstMon = _layer->getChildByName(LangUtil::convertUTF16CharToString(_firstChar));
     firstMon->setScale(0.8);
-    _secondChar = CharGenerator::getInstance()->generateAChar();
+//    _secondChar = CharGenerator::getInstance()->generateAChar();
     
     _eventDispatcher->removeCustomEventListeners("alphamon_pressed");
-    Director::getInstance()->replaceScene(TransitionFade::create(2.0, DuelScene::createScene(_firstChar, _secondChar)));
+//    Director::getInstance()->replaceScene(TransitionFade::create(2.0, DuelScene::createScene(_firstChar, _secondChar)));
 
 }

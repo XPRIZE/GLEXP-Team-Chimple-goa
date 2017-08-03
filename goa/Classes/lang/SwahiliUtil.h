@@ -19,7 +19,7 @@ public:
     virtual const wchar_t* getAllLowerCaseCharacters() override;
     virtual const wchar_t* getAllNumbers() override;
     virtual const std::vector<int> getNumCharsInRows() override;
-    virtual std::string getMonsterAnimationFileName(wchar_t alpha) override;
+    virtual std::string getMonsterAnimationFileName(std::string alpha) override;
     virtual std::string getSpecialAnimationFileName(wchar_t alpha, std::string suffix) override;
     virtual std::string getBMFontFileName() override;
     virtual std::string getAlphabetSoundFileName(wchar_t alpha) override;

@@ -45,8 +45,8 @@ const std::vector<int> SwahiliUtil::getNumCharsInRows() {
     return SwahiliNumCharsInRows;
 }
 
-std::string SwahiliUtil::getMonsterAnimationFileName(wchar_t alpha) {
-    return std::string("lang/swa/") + convertUTF16CharToString(alpha) +".csb";
+std::string SwahiliUtil::getMonsterAnimationFileName(std::string alpha) {
+    return std::string("lang/swa/") + alpha +".csb";
 }
 
 std::string SwahiliUtil::getSpecialAnimationFileName(wchar_t alpha, std::string suffix) {

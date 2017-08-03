@@ -123,7 +123,7 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	this->addChild(boardDisplay, 10);
 	
-	letterOnBoard =  Alphabet::createWithSize(tempChar, 300);
+	letterOnBoard =  Alphabet::createWithSize(LangUtil::convertUTF16CharToString(tempChar), 300);
 	letterOnBoard->setName("mainBoard");
 	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
@@ -357,11 +357,11 @@ void EndlessRunner::startingIntersectMode() {
 				}
 
 				// If correct alphabet picked ......
-				_menuContext->pickAlphabet(tempChar,allLabels[i]->getChar(), true);
+				_menuContext->pickWord(LangUtil::convertUTF16CharToString(tempChar),allLabels[i]->getChar(), true);
 				_menuContext->addPoints(1);
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getChar());
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getChar());
 				audio->playEffect(path.c_str(), false);
 
 				counterAlphabets = counterAlphabets + 2;
@@ -374,7 +374,7 @@ void EndlessRunner::startingIntersectMode() {
 					letterBoardAlphaLength++;
 					hpUiCatchAction->play("1", false);
 					tempChar = _alphabets[letterBoardAlphaLength];
-					letterOnBoard->updateChar(tempChar);
+					letterOnBoard->updateChar(LangUtil::convertUTF16CharToString(tempChar));
 					letterOnBoard->setString(LangUtil::convertUTF16CharToString(tempChar));
 					counterAlphabets = 0;
 					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
@@ -413,7 +413,7 @@ void EndlessRunner::startingIntersectMode() {
 			}
 			else {
 				// If wrong alphabet picked ...
-				_menuContext->pickAlphabet(tempChar, allLabels[i]->getChar(), true);
+				_menuContext->pickWord(LangUtil::convertUTF16CharToString(tempChar), allLabels[i]->getChar(), true);
 				_menuContext->addPoints(-1);
 
 				hpUi->getChildByName("happy_mad")->setScale(1);
@@ -429,7 +429,7 @@ void EndlessRunner::startingIntersectMode() {
 				}
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(allLabels[i]->getChar());
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getChar());
 				audio->playEffect(path.c_str(), false);
 				if (popUp) {
 					auto highScale = CallFunc::create([=]() { happyManAction->play("change_happy_mad", false); });
@@ -827,7 +827,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 			_flagLetter = false;
 		}
 
-		auto label = Alphabet::createWithSize(str, 300);
+		auto label = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(str), 300);
 		label->setName(LangUtil::convertUTF16CharToString(str));
 		label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 		label->setTag(Character.uniqueId);

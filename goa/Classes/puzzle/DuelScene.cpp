@@ -14,13 +14,13 @@
 #include "AlphabetGrid.h"
 #include "CharGenerator.h"
 #include "../alphamon/Alphamon.h"
-#include "../alphamon/SelectAlphamonScene.h"
 #include "../effects/FShake.h"
 #include "../menu/MenuContext.h"
 #include "ui/CocosGUI.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
+#include "../util/MatrixUtil.h"
 
 USING_NS_CC;
 
@@ -34,10 +34,10 @@ DuelScene::DuelScene() :
 _turnNumber(0),
 _timer(nullptr),
 _timerAnimation(nullptr),
-_myMonChar(0),
-_otherMonChar(0)
+_myMonStr(""),
+_otherMonStr(""),
+_lesson(0)
 {
-    
 }
 
 DuelScene::~DuelScene() {
@@ -45,31 +45,11 @@ DuelScene::~DuelScene() {
     _eventDispatcher->removeCustomEventListeners("alphabet_unselected");    
 }
 
-Scene* DuelScene::createScene(wchar_t myMonChar, wchar_t otherMonChar)
-{
-    auto layer = DuelScene::create(myMonChar, otherMonChar);
-    auto scene = GameScene::createWithChild(layer, ALPHAMON_COMBAT);
-    layer->_menuContext = scene->getMenuContext();
-    return scene;
-}
-
 Scene* DuelScene::createScene() {
     auto layer = DuelScene::create();
     auto scene = GameScene::createWithChild(layer, ALPHAMON_COMBAT);
     layer->_menuContext = scene->getMenuContext();
     return scene;
-}
-
-DuelScene* DuelScene::create(wchar_t myMonChar, wchar_t otherMonChar)
-{
-    DuelScene* duelScene = new (std::nothrow) DuelScene();
-    if(duelScene && duelScene->init(myMonChar, otherMonChar))
-    {
-        duelScene->autorelease();
-        return duelScene;
-    }
-    CC_SAFE_DELETE(duelScene);
-    return nullptr;
 }
 
 DuelScene* DuelScene::create()
@@ -85,15 +65,13 @@ DuelScene* DuelScene::create()
 }
 
 void DuelScene::onEnterTransitionDidFinish() {
-    if(_myMonChar == 0) {
-        auto allChars = LangUtil::getInstance()->getAllCharacters();
-        auto level = _menuContext->getCurrentLevel();
-        if(level <= LangUtil::getInstance()->getNumberOfCharacters()) {
-            _myMonChar = allChars[level-1];
-        } else {
-            _myMonChar = allChars[rand() % LangUtil::getInstance()->getNumberOfCharacters()];
-        }
-        _otherMonChar = CharGenerator::getInstance()->generateAChar();
+    if(_myMonStr.empty()) {
+        auto vmc = _lesson.getMultiChoices(2, 8);
+        auto mc = vmc[0];
+        _myMonStr = vmc[0].question;
+        _answer = vmc[0].answers[vmc[0].correctAnswer];
+        _choices = MatrixUtil::getOnlyChoices(vmc[0].answers, vmc[0].correctAnswer);
+        _otherMonStr = vmc[1].question;
     }
     _background = CSLoader::createNode("battle_ground.csb");
     addChild(_background);
@@ -136,16 +114,6 @@ void DuelScene::onEnterTransitionDidFinish() {
     startDuel();
 }
 
-bool DuelScene::init(wchar_t myMonChar, wchar_t otherMonChar)
-{
-    if (!Node::init()) {
-        return false;
-    }
-    _myMonChar = myMonChar;
-    _otherMonChar = otherMonChar;
-    
-    return true;
-}
 
 bool DuelScene::init()
 {
@@ -182,7 +150,7 @@ void DuelScene::startDuel() {
 void DuelScene::appearMyMon() {
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
-    _myMon = Alphamon::createWithAlphabet(_myMonChar);
+    _myMon = Alphamon::createWithAlphabet(_myMonStr);
     _myMon->setPosition(Vec2(origin.x + visibleSize.width / 2, origin.y + visibleSize.height / 2));
     _myMon->setScale(0.2);
     
@@ -194,7 +162,7 @@ void DuelScene::appearMyMon() {
     auto monJumpTo = JumpTo::create(1, leftStand->getPosition() + Vec2(0, 40), 100, 1);
     auto monSpawn = Spawn::create(monScale, monJumpTo, NULL);
 
-    _otherMon = Alphamon::createWithAlphabet(_otherMonChar);
+    _otherMon = Alphamon::createWithAlphabet(_otherMonStr);
     auto rightStand = _background->getChildByName(RIGHT_STAND_NAME);
     addChild(_otherMon);
     _otherMon->setPosition(rightStand->getPosition() + Vec2(2000, 40));
@@ -233,11 +201,11 @@ void DuelScene::startMyTurn() {
             numRows /= 2;
             _timerAnimation->setTimeSpeed(0.1);
         }
-        auto charArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_myMon->getAlphabet(), numRows, numCols, 50);
+        auto charArray = MatrixUtil::generateMatrixForChoosing(_answer, _choices, numRows, numCols, 50);
         _grid->resize(SQUARE_WIDTH * MAX_COLS, SQUARE_WIDTH * MAX_ROWS, numRows, numCols);
         _grid->setCharacters(charArray);
         _grid->enableTouch(false);
-        _powerIncr = ceil(100.0 / _grid->getCountOfAlphabetsWhichMatch(_myMon->getAlphabet()));
+        _powerIncr = ceil(100.0 / _grid->getCountOfAlphabetsWhichMatch(_answer));
         
         _timerAnimation->gotoFrameAndPause(1);
         auto moveTo = MoveTo::create(2.0, _timerPosition);
@@ -266,7 +234,7 @@ void DuelScene::returnToPrevScene() {
 
 void DuelScene::armMyMon() {
     _grid->enableTouch(false);
-    auto matchingAlphabets = _grid->getAlphabetsWhichMatch(_myMon->getAlphabet());
+    auto matchingAlphabets = _grid->getAlphabetsWhichMatch(_answer);
     for(auto alpha: matchingAlphabets) {
         auto particle = cocos2d::ParticleMeteor::create();
         particle->setPosition(convertToNodeSpace(alpha->getParent()->convertToWorldSpace(alpha->getPosition())));
@@ -358,21 +326,21 @@ void DuelScene::endMeteor(Node* node) {
 }
 
 void DuelScene::onAlphabetSelected(EventCustom *event) {
-    wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
-    if(_myMon->getAlphabet() == buf[0]) {
+    std::string* buf = static_cast<std::string*>(event->getUserData());
+    if(_answer == buf[0]) {
         _myMon->changePower(_powerIncr);
     } else {
         _myMon->changePower(-_powerIncr);
     }
-    _menuContext->pickAlphabet(_myMon->getAlphabet(), buf[0], true);
+    _menuContext->pickWord(_answer, buf[0], true);
 }
 
 void DuelScene::onAlphabetUnselected(EventCustom *event) {
-    wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
-    if(_myMon->getAlphabet() == buf[0]) {
+    std::string* buf = static_cast<std::string*>(event->getUserData());
+    if(_answer == buf[0]) {
         _myMon->changePower(-_powerIncr);
     } else {
         _myMon->changePower(_powerIncr);
     }
-    _menuContext->pickAlphabet(_myMon->getAlphabet(), buf[0], false);
+    _menuContext->pickWord(_answer, buf[0], false);
 }
