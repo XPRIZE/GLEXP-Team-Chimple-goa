@@ -8,7 +8,6 @@
 
 #include "StartMenuScene.h"
 #include "../hero/HelloWorldScene.h"
-#include "../alphamon/SelectAlphamonScene.h"
 #include "../puzzle/DuelScene.h"
 #include "../puzzle/WordBoard.h"
 #include "../puzzle/PegWord.h"

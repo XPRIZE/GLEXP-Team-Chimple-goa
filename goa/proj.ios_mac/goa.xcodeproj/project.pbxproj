@@ -130,6 +130,10 @@
 		F33C90E11F2AFCF900E71364 /* TextureData.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33C90881F2AFCF900E71364 /* TextureData.cpp */; };
 		F33C90EC1F2B0AF400E71364 /* HelloDragonBones.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33C90EA1F2B0AF400E71364 /* HelloDragonBones.cpp */; };
 		F33C90ED1F2B0AF400E71364 /* HelloDragonBones.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33C90EA1F2B0AF400E71364 /* HelloDragonBones.cpp */; };
+		F33C90F61F2F3D6900E71364 /* Lesson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33C90F41F2F3D6900E71364 /* Lesson.cpp */; };
+		F33C90F71F2F3D6900E71364 /* Lesson.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33C90F41F2F3D6900E71364 /* Lesson.cpp */; };
+		F33C90FA1F32F9F800E71364 /* MatrixUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33C90F81F32F9F800E71364 /* MatrixUtil.cpp */; };
+		F33C90FB1F32F9F800E71364 /* MatrixUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33C90F81F32F9F800E71364 /* MatrixUtil.cpp */; };
 		F35040891E3219890005DF8D /* Alphamon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35040831E3219890005DF8D /* Alphamon.cpp */; };
 		F350408A1E3219890005DF8D /* Alphamon.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35040831E3219890005DF8D /* Alphamon.cpp */; };
 		F350408B1E3219890005DF8D /* HPMeter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35040851E3219890005DF8D /* HPMeter.cpp */; };
@@ -761,6 +765,10 @@
 		F33C90B51F2AFCF900E71364 /* rapidxml_utils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = rapidxml_utils.hpp; sourceTree = "<group>"; };
 		F33C90EA1F2B0AF400E71364 /* HelloDragonBones.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HelloDragonBones.cpp; sourceTree = "<group>"; };
 		F33C90EB1F2B0AF400E71364 /* HelloDragonBones.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelloDragonBones.h; sourceTree = "<group>"; };
+		F33C90F41F2F3D6900E71364 /* Lesson.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Lesson.cpp; sourceTree = "<group>"; };
+		F33C90F51F2F3D6900E71364 /* Lesson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lesson.h; sourceTree = "<group>"; };
+		F33C90F81F32F9F800E71364 /* MatrixUtil.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MatrixUtil.cpp; sourceTree = "<group>"; };
+		F33C90F91F32F9F800E71364 /* MatrixUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatrixUtil.h; sourceTree = "<group>"; };
 		F35040831E3219890005DF8D /* Alphamon.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Alphamon.cpp; sourceTree = "<group>"; };
 		F35040841E3219890005DF8D /* Alphamon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alphamon.h; sourceTree = "<group>"; };
 		F35040851E3219890005DF8D /* HPMeter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = HPMeter.cpp; sourceTree = "<group>"; };
@@ -2009,6 +2017,8 @@
 				F35041681E32199F0005DF8D /* WordInfo.h */,
 				F35041691E32199F0005DF8D /* WordManager.cpp */,
 				F350416A1E32199F0005DF8D /* WordManager.h */,
+				F33C90F41F2F3D6900E71364 /* Lesson.cpp */,
+				F33C90F51F2F3D6900E71364 /* Lesson.h */,
 			);
 			path = lang;
 			sourceTree = "<group>";
@@ -2310,6 +2320,8 @@
 				F350424B1E32199F0005DF8D /* lib */,
 				9C6D78461EDCF7C100ABCD63 /* StoryTextField.cpp */,
 				9C6D78471EDCF7C100ABCD63 /* StoryTextField.hpp */,
+				F33C90F81F32F9F800E71364 /* MatrixUtil.cpp */,
+				F33C90F91F32F9F800E71364 /* MatrixUtil.h */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -2523,6 +2535,7 @@
 				F350439F1E3219A00005DF8D /* CharacterConfiguration.cpp in Sources */,
 				F350433F1E3219A00005DF8D /* CarDraw.cpp in Sources */,
 				F35043631E3219A00005DF8D /* Jasmin_Mainfile.cpp in Sources */,
+				F33C90FA1F32F9F800E71364 /* MatrixUtil.cpp in Sources */,
 				F35042911E32199F0005DF8D /* preprocessing.cpp in Sources */,
 				F35042551E32199F0005DF8D /* LTKChannel.cpp in Sources */,
 				F33C90D01F2AFCF900E71364 /* BaseFactory.cpp in Sources */,
@@ -2612,6 +2625,7 @@
 				F35042F31E32199F0005DF8D /* LanguageManager.cpp in Sources */,
 				F35042D31E32199F0005DF8D /* AlphamonSprite.cpp in Sources */,
 				F350435F1E3219A00005DF8D /* Item.cpp in Sources */,
+				F33C90F61F2F3D6900E71364 /* Lesson.cpp in Sources */,
 				F33C90BC1F2AFCF900E71364 /* WorldClock.cpp in Sources */,
 				F35043011E32199F0005DF8D /* Award.cpp in Sources */,
 				F35043A71E3219A00005DF8D /* AlphabetGrid.cpp in Sources */,
@@ -2838,6 +2852,7 @@
 				F350438C1E3219A00005DF8D /* Stack.cpp in Sources */,
 				F35043321E3219A00005DF8D /* BalloonHero.cpp in Sources */,
 				F35043BC1E3219A00005DF8D /* sqlite3.c in Sources */,
+				F33C90F71F2F3D6900E71364 /* Lesson.cpp in Sources */,
 				F35042EC1E32199F0005DF8D /* I18nUtils.cpp in Sources */,
 				F35042EE1E32199F0005DF8D /* MO.cpp in Sources */,
 				F350439E1E3219A00005DF8D /* Wembley.cpp in Sources */,
@@ -2946,6 +2961,7 @@
 				F3E3AC171E924F6700AD906E /* DotsQuizLayer.cpp in Sources */,
 				F35043D61E3219A00005DF8D /* CommonLabelTTF.cpp in Sources */,
 				F350437E1E3219A00005DF8D /* Shape.cpp in Sources */,
+				F33C90FB1F32F9F800E71364 /* MatrixUtil.cpp in Sources */,
 				F33C90D31F2AFCF900E71364 /* AnimationData.cpp in Sources */,
 				F350437A1E3219A00005DF8D /* Pop.cpp in Sources */,
 				F35043481E3219A00005DF8D /* Chain.cpp in Sources */,

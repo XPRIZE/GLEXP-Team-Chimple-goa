@@ -13,27 +13,27 @@
 class Alphabet : public cocos2d::Label
 {
 public:
-    static Alphabet *createWithSize(wchar_t alphabet, float fontSize);
+    static Alphabet *createWithSize(std::string alphabet, float fontSize);
     bool isSelected();
     void selected(bool value);
-    wchar_t getChar();
+    std::string getChar();
     void enableTouch(bool value);
     std::function<bool(cocos2d::Touch*, cocos2d::Event*)> touchBeganCallback;
     std::function<void(cocos2d::Touch*, cocos2d::Event*)> touchMovedCallback;
     std::function<void(cocos2d::Touch*, cocos2d::Event*)> touchEndedCallback;
-    void updateChar(wchar_t alphabet);
+    void updateChar(std::string alphabet);
     
     
 CC_CONSTRUCTOR_ACCESS:
     Alphabet();
     virtual ~Alphabet();
-    bool initWithSize(wchar_t alphabet, float fontSize);
+    bool initWithSize(std::string alphabet, float fontSize);
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
     
 protected:
-    wchar_t _alphabet;
+    std::string _alphabet;
     bool _selected;
     float _fontSize;
     cocos2d::EventListenerTouchOneByOne *_listener;

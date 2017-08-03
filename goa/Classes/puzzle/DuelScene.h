@@ -14,14 +14,13 @@
 #include "../alphamon/HPMeter.h"
 #include "../menu/MenuContext.h"
 #include "AlphabetGrid.h"
+#include "../lang/Lesson.h"
 
 class DuelScene : public cocos2d::Node
 {
 public:
-    static cocos2d::Scene* createScene(wchar_t myMonChar, wchar_t otherMonChar);
     static cocos2d::Scene* createScene();
 
-    static DuelScene *create(wchar_t myMonChar, wchar_t otherMonChar);
     static DuelScene *create();
     
     virtual void onAlphabetSelected(cocos2d::EventCustom *eventCustom);
@@ -34,11 +33,12 @@ CC_CONSTRUCTOR_ACCESS:
     DuelScene();
     ~DuelScene();
     bool init() override;
-    bool init(wchar_t myMonChar, wchar_t otherMonChar);
     
 protected:
-    wchar_t _myMonChar;
-    wchar_t _otherMonChar;
+    std::string _myMonStr;
+    std::string _otherMonStr;
+    std::string _answer;
+    std::vector<std::string> _choices;
     Alphamon *_myMon;
     Alphamon *_otherMon;
     Node *_timer;
@@ -49,6 +49,7 @@ protected:
     int _powerIncr;
     int _turnNumber;
     MenuContext* _menuContext;
+    Lesson _lesson;
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref *pSender);

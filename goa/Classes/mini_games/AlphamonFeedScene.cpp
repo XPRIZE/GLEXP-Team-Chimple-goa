@@ -125,7 +125,7 @@ void AlphamonFeed::startGame() {
 	ss << mychar;
 	std::string mycharString = ss.str();
 	//std::string mycharString = LangUtil::convertUTF16CharToString(mychar);
-	sprite1 = Alphamon::createWithAlphabet(mychar);//alphaLevelString.at(0));
+	sprite1 = Alphamon::createWithAlphabet(mycharString);//alphaLevelString.at(0));
 	sprite1->setScaleX(0.85);
 	sprite1->setScaleY(0.85);
 	sprite1->setPositionX(visibleSize.width/2);

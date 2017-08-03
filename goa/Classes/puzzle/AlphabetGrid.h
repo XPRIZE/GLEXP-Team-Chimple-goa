@@ -16,9 +16,9 @@ class AlphabetGrid : public cocos2d::Layer
 {
 public:
     static AlphabetGrid *create(GLfloat width, GLfloat height, int numRows, int numCols);
-    void setCharacters(std::vector<std::vector<wchar_t>> charArray);
-    std::vector<Alphabet *> getAlphabetsWhichMatch(wchar_t a);
-    int getCountOfAlphabetsWhichMatch(wchar_t a);
+    void setCharacters(std::vector<std::vector<std::string>> charArray);
+    std::vector<Alphabet *> getAlphabetsWhichMatch(std::string a);
+    int getCountOfAlphabetsWhichMatch(std::string a);
     void enableTouch(bool value);
     void resize(GLfloat width, GLfloat height, int numRows, int numCols);
     bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);

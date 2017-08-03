@@ -176,7 +176,8 @@ void SmashTheRock::begin()
 			//label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
 			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
 			//CCLOG("alpha = %s",str.c_str());
-			Alphabet *label = Alphabet::createWithSize(str1, 350);
+            auto mystr = LangUtil::convertUTF16CharToString(str1);
+			Alphabet *label = Alphabet::createWithSize(mystr, 350);
 			//	label->setScale(0.15);
 			label->setPositionX(xx + block->getContentSize().width/2);
 			auto letter = label->getString();
@@ -188,7 +189,6 @@ void SmashTheRock::begin()
 				firstMychar = false;
 			}
 		    label->setAnchorPoint(Vec2(0.2,-0.1)); //Vec2::ANCHOR_MIDDLE_BOTTOM
-			auto mystr = LangUtil::convertUTF16CharToString(str1);
 			label->setName(mystr);
 			//label->setScaleX(0.35);
 			//label->setScaleY(0.45);
@@ -323,7 +323,8 @@ void SmashTheRock::masking()
 {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
-	_label1 = Alphabet::createWithSize(mychar, 1300);
+    
+	_label1 = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(mychar), 1300);
 //	label1 = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), Alphabets.at(key).c_str());
 //	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), "fonts/BalooBhai-Regular.ttf", 256);
 	//_label1->setScale(1.5);
@@ -395,7 +396,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	{
 		auto scale = ScaleBy::create(0.1, 0.75);
 		target->runAction(Sequence::create(scale, scale->reverse(), NULL));
-		menu->pickAlphabet(myletter, mychar, true);
+		menu->pickWord(myletter, LangUtil::convertUTF16CharToString(mychar), true);
 		flag = false;
 		int myIndex = 0;
 		for (int i = 0; i < labelRef.size(); i++) {
@@ -404,7 +405,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 				myIndex = i;
 			}
 		}
-		if (myletter == mychar)
+		if (myletter == LangUtil::convertUTF16CharToString(mychar))
 		{
 			int indexj = (target->getPositionX());
 			int indexi = (target->getPositionY());
@@ -424,7 +425,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			click++;
 			menu->addPoints(1);
 
-			menu->pickAlphabet(mychar, myletter, true);
+			menu->pickWord(LangUtil::convertUTF16CharToString(mychar), myletter, true);
 
 			if (_helpFlage) {
 				this->removeChildByName("helpLayer");
@@ -453,7 +454,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			maskedFill->runAction(shake);
 			menu->addPoints(-1);
-			menu->pickAlphabet(mychar, myletter, true);
+			menu->pickWord(LangUtil::convertUTF16CharToString(mychar), myletter, true);
 			
 			
 			return false;

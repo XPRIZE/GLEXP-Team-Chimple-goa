@@ -29,7 +29,7 @@ bool Alphabet::onTouchBegan(Touch* touch, Event* event){
             //        getParent()->addChild(overlay);
             selected(!isSelected());
             auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-            audio->playEffect(LangUtil::getInstance()->getAlphabetSoundFileName(_alphabet).c_str());
+            audio->playEffect(LangUtil::getInstance()->getAlphabetSoundFileNameForString(_alphabet).c_str());
             if(touchBeganCallback) {
                 return touchBeganCallback(touch, event);
             }
@@ -65,13 +65,13 @@ void Alphabet::selected(bool value) {
     _selected = value;
     if(value) {
         EventCustom event("alphabet_selected");
-        wchar_t *data = new wchar_t[1];
+        std::string *data = new std::string[1];
         data[0] = _alphabet;
         event.setUserData(data);
         _eventDispatcher->dispatchEvent(&event);
     } else {
         EventCustom event("alphabet_unselected");
-        wchar_t *data = new wchar_t[1];
+        std::string *data = new std::string[1];
         data[0] = _alphabet;
         event.setUserData(data);
         _eventDispatcher->dispatchEvent(&event);
@@ -82,7 +82,7 @@ void Alphabet::enableTouch(bool value) {
     _listener->setEnabled(value);
 }
 
-wchar_t Alphabet::getChar() {
+std::string Alphabet::getChar() {
     return _alphabet;
 }
 
@@ -103,7 +103,7 @@ touchEndedCallback(NULL)
 
 Alphabet::~Alphabet() {}
 
-Alphabet *Alphabet::createWithSize(wchar_t a, float fontSize) {
+Alphabet *Alphabet::createWithSize(std::string a, float fontSize) {
     Alphabet *alphabet = new (std::nothrow) Alphabet();
     if(alphabet && alphabet->initWithSize(a, fontSize)) {
         alphabet->autorelease();
@@ -113,11 +113,11 @@ Alphabet *Alphabet::createWithSize(wchar_t a, float fontSize) {
     return nullptr;
 }
 
-bool Alphabet::initWithSize(wchar_t alphabet, float fontSize) {
+bool Alphabet::initWithSize(std::string alphabet, float fontSize) {
     _alphabet = alphabet;
     _fontSize = fontSize;
     Label::setBMFontFilePath(LangUtil::getInstance()->getBMFontFileName());
-    Label::setString(LangUtil::convertUTF16CharToString(alphabet));
+    Label::setString(alphabet);
     setScale(fontSize / MAX_FONT_SIZE);
     if(LangUtil::getInstance()->getLang() == "kan") {
         setAnchorPoint(Vec2(0.5, 0.65));
@@ -126,6 +126,6 @@ bool Alphabet::initWithSize(wchar_t alphabet, float fontSize) {
 }
 
 
-void Alphabet::updateChar(wchar_t alphabet) {
+void Alphabet::updateChar(std::string alphabet) {
     _alphabet = alphabet;
 }

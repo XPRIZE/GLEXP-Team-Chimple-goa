@@ -29,7 +29,7 @@ cocos2d::Scene * AlphamoleLevel::createScene()
 }
 
 void AlphamoleLevel::onAlphabetSelected(EventCustom *event) {
-	wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
+//	wchar_t* buf = static_cast<wchar_t*>(event->getUserData());
 	_eventDispatcher->removeCustomEventListeners("alphamon_pressed");
 	_eventDispatcher->removeCustomEventListeners("alphabet_unselected");
 	//Director::getInstance()->replaceScene(TransitionFade::create(2.0, Alphamole::createScene(buf[0])));
@@ -71,7 +71,7 @@ bool AlphamoleLevel::init() {
 		int countInRow = 0;
 		for (int i = 0; i < numRows; i++) {
 			for (int j = 0; j < numCols; j++) {
-				auto alphamon = Alphamon::createWithAlphabet(allChars[count]);
+                auto alphamon = Alphamon::createWithAlphabet(LangUtil::convertUTF16CharToString(allChars[count]));
 				alphamon->setPosition(Vec2(origin.x + visibleSize.width * (j + 0.5) / numCols, -ALPHA_WIDTH * (totalNumRows + 0.75) * HEIGHT_FACTOR));
 				alphamon->setScale(0.5);
 				_layer->addChild(alphamon);

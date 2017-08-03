@@ -260,12 +260,12 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 	
 	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 70);
 
-	letterOnBoard = Alphabet::createWithSize(letterToDisplay, 220);
+    auto newStr= LangUtil::convertUTF16CharToString(letterToDisplay);
+	letterOnBoard = Alphabet::createWithSize(newStr, 220);
 	letterOnBoard->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height*0.929 + origin.y));
 	letterOnBoard->setScale(0.4);
 	this->addChild(letterOnBoard, 3);
 	auto gap = Director::getInstance()->getVisibleSize().width /8;
-	auto newStr= LangUtil::convertUTF16CharToString(letterToDisplay);
 	for (auto i = 0; i < 8; i++)
 	{
 		auto displayLetter = LabelTTF::create(newStr, "Helvetica",400);
@@ -313,7 +313,7 @@ else {
 				comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 65);
 				alphabetCounter = 0;
 			}
-		Alphamon* alphaMon = Alphamon::createWithAlphabet(name);
+		Alphamon* alphaMon = Alphamon::createWithAlphabet(mystr);
 		alphaMon->setPosition(Vec2((barrierRight->getPosition().x + origin.x), (visibleSize.height*0.47) + origin.y));
 		this->addChild(alphaMon, 1);
 
@@ -342,7 +342,7 @@ void CrossTheBridge::alphaDeletion()
 			if (_gamePointFlag) {
 				_pointCounter++; _gamePointFlag = false;
 			}
-			if (alphaContainer[i]->getAlphabet() == letterToDisplay)
+			if (alphaContainer[i]->getAlphabet() == LangUtil::convertUTF16CharToString(letterToDisplay))
 			{
 				
 				if (letterDisplayCounter < 8 && pointGenerater)
@@ -463,7 +463,7 @@ void CrossTheBridge::alphaLoud()
 				auto Sequences = Sequence::create(ScaleTo::create(0.17, 0.80), DelayTime::create(0.07), ScaleTo::create(0.17, 0.70), NULL);
 				alphaContainer[i]->runAction(Sequences);
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(alphaContainer[i]->getAlphabet());
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(alphaContainer[i]->getAlphabet());
 				audio->playEffect(path.c_str(), false);
 				alphaSoundFlag = false;
 			}
