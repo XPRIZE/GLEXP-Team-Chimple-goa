@@ -16,9 +16,9 @@ class DecomonGallery : public cocos2d::ui::ScrollView {
 
 public:
 	static cocos2d::Scene* createScene();
-	//static DecomonGallery* create();
+	static DecomonGallery* create();
 	//static const char* gameName() { return DECOMON.g; }
-   CREATE_FUNC(DecomonGallery);
+	//CREATE_FUNC(DecomonGallery);
 CC_CONSTRUCTOR_ACCESS:
 	virtual bool init();
 	DecomonGallery();

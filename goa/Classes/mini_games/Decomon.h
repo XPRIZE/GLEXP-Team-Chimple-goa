@@ -22,20 +22,21 @@ public:
 	~Decomon();
 	static Decomon* create();
 	virtual bool init();
+	void update(float dt);
 	static cocos2d::Scene* createScene();
 	float _width;
-	
+
 protected:
 	MenuContext * menu;
-	cocos2d::Layer * _costumeLayer, *_alphabetLayer, * _maskingLayer, * _iconLayer, *_coloringLayer;
+	cocos2d::Layer * _costumeLayer, *_alphabetLayer, *_maskingLayer, *_iconLayer, *_coloringLayer;
 	cocos2d::Node * _movedNode, *_alphaNode;
-	cocos2d::DrawNode *_paintingNode;
+	cocos2d::DrawNode *_paintingNode, *_drawingPaintNode;;
 	cocos2d::Vector<cocos2d::Node *> _drawNodes;
 	int _colorIndex;
 	std::string _myChar;
 	cocos2d::RenderTexture *_paintingTexture;
 	cocos2d::Sprite *_paintingColour;
-	int _pickedColor_R, _pickedColor_G, _pickedColor_B;
+	int _pickedColor_R = 0, _pickedColor_G = 0, _pickedColor_B = 0;
 	bool _touched = false, _flip, _colorPicked = false, _screenShoot = true, _onTouch = true;
 	cocos2d::Vector <cocos2d::Node *> _movedNodes;
 	std::vector <std::string> _eyePath;
@@ -47,7 +48,7 @@ protected:
 	std::vector <std::string> _hornPath;
 	std::vector <std::string> _gearPath;
 	virtual bool onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event);
-//	virtual void onTouchMoved(const std::vector<Touch*>& touches, Event* event);
+	//	virtual void onTouchMoved(const std::vector<Touch*>& touches, Event* event);
 	virtual void onTouchMoved(cocos2d::Touch *touch, cocos2d::Event * event);
 	virtual void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event * event);
 	void itemInAGrid(std::vector<std::string> item, std::string name);
@@ -62,13 +63,18 @@ protected:
 	void onEnterTransitionDidFinish();
 	void gameHelp();
 	void gameHelpDrag();
-	bool _helpIconIsClicked = false;
+	void addTouchEvents(LayerGradient* touchSprite);
+	void addTouchEventsOnBacket(Sprite * sprite);
+	bool setBoundaryForDrawing(cocos2d::Touch * touch);
+	bool _helpIconIsClicked = false, _colorRestriction = false;
 	int _numberOfItemSelected = 0;
 	CocosDenshion::SimpleAudioEngine * _audioEffect;
-	bool _eyeFlag = true, _mouthFlag = true, _skateFlag = true ,_noseFlag = true ,_paintFlag = true, _mustacheFlag = true, _hornFlag = true, _gearFlag = true;
+	bool _eyeFlag = true, _mouthFlag = true, _skateFlag = true, _noseFlag = true, _paintFlag = true, _mustacheFlag = true, _hornFlag = true, _gearFlag = true;
 	void wordGenerate();
 	void gameEnd(float dt);
-	bool _isTouchBegan = true;
+	bool _isTouchBegan = true, _backFromGallery = true;
+	Rect _rect = Rect(0, 0, 0, 0);
+	Vec2 _touchPoint = Vec2(-1, -1);
 };
 
 #endif 
