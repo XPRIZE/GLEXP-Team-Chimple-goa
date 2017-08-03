@@ -10,11 +10,13 @@
 #define MatrixUtil_h
 
 #include <stdio.h>
+#include "../lang/Lesson.h"
 
 class MatrixUtil
 {
 public:
     static std::vector<std::vector<std::string>> generateMatrixForChoosing(std::string answer, std::vector<std::string> choices, int numRows, int numCols, int minPercentOfOccurence);
+    static std::map<std::string, std::string> questionToAnswerMapping(std::vector<Lesson::MultiChoice>);
     
     template <typename T>
     static std::vector<std::vector<T>> convert1dTo2d(size_t cols, std::vector<T> values) {

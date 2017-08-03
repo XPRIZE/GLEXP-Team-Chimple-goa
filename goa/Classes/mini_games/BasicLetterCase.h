@@ -20,18 +20,22 @@
 #include "../effects/FShake.h"
 #include "SimpleAudioEngine.h"
 #include "../util/CommonLabelTTF.h"
+#include "../lang/Lesson.h"
 
 using namespace cocos2d;
 using namespace std;
 
 class BasicLetterCase : public cocos2d::Layer
 {
+private:
+    Lesson _lesson;
 protected:
 	MenuContext *_menuContext;
 	bool _touchFlag = true;
 	int _counterGameDone = 0 , _counterTotalHit = 0 , _counterWorng = 0;
 
 public:
+    BasicLetterCase();
 	~BasicLetterCase();
 	static cocos2d::Scene* createScene();
 	virtual bool init();

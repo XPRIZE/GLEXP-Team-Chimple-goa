@@ -9,6 +9,7 @@
 #include "BasicLetterCase.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabelTTF.h"
+#include "../util/MatrixUtil.h"
 
 USING_NS_CC;
 
@@ -83,29 +84,19 @@ void BasicLetterCase::createIceCreams() {
 	auto indexCream = getRandomValueRange(1, 9, 4);
 	float positionX[] = { 0.20 , 0.40 , 0.60 , 0.80};
 
-	vector<int> letterVector = getLettersAccordingToLevels();
-
-	vector<char> coneLetter, creamLetter;
+    auto vmc = _lesson.getMultiChoices(4, 0);
+    auto mapping = MatrixUtil::questionToAnswerMapping(vmc);
+    vector<string> coneLetter, creamLetter;
+    
 
 	// Get all Upper and Lower Case from API ....
-	for (int i = 0; i < letterVector.size(); i++) {
-		coneLetter.push_back(LangUtil::getInstance()->getAllCharacters()[letterVector[i]]);
-		creamLetter.push_back(LangUtil::getInstance()->getAllLowerCaseCharacters()[letterVector[i]]);
+	for (int i = 0; i < vmc.size(); i++) {
+		coneLetter.push_back(vmc[i].question);
+		creamLetter.push_back(vmc[i].answers[vmc[i].correctAnswer]);
 	}
 
-	// Change Letter Case arrangment , either it is on up or down also ...
-	if (_menuContext->getCurrentLevel() > 6) {
-		for(int i = 0 ; i < coneLetter.size(); i++)
-			if (RandomHelper::random_int(0, 1) == 1) {
-				swap(coneLetter[i],creamLetter[i]);
-			}
-	}
-
-	// Change the Order of Letter arrangment ...
-	if (_menuContext->getCurrentLevel() > 3) {
-		std::random_shuffle(coneLetter.begin(),coneLetter.end());
-		std::random_shuffle(creamLetter.begin(), creamLetter.end());
-	}
+    std::random_shuffle(coneLetter.begin(),coneLetter.end());
+    std::random_shuffle(creamLetter.begin(), creamLetter.end());
 	 
 	auto size = Director::getInstance()->getVisibleSize();
 	for (size_t i = 0; i < indexCream.size(); i++) {
@@ -117,9 +108,8 @@ void BasicLetterCase::createIceCreams() {
 		addChild(cone);
 
 		// coneAlphabet and Text config ...
-		auto coneAlpha = LangUtil::getInstance()->convertUTF16CharToString(coneLetter[i]);
-		auto coneText = createText(coneAlpha, getConvertInUpperCase(coneAlpha) ,0,0);
-		cone->setName(getConvertInUpperCase(coneAlpha));
+		auto coneText = createText(coneLetter[i], mapping.at(coneLetter[i]) ,0,0);
+		cone->setName(mapping.at(coneLetter[i]));
 		cone->setTag( 100 + i);
 		cone->addChild(coneText);
 
@@ -132,10 +122,9 @@ void BasicLetterCase::createIceCreams() {
 		addChild(cream);
 
 		//cream alphabet and TextLabel config ...
-		auto creamAlpha = LangUtil::getInstance()->convertUTF16CharToString(creamLetter[i]);
-		auto creamText = createText(creamAlpha, getConvertInUpperCase(creamAlpha) , 0, 20);
+		auto creamText = createText(creamLetter[i], creamLetter[i] , 0, 20);
 		cream->addChild(creamText);
-		cream->setName(getConvertInUpperCase(creamAlpha));
+		cream->setName(creamLetter[i]);
 		addEventsOnCream((Sprite*)cream->getChildByName("icecream"));
 	}
 }
@@ -313,6 +302,12 @@ string BasicLetterCase::getConvertInUpperCase(string data)
 		i++;
 	}
 	return blockName.str();
+}
+
+BasicLetterCase::BasicLetterCase() :
+_lesson(0)
+{
+    
 }
 
 BasicLetterCase::~BasicLetterCase(void)
