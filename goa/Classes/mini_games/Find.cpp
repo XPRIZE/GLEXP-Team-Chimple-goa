@@ -53,9 +53,17 @@ void Find::onEnterTransitionDidFinish()
 
 	string initial = TextGenerator::getInstance()->getInitialForLevel(chooseInitial);
 	_initial = getConvertInUpperCase(initial);
-	auto wordForInitial = TextGenerator::getInstance()->getWordsForInitial(chooseInitial, _noOfWordStartFromInitial);
+	auto totalWords = 0;
+	std::map<std::string, std::string> wordForInitial, wordNotForInitial;
+	while (totalWords != 8)
+	{
+		 wordForInitial = TextGenerator::getInstance()->getWordsForInitial(chooseInitial, _noOfWordStartFromInitial);
 
-	auto wordNotForInitial = TextGenerator::getInstance()->getWordsNotForInitial(chooseInitial, (8 - _noOfWordStartFromInitial));
+		wordNotForInitial = TextGenerator::getInstance()->getWordsNotForInitial(chooseInitial, (8 - _noOfWordStartFromInitial));
+
+		totalWords = wordForInitial.size() + wordNotForInitial.size();
+	}
+	
 
 	std::map<std::string, std::string> newMap;
 
