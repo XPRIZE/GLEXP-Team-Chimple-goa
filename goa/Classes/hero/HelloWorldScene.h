@@ -191,8 +191,6 @@ private:
     void changeScene(std::string nextScene = "", bool isMiniGame = false);
     void cleanUpResources();
     
-    void transitionToDuelScene(wchar_t alphabet);
-
     void loadWords();
     
     void createWordSprite(cocos2d::Node* node, std::string word, cocos2d::Node* parentNode);

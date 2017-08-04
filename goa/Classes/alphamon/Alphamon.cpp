@@ -33,7 +33,7 @@ Alphamon::~Alphamon() {
     
 }
 
-Alphamon *Alphamon::createWithAlphabet(wchar_t alphabet) {
+Alphamon *Alphamon::createWithAlphabet(std::string alphabet) {
     Alphamon *alphamon = new (std::nothrow) Alphamon();
     if(alphamon && alphamon->initWithAlphabet(alphabet)) {
         alphamon->autorelease();
@@ -44,11 +44,11 @@ Alphamon *Alphamon::createWithAlphabet(wchar_t alphabet) {
     
 }
 
-bool Alphamon::initWithAlphabet(wchar_t alphabet) {
+bool Alphamon::initWithAlphabet(std::string alphabet) {
     _alphabet = alphabet;
     std::string animFile = LangUtil::getInstance()->getMonsterAnimationFileName(alphabet);
     _monster = CSLoader::createNode(animFile);
-    setName(LangUtil::convertUTF16CharToString(alphabet));
+    setName(alphabet);
     addChild(_monster);
 //    _monster->setScale(0.6);
     
@@ -165,7 +165,7 @@ void Alphamon::hidePower() {
     }
 }
 
-wchar_t Alphamon::getAlphabet() {
+std::string Alphamon::getAlphabet() {
     return _alphabet;
 }
 
@@ -207,7 +207,7 @@ void Alphamon::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
     {
 //        CCLOG("onTouchEnded %c", _alphabet);
         EventCustom event("alphamon_pressed");
-        wchar_t *data = new wchar_t[1];
+        std::string *data = new std::string[1];
         data[0] = _alphabet;
         event.setUserData(data);
         _eventDispatcher->dispatchEvent(&event);

@@ -15,14 +15,12 @@
 #include "MapScene.h"
 #include "../lang/SafariAnalyticsManager.h"
 #include "editor-support/cocostudio/CocoStudio.h"
-#include "../alphamon/SelectAlphamonScene.h"
 #include "SimpleAudioEngine.h"
 #include "AudioEngine.h"
 #include "ScrollableGameMapScene.hpp"
 #include "MainMenuHome.hpp"
 #include "../misc/PhotoCaptureScene.hpp"
 #include "storage/local-storage/LocalStorage.h"
-#include "../alphamon/SelectAlphamonScene.h"
 #include "../puzzle/DuelScene.h"
 #include "../puzzle/WordBoard.h"
 #include "../puzzle/PegWord.h"
@@ -650,7 +648,12 @@ void MenuContext::pickAlphabet(char targetAlphabet, char chosenAlphabet, bool ch
     SafariAnalyticsManager::getInstance()->insertAnalyticsInfo(targetAlphabetStr.c_str(), chosenAlphabetStr.c_str(), gameName.c_str());
 }
 
-void MenuContext::pickWord(std::string targetWord, std::string chosenString) {
+void MenuContext::pickWord(std::string targetWord, std::string chosenString, bool choose) {
+    int points = -1;
+    if((choose && targetWord == chosenString) || (!choose && targetWord != chosenString)) {
+        points = 1;
+    }
+    addPoints(points);
     
 }
 

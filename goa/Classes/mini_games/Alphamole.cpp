@@ -132,7 +132,7 @@ void Alphamole::startGame()
 		_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	}
 	//_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
-	_mainChar = Alphamon::createWithAlphabet(_mychar);
+    _mainChar = Alphamon::createWithAlphabet(LangUtil::convertUTF16CharToString(_mychar));
 	_mainChar->setScaleX(0.5);
 	_mainChar->setScaleY(0.5);
 	_mainChar->setPositionX(visibleSize.width * 0.1);
@@ -182,7 +182,7 @@ void Alphamole::showAlpha(float ft)
 		}
 		_particle->setPosition(Vec2(child->getPositionX() + _Xpos, child->getPositionY()));
 		_alphabetLayer->addChild(_particle);
-		_monsterReff = Alphamon::createWithAlphabet(str);
+        _monsterReff = Alphamon::createWithAlphabet(LangUtil::convertUTF16CharToString(str));
 		float x = child->getPositionX();
 		float y = child->getPositionY();
 		_monsterReff->setPositionX(x + _Xpos);
@@ -242,7 +242,7 @@ void Alphamole::leafOpen(float ft)
 			help->setName("helpLayer");
 			this->addChild(help);
 		}
-		_monsterReff = Alphamon::createWithAlphabet(str);
+        _monsterReff = Alphamon::createWithAlphabet(LangUtil::convertUTF16CharToString(str));
 		
 		_monsterReff->setPositionX(_leaf_closeRff->getPositionX() + _Xpos);
 		_monsterReff->setPositionY(_leaf_closeRff->getPositionY() - 75);

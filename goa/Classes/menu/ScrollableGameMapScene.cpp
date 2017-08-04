@@ -12,7 +12,6 @@
 #include "MapScene.h"
 #include "../menu/LevelMenu.h"
 #include "../effects/FShake.h"
-#include "../alphamon/SelectAlphamonScene.h"
 #include "../puzzle/DuelScene.h"
 #include "../puzzle/WordScene.h"
 #include "../puzzle/PegWord.h"

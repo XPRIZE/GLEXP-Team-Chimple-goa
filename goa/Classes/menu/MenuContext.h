@@ -16,6 +16,7 @@
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "ScoreBoardContext.h"
 #include "../lang/SafariAnalyticsManager.h"
+#include "../lang/Lesson.h"
 #include "../mini_games/Dash.h"
 #include "../mini_games/EndlessRunner.h"
 #include "../util/Calculator.h"
@@ -44,7 +45,7 @@ public:
     static MenuContext* create(Node *main, std::string gameName = "", bool lauchCustomEventOnExit = false, std::string sceneName = "");
     
     void pickAlphabet(char targetAlphabet, char chosenAlphabet, bool choose = true, cocos2d::Vec2 position = cocos2d::Vec2::ZERO);
-    void pickWord(std::string targetWord, std::string chosenString);
+    void pickWord(std::string targetWord, std::string chosenString, bool choose = true);
     void writeAlphabet(char targetAlphabet, bool correct);
     void pickNumber(int targetNumber, int chosenNumber, MenuContext::MATH_OPERATION op);
     int getPoints();
@@ -62,7 +63,8 @@ public:
     void setCurrentLevel(int level);
     int getMaxPoints();
     void setMaxPoints(int maxPoints);
-
+    
+    
     std::vector<cocos2d::Point> getPolygonPointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold);
     
     std::vector<std::vector<cocos2d::Point>> getTrianglePointsForSprite(cocos2d::Sprite* node, std::string fileName, float threshHold);

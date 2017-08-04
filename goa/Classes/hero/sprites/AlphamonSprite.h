@@ -29,9 +29,9 @@ public:
     
     virtual ~AlphamonSprite();
     
-    static AlphamonSprite* create(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes, wchar_t alphabet);
+    static AlphamonSprite* create(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes, std::string alphabet);
     
-    virtual bool initialize(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes, wchar_t alphabet);
+    virtual bool initialize(cocos2d::Node* sprite, std::unordered_map<std::string, std::string> attributes, std::string alphabet);
     
     virtual Alphamon* getAlphaMon();
     
@@ -59,7 +59,7 @@ protected:
     std::unordered_map<std::string, std::string> attributes;
     SkeletonCharacter* mainSkeleton;
     cocos2d::Sprite* touchPointerNode;
-    wchar_t alphabet;
+    std::string alphabet;
     bool isSelectedForBattle;
     void showTouchPointer();
     void destroyTouchPointer();

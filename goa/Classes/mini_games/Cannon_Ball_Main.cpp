@@ -182,7 +182,7 @@ void MainGame::displayHelp()
 	LabelClass *meteor = LabelClass::createSpt(letterName, MainGame::width * .10, MainGame::lettertmpPosition[val].y, letterName, self);
 	MainGame::meteorArray.push_back(meteor);
 
-	Alphabet *myLabel = Alphabet::createWithSize(letterName, 300);
+	Alphabet *myLabel = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(letterName), 300);
 	myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
 	lett->addChild(myLabel);
 	MainGame::meteorArray_actualImage.push_back(myLabel);
@@ -373,7 +373,7 @@ void MainGame::letterCome(float d)
 		LabelClass *meteor = LabelClass::createSpt(letterName, MainGame::lettertmpPosition[val].x, MainGame::lettertmpPosition[val].y, letterName, self);
 		MainGame::meteorArray.push_back(meteor);
 
-		Alphabet *myLabel = Alphabet::createWithSize(letterName, 300);
+		Alphabet *myLabel = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(letterName), 300);
 		myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
 		lett->addChild(myLabel);
 		MainGame::meteorArray_actualImage.push_back(myLabel);
@@ -423,7 +423,7 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			this->addChild(e1);
 			MainGame::cannon_ballArray.push_back(e1);
 
-			Alphabet *myLabel = Alphabet::createWithSize(tmpMainChars[i], 200);
+			Alphabet *myLabel = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(tmpMainChars[i]), 200);
 			myLabel->setPosition(e1->getBoundingBox().size.width/2 , e1->getBoundingBox().size.height/2);
 			e1->addChild(myLabel);			
 			MainGame::cannonLetter_actualImage.push_back(myLabel);
@@ -482,7 +482,7 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			MainGame::cannon_ballArray[remcharPos] = letter;
 			self->addChild(letter);
 
-			Alphabet *myLabel = Alphabet::createWithSize(letterName, 200);
+			Alphabet *myLabel = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(letterName), 200);
 			myLabel->setPosition(letter->getBoundingBox().size.width / 2, letter->getBoundingBox().size.height / 2);
 			letter->addChild(myLabel);
 			MainGame::cannonLetter_actualImage[remcharPos] = myLabel;
@@ -554,7 +554,7 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 		LabelClass *fire = LabelClass::createSpt(letterObject->id, letterObject->getPositionX() - (letterObject->getContentSize().width * 2), letterObject->getPositionY(), letterObject->id, self);
 		MainGame::bulletArray.push_back(fire);
 
-		Alphabet *myLabel = Alphabet::createWithSize(letterObject->id, 200);
+		Alphabet *myLabel = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(letterObject->id), 200);
 		myLabel->setPosition(letterObject->getPositionX() - (letterObject->getContentSize().width * 2.8), letterObject->getPositionY());
 		self->addChild(myLabel);
 		MainGame::bulletArray_actualImage.push_back(myLabel);

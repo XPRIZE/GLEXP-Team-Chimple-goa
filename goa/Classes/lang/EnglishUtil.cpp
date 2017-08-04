@@ -45,8 +45,8 @@ const std::vector<int> EnglishUtil::getNumCharsInRows() {
     return englishNumCharsInRows;
 }
 
-std::string EnglishUtil::getMonsterAnimationFileName(wchar_t alpha) {
-    return std::string("lang/eng/") + convertUTF16CharToString(alpha) +".csb";
+std::string EnglishUtil::getMonsterAnimationFileName(std::string alpha) {
+    return std::string("lang/eng/") + alpha +".csb";
 }
 
 std::string EnglishUtil::getSpecialAnimationFileName(wchar_t alpha, std::string suffix) {
