@@ -873,6 +873,12 @@
     <ClCompile Include="..\Classes\ext\dragonBones\textures\TextureData.cpp">
       <Filter>Classes\ext\dragonBones\textures</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\lang\Lesson.cpp">
+      <Filter>Classes\lang</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\util\MatrixUtil.cpp">
+      <Filter>Classes\utile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1816,6 +1822,12 @@
     </ClInclude>
     <ClInclude Include="..\Classes\ext\rapidxml\rapidxml_print.hpp">
       <Filter>Classes\ext\rapidxml</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\lang\Lesson.h">
+      <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\MatrixUtil.h">
+      <Filter>Classes\utile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

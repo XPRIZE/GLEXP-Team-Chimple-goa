@@ -9,7 +9,10 @@
 #ifndef Lesson_h
 #define Lesson_h
 
+#include "cocos2d.h"
 #include <stdio.h>
+using namespace std;
+USING_NS_CC;
 
 class Lesson
 {
