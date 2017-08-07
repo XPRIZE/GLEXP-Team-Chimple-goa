@@ -727,7 +727,7 @@ void StoryPlaying::positionTextNode(CommonText* textNode, Node* parentNode, Node
         yPos = currentNodeY;
     }
     
-    textNode->setPosition(Vec2(xPos, yPos));
+    textNode->setPosition(Vec2(xPos , yPos));
 }
 
 void StoryPlaying::renderStoryText(Node* parentNode, Node* storyTextNode) {
@@ -739,9 +739,9 @@ void StoryPlaying::renderStoryText(Node* parentNode, Node* storyTextNode) {
     float yOffset = 0;
     int howManyTimes = 0;
     int whichToken = 0;
+    float initialX = 0.0f;
     for (std::vector<std::string>::iterator it = individualTexts.begin() ; it != individualTexts.end(); ++it) {
         std::string token = *it;
-        token = ' ' + token;
         //create CommonText node
         auto label = CommonText::create();
         label->setCommonTextInStory(true);
@@ -763,9 +763,11 @@ void StoryPlaying::renderStoryText(Node* parentNode, Node* storyTextNode) {
                 //wrap
                 howManyTimes++;
                 float adjustedY = yOffset - (howManyTimes * lastRenderedLabel->getBoundingBox().size.height);
-                float initialX = storyTextNode->getPosition().x - storyTextNode->getBoundingBox().size.width/2 + 100.0f;
-                lastRenderedLabelPosition = Vec2(initialX, adjustedY);
+                //float initialX = storyTextNode->getPosition().x - storyTextNode->getBoundingBox().size.width/2 + 100.0f;
+                lastRenderedLabelPosition = Vec2(initialX + label->getBoundingBox().size.width/2, adjustedY);
             } else {
+                token = ' ' + token;
+                label->setString(token);
                 lastRenderedLabelPosition = Vec2(lastRenderedLabel->getPosition().x + lastRenderedLabel->getBoundingBox().size.width/2 + label->getBoundingBox().size.width/2, lastRenderedLabel->getPosition().y);
             }
             
@@ -777,6 +779,11 @@ void StoryPlaying::renderStoryText(Node* parentNode, Node* storyTextNode) {
         
         lastRenderedLabel = label;
         firstPassFinished = true;
+        if(initialX == 0.0f) {
+            initialX = label->getPosition().x;
+            label->setPositionX(label->getPositionX() + initialX/2);
+        }
+        
         _contentCommonTextTokens.push_back(label);
         parentNode->addChild(label);
     }
@@ -891,7 +898,7 @@ void StoryPlaying::closeDialog(Ref* pSender, cocos2d::ui::Widget::TouchEventType
     switch (eEventType) {
         case cocos2d::ui::Widget::TouchEventType::BEGAN:
         {
-            _contentCommonTextTokens.clear();
+//            _contentCommonTextTokens.clear();
             clickedButton->setHighlighted(true);
             break;
         }
@@ -905,7 +912,8 @@ void StoryPlaying::closeDialog(Ref* pSender, cocos2d::ui::Widget::TouchEventType
             }
             
             clickedButton->setEnabled(false);
-            _talkBubbleNode->removeFromParentAndCleanup(true);
+            _talkBubbleNode->setVisible(false);
+//            _talkBubbleNode->removeFromParentAndCleanup(true);
             _isTextShown = false;
             _showAgainTextButton->setEnabled(true);
             _showAgainTextButton->setVisible(true);
@@ -1115,7 +1123,15 @@ void StoryPlaying::onExitTransitionDidStart() {
         AudioEngine::uncacheAll();
         AudioEngine::end();
     }
+    if(_talkBubbleNode != NULL)
+    {
+        _talkBubbleNode->removeFromParentAndCleanup(true);
+    }
     
+    if(!_contentCommonTextTokens.empty())
+    {
+        _contentCommonTextTokens.clear();
+    }
 }
 
 void StoryPlaying::onEnterTransitionDidFinish() {
@@ -1294,7 +1310,28 @@ void StoryPlaying::showTextAgain(Ref* pSender, cocos2d::ui::Widget::TouchEventTy
         {
             clickedButton->setVisible(false);
             clickedButton->setEnabled(false);
-            createDialogBubble();
+            if(_talkBubbleNode) {
+                _talkBubbleNode ->setVisible(true);
+                Node* closeNode = _talkBubbleNode->getChildByName(CLOSE_BUTTON);
+                if(closeNode != NULL) {
+                    cocos2d::ui::Button* closeButton = dynamic_cast<cocos2d::ui::Button *>(closeNode);
+                    if(closeButton != NULL) {
+                        closeButton->setEnabled(true);
+                        _isTextShown = true;
+                        _showAgainTextButton->setEnabled(false);
+                        _showAgainTextButton->setVisible(false);
+                        //show next/prev buttons
+                        _nextButton->setEnabled(false);
+                        _nextButton->setVisible(false);
+                        if(_pageIndex != 0) {
+                            _prevButton->setEnabled(false);
+                            _prevButton->setVisible(false);
+                        }
+                    }
+                }
+            } else {
+                createDialogBubble();
+            }
             break;
         }
             
