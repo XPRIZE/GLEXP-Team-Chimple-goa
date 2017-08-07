@@ -57,6 +57,8 @@ bool SmashTheRock::init()
 		return false;
 	}
 
+	// This is just for github testing .... in kiranbv branch
+
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	
