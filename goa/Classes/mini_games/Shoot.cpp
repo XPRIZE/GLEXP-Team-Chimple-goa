@@ -50,8 +50,8 @@ void Shoot::onEnterTransitionDidFinish() {
 
 	std::string gameRand[] = { "pinatacity" ,"pinatacream","pinatajungle" };
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
-	std::tuple<int, int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 3, 5, 3, 10);
-	std::string gameTheme = gameRand[std::get<1>(levelKeyNumber) - 1];
+//	std::tuple<int, int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 3, 5, 3, 10);
+	std::string gameTheme = gameRand[RandomHelper::random_int(0,2)];
 
 	auto topBoard = Sprite::create();
 	topBoard->setTextureRect(Rect(0, 0, Director::getInstance()->getVisibleSize().width / 2, 165));
@@ -63,43 +63,6 @@ void Shoot::onEnterTransitionDidFinish() {
 	auto upText = CommonLabelTTF::create(TextGenerator::getInstance()->translateString("choose same sounding word"), "res/fonts/BalooBhai-Regular.ttf", topBoard->getContentSize().height * 0.5);
 	upText->setPosition(topBoard->getContentSize().width / 2, topBoard->getContentSize().height / 2);
 	topBoard->addChild(upText);
-
-	backUp.category = std::get<0>(levelKeyNumber);
-	backUp.level = std::get<2>(levelKeyNumber);
-
-	if (std::get<0>(levelKeyNumber) == 1) {
-		_map = TextGenerator::getInstance()->getHomonyms(15, std::get<2>(levelKeyNumber));
-		setKeyValueFromMap(_map);
-
-		while (_data_key.size() != 15) {
-			_map = TextGenerator::getInstance()->getHomonyms(15, std::get<2>(levelKeyNumber));
-			setKeyValueFromMap(_map);
-		}
-		upText->setString(TextGenerator::getInstance()->translateString("choose same sounding word"));
-	}
-	else if (std::get<0>(levelKeyNumber) == 2) {
-		_map = TextGenerator::getInstance()->getAntonyms(15, std::get<2>(levelKeyNumber));
-		setKeyValueFromMap(_map);
-
-		while (_data_key.size() != 15) {
-			_map = TextGenerator::getInstance()->getAntonyms(15, std::get<2>(levelKeyNumber));
-			setKeyValueFromMap(_map);
-		}
-		upText->setString(TextGenerator::getInstance()->translateString("choose opposite word"));
-	}
-	else if (std::get<0>(levelKeyNumber) == 3) {
-		_map = TextGenerator::getInstance()->getSynonyms(15, std::get<2>(levelKeyNumber));
-		setKeyValueFromMap(_map);
-
-		while (_data_key.size() != 15) {
-			_map = TextGenerator::getInstance()->getSynonyms(15, std::get<2>(levelKeyNumber));
-			setKeyValueFromMap(_map);
-		}
-		upText->setString(TextGenerator::getInstance()->translateString("choose meaning word"));
-	}
-	else {
-		CCLOG("ERROR :: Your category is wrong , please check your code : line no : 91");
-	}
 
 	if (gameTheme.compare("pinatacream") == 0) {
 
@@ -139,12 +102,21 @@ void Shoot::onEnterTransitionDidFinish() {
 		this->xPosi = Director::getInstance()->getVisibleSize().width - 2560;
 		this->getChildByName("bg")->setPositionX(this->xPosi / 2);
 	}
+	
+	_vmc = _lesson.getMultiChoices(5, 2);
+	
+	mapKey = _vmc[counterlevelStatus].question;
+	_correctAnswerVmc = _vmc[counterlevelStatus].answers[_vmc[counterlevelStatus].correctAnswer];
+//	mapKey = _data_key[getRandomInt(0, 2)];
 
-	mapKey = _data_key[getRandomInt(0, 2)];
+	int a = 0 , b = 1 ,c = 2 ;
 
 	if (gameCurrentLevel == 1) {
-		mapKey = _data_key[1];
+		if (_vmc[counterlevelStatus].correctAnswer == 0) { a = 1; c = 2;  b = 0; }
+		else if (_vmc[counterlevelStatus].correctAnswer == 1) { a = 0; c = 2; b = 1; }
+		else if (_vmc[counterlevelStatus].correctAnswer == 2) { a = 0; c = 1; b = 2; }
 	}
+
 	auto board = this->getChildByName("bg")->getChildByName("board");
 	auto boardText = CommonLabelTTF::create(mapKey, "res/fonts/BalooBhai-Regular.ttf", 120);
 	boardText->setName(board->getName());
@@ -154,7 +126,7 @@ void Shoot::onEnterTransitionDidFinish() {
 	if (gameTheme.compare("pinatacity") == 0) { boardText->setColor(Color3B(0, 0, 0)); }
 
 	auto targetA = this->getChildByName("bg")->getChildByName("targeta");
-	auto targetAText = CommonLabelTTF::create(_map[_data_key[0]], "res/fonts/BalooBhai-Regular.ttf", 80);
+	auto targetAText = CommonLabelTTF::create(_vmc[counterlevelStatus].answers[a], "res/fonts/BalooBhai-Regular.ttf", 80);
 	if (gameTheme.compare("pinatajungle") == 0) targetAText->setFontSize(80);
 	if (gameTheme.compare("pinatacity") == 0) { targetAText->setColor(Color3B(0, 0, 0)); }
 	targetAText->setName(targetA->getName());
@@ -163,7 +135,7 @@ void Shoot::onEnterTransitionDidFinish() {
 	targetA->setTag(0);
 
 	auto targetB = this->getChildByName("bg")->getChildByName("targetb");
-	auto targetBText = CommonLabelTTF::create(_map[_data_key[1]], "res/fonts/BalooBhai-Regular.ttf", 80);
+	auto targetBText = CommonLabelTTF::create(_vmc[counterlevelStatus].answers[b], "res/fonts/BalooBhai-Regular.ttf", 80);
 	if (gameTheme.compare("pinatajungle") == 0) targetBText->setFontSize(80);
 	if (gameTheme.compare("pinatacity") == 0) { targetBText->setColor(Color3B(0, 0, 0)); }
 	targetBText->setName(targetB->getName());
@@ -172,7 +144,7 @@ void Shoot::onEnterTransitionDidFinish() {
 	targetB->setTag(0);
 
 	auto targetC = this->getChildByName("bg")->getChildByName("targetc");
-	auto targetCText = CommonLabelTTF::create(_map[_data_key[2]], "res/fonts/BalooBhai-Regular.ttf", 80);
+	auto targetCText = CommonLabelTTF::create(_vmc[counterlevelStatus].answers[c], "res/fonts/BalooBhai-Regular.ttf", 80);
 	if (gameTheme.compare("pinatajungle") == 0) targetCText->setFontSize(80);
 	if (gameTheme.compare("pinatacity") == 0) { targetCText->setColor(Color3B(0, 0, 0)); }
 	targetCText->setName(targetC->getName());
@@ -208,58 +180,20 @@ void Shoot::onEnterTransitionDidFinish() {
 		this->getChildByName("bg")->getChildByName("slingshot_16")->setVisible(false);
 
 	if (_menuContext->getCurrentLevel() == 1) {
-		auto help = HelpLayer::create(Rect((xPosi / 2) + board->getPositionX(), board->getPositionY(), board->getContentSize().width, board->getContentSize().height),Rect((xPosi / 2) + targetB->getPositionX(), targetB->getPositionY(), targetB->getContentSize().width + targetB->getContentSize().width * 0.3, targetB->getContentSize().height + targetB->getContentSize().height * 0.1));
-		help->click(Vec2((xPosi / 2) + board->getPositionX(), board->getPositionY()));
+		auto help = HelpLayer::create(Rect((xPosi / 2) + targetB->getPositionX(), targetB->getPositionY(), targetB->getContentSize().width + targetB->getContentSize().width * 0.3, targetB->getContentSize().height + targetB->getContentSize().height * 0.1), Rect((xPosi / 2) + board->getPositionX(), board->getPositionY(), board->getContentSize().width, board->getContentSize().height));
+		help->click(Vec2((xPosi / 2) + targetB->getPositionX(), targetB->getPositionY()));
 		help->setName("helpLayer");
 		addChild(help, 4);
 	}
 
-	if (LevelInfoForSpeaker()) {
-		_wrongCounter = 0;
-		pronounceWord();
-	}
+	//if (LevelInfoForSpeaker()) {
+	//	_wrongCounter = 0;
+	//	pronounceWord();
+	//}
 
 	bgListner();
 	choosingListner();
 	this->scheduleUpdate();
-}
-
-void Shoot::setKeyValueFromMap(std::map<std::string, std::string> _data) {
-	int count = 0;
-	_data_key.clear();
-	_data_value.clear();
-	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-		auto key = (it->first);
-		auto value = (it->second);
-
-		_data_key.push_back(key);
-		_data_value.push_back(value);
-		count++;
-		CCLOG("index = %d   key :  %s ----> %s", count, key.c_str(), value.c_str());
-	}
-}
-
-string Shoot::getConvertInUpperCase(string data)
-{
-	std::ostringstream blockName;
-	int i = 0;
-	while (data[i])
-	{
-		blockName << (char)toupper(data[i]);
-		i++;
-	}
-	return blockName.str();
-}
-string Shoot::getConvertInLowerCase(string data)
-{
-	std::ostringstream blockName;
-	int i = 0;
-	while (data[i])
-	{
-		blockName << (char)tolower(data[i]);
-		i++;
-	}
-	return blockName.str();
 }
 
 void Shoot::update(float dt) {
@@ -333,26 +267,24 @@ void Shoot::update(float dt) {
 
 			auto checkGameCompleteOrNot = CallFunc::create([=]()
 			{
-				if (classReference->counterlevelStatus == 5) {
+				if (classReference->counterlevelStatus >= 4) {
 					_menuContext->setMaxPoints(classReference->counterHit);
 					_menuContext->showScore();
 				}
 				else {
 					classReference->counterlevelStatus++;
 					classReference->reCreateSceneElement();
-					_dummy = 1;
+					//_dummy = 1;
 				}
 			});
 
 			this->runAction(Sequence::create(DelayTime::create(1.2),checkGameCompleteOrNot,DelayTime::create(1),NULL));
 		}
 	}
-	if (_dummy == 1 && LevelInfoForSpeaker()) {
-		dummyTextLabelPopUp();
-		_dummy = 0;
-	}
-
-
+	//if (_dummy == 1 && LevelInfoForSpeaker()) {
+	//	dummyTextLabelPopUp();
+	//	_dummy = 0;
+	//}
 }
 
 void Shoot::choosingListner() {
@@ -370,6 +302,10 @@ void Shoot::choosingListner() {
 
 		if (target->getBoundingBox().containsPoint(touch->getLocation()) && (classRefer->getChildByName("bg")->getChildByName("board")->getTag() == 0) && !classRefer->shootingFlag && classRefer->flagSingleTouchFirst) {
 
+			if (classRefer->getChildByName("helpLayer")) {
+				classRefer->removeChildByName("helpLayer");
+			}
+
 			classRefer->flagSingleTouchFirst = false;
 
 			std::string path = "";
@@ -385,8 +321,8 @@ void Shoot::choosingListner() {
 			}
 			auto boardText = classRefer->getChildByName("bg")->getChildByName("board")->getChildByName("board");
 
-			auto stringmap = ((CommonLabelTTF *)boardText)->getString();
-			if (classRefer->_map[stringmap] == ((CommonLabelTTF *)target->getChildByName(target->getName()))->getString()) {
+		//	auto stringmap = ((CommonLabelTTF *)boardText)->getString();
+			if (classRefer->_correctAnswerVmc == ((CommonLabelTTF *)target->getChildByName(target->getName()))->getString()) {
 
 				auto targetA = classRefer->getChildByName("bg")->getChildByName("targeta");
 				auto targetB = classRefer->getChildByName("bg")->getChildByName("targetb");
@@ -471,8 +407,8 @@ void Shoot::choosingListner() {
 					}
 				}
 
-				if (LevelInfoForSpeaker())
-					checkMistakeOnWord();
+			//	if (LevelInfoForSpeaker())
+			//		checkMistakeOnWord();
 			}
 
 			auto changeFlagInTouch = CallFunc::create([=]()
@@ -615,7 +551,17 @@ void Shoot::reCreateSceneElement() {
 	//dummyTextLabelPopUp();
 	_gamePlay = 0;
 	this->getChildByName("topBoard")->setVisible(true);
-	auto optionValue = this->getBoardAndOptionWord();
+	
+	mapKey = _vmc[counterlevelStatus].question;
+	_correctAnswerVmc = _vmc[counterlevelStatus].answers[_vmc[counterlevelStatus].correctAnswer];
+
+	vector<string> optionsFromVmc;
+	for (int i = 0; i < _vmc[counterlevelStatus].answers.size() ; i++) {
+		optionsFromVmc.push_back(_vmc[counterlevelStatus].answers[i]);
+	}
+	std::random_shuffle(optionsFromVmc.begin(), optionsFromVmc.end());
+
+	auto optionValue = std::make_tuple(optionsFromVmc[0], optionsFromVmc[1], optionsFromVmc[2]);
 
 	auto targetA = this->getChildByName("bg")->getChildByName("targeta");
 	auto targetB = this->getChildByName("bg")->getChildByName("targetb");
@@ -629,8 +575,8 @@ void Shoot::reCreateSceneElement() {
 	auto boardText = board->getChildByName(board->getName());
 	((CommonLabelTTF*)boardText)->setString(this->mapKey);
 	this->getChildByName("bg")->getChildByName("board")->setTag(0);
-	if(LevelInfoForSpeaker())
-		boardText->setVisible(false);
+	///if(LevelInfoForSpeaker())
+	//	boardText->setVisible(false);
 
 	this->targetPlayer->setPositionX(this->targetXcoordSave);
 	this->targetPlayer->getActionManager()->removeAllActions();
@@ -675,78 +621,6 @@ void Shoot::reCreateSceneElement() {
 		this->getChildByName("bg")->getChildByName("slingshot_16")->setVisible(false);
 	this->getChildByName("bg")->getChildByName("board")->setTag(0);
 
-}
-
-std::tuple<string, string, string> Shoot::getBoardAndOptionWord() {
-
-	struct optionWord {
-		std::string first = "";
-		std::string second = "";
-		std::string third = "";
-	}optionWord;
-
-	if (this->counterlevelStatus == 2) {
-		auto index = this->getRandomInt(3, 5);
-		this->mapKey = _data_key[index];
-		optionWord.first = this->_map[_data_key[3]];
-		optionWord.second = this->_map[_data_key[4]];
-		optionWord.third = this->_map[_data_key[5]];
-
-	}
-	else if (this->counterlevelStatus == 3) {
-		auto index = this->getRandomInt(6, 8);
-		this->mapKey = _data_key[index];
-		optionWord.first = this->_map[_data_key[6]];
-		optionWord.second = this->_map[_data_key[7]];
-		optionWord.third = this->_map[_data_key[8]];
-
-	}
-	else if (this->counterlevelStatus == 4) {
-		auto index = this->getRandomInt(9, 11);
-		this->mapKey = _data_key[index];
-		optionWord.first = this->_map[_data_key[9]];
-		optionWord.second = this->_map[_data_key[10]];
-		optionWord.third = this->_map[_data_key[11]];
-	}
-	else if (this->counterlevelStatus == 5) {
-		auto index = this->getRandomInt(12, 14);
-		this->mapKey = _data_key[index];
-		optionWord.first = this->_map[_data_key[12]];
-		optionWord.second = this->_map[_data_key[13]];
-		optionWord.third = this->_map[_data_key[14]];
-	}
-	else {
-		auto index = this->getRandomInt(10, 12);
-		this->mapKey = _data_key[10];
-		optionWord.first = this->_map[_data_key[10]];
-		optionWord.second = this->_map[_data_key[11]];
-		optionWord.third = this->_map[_data_key[12]];
-
-	}
-
-	if (this->mapKey.empty()) {
-		CCLOG("---------- game crashed ----------");
-		auto mapKeyArrayss = _data_key;
-
-		if (this->backUp.category == 1) {
-			this->_map = TextGenerator::getInstance()->getHomonyms(15, this->backUp.level);
-		}
-		else if (this->backUp.category == 2) {
-			this->_map = TextGenerator::getInstance()->getAntonyms(15, this->backUp.level);
-		}
-		else if (this->backUp.category == 3) {
-			this->_map = TextGenerator::getInstance()->getSynonyms(15, this->backUp.level);
-		}
-		else {
-			//  console.log("ERROR :: Your category is wrong , please check your code : line no : 23");
-		}
-		auto index = this->getRandomInt(3, 8);
-		this->mapKey = _data_key[index];
-		optionWord.first = this->_map[_data_key[index + 1]];
-		optionWord.second = this->_map[_data_key[index]];
-		optionWord.third = this->_map[_data_key[index + 2]];
-	}
-	return std::make_tuple(optionWord.first, optionWord.second, optionWord.third);
 }
 
 void Shoot::runAnimations(Node* AnimNode, int x, int y, std::string path) {
@@ -913,42 +787,6 @@ int Shoot::getRandomInt(int min, int max) {
 	return  randomValue;
 }
 
-std::tuple<int, int, int> Shoot::levelAllInfo(int currentLevel, int totalCategory, int eachCategoryGroup, int totalSceneTheme, int SceneChangeAfterLevel)
-{
-	float currentLevelInFloat = static_cast<float>(currentLevel);
-	int categoryBase = static_cast<int>(std::ceil(currentLevelInFloat / eachCategoryGroup));
-
-	int categoryNo = totalCategory;
-
-	if (categoryBase != totalCategory) {
-		categoryNo = categoryBase % totalCategory;
-		if (categoryNo == 0)
-			categoryNo = totalCategory;
-	}
-
-	if (currentLevel % eachCategoryGroup == 0)
-		categoryNo = (categoryBase - 1) % totalCategory + 1;
-
-	int sceneBase = static_cast<int>(std::ceil(currentLevelInFloat / SceneChangeAfterLevel));
-	int sceneNo = sceneBase % totalSceneTheme;
-
-	int totalInterationLevel = totalCategory * eachCategoryGroup;
-	int Iteration = static_cast<int>(std::floor(currentLevel / totalInterationLevel));
-	int level = currentLevel % eachCategoryGroup;
-	if (level == 0)
-		level = eachCategoryGroup;
-	int categoryLevel = (Iteration * eachCategoryGroup) + level;
-
-	if (sceneNo == 0)
-		sceneNo = totalSceneTheme;
-
-	if (categoryLevel >= 7) {
-		categoryLevel = 7;
-	}
-
-	return std::make_tuple(categoryNo, sceneNo, categoryLevel);
-}
-
 void Shoot::setSpriteProperties(Sprite* ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder) {
 	ImageObject->setPosition(Vec2(positionX, positionY));
 	ImageObject->setScaleX(scaleX);
@@ -961,31 +799,6 @@ void Shoot::setSpriteProperties(Sprite* ImageObject, float positionX, float posi
 	auto f = this->shootingFlag;
 	auto flagTests = shootingFlag;
 }
-
-vector<int> Shoot::getRandomValueRange(int min, int max, int getValue) {
-	int count = 0;
-	vector<int> objectVector;
-	while (count < getValue) {
-		int temp = RandomHelper::random_int(min, max);
-		bool flag = true;
-
-		for (size_t index = 0; index < objectVector.size(); index++) {
-			if (objectVector[index] == temp) {
-				flag = false;
-				break;
-			}
-		}
-
-		if (flag) {
-			objectVector.push_back(temp);
-			count++;
-		}
-	}
-
-	sort(objectVector.begin(), objectVector.end());
-	return objectVector;
-}
-
 
 void Shoot::checkMistakeOnWord() {
 
@@ -1081,6 +894,11 @@ void Shoot::popUpText() {
 
 	boardText->runAction(scaleAction);
 
+}
+
+Shoot::Shoot():
+_lesson(0)
+{
 }
 
 bool Shoot::LevelInfoForSpeaker() {
