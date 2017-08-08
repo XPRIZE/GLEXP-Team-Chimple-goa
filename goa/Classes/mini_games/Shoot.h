@@ -19,6 +19,8 @@
 #include "../lang/TextGenerator.h"
 #include "../effects/FShake.h"
 #include "SimpleAudioEngine.h"
+#include "../lang/Lesson.h"
+#include "../util/MatrixUtil.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -26,9 +28,11 @@ using namespace cocos2d;
 class Shoot : public cocos2d::Layer
 {
 
+private:
+	Lesson _lesson;
 public:
 	MenuContext *_menuContext;
-	int counterlevelStatus = 1 , xPosi = 0 , counterHit = 0 , targetXcoordSave = 0 , targetYcoordSave = 0;
+	int counterlevelStatus = 0 , xPosi = 0 , counterHit = 0 , targetXcoordSave = 0 , targetYcoordSave = 0;
 	Color4F stringColor = Color4F(Color4B(255,255,255,255));
 	bool soundReleaseBall = true , isItinOriginalPosition = true , shootingFlag = false , flagSingleTouchFirst = true , stopTouchingBg = false;
 	int _wrongCounter = 0 , _gamePlay = 0 , _dummy = 0;
@@ -37,6 +41,9 @@ public:
 		int level = 0;
 	}backUp;
 	
+	vector<Lesson::MultiChoice> _vmc;
+	string _correctAnswerVmc = "";
+
 	struct player {
 		int x = 0;
 		int y = 0;
@@ -56,6 +63,7 @@ public:
 	DrawNode* leftLine = NULL;
 	
 public:
+	Shoot();
 	bool LevelInfoForSpeaker();
 	void addEventsOnSpeaker(cocos2d::Sprite * callerObject);
 	~Shoot();
@@ -63,22 +71,17 @@ public:
 	virtual bool init();
 	static Shoot* create();
 	void onEnterTransitionDidFinish();
-	void setKeyValueFromMap(std::map<std::string, std::string> _data);
-	string getConvertInUpperCase(string data);
-	string getConvertInLowerCase(string data);
 	void update(float) override;
 	void choosingListner();
 	float radToDeg(float angle);
 	float degToRad(float angle);
 	void bgListner();
-	std::tuple<std::string, std::string, std::string> getBoardAndOptionWord();
 	void reCreateSceneElement();
 	void runAnimations(Node * AnimNode, int x, int y, std::string path);
 	void stateShootBubble(float dt);
 	void gamePlay(Node * correctObject);
 	void checkBoundaryBall(Node * target, cocos2d::Touch * touch);
 	int getRandomInt(int min, int max);
-	std::tuple<int, int, int> levelAllInfo(int currentLevel, int totalCategory, int eachCategoryGroup, int totalSceneTheme, int SceneChangeAfterLevel);
 	void setSpriteProperties(Sprite * ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder);
 	vector<int> getRandomValueRange(int min, int max, int getValue);
 	void checkMistakeOnWord();
