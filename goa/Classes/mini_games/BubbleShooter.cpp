@@ -47,7 +47,7 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 
 	std::string mainScenePath = "";
 
-	if (_menuContext->getCurrentLevel() >= 10 && _menuContext->getCurrentLevel() <= 14) {
+	if ((RandomHelper::random_int(1,19) % 2) == 0) {
 		mainScenePath = "bubble_shooter/bubble_shooter.csb";
 		_AlphabetsScene = false;
 	}
@@ -114,6 +114,16 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	letterSprite.resize(numberOfLetter);
 	int bubblelevelValues = 1;
 
+	auto vmc = _lesson.getMultiChoices(3, 0);
+
+	for (int i = 0; i < vmc.size(); i++)
+		letterSprite[i] = vmc[i].question;
+
+	int color = 3, repeat = 4;
+	// Create the level of bubbles
+	createLevel(color, repeat);
+
+	/*
 	if (_AlphabetsScene) {
 		bubblelevelValues = _menuContext->getCurrentLevel();
 		for (int i = 0; i < numberOfLetter; i++) {
@@ -196,7 +206,7 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 
 		}
 	}
-
+	*/
 	auto trnspImg = Sprite::createWithSpriteFrameName("bubble_shooter/pixel.png");
 	trnspImg->setName("touch");
 	trnspImg->setAnchorPoint(Vec2(0, 0));        trnspImg->setPosition(Vec2(0, 0));       trnspImg->setOpacity(0);
@@ -1357,6 +1367,11 @@ std::vector<int> BubbleShooter::rndNumber(int color)
 		ArrayBubble.erase(std::remove(ArrayBubble.begin(), ArrayBubble.end(), ArrayBubble[temp]), ArrayBubble.end());
 	}
 	return  newArrayBubble;
+}
+
+BubbleShooter::BubbleShooter():
+_lesson(0)
+{
 }
 
 BubbleShooter::~BubbleShooter(void)

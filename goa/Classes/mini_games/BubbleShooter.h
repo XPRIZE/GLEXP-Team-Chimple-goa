@@ -19,6 +19,7 @@
 #include "../effects/FShake.h"
 #include "SimpleAudioEngine.h"
 #include "../util/CommonLabelTTF.h"
+#include "../lang/Lesson.h"
 
 using namespace std;
 using namespace cocos2d;
@@ -29,6 +30,8 @@ class Player;
 
 class BubbleShooter : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 
 protected:
 	MenuContext *_menuContext;
@@ -87,6 +90,7 @@ protected:
 	std::vector<std::vector<TileData *>> _floatingclusters;
 
 public:
+	BubbleShooter();
 	~BubbleShooter();
 	static cocos2d::Scene* createScene();
 	virtual bool init();
