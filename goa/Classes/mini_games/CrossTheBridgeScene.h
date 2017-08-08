@@ -7,16 +7,22 @@
 #include "../alphamon/Alphamon.h"
 #include "../puzzle/Alphabet.h"
 #include "SimpleAudioEngine.h"
+#include "../lang/Lesson.h"
+
 
 using namespace cocos2d;
 
 class CrossTheBridge : public cocos2d::Layer
 {
+private:
+	Lesson *_lesson;
 public:
 
 	static cocos2d::Scene* createScene();
-
-	virtual ~CrossTheBridge();
+	// implement the "static create()" method manually
+	CREATE_FUNC(CrossTheBridge);
+	CrossTheBridge();
+	~CrossTheBridge();
 
 	virtual bool init();
 	virtual void sceneMaking();
@@ -108,13 +114,19 @@ protected:
 	Label* myGameScoreLabel;
 	wchar_t letterToDisplay;
 
+	// _revampToNewLessonConcept
+
+	std::string _letterOnDisplayBoard;
+	std::vector<std::string> _choices;
+	std::string _answer;
+
+	//
+
 	cocostudio::timeline::ActionTimeline *water_splash;
 	cocostudio::timeline::ActionTimeline *punch;
 	cocostudio::timeline::ActionTimeline *smoke;
 	cocostudio::timeline::ActionTimeline *star;
 
-	// implement the "static create()" method manually
-	CREATE_FUNC(CrossTheBridge);
 };
 
 #endif // __CROSSTHEBRIDGE_SCENE_H__
