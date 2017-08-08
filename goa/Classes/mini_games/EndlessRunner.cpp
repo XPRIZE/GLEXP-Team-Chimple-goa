@@ -25,6 +25,10 @@ Scene* EndlessRunner::createScene()
 	scene->addChild(layer->_menuContext);
 	return scene;
 }
+EndlessRunner::EndlessRunner():
+_lesson(0)
+{
+}
 //  jump_sound
 EndlessRunner::~EndlessRunner(void)
 {
@@ -41,7 +45,7 @@ void EndlessRunner::onEnterTransitionDidFinish()
 
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
-	const wchar_t*  alpha;
+	/*const wchar_t*  alpha;
 	int currentLevel = _menuContext->getCurrentLevel();
 
 	if (currentLevel != 1) {
@@ -76,6 +80,18 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	_menuContext->setMaxPoints(_alphabets.size() * 5);
 	
 	//std::random_shuffle(letters.at(0).begin(), letters.at(20).end());
+	*/
+
+	// lesson API use for set choices and questions ... begin
+	_vmc = _lesson.getMultiChoices(3, 2);
+
+	tempChar = _vmc[letterBoardAlphaLength].question;
+	for (int i = 0; i < _vmc[letterBoardAlphaLength].answers.size(); i++) {
+		_letterStream.push_back(_vmc[letterBoardAlphaLength].answers[i]);
+	}
+	_correctAnswerFromVmc = _letterStream[_vmc[letterBoardAlphaLength].correctAnswer];
+	
+	//end
 
 	auto bgLayerGradient = LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 255, 255, 255));
 	this->addChild(bgLayerGradient, 0);
@@ -123,7 +139,7 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	this->addChild(boardDisplay, 10);
 	
-	letterOnBoard =  Alphabet::createWithSize(LangUtil::convertUTF16CharToString(tempChar), 300);
+	letterOnBoard =  Alphabet::createWithSize(tempChar, 300);
 	letterOnBoard->setName("mainBoard");
 	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
@@ -237,7 +253,7 @@ void EndlessRunner::update(float delta) {
 
 	EndlessRunner::removePathBlockTouchByLeftBarrier();
 	
-	if (counterLife == 1) {
+	if (counterLife == 1 && false) {
 		//auto totalMax = _menuContext->getMaxPoints();
 		float points = _menuContext->getPoints();
 		_menuContext->addPoints(-points/3.0f);
@@ -308,7 +324,7 @@ void EndlessRunner::stillCharacterOnPath(float delta) {
 }
 
 void EndlessRunner::startingIntersectMode() {
-
+	auto classRefer = this;
 	if (FirstLayerModes == LayerMode.FirstLayerRightIntersectMode) {
 		if (!rightBarrier->getBoundingBox().intersectsRect(currentFirstLayerRock->getBoundingBox())) {
 			int MountainRandomvalue = EndlessRunner::randmValueIncludeBoundery(0, (sizeof(mountainMidImages) / sizeof(mountainMidImages[0])) - 1);
@@ -343,8 +359,7 @@ void EndlessRunner::startingIntersectMode() {
 		}
 		if (netBoxs.intersectsRect(letteBox))
 		{
-			auto mystr = LangUtil::convertUTF16CharToString(tempChar);
-			if (allLabels[i]->getName() == mystr) {
+			if (allLabels[i]->getName() == _correctAnswerFromVmc) {
 				
 				if (popUp) {
 					auto highScale = CallFunc::create([=]() { happyManAction->play("happy_pop", false); });
@@ -357,7 +372,7 @@ void EndlessRunner::startingIntersectMode() {
 				}
 
 				// If correct alphabet picked ......
-				_menuContext->pickWord(LangUtil::convertUTF16CharToString(tempChar),allLabels[i]->getChar(), true);
+				_menuContext->pickWord(_correctAnswerFromVmc,allLabels[i]->getChar(), true);
 				_menuContext->addPoints(1);
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -368,17 +383,30 @@ void EndlessRunner::startingIntersectMode() {
 				_totalCounterAlphabets++;
 				_speedForLetterComing = getSpeedForMonsterRunning();
 				auto nextAlpha = CallFunc::create([=]() {
-					if (_alphabets.size() - 1 == letterBoardAlphaLength) {
+					if (_vmc.size() - 1 == letterBoardAlphaLength) {
+					//	classRefer->unschedule(classRefer->CreateMonsterWithLetter);
 						_menuContext->showScore();
+						
 					}
-					letterBoardAlphaLength++;
-					hpUiCatchAction->play("1", false);
-					tempChar = _alphabets[letterBoardAlphaLength];
-					letterOnBoard->updateChar(LangUtil::convertUTF16CharToString(tempChar));
-					letterOnBoard->setString(LangUtil::convertUTF16CharToString(tempChar));
-					counterAlphabets = 0;
-					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
-					counterLetter = 0;
+					else {
+						letterBoardAlphaLength++;
+						hpUiCatchAction->play("1", false);
+						tempChar = _vmc[letterBoardAlphaLength].question;
+						letterOnBoard->updateChar(tempChar);
+						letterOnBoard->setString(tempChar);
+						counterAlphabets = 0;
+						//					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
+
+						_letterStream.clear();
+						for (int i = 0; i < _vmc[letterBoardAlphaLength].answers.size(); i++) {
+							_letterStream.push_back(_vmc[letterBoardAlphaLength].answers[i]);
+						}
+						_correctAnswerFromVmc = _letterStream[_vmc[letterBoardAlphaLength].correctAnswer];
+
+
+						counterLetter = 0;
+
+					}
 				});
 
 				auto moveToNextAlphabets = Sequence::create(DelayTime::create(1.5), nextAlpha, NULL);
@@ -413,7 +441,7 @@ void EndlessRunner::startingIntersectMode() {
 			}
 			else {
 				// If wrong alphabet picked ...
-				_menuContext->pickWord(LangUtil::convertUTF16CharToString(tempChar), allLabels[i]->getChar(), true);
+				_menuContext->pickWord(_correctAnswerFromVmc, allLabels[i]->getChar(), true);
 				_menuContext->addPoints(-1);
 
 				hpUi->getChildByName("happy_mad")->setScale(1);
@@ -649,7 +677,7 @@ int EndlessRunner::getSpeedForMonsterRunning()
 		highLevelSpeed = true;
 	}
 
-	int totalAlphabets = _alphabets.size() * 5;
+	int totalAlphabets = _vmc.size() * 5;
 	if (_totalCounterAlphabets > floor(totalAlphabets * 0.75)) {
 		if (highLevelSpeed)
 			return 1;
@@ -815,20 +843,21 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 
 		monsterImage->runAction(timeline);  timeline->gotoFrameAndPlay(0);
 
-		auto str = letters.at(0).at(counterLetter);
+		auto str = _letterStream[counterLetter];
 		counterLetter++;
-		if (counterLetter == 21) {
-			letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
+		if (counterLetter == _letterStream.size()) {
+			std::random_shuffle(_letterStream.begin(), _letterStream.end());
+			//letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
 			counterLetter = 0;
 		}
 		
 		if (_flagLetter && (_menuContext->getCurrentLevel() == 1)) {
-			str = tempChar;
+			str = _vmc[letterBoardAlphaLength].answers[_vmc[letterBoardAlphaLength].correctAnswer];
 			_flagLetter = false;
 		}
 
-		auto label = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(str), 300);
-		label->setName(LangUtil::convertUTF16CharToString(str));
+		auto label = Alphabet::createWithSize(str, 300);
+		label->setName(str);
 		label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 		label->setTag(Character.uniqueId);
 		monsterImage->setTag(Character.uniqueId);
