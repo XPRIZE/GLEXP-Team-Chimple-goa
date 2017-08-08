@@ -250,25 +250,51 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 {
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
-	if ((_menuContext->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
-		int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
-		letterToDisplay = LangUtil::getInstance()->getAllCharacters()[randomNumber];//_crossTheBridgeLevelMapping.at(_gameCurrentLevel);
-	}
-	else {
-		letterToDisplay = LangUtil::getInstance()->getAllCharacters()[_menuContext->getCurrentLevel() - 1];
-	}
-	
-	comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 70);
 
-    auto newStr= LangUtil::convertUTF16CharToString(letterToDisplay);
-	letterOnBoard = Alphabet::createWithSize(newStr, 220);
+	// _revampToNewLessonGame
+
+		auto vmc = _lesson->getMultiChoices(1, 6);
+		_letterOnDisplayBoard = vmc[0].question;
+		_answer = vmc[0].answers[vmc[0].correctAnswer];
+		_choices = vmc[0].answers;
+		std::random_shuffle(_choices.begin(), _choices.end());
+
+	/*	vector<int> randomIndex;
+		while (randomIndex.size() != (_choices.size() * 2)) {
+			bool duplicateCheck = true;
+			int size = (_choices.size() ) - 1;
+			int numberPicker = RandomHelper::random_int(0, size);
+			for (int i = 0; i < randomIndex.size(); i++) {
+				if (numberPicker == randomIndex[i])
+					duplicateCheck = false;
+			}
+			if (duplicateCheck)
+			{
+				if(randomIndex.size() %2 ==0)
+					randomIndex.push_back(vmc[0].correctAnswer);
+				else
+					randomIndex.push_back(numberPicker);
+			}
+		}*/
+	//if ((_menuContext->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
+	//	int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+	//	letterToDisplay = LangUtil::getInstance()->getAllCharacters()[randomNumber];//_crossTheBridgeLevelMapping.at(_gameCurrentLevel);
+	//}
+	//else {
+	//	letterToDisplay = LangUtil::getInstance()->getAllCharacters()[_menuContext->getCurrentLevel() - 1];
+	//}
+	/*comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 70);
+    auto newStr= LangUtil::convertUTF16CharToString(letterToDisplay);*/
+
+	
+	letterOnBoard = Alphabet::createWithSize(_letterOnDisplayBoard, 220);
 	letterOnBoard->setPosition(Vec2(visibleSize.width / 2 + origin.x, visibleSize.height*0.929 + origin.y));
 	letterOnBoard->setScale(0.4);
 	this->addChild(letterOnBoard, 3);
 	auto gap = Director::getInstance()->getVisibleSize().width /8;
 	for (auto i = 0; i < 8; i++)
 	{
-		auto displayLetter = LabelTTF::create(newStr, "Helvetica",400);
+		auto displayLetter = LabelTTF::create(_letterOnDisplayBoard, "Helvetica",400);
 		//Alphabet *displayLetter = Alphabet::createWithSize(letterToDisplay, 220);
 		displayLetter->setPosition(Vec2((i*gap + gap / 2) + origin.x, 110.17 + origin.y));
 		this->addChild(displayLetter, 3);
@@ -294,6 +320,7 @@ void CrossTheBridge::alphabetAndMonsterGeneration(float dt)
 		enemyCreateCounter = enemyCreateCounter + RandomHelper::random_int(1, 3);
     }
 else {
+	std::string alphabetName;
 	wchar_t name;
 	if (_gameCurrentLevel == 1 && _flagForHelpLayer)
 	{
@@ -302,24 +329,26 @@ else {
 	}
 	else
 	{
-		 name = comboFive.at(alphabetCounter).at(0);
+		// name = comboFive.at(alphabetCounter).at(0);
+		alphabetName = _choices[alphabetCounter];
 	}
-		
-		alphabetCounter++;
-		auto mystr = LangUtil::convertUTF16CharToString(name);
-
-		if (alphabetCounter == 20)
+		  alphabetCounter++;
+		//auto alphabetName = LangUtil::convertUTF16CharToString(name);
+		  if(alphabetCounter == _choices.size())
 			{
-				comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 65);
+				//comboFive = CharGenerator::getInstance()->generateMatrixForChoosingAChar(letterToDisplay, 20, 1, 65);
+			    std::random_shuffle(_choices.begin(), _choices.end());
 				alphabetCounter = 0;
 			}
-		Alphamon* alphaMon = Alphamon::createWithAlphabet(mystr);
+	
+		
+		Alphamon* alphaMon = Alphamon::createWithAlphabet(alphabetName);
 		alphaMon->setPosition(Vec2((barrierRight->getPosition().x + origin.x), (visibleSize.height*0.47) + origin.y));
 		this->addChild(alphaMon, 1);
 
 		alphaMon->setScale(0.70);
 		alphaMon->setContentSize(cocos2d::Size(20, 300));
-		alphaMon->setName(mystr);
+		alphaMon->setName(alphabetName);
 		alphaContainer.push_back(alphaMon);
 
 		alphaMon->blinkAction();
@@ -342,7 +371,8 @@ void CrossTheBridge::alphaDeletion()
 			if (_gamePointFlag) {
 				_pointCounter++; _gamePointFlag = false;
 			}
-			if (alphaContainer[i]->getAlphabet() == LangUtil::convertUTF16CharToString(letterToDisplay))
+			//if (alphaContainer[i]->getAlphabet() == LangUtil::convertUTF16CharToString(letterToDisplay))//_answer
+			if (alphaContainer[i]->getAlphabet() == _answer)
 			{
 				
 				if (letterDisplayCounter < 8 && pointGenerater)
@@ -656,3 +686,8 @@ void CrossTheBridge::setAllSpriteProperties(Sprite* sprite, int zOrder, float po
 	this->addChild(sprite, zOrder);
 }
 
+CrossTheBridge::CrossTheBridge() :
+	_lesson(0)
+{
+
+}
