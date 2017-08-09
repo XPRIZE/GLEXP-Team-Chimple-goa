@@ -12,9 +12,12 @@
 #include "../lang/SafariAnalyticsManager.h"
 #include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
+#include "../lang/Lesson.h"
 
 class MainGame : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 public:
 	struct Position
 	{
@@ -78,6 +81,12 @@ public:
 	void displayHelp();
 
 	static int _helpFlag;
+
+	// _revampToNewLessonGame
+
+	std::vector<std::vector<std::string>> _mainChars;
+	
+	//
 
 	// implement the "static create()" method manually
 	CREATE_FUNC(MainGame);
