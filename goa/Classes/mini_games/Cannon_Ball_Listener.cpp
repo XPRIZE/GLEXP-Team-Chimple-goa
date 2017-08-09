@@ -28,7 +28,7 @@ LabelClass::~LabelClass()
 {
 }
 
-EventListenerClass* EventListenerClass::createCannonBall(std::string spriteName, EventListenerClass* e1, EventListenerClass* e2, EventListenerClass* e3, int spriteInd, wchar_t spriteId, float x, float y, MainGame *callerObject)
+EventListenerClass* EventListenerClass::createCannonBall(std::string spriteName, EventListenerClass* e1, EventListenerClass* e2, EventListenerClass* e3, int spriteInd, std::string spriteId, float x, float y, MainGame *callerObject)
 {
 	EventListenerClass* createCannonBall_pSprite = new EventListenerClass();
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
@@ -55,7 +55,7 @@ EventListenerClass* EventListenerClass::createCannonBall(std::string spriteName,
 	return NULL;
 }
 
-EventListenerClass* EventListenerClass::createSprite(std::string spriteName, float x, float y, wchar_t charid, MainGame *callerObject)
+EventListenerClass* EventListenerClass::createSprite(std::string spriteName, float x, float y, std::string charid, MainGame *callerObject)
 {
 	EventListenerClass *createSprite_pSprite = new EventListenerClass();
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("cannonball_mainassetPlist.plist");
@@ -75,7 +75,7 @@ EventListenerClass* EventListenerClass::createSprite(std::string spriteName, flo
 }
 
 
-LabelClass* LabelClass::createSpt(wchar_t spriteName, float x, float y, wchar_t charid, MainGame *callerObject)
+LabelClass* LabelClass::createSpt(std::string spriteName, float x, float y, std::string charid, MainGame *callerObject)
 {
 	LabelClass *createSprite_pSprite = new LabelClass();
 	std::string val = "";

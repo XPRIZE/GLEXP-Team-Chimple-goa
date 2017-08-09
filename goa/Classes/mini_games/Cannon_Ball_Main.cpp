@@ -35,9 +35,12 @@ int MainGame::_helpFlag;
 int letterComespeed;
 int tweenSpeed;
 
-MainGame:: MainGame() {
+MainGame::MainGame() :
+_lesson(0)
+{
 
 }
+
 
 MainGame:: ~MainGame() {
 	MainGame::audioBg->stopAllEffects();
@@ -169,8 +172,8 @@ void MainGame::onEnterTransitionDidFinish()
 //	function display help for first time when game is open
 void MainGame::displayHelp()
 {
-	wchar_t letterName;
-	std::vector<wchar_t> chars = MainChars[0];
+	std::string letterName;
+	std::vector<std::string> chars =_mainChars[0];
 
 	letterName = chars[0];
 
@@ -182,7 +185,7 @@ void MainGame::displayHelp()
 	LabelClass *meteor = LabelClass::createSpt(letterName, MainGame::width * .10, MainGame::lettertmpPosition[val].y, letterName, self);
 	MainGame::meteorArray.push_back(meteor);
 
-	Alphabet *myLabel = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(letterName), 300);
+	Alphabet *myLabel = Alphabet::createWithSize(letterName, 300);
 	myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
 	lett->addChild(myLabel);
 	MainGame::meteorArray_actualImage.push_back(myLabel);
@@ -265,6 +268,18 @@ void MainGame::startGame()	// starting of game
 	layer->setPosition(Vec2(cannon1->getPositionX()- cannon1->getBoundingBox().size.width/2, cannon1->getPositionY() - cannon1->getContentSize().height / 2));
 //	this->addChild(layer, 20);
 
+	auto vmc = _lesson.getMultiChoices(10, 0);
+	
+	_mainChars.clear();
+	int column = 10, row = 1;
+	_mainChars.resize(row);
+	_mainChars[0].resize(column);
+
+	for (size_t i = 0; i < 10; i++) {
+		_mainChars[0][i] = vmc[i].question;
+	}
+
+
 	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 4)
 	{
 		MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true, true);
@@ -329,8 +344,10 @@ void MainGame::letterCome(float d)
 	if (MainGame::letterArray.size() < MainGame::cannonArray.size())
 	{
 		int flag = 0;
-		wchar_t letterName;
-		std::vector<wchar_t> chars = MainChars[0];
+		//wchar_t letterName;
+		//std::vector<wchar_t> chars = MainChars[0];
+		std::string letterName;
+		std::vector<std::string> chars = _mainChars[0];
 
 		while (flag == 0)
 		{
@@ -373,7 +390,7 @@ void MainGame::letterCome(float d)
 		LabelClass *meteor = LabelClass::createSpt(letterName, MainGame::lettertmpPosition[val].x, MainGame::lettertmpPosition[val].y, letterName, self);
 		MainGame::meteorArray.push_back(meteor);
 
-		Alphabet *myLabel = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(letterName), 300);
+		Alphabet *myLabel = Alphabet::createWithSize(letterName, 300);
 		myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
 		lett->addChild(myLabel);
 		MainGame::meteorArray_actualImage.push_back(myLabel);
@@ -413,17 +430,18 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 {
 	if (MainGame::cannonLetter.size() == 0)
 	{
-		std::vector<wchar_t> tmpMainChars = MainChars[0];
+		std::vector<std::string> tmpMainChars = _mainChars[0];
 
 		MainGame::cannon_ballArray.clear();
 		for (int i = 0; i < position.size(); i++)
 		{
-			wchar_t letterName = tmpMainChars[i];
+			std::string letterName = tmpMainChars[i];
 			EventListenerClass * e1 = EventListenerClass::createCannonBall("cannon_ball.png", cannon1, cannon2, cannon3, i, tmpMainChars[i], position[i].x, position[i].y, self);
 			this->addChild(e1);
 			MainGame::cannon_ballArray.push_back(e1);
 
-			Alphabet *myLabel = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(tmpMainChars[i]), 200);
+			// _chnage
+			Alphabet *myLabel = Alphabet::createWithSize(tmpMainChars[i], 200);
 			myLabel->setPosition(e1->getBoundingBox().size.width/2 , e1->getBoundingBox().size.height/2);
 			e1->addChild(myLabel);			
 			MainGame::cannonLetter_actualImage.push_back(myLabel);
@@ -440,14 +458,14 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 		for (int i = 0; i < MainGame::cannonLetter.size(); i++)
 		{
 			LabelClass *eventCannonLetterObject = static_cast<LabelClass*>(MainGame::cannonLetter[i]);
-			if (eventCannonLetterObject->flag == 1 && eventCannonLetterObject->answer=='n')
+			if (eventCannonLetterObject->flag == 1 && eventCannonLetterObject->answer =="n")
 			{
 				remchar = eventCannonLetterObject;
 				remcharPos = i;
 				flag++;
 				break;
 			}
-			else if (eventCannonLetterObject->flag == 1 && eventCannonLetterObject->answer == 'y')
+			else if (eventCannonLetterObject->flag == 1 && eventCannonLetterObject->answer == "y")
 			{
 				remchar = eventCannonLetterObject;
 				remcharPos = i;
@@ -457,7 +475,7 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 
 		if (remchar != NULL)
 		{
-			wchar_t letterName;
+			std::string letterName;
 			if (flag == 0)
 			{
 				wchar_t lett;
@@ -482,7 +500,7 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			MainGame::cannon_ballArray[remcharPos] = letter;
 			self->addChild(letter);
 
-			Alphabet *myLabel = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(letterName), 200);
+			Alphabet *myLabel = Alphabet::createWithSize(letterName, 200);
 			myLabel->setPosition(letter->getBoundingBox().size.width / 2, letter->getBoundingBox().size.height / 2);
 			letter->addChild(myLabel);
 			MainGame::cannonLetter_actualImage[remcharPos] = myLabel;
@@ -554,7 +572,7 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 		LabelClass *fire = LabelClass::createSpt(letterObject->id, letterObject->getPositionX() - (letterObject->getContentSize().width * 2), letterObject->getPositionY(), letterObject->id, self);
 		MainGame::bulletArray.push_back(fire);
 
-		Alphabet *myLabel = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(letterObject->id), 200);
+		Alphabet *myLabel = Alphabet::createWithSize(letterObject->id, 200);
 		myLabel->setPosition(letterObject->getPositionX() - (letterObject->getContentSize().width * 2.8), letterObject->getPositionY());
 		self->addChild(myLabel);
 		MainGame::bulletArray_actualImage.push_back(myLabel);
@@ -606,7 +624,7 @@ void MainGame::removeFire(EventListenerClass* letterObject, Alphabet* removableF
 	self->removeChild(removableFire);
 	self->removeChild(fireAnimation);
 	int it = find(MainGame::bulletArray_actualImage.begin(), MainGame::bulletArray_actualImage.end(), removableFire) - MainGame::bulletArray_actualImage.begin();	//find bullet index in bulletarray 
-	wchar_t removableFire_id = MainGame::bulletArray[it]->id;
+	std::string removableFire_id = MainGame::bulletArray[it]->id;
 	MainGame::bulletArray_actualImage.erase(std::remove(MainGame::bulletArray_actualImage.begin(), MainGame::bulletArray_actualImage.end(), removableFire));
 	MainGame::bulletArray.erase(MainGame::bulletArray.begin() + it);
 	MainGame::bulletArray_Animation.erase(std::remove(MainGame::bulletArray_Animation.begin(), MainGame::bulletArray_Animation.end(), fireAnimation));
@@ -791,7 +809,7 @@ void MainGame::update(float dt)
 					timeline->setAnimationEndCallFunc("meteor_blast", CC_CALLBACK_0(MainGame::meteorBlast, this, mycannon));
 					MainGame::audioBg->playEffect("cannonball/gamesound/meteorblast.ogg", false, 1, 1, .2);
 
-					_menuContext->pickAlphabet(MainGame::bulletArray[j]->id, MainGame::letterArray[i]->id, true);
+					_menuContext->pickAlphabet(LangUtil::getInstance()->convertStringToUTF16Char( MainGame::bulletArray[j]->id), LangUtil::getInstance()->convertStringToUTF16Char(MainGame::letterArray[i]->id), true);
 
 					this->removeChild(MainGame::bulletArray_actualImage[j]);
 					this->removeChild(MainGame::letterArray[i]);
@@ -848,7 +866,7 @@ void MainGame::update(float dt)
 					Node *mycannon = (Node *)CSLoader::createNode("cannonball_meteoranimation.csb");
 					mycannon->setPosition(MainGame::letterArray[i]->getBoundingBox().origin.x + (MainGame::letterArray[i]->getContentSize().width * 80/100), MainGame::letterArray[i]->getBoundingBox().origin.y + (MainGame::letterArray[i]->getContentSize().height / 2));
 
-					_menuContext->pickAlphabet(MainGame::letterArray[i]->id, bulletArray[j]->id, true);
+					_menuContext->pickAlphabet(LangUtil::getInstance()->convertStringToUTF16Char(MainGame::letterArray[i]->id), LangUtil::getInstance()->convertStringToUTF16Char(bulletArray[j]->id), true);
 
 					self->addChild(mycannon);	// add cannon animation
 					mycannon->runAction(timeline);
