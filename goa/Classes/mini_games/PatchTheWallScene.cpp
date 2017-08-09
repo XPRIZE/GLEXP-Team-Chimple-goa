@@ -9,7 +9,9 @@
 
 USING_NS_CC;
 
-PatchTheWall::PatchTheWall() {
+PatchTheWall::PatchTheWall():
+_lesson(0)
+{
     
 }
 PatchTheWall::~PatchTheWall() {
@@ -50,6 +52,27 @@ void PatchTheWall::onEnterTransitionDidFinish()
     _slideBar->setPercent(0);
     _slideBar->setEnabled(false);
     
+	auto vmc = _lesson.getMultiChoices(10, 0);
+	
+	vector<string> suffleVmcData;
+	int counterVmc = 0;
+	for (int i = 0; i < 10; i++) {
+		suffleVmcData.push_back(vmc[counterVmc++].question);
+	}
+
+	std::random_shuffle(suffleVmcData.begin(), suffleVmcData.end());
+	_matrix.resize(2);
+	
+	for(int i = 0 ; i < _matrix.size() ; i++)
+	_matrix[i].resize(5);
+
+	counterVmc = 0;
+	for (size_t i = 0; i < _matrix.size(); i++) {
+		for (int j = 0; j < _matrix[0].size(); j++) {
+			_matrix[i][j] = suffleVmcData[counterVmc++];
+		}
+	}
+	/*
     _matrix = CharGenerator::getInstance()->generateCharMatrix(2, 5);
     
 	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 4)
@@ -63,7 +86,7 @@ void PatchTheWall::onEnterTransitionDidFinish()
 	else
 		_matrix = CharGenerator::getInstance()->generateNumberMatrix(2, 5, true);
 
-    
+    */
     float _gridY = visibleSize.height * .19;
     for (int i = 0; i < 5; i++)
     {
@@ -77,7 +100,7 @@ void PatchTheWall::onEnterTransitionDidFinish()
             this->addChild(SpriteDetails._sprite);
 			SpriteDetails._sprite->setColor(Color3B(205, 133, 63));
 
-            auto aplhabets = CommonLabel::createWithTTF(LangUtil::getInstance()->convertUTF16CharToString(_matrix[j][i]), "fonts/Roboto-Regular.ttf", 170);
+            auto aplhabets = CommonLabel::createWithTTF(_matrix[j][i], "fonts/Roboto-Regular.ttf", 170);
 			SpriteDetails._label = aplhabets;
 
             SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
@@ -180,8 +203,8 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
 //                    _position.at(_patchDetails.at(i)._sequence)._flag = 0;
                    
                     _menuContext->addPoints(1);
-					auto a = (char)tolower(_patchDetails.at(i)._id);
-					auto b = (char)tolower(_spriteDetails.at(_index)._id);
+					auto a =  (LangUtil::getInstance()->convertStringToUTF16Char(_patchDetails.at(i)._id));
+					auto b =  (LangUtil::getInstance()->convertStringToUTF16Char(_spriteDetails.at(_index)._id));
 					_menuContext->pickAlphabet(a,b , true);
 					_patchDetails.erase(_patchDetails.begin() + i);
 					_moveFlag = 0;
@@ -223,7 +246,7 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
 						break;
 				}
 
-				_menuContext->pickAlphabet(tolower(letterPick), tolower(templetterPick), true);
+				_menuContext->pickAlphabet((LangUtil::getInstance()->convertStringToUTF16Char(letterPick)), (LangUtil::getInstance()->convertStringToUTF16Char(templetterPick)), true);
 
             }), NULL));
         }
@@ -276,7 +299,7 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
     int _randomRow = cocos2d::RandomHelper::random_int(0, 4);
     int _randomCol = cocos2d::RandomHelper::random_int(0, 1);
 
-	auto aplhabets = CommonLabel::createWithTTF(LangUtil::getInstance()->convertUTF16CharToString(_matrix[_randomCol][_randomRow]), "fonts/Roboto-Regular.ttf", 170);
+	auto aplhabets = CommonLabel::createWithTTF(_matrix[_randomCol][_randomRow], "fonts/Roboto-Regular.ttf", 170);
 	SpriteDetails._label = aplhabets;
 
     SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));

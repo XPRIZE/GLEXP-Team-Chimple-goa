@@ -9,9 +9,12 @@
 #include "../lang/TextGenerator.h"
 #include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
+#include "../lang/Lesson.h"
 
 class PatchTheWall : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 public:
 	PatchTheWall();
 	~PatchTheWall();
@@ -24,13 +27,13 @@ public:
 	int _moveFlag = 0, _totalLetter = 0, _totalCount = 0, _helpFlag = 0, _level;
 	HelpLayer *_help;
 
-	std::vector<std::vector<wchar_t>> _matrix;
+	std::vector<std::vector<string>> _matrix;
 
 	struct SpriteDetails
 	{
 		CommonLabel *_label;
 		cocos2d::Sprite *_sprite;
-		wchar_t _id;
+		string _id;
 		float xP, yP;
 		int _sequence;
 	}SpriteDetails;
