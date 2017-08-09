@@ -18,15 +18,6 @@
 
 USING_NS_CC;
 
-Decomon::Decomon()
-{
-}
-
-Decomon::~Decomon()
-{
-
-}
-
 Decomon * Decomon::create()
 {
 	Decomon* dashGame = new (std::nothrow) Decomon();
@@ -201,6 +192,15 @@ bool Decomon::init()
 	return true;
 }
 
+Decomon::Decomon():
+_lesson(0)
+{
+}
+
+Decomon::~Decomon()
+{
+
+}
 void Decomon::update(float dt)
 {
 	if (_touchPoint.x > 10 && _touchPoint.y > 10) {
@@ -924,18 +924,25 @@ void Decomon::onEnterTransitionDidFinish()
 		auto currentLevel = menu->getCurrentLevel();
 		//for(int i = 1 ; i < 64 ;i++){
 		//	currentLevel = i;
-		if ((currentLevel > 1) && (currentLevel < 28)) {
-			if (currentLevel > LangUtil::getInstance()->getNumberOfCharacters() + 1) {
+		
+		// _revampToNewLessonGame
+
+		auto vmc = _lesson.getMultiChoices(1, 0);
+
+		if ((currentLevel > 1) && (currentLevel < 54)) //28 
+		{
+			_myChar = vmc[0].question;
+			/*if (currentLevel > LangUtil::getInstance()->getNumberOfCharacters() + 1) {
 				int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
 				auto mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];
 				_myChar = LangUtil::convertUTF16CharToString(mychar);
 			}
 			else {
 				_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[currentLevel - 2]);
-			}
+			}*/
 
 		}
-		else if ((currentLevel > 27) && (currentLevel < 54)) {
+		/*else if ((currentLevel > 27) && (currentLevel < 54)) {
 			int level = currentLevel - 28;
 			if (level >= LangUtil::getInstance()->getNumberOfCharacters()) {
 				int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 2);
@@ -946,7 +953,7 @@ void Decomon::onEnterTransitionDidFinish()
 				_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllLowerCaseCharacters()[level]);
 			}
 
-		}
+		}*/
 		else {
 			int level = currentLevel - 54;
 			auto mychar = LangUtil::getInstance()->getAllNumbers()[level];

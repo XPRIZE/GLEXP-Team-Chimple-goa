@@ -14,11 +14,15 @@
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "SimpleAudioEngine.h"
+#include "../lang/Lesson.h"
 
 class Decomon : public cocos2d::Layer
 {
+	
+private:
+	Lesson _lesson;
 public:
-	Decomon();
+	 Decomon();
 	~Decomon();
 	static Decomon* create();
 	virtual bool init();

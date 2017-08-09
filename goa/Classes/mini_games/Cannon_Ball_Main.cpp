@@ -268,6 +268,8 @@ void MainGame::startGame()	// starting of game
 	layer->setPosition(Vec2(cannon1->getPositionX()- cannon1->getBoundingBox().size.width/2, cannon1->getPositionY() - cannon1->getContentSize().height / 2));
 //	this->addChild(layer, 20);
 
+	// _revampToNewLessonGame
+
 	auto vmc = _lesson.getMultiChoices(10, 0);
 	
 	_mainChars.clear();
@@ -279,8 +281,8 @@ void MainGame::startGame()	// starting of game
 		_mainChars[0][i] = vmc[i].question;
 	}
 
-
-	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 4)
+	//
+	/*if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 4)
 	{
 		MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true, true);
 	}
@@ -289,7 +291,7 @@ void MainGame::startGame()	// starting of game
 		MainChars = CharGenerator::getInstance()->generateCharMatrix(1, 10, true, false);
 	}
 	else
-		MainChars = CharGenerator::getInstance()->generateNumberMatrix(1, 10, true);
+		MainChars = CharGenerator::getInstance()->generateNumberMatrix(1, 10, true);*/
 
 
 	letterComespeed = 5;
