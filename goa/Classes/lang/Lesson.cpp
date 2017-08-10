@@ -30,7 +30,7 @@ std::vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choice
         std::vector<std::string> answers;
         answers.reserve(choices + 1);
         for (int j = 0; j < choices + 1; j++) {
-            answers.insert(answers.begin() + j, allLowerStrings[j % allLowerStrings.size()]);
+            answers.insert(answers.begin() + j, allLowerStrings[(i + j) % allLowerStrings.size()]);
         }
         mc.answers = answers;
         vmc.insert(vmc.begin() + i, mc);
