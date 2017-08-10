@@ -8,9 +8,13 @@
 #include "SimpleAudioEngine.h" 
 #include "../menu/StartMenuScene.h"
 #include "../puzzle/Alphabet.h"
+#include "../lang/Lesson.h"
 
 class SmashTheRock : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
+
 public:
 	static cocos2d::Scene* createScene();
 
@@ -18,7 +22,7 @@ public:
 
 	int click = 0;
 	int clickWrong = 0;
-	wchar_t mychar;
+	string mychar;
 	bool flag = true;
     cocos2d::Sprite* target;
 	cocos2d::Node* character;
