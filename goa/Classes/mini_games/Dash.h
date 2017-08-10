@@ -17,10 +17,13 @@
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../menu/HelpLayer.h"
+#include "../lang/Lesson.h"
 
 
 class Dash : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 public:
 	Dash();
 	~Dash();
@@ -29,7 +32,7 @@ public:
 	static cocos2d::Scene* createScene();
 	void updatePlayerPosition(std::string playerName, int stepPosition);
 	std::map<std::string, std::string> _scenePath;
-    void peerInformationReceived(cocos2d::EventCustom *event);
+    //void peerInformationReceived(cocos2d::EventCustom *event);
     void transitToMenu(cocos2d::EventCustom * event);
     void syncEnemyCharacterPosition(cocos2d::EventCustom *event);
 

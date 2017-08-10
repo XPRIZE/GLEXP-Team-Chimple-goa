@@ -16,7 +16,9 @@ USING_NS_CC;
 
 
 
-AlphamonFeed::AlphamonFeed() {
+AlphamonFeed::AlphamonFeed():
+_lesson(0)
+{
     
 }
 
@@ -112,7 +114,9 @@ bool AlphamonFeed::init()
 void AlphamonFeed::startGame() {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	menu->setMaxPoints(10);
-	if ((menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
+
+
+	/*if ((menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
 		int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
 		mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];//_crossTheBridgeLevelMapping.at(_gameCurrentLevel);
 	}
@@ -125,12 +129,17 @@ void AlphamonFeed::startGame() {
 	ss << mychar;
 	std::string mycharString = ss.str();
 	//std::string mycharString = LangUtil::convertUTF16CharToString(mychar);
-	sprite1 = Alphamon::createWithAlphabet(mycharString);//alphaLevelString.at(0));
+	*/
+
+	auto vmc = _lesson.getMultiChoices(1, 0);
+	mychar = vmc[0].question;
+
+	sprite1 = Alphamon::createWithAlphabet(mychar);//alphaLevelString.at(0));
 	sprite1->setScaleX(0.85);
 	sprite1->setScaleY(0.85);
 	sprite1->setPositionX(visibleSize.width/2);
 	sprite1->setPositionY(50);
-	sprite1->setName(mycharString);
+	sprite1->setName(mychar);
 	sprite1->setContentSize(cocos2d::Size(400.0f, 400.0f));
 	this->addChild(sprite1);
 	//breath animination
@@ -175,12 +184,12 @@ void AlphamonFeed::showFruits(float dt) {
 		_helpLayer = false;
 	}
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	auto fallingAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 6, 1, 50);
+	auto fallingAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(LangUtil::getInstance()->convertStringToUTF16Char(mychar), 6, 1, 50);
 	auto random_Xposition = cocos2d::RandomHelper::random_real(visibleSize.width*0.20, visibleSize.width*0.85);
 	auto str = fallingAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
 	if (menu->getCurrentLevel() == 1 && score == 0 && _isPlayFirst) {
 		_isPlayFirst = false;
-		str = mychar;
+		str = LangUtil::getInstance()->convertStringToUTF16Char( mychar);
 		_helpLayer = true;
 		auto help = HelpLayer::create(Rect(visibleSize.width/2, visibleSize.height * 0.2, visibleSize.width, visibleSize.height * 0.3), Rect(random_Xposition, visibleSize.height / 1.1, 400, 400));
 		help->click(Vec2(visibleSize.width/2, visibleSize.height * 0.2));
@@ -195,7 +204,7 @@ void AlphamonFeed::showFruits(float dt) {
 	sprite = CSLoader::createNode(path);
 	sprite->setPositionX(random_Xposition);
 	sprite->setPositionY(1800);
-	sprite->setName(mystr);
+	sprite->setName(LangUtil::getInstance()->convertUTF16CharToString(str));
 	
 	sprite->setContentSize(cocos2d::Size(150.0f, 150.0f));
 	auto moveBy = MoveBy::create(2, Vec2(0, -visibleSize.height-100));
@@ -225,6 +234,9 @@ void AlphamonFeed:: update(float dt) {
                     wchar_t monster = (wchar_t)mySpriteName;
                     //	menu->pickAlphabet((sprite1->getName()).at(0), (fruitReff.at(i)->getName()).at(0), true);
                    // menu->pickAlphabet(monster, testing, true);
+
+					auto CharacterName = sprite1->getName();
+					auto fruitName = fruitReff.at(i)->getName();
                     if ((sprite1->getName()).compare(fruitReff.at(i)->getName()) == 0) {
                         sprite1->alphamonMouthAnimation("eat", false);
                         smile->setVisible(false);

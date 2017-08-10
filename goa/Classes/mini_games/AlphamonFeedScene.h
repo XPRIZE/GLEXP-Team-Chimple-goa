@@ -9,15 +9,18 @@
 #include "SimpleAudioEngine.h"
 #include "ui/UIVideoPlayer.h"
 #include "../menu/StartMenuScene.h"
+#include "../lang/Lesson.h"
 
 class AlphamonFeed : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 public:
     AlphamonFeed();
     ~AlphamonFeed();
     
     static AlphamonFeed* create();
-	wchar_t mychar;
+	string mychar;
 	int score;
 	cocos2d::Rect monster;
 	cocos2d::Node * smile;
