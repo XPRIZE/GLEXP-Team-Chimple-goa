@@ -13,12 +13,14 @@
 #include "../lang/TextGenerator.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "../util/CommonLabel.h"
+#include "../util/MatrixUtil.h"
 
 USING_NS_CC;
 using namespace rapidjson;
 
 
-Dash::Dash()
+Dash::Dash():
+_lesson(0)
 {
 }
 
@@ -66,7 +68,7 @@ bool Dash::init()
 	_gameScore = 0;
 	_enemyScore = 0;
 
-
+	
 	
 	_differntSceneMapping = {
 	   
@@ -153,10 +155,17 @@ void Dash::onEnterTransitionDidFinish()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Node::onEnterTransitionDidFinish();
 	menu->setMaxPoints(10);
-	int level = menu->getCurrentLevel();
-	int division = ((level - 1) % 15)+1;
-	if (division >= 1 && division < 6) {
-		int roundLevel = std::ceil(level / 15.0);
+
+	auto SceneIndex = RandomHelper::random_int(0, 2);
+	auto vmc = _lesson.getMultiChoices(10,3);
+	auto mapping = MatrixUtil::questionToAnswerMapping(vmc);
+	_synonyms.clear();
+	_synonyms = mapping;
+
+	//int level = menu->getCurrentLevel();
+	//int division = ((level - 1) % 15)+1;
+	if (SceneIndex == 0 ) {
+	/*	int roundLevel = std::ceil(level / 15.0);
 		int inner = division + ((roundLevel - 1) * 5);
 		int subLevel = 1;
 		if (inner < 16) {
@@ -169,13 +178,14 @@ void Dash::onEnterTransitionDidFinish()
 		}
 		CCLOG("Sysnonyms sub Level = %d", subLevel);
 	//	std::vector<std::string> theme = { "city","candy","iceLand" };
+		*/
 		_scenePath = _differntSceneMapping.at("city");
-		_title = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
-		_catagory = LangUtil::getInstance()->translateString("List of same meaning words");
-		_synonyms = TextGenerator::getInstance()->getSynonyms(15, subLevel);
+		//_title = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
+		//_catagory = LangUtil::getInstance()->translateString("List of same meaning words");
+		//_synonyms = TextGenerator::getInstance()->getSynonyms(15, subLevel);
 	} 
-	else if (division >5 && division < 11) {
-		int roundLevel = std::ceil(level / 15.0);
+	else if (SceneIndex == 1) {
+		/*int roundLevel = std::ceil(level / 15.0);
 		int inner = division - 5 + ((roundLevel - 1) * 5);
 		
 		int subLevel = 1;
@@ -188,13 +198,14 @@ void Dash::onEnterTransitionDidFinish()
 			subLevel += 5;
 		}
 		CCLOG("Antonyms Sub Level = %d", subLevel);
+		*/
 		_scenePath = _differntSceneMapping.at("candy");
-		_title = LangUtil::getInstance()->translateString("Make opposite of : ");
-		_catagory = LangUtil::getInstance()->translateString("List of opposite words");
-		_synonyms = TextGenerator::getInstance()->getAntonyms(15, subLevel);
+		//_title = LangUtil::getInstance()->translateString("Make opposite of : ");
+		//_catagory = LangUtil::getInstance()->translateString("List of opposite words");
+		//_synonyms = TextGenerator::getInstance()->getAntonyms(15, subLevel);
 	}
 	else {
-		int roundLevel = std::ceil(level / 15.0);
+		/*int roundLevel = std::ceil(level / 15.0);
 		int inner = division - 10 + ((roundLevel - 1) * 5);
 		
 		int subLevel = 1;
@@ -207,13 +218,16 @@ void Dash::onEnterTransitionDidFinish()
 			subLevel += 5;
 		}
 		CCLOG("Homonyms SubLevel = %d", subLevel);
+		*/
 		_scenePath = _differntSceneMapping.at("iceLand");
-		_title = LangUtil::getInstance()->translateString("Make same sounding word as : ");
-		_catagory = LangUtil::getInstance()->translateString("List of same sounding words");
-		_synonyms = TextGenerator::getInstance()->getHomonyms(15, subLevel);
+		//_title = LangUtil::getInstance()->translateString("Make same sounding word as : ");
+		//_catagory = LangUtil::getInstance()->translateString("List of same sounding words");
+		//_synonyms = TextGenerator::getInstance()->getHomonyms(15, subLevel);
 	}
 	
-	
+	_title = LangUtil::getInstance()->translateString(vmc[0].help);
+	_catagory = LangUtil::getInstance()->translateString("List of given Answer ");
+
 	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
 		_mapKey.push_back(it->first);
 	}
@@ -425,7 +439,7 @@ void Dash::wordGenerateWithOptions()
 	//auto translateStr = 
 
 	std::ostringstream boardName;
-	boardName << _title << _gameWord;
+	boardName << _title <<" "<< _gameWord;
 
 	auto board = Sprite::createWithSpriteFrameName(_scenePath.at("board"));
 	board->setPositionY(visibleSize.height - board->getContentSize().height / 2);
