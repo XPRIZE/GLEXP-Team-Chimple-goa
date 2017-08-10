@@ -26,13 +26,16 @@ public:
     } MultiChoice;
 
     std::vector<MultiChoice> getMultiChoices(int lessons = 1, int choices = 4);
+    
+    float getComplexity();
 
 CC_CONSTRUCTOR_ACCESS:
-    Lesson(int sessionId);
+    Lesson(int sessionId, float complexity);
     virtual ~Lesson();
     
 protected:
     int _sessionId;
+    float _complexity;
 };
 
 #endif /* Lesson_h */

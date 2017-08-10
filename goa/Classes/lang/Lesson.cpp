@@ -38,8 +38,13 @@ std::vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choice
     return vmc;
 }
 
-Lesson::Lesson(int sessionId) {
+float Lesson::getComplexity() {
+    return _complexity;
+}
+
+Lesson::Lesson(int sessionId, float _complexity) {
     _sessionId = sessionId;
+    _complexity = _complexity;
 }
 
 Lesson::~Lesson() {

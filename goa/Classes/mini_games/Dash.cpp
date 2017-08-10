@@ -20,7 +20,7 @@ using namespace rapidjson;
 
 
 Dash::Dash():
-_lesson(0)
+_lesson(0, 0.5)
 {
 }
 

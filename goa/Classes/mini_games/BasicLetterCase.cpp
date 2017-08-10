@@ -305,7 +305,7 @@ string BasicLetterCase::getConvertInUpperCase(string data)
 }
 
 BasicLetterCase::BasicLetterCase() :
-_lesson(0)
+_lesson(0, 0.5)
 {
     
 }
