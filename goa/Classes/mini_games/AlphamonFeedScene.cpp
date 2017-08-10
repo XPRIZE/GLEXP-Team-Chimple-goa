@@ -17,7 +17,7 @@ USING_NS_CC;
 
 
 AlphamonFeed::AlphamonFeed():
-_lesson(0)
+_lesson(0, 0.5)
 {
     
 }

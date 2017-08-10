@@ -15,7 +15,7 @@ using namespace cocos2d;
 class CrossTheBridge : public cocos2d::Layer
 {
 private:
-	Lesson *_lesson;
+	Lesson _lesson;
 public:
 
 	static cocos2d::Scene* createScene();

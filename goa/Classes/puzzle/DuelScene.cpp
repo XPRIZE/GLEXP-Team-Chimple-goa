@@ -36,7 +36,7 @@ _timer(nullptr),
 _timerAnimation(nullptr),
 _myMonStr(""),
 _otherMonStr(""),
-_lesson(0)
+_lesson(0, 0.5)
 {
 }
 

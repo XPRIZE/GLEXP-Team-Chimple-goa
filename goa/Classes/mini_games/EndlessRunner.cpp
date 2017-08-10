@@ -26,7 +26,7 @@ Scene* EndlessRunner::createScene()
 	return scene;
 }
 EndlessRunner::EndlessRunner():
-_lesson(0)
+_lesson(0, 0.5)
 {
 }
 //  jump_sound

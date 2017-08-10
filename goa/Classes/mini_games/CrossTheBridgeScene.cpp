@@ -253,7 +253,7 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 
 	// _revampToNewLessonGame
 
-		auto vmc = _lesson->getMultiChoices(1, 6);
+		auto vmc = _lesson.getMultiChoices(1, 6);
 		_letterOnDisplayBoard = vmc[0].question;
 		_answer = vmc[0].answers[vmc[0].correctAnswer];
 		_choices = vmc[0].answers;
@@ -687,7 +687,7 @@ void CrossTheBridge::setAllSpriteProperties(Sprite* sprite, int zOrder, float po
 }
 
 CrossTheBridge::CrossTheBridge() :
-	_lesson(0)
+_lesson(0, 0.5)
 {
 
 }
