@@ -42,9 +42,9 @@ float Lesson::getComplexity() {
     return _complexity;
 }
 
-Lesson::Lesson(int sessionId, float _complexity) {
+Lesson::Lesson(int sessionId, float complexity) {
     _sessionId = sessionId;
-    _complexity = _complexity;
+    _complexity = complexity;
 }
 
 Lesson::~Lesson() {

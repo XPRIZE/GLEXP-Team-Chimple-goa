@@ -14,6 +14,8 @@
 #include "../menu/HelpLayer.h"
 
 class MemoryJungle : public cocos2d::Layer {
+private:
+	Lesson _lesson;
 public:
 	static cocos2d::Scene* createScene();
 	static MemoryJungle *create();
