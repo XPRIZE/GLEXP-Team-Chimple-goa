@@ -121,6 +121,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/lang/TextGenerator.cpp \
          ../../Classes/lang/WordInfo.cpp \
          ../../Classes/lang/WordManager.cpp \
+         ../../Classes/lang/Lesson.cpp \
          ../../Classes/menu/Award.cpp \
          ../../Classes/menu/GameMapScene.cpp \
          ../../Classes/menu/GameScene.cpp \
@@ -242,6 +243,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/story/ScrollableCatalogue.cpp \
          ../../Classes/story/StoryCoverPage.cpp \
          ../../Classes/story/StoryPlaying.cpp \
+         ../../Classes/util/MatrixUtil.cpp \
          ../../Classes/util/Calculator.cpp \
          ../../Classes/util/CommonLabel.cpp \
          ../../Classes/util/CommonLabelTTF.cpp \
