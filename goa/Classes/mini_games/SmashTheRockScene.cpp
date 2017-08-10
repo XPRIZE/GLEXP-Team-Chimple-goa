@@ -18,7 +18,8 @@ int val;
 int val1;
 int sizei;
 int sizej;
-SmashTheRock::SmashTheRock()
+SmashTheRock::SmashTheRock():
+	_lesson(0)
 {
 
 }
@@ -56,6 +57,8 @@ bool SmashTheRock::init()
 	{
 		return false;
 	}
+
+	// This is just for github testing .... in kiranbv branch
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -115,14 +118,19 @@ void SmashTheRock::begin()
 	auto block = Sprite::createWithSpriteFrameName("smash_de_rock/letter_normal.png");
 	//mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	//mychar = CharGenerator::getInstance()->generateAChar();
-	if ((menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
+/*	if ((menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
 		int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
 		mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];//_crossTheBridgeLevelMapping.at(_gameCurrentLevel);
 	}
 	else {
 		mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	}
-    _charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(mychar, 2, 7, 50);
+*/
+	auto vmc = _lesson.getMultiChoices(1,0);
+
+	mychar = vmc[0].question;
+
+    _charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(LangUtil::getInstance()->convertStringToUTF16Char(mychar), 2, 7, 50);
 	bool firstMychar = true;
 	int dis = (220.0 / 2560)*visibleSize.width;
 	auto keyboard = Node::create();
@@ -182,7 +190,7 @@ void SmashTheRock::begin()
 			label->setPositionX(xx + block->getContentSize().width/2);
 			auto letter = label->getString();
 			label->setPositionY(yy - block->getContentSize().height/2);
-			if (str1 == mychar && firstMychar)
+			if (str1 == LangUtil::getInstance()->convertStringToUTF16Char(mychar) && firstMychar)
 			{
 				helpX = xx +(block->getContentSize().width * 0.9);
 				helpY = yy +(block->getContentSize().height * 0.8);
@@ -228,7 +236,7 @@ void SmashTheRock::gameHelp()
 	_helpFlage = true;
 	//game help only for first level
 
-	auto mystr = LangUtil::convertUTF16CharToString(mychar);
+	auto mystr =mychar;
 	auto label = this->getChildByName("keyboard")->getChildByName(mystr);
 	auto keyboard = this->getChildByName("keyboard");
 	helpX = (visibleSize.width / 2) - (keyboard->getContentSize().width / 2 - helpX);
@@ -324,7 +332,7 @@ void SmashTheRock::masking()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
-	_label1 = Alphabet::createWithSize(LangUtil::convertUTF16CharToString(mychar), 1300);
+	_label1 = Alphabet::createWithSize(mychar, 1300);
 //	label1 = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), Alphabets.at(key).c_str());
 //	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), "fonts/BalooBhai-Regular.ttf", 256);
 	//_label1->setScale(1.5);
@@ -396,7 +404,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	{
 		auto scale = ScaleBy::create(0.1, 0.75);
 		target->runAction(Sequence::create(scale, scale->reverse(), NULL));
-		menu->pickWord(myletter, LangUtil::convertUTF16CharToString(mychar), true);
+		menu->pickWord(myletter,mychar, true);
 		flag = false;
 		int myIndex = 0;
 		for (int i = 0; i < labelRef.size(); i++) {
@@ -405,7 +413,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 				myIndex = i;
 			}
 		}
-		if (myletter == LangUtil::convertUTF16CharToString(mychar))
+		if (myletter == mychar)
 		{
 			int indexj = (target->getPositionX());
 			int indexi = (target->getPositionY());
@@ -425,7 +433,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			click++;
 			menu->addPoints(1);
 
-			menu->pickWord(LangUtil::convertUTF16CharToString(mychar), myletter, true);
+			menu->pickWord(mychar, myletter, true);
 
 			if (_helpFlage) {
 				this->removeChildByName("helpLayer");
@@ -454,7 +462,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			maskedFill->runAction(shake);
 			menu->addPoints(-1);
-			menu->pickWord(LangUtil::convertUTF16CharToString(mychar), myletter, true);
+			menu->pickWord(mychar, myletter, true);
 			
 			
 			return false;
