@@ -10,7 +10,7 @@
 class jazz : public WordScene
 {
 public:
-	static cocos2d::Scene* createScene(); 
+	static cocos2d::Scene* createScene(Lesson* lesson);
 	static jazz *create();
     static const char* gameName() { return JAZZ.c_str();}
 	void showScore(float dt);

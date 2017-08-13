@@ -542,6 +542,8 @@
 		F35CEBC61E98A35F00E0F041 /* Phonicsfree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBBD1E98A35F00E0F041 /* Phonicsfree.cpp */; };
 		F35CEBCC1E9FB98E00E0F041 /* ConnectTheDots.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBCA1E9FB98E00E0F041 /* ConnectTheDots.cpp */; };
 		F35CEBCE1E9FB99D00E0F041 /* ConnectTheDots.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F35CEBCA1E9FB98E00E0F041 /* ConnectTheDots.cpp */; };
+		F37165811F3D85D30062FA25 /* StudySession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F371657F1F3D85D30062FA25 /* StudySession.cpp */; };
+		F37165821F3D85D30062FA25 /* StudySession.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F371657F1F3D85D30062FA25 /* StudySession.cpp */; };
 		F38DFA671ECEF06500B04635 /* BasicMultiplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DFA631ECEF06500B04635 /* BasicMultiplication.cpp */; };
 		F38DFA681ECEF06500B04635 /* BasicMultiplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DFA631ECEF06500B04635 /* BasicMultiplication.cpp */; };
 		F38DFA691ECEF06500B04635 /* MathLearning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DFA651ECEF06500B04635 /* MathLearning.cpp */; };
@@ -1200,6 +1202,8 @@
 		F35CEBBE1E98A35F00E0F041 /* Phonicsfree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Phonicsfree.h; sourceTree = "<group>"; };
 		F35CEBCA1E9FB98E00E0F041 /* ConnectTheDots.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ConnectTheDots.cpp; sourceTree = "<group>"; };
 		F35CEBCB1E9FB98E00E0F041 /* ConnectTheDots.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ConnectTheDots.hpp; sourceTree = "<group>"; };
+		F371657F1F3D85D30062FA25 /* StudySession.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StudySession.cpp; sourceTree = "<group>"; };
+		F37165801F3D85D30062FA25 /* StudySession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudySession.h; sourceTree = "<group>"; };
 		F38DFA631ECEF06500B04635 /* BasicMultiplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BasicMultiplication.cpp; sourceTree = "<group>"; };
 		F38DFA641ECEF06500B04635 /* BasicMultiplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMultiplication.h; sourceTree = "<group>"; };
 		F38DFA651ECEF06500B04635 /* MathLearning.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathLearning.cpp; sourceTree = "<group>"; };
@@ -2019,6 +2023,8 @@
 				F350416A1E32199F0005DF8D /* WordManager.h */,
 				F33C90F41F2F3D6900E71364 /* Lesson.cpp */,
 				F33C90F51F2F3D6900E71364 /* Lesson.h */,
+				F371657F1F3D85D30062FA25 /* StudySession.cpp */,
+				F37165801F3D85D30062FA25 /* StudySession.h */,
 			);
 			path = lang;
 			sourceTree = "<group>";
@@ -2657,6 +2663,7 @@
 				F35CEBC11E98A35F00E0F041 /* AlphaPhonics.cpp in Sources */,
 				F35CEBBF1E98A35F00E0F041 /* AlphaArrange.cpp in Sources */,
 				F35043931E3219A00005DF8D /* TraceScene.cpp in Sources */,
+				F37165811F3D85D30062FA25 /* StudySession.cpp in Sources */,
 				F35043991E3219A00005DF8D /* TreasureHuntNode.cpp in Sources */,
 				F350428F1E32199F0005DF8D /* LTKPreprocessor.cpp in Sources */,
 				F35043051E32199F0005DF8D /* GameScene.cpp in Sources */,
@@ -2911,6 +2918,7 @@
 				F3E3AC0F1E8FC5A900AD906E /* DotNum.cpp in Sources */,
 				F33C90C91F2AFCF900E71364 /* CCSlot.cpp in Sources */,
 				F35043221E3219A00005DF8D /* Alphamole.cpp in Sources */,
+				F37165821F3D85D30062FA25 /* StudySession.cpp in Sources */,
 				F35043D01E3219A00005DF8D /* StoryPlaying.cpp in Sources */,
 				F35043581E3219A00005DF8D /* Door.cpp in Sources */,
 				F35042B41E32199F0005DF8D /* logger.cpp in Sources */,

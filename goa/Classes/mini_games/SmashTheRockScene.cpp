@@ -18,9 +18,7 @@ int val;
 int val1;
 int sizei;
 int sizej;
-SmashTheRock::SmashTheRock():
-	_lesson(0, 0.5)
-{
+SmashTheRock::SmashTheRock(){
 
 }
 SmashTheRock::~SmashTheRock()

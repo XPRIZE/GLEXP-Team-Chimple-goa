@@ -10,7 +10,7 @@
 class Wembley : public WordScene
 {
 public:
-	static cocos2d::Scene* createScene();
+	static cocos2d::Scene* createScene(Lesson* lesson);
 	static Wembley *create();
     static const char* gameName() { return WEMBLEY.c_str();}
 	~Wembley();

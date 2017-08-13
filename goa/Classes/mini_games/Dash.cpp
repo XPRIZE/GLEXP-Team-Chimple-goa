@@ -19,9 +19,7 @@ USING_NS_CC;
 using namespace rapidjson;
 
 
-Dash::Dash():
-_lesson(0, 0.5)
-{
+Dash::Dash(){
 }
 
 Dash::~Dash()
