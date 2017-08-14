@@ -178,6 +178,10 @@ void Owl::onEnterTransitionDidFinish()
 	}
 
 	
+	//	_data -> its is map <string , string > , which carry question and answer
+	// _data_key -> it is vector<string> , which has question(key) ...
+	// _data_value -> it is vector<string> , which has answer (value)... 
+
 
 	_owlCurrentTheme = owlSceneMapping.at(std::get<1>(levelKeyNumber));
 
@@ -517,6 +521,8 @@ void Owl::createGrid() {
 			xPosi = xPosi + IndiSpace + gridObject->getContentSize().width;
 			addEventsOnGrid(gridObject);
 			
+			// Set Alphabet one by one in KEYBOARD ... here alpha is an Array which contain all characters ...
+
 			auto label = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(alpha[counter]), "Helvetica", gridObject->getContentSize().width * 0.8);
 			label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
 			label->setColor(Color3B::WHITE);
