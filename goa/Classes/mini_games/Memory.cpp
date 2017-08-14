@@ -40,8 +40,7 @@ Memory::Memory() :
 	_counter(0),
 	_helpflag(0),
 	_right(0),
-	_wrong(0),
-	_lesson(0,0.2)
+	_wrong(0)
 {
 
 }

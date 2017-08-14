@@ -93,6 +93,7 @@
 #include "../mini_games/BasicMultiplication.h"
 #include "../ext/util/lib/LTKStringUtil.h"
 #include "../mini_games/BasicLetterCase.h"
+#include "../lang/Lesson.h"
 
 
 USING_NS_CC;
@@ -102,6 +103,7 @@ using namespace experimental;
 static const int MAX_POINTS_TO_SHOW = 16;
 static const int POINTS_TO_LEFT = 300.0f;
 static const std::string CURRENT_LEVEL = ".currentLevel";
+static const std::string CURRENT_TITLE = ".currentTitle";
 static const std::string LEVEL = ".level";
 static const std::string UNLOCK_ALL = ".unlock";
 static const std::string LANGUAGE = "language";
@@ -908,8 +910,15 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 
 void MenuContext::launchGameFinally(std::string gameName) {
     CCLOG("gameName %s", gameName.c_str());
+    Lesson* lesson = new Lesson();
+    std::string currentTitleStr;
+    localStorageGetItem(gameName + CURRENT_TITLE, &currentTitleStr);
+    if(!currentTitleStr.empty()) {
+        lesson->setComplexityAndConcept(std::atoi(currentTitleStr.c_str()));
+    }
+    //lesson->setConcept(Lesson::CONCEPT::LETTER_CASE_EQUATE);
         if(gameName == ALPHAMON_COMBAT) {
-            Director::getInstance()->replaceScene(DuelScene::createScene());
+            Director::getInstance()->replaceScene(DuelScene::createScene(lesson));
         } else if(gameName == DUEL_SCENE) {
 //            std::u16string firstParamUTF16;
 //            StringUtils::UTF8ToUTF16(firstParam, firstParamUTF16);
@@ -933,17 +942,17 @@ void MenuContext::launchGameFinally(std::string gameName) {
         } else if(gameName == ALPHAMON_FEED) {
             Director::getInstance()->replaceScene(AlphamonFeed::createScene());
         } else if(gameName == BAJA) {
-            Director::getInstance()->replaceScene(BajaWordScene::createScene());
+            Director::getInstance()->replaceScene(BajaWordScene::createScene(lesson));
         } else if(gameName == JASMINE) {
-            Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene());
+            Director::getInstance()->replaceScene(Jasmin_Mainfile::createScene(lesson));
         } else if(gameName == WEMBLEY) {
-    		Director::getInstance()->replaceScene(Wembley::createScene());
+    		Director::getInstance()->replaceScene(Wembley::createScene(lesson));
         } else if(gameName == JAZZ) {
-            Director::getInstance()->replaceScene(jazz::createScene());
+            Director::getInstance()->replaceScene(jazz::createScene(lesson));
         } else if(gameName == CHAIN) {
-            Director::getInstance()->replaceScene(Chain::createScene());
+            Director::getInstance()->replaceScene(Chain::createScene(lesson));
         }else if (gameName == CAT) {
-    		Director::getInstance()->replaceScene(CatGame::createScene());
+    		Director::getInstance()->replaceScene(CatGame::createScene(lesson));
         } else if (gameName == TRAIN) {
 			Director::getInstance()->replaceScene(Train::createScene());
 //            ScriptingCore::getInstance()->runScript("src/start/startFromCpp.js");

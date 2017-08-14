@@ -6,8 +6,9 @@
 
 USING_NS_CC;
 
-Scene* Wembley::createScene() {
+Scene* Wembley::createScene(Lesson* lesson) {
 	auto layer = Wembley::create();
+    layer->setLesson(lesson);
 	auto scene = GameScene::createWithChild(layer, "wembley");
 	layer->_menuContext = scene->getMenuContext();
 	return scene;

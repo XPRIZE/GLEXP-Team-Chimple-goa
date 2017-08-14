@@ -28,7 +28,7 @@ public:
 	int _upCount = 0, _downCount = 0;
 	static CatGame* _hippoGame;
 	static CatGame* create();
-	static cocos2d::Scene* createScene();
+	static cocos2d::Scene* createScene(Lesson* lesson);
 	virtual bool init();
 	std::vector<Node *> _gapNodes;
 	std::vector<std::string> _buildingPath;

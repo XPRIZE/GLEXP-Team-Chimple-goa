@@ -250,7 +250,9 @@ void LevelMenu::startGame(cocos2d::Ref *pSender, cocos2d::ui::Widget::TouchEvent
         addGreyLayer();
         auto but = static_cast<ui::Button *>(pSender);
         auto level = but->getName();
+        auto title = but->getTitleText();
         localStorageSetItem(_gameName + ".currentLevel", level);
+        localStorageSetItem(_gameName + ".currentTitle", title);
         MenuContext::launchGameFromJS(_gameName);
     }
 }

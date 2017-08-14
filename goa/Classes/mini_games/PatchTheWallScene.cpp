@@ -9,9 +9,7 @@
 
 USING_NS_CC;
 
-PatchTheWall::PatchTheWall():
-_lesson(0, 0.5)
-{
+PatchTheWall::PatchTheWall(){
     
 }
 PatchTheWall::~PatchTheWall() {

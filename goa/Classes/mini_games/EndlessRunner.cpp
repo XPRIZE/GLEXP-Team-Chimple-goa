@@ -25,9 +25,7 @@ Scene* EndlessRunner::createScene()
 	scene->addChild(layer->_menuContext);
 	return scene;
 }
-EndlessRunner::EndlessRunner():
-_lesson(0, 0.5)
-{
+EndlessRunner::EndlessRunner(){
 }
 //  jump_sound
 EndlessRunner::~EndlessRunner(void)
