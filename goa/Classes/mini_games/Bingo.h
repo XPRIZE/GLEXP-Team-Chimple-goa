@@ -9,11 +9,14 @@
 #include "../effects/FShake.h"
 #include "../menu/MenuContext.h"
 #include "../menu/HelpLayer.h"
+#include "../util/MatrixUtil.h"
 
 using namespace cocos2d;
 
 class Bingo :public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 public:
 	static cocos2d::Scene* createScene();
 	virtual bool init();
@@ -53,9 +56,8 @@ protected:
 	std::vector<std::vector<cocostudio::timeline::ActionTimeline *>> _bingoAnimTimelineBin;
 	Sprite* _boxBoard;
 	Sprite* _helpBoard;
-	std::map<std::string, std::string> _data;
-	std::vector<std::string> _data_key;
-	std::vector<std::string> _data_value;
+	std::vector<std::string> _data_keys;
+	std::vector<std::string> _data_values;
 	cocos2d::LabelTTF* _label = NULL;
 	std::string _labelPrefix ="";
 	bool _isBingoDone = false;
