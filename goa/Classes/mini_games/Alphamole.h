@@ -13,9 +13,12 @@
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
 #include "../alphamon/Alphamon.h"
+#include "../lang/Lesson.h"
 
 class Alphamole : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 public:
 	Alphamole();
 	~Alphamole();
@@ -41,6 +44,7 @@ protected:
 	MenuContext * menu;
 	void onExitTransitionDidStart();
 	void onAlphabetSelect(cocos2d::EventCustom *event);
+	std::vector<std::vector<char>> _jumpArray;
 };
 
 #endif 
