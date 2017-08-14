@@ -11,12 +11,13 @@ USING_NS_CC;
 
 std::string Chain::_SS;
 
-Scene* Chain::createScene()
+Scene* Chain::createScene(Lesson* lesson)
 {
 	CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
 	framecache1->addSpriteFramesWithFile("chain/chain.plist");
 	// 'layer' is an autorelease object
 	auto layer = Chain::create();
+    layer->setLesson(lesson);
 
 	// 'scene' is an autorelease object
 	auto scene = GameScene::createWithChild(layer, "chain");

@@ -14,12 +14,12 @@
 #include "../alphamon/HPMeter.h"
 #include "../menu/MenuContext.h"
 #include "AlphabetGrid.h"
-#include "../lang/Lesson.h"
+#include "../lang/StudySession.h"
 
-class DuelScene : public cocos2d::Node
+class DuelScene : public cocos2d::Node, public StudySession
 {
 public:
-    static cocos2d::Scene* createScene();
+    static cocos2d::Scene* createScene(Lesson* lesson);
 
     static DuelScene *create();
     
@@ -49,7 +49,6 @@ protected:
     int _powerIncr;
     int _turnNumber;
     MenuContext* _menuContext;
-    Lesson _lesson;
     
     // a selector callback
     void menuCloseCallback(cocos2d::Ref *pSender);

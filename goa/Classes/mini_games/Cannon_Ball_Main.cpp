@@ -35,8 +35,7 @@ int MainGame::_helpFlag;
 int letterComespeed;
 int tweenSpeed;
 
-MainGame::MainGame() :
-_lesson(0, 0.5)
+MainGame::MainGame() 
 {
 
 }

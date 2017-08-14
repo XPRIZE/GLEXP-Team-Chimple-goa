@@ -16,8 +16,9 @@ jazz::~jazz()
 		gorilla->stopAllActions();
 	}
 }
-Scene* jazz::createScene() {
+Scene* jazz::createScene(Lesson* lesson) {
 	auto layer = jazz::create();
+    layer->setLesson(lesson);
 	auto scene = GameScene::createWithChild(layer, "jazz");
 	layer->_menuContext = scene->getMenuContext();
 	return scene;

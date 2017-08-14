@@ -33,7 +33,7 @@ CatGame * CatGame::create()
 	return nullptr;
 }
 
-cocos2d::Scene * CatGame::createScene()
+cocos2d::Scene * CatGame::createScene(Lesson* lesson)
 {
 	auto layer = CatGame::create();
 	auto scene = GameScene::createWithChild(layer, "cat");

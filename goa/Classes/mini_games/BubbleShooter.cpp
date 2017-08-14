@@ -1369,9 +1369,7 @@ std::vector<int> BubbleShooter::rndNumber(int color)
 	return  newArrayBubble;
 }
 
-BubbleShooter::BubbleShooter():
-_lesson(0, 0.5)
-{
+BubbleShooter::BubbleShooter(){
 }
 
 BubbleShooter::~BubbleShooter(void)

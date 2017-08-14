@@ -686,8 +686,6 @@ void CrossTheBridge::setAllSpriteProperties(Sprite* sprite, int zOrder, float po
 	this->addChild(sprite, zOrder);
 }
 
-CrossTheBridge::CrossTheBridge() :
-_lesson(0, 0.5)
-{
+CrossTheBridge::CrossTheBridge(){
 
 }

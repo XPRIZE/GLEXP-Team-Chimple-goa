@@ -6,8 +6,9 @@
 
 USING_NS_CC;
 
-Scene* Jasmin_Mainfile::createScene() {
+Scene* Jasmin_Mainfile::createScene(Lesson* lesson) {
 	auto layer = Jasmin_Mainfile::create();
+    layer->setLesson(lesson);
 	auto scene = GameScene::createWithChild(layer, "jasmine");
 	layer->_menuContext = scene->getMenuContext();
 

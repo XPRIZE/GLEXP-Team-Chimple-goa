@@ -19,9 +19,7 @@ USING_NS_CC;
 using namespace rapidjson;
 
 
-Dash::Dash():
-_lesson(0, 0.5)
-{
+Dash::Dash(){
 }
 
 Dash::~Dash()
@@ -157,7 +155,7 @@ void Dash::onEnterTransitionDidFinish()
 	menu->setMaxPoints(10);
 
 	auto SceneIndex = RandomHelper::random_int(0, 2);
-	auto vmc = _lesson.getMultiChoices(10,3);
+	auto vmc = _lesson.getMultiChoices(15,3);
 	auto mapping = MatrixUtil::questionToAnswerMapping(vmc);
 	_synonyms.clear();
 	_synonyms = mapping;

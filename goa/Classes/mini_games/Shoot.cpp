@@ -896,8 +896,7 @@ void Shoot::popUpText() {
 
 }
 
-Shoot::Shoot():
-_lesson(0, 0.5)
+Shoot::Shoot()
 {
 }
 
