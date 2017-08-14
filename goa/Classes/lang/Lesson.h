@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include <stdio.h>
+#include <iterator> // std::ostream_iterator
 using namespace std;
 USING_NS_CC;
 
