@@ -259,6 +259,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\lang\LangUtil.cpp" />
     <ClCompile Include="..\Classes\lang\Lesson.cpp" />
     <ClCompile Include="..\Classes\lang\SafariAnalyticsManager.cpp" />
+    <ClCompile Include="..\Classes\lang\StudySession.cpp" />
     <ClCompile Include="..\Classes\lang\SwahiliUtil.cpp" />
     <ClCompile Include="..\Classes\lang\TextGenerator.cpp" />
     <ClCompile Include="..\Classes\lang\WordInfo.cpp" />
@@ -577,6 +578,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\lang\LangUtil.h" />
     <ClInclude Include="..\Classes\lang\Lesson.h" />
     <ClInclude Include="..\Classes\lang\SafariAnalyticsManager.h" />
+    <ClInclude Include="..\Classes\lang\StudySession.h" />
     <ClInclude Include="..\Classes\lang\SwahiliUtil.h" />
     <ClInclude Include="..\Classes\lang\TextGenerator.h" />
     <ClInclude Include="..\Classes\lang\WordInfo.h" />
