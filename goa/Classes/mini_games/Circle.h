@@ -3,10 +3,14 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
+#include "../lang/Lesson.h"
+#include "../util/MatrixUtil.h"
 
 
 class Circle : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 public:
 	Circle();
 	~Circle();
@@ -27,6 +31,7 @@ public:
 	float extraX;
 	std::string _target;
 	std::map<std::string, std::string> _scenePath;
+	std::map<std::string, std::string> _sceneMap;
 	std::vector<cocos2d::Node *>  _enemyRef;
 	std::vector<cocos2d::Node *>  _enemyRef1;
 	std::vector<cocos2d::Node *>  _dotRef;
@@ -39,6 +44,7 @@ public:
 	cocos2d::Vector <cocos2d::Label *> _choiceLabel;
 	std::vector <std::string> _answers;
 	std::map<std::string, std::string> _synonyms;
+	std::map<std::string, std::string> _wordPair;
 	std::vector <std::string> _mapKey;
 	void wordGenerateWithOptions();
 	std::string _gameWord;

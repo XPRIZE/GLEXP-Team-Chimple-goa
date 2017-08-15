@@ -503,8 +503,7 @@ Bingo::~Bingo(void)
 {
 
 }
-Bingo::Bingo(void):
-_lesson(0,0.5)
+Bingo::Bingo(void)
 {
 
 }

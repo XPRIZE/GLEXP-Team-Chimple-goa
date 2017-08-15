@@ -18,8 +18,7 @@
 
 USING_NS_CC;
 
-Alphamole::Alphamole():
-_lesson(0, 0.5)
+Alphamole::Alphamole()
 {
 }
 
