@@ -49,7 +49,7 @@ static const vector<vector<string>> wordsByLength = {
     {"N","O","N","E"},
     {"A"},
     {"I","T"},
-    {"CA","AA","TA"},
+    {"C","A","T"},
     {"M","I","N","T"},
     {"A","P","P","L","E"},
     {"O","R","A","N","G","E"},

@@ -9,6 +9,7 @@
 #include "Owl.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabelTTF.h"
+#include "../util/MatrixUtil.h"
 
 USING_NS_CC;
 
@@ -136,55 +137,28 @@ void Owl::onEnterTransitionDidFinish()
 	};
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
-	
+
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
-	std::tuple<int, int , int> levelKeyNumber = levelAllInfo(gameCurrentLevel,5,5,3,10);
+	//std::tuple<int, int , int> levelKeyNumber = levelAllInfo(gameCurrentLevel,5,5,3,10);
 	string categoryTitle = "";
-	if (std::get<0>(levelKeyNumber) == 1) {
-		auto listOfWords = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY ,5, std::get<2>(levelKeyNumber));
-		
-		for (size_t index = 0; index < listOfWords.size(); index++) {
-			_data_key.push_back(getConvertInUpperCase(listOfWords[index]));
-			CCLOG("index = %d   key :  %s ----> %s", index, listOfWords[index].c_str(), listOfWords[index].c_str());
-		}
-		_data_value = _data_key;
-		//categoryTitle = "Make same word : ";
-		_sentence = LangUtil::getInstance()->translateString("Make same word : ");
-		_sentenceShow = LangUtil::getInstance()->translateString("List of same words");
-	}
-	else if (std::get<0>(levelKeyNumber) == 2) {
-	//	categoryTitle = "Make plural of : ";
-		_sentence = LangUtil::getInstance()->translateString("Make plural of : ");
-		_sentenceShow = LangUtil::getInstance()->translateString("List of singular-plural words");
-		_data = TextGenerator::getInstance()->getSingularPlurals(5, std::get<2>(levelKeyNumber));
-	}
-	else if (std::get<0>(levelKeyNumber) == 3) {
-		//categoryTitle = "Make opposite of : ";
-		_sentence = LangUtil::getInstance()->translateString("Make opposite of : ");
-		_sentenceShow = LangUtil::getInstance()->translateString("List of opposite words");
-		_data = TextGenerator::getInstance()->getAntonyms(5, std::get<2>(levelKeyNumber));
-	}
-	else if (std::get<0>(levelKeyNumber) == 4) {
-		//categoryTitle = "Make word of same meaning as : ";
-		_sentence = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
-		_sentenceShow = LangUtil::getInstance()->translateString("List of same meaning words");
-		_data = TextGenerator::getInstance()->getSynonyms(5, std::get<2>(levelKeyNumber));
-	}
-	else if (std::get<0>(levelKeyNumber) == 5) {
-		//categoryTitle = "Make same sounding word as : ";
-		_sentence = LangUtil::getInstance()->translateString("Make same sounding word as : ");
-		_sentenceShow = LangUtil::getInstance()->translateString("List of same sounding words");
-		_data = TextGenerator::getInstance()->getHomonyms(5, std::get<2>(levelKeyNumber));
-	}
 
+	_lesson.setConcept(Lesson::CONCEPT::WORD_SPELLING);
+
+	auto miniAnwser = RandomHelper::random_int(3,7);
 	
-	//	_data -> its is map <string , string > , which carry question and answer
-	// _data_key -> it is vector<string> , which has question(key) ...
-	// _data_value -> it is vector<string> , which has answer (value)... 
+	_vmcBag = _lesson.getBag(5, miniAnwser, miniAnwser + 1, 24 , 24, true);
 
+	_sentence = LangUtil::getInstance()->translateString(_vmcBag[0].help);
+	_sentenceShow = LangUtil::getInstance()->translateString("List of same words");
 
-	_owlCurrentTheme = owlSceneMapping.at(std::get<1>(levelKeyNumber));
-
+	_owlCurrentTheme = owlSceneMapping.at(RandomHelper::random_int(1,3));
+	
+	for (size_t i = 0; i < _vmcBag.size(); i++) {
+		_data.insert(pair<string, string>(_vmcBag[i].answerString , getConvertVectorStringIntoString(_vmcBag[i].answers)));
+		_data_key.push_back(_vmcBag[i].answerString);
+		_data_value.push_back(getConvertVectorStringIntoString(_vmcBag[i].answers));
+	}
+	
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	Node* bg = CSLoader::createNode(themeResourcePath.at("bg"));
 	addChild(bg);
@@ -194,19 +168,20 @@ void Owl::onEnterTransitionDidFinish()
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
 		bg->setPositionX(myGameWidth);
 	}
-
-	if (!(std::get<0>(levelKeyNumber) == 1)) {
+/*
+	if (true) {
 		int count = 0;
 		for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-			auto key = getConvertInUpperCase(it->first);
-			auto value = getConvertInUpperCase(it->second);
+			auto key = it->first;
+			auto value = it->second;
 
-			_data_key.push_back(key);
-			_data_value.push_back(value);
+			_data_key.push_back(it->first);
+			_data_value.push_back(it->second);
 			count++;
 			CCLOG("index = %d   key :  %s ----> %s",count,key.c_str(),value.c_str());
 		}
 	}
+*/
 	int totalPoints = 0;
 	for (int index = 0; index < _data_value.size(); index++) {
 		int i = 0;
@@ -267,7 +242,7 @@ void Owl::onEnterTransitionDidFinish()
 
 
 	std::ostringstream boardName;	
-	boardName << _sentence << _data_key[_textBoard];
+	boardName << _sentence << " : "<<_data_key[_textBoard];
 
 	_textLabel = CommonLabelTTF::create(boardName.str(), "Helvetica", board->getContentSize().height *0.5);
 	_textLabel->setAnchorPoint(Vec2(0.5, 0.5));
@@ -304,42 +279,6 @@ void Owl::onEnterTransitionDidFinish()
 	this->schedule(schedule_selector(Owl::autoPlayerController), RandomHelper::random_int(6,10));
 	scheduleUpdate();
 	
-}
-
-std::tuple<int, int,int> Owl::levelAllInfo(int currentLevel, int totalCategory , int eachCategoryGroup , int totalSceneTheme , int SceneChangeAfterLevel)
-{
-	float currentLevelInFloat = static_cast<float>(currentLevel);
-	int categoryBase = static_cast<int>(std::ceil(currentLevelInFloat / eachCategoryGroup));
-	
-	int categoryNo = totalCategory;
-
-	if (categoryBase != totalCategory) {
-		categoryNo = categoryBase % totalCategory;
-		if (categoryNo == 0)
-			categoryNo = totalCategory;
-	}
-	
-	if (currentLevel % eachCategoryGroup == 0)
-		categoryNo = (categoryBase-1) % totalCategory + 1;
-
-	int sceneBase = static_cast<int>(std::ceil(currentLevelInFloat / SceneChangeAfterLevel));
-	int sceneNo = sceneBase % totalSceneTheme;
-
-	int totalInterationLevel = totalCategory * eachCategoryGroup;
-	int Iteration = static_cast<int>(std::floor(currentLevel/totalInterationLevel));
-	int level = currentLevel % eachCategoryGroup;
-	if (level == 0)
-		level = eachCategoryGroup;
-	int categoryLevel = (Iteration * eachCategoryGroup) + level;
-
-	if (sceneNo == 0)
-		sceneNo = totalSceneTheme;
-
-	if (categoryLevel >= 7) {
-		categoryLevel = 7;
-	}
-
-	return std::make_tuple(categoryNo, sceneNo, categoryLevel);
 }
 
 void Owl::autoPlayerController(float data) {
@@ -495,18 +434,21 @@ void Owl::createGrid() {
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	auto alpha = LangUtil::getInstance()->getAllCharacters();
 	
-	auto totalColumnValue = 13;
+	// bag is API which gives number of choices and answerString ...
+	auto bag = _vmcBag[_blockLevel1];
+	auto keyboardAllLetters = bag.otherChoices.size();
 
-	if (LangUtil::getInstance()->getLang() == "swa") {
-		totalColumnValue = 12;
-	}
+	auto matrixValue = MatrixUtil::generateMatrix(_vmcBag[_blockLevel1].answers, _vmcBag[_blockLevel1].otherChoices, 1, 24);
+	
+	std::random_shuffle(matrixValue[0].begin(), matrixValue[0].end());
 
 	auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
-	float space = visibleSize.width - (gridObject->getContentSize().width * totalColumnValue);
-	float IndiSpace = space / (totalColumnValue + 1);
+	float space = visibleSize.width - (gridObject->getContentSize().width * keyboardAllLetters/2);
+	float IndiSpace = space / ((keyboardAllLetters / 2) + 1);
 	float xPosi = IndiSpace + gridObject->getContentSize().width / 2;
 	auto getSize = gridObject->getContentSize().width;
 	int counter = 0;
+
 	for (int row = 1; row <= 2; row++) {
 
 		int height = visibleSize.height * _owlPropertyMap.at(_owlCurrentTheme).at("rowFirst");
@@ -515,21 +457,23 @@ void Owl::createGrid() {
 			xPosi = IndiSpace + gridObject->getContentSize().width / 2;
 		}
 
-		for (int column = 1; column <= totalColumnValue; column++) {
+		for (int column = 1; column <= keyboardAllLetters/2; column++) {
 			auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
 			setSpriteProperties(gridObject, xPosi, height, 1, 1, 0.5, 0.5, 0, 1);
 			xPosi = xPosi + IndiSpace + gridObject->getContentSize().width;
 			addEventsOnGrid(gridObject);
 			
-			// Set Alphabet one by one in KEYBOARD ... here alpha is an Array which contain all characters ...
+			// Set Alphabet one by one in KEYBOARD ... 
 
-			auto label = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(alpha[counter]), "Helvetica", gridObject->getContentSize().width * 0.8);
+			auto label = CommonLabelTTF::create(bag.otherChoices[counter], "Helvetica", gridObject->getContentSize().width * 0.8);
 			label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
 			label->setColor(Color3B::WHITE);
-			label->setName(LangUtil::convertUTF16CharToString(alpha[counter]));
-			
-			gridObject->setName(LangUtil::convertUTF16CharToString(alpha[counter]));
+			label->setName(bag.otherChoices[counter]);
+			label->setTag(1);
+
+			gridObject->setName(bag.otherChoices[counter]);
 			gridObject->addChild(label);
+			gridObject->setTag(800+counter);
 			counter++;
 		}
 	}
@@ -555,7 +499,7 @@ void Owl::setBuildingBlock(int blockLevel) {
 	
 	std::ostringstream blockName;	blockName << "blockLevel1"<<blockLevel; std::string blockNameInString = blockName.str();
 	blockObject->setName(blockNameInString);
-
+	
 }
 
 void Owl::setBuildingBlockSecond(int blockLevel) {
@@ -671,6 +615,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 								_textLabel->setString(boardName.str());
 								setBuildingBlock(++_blockLevel1);
+								recreateKeyboardLetters();
 								crateLetterGridOnBuilding(_blockLevel1, _data_value[_textBoard]);
 								_textCounter = 0;
 							}
@@ -1053,4 +998,40 @@ void Owl::UpdateAnimationSecond(float dt)
 		_ticksTotal2 = DURATION / SECONDS_PER_TICK;
 
 	}
+}
+
+string Owl::getConvertVectorStringIntoString(vector<string> value) {
+
+	std::ostringstream convertedString;
+	
+	for (size_t i = 0; i < value.size(); i++) {
+		convertedString << value[i];
+	}
+
+	return convertedString.str();
+}
+
+void Owl::recreateKeyboardLetters() {
+	auto bag = _vmcBag[_blockLevel1-1].otherChoices;
+
+	auto matrixValue = MatrixUtil::generateMatrix(_vmcBag[_blockLevel1 - 1].answers, _vmcBag[_blockLevel1 - 1].otherChoices, 1, 24);
+	bag = matrixValue[0];
+
+	std::random_shuffle(bag.begin(), bag.end());
+	int counter = 0;
+
+	for (int i = 0; i <= 1; i++) {
+		for (int j = 0; j < bag.size() / 2; j++) {
+		
+			auto labelOnKeyboardGrid = this->getChildByTag(800 + counter);
+			if (labelOnKeyboardGrid) {
+				
+				labelOnKeyboardGrid->setName(bag[counter++]);
+				auto label = labelOnKeyboardGrid->getChildByTag(1);
+				label->setName(labelOnKeyboardGrid->getName());
+				((CommonLabelTTF*)label)->setString(labelOnKeyboardGrid->getName());
+			}
+		}
+	}
+
 }

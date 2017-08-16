@@ -16,18 +16,22 @@
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
 #include "SimpleAudioEngine.h"
+#include "../lang/Lesson.h"
 
 using namespace cocos2d;
 using namespace std;
 
 class Owl : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 protected:
 	MenuContext *_menuContext;
 	int _ticks, _ticksTotal, _ticks2, _ticksTotal2, _wrongCounter = 0;
 	bool _flagDemo = true,_flagTurnHelp = true, _flagDemoSecond = true, _removeCharacterAnimation = true;
 	Node *_sprite = NULL, *_opponent = NULL;
 
+	vector<Lesson::Bag> _vmcBag;
 	std::map<std::string, std::string> _data;
 	std::vector<std::string> _data_key;
 	std::vector<std::string> _data_value;
@@ -48,6 +52,8 @@ public:
 	void InitAnimation();
 	void UpdateAnimation(float dt);
 	void UpdateAnimationSecond(float dt);
+	string getConvertVectorStringIntoString(vector<string> value);
+	void recreateKeyboardLetters();
 	static cocos2d::Scene* createScene();
 	void update(float) override;
 	void autoPlayerController(float);
