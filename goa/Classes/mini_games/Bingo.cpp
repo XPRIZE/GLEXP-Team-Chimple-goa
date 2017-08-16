@@ -198,7 +198,7 @@ void Bingo::onEnterTransitionDidFinish()
 		{ 2,    "bingojungle" }
 	};
 	
-	int gameCurrentLevel = _menuContext->getCurrentLevel();
+/*	int gameCurrentLevel = _menuContext->getCurrentLevel();
 	int levelNo = 1;
 	if (gameCurrentLevel >= 1 && gameCurrentLevel <= 12)
 	{
@@ -221,9 +221,9 @@ void Bingo::onEnterTransitionDidFinish()
 		else
 			levelNo = 6;
 	}
-
-	 auto categoryTitle = "";
-	 std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 12, 3, 4, 3);
+*/
+	/* auto categoryTitle = "";
+	 std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 12, 3, 4, 3);*/
 	 auto randomSceneIndex = RandomHelper::random_int(0, 2);
 	 int gridDimesion, pairNo;
 	 if (_lesson.getComplexity() >= 0.0f && _lesson.getComplexity() <= 0.33f)
