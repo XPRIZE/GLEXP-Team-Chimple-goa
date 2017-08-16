@@ -21,22 +21,14 @@ import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
-import org.chimple.bali.db.entity.Unit;
+import org.chimple.bali.db.entity.UserLesson;
 
 @Dao
-public interface UnitDao {
-    @Query("SELECT * FROM Unit WHERE name = :name AND type = :type")
-    public Unit getUnitByNameAndType(String name, int type);
-
-    @Query("SELECT * FROM Unit WHERE id = :id")
-    public Unit getUnitById(Long id);
-
-    @Query("SELECT COUNT(*) FROM Unit")
-    public int count();
+public interface UserLessonDao {
+    @Query("SELECT * FROM UserLesson WHERE userId=:userId AND lessonId=:lessonId")
+    public UserLesson[] getUserLessonsByUserIdAndLessonId(Long userId, Long lessonId);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public Long insertUnit(Unit unit);
+    public Long insertUserLesson(UserLesson userLesson);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public Long[] insertUnits(Unit... units);
 }
