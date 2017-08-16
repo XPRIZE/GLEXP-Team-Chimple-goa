@@ -8,6 +8,8 @@
 #include "../puzzle/CharGenerator.h"
 #include "../lang/TextGenerator.h"
 #include "../menu/HelpLayer.h"
+#include "../lang/Lesson.h"
+#include "../util/MatrixUtil.h"
 
 using namespace cocos2d;
 using namespace std;
@@ -15,7 +17,8 @@ using namespace std;
 
 class Drop : public cocos2d::Layer
 {
-
+private:
+	Lesson _lesson;
 protected:
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -74,6 +77,7 @@ public:
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
 	std::pair<Sprite*, cocostudio::timeline::ActionTimeline*> setAnimationAndProperties(std::string csbString, float posX, float posY, int zOrder);
 	std::string getConvertInUpperCase(std::string data);
+	string getConvertVectorStringIntoString(vector<string> value);
 	static const char* gameName() { return DROP.c_str(); }
 };
 

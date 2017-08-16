@@ -118,9 +118,10 @@ void Drop::onEnterTransitionDidFinish()
 	};
 	std::string wordOnLabel;
 	std::string wordOnLayout;
+	/*
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
 	std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 5,3,5,3);
-	_dropCurrentTheme = dropSceneMapping.at(levelKeyNumber.first);
+
 
 	int level;
 	if (gameCurrentLevel >= 1 && gameCurrentLevel <= 15)
@@ -155,8 +156,36 @@ void Drop::onEnterTransitionDidFinish()
 		wordOnLayout = getConvertInUpperCase(_data.begin()->second);
 		_labelPrefix = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
 	}
+	*/
 
-	_wordToDisplay = wordOnLabel;
+	// _gameConvertIntoLessonConcept
+
+	auto randomSceneIndex = RandomHelper::random_int(0, 2);
+	_dropCurrentTheme = dropSceneMapping.at(randomSceneIndex);
+
+	std::vector<Lesson::Bag> vmc;
+	if (_lesson.getComplexity() >= 0 && _lesson.getComplexity() <= 4)
+	{
+		auto minimumAnswer = RandomHelper::random_int(4, 6);
+		vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer+1, 8, false);
+	}
+	else if(_lesson.getComplexity() >= 5 && _lesson.getComplexity() <= 7)
+	{
+		auto minimumAnswer = RandomHelper::random_int(5, 6);
+		vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer + 1, 8, false);
+	}
+	else
+	{
+		auto minimumAnswer = RandomHelper::random_int(7, 8);
+		vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer + 1, 8, false);
+	}
+	 
+	// auto choices = MatrixUtil::generateMatrix(vmc[0].answers, vmc[0].otherChoices, 1, 20);
+	// auto accurateChoices = MatrixUtil::generateMatrixForChoosing()
+	 wordOnLayout = getConvertVectorStringIntoString(vmc[0].answers);
+	_wordToDisplay = vmc[0].answerString;
+	_labelPrefix = vmc[0].help + " : ";
+	
 	_scenePath = dropSceneMap.at(_dropCurrentTheme);
 	_sceneBasedNumericalVal = dropSceneNumValue.at(_dropCurrentTheme);
 
@@ -203,8 +232,9 @@ void Drop::onEnterTransitionDidFinish()
 	////aa->drawRect(Vec2(i*gap + gap / 2 - basketImg->getContentSize().width / 2, visibleSize.height*0.08) , Vec2(i*gap + gap / 2 + basketImg->getContentSize().width / 2, visibleSize.height*0.08 + basketImg->getContentSize().height), Color4F(0, 0, 255, 22)); //jungle drop
 	//aab->drawRect(Vec2((visibleSize.width*0.13) - _removalPole->getContentSize().width / 2, (visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"))- _removalPole->getContentSize().height*0.1), Vec2((visibleSize.width*0.13) + _removalPole->getContentSize().width / 2, visibleSize.height *_sceneBasedNumericalVal.at("floatBoxHeightFactor") + _removalPole->getContentSize().height/2), Color4F(0, 0, 255, 22));
 
-	bool levelForSpeaker = isSpeakerAddLevel();
-	if (levelForSpeaker)
+	//bool levelForSpeaker = isSpeakerAddLevel();
+	bool levelForSpeaker = false;
+	if(levelForSpeaker)
 	{
 		std::ostringstream boardName;
 		boardName << _labelPrefix << wordOnLabel;
@@ -832,4 +862,15 @@ std::string Drop::getConvertInUpperCase(std::string data)
 		i++;
 	}
 	return blockName.str();
+}
+
+string Drop::getConvertVectorStringIntoString(vector<string> value) {
+
+	std::ostringstream convertedString;
+
+	for (size_t i = 0; i < value.size(); i++) {
+		convertedString << value[i];
+	}
+
+	return convertedString.str();
 }
