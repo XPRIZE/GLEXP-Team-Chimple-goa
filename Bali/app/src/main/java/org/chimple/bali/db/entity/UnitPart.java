@@ -19,30 +19,41 @@ package org.chimple.bali.db.entity;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
+import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 
-@Entity(tableName = "units_parts",
-        primaryKeys = {"unit_id", "type", "seq"},
+@Entity(primaryKeys = {"unitId", "type", "seq"},
         foreignKeys = {
                 @ForeignKey(entity = Unit.class,
                         parentColumns = "id",
-                        childColumns = "unit_id"
+                        childColumns = "unitId"
                 ),
                 @ForeignKey(entity = Unit.class,
                         parentColumns = "id",
-                        childColumns = "part_unit_id"
+                        childColumns = "partUnitId"
                 )
         },
-        indices = @Index("part_unit_id")
+        indices = @Index("partUnitId")
 )
 public class UnitPart {
-    @ColumnInfo(name = "unit_id")
-    public long unitId;
+    @ColumnInfo(name = "unitId")
+    public Long unitId;
+
+    public Long partUnitId;
 
     public int type;
 
     public int seq;
 
-    @ColumnInfo(name = "part_unit_id")
-    public long partUnitId;
+    @Ignore
+    public UnitPart(Long unitId, Long partUnitId, int type, int seq) {
+        this.unitId = unitId;
+        this.partUnitId = partUnitId;
+        this.type = type;
+        this.seq = seq;
+    }
+
+    public UnitPart() {
+
+    }
 }

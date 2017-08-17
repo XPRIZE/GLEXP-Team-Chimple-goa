@@ -17,31 +17,49 @@
 package org.chimple.bali.db.entity;
 
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(indices = @Index(value = "seq",
-                unique = true
-        )
+import java.util.Date;
+
+@Entity(foreignKeys = {
+            @ForeignKey(entity = User.class,
+                    parentColumns = "id",
+                    childColumns = "userId"
+            ),
+            @ForeignKey(entity = Unit.class,
+                parentColumns = "id",
+                childColumns = "unitId"
+            )
+        },
+        indices = {
+                @Index("userId"),
+                @Index("unitId")
+        }
 )
-public class Lesson {
+public class UserUnit {
     @PrimaryKey(autoGenerate = true)
     public Long id;
 
-    public String title;
+    public Long userId;
 
-    public int concept;
+    public Long unitId;
 
-    public int seq;
+    public Date reviewedAt;
+
+    public int score;
 
     @Ignore
-    public Lesson(String title, int concept, int seq) {
-        this.title = title;
-        this.concept = concept;
-        this.seq = seq;
+    public UserUnit(Long userId, Long unitId, Date reviewedAt, int score) {
+        this.userId = userId;
+        this.unitId = unitId;
+        this.reviewedAt = reviewedAt;
+        this.score = score;
     }
 
-    public Lesson() {
+    public UserUnit() {
+
     }
 }

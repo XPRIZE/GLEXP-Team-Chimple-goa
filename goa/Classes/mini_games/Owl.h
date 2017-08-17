@@ -16,21 +16,25 @@
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
 #include "SimpleAudioEngine.h"
+#include "../lang/Lesson.h"
 
 using namespace cocos2d;
 using namespace std;
 
 class Owl : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 protected:
 	MenuContext *_menuContext;
 	int _ticks, _ticksTotal, _ticks2, _ticksTotal2, _wrongCounter = 0;
 	bool _flagDemo = true,_flagTurnHelp = true, _flagDemoSecond = true, _removeCharacterAnimation = true;
 	Node *_sprite = NULL, *_opponent = NULL;
 
+	vector<Lesson::Bag> _vmcBag;
 	std::map<std::string, std::string> _data;
 	std::vector<std::string> _data_key;
-	std::vector<std::string> _data_value;
+	std::vector<std::vector<std::string>> _data_value;
 
 	string _owlCurrentTheme = "" , _sentence = "" , _sentenceShow ="";
 	string _displayWord[5] = { "A","AB","ABC","ABCD","ABCDE"};
@@ -48,15 +52,17 @@ public:
 	void InitAnimation();
 	void UpdateAnimation(float dt);
 	void UpdateAnimationSecond(float dt);
+	string getConvertVectorStringIntoString(vector<string> value);
+	void recreateKeyboardLetters();
 	static cocos2d::Scene* createScene();
 	void update(float) override;
 	void autoPlayerController(float);
 	std::tuple<int, int, int> levelAllInfo(int currentLevel ,int totalCategory, int eachCategoryGroup, int totalSceneTheme, int SceneChangeAfterLevel);
 	void  setSpriteProperties(Sprite *ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder);
 	string getConvertInUpperCase(string data);
-	void crateLetterGridOnBuilding(int blockLevel1, string displayWord);
+	void crateLetterGridOnBuilding(int blockLevel1, vector<string> displayWord);
 
-	void crateLetterGridOnBuildingSecond(int blockLevel, string displayWord);
+	void crateLetterGridOnBuildingSecond(int blockLevel, vector<string> displayWord);
 	void onEnterTransitionDidFinish();
 	void createGrid();
 

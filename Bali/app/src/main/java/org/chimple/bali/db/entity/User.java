@@ -18,33 +18,39 @@ package org.chimple.bali.db.entity;
 
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity
-public class Unit {
+@Entity(foreignKeys = {
+                @ForeignKey(entity = Lesson.class,
+                        parentColumns = "id",
+                        childColumns = "currentLessonId"
+                )
+        }
+)
+public class User {
     @PrimaryKey(autoGenerate = true)
     public Long id;
 
     public String name;
 
-    public int type;
+    public String photo;
 
-    public String picture;
+    public Long currentLessonId;
 
-    public String sound;
-
-    public String phonemeSound;
+    public int coins;
 
     @Ignore
-    public Unit(String name, int type, String picture, String sound, String phonemeSound) {
+    public User(String name, String photo, Long currentLessonId, int coins) {
         this.name = name;
-        this.type = type;
-        this.picture = picture;
-        this.sound = sound;
-        this.phonemeSound = phonemeSound;
+        this.photo = photo;
+        this.currentLessonId = currentLessonId;
+        this.coins = coins;
     }
 
-    public Unit() {
+    public User() {
+
     }
 }
