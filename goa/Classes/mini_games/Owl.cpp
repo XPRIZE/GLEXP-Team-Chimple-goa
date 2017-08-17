@@ -135,62 +135,59 @@ void Owl::onEnterTransitionDidFinish()
 		{ 3,	"owlisland" },
 		{ 2,    "owljungle" }
 	};
+
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
 
+	// Here we set the level of complexity and concept ....
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
-	//std::tuple<int, int , int> levelKeyNumber = levelAllInfo(gameCurrentLevel,5,5,3,10);
 	string categoryTitle = "";
-
 	_lesson.setConcept(Lesson::CONCEPT::WORD_SPELLING);
 
-	auto miniAnwser = RandomHelper::random_int(3,7);
-	
-	_vmcBag = _lesson.getBag(5, miniAnwser, miniAnwser + 1, 24 , 24, true);
 
+	//The complexity level set According to the MenuContext-> currentLevel ...
+	auto complexityValue = _menuContext->getCurrentLevel();
+	if(complexityValue < 10)
+		_lesson.setComplexity(complexityValue);
+	else
+		_lesson.setComplexity(9);
+
+
+	// Get the bag data wrt the level of complexity .... 
+	_vmcBag = _lesson.getBag(5, _lesson.getComplexity(), _lesson.getComplexity() + 1, 24 , 24, true);
 	_sentence = LangUtil::getInstance()->translateString(_vmcBag[0].help);
 	_sentenceShow = LangUtil::getInstance()->translateString("List of same words");
-
 	_owlCurrentTheme = owlSceneMapping.at(RandomHelper::random_int(1,3));
 	
+
+	// Here the bag question and answer set in vector<string> of _data_key and _data_value ....
 	for (size_t i = 0; i < _vmcBag.size(); i++) {
 		_data.insert(pair<string, string>(_vmcBag[i].answerString , getConvertVectorStringIntoString(_vmcBag[i].answers)));
 		_data_key.push_back(_vmcBag[i].answerString);
 		_data_value.push_back(_vmcBag[i].answers);
 	}
 	
+	// Here the Scenes are decided by randomly ....
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	Node* bg = CSLoader::createNode(themeResourcePath.at("bg"));
 	addChild(bg);
-	bg->setName("bg");
-	
+	bg->setName("bg");	
 	if (visibleSize.width > 2560) {
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
 		bg->setPositionX(myGameWidth);
 	}
-/*
-	if (true) {
-		int count = 0;
-		for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-			auto key = it->first;
-			auto value = it->second;
 
-			_data_key.push_back(it->first);
-			_data_value.push_back(it->second);
-			count++;
-			CCLOG("index = %d   key :  %s ----> %s",count,key.c_str(),value.c_str());
-		}
-	}
-*/
+	// The code is for set the MaxPoint in Scores ...
 	int totalPoints = 0;
 	for (int index = 0; index < _data_value.size(); index++) {
 		for (int valueLetterIndex = 0; valueLetterIndex < _data_value[index].size(); valueLetterIndex++) {
 			totalPoints++;
 		}
 	}
-	
 	_menuContext->setMaxPoints(totalPoints);
-
+	
+	
+	//Define Main character and to set the animation ...
 	auto timelinecharacter1 = CSLoader::createTimeline(themeResourcePath.at("character1"));
 	_sprite = (Sprite *)CSLoader::createNode(themeResourcePath.at("character1"));
 	_sprite-> runAction(timelinecharacter1);
@@ -198,14 +195,16 @@ void Owl::onEnterTransitionDidFinish()
 	addChild(_sprite,3);
 	timelinecharacter1->play("fly",true);
 
+	// Define the opponent character and the set the animation ...
 	auto timelinecharacter2 = CSLoader::createTimeline(themeResourcePath.at("character2"));
 	_opponent = (Sprite *)CSLoader::createNode(themeResourcePath.at("character2"));
 	_opponent->runAction(timelinecharacter2);
 	_opponent->setScale(_owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));
-	
 	addChild(_opponent, 2);
 	timelinecharacter2->play("fly", true);
 
+
+	// Here the extra water bubble Animation effect added in OWL-ISLAND SCENE ...
 	if (_owlCurrentTheme == "owlisland") {
 		auto timelinebgBubble = CSLoader::createTimeline(themeResourcePath.at("bubble"));
 		bg->runAction(timelinebgBubble);
@@ -226,8 +225,11 @@ void Owl::onEnterTransitionDidFinish()
 		timelinecharacter4->gotoFrameAndPlay(0, true);
 
 		_opponent->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard2"))->setVisible(false);
-
 	}
+
+
+
+	//Here in jungle scene , the bird white-board is set as visible ... 
 	if (_owlCurrentTheme == "owljungle") {
 		_opponent->setScaleX(-_owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));
 		_opponent->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard2"))->setVisible(false);
@@ -236,17 +238,17 @@ void Owl::onEnterTransitionDidFinish()
 	board->setName("topBoard");
 	
 
-
+	// Set the text value in Top Board .. ex: question 
 	std::ostringstream boardName;	
 	boardName << _sentence << " : "<<_data_key[_textBoard];
-
 	_textLabel = CommonLabelTTF::create(boardName.str(), "Helvetica", board->getContentSize().height *0.5);
 	_textLabel->setAnchorPoint(Vec2(0.5, 0.5));
 	_textLabel->setPosition(Vec2(board->getContentSize().width/2, board->getContentSize().height/ 2));
 	_textLabel->setName("text");
-
 	board->addChild(_textLabel);
 
+
+	// Create Label or Text in board which carried by bird ....
 	_textOwlBoard = CommonLabelTTF::create("", "Helvetica", _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height *0.8);
 	_textOwlBoard->setPosition(Vec2(_sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().width/2, _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height / 2));
 	_textOwlBoard->setName("owlBoard");
@@ -254,16 +256,20 @@ void Owl::onEnterTransitionDidFinish()
 	_sprite->getChildByName(themeResourcePath.at("whiteBoard"))->addChild(_textOwlBoard);
 	_sprite->getChildByName(themeResourcePath.at("whiteBoard"))->setVisible(false);
 
+	// The method CreateGrid is use for the creation of keyboard ...
 	createGrid();
 
+
+	// Initially the level of building is one , so it set by default ...
 	setBuildingBlock(++_blockLevel1);
 	crateLetterGridOnBuilding(_blockLevel1, _data_value[_textBoard]);
-	
+
 	setBuildingBlockSecond(++_blockLevel2);
 	crateLetterGridOnBuildingSecond(_blockLevel2, _data_value[_textBoard2]);
 
+
+	// This is the code for HelpLayer and this only used in level 1 ....
 	auto downGrid = this->getChildByName(_data_value[_textBoard][0]);
-	
 	if (_menuContext->getCurrentLevel() == 1) {
 		auto help = HelpLayer::create(Rect(downGrid->getPositionX(), downGrid->getPositionY(), downGrid->getContentSize().width, downGrid->getContentSize().height), Rect(visibleSize.width * 0.5, board->getContentSize().height / 2 + board->getPositionY(), board->getContentSize().width, board->getContentSize().height));
 		help->click(Vec2(downGrid->getPositionX(), downGrid->getPositionY()));
@@ -274,9 +280,9 @@ void Owl::onEnterTransitionDidFinish()
 	InitAnimation();
 	this->schedule(schedule_selector(Owl::autoPlayerController), RandomHelper::random_int(6,10));
 	scheduleUpdate();
-	
 }
 
+// This is method to handle the opponent moving and all animations ...
 void Owl::autoPlayerController(float data) {
 
 	std::ostringstream blockName;	blockName << "blockLevel2" << _blockLevel2; std::string blockNameInString = blockName.str();
@@ -319,6 +325,7 @@ void Owl::autoPlayerController(float data) {
 	}
 }
 
+// Update method is use for character moving functionality and the opponent too.
 void Owl::update(float delta) {
 	if(_flagDemo)
 	UpdateAnimation(delta);
@@ -326,6 +333,7 @@ void Owl::update(float delta) {
 	UpdateAnimationSecond(delta);
 }
 
+// To set the all properties in setSpriteProperties ....
 void Owl::setSpriteProperties(Sprite* ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder) {
 	ImageObject->setPosition(Vec2(positionX, positionY));
 	ImageObject->setScaleX(scaleX);
@@ -335,6 +343,7 @@ void Owl::setSpriteProperties(Sprite* ImageObject, float positionX, float positi
 	addChild(ImageObject, zorder);
 }
 
+// If data pass as a parameter then it convert in UpperCASE
 string Owl::getConvertInUpperCase(string data)
 {
 	std::ostringstream blockName;
@@ -347,6 +356,7 @@ string Owl::getConvertInUpperCase(string data)
 	return blockName.str();
 }
 
+// To set the letter on Building for Main Character ...
 void Owl::crateLetterGridOnBuilding(int blockLevel, vector<string> displayWord) {
 
 	if (LevelInfoForSpeaker()) {
@@ -391,6 +401,8 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, vector<string> displayWord) 
 	}
 }
 
+
+// To set the letter on Building for Opponent Character ...
 void Owl::crateLetterGridOnBuildingSecond(int blockLevel, vector<string> displayWord) {
 	CCLOG("Letters on new building2 : %s ", getConvertVectorStringIntoString(displayWord).c_str());
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
@@ -425,6 +437,8 @@ void Owl::crateLetterGridOnBuildingSecond(int blockLevel, vector<string> display
 	}
 }
 
+
+// This is the method for KEYBOARD STRUCTURE ....
 void Owl::createGrid() {
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
@@ -476,6 +490,8 @@ void Owl::createGrid() {
 	}
 }
 
+
+// To set the building bolck for main character ....
 void Owl::setBuildingBlock(int blockLevel) {
 
 	auto visibleSize = Director::getInstance()->getVisibleSize();
@@ -499,6 +515,8 @@ void Owl::setBuildingBlock(int blockLevel) {
 	
 }
 
+
+// To set the building block for second character .....
 void Owl::setBuildingBlockSecond(int blockLevel) {
 
 	auto visibleSize = Director::getInstance()->getVisibleSize();
@@ -519,6 +537,8 @@ void Owl::setBuildingBlockSecond(int blockLevel) {
 
 }
 
+
+// This is the event listner for KEYBOARD BUTTON ....
 void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
@@ -770,6 +790,9 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
 }
 
+
+// This the method to check the mistake done by kids ... after max 3 wrong attempt show the 
+// TEXT ON BOARD and after few second again disapper board and set speaker ....
 void Owl::checkMistakeOnWord() {
 
 	_wrongCounter++;
@@ -781,6 +804,7 @@ void Owl::checkMistakeOnWord() {
 	}
 }
 
+//To pronounce word by click on Speaker Button ....
 void Owl::pronounceWord() {
 
 	auto topBoard = getChildByName("bg")->getChildByName("topBoard");
@@ -799,6 +823,8 @@ void Owl::pronounceWord() {
 	popUpText();
 }
 
+
+// The Upper board text popup to high-light the string to the kids ....
 void Owl::popUpText() {
 
 	auto action1 = ScaleTo::create(0.2, 1.1);
@@ -831,17 +857,20 @@ void Owl::popUpText() {
 
 }
 
+
+// This is the information in which level the speaker should concept should be display ....
 bool Owl::LevelInfoForSpeaker() {
 
-	int levelInfo[] = { 1, 2, 3, 4, 5, 26, 27, 28, 29, 30, 51, 52, 53, 54, 55, 76, 77, 78, 79, 80 };
+	int levelInfo[] = { 1, 4, 6 };
 	auto lenght = sizeof(levelInfo) / sizeof(levelInfo[0]);
 	for (int i = 0; i < lenght; i++) {
 		if (_menuContext->getCurrentLevel() == levelInfo[i])
-			return true;
+			return false;//return true;
 	}
 	return false;
 }
 
+// Listner for Speaker button ... 
 void Owl::addEventsOnSpeaker(cocos2d::Sprite* callerObject)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
@@ -869,11 +898,15 @@ void Owl::addEventsOnSpeaker(cocos2d::Sprite* callerObject)
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
 }
 
+
+// Destructor for OWL class
 Owl::~Owl(void)
 {
 	this->removeAllChildrenWithCleanup(true);
 }
 
+
+// this the method to handle the animation of Main Character ...
 void Owl::InitAnimation()
 {
 	double DURATION = 3; // Seconds for total animation.
@@ -896,6 +929,7 @@ void Owl::InitAnimation()
 	_ticksTotal2 = DURATION / SECONDS_PER_TICK;
 }
 
+// This for main animation .....
 void Owl::UpdateAnimation(float dt)
 {
 	double DURATION = 3; // Seconds for total animation.
@@ -946,6 +980,8 @@ void Owl::UpdateAnimation(float dt)
 	}
 }
 
+
+// This for opponent animation .....
 void Owl::UpdateAnimationSecond(float dt)
 {
 	double DURATION = 5; // Seconds for total animation.
@@ -997,6 +1033,7 @@ void Owl::UpdateAnimationSecond(float dt)
 	}
 }
 
+// This is the method to get the value as a String value ....
 string Owl::getConvertVectorStringIntoString(vector<string> value) {
 
 	std::ostringstream convertedString;
@@ -1008,6 +1045,8 @@ string Owl::getConvertVectorStringIntoString(vector<string> value) {
 	return convertedString.str();
 }
 
+
+// To set the string on keyboard after change the questions ....
 void Owl::recreateKeyboardLetters() {
 	auto bag = _vmcBag[_blockLevel1-1].otherChoices;
 
