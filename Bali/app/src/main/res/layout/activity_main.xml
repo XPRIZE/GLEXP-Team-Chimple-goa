@@ -24,4 +24,13 @@
         tools:layout_editor_absoluteX="147dp"
         tools:layout_editor_absoluteY="166dp" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sayHello"
+        android:text="Lesson"
+        tools:layout_editor_absoluteX="147dp"
+        tools:layout_editor_absoluteY="306dp" />
+
 </android.support.constraint.ConstraintLayout>

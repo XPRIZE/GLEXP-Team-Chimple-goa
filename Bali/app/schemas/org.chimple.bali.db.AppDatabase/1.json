@@ -2,10 +2,10 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "b03943952e78cc32f368fa437b01904c",
+    "identityHash": "67f4058caed41c1faf7446d0779d3dc8",
     "entities": [
       {
-        "tableName": "lessons",
+        "tableName": "Lesson",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `title` TEXT, `concept` INTEGER, `seq` INTEGER)",
         "fields": [
           {
@@ -37,23 +37,23 @@
         },
         "indices": [
           {
-            "name": "index_lessons_seq",
+            "name": "index_Lesson_seq",
             "unique": true,
             "columnNames": [
               "seq"
             ],
-            "createSql": "CREATE UNIQUE INDEX `index_lessons_seq` ON `${TABLE_NAME}` (`seq`)"
+            "createSql": "CREATE UNIQUE INDEX `index_Lesson_seq` ON `${TABLE_NAME}` (`seq`)"
           }
         ],
         "foreignKeys": []
       },
       {
-        "tableName": "lessons_units",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`lesson_id` INTEGER, `seq` INTEGER, `subject_unit_id` INTEGER, `object_unit_id` INTEGER, `highlight` TEXT, PRIMARY KEY(`lesson_id`, `seq`), FOREIGN KEY(`lesson_id`) REFERENCES `lessons`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`subject_unit_id`) REFERENCES `units`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`object_unit_id`) REFERENCES `units`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "tableName": "LessonUnit",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`lessonId` INTEGER, `seq` INTEGER, `subjectUnitId` INTEGER, `objectUnitId` INTEGER, `highlight` TEXT, PRIMARY KEY(`lessonId`, `seq`), FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`subjectUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`objectUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "lessonId",
-            "columnName": "lesson_id",
+            "columnName": "lessonId",
             "affinity": "INTEGER"
           },
           {
@@ -63,12 +63,12 @@
           },
           {
             "fieldPath": "subjectUnitId",
-            "columnName": "subject_unit_id",
+            "columnName": "subjectUnitId",
             "affinity": "INTEGER"
           },
           {
             "fieldPath": "objectUnitId",
-            "columnName": "object_unit_id",
+            "columnName": "objectUnitId",
             "affinity": "INTEGER"
           },
           {
@@ -79,58 +79,58 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "lesson_id",
+            "lessonId",
             "seq"
           ],
           "autoGenerate": false
         },
         "indices": [
           {
-            "name": "index_lessons_units_subject_unit_id",
+            "name": "index_LessonUnit_subjectUnitId",
             "unique": false,
             "columnNames": [
-              "subject_unit_id"
+              "subjectUnitId"
             ],
-            "createSql": "CREATE  INDEX `index_lessons_units_subject_unit_id` ON `${TABLE_NAME}` (`subject_unit_id`)"
+            "createSql": "CREATE  INDEX `index_LessonUnit_subjectUnitId` ON `${TABLE_NAME}` (`subjectUnitId`)"
           },
           {
-            "name": "index_lessons_units_object_unit_id",
+            "name": "index_LessonUnit_objectUnitId",
             "unique": false,
             "columnNames": [
-              "object_unit_id"
+              "objectUnitId"
             ],
-            "createSql": "CREATE  INDEX `index_lessons_units_object_unit_id` ON `${TABLE_NAME}` (`object_unit_id`)"
+            "createSql": "CREATE  INDEX `index_LessonUnit_objectUnitId` ON `${TABLE_NAME}` (`objectUnitId`)"
           }
         ],
         "foreignKeys": [
           {
-            "table": "lessons",
+            "table": "Lesson",
             "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
-              "lesson_id"
+              "lessonId"
             ],
             "referencedColumns": [
               "id"
             ]
           },
           {
-            "table": "units",
+            "table": "Unit",
             "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
-              "subject_unit_id"
+              "subjectUnitId"
             ],
             "referencedColumns": [
               "id"
             ]
           },
           {
-            "table": "units",
+            "table": "Unit",
             "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
-              "object_unit_id"
+              "objectUnitId"
             ],
             "referencedColumns": [
               "id"
@@ -139,8 +139,8 @@
         ]
       },
       {
-        "tableName": "units",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `type` INTEGER, `picture` TEXT, `sound` TEXT, `phoneme_sound` TEXT)",
+        "tableName": "Unit",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `type` INTEGER, `picture` TEXT, `sound` TEXT, `phonemeSound` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -169,7 +169,7 @@
           },
           {
             "fieldPath": "phonemeSound",
-            "columnName": "phoneme_sound",
+            "columnName": "phonemeSound",
             "affinity": "TEXT"
           }
         ],
@@ -183,12 +183,17 @@
         "foreignKeys": []
       },
       {
-        "tableName": "units_parts",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`unit_id` INTEGER, `type` INTEGER, `seq` INTEGER, `part_unit_id` INTEGER, PRIMARY KEY(`unit_id`, `type`, `seq`), FOREIGN KEY(`unit_id`) REFERENCES `units`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`part_unit_id`) REFERENCES `units`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "tableName": "UnitPart",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`unitId` INTEGER, `partUnitId` INTEGER, `type` INTEGER, `seq` INTEGER, PRIMARY KEY(`unitId`, `type`, `seq`), FOREIGN KEY(`unitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`partUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "unitId",
-            "columnName": "unit_id",
+            "columnName": "unitId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "partUnitId",
+            "columnName": "partUnitId",
             "affinity": "INTEGER"
           },
           {
@@ -200,16 +205,11 @@
             "fieldPath": "seq",
             "columnName": "seq",
             "affinity": "INTEGER"
-          },
-          {
-            "fieldPath": "partUnitId",
-            "columnName": "part_unit_id",
-            "affinity": "INTEGER"
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "unit_id",
+            "unitId",
             "type",
             "seq"
           ],
@@ -217,32 +217,246 @@
         },
         "indices": [
           {
-            "name": "index_units_parts_part_unit_id",
+            "name": "index_UnitPart_partUnitId",
             "unique": false,
             "columnNames": [
-              "part_unit_id"
+              "partUnitId"
             ],
-            "createSql": "CREATE  INDEX `index_units_parts_part_unit_id` ON `${TABLE_NAME}` (`part_unit_id`)"
+            "createSql": "CREATE  INDEX `index_UnitPart_partUnitId` ON `${TABLE_NAME}` (`partUnitId`)"
           }
         ],
         "foreignKeys": [
           {
-            "table": "units",
+            "table": "Unit",
             "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
-              "unit_id"
+              "unitId"
             ],
             "referencedColumns": [
               "id"
             ]
           },
           {
-            "table": "units",
+            "table": "Unit",
             "onDelete": "NO ACTION",
             "onUpdate": "NO ACTION",
             "columns": [
-              "part_unit_id"
+              "partUnitId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "User",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `photo` TEXT, `currentLessonId` INTEGER, `coins` INTEGER, FOREIGN KEY(`currentLessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "photo",
+            "columnName": "photo",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "currentLessonId",
+            "columnName": "currentLessonId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "coins",
+            "columnName": "coins",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "Lesson",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "currentLessonId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "UserLesson",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `userId` INTEGER, `lessonId` INTEGER, `startedAt` INTEGER, `endedAt` INTEGER, `score` INTEGER, FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "lessonId",
+            "columnName": "lessonId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "startedAt",
+            "columnName": "startedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "endedAt",
+            "columnName": "endedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_UserLesson_userId",
+            "unique": false,
+            "columnNames": [
+              "userId"
+            ],
+            "createSql": "CREATE  INDEX `index_UserLesson_userId` ON `${TABLE_NAME}` (`userId`)"
+          },
+          {
+            "name": "index_UserLesson_lessonId",
+            "unique": false,
+            "columnNames": [
+              "lessonId"
+            ],
+            "createSql": "CREATE  INDEX `index_UserLesson_lessonId` ON `${TABLE_NAME}` (`lessonId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "User",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "Lesson",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "lessonId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "UserUnit",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `userId` INTEGER, `unitId` INTEGER, `reviewedAt` INTEGER, `score` INTEGER, FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`unitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "unitId",
+            "columnName": "unitId",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "reviewedAt",
+            "columnName": "reviewedAt",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "score",
+            "columnName": "score",
+            "affinity": "INTEGER"
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_UserUnit_userId",
+            "unique": false,
+            "columnNames": [
+              "userId"
+            ],
+            "createSql": "CREATE  INDEX `index_UserUnit_userId` ON `${TABLE_NAME}` (`userId`)"
+          },
+          {
+            "name": "index_UserUnit_unitId",
+            "unique": false,
+            "columnNames": [
+              "unitId"
+            ],
+            "createSql": "CREATE  INDEX `index_UserUnit_unitId` ON `${TABLE_NAME}` (`unitId`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "User",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "userId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "Unit",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "unitId"
             ],
             "referencedColumns": [
               "id"
@@ -253,7 +467,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"b03943952e78cc32f368fa437b01904c\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"67f4058caed41c1faf7446d0779d3dc8\")"
     ]
   }
 }

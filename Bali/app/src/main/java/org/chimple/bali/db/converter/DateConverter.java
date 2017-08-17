@@ -14,20 +14,20 @@
  * limitations under the License.
  */
 
-package org.chimple.bali.db.dao;
+package org.chimple.bali.db.converter;
 
-import android.arch.persistence.room.Dao;
-import android.arch.persistence.room.Insert;
-import android.arch.persistence.room.OnConflictStrategy;
-import android.arch.persistence.room.Query;
+import android.arch.persistence.room.TypeConverter;
 
-import org.chimple.bali.db.entity.UnitPart;
+import java.util.Date;
 
-@Dao
-public interface UnitPartDao {
-    @Query("SELECT * FROM UnitPart WHERE unitId=:unitId AND type=:type ORDER BY seq ASC")
-    public UnitPart[] getUnitPartsByUnitIdAndType(Long unitId, int type);
+public class DateConverter {
+    @TypeConverter
+    public static Date toDate(Long timestamp) {
+        return timestamp == null ? null : new Date(timestamp);
+    }
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insertUnitPart(UnitPart unitPart);
+    @TypeConverter
+    public static Long toTimestamp(Date date) {
+        return date == null ? null : date.getTime();
+    }
 }

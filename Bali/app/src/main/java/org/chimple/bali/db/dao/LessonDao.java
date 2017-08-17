@@ -25,12 +25,18 @@ import org.chimple.bali.db.entity.Lesson;
 
 @Dao
 public interface LessonDao {
-    @Query("SELECT * FROM lessons WHERE seq=:seq")
+    @Query("SELECT * FROM Lesson WHERE id=:id")
+    public Lesson getLessonById(Long id);
+
+    @Query("SELECT * FROM Lesson WHERE seq=:seq")
     public Lesson getLessonBySeq(int seq);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public long insertLesson(Lesson lesson);
+    @Query("SELECT COUNT(*) FROM Lesson")
+    public int count();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public long[] insertLessons(Lesson... lessons);
+    public Long insertLesson(Lesson lesson);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    public Long[] insertLessons(Lesson... lessons);
 }
