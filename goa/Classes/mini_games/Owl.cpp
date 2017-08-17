@@ -156,7 +156,7 @@ void Owl::onEnterTransitionDidFinish()
 	for (size_t i = 0; i < _vmcBag.size(); i++) {
 		_data.insert(pair<string, string>(_vmcBag[i].answerString , getConvertVectorStringIntoString(_vmcBag[i].answers)));
 		_data_key.push_back(_vmcBag[i].answerString);
-		_data_value.push_back(getConvertVectorStringIntoString(_vmcBag[i].answers));
+		_data_value.push_back(_vmcBag[i].answers);
 	}
 	
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
@@ -184,12 +184,8 @@ void Owl::onEnterTransitionDidFinish()
 */
 	int totalPoints = 0;
 	for (int index = 0; index < _data_value.size(); index++) {
-		int i = 0;
-		string data = _data_value[index];
-		while (data[i])
-		{
+		for (int valueLetterIndex = 0; valueLetterIndex < _data_value[index].size(); valueLetterIndex++) {
 			totalPoints++;
-			i++;
 		}
 	}
 	
@@ -266,7 +262,7 @@ void Owl::onEnterTransitionDidFinish()
 	setBuildingBlockSecond(++_blockLevel2);
 	crateLetterGridOnBuildingSecond(_blockLevel2, _data_value[_textBoard2]);
 
-	auto downGrid = this->getChildByName(LangUtil::convertUTF16CharToString(_data_value[_textBoard][0]));
+	auto downGrid = this->getChildByName(_data_value[_textBoard][0]);
 	
 	if (_menuContext->getCurrentLevel() == 1) {
 		auto help = HelpLayer::create(Rect(downGrid->getPositionX(), downGrid->getPositionY(), downGrid->getContentSize().width, downGrid->getContentSize().height), Rect(visibleSize.width * 0.5, board->getContentSize().height / 2 + board->getPositionY(), board->getContentSize().width, board->getContentSize().height));
@@ -351,14 +347,14 @@ string Owl::getConvertInUpperCase(string data)
 	return blockName.str();
 }
 
-void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
+void Owl::crateLetterGridOnBuilding(int blockLevel, vector<string> displayWord) {
 
 	if (LevelInfoForSpeaker()) {
 		_wrongCounter = 0;
 		pronounceWord();
 	}
 
-	CCLOG("Letters on new building : %s ", displayWord.c_str());
+	CCLOG("Letters on new building : %s ", getConvertVectorStringIntoString(displayWord).c_str());
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	auto blockObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("orangebase"));
 	auto letterbox = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridOrange"));
@@ -366,20 +362,20 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
 	int space = blockObject->getContentSize().width - (letterbox->getContentSize().width * 6);
 	//int indiSpace = space / (6+1);
 	int indiSpace = 0;
-	if (displayWord.length() <= 9) {
+	if (displayWord.size() <= 9) {
 		indiSpace = 18;
 	}
-	int equIndi = (indiSpace * (displayWord.length() - 1));
-	int initSpace = blockObject->getContentSize().width - letterbox->getContentSize().width * displayWord.length() - equIndi;
+	int equIndi = (indiSpace * (displayWord.size() - 1));
+	int initSpace = blockObject->getContentSize().width - (letterbox->getContentSize().width * displayWord.size())- equIndi;
 	initSpace = initSpace / 2;
 
 	float xPosi = initSpace + letterbox->getContentSize().width/2;
 
-	for (int i = 0; i <= (displayWord.length() - 1); i++) {
+	for (int i = 0; i <= (displayWord.size() - 1); i++) {
 		auto letterGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridOrange"));
 		auto hideGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("hideOrange"));
 
-		auto label = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(displayWord.at(i)), "Helvetica", letterGrid->getContentSize().height*0.8);
+		auto label = CommonLabelTTF::create(displayWord[i], "Helvetica", letterGrid->getContentSize().height*0.8);
 		letterGrid -> setPosition(Vec2(xPosi, blockObject->getContentSize().height *0.45));
 		label->setPosition(Vec2(letterGrid->getContentSize().width/2, letterGrid->getContentSize().height /2));
 		xPosi = xPosi + indiSpace + letterGrid->getContentSize().width;
@@ -390,29 +386,29 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, string displayWord) {
 		hideGrid->setPosition(Vec2(letterGrid->getContentSize().width / 2, letterGrid->getContentSize().height / 2));
 		letterGrid->addChild(hideGrid);
 		hideGrid->setName("hideBoard");
-		letterGrid->setName(LangUtil::convertUTF16CharToString(displayWord.at(i)));
+		letterGrid->setName(displayWord[i]);
 		letterGrid->setTag(i);
 	}
 }
 
-void Owl::crateLetterGridOnBuildingSecond(int blockLevel, string displayWord) {
-	CCLOG("Letters on new building2 : %s ", displayWord.c_str());
+void Owl::crateLetterGridOnBuildingSecond(int blockLevel, vector<string> displayWord) {
+	CCLOG("Letters on new building2 : %s ", getConvertVectorStringIntoString(displayWord).c_str());
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	auto blockObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("greenbase"));
 	auto letterbox = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridGreen"));
 	int space = blockObject->getContentSize().width - (letterbox->getContentSize().width * 6);
 	//int indiSpace = space / (6 + 1);
 	int indiSpace = 0;
-	if (displayWord.length() <= 8) {
+	if (displayWord.size() <= 8) {
 		indiSpace = 18 * _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond");
 	}
-	int equIndi = (indiSpace * (displayWord.length() - 1));
-	int initSpace = blockObject->getContentSize().width - letterbox->getContentSize().width * displayWord.length() - equIndi;
+	int equIndi = (indiSpace * (displayWord.size() - 1));
+	int initSpace = blockObject->getContentSize().width - letterbox->getContentSize().width * displayWord.size() - equIndi;
 	initSpace = initSpace / 2 ;
 
 	float xPosi = initSpace + letterbox->getContentSize().width / 2;
 
-	for (int i = 0; i <= (displayWord.length() - 1); i++) {
+	for (int i = 0; i <= (displayWord.size() - 1); i++) {
 		auto letterGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridGreen"));
 		auto hideGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("hideGreen"));
 
@@ -424,7 +420,7 @@ void Owl::crateLetterGridOnBuildingSecond(int blockLevel, string displayWord) {
 		hideGrid->setPosition(Vec2(letterGrid->getContentSize().width / 2, letterGrid->getContentSize().height / 2));
 		letterGrid->addChild(hideGrid);
 		hideGrid->setName("hideBoard");
-		letterGrid->setName(LangUtil::convertUTF16CharToString(displayWord.at(i)));
+		letterGrid->setName(displayWord[i]);
 		letterGrid->setTag(i);
 	}
 }
@@ -434,13 +430,14 @@ void Owl::createGrid() {
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	auto alpha = LangUtil::getInstance()->getAllCharacters();
 	
-	// bag is API which gives number of choices and answerString ...
-	auto bag = _vmcBag[_blockLevel1];
-	auto keyboardAllLetters = bag.otherChoices.size();
-
+	// matrixValue is API which gives number of choices and answerString ...
+	
 	auto matrixValue = MatrixUtil::generateMatrix(_vmcBag[_blockLevel1].answers, _vmcBag[_blockLevel1].otherChoices, 1, 24);
 	
 	std::random_shuffle(matrixValue[0].begin(), matrixValue[0].end());
+
+	auto bag = matrixValue[0];
+	auto keyboardAllLetters = matrixValue[0].size();
 
 	auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
 	float space = visibleSize.width - (gridObject->getContentSize().width * keyboardAllLetters/2);
@@ -465,13 +462,13 @@ void Owl::createGrid() {
 			
 			// Set Alphabet one by one in KEYBOARD ... 
 
-			auto label = CommonLabelTTF::create(bag.otherChoices[counter], "Helvetica", gridObject->getContentSize().width * 0.8);
+			auto label = CommonLabelTTF::create(bag[counter], "Helvetica", gridObject->getContentSize().width * 0.8);
 			label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
 			label->setColor(Color3B::WHITE);
-			label->setName(bag.otherChoices[counter]);
+			label->setName(bag[counter]);
 			label->setTag(1);
 
-			gridObject->setName(bag.otherChoices[counter]);
+			gridObject->setName(bag[counter]);
 			gridObject->addChild(label);
 			gridObject->setTag(800+counter);
 			counter++;
@@ -537,14 +534,14 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			auto childText =  target->getChildByName(target->getName());
 			target->setColor(Color3B::GRAY);
 			auto x = childText->getName();
-			CCLOG("Touched : %c", x.at(0));
-
+			CCLOG("Touched : %s", x.c_str());
+/*
 			if (LangUtil::getInstance()->getLang() == "eng" || LangUtil::getInstance()->getLang() == "swa") {
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(x.at(0));
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(x);
 				audio->playEffect(path.c_str(), false);
 			}
-
+*/
 			return true;
 		}
 		return false;
@@ -557,7 +554,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		Rect rect = Rect(0, 0, s.width, s.height);
 			auto x = target->getName();
 			target->setColor(Color3B(255,255,255));
-			CCLOG("Touched : %c",x.at(0));
+			CCLOG("Touched : %s",x.c_str());
 			bool flipBird = false;
 			if (target->getBoundingBox().containsPoint(touch->getLocation())) {
 
@@ -574,7 +571,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							_flagTurnHelp = false;
 						}
 						_menuContext->addPoints(1);
-						_menuContext->wordPairList(_data_key[_textBoard], _data_value[_textBoard]);
+						_menuContext->wordPairList(_data_key[_textBoard], getConvertVectorStringIntoString(_data_value[_textBoard]));
 
 						//auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 						//audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
@@ -611,7 +608,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 
 							if (_textCounter == blockChild.size() && _blockLevel1 < _data_key.size()) {
 								std::ostringstream boardName;
-								boardName << _sentence << _data_key[++_textBoard];
+								boardName << _sentence <<" : "<< _data_key[++_textBoard];
 
 								_textLabel->setString(boardName.str());
 								setBuildingBlock(++_blockLevel1);
@@ -651,7 +648,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 						CCLOG("blockGridSize : %d  , _textCounter value : %d , _blocklevel1 : %d , _data_key.size() : %d ", blockChild.size(), _textCounter, _blockLevel1, _data_key.size());
 						auto pickBoard = CallFunc::create([=]() { 
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
-							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
+							_textOwlBoard->setString(target->getName());
 
 								if (_sprite->getPositionX() < blockChild.at(_textCounter)->getPositionX()) {
 									_sprite->setScaleX(-1.0f);
@@ -731,7 +728,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 							setSpriteProperties(whiteTran, (target->getParent()->getChildByName(blockNameInString)->getPositionX() - target->getParent()->getChildByName(blockNameInString)->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), (target->getParent()->getChildByName(blockNameInString)->getPositionY() - target->getParent()->getChildByName(blockNameInString)->getContentSize().height / 2) + blockChild.at(_textCounter)->getPositionY(), 1, 1, 0.5, 0.5, 0, 3);
 							whiteTran->setName("whiteLetterDrop");
 							
-							auto labelWhite = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(target->getName().at(0)), "Helvetica", whiteTran->getContentSize().width * 0.8);
+							auto labelWhite = CommonLabelTTF::create(target->getName(), "Helvetica", whiteTran->getContentSize().width * 0.8);
 							whiteTran->addChild(labelWhite);
 							labelWhite->setPosition(Vec2(whiteTran->getContentSize().width / 2, whiteTran->getContentSize().height / 2));
 							labelWhite->setColor(Color3B::BLACK);
@@ -752,7 +749,7 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 								}
 
 							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
-							_textOwlBoard->setString(LangUtil::convertUTF16CharToString(target->getName().at(0)));
+							_textOwlBoard->setString(target->getName());
 						});
 						auto initAction = CallFunc::create([=]() {
 							_flagDemo = false;
@@ -812,7 +809,7 @@ void Owl::popUpText() {
 	auto scaleAction = Sequence::create(
 		CallFunc::create([=]() {
 			std::ostringstream boardName;
-			boardName << _sentence<< _data_key[_textBoard];
+			boardName << _sentence<< " : "<<_data_key[_textBoard];
 			_textLabel->setString(boardName.str());
 			auto speaker = self->getChildByName("speaker");
 			speaker->setVisible(false);
