@@ -34,7 +34,7 @@ protected:
 	vector<Lesson::Bag> _vmcBag;
 	std::map<std::string, std::string> _data;
 	std::vector<std::string> _data_key;
-	std::vector<std::string> _data_value;
+	std::vector<std::vector<std::string>> _data_value;
 
 	string _owlCurrentTheme = "" , _sentence = "" , _sentenceShow ="";
 	string _displayWord[5] = { "A","AB","ABC","ABCD","ABCDE"};
@@ -60,9 +60,9 @@ public:
 	std::tuple<int, int, int> levelAllInfo(int currentLevel ,int totalCategory, int eachCategoryGroup, int totalSceneTheme, int SceneChangeAfterLevel);
 	void  setSpriteProperties(Sprite *ImageObject, float positionX, float positionY, float scaleX, float scaleY, float anchorX, float anchorY, float rotation, int zorder);
 	string getConvertInUpperCase(string data);
-	void crateLetterGridOnBuilding(int blockLevel1, string displayWord);
+	void crateLetterGridOnBuilding(int blockLevel1, vector<string> displayWord);
 
-	void crateLetterGridOnBuildingSecond(int blockLevel, string displayWord);
+	void crateLetterGridOnBuildingSecond(int blockLevel, vector<string> displayWord);
 	void onEnterTransitionDidFinish();
 	void createGrid();
 
