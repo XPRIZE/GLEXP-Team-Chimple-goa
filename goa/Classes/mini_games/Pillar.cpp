@@ -6,6 +6,7 @@
 #include "../effects/FShake.h"
 #include "../menu/MenuContext.h"
 #include <algorithm>
+#include "../util/MatrixUtil.h"
 
 
 USING_NS_CC;
@@ -124,7 +125,7 @@ void Pillar::onEnterTransitionDidFinish()
 	Node::onEnterTransitionDidFinish();
 	int level = menu->getCurrentLevel();
 	std::string themeName;
-	int division = ((level - 1) % 15) + 1;
+/*	int division = ((level - 1) % 15) + 1;
 	if (division >= 1 && division < 6) {
 		int roundLevel = std::ceil(level / 15.0);
 		int inner = division + ((roundLevel - 1) * 5);
@@ -192,9 +193,15 @@ void Pillar::onEnterTransitionDidFinish()
 		auto wordAdj = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::NOUN, 6, subLevel);
 		std::copy(std::begin(wordAdj), std::end(wordAdj), std::inserter(_wordList, _wordList.end()));
 	}
+	*/
 
-	_scenePath = _differntSceneMapping.at(themeName);
+	std::map<int, std::string> sceneMapping = {
+		{ 1,	"candy" },
+		{ 2,	"iceLand" },
+		{ 3,    "farm" }
+	};
 
+	_scenePath = _differntSceneMapping.at(sceneMapping.at(RandomHelper::random_int(1, 3)));
 	background = CSLoader::createNode(_scenePath.at("bg"));
 	extraX = 0;
 	if (visibleSize.width > 2560) {
@@ -203,6 +210,14 @@ void Pillar::onEnterTransitionDidFinish()
 	}
 	this->addChild(background, 0);
 
+
+	auto vmcBag = _lesson.getBag(1,5,5,10,10);
+	_wordCorrect = vmcBag[0].answers;
+
+	std::copy(std::begin(_wordCorrect), std::end(_wordCorrect), std::back_inserter(_wordList));
+	std::copy(std::begin(vmcBag[0].otherChoices), std::end(vmcBag[0].otherChoices), std::inserter(_wordList, _wordList.end()));
+
+	_title = LangUtil::getInstance()->translateString(vmcBag[0].help +" : "+ vmcBag[0].answerString);
 
 	_ladder = background->getChildByName(_scenePath.at("ladder"));
 	//ladder->setPosition(Vec2(1500,300));
@@ -555,7 +570,7 @@ void Pillar::update(float dt)
 			{
 				std::string header = "";
 				//CCLOG("size = %d", _pillarRef.size());
-				if (_scenePath.at("animation_select").compare("one") == 0)
+		/*		if (_scenePath.at("animation_select").compare("one") == 0)
 				{
 					 header = LangUtil::getInstance()->translateString("List of Nouns");
 				}
@@ -566,8 +581,8 @@ void Pillar::update(float dt)
 				else
 				{
 					 header = LangUtil::getInstance()->translateString("List of Adjectives");
-				}
-				menu->showAnswer("Words", header);
+				}*/
+				menu->showAnswer("Words", "List of Words");
 			}
 			//_cakeMove->setPosition(_Ref.at(0)->getPositionX(), _Ref.at(0)->getPositionY());
 		}
