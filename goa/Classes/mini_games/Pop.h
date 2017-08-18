@@ -8,12 +8,15 @@
 #include "../lang/LangUtil.h"
 #include "../lang/TextGenerator.h"
 #include "../util/Calculator.h"
+#include "../lang/Lesson.h"
 
 using namespace cocos2d;
 using namespace std;
 
 class Pop : public cocos2d::Layer
 {
+private: 
+	Lesson _lesson;
 protected:
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -39,6 +42,7 @@ public:
 	std::vector<std::string> convertSentenceIntoWords(std::string sentance);
 
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
+	string getConvertVectorStringIntoString(vector<string> value);
 	void setAllSpriteProperties(Sprite* object, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY);
 	LabelTTF* setAllLabelProperties(std::string letter, int zOrder, float posX, float posY, bool visibility, float anchorPointX, float anchorPointY, float rotation, float scaleX, float scaleY, int labelSizeInPixel);
 	void setWordInRightOrder(Node* obj);

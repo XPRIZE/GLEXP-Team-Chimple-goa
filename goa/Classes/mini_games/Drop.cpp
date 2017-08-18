@@ -175,7 +175,7 @@ void Drop::onEnterTransitionDidFinish()
 	if (_lesson.getComplexity() >= 0 && _lesson.getComplexity() <= 4)
 	{
 		auto minimumAnswer = RandomHelper::random_int(2,4);
-		vmc = _lesson.getBag(1, 3,7, 3, 5, false);
+		vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer+1, 3, 5, false);
 	}
 	else if(_lesson.getComplexity() >= 5 && _lesson.getComplexity() <= 7)
 	{
