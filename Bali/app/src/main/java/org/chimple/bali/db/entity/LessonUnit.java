@@ -22,43 +22,41 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 
-@Entity(tableName = "lessons_units",
-        primaryKeys = {"lesson_id", "seq"},
+@Entity(primaryKeys = {"lessonId", "seq"},
         foreignKeys = {
                 @ForeignKey(entity = Lesson.class,
                         parentColumns = "id",
-                        childColumns = "lesson_id"
+                        childColumns = "lessonId"
                 ),
                 @ForeignKey(entity = Unit.class,
                         parentColumns = "id",
-                        childColumns = "subject_unit_id"
+                        childColumns = "subjectUnitId"
                 ),
                 @ForeignKey(entity = Unit.class,
                         parentColumns = "id",
-                        childColumns = "object_unit_id"
+                        childColumns = "objectUnitId"
                 )
         },
         indices = {
-                @Index("subject_unit_id"),
-                @Index("object_unit_id")
+                @Index("subjectUnitId"),
+                @Index("objectUnitId")
         }
 )
 public class LessonUnit {
-    @ColumnInfo(name = "lesson_id")
-    public long lessonId;
+    public Long lessonId;
 
     public int seq;
 
-    @ColumnInfo(name = "subject_unit_id")
-    public long subjectUnitId;
+    public Long subjectUnitId;
 
-    @ColumnInfo(name = "object_unit_id")
-    public long objectUnitId;
+    public Long objectUnitId;
+
+    //TODO: Maybe add non associated object unit id
 
     public String highlight;
 
     @Ignore
-    public LessonUnit(long lessonId, int seq, long subjectUnitId, long objectUnitId, String highlight) {
+    public LessonUnit(long lessonId, int seq, Long subjectUnitId, Long objectUnitId, String highlight) {
         this.lessonId = lessonId;
         this.seq = seq;
         this.subjectUnitId = subjectUnitId;

@@ -30,13 +30,17 @@ const std::string DuelScene::SLIDER_BG_NAME = "Panel_2";
 const std::string DuelScene::LEFT_STAND_NAME = "rock_green";
 const std::string DuelScene::RIGHT_STAND_NAME = "rock_red";
 
+const std::vector<Lesson::CONCEPT> CONCEPT_CAPABILITIES({
+    Lesson::CONCEPT::LETTER,
+    Lesson::CONCEPT::LETTER_CASE_EQUATE
+});
+
 DuelScene::DuelScene() :
 _turnNumber(0),
 _timer(nullptr),
 _timerAnimation(nullptr),
 _myMonStr(""),
-_otherMonStr(""),
-_lesson(0, 0.5)
+_otherMonStr("")
 {
 }
 
@@ -45,8 +49,9 @@ DuelScene::~DuelScene() {
     _eventDispatcher->removeCustomEventListeners("alphabet_unselected");    
 }
 
-Scene* DuelScene::createScene() {
+Scene* DuelScene::createScene(Lesson* lesson) {
     auto layer = DuelScene::create();
+    layer->setLesson(lesson);
     auto scene = GameScene::createWithChild(layer, ALPHAMON_COMBAT);
     layer->_menuContext = scene->getMenuContext();
     return scene;
@@ -66,7 +71,7 @@ DuelScene* DuelScene::create()
 
 void DuelScene::onEnterTransitionDidFinish() {
     if(_myMonStr.empty()) {
-        auto vmc = _lesson.getMultiChoices(2, 8);
+        auto vmc = getLesson()->getMultiChoices(2, 8);
         auto mc = vmc[0];
         _myMonStr = vmc[0].question;
         _answer = vmc[0].answers[vmc[0].correctAnswer];

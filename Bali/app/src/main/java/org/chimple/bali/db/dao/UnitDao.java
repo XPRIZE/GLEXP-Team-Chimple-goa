@@ -25,18 +25,18 @@ import org.chimple.bali.db.entity.Unit;
 
 @Dao
 public interface UnitDao {
-    @Query("SELECT * FROM units WHERE name = :name AND type = :type")
+    @Query("SELECT * FROM Unit WHERE name = :name AND type = :type")
     public Unit getUnitByNameAndType(String name, int type);
 
-    @Query("SELECT * FROM units WHERE id = :id")
-    public Unit getUnitById(int id);
+    @Query("SELECT * FROM Unit WHERE id = :id")
+    public Unit getUnitById(Long id);
 
-    @Query("SELECT COUNT(*) FROM units")
+    @Query("SELECT COUNT(*) FROM Unit")
     public int count();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public long insertUnit(Unit unit);
+    public Long insertUnit(Unit unit);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public long[] insertUnits(Unit... units);
+    public Long[] insertUnits(Unit... units);
 }

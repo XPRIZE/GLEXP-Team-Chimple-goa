@@ -15,11 +15,13 @@
 #include "../ext/WordSceneLipiTKNode.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonText.h"
+#include "../util/MatrixUtil.h"
 
 USING_NS_CC;
 
-cocos2d::Scene* WordScene::createScene() {
+cocos2d::Scene* WordScene::createScene(Lesson* lesson) {
     auto layer = WordScene::create();
+    layer->setLesson(lesson);
     auto scene = GameScene::createWithChild(layer, "word");
     layer->_menuContext = scene->getMenuContext();
     return scene;
@@ -40,6 +42,7 @@ WordScene* WordScene::createWithWord(std::string wordStr) {
     WordScene* word = new (std::nothrow) WordScene();
     if(word && word->initWithWord(wordStr))
     {
+        word->setLesson(new Lesson());
         word->autorelease();
         return word;
     }
@@ -53,7 +56,8 @@ _lipiTKResultMenu(nullptr),
 _word(""),
 _helpLayer(nullptr),
 _helpGraphemeText(""),
-_numTries(0)
+_numTries(0),
+_lessonMode(true)
 {
 }
 
@@ -121,6 +125,7 @@ bool WordScene::initWithWord(std::string word) {
         return false;
     }
     _word = word;
+    _lessonMode = false;
     return true;
     
 }
@@ -137,13 +142,25 @@ void WordScene::onEnterTransitionDidFinish() {
     Node::onEnterTransitionDidFinish();
 
     auto tg = TextGenerator::getInstance();
-    if(_word.empty()) {
-        int level = std::ceil(_menuContext->getCurrentLevel() / 8.0);
-        level = MIN(level, 5);
-        _word = tg->generateAWord(level);
+    if(_lessonMode) {
+        int minLength = 2 + getLesson()->getComplexity() / 2;
+        auto vbag = getLesson()->getBag(1, minLength, 6,
+                                        getGridNumCols() * getGridNumRows(),
+                                        getGridNumCols() * getGridNumRows(),
+                                        true);
+        auto bag = vbag[0];
+        _word = bag.answerString;
+        _answerGraphemes = bag.answers;
+        _numGraphemes = _answerGraphemes.size();
+        _choiceGraphemes = bag.otherChoices;
+//        int level = std::ceil(_menuContext->getCurrentLevel() / 8.0);
+//        level = MIN(level, 5);
+//        _word = tg->generateAWord(level);
+        
+    } else {
+        _answerGraphemes = tg->getGraphemes(_word);
+        _numGraphemes = _answerGraphemes.size();
     }
-    _answerGraphemes = tg->getGraphemes(_word);
-    _numGraphemes = _answerGraphemes.size();
     _menuContext->setMaxPoints(_numGraphemes * 2);
     _background = loadNode();
     addChild(_background);
@@ -177,26 +194,30 @@ GraphemeGrid* WordScene::createGraphemeGrid(GLfloat width, GLfloat height, int n
 }
 
 void WordScene::createGrid() {
-        Size visibleSize = Director::getInstance()->getVisibleSize();
+    Size visibleSize = Director::getInstance()->getVisibleSize();
+    if(_lessonMode) {
+        _matrix = MatrixUtil::generateMatrix(_answerGraphemes, _choiceGraphemes, getGridNumRows(), getGridNumCols());
+    } else {
         _matrix = TextGenerator::getInstance()->generateMatrix(_word, getGridNumRows(), getGridNumCols());
-        _grid = createGraphemeGrid(visibleSize.width, getGridHeight(), getGridNumRows(), getGridNumCols(), getGridBackground(), _matrix, getGraphemeUnselectedBackground(), getGraphemeSelectedBackground());
-        auto unselBg = getGraphemeUnselectedBackground();
-        if(!unselBg.empty()) {
-            _grid->setGraphemeUnselectedBackground(unselBg);
-        }
-        auto selBg = getGraphemeSelectedBackground();
-        if(!selBg.empty()) {
-            _grid->setGraphemeSelectedBackground(selBg);
-        }
-        _grid->setPosition(0, 0);
-        addChild(_grid);
-        _grid->touchEndedCallback = CC_CALLBACK_2(WordScene::onTouchEnded, this);
-    
+    }
+    _grid = createGraphemeGrid(visibleSize.width, getGridHeight(), getGridNumRows(), getGridNumCols(), getGridBackground(), _matrix, getGraphemeUnselectedBackground(), getGraphemeSelectedBackground());
+    auto unselBg = getGraphemeUnselectedBackground();
+    if(!unselBg.empty()) {
+        _grid->setGraphemeUnselectedBackground(unselBg);
+    }
+    auto selBg = getGraphemeSelectedBackground();
+    if(!selBg.empty()) {
+        _grid->setGraphemeSelectedBackground(selBg);
+    }
+    _grid->setPosition(0, 0);
+    addChild(_grid);
+    _grid->touchEndedCallback = CC_CALLBACK_2(WordScene::onTouchEnded, this);
+
 //        if(_showHandWriting) {
 //            createHandWritingButton();
 //            _grid->setVisible(false);
 //        }
-		
+    
 }
 
 void WordScene::createHandWritingButton() {

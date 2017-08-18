@@ -21,10 +21,10 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "units")
+@Entity
 public class Unit {
     @PrimaryKey(autoGenerate = true)
-    public long id;
+    public Long id;
 
     public String name;
 
@@ -32,10 +32,8 @@ public class Unit {
 
     public String picture;
 
-    @ColumnInfo(name = "sound")
     public String sound;
 
-    @ColumnInfo(name = "phoneme_sound")
     public String phonemeSound;
 
     @Ignore

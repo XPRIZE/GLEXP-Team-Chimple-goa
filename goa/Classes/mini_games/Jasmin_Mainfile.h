@@ -11,7 +11,7 @@
 class Jasmin_Mainfile : public WordScene
 {
 public:
-	static cocos2d::Scene* createScene(); 
+	static cocos2d::Scene* createScene(Lesson* lesson);
 	static Jasmin_Mainfile *create();
 	void startFlowerAnimation(Node *, int, int);
 	void removeAnimation(Node *);

@@ -20,12 +20,11 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "syllables")
+@Entity
 public class Syllable {
     @PrimaryKey(autoGenerate = true)
     public long id;
 
-    @ColumnInfo(name = "phonetic_notation")
     public String phoneticNotation;
 
     public String letters;

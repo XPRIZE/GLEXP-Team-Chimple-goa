@@ -124,14 +124,30 @@ void Alphamole::startGame()
 	scoreBord->addChild(_score_label);
 
 
-	if ((menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
-		int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
-		_mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];//_crossTheBridgeLevelMapping.at(_gameCurrentLevel);
-	}
-	else {
-		_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
-	}
+	//if ((menu->getCurrentLevel() > LangUtil::getInstance()->getNumberOfCharacters()) && LangUtil::getInstance()->getLang() == "swa") {
+	//	int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+	//	_mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];//_crossTheBridgeLevelMapping.at(_gameCurrentLevel);
+	//}
+	//else {
+	//	_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
+	//}
 	//_mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
+
+	// _convertToLessonConcept
+
+	auto vmc = _lesson.getMultiChoices(1, 5);
+	int column = 1, row = 6;
+	_jumpArray.resize(row);
+	/*for(int i=0; i<row; i++)
+	_jumpArray[i].resize(column);*/
+
+	for (int i = 0; i<row; i++)
+	_jumpArray[i].push_back(LangUtil::convertStringToUTF16Char(vmc[0].answers[i]));
+
+	auto a = _jumpArray;
+	std::random_shuffle(_jumpArray.begin(), _jumpArray.end());
+
+	_mychar = LangUtil::convertStringToUTF16Char(vmc[0].question);
     _mainChar = Alphamon::createWithAlphabet(LangUtil::convertUTF16CharToString(_mychar));
 	_mainChar->setScaleX(0.5);
 	_mainChar->setScaleY(0.5);
@@ -160,8 +176,11 @@ void Alphamole::showAlpha(float ft)
 		menu->showScore();
 		this->unschedule(schedule_selector(Alphamole::showAlpha));
 	} else {
-		auto jumpAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_mychar, 6, 1, 50);
-		auto str = jumpAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
+		//auto jumpAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_mychar, 6, 1, 50);
+		
+		//auto str = jumpAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
+
+		auto str = _jumpArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
 		
 		std::vector<std::string> holes = { "hole1", "hole3", "hole2" };
 		auto child = _background->getChildByName(holes.at(cocos2d::RandomHelper::random_int(0, 2)));
@@ -226,8 +245,10 @@ void Alphamole::leafOpen(float ft)
 		std::vector<std::string> open_leaf_name = { "Play2_Hole_Open_11", "Play2_Hole_Open_11_0", "Play2_Hole_Open_11_1" };
 		std::vector<std::string> close_leaf_name = { "Play2_Hole_Close_9", "Play2_Hole_Close_9_0", "Play2_Hole_Close_9_1" };
 		int random_leaf = cocos2d::RandomHelper::random_int(0, 2);
-		auto jumpAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_mychar, 6, 1, 50);
-		auto str = jumpAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
+		//auto jumpAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_mychar, 6, 1, 50);
+		//auto str = jumpAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
+
+		auto str = _jumpArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
 		
 		_leaf_openRff = _background->getChildByName(open_leaf_name.at(random_leaf).c_str());
 		_leaf_openRff->setVisible(true);

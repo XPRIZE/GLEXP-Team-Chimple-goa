@@ -25,8 +25,8 @@ import org.chimple.bali.db.entity.UnitPart;
 
 @Dao
 public interface UnitPartDao {
-    @Query("SELECT * FROM units_parts WHERE unit_id=:unitId AND type=:type ORDER BY seq ASC")
-    public UnitPart[] getUnitPartsByUnitIdAndType(long unitId, int type);
+    @Query("SELECT * FROM UnitPart WHERE unitId=:unitId AND type=:type ORDER BY seq ASC")
+    public UnitPart[] getUnitPartsByUnitIdAndType(Long unitId, int type);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertUnitPart(UnitPart unitPart);

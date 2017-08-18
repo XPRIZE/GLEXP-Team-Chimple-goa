@@ -114,11 +114,20 @@ void Circle::onEnterTransitionDidFinish()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Node::onEnterTransitionDidFinish();
 	int level = menu->getCurrentLevel();
-	std::vector<std::string> theme = { "city","iceLand","candy" };
+	std::vector<std::string> theme = { "iceLand","candy" };
 	std::string themeName;
 	int division = ((level - 1) % 15) + 1;
+
+	// _convertToLessonConcept
+		 auto vmc = _lesson.getMultiChoices(10, 0);
+		_wordPair = MatrixUtil::questionToAnswerMapping(vmc);
+		auto index = RandomHelper::random_int(0,1);
+		_sceneMap = _differntSceneMapping.at(theme[index]);
+		_title = vmc[0].help + " : ";
+
+	//
 	
-	if (division >= 1 && division < 6) {
+	/*if (division >= 1 && division < 6) {
 		int roundLevel = std::ceil(level / 15.0);
 		int inner = division + ((roundLevel - 1) * 5);
 		int subLevel = 1;
@@ -132,7 +141,7 @@ void Circle::onEnterTransitionDidFinish()
 		}
 		CCLOG("Sysnonyms sub Level = %d", subLevel);
 		themeName = "candy";
-		_synonyms = TextGenerator::getInstance()->getSynonyms(10, subLevel);
+		_wordPair = TextGenerator::getInstance()->getSynonyms(10, subLevel);
 		_title = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
 		_header = LangUtil::getInstance()->translateString("List of same meaning words");
 	}
@@ -151,7 +160,7 @@ void Circle::onEnterTransitionDidFinish()
 		}
 		CCLOG("Antonyms Sub Level = %d", subLevel);
 		themeName = "iceLand";
-		_synonyms = TextGenerator::getInstance()->getAntonyms(10, subLevel);
+		_wordPair = TextGenerator::getInstance()->getAntonyms(10, subLevel);
 		_title = LangUtil::getInstance()->translateString("Make opposite of : ");
 		_header = LangUtil::getInstance()->translateString("List of opposite words");
 	}
@@ -170,25 +179,23 @@ void Circle::onEnterTransitionDidFinish()
 		}
 		CCLOG("Homonyms SubLevel = %d", subLevel);
 		themeName = "candy";
-		_synonyms = TextGenerator::getInstance()->getHomonyms(10, subLevel);
+		_wordPair = TextGenerator::getInstance()->getHomonyms(10, subLevel);
 		_title = LangUtil::getInstance()->translateString("Make same sounding word as : ");
 		_header = LangUtil::getInstance()->translateString("List of same sounding words");
 	}
+*/
 
-	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
+	for (auto it = _wordPair.begin(); it != _wordPair.end(); ++it) {
 		_mapKey.push_back(it->first);
 	}
 	//wordGenerateWithOptions();
 
-	
-
-	
-	_scenePath = _differntSceneMapping.at(themeName);
+	//_sceneMap = _differntSceneMapping.at(themeName);
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
-	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));
+	spritecache1->addSpriteFramesWithFile(_sceneMap.at("plist"));
 
-	background = CSLoader::createNode(_scenePath.at("bg"));//"circle/circle.csb"
+	background = CSLoader::createNode(_sceneMap.at("bg"));//"circle/circle.csb"
 	extraX = 0;
 	if (visibleSize.width > 2560) {
 		extraX = (visibleSize.width - 2560) / 2;
@@ -198,18 +205,18 @@ void Circle::onEnterTransitionDidFinish()
 
 
 
-	_enemyRef.push_back(background->getChildByName(_scenePath.at("enemy1")));
-	_enemyRef.push_back(background->getChildByName(_scenePath.at("enemy2")));
-	_enemyRef.push_back(background->getChildByName(_scenePath.at("enemy3")));
-	_enemyRef.push_back(background->getChildByName(_scenePath.at("enemy4")));
-	_enemyRef.push_back(background->getChildByName(_scenePath.at("enemy5")));
-	_enemyRef.push_back(background->getChildByName(_scenePath.at("enemy6")));
+	_enemyRef.push_back(background->getChildByName(_sceneMap.at("enemy1")));
+	_enemyRef.push_back(background->getChildByName(_sceneMap.at("enemy2")));
+	_enemyRef.push_back(background->getChildByName(_sceneMap.at("enemy3")));
+	_enemyRef.push_back(background->getChildByName(_sceneMap.at("enemy4")));
+	_enemyRef.push_back(background->getChildByName(_sceneMap.at("enemy5")));
+	_enemyRef.push_back(background->getChildByName(_sceneMap.at("enemy6")));
 
-	if (_scenePath.at("animation_select").compare("one") == 0)
+	if (_sceneMap.at("animation_select").compare("one") == 0)
 	{
 		CCLOG("one");
-		auto dot = background->getChildByName(_scenePath.at("friend_dot"));
-		_friend = CSLoader::createNode(_scenePath.at("friend"));//"circle/octopus.csb"
+		auto dot = background->getChildByName(_sceneMap.at("friend_dot"));
+		_friend = CSLoader::createNode(_sceneMap.at("friend"));//"circle/octopus.csb"
 		_friend->setPositionX(dot->getPositionX() + extraX);
 		_friend->setPositionY(dot->getPositionY());
 
@@ -217,7 +224,7 @@ void Circle::onEnterTransitionDidFinish()
 
 		for (int i = 0; i < 6; i++)
 		{
-			auto enemyadding = CSLoader::createNode(_scenePath.at("enemy"));
+			auto enemyadding = CSLoader::createNode(_sceneMap.at("enemy"));
 			enemyadding->setPositionX(_enemyRef.at(i)->getPositionX() + extraX);
 			enemyadding->setPositionY(_enemyRef.at(i)->getPositionY());
 			_enemyRef1.push_back(enemyadding);
@@ -227,18 +234,18 @@ void Circle::onEnterTransitionDidFinish()
 	}
 
 
-	if (_scenePath.at("animation_select").compare("two") == 0)
+	if (_sceneMap.at("animation_select").compare("two") == 0)
 	{
 		CCLOG("two");
-		auto dot = background->getChildByName(_scenePath.at("friend_dot"));
-		_friend = CSLoader::createNode(_scenePath.at("friend"));//"circle/octopus.csb"
+		auto dot = background->getChildByName(_sceneMap.at("friend_dot"));
+		_friend = CSLoader::createNode(_sceneMap.at("friend"));//"circle/octopus.csb"
 		_friend->setPositionX(dot->getPositionX() + extraX);
 		_friend->setPositionY(dot->getPositionY());
 		this->addChild(_friend);
 
 		for (int i = 0; i < 6; i++)
 		{
-			auto enemyadding = CSLoader::createNode(_scenePath.at("enemy"));
+			auto enemyadding = CSLoader::createNode(_sceneMap.at("enemy"));
 			enemyadding->setPositionX(_enemyRef.at(i)->getPositionX() + extraX);
 			enemyadding->setPositionY(_enemyRef.at(i)->getPositionY());
 			if (i < 3) {
@@ -257,11 +264,11 @@ void Circle::onEnterTransitionDidFinish()
 		}
 
 	}
-	if (_scenePath.at("animation_select").compare("three") == 0)
+	if (_sceneMap.at("animation_select").compare("three") == 0)
 	{
 		_friend = background->getChildByName("cake");
 	}
-	if (_scenePath.at("animation_select").compare("three") == 0)
+	if (_sceneMap.at("animation_select").compare("three") == 0)
 	{
 		menu->setMaxPoints(6);
 	}
@@ -278,7 +285,7 @@ void Circle::gameHelp()
 	//game help only for first level
 	auto labelSize = _topLabel->getContentSize();
 	auto labelPosition = _topLabel->getPosition();
-	auto ans = _synonyms.at(_gameWord);
+	auto ans = _wordPair.at(_gameWord);
 	std::string name;
 	for (int i = 0; i < _answers.size(); i++) {
 		if (_answers.at(i).find(ans) == 0) {
@@ -361,7 +368,7 @@ void Circle::change(char  str)
 
 	int num = atoi(_target.c_str());
 	CCLOG("num= %d", num);
-	auto timeline = CSLoader::createTimeline(_scenePath.at("enemy"));
+	auto timeline = CSLoader::createTimeline(_sceneMap.at("enemy"));
 	auto blastref = _enemyRef1.at(num - 1);
 	//blastref->runAction(timeline);
 	std::vector<int> angleRef = { 70, 40, 10, -10, -45, -80 };
@@ -411,7 +418,7 @@ void Circle::addEnemy(int num)
 //	mouthTimeline->gotoFrameAndPlay(0, true);
 	auto blastref = _enemyRef1.at(num - 1);
 	this->removeChild(blastref);
-	auto enemyadding = CSLoader::createNode(_scenePath.at("enemy"));
+	auto enemyadding = CSLoader::createNode(_sceneMap.at("enemy"));
 	
 	this->addChild(enemyadding);
 	if (num < 4)
@@ -445,7 +452,7 @@ void Circle::addEnemy(int num)
 		}
 		
 	}), NULL));
-	auto timeline = CSLoader::createTimeline(_scenePath.at("enemy"));
+	auto timeline = CSLoader::createTimeline(_sceneMap.at("enemy"));
 	//auto blastref = _enemyRef1.at(num - 1);
 
 	enemyadding->runAction(timeline);
@@ -504,7 +511,7 @@ void Circle::scoreBoard(float dt)
 }
 void Circle::bigpuff(float dt)
 {
-	if (_scenePath.at("animation_select").compare("three") == 0)
+	if (_sceneMap.at("animation_select").compare("three") == 0)
 	{
 		CCLOG("bigpuff");
 		auto bigpuff = CSLoader::createNode("circlecandy/bigpuff.csb");
@@ -523,7 +530,7 @@ void Circle::bigpuff(float dt)
 		timeline->play("cake2", false);
 		this->scheduleOnce(schedule_selector(Circle::scoreBoard), 2.0f);
 	}
-	if (_scenePath.at("animation_select").compare("two") == 0)
+	if (_sceneMap.at("animation_select").compare("two") == 0)
 	{
 		/*auto timeline = CSLoader::createTimeline("circle/correct.csb");
 		_friend->runAction(timeline);
@@ -542,19 +549,19 @@ void Circle::wordGenerateWithOptions()
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	int size = _mapKey.size();
 	_gameWord = _mapKey.at(cocos2d::RandomHelper::random_int(0, size - 1));
-	answer.push_back(_synonyms.at(_gameWord));
+	answer.push_back(_wordPair.at(_gameWord));
 	//_sentence = LangUtil::getInstance()->translateString(_title);
 
 	std::ostringstream boardName;
 	boardName << _title << _gameWord;
 	_topLabel = CommonLabel::createWithTTF(boardName.str(), "fonts/Roboto-Regular.ttf", 100);
 	_topLabel->setColor(Color3B(0, 0, 0));
-	if (_scenePath.at("animation_select").compare("one") == 0)
+	if (_sceneMap.at("animation_select").compare("one") == 0)
 	{
         _topLabel->setPositionX(visibleSize.width / 2 );
 		_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height );
 	}
-	else if (_scenePath.at("animation_select").compare("three") == 0)
+	else if (_sceneMap.at("animation_select").compare("three") == 0)
 	{
 		_topLabel->setPositionX(visibleSize.width / 2   );
 		_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height);
@@ -568,10 +575,10 @@ void Circle::wordGenerateWithOptions()
 
 	int randomInt1 = cocos2d::RandomHelper::random_int(0, size - 1);
 	for (int j = 0; j < 5; j++) {
-		auto str = _synonyms.at(_mapKey.at(randomInt1 % size));
-		if (_synonyms.at(_gameWord).compare(str) == 0) {
+		auto str = _wordPair.at(_mapKey.at(randomInt1 % size));
+		if (_wordPair.at(_gameWord).compare(str) == 0) {
 			randomInt1++;
-			answer.push_back(_synonyms.at(_mapKey.at(randomInt1 % size)));
+			answer.push_back(_wordPair.at(_mapKey.at(randomInt1 % size)));
 		}
 		else {
 			answer.push_back(str);
@@ -634,7 +641,7 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 		 char ssss = wordStr.at(wordStr.length()-1);
 		 wordStr.at(wordStr.length() - 1) = ' ';
 		CCLOG("ssss= %c", ssss);
-		if (wordStr.compare(_synonyms.at(_gameWord)+" ") == 0) {
+		if (wordStr.compare(_wordPair.at(_gameWord)+" ") == 0) {
 			//    CCLOG("11111111111111111");
 			this->removeChild(_topLabel);
 			for (int i = 0; i < _choiceLabel.size(); i++) {
@@ -642,8 +649,8 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				}
 		//	_eventDispatcher->removeEventListenersForTarget(target);
 			_choiceLabel.clear();
-			menu->wordPairList(_gameWord, _synonyms.at(_gameWord));
-			if (_scenePath.at("animation_select").compare("one") == 0)
+			menu->wordPairList(_gameWord, _wordPair.at(_gameWord));
+			if (_sceneMap.at("animation_select").compare("one") == 0)
 			{
 				CCLOG("addpoints begin");
 				_score++;
@@ -653,7 +660,7 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 				change(ssss);
 				CCLOG("addpoints end");
 			}
-			else if (_scenePath.at("animation_select").compare("two") == 0)
+			else if (_sceneMap.at("animation_select").compare("two") == 0)
 			{
 				_score++;
 				menu->addPoints(1);
@@ -682,7 +689,7 @@ bool Circle::onTouchBegan(cocos2d::Touch * touch, cocos2d::Event * event)
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			_friend->runAction(shake);
 			CCLOG("shake ends");
-			if (_scenePath.at("animation_select").compare("three") == 0)
+			if (_sceneMap.at("animation_select").compare("three") == 0)
 			{
 				for (int i = 0; i < _candyMoveRef.size(); i++)
 				{

@@ -26,24 +26,35 @@ import org.chimple.bali.db.pojo.LessonUnitComposite;
 
 @Dao
 public interface LessonUnitDao {
-    @Query("SELECT * FROM lessons_units WHERE lesson_id=:lessonId ORDER BY seq ASC")
-    public LessonUnit[] getLessonUnitsByLessonId(long lessonId);
+    @Query("SELECT * FROM LessonUnit WHERE lessonId=:lessonId ORDER BY seq ASC")
+    public LessonUnit[] getLessonUnitsByLessonId(Long lessonId);
 
     @Query("SELECT lu.*, "
             + "su.id AS su_id, su.name AS su_name, su.type AS su_type, su.picture AS su_picture, "
-            + "su.sound AS su_sound, su.phoneme_sound AS su_phoneme_sound, "
+            + "su.sound AS su_sound, su.phonemeSound AS su_phonemeSound, "
             + "ou.id AS ou_id, ou.name AS ou_name, ou.type AS ou_type, ou.picture AS ou_picture, "
-            + "ou.sound AS ou_sound, ou.phoneme_sound AS ou_phoneme_sound "
-            + "FROM lessons_units lu, units su, units ou "
-            + "WHERE lu.lesson_id = :lessonId "
-            + "AND lu.seq = :seq "
-            + "AND lu.subject_unit_id = su.id "
-            + "AND lu.object_unit_id = ou.id")
-    public LessonUnitComposite getLessonUnitCompositeByLessonIdAndSeq(long lessonId, int seq);
+            + "ou.sound AS ou_sound, ou.phonemeSound AS ou_phonemeSound "
+            + "FROM LessonUnit lu, Unit su, Unit ou "
+            + "WHERE lu.lessonId = :lessonId "
+            + "AND lu.subjectUnitId = su.id "
+            + "AND lu.objectUnitId = ou.id")
+    public LessonUnitComposite[] getLessonUnitCompositesByLessonId(Long lessonId);
 
-    @Query("SELECT COUNT(*) FROM lessons_units")
+    @Query("SELECT lu.*, "
+            + "su.id AS su_id, su.name AS su_name, su.type AS su_type, su.picture AS su_picture, "
+            + "su.sound AS su_sound, su.phonemeSound AS su_phonemeSound, "
+            + "ou.id AS ou_id, ou.name AS ou_name, ou.type AS ou_type, ou.picture AS ou_picture, "
+            + "ou.sound AS ou_sound, ou.phonemeSound AS ou_phonemeSound "
+            + "FROM LessonUnit lu, Unit su, Unit ou "
+            + "WHERE lu.lessonId = :lessonId "
+            + "AND lu.seq = :seq "
+            + "AND lu.subjectUnitId = su.id "
+            + "AND lu.objectUnitId = ou.id")
+    public LessonUnitComposite getLessonUnitCompositeByLessonIdAndSeq(Long lessonId, int seq);
+
+    @Query("SELECT COUNT(*) FROM LessonUnit")
     public int count();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    public void insertLessonUnit(LessonUnit lessonUnit);
+    public Long insertLessonUnit(LessonUnit lessonUnit);
 }

@@ -21,14 +21,13 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 
-@Entity(tableName = "lessons",
-        indices = @Index(value = "seq",
+@Entity(indices = @Index(value = "seq",
                 unique = true
         )
 )
 public class Lesson {
     @PrimaryKey(autoGenerate = true)
-    public long id;
+    public Long id;
 
     public String title;
 

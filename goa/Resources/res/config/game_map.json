@@ -420,8 +420,8 @@
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
-    "span": "3",
-    "numLevels": "26",
+    "span": "1",
+    "numLevels": "6",
     "backgroundJson": "bgmap/bgmap_background.json",
     "foregroundJson": "bgmap/bgmap_foreground.json",
     "frontgroundJson": "bgmap/bgmap_frontground.json",
@@ -458,63 +458,25 @@
     "lang": {
       "swa": {
         "labels": [
-          "A",
-          "B",
-          "C",
-          "D",
-          "E",
-          "F",
-          "G",
-          "H",
-          "I",
-          "J",
-          "K",
-          "L",
-          "M",
-          "N",
-          "O",
-          "P",
-          "R",
-          "S",
-          "T",
-          "U",
-          "V",
-          "W",
-          "Y",
-          "Z"
+            "1",
+            "2",
+            "101",
+            "102",
+            "701",
+            "702"
         ],
-        "numLevels": "24"
+        "numLevels": "6"
       },
       "eng": {
         "labels": [
-          "A",
-          "B",
-          "C",
-          "D",
-          "E",
-          "F",
-          "G",
-          "H",
-          "I",
-          "J",
-          "K",
-          "L",
-          "M",
-          "N",
-          "O",
-          "P",
-          "Q",
-          "R",
-          "S",
-          "T",
-          "U",
-          "V",
-          "W",
-          "X",
-          "Y",
-          "Z"
+            "1",
+            "2",
+            "101",
+            "102",
+            "701",
+            "702"
         ],
-        "numLevels": "26"
+        "numLevels": "6"
       }
     }
   },
@@ -1849,8 +1811,30 @@
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
-    "span": "5",
-    "numLevels": "40",
+    "span": "1",
+    "numLevels": "5",
+    "lang": {
+      "swa": {
+        "labels": [
+            "10",
+            "210",
+            "410",
+            "610",
+            "810"
+        ],
+        "numLevels": "5"
+      },
+      "eng": {
+        "labels": [
+            "10",
+            "210",
+            "410",
+            "610",
+            "810"
+        ],
+        "numLevels": "5"
+      }
+    },    
     "rewards": {
       "15": {
         "unlock": "jasmine"
@@ -1893,8 +1877,30 @@
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
-    "span": "7",
-    "numLevels": "40",
+    "span": "1",
+    "numLevels": "5",
+    "lang": {
+      "swa": {
+        "labels": [
+            "10",
+            "210",
+            "410",
+            "610",
+            "810"
+        ],
+        "numLevels": "5"
+      },
+      "eng": {
+        "labels": [
+            "10",
+            "210",
+            "410",
+            "610",
+            "810"
+        ],
+        "numLevels": "5"
+      }
+    },    
     "rewards": {
       "15": {
         "unlock": "chain"
@@ -1937,8 +1943,30 @@
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
-    "span": "5",
-    "numLevels": "24",
+    "span": "1",
+    "numLevels": "5",
+    "lang": {
+      "swa": {
+        "labels": [
+            "10",
+            "210",
+            "410",
+            "610",
+            "810"
+        ],
+        "numLevels": "5"
+      },
+      "eng": {
+        "labels": [
+            "10",
+            "210",
+            "410",
+            "610",
+            "810"
+        ],
+        "numLevels": "5"
+      }
+    },    
     "rewards": {
       "15": {
         "unlock": "wembley"
@@ -1981,8 +2009,30 @@
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
-    "span": "5",
-    "numLevels": "40",
+    "span": "1",
+    "numLevels": "5",
+    "lang": {
+      "swa": {
+        "labels": [
+            "1",
+            "210",
+            "402",
+            "610",
+            "810"
+        ],
+        "numLevels": "5"
+      },
+      "eng": {
+        "labels": [
+            "1",
+            "210",
+            "402",
+            "610",
+            "810"
+        ],
+        "numLevels": "5"
+      }
+    },    
     "rewards": {
       "15": {
         "unlock": "jazz"
@@ -2025,8 +2075,30 @@
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
-    "span": "5",
-    "numLevels": "40",
+    "span": "1",
+    "numLevels": "5",
+    "lang": {
+      "swa": {
+        "labels": [
+            "10",
+            "210",
+            "410",
+            "610",
+            "810"
+        ],
+        "numLevels": "5"
+      },
+      "eng": {
+        "labels": [
+            "10",
+            "210",
+            "410",
+            "610",
+            "810"
+        ],
+        "numLevels": "5"
+      }
+    },    
     "rewards": {
       "15": {
         "unlock": "cat"
@@ -2152,6 +2224,36 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "7",
     "numLevels": "50",
+    "lang": {
+      "swa": {
+        "labels": [
+            "110",
+            "210",
+            "310",
+            "410",
+            "510",
+            "610",
+            "710",
+            "810",
+            "910"        
+        ],
+        "numLevels": "9"
+      },
+      "eng": {
+        "labels": [
+            "110",
+            "210",
+            "310",
+            "410",
+            "510",
+            "610",
+            "710",
+            "810",
+            "910"      
+        ],
+        "numLevels": "9"
+      }
+    },    
     "rewards": {
       "20": {
         "unlock": "stack"

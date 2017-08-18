@@ -15,11 +15,13 @@
 #include "GraphemeGrid.h"
 #include "Grapheme.h"
 #include "../hero/RPGConfig.h"
+#include "../lang/Lesson.h"
+#include "../lang/StudySession.h"
 
 class WordSceneLipiTKNode;
-class WordScene : public cocos2d::Node {
+class WordScene : public cocos2d::Node, public StudySession {
 public:
-    static cocos2d::Scene* createScene();
+    static cocos2d::Scene* createScene(Lesson* lesson);
     static WordScene *create();
     static WordScene *createWithWord(std::string wordStr);
     virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
@@ -69,8 +71,10 @@ protected:
     HelpLayer* _helpLayer;
     std::string _helpGraphemeText;
     std::string _word;
+    bool _lessonMode;
     int _numGraphemes;
     std::vector<std::string> _answerGraphemes;
+    std::vector<std::string> _choiceGraphemes;
     std::vector<std::vector<std::string>> _matrix;
     std::vector<std::pair<Node*, Grapheme*>> _answerVector;
     bool _showHandWriting;

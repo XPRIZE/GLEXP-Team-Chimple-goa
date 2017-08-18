@@ -14,7 +14,7 @@ using namespace cocos2d;
 class Chain : public WordScene
 {
 public:
-	static cocos2d::Scene* createScene();
+	static cocos2d::Scene* createScene(Lesson* lesson);
 	static Chain *create();
 	static std::string _SS;
 	//void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);

@@ -304,9 +304,7 @@ string BasicLetterCase::getConvertInUpperCase(string data)
 	return blockName.str();
 }
 
-BasicLetterCase::BasicLetterCase() :
-_lesson(0, 0.5)
-{
+BasicLetterCase::BasicLetterCase(){
     
 }
 

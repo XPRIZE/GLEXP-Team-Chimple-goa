@@ -192,8 +192,7 @@ bool Decomon::init()
 	return true;
 }
 
-Decomon::Decomon():
-_lesson(0, 0.5)
+Decomon::Decomon()
 {
 }
 

@@ -117,10 +117,11 @@ void Drop::onEnterTransitionDidFinish()
 		{ 2,    "dropcity" }
 	};
 	std::string wordOnLabel;
-	std::string wordOnLayout;
+	std::vector<std::string> wordOnLayout;
+	/*
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
 	std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 5,3,5,3);
-	_dropCurrentTheme = dropSceneMapping.at(levelKeyNumber.first);
+
 
 	int level;
 	if (gameCurrentLevel >= 1 && gameCurrentLevel <= 15)
@@ -155,8 +156,46 @@ void Drop::onEnterTransitionDidFinish()
 		wordOnLayout = getConvertInUpperCase(_data.begin()->second);
 		_labelPrefix = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
 	}
+	*/
 
-	_wordToDisplay = wordOnLabel;
+	// _gameConvertIntoLessonConcept
+
+	// Select a game theme
+
+	auto randomSceneIndex = RandomHelper::random_int(0, 2);
+	_dropCurrentTheme = dropSceneMapping.at(randomSceneIndex);
+
+	// Change the game concept according to game
+
+	_lesson.setConcept(Lesson::CONCEPT::WORD_SPELLING);
+	std::vector<Lesson::Bag> vmc;
+
+	// Taking a bag of a lesson according to complexity
+
+	if (_lesson.getComplexity() >= 0 && _lesson.getComplexity() <= 4)
+	{
+		auto minimumAnswer = RandomHelper::random_int(2,4);
+		vmc = _lesson.getBag(1, 3,7, 3, 5, false);
+	}
+	else if(_lesson.getComplexity() >= 5 && _lesson.getComplexity() <= 7)
+	{
+		auto minimumAnswer = RandomHelper::random_int(5, 6);
+		vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer + 1,3,5, false);
+	}
+	else
+	{
+		auto minimumAnswer = RandomHelper::random_int(7, 8);
+		vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer + 1, 3, 5, false);
+	}
+	 
+	// Distributing choices , answer, question and help in their respective variables 
+
+	 wordOnLayout = vmc[0].answers;
+	_wordToDisplay = vmc[0].answerString;
+	_labelPrefix = vmc[0].help + " : ";
+	int columnSize = vmc[0].answers.size() + vmc[0].otherChoices.size();
+	std::vector<std::vector<std::string>> choices = MatrixUtil::generateMatrix(vmc[0].answers, vmc[0].otherChoices, 1, columnSize);
+	_choices = choices[0];
 	_scenePath = dropSceneMap.at(_dropCurrentTheme);
 	_sceneBasedNumericalVal = dropSceneNumValue.at(_dropCurrentTheme);
 
@@ -203,11 +242,12 @@ void Drop::onEnterTransitionDidFinish()
 	////aa->drawRect(Vec2(i*gap + gap / 2 - basketImg->getContentSize().width / 2, visibleSize.height*0.08) , Vec2(i*gap + gap / 2 + basketImg->getContentSize().width / 2, visibleSize.height*0.08 + basketImg->getContentSize().height), Color4F(0, 0, 255, 22)); //jungle drop
 	//aab->drawRect(Vec2((visibleSize.width*0.13) - _removalPole->getContentSize().width / 2, (visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"))- _removalPole->getContentSize().height*0.1), Vec2((visibleSize.width*0.13) + _removalPole->getContentSize().width / 2, visibleSize.height *_sceneBasedNumericalVal.at("floatBoxHeightFactor") + _removalPole->getContentSize().height/2), Color4F(0, 0, 255, 22));
 
-	bool levelForSpeaker = isSpeakerAddLevel();
-	if (levelForSpeaker)
+	//bool levelForSpeaker = isSpeakerAddLevel();
+	bool levelForSpeaker = false;
+	if(levelForSpeaker)
 	{
 		std::ostringstream boardName;
-		boardName << _labelPrefix << wordOnLabel;
+		boardName << _labelPrefix << _wordToDisplay;
 		_label = setAllLabelProperties(boardName.str(), 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 100);
 		this->addChild(_label, 2);
 
@@ -215,7 +255,7 @@ void Drop::onEnterTransitionDidFinish()
 			std::ostringstream nameOnBoard1;
 			nameOnBoard1 << _labelPrefix ;
 			_label->setString(nameOnBoard1.str());
-			addSpeaker(wordOnLabel);
+			addSpeaker(_wordToDisplay);//wordOnLable
 		}), NULL));
 
 		
@@ -223,14 +263,14 @@ void Drop::onEnterTransitionDidFinish()
 	else
 	{
 		std::ostringstream boardName;
-		boardName << _labelPrefix << wordOnLabel;
+		boardName << _labelPrefix << _wordToDisplay;
 		_label = setAllLabelProperties(boardName.str(), 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 100);
 		this->addChild(_label, 2);
 	}
 
 	//Random index getter for blanks
 	std::vector<int> randomIndex;
-	int sizeOfWord = wordOnLayout.length();
+	int sizeOfWord = wordOnLayout.size();
 	int sizeOfRandomIndexVector;
 
 	if (sizeOfWord % 2 == 0)
@@ -259,8 +299,8 @@ void Drop::onEnterTransitionDidFinish()
 			randomIndex.push_back(numberPicker);
 	}
 	auto B = randomIndex;
-	auto gap = Director::getInstance()->getVisibleSize().width / wordOnLayout.length();
-	for (int i = 0; i < wordOnLayout.length(); i++)
+	auto gap = Director::getInstance()->getVisibleSize().width / wordOnLayout.size();
+	for (int i = 0; i < wordOnLayout.size(); i++)
 	{
 		bool flag = false;
 		for (int j = 0; j < randomIndex.size(); j++)
@@ -271,7 +311,7 @@ void Drop::onEnterTransitionDidFinish()
 				break;
 			}
 		}
-		layingOutBasket(flag, gap, LangUtil::convertUTF16CharToString(wordOnLayout.at(i)), i);
+		layingOutBasket(flag, gap, wordOnLayout[i], i);
 	}
 	/*if (_dropHelpSelector == 0)
 	{
@@ -499,8 +539,8 @@ void Drop::letterAndHolderMaker(float dt)
 	_letterHolderSpriteBin.push_back(floatBox);
 
 	//Label
-	int maxIndex = _wordOptionBin.size() - 1;
-	std::string str = _wordOptionBin[RandomHelper::random_int(0, maxIndex)];
+	int maxIndex = _choices.size() - 1; //_wordOptionBin
+	std::string str = _choices[RandomHelper::random_int(0, maxIndex)];
 	auto label = setAllLabelProperties(str, 0, (floatBox->getBoundingBox().size.width / 2), ((floatBox->getBoundingBox().size.height / 2)*_sceneBasedNumericalVal.at("flaotingLetterYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
 	floatBox->addChild(label, 0);
 	addEvents(floatBox);
@@ -832,4 +872,15 @@ std::string Drop::getConvertInUpperCase(std::string data)
 		i++;
 	}
 	return blockName.str();
+}
+
+string Drop::getConvertVectorStringIntoString(vector<string> value) {
+
+	std::ostringstream convertedString;
+
+	for (size_t i = 0; i < value.size(); i++) {
+		convertedString << value[i];
+	}
+
+	return convertedString.str();
 }

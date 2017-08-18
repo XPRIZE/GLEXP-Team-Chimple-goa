@@ -186,9 +186,9 @@ void Bingo::onEnterTransitionDidFinish()
 	};
 	std::map<int, std::string> bingoGridMapping = {
 
-		{ 0,	"fiveByFive" },
-		{ 1,	"threeByThree" },
-		{ 2,    "fourByFour" }
+		{ 0,	"threeByThree" },
+		{ 1,	"fourByFour" },
+		{ 2,    "fiveByFive" }
 	};
 
 	std::map<int, std::string> bingoSceneMapping = {
@@ -198,7 +198,7 @@ void Bingo::onEnterTransitionDidFinish()
 		{ 2,    "bingojungle" }
 	};
 	
-	int gameCurrentLevel = _menuContext->getCurrentLevel();
+/*	int gameCurrentLevel = _menuContext->getCurrentLevel();
 	int levelNo = 1;
 	if (gameCurrentLevel >= 1 && gameCurrentLevel <= 12)
 	{
@@ -221,54 +221,84 @@ void Bingo::onEnterTransitionDidFinish()
 		else
 			levelNo = 6;
 	}
-
-	 auto categoryTitle = "";
-	 std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 12, 3, 4, 3);
-	_bingoGridDimension = bingoGridMapping.at(levelKeyNumber.first);
-	_bingoCurrentTheme = bingoSceneMapping.at(levelKeyNumber.second);
+*/
+	/* auto categoryTitle = "";
+	 std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 12, 3, 4, 3);*/
+	 auto randomSceneIndex = RandomHelper::random_int(0, 2);
+	 int gridDimesion, pairNo;
+	 if (_lesson.getComplexity() >= 0.0f && _lesson.getComplexity() <= 0.33f)
+	 {
+		 gridDimesion = 0; pairNo = 9;
+	 }
+	 else if(_lesson.getComplexity() >= 0.34f && _lesson.getComplexity() <= 0.66f)
+	 {
+		 gridDimesion = 1; pairNo = 16;
+	 }
+	 else
+	 {
+		 gridDimesion = 2; pairNo = 25;
+	 }
+	_bingoGridDimension = bingoGridMapping.at(gridDimesion);
+	_bingoCurrentTheme = bingoSceneMapping.at(randomSceneIndex);
 
 	_scenePath = sceneMap.at(_bingoCurrentTheme);
 	std::map<std::string, std::map<std::string, float>> sample_A = sceneGridValueMap.at(_bingoCurrentTheme);
 	_gridBasedValue = sample_A.at(_bingoGridDimension);
 	
-	if (levelKeyNumber.second == 0)
-	{
-		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
-		_data = TextGenerator::getInstance()->getHomonyms(pairNo, levelNo);
-		while (_data.size() != pairNo)
-		{
-			_data = TextGenerator::getInstance()->getHomonyms(pairNo, levelNo);
-		}
-		_menuContext->setMaxPoints(pairNo*1);
-		_labelPrefix = LangUtil::getInstance()->translateString("choose same sounding word : ");
-		_wordPairTitle = LangUtil::getInstance()->translateString("List of Homonyms");
-	}
-	else if (levelKeyNumber.second == 1)
-	{
-		//_bingoCurrentTheme = "bingojungle";
-		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
-		_data = TextGenerator::getInstance()->getSynonyms(pairNo, levelNo);
-		while (_data.size() != pairNo)
-		{
-			_data = TextGenerator::getInstance()->getSynonyms(pairNo, levelNo);
-		}
-		_menuContext->setMaxPoints(pairNo*1);
-		_labelPrefix = LangUtil::getInstance()->translateString("choose meaning word of : ");
-		_wordPairTitle = LangUtil::getInstance()->translateString("List of Synonyms");
-	}
-	else
-	{
-		//_bingoCurrentTheme = "bingocity";
-		int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
-		_data = TextGenerator::getInstance()->getAntonyms(pairNo, levelNo);
-		while (_data.size() != pairNo)
-		{
-			_data = TextGenerator::getInstance()->getAntonyms(pairNo, levelNo);
-		}
-		_menuContext->setMaxPoints(pairNo*1);
-		_labelPrefix = LangUtil::getInstance()->translateString("choose opposite word of : ");
-		_wordPairTitle = LangUtil::getInstance()->translateString("List of Antonyms");
-	}
+	//_data.clear();
+	 
+	  auto vmc = _lesson.getMultiChoices(pairNo, 0);
+	// _data = MatrixUtil::questionToAnswerMapping(vmc);
+	 auto dataMapping = MatrixUtil::questionToAnswerMapping(vmc);
+	 _labelPrefix = vmc[0].help + " : ";
+	
+/*	 for (int i = 0; i < pairNo; i++)
+	 {
+		 auto a = vmc[i].question;
+		 auto b = vmc[i].answers[0];
+		 _data_keys.push_back(a);
+		 _data_values.push_back(b);
+	 }
+	//_data = mapping;
+	auto dataValueMapping = _data;
+*/	//if (levelKeyNumber.second == 0)
+	//{
+	//	int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
+	//	_data = TextGenerator::getInstance()->getHomonyms(pairNo, levelNo);
+	//	while (_data.size() != pairNo)
+	//	{
+	//		_data = TextGenerator::getInstance()->getHomonyms(pairNo, levelNo);
+	//	}
+	//	_menuContext->setMaxPoints(pairNo*1);
+	//	_labelPrefix = LangUtil::getInstance()->translateString("choose same sounding word : ");
+	//	_wordPairTitle = LangUtil::getInstance()->translateString("List of Homonyms");
+	//}
+	//else if (levelKeyNumber.second == 1)
+	//{
+	//	//_bingoCurrentTheme = "bingojungle";
+	//	int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
+	//	_data = TextGenerator::getInstance()->getSynonyms(pairNo, levelNo);
+	//	while (_data.size() != pairNo)
+	//	{
+	//		_data = TextGenerator::getInstance()->getSynonyms(pairNo, levelNo);
+	//	}
+	//	_menuContext->setMaxPoints(pairNo*1);
+	//	_labelPrefix = LangUtil::getInstance()->translateString("choose meaning word of : ");
+	//	_wordPairTitle = LangUtil::getInstance()->translateString("List of Synonyms");
+	//}
+	//else
+	//{
+	//	//_bingoCurrentTheme = "bingocity";
+	//	int pairNo = static_cast<int>(_gridBasedValue.at("pairRequired"));
+	//	_data = TextGenerator::getInstance()->getAntonyms(pairNo, levelNo);
+	//	while (_data.size() != pairNo)
+	//	{
+	//		_data = TextGenerator::getInstance()->getAntonyms(pairNo, levelNo);
+	//	}
+	//	_menuContext->setMaxPoints(pairNo*1);
+	//	_labelPrefix = LangUtil::getInstance()->translateString("choose opposite word of : ");
+	//	_wordPairTitle = LangUtil::getInstance()->translateString("List of Antonyms");
+	//}
 
 	//BackGround
 	auto bingoBackground = CSLoader::createNode(_scenePath.at("bg"));
@@ -329,20 +359,21 @@ void Bingo::onEnterTransitionDidFinish()
 		bingoBackground->setPositionX(myGameWidth);
 	}
 
-	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-		_data_key.push_back(it->first);
+	for (std::map<std::string, std::string>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
+		_data_keys.push_back(it->first);
 	}
-
-	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-		_data_value.push_back(it->second);
+	_data_values.clear();
+	_data_values.resize(0);
+	for (std::map<std::string, std::string>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
+		_data_values.push_back(it->second); 
 	}
 
 	std::vector<int> randomIndex;
-	int a = _data.size();
-
-	while (randomIndex.size() != _data.size()) {
+	int dataMapSizeValue = _data_keys.size() - 1;
+	
+	while (randomIndex.size() != dataMapping.size()) {
 		bool duplicateCheck = true;
-		int numberPicker = RandomHelper::random_int(0, a - 1);
+		int numberPicker = RandomHelper::random_int(0, dataMapSizeValue);
 		for (int i = 0; i < randomIndex.size(); i++) {
 			if (numberPicker == randomIndex[i]) {
 				duplicateCheck = false;
@@ -364,7 +395,7 @@ void Bingo::onEnterTransitionDidFinish()
 	addX = _boxBoard->getBoundingBox().size.width * _gridBasedValue.at("addXFactor");
 	addY = _boxBoard->getBoundingBox().size.height * _gridBasedValue.at("addYFactor");
 
-	int binCapacity = static_cast<int>(_gridBasedValue.at("bincapacity"));
+	int binCapacity = std::sqrt(pairNo * 1.0f);
 	_boxContainer = Bingo::createGrid(binCapacity, binCapacity);
 	_charFace = Bingo::createGrid(binCapacity, binCapacity);
 	_charAnimContainer = Bingo::createGridOfCharcater(binCapacity, binCapacity);
@@ -406,12 +437,12 @@ void Bingo::onEnterTransitionDidFinish()
 
 			//Label
 
-			label = CommonLabelTTF::create(_data_key[randomIndex[boxId]], "Helvetica", 90);
+			label = CommonLabelTTF::create(_data_keys[randomIndex[boxId]], "Helvetica", 90);
 			label->setPosition(c, d);
 			label->setAnchorPoint(Vec2(0.5, 0.5));
 			box->addChild(label, 3);
 
-			label->setName(_data_value[randomIndex[boxId]]);
+			label->setName(_data_values[randomIndex[boxId]]);
 			boxId++;
 
 			std::ostringstream str_i;
@@ -521,20 +552,20 @@ void::Bingo::setWordInHelpBoard()
 {
 	if (_label != NULL)
 	{
-		for (int i = 0; i < _data_value.size(); i++)
+		for (int i = 0; i < _data_values.size(); i++)
 		{
-			if (_label->getName().compare(_data_value[i]) == 0)
+			if (_label->getName().compare(_data_values[i]) == 0)
 			{
 				this->removeChild(_label, true);
-				_data_value.erase(_data_value.begin() + i);
+				_data_values.erase(_data_values.begin() + i);
 				break;
 			}
 		}
 	}
-	int size = _data_value.size() - 1;
+	int size = _data_values.size() - 1;
 	if (size != -1 && !_isBingoDone)
 	{
-		auto stringValue = _data_value[RandomHelper::random_int(0, size)];
+		auto stringValue = _data_values[RandomHelper::random_int(0, size)];
 		auto strName = getConvertInUpperCase(stringValue);
 		std::ostringstream boardName;
 		boardName << _labelPrefix << strName;
