@@ -3,10 +3,13 @@
 
 #include "cocos2d.h"
 #include "../menu/MenuContext.h"
+#include "../lang/Lesson.h"
 
 
 class Pillar : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 public:
 	Pillar();
 	~Pillar();
