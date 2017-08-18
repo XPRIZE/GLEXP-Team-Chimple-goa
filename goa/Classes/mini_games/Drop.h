@@ -47,6 +47,7 @@ protected:
 	string _levelOneString, _wordToDisplay;
 	std::string _labelPrefix = "";
 	bool _isGameDone = false, _stopMovingHelpObject = false;
+	std::vector<std::string> _choices;
 	
 
 public:

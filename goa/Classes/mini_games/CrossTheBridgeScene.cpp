@@ -4,6 +4,7 @@
 #include "../alphamon/Alphamon.h"
 #include "../puzzle/CharGenerator.h"
 #include "../lang/LangUtil.h"
+#include "../util/MatrixUtil.h"
 
 USING_NS_CC;
 
@@ -253,11 +254,16 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 
 	// _revampToNewLessonGame
 
+ 	    // Getting the answer, quetion, help and choices required from API
+
 		auto vmc = _lesson.getMultiChoices(1, 6);
 		_letterOnDisplayBoard = vmc[0].question;
 		_answer = vmc[0].answers[vmc[0].correctAnswer];
-		_choices = vmc[0].answers;
+		
+		std::vector<std::vector<std::string>> choices = MatrixUtil::generateMatrixForChoosing(_answer, vmc[0].answers, 1, 7, 60);
+		_choices = choices[0];
 		std::random_shuffle(_choices.begin(), _choices.end());
+
 
 	/*	vector<int> randomIndex;
 		while (randomIndex.size() != (_choices.size() * 2)) {
