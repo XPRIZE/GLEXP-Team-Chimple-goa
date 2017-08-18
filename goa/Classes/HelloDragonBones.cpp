@@ -189,7 +189,7 @@ void HelloDragonBones::_changeAnimation()
 
     // Play Animation.
     _armatureDisplay->getAnimation().play(animationName, 100);
-    //_armature->getAnimation().play(animationName);
+    _armature->getAnimation().play(animationName);
 }
 
 bool HelloDragonBones::_touchBeganHandler(const cocos2d::Touch* touch, cocos2d::Event* event)

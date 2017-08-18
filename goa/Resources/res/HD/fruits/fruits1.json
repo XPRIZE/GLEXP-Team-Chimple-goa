@@ -1,0 +1,874 @@
+{
+  "ID": "c9f6925d-9201-402b-91df-4e77aeb786f8",
+  "Version": "3.10.0.0",
+  "Name": "fruits1",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 85,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": 1646429250,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -770.0,
+                "Y": 335.65,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 4
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 630.0,
+                "Y": 335.65,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1646429250,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 1646429250,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -779571117,
+            "Property": "ActionValue",
+            "Frames": [
+              {
+                "InnerActionType": "LoopAction",
+                "CurrentAniamtionName": "riding",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 0,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              },
+              {
+                "InnerActionType": "SingleFrame",
+                "CurrentAniamtionName": "riding",
+                "SingleFrameIndex": 0,
+                "FrameIndex": 85,
+                "Tween": false,
+                "ctype": "InnerActionFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -779571117,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": -800.0,
+                "Y": 192.8103,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 4
+                },
+                "ctype": "PointFrameData"
+              },
+              {
+                "X": 600.0,
+                "Y": 192.8103,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -779571117,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 4
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -779571117,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 4
+                },
+                "ctype": "ScaleValueFrameData"
+              },
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 85,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 129,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 88,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 228,
+              "G": 238,
+              "B": 226
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -487.7058,
+              "Y": -6.1736
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1905,
+              "Y": -0.0034
+            },
+            "PreSize": {
+              "X": 1.3672,
+              "Y": 1.0
+            },
+            "LeftMargin": -487.7058,
+            "RightMargin": -452.2942,
+            "TopMargin": 6.1736,
+            "BottomMargin": -6.1736,
+            "Tag": 98,
+            "ActionTag": -1127444728,
+            "Size": {
+              "X": 3500.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/grass_o.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1740.9812,
+              "Y": 798.3396
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6801,
+              "Y": 0.4435
+            },
+            "PreSize": {
+              "X": 0.5559,
+              "Y": 0.0944
+            },
+            "LeftMargin": 1029.4812,
+            "RightMargin": 107.5188,
+            "TopMargin": 916.6604,
+            "BottomMargin": 713.3396,
+            "Tag": 90,
+            "ActionTag": -1480663680,
+            "Size": {
+              "X": 1423.0,
+              "Y": 170.0
+            },
+            "Name": "grass_o_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/grass_t.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 914.59,
+              "Y": 723.8646
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3573,
+              "Y": 0.4021
+            },
+            "PreSize": {
+              "X": 0.5469,
+              "Y": 0.1433
+            },
+            "LeftMargin": 214.59,
+            "RightMargin": 945.4099,
+            "TopMargin": 947.1354,
+            "BottomMargin": 594.8646,
+            "Tag": 91,
+            "ActionTag": 1508198114,
+            "Size": {
+              "X": 1400.0,
+              "Y": 258.0
+            },
+            "Name": "grass_t_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/grass_th.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1278.6382,
+              "Y": 552.3004
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4995,
+              "Y": 0.3068
+            },
+            "PreSize": {
+              "X": 0.925,
+              "Y": 0.0744
+            },
+            "LeftMargin": 94.6382,
+            "RightMargin": 97.3618,
+            "TopMargin": 1180.6996,
+            "BottomMargin": 485.3004,
+            "Tag": 92,
+            "ActionTag": -1127560394,
+            "Size": {
+              "X": 2368.0,
+              "Y": 134.0
+            },
+            "Name": "grass_th_4",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/stick.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1689.783,
+              "Y": 919.1767
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 8.1548,
+            "RotationSkewY": 8.1756,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6601,
+              "Y": 0.5107
+            },
+            "PreSize": {
+              "X": 0.0242,
+              "Y": 0.1767
+            },
+            "LeftMargin": 1658.783,
+            "RightMargin": 839.217,
+            "TopMargin": 721.8232,
+            "BottomMargin": 760.1767,
+            "Tag": 95,
+            "ActionTag": -202023443,
+            "Size": {
+              "X": 62.0,
+              "Y": 318.0
+            },
+            "Name": "stick_7",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/stick_t.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1075.8181,
+              "Y": 908.2435
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -6.2865,
+            "RotationSkewY": -6.2757,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4202,
+              "Y": 0.5046
+            },
+            "PreSize": {
+              "X": 0.0141,
+              "Y": 0.1694
+            },
+            "LeftMargin": 1057.8181,
+            "RightMargin": 1466.1819,
+            "TopMargin": 739.2565,
+            "BottomMargin": 755.7435,
+            "Tag": 96,
+            "ActionTag": 615831522,
+            "Size": {
+              "X": 36.0,
+              "Y": 305.0
+            },
+            "Name": "stick_t_8",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/shed.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1385.5339,
+              "Y": 1135.9768
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5412,
+              "Y": 0.6311
+            },
+            "PreSize": {
+              "X": 0.2961,
+              "Y": 0.1467
+            },
+            "LeftMargin": 1006.5339,
+            "RightMargin": 795.4661,
+            "TopMargin": 532.0232,
+            "BottomMargin": 1003.9768,
+            "Tag": 93,
+            "ActionTag": 361761126,
+            "Size": {
+              "X": 758.0,
+              "Y": 264.0
+            },
+            "Name": "shed_5",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/stand.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1389.6299,
+              "Y": 657.7448
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5428,
+              "Y": 0.3654
+            },
+            "PreSize": {
+              "X": 0.2965,
+              "Y": 0.1472
+            },
+            "LeftMargin": 1010.1299,
+            "RightMargin": 790.8701,
+            "TopMargin": 1009.7552,
+            "BottomMargin": 525.2448,
+            "Tag": 94,
+            "ActionTag": 1513025890,
+            "Size": {
+              "X": 759.0,
+              "Y": 265.0
+            },
+            "Name": "stand_6",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/basket.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1174.3293,
+              "Y": 518.5681
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4587,
+              "Y": 0.2881
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.0717
+            },
+            "LeftMargin": 1074.3293,
+            "RightMargin": 1285.6707,
+            "TopMargin": 1216.9319,
+            "BottomMargin": 454.0681,
+            "Tag": 89,
+            "ActionTag": 447999811,
+            "Size": {
+              "X": 200.0,
+              "Y": 129.0
+            },
+            "Name": "basket_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/basket.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1414.9609,
+              "Y": 527.3972
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": -4.8037,
+            "RotationSkewY": -4.8037,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5527,
+              "Y": 0.293
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.0717
+            },
+            "LeftMargin": 1314.9609,
+            "RightMargin": 1045.0391,
+            "TopMargin": 1208.1028,
+            "BottomMargin": 462.8972,
+            "Tag": 99,
+            "ActionTag": 1391397453,
+            "Size": {
+              "X": 200.0,
+              "Y": 129.0
+            },
+            "Name": "basket_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/basket.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1639.1189,
+              "Y": 533.8719
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "RotationSkewX": 0.9442,
+            "RotationSkewY": 0.9477,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6403,
+              "Y": 0.2966
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.0717
+            },
+            "LeftMargin": 1539.1189,
+            "RightMargin": 820.8811,
+            "TopMargin": 1201.6282,
+            "BottomMargin": 469.3719,
+            "Tag": 100,
+            "ActionTag": -1218617209,
+            "Size": {
+              "X": 200.0,
+              "Y": 129.0
+            },
+            "Name": "basket_1_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": -770.0,
+              "Y": 335.65
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.3008,
+              "Y": 0.1865
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -770.0,
+            "RightMargin": 3330.0,
+            "TopMargin": 1464.35,
+            "BottomMargin": 335.65,
+            "UserData": "eye_blink;drag",
+            "Tag": 341,
+            "FrameEvent": "sit",
+            "ActionTag": 1646429250,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "db_banana",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "fruits/scooter.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -800.0,
+              "Y": 192.8103
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": -0.3125,
+              "Y": 0.1071
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -800.0,
+            "RightMargin": 3360.0,
+            "TopMargin": 1607.1897,
+            "BottomMargin": 192.8103,
+            "UserData": "scooter_standing;drag",
+            "Tag": 403,
+            "ActionTag": -779571117,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "scooter",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "fruits/leaf.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2050.2686,
+              "Y": 296.4688
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.8009,
+              "Y": 0.1647
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2050.2686,
+            "RightMargin": 509.7314,
+            "TopMargin": 1503.5312,
+            "BottomMargin": 296.4688,
+            "UserData": "leaf;drag",
+            "Tag": 523,
+            "ActionTag": -203950048,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "leaf",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "Zizi was going around in his scooter.\nHe liked to see everything neat and in order.\n",
+            "PlaceHolderText": "Text Field",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1562.5634,
+              "Y": 1591.3622
+            },
+            "Scale": {
+              "ScaleX": 4.0,
+              "ScaleY": 4.0
+            },
+            "CColor": {
+              "R": 30,
+              "G": 30,
+              "B": 30
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6104,
+              "Y": 0.8841
+            },
+            "PreSize": {
+              "X": 0.1953,
+              "Y": 0.0417
+            },
+            "LeftMargin": 1312.5634,
+            "RightMargin": 747.4366,
+            "TopMargin": 171.1378,
+            "BottomMargin": 1553.8622,
+            "Tag": 174,
+            "ActionTag": 738188944,
+            "Size": {
+              "X": 500.0,
+              "Y": 75.0
+            },
+            "Name": "display_text",
+            "ctype": "TextFieldObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "fruits.plist",
+        "fruits.png",
+        "leaf.json",
+        "scooter.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
