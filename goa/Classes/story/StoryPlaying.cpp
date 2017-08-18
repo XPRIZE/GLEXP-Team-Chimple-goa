@@ -73,7 +73,14 @@ _contentPageText(""),
 _isAudionEngineInitialized(false),
 _currentSplitWordIndex(0),
 _totalSplitWords(0),
-_splitSoundFilesDirectoryUrl("")
+_splitSoundFilesDirectoryUrl(""),
+_talkBubbleNode(nullptr),
+_prevArmatureScale(1.0f),
+_armatureScale(1.0f),
+_armatureIndex(0),
+_animationIndex(0),
+_armature(nullptr),
+_armatureDisplay(nullptr)
 {
 }
 
@@ -142,6 +149,13 @@ void StoryPlaying::playAnimationOnNode(std::string animationName, Node* node) {
                 animationAction->play(animationName, false);
             }
         }
+    }
+    
+    CCLOG("_animationToPlayWhenTouched for node %s", node->getName().c_str());
+    std::string dbNodeStartsWith = "db_";
+    if (node->getName().find(dbNodeStartsWith) != std::string::npos)
+    {
+        _changeAnimationTo(_animationToPlayWhenTouched.c_str());
     }
 }
 
@@ -227,6 +241,7 @@ bool StoryPlaying::onTouchBeganOnComposite(Touch* touch, Event* event){
     }
     
     Node* target = event->getCurrentTarget();
+    CCLOG("target name %s", target->getName().c_str());
     auto n = convertTouchToNodeSpace(touch);
     
     auto boundingBox = utils::getCascadeBoundingBox(target);
@@ -521,6 +536,27 @@ void StoryPlaying::load() {
     }
 }
 
+void StoryPlaying::createDragonBoneNode(Node* parentNode, std::string dragonBoneName) {
+    
+    std::string skeletonFile = dragonBoneName + "/" +  dragonBoneName + "_ske.json";
+    std::string texFile = dragonBoneName + "/" + dragonBoneName + "_tex.json";
+    _dragonBonesData = _factory.loadDragonBonesData(skeletonFile);
+    _factory.loadTextureAtlasData(texFile);
+    
+    if (_dragonBonesData)
+    {
+        _changeArmature(parentNode);
+        _changeAnimation();
+        
+        EventListenerTouchOneByOne* _listener = cocos2d::EventListenerTouchOneByOne::create();
+        _listener->setSwallowTouches(true);
+        _listener->onTouchBegan = CC_CALLBACK_2(StoryPlaying::onTouchBeganOnComposite, this);
+        _listener->onTouchEnded = CC_CALLBACK_2(StoryPlaying::onTouchEndedOnComposite, this);
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _armatureDisplay->getParent());
+    }
+    
+}
+
 void StoryPlaying::preloadAllAudio() {
     _loadedSplitWordsEffects.clear();
     std::string pageI = MenuContext::to_string(_pageIndex + 1);
@@ -617,7 +653,6 @@ void StoryPlaying::loadContentPageText() {
                     
                     if (!_contentPageText.empty() && _contentPageText[_contentPageText.length()-1] == '\n') {
                         _contentPageText.erase(_contentPageText.length()-1);
-                        std::replace( _contentPageText.begin(), _contentPageText.end(), '\n', ' ');
                     }
                     
                     _individualTextsTokens = _menuContext->split(_contentPageText, ' ');
@@ -736,12 +771,23 @@ void StoryPlaying::renderStoryText(Node* parentNode, Node* storyTextNode) {
     Vec2 lastRenderedLabelPosition = Vec2(0.0f,0.0f);
     Node* lastRenderedLabel;
     bool firstPassFinished = false;
+    bool newLineCharRecognized = false;
     float yOffset = 0;
     int howManyTimes = 0;
     int whichToken = 0;
     float initialX = 0.0f;
     for (std::vector<std::string>::iterator it = individualTexts.begin() ; it != individualTexts.end(); ++it) {
         std::string token = *it;
+        newLineCharRecognized = false;
+        std::string newLineChar = "\n";
+        if (token.find(newLineChar) != std::string::npos)
+        {
+            newLineCharRecognized = true;
+            std::string::size_type i = token.find(newLineChar);
+            if (i != std::string::npos) {
+                token.erase(i, newLineChar.length());
+            }
+        }
         //create CommonText node
         auto label = CommonText::create();
         label->setCommonTextInStory(true);
@@ -758,7 +804,7 @@ void StoryPlaying::renderStoryText(Node* parentNode, Node* storyTextNode) {
         label->setTextColor(Color4B::BLACK);
         if(firstPassFinished)
         {
-            if(lastRenderedLabel->getPosition().x + lastRenderedLabel->getBoundingBox().size.width/2 + label->getBoundingBox().size.width > parentNode->getBoundingBox().size.width - 250.0f)
+            if(newLineCharRecognized || lastRenderedLabel->getPosition().x + lastRenderedLabel->getBoundingBox().size.width/2 + label->getBoundingBox().size.width > parentNode->getBoundingBox().size.width - 250.0f)
             {
                 //wrap
                 howManyTimes++;
@@ -1045,9 +1091,23 @@ void StoryPlaying::processPixelPerfectNodes(Node* parent) {
     
     
     cocos2d::Vector<Node*> nodes = parent->getChildren();
+    CCLOG("n hererer parent %s", parent->getName().c_str());
     for (std::vector<Node*>::iterator it = nodes.begin() ; it != nodes.end(); ++it) {
         Node* n = *it;
         CCLOG("n hererer %s", n->getName().c_str());
+        //if name starts with db_* then it is Dragon Bone Parent Node
+        std::string dbNodeStartsWith = "db_";
+        if (n->getName().find(dbNodeStartsWith) != std::string::npos)
+        {
+            std::string dbNodeName = n->getName();
+            CCLOG("n dragon bone parent %s", n->getName().c_str());
+            std::string::size_type i = dbNodeName.find(dbNodeStartsWith);
+            CCLOG("n dragon bone name %s", dbNodeName.c_str());
+            
+            this->createDragonBoneNode(n, dbNodeName);
+
+        }
+        
         if(_pixelPerfectMapping.find(n->getName()) != _pixelPerfectMapping.end()) {
             CCLOG("pixel processing node %s", n->getName().c_str());
             std::string spriteUrl = _pixelPerfectMapping.at(n->getName());
@@ -1199,23 +1259,26 @@ void StoryPlaying::previousStory(Ref* pSender, cocos2d::ui::Widget::TouchEventTy
 
 
 void StoryPlaying::showText(std::string nodeName) {
-    _wordBubbleNode->setVisible(true);
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    bool mappingFound = translatedText(nodeName);
-    if(!mappingFound)
-        return;
-    
-    if(_textDisplayAnimationRunning) {
-        this->unschedule(schedule_selector(StoryPlaying::removeWordBubble));
-        displayTextAnimationFinished();
-    } else {
-        _textDisplayAnimationRunning = true;
-        _wordBubbleNode->setPosition(Vec2(visibleSize.width/2, visibleSize.height + 650));
-        auto moveTo = MoveTo::create(1.0, Vec2(visibleSize.width/2, visibleSize.height + 50));
-        auto elastic = EaseBackOut::create(moveTo);
-        auto showTextFinished = CallFunc::create(CC_CALLBACK_0(StoryPlaying::displayTextAnimationFinished, this));
-        _wordBubbleNode->runAction(Sequence::create(elastic, showTextFinished, NULL));
+    if(_wordBubbleNode != nullptr)
+    {
+        _wordBubbleNode->setVisible(true);
+        Size visibleSize = Director::getInstance()->getVisibleSize();
+        bool mappingFound = translatedText(nodeName);
+        if(!mappingFound)
+            return;
         
+        if(_textDisplayAnimationRunning) {
+            this->unschedule(schedule_selector(StoryPlaying::removeWordBubble));
+            displayTextAnimationFinished();
+        } else {
+            _textDisplayAnimationRunning = true;
+            _wordBubbleNode->setPosition(Vec2(visibleSize.width/2, visibleSize.height + 650));
+            auto moveTo = MoveTo::create(1.0, Vec2(visibleSize.width/2, visibleSize.height + 50));
+            auto elastic = EaseBackOut::create(moveTo);
+            auto showTextFinished = CallFunc::create(CC_CALLBACK_0(StoryPlaying::displayTextAnimationFinished, this));
+            _wordBubbleNode->runAction(Sequence::create(elastic, showTextFinished, NULL));
+            
+        }
     }
 }
 
@@ -1342,3 +1405,87 @@ void StoryPlaying::showTextAgain(Ref* pSender, cocos2d::ui::Widget::TouchEventTy
     }
 }
 
+
+void StoryPlaying::_changeArmature(Node* parentNode)
+{
+    const auto& armatureNames = _dragonBonesData->getArmatureNames();
+    if (armatureNames.empty())
+    {
+        return;
+    }
+    
+    // Remove prev Armature.
+    if (_armature)
+    {
+        _armature->dispose();
+        parentNode->removeChild(_armatureDisplay);
+    }
+    
+    // Get Next Armature name.
+    _armatureIndex++;
+    if (_armatureIndex >= armatureNames.size())
+    {
+        _armatureIndex = 0;
+    }
+    
+    const auto& armatureName = armatureNames[_armatureIndex];
+    
+    // a. Build Armature Display. (buildArmatureDisplay will advanceTime animation by Armature Display)
+    _armatureDisplay = _factory.buildArmatureDisplay(armatureName);
+    _armature = _armatureDisplay->getArmature();
+    
+    // Add Armature Display.
+    _armatureDisplay->setScale(_armatureScale * 0.5f);
+    parentNode->addChild(_armatureDisplay);
+    
+    _animationIndex = 0;
+}
+
+void StoryPlaying::_changeAnimation()
+{
+    const auto& animationNames = _armatureDisplay->getAnimation().getAnimationNames();
+    if (animationNames.empty())
+    {
+        return;
+    }
+    
+    // Get next Animation name.
+    _animationIndex++;
+    if (_animationIndex >= animationNames.size())
+    {
+        _animationIndex = 0;
+    }
+    
+    const auto& animationName = animationNames[_animationIndex];
+    
+    // Play Animation.
+    _armatureDisplay->getAnimation().play(animationName, 100);
+}
+
+void StoryPlaying::_changeAnimationTo(std::string animName)
+{
+    const auto& animationNames = _armatureDisplay->getAnimation().getAnimationNames();
+    if (animationNames.empty())
+    {
+        return;
+    }
+    
+    
+    // Get next Animation name.
+    _animationIndex++;
+    if (_animationIndex >= animationNames.size())
+    {
+        _animationIndex = 0;
+    }
+    
+    
+    for (std::vector<std::string>::const_iterator p = animationNames.begin();
+         p != animationNames.end(); ++p) {
+        std::string s = *p;
+        
+        if (s.find(animName) != std::string::npos)
+        {
+            _armatureDisplay->getAnimation().play(animName, 100);
+        }
+    }
+}

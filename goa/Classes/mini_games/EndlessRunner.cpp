@@ -11,6 +11,7 @@
 #include "SpriteCreate.h"
 #include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
+#include "../util/MatrixUtil.h"
 
 #define COCOS2D_DEBUG 1
 using namespace std;
@@ -81,16 +82,17 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	*/
 
 	// lesson API use for set choices and questions ... begin
-	_vmc = _lesson.getMultiChoices(3, 2);
-
+	_vmc = _lesson.getMultiChoices(3, 5);
+	_correctAnswerFromVmc = _vmc[letterBoardAlphaLength].answers[_vmc[letterBoardAlphaLength].correctAnswer];
 	tempChar = _vmc[letterBoardAlphaLength].question;
-	for (int i = 0; i < _vmc[letterBoardAlphaLength].answers.size(); i++) {
-		_letterStream.push_back(_vmc[letterBoardAlphaLength].answers[i]);
-	}
-	_correctAnswerFromVmc = _letterStream[_vmc[letterBoardAlphaLength].correctAnswer];
-	
-	//end
 
+	auto multipleChoices = MatrixUtil::generateMatrixForChoosing(_correctAnswerFromVmc,
+		_vmc[letterBoardAlphaLength].answers,1,15,65);
+	_letterStream = multipleChoices[0];
+	std::random_shuffle(_letterStream.begin(), _letterStream.end());
+
+
+	//end
 	auto bgLayerGradient = LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 255, 255, 255));
 	this->addChild(bgLayerGradient, 0);
 	EndlessRunner::addEvents(bgLayerGradient);
@@ -393,15 +395,16 @@ void EndlessRunner::startingIntersectMode() {
 						letterOnBoard->updateChar(tempChar);
 						letterOnBoard->setString(tempChar);
 						counterAlphabets = 0;
-						//					letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
+						//letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
 
 						_letterStream.clear();
-						for (int i = 0; i < _vmc[letterBoardAlphaLength].answers.size(); i++) {
-							_letterStream.push_back(_vmc[letterBoardAlphaLength].answers[i]);
-						}
-						_correctAnswerFromVmc = _letterStream[_vmc[letterBoardAlphaLength].correctAnswer];
+						_correctAnswerFromVmc = _vmc[letterBoardAlphaLength].answers[_vmc[letterBoardAlphaLength].correctAnswer];
+						auto multipleChoices = MatrixUtil::generateMatrixForChoosing(_correctAnswerFromVmc,
+							_vmc[letterBoardAlphaLength].answers, 1, 15, 65);
 
-
+						_letterStream = multipleChoices[0];
+						std::random_shuffle(_letterStream.begin(), _letterStream.end());
+						
 						counterLetter = 0;
 
 					}

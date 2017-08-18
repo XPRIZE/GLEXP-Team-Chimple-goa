@@ -26,6 +26,7 @@
 #include "cocos-ext.h"
 #include "storage/local-storage/LocalStorage.h"
 #include "../util/CommonText.h"
+#include "dragonBones/cocos2dx/CCDragonBonesHeaders.h"
 
 #define SHOW_TEXT_AGAIN_BUTTON "showTextAgain"
 #define NEXT_BUTTON "next"
@@ -198,6 +199,29 @@ private:
     void playNextSplitWordCallBack(int id, const std::string& file);
     
     void loadContentPageText();
+    
+    
+    //DRAGON BONE SPECIFIC
+    
+    float _prevArmatureScale;
+    float _armatureScale;
+    cocos2d::Vec2 _startPoint;
+    
+    unsigned _armatureIndex;
+    unsigned _animationIndex;
+    dragonBones::DragonBonesData* _dragonBonesData;
+    dragonBones::Armature* _armature;
+    dragonBones::CCArmatureDisplay* _armatureDisplay;
+    dragonBones::CCFactory _factory;
+    cocos2d::Node* _bg;
+    dragonBones::CCArmatureDisplay* addArmature(dragonBones::DragonBonesData*);
+    
+    void _changeArmature(cocos2d::Node* parentNode);
+    void _changeAnimation();
+    void _changeAnimationTo(std::string name);
+        
+    void createDragonBoneNode(cocos2d::Node* parentNode, std::string dragonBoneName);
+
     
 };
 

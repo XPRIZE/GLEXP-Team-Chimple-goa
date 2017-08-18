@@ -1,0 +1,901 @@
+{
+  "ID": "e5dd38ab-79f8-4b5d-a3d7-8237eaa8830f",
+  "Version": "3.10.0.0",
+  "Name": "fruits7",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -1576043400,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 159.3599,
+                "Y": 561.7775,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1576043400,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7,
+                "Y": 0.7,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -1576043400,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2107193125,
+            "Property": "Position",
+            "Frames": [
+              {
+                "X": 1081.3005,
+                "Y": 257.0641,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "PointFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2107193125,
+            "Property": "Scale",
+            "Frames": [
+              {
+                "X": 0.7,
+                "Y": 0.7,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 2107193125,
+            "Property": "RotationSkew",
+            "Frames": [
+              {
+                "X": 0.0,
+                "Y": 0.0,
+                "FrameIndex": 0,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ScaleValueFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 153,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Tag": 88,
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 228,
+              "G": 238,
+              "B": 226
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -487.7058,
+              "Y": -6.1736
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1905,
+              "Y": -0.0034
+            },
+            "PreSize": {
+              "X": 1.3672,
+              "Y": 1.0
+            },
+            "LeftMargin": -487.7058,
+            "RightMargin": -452.2942,
+            "TopMargin": 6.1736,
+            "BottomMargin": -6.1736,
+            "Tag": 98,
+            "ActionTag": -1127444728,
+            "Size": {
+              "X": 3500.0,
+              "Y": 1800.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/stick2.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 382.1282,
+              "Y": 1222.3579
+            },
+            "Scale": {
+              "ScaleX": 1.0706,
+              "ScaleY": 1.0706
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1493,
+              "Y": 0.6791
+            },
+            "PreSize": {
+              "X": 0.0297,
+              "Y": 0.3167
+            },
+            "LeftMargin": 344.1282,
+            "RightMargin": 2139.8718,
+            "TopMargin": 292.6421,
+            "BottomMargin": 937.3579,
+            "Tag": 431,
+            "ActionTag": 60821366,
+            "Size": {
+              "X": 76.0,
+              "Y": 570.0
+            },
+            "Name": "stick2_13_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/stick2.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 921.3944,
+              "Y": 1177.7966
+            },
+            "Scale": {
+              "ScaleX": 1.0706,
+              "ScaleY": 1.0706
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.3599,
+              "Y": 0.6543
+            },
+            "PreSize": {
+              "X": 0.0297,
+              "Y": 0.3167
+            },
+            "LeftMargin": 883.3944,
+            "RightMargin": 1600.6056,
+            "TopMargin": 337.2034,
+            "BottomMargin": 892.7966,
+            "Tag": 427,
+            "ActionTag": -42901436,
+            "Size": {
+              "X": 76.0,
+              "Y": 570.0
+            },
+            "Name": "stick2_13",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/stick.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 806.4362,
+              "Y": 1196.7013
+            },
+            "Scale": {
+              "ScaleX": 1.0706,
+              "ScaleY": 1.0706
+            },
+            "RotationSkewX": 7.1064,
+            "RotationSkewY": 7.1655,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.315,
+              "Y": 0.6648
+            },
+            "PreSize": {
+              "X": 0.0242,
+              "Y": 0.1767
+            },
+            "LeftMargin": 775.4362,
+            "RightMargin": 1722.5637,
+            "TopMargin": 444.2987,
+            "BottomMargin": 1037.7013,
+            "Tag": 428,
+            "ActionTag": -531444416,
+            "Size": {
+              "X": 62.0,
+              "Y": 318.0
+            },
+            "Name": "stick_14",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/stick_t.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 268.377,
+              "Y": 1250.1465
+            },
+            "Scale": {
+              "ScaleX": 1.0706,
+              "ScaleY": 1.0706
+            },
+            "RotationSkewX": -7.8065,
+            "RotationSkewY": -7.7716,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1048,
+              "Y": 0.6945
+            },
+            "PreSize": {
+              "X": 0.0141,
+              "Y": 0.1694
+            },
+            "LeftMargin": 250.377,
+            "RightMargin": 2273.623,
+            "TopMargin": 397.3535,
+            "BottomMargin": 1097.6465,
+            "Tag": 430,
+            "ActionTag": -459488319,
+            "Size": {
+              "X": 36.0,
+              "Y": 305.0
+            },
+            "Name": "stick_t_16",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/fruitstand2.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 475.7229,
+              "Y": 932.5116
+            },
+            "Scale": {
+              "ScaleX": 1.0706,
+              "ScaleY": 1.0706
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.1858,
+              "Y": 0.5181
+            },
+            "PreSize": {
+              "X": 0.2441,
+              "Y": 0.2594
+            },
+            "LeftMargin": 163.2229,
+            "RightMargin": 1771.7771,
+            "TopMargin": 633.9884,
+            "BottomMargin": 699.0116,
+            "Tag": 425,
+            "ActionTag": 2010218899,
+            "Size": {
+              "X": 625.0,
+              "Y": 467.0
+            },
+            "Name": "fruitstand2_11",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/shed2.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 601.1693,
+              "Y": 1442.2483
+            },
+            "Scale": {
+              "ScaleX": 1.0706,
+              "ScaleY": 1.0706
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.2348,
+              "Y": 0.8012
+            },
+            "PreSize": {
+              "X": 0.2945,
+              "Y": 0.1644
+            },
+            "LeftMargin": 224.1693,
+            "RightMargin": 1581.8307,
+            "TopMargin": 209.7517,
+            "BottomMargin": 1294.2483,
+            "Tag": 426,
+            "ActionTag": -580485281,
+            "Size": {
+              "X": 754.0,
+              "Y": 296.0
+            },
+            "Name": "shed2_12",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 159.3599,
+              "Y": 561.7775
+            },
+            "Scale": {
+              "ScaleX": 0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0622,
+              "Y": 0.3121
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 159.3599,
+            "RightMargin": 2400.6401,
+            "TopMargin": 1238.2224,
+            "BottomMargin": 561.7775,
+            "UserData": "walk;drag",
+            "Tag": 432,
+            "FrameEvent": "angry",
+            "ActionTag": -1576043400,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "db_banana",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1081.3005,
+              "Y": 257.0641
+            },
+            "Scale": {
+              "ScaleX": 0.7,
+              "ScaleY": 0.7
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4224,
+              "Y": 0.1428
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1081.3005,
+            "RightMargin": 1478.6995,
+            "TopMargin": 1542.9358,
+            "BottomMargin": 257.0641,
+            "UserData": "walk;drag",
+            "Tag": 433,
+            "FrameEvent": "hurt",
+            "ActionTag": 2107193125,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "db_pear",
+            "ctype": "SingleNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/stick_f.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2296.3179,
+              "Y": 896.7485
+            },
+            "Scale": {
+              "ScaleX": 0.9042,
+              "ScaleY": 0.9042
+            },
+            "RotationSkewX": 7.6499,
+            "RotationSkewY": 7.6624,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.897,
+              "Y": 0.4982
+            },
+            "PreSize": {
+              "X": 0.0172,
+              "Y": 0.5111
+            },
+            "LeftMargin": 2274.3179,
+            "RightMargin": 241.6821,
+            "TopMargin": 443.2515,
+            "BottomMargin": 436.7485,
+            "Tag": 513,
+            "ActionTag": -1807024931,
+            "Size": {
+              "X": 44.0,
+              "Y": 920.0
+            },
+            "Name": "stick_f_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/stick_f.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1314.2311,
+              "Y": 935.3879
+            },
+            "Scale": {
+              "ScaleX": 0.9042,
+              "ScaleY": 0.9042
+            },
+            "RotationSkewX": -5.0656,
+            "RotationSkewY": -5.0502,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5134,
+              "Y": 0.5197
+            },
+            "PreSize": {
+              "X": 0.0172,
+              "Y": 0.5111
+            },
+            "LeftMargin": 1292.2311,
+            "RightMargin": 1223.7689,
+            "TopMargin": 404.6121,
+            "BottomMargin": 475.3879,
+            "Tag": 517,
+            "ActionTag": 962188862,
+            "Size": {
+              "X": 44.0,
+              "Y": 920.0
+            },
+            "Name": "stick_f_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/stick_f.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1711.8102,
+              "Y": 935.0087
+            },
+            "Scale": {
+              "ScaleX": 0.9042,
+              "ScaleY": 0.9042
+            },
+            "RotationSkewX": 7.0962,
+            "RotationSkewY": 7.0646,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6687,
+              "Y": 0.5194
+            },
+            "PreSize": {
+              "X": 0.0172,
+              "Y": 0.5111
+            },
+            "LeftMargin": 1689.8102,
+            "RightMargin": 826.1898,
+            "TopMargin": 404.9912,
+            "BottomMargin": 475.0087,
+            "Tag": 518,
+            "ActionTag": 763055966,
+            "Size": {
+              "X": 44.0,
+              "Y": 920.0
+            },
+            "Name": "stick_f_3_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/stick_f.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1852.1803,
+              "Y": 872.4154
+            },
+            "Scale": {
+              "ScaleX": 0.9042,
+              "ScaleY": 0.9042
+            },
+            "RotationSkewX": -4.6541,
+            "RotationSkewY": -4.7084,
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.7235,
+              "Y": 0.4847
+            },
+            "PreSize": {
+              "X": 0.0172,
+              "Y": 0.5111
+            },
+            "LeftMargin": 1830.1803,
+            "RightMargin": 685.8197,
+            "TopMargin": 467.5846,
+            "BottomMargin": 412.4154,
+            "Tag": 519,
+            "ActionTag": 319126156,
+            "Size": {
+              "X": 44.0,
+              "Y": 920.0
+            },
+            "Name": "stick_f_3_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/fruitstand.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1666.2675,
+              "Y": 663.7868
+            },
+            "Scale": {
+              "ScaleX": 1.0578,
+              "ScaleY": 1.0578
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6509,
+              "Y": 0.3688
+            },
+            "PreSize": {
+              "X": 0.409,
+              "Y": 0.3111
+            },
+            "LeftMargin": 1142.7675,
+            "RightMargin": 370.2324,
+            "TopMargin": 856.2132,
+            "BottomMargin": 383.7868,
+            "Tag": 511,
+            "ActionTag": -464111521,
+            "Size": {
+              "X": 1047.0,
+              "Y": 560.0
+            },
+            "Name": "fruitstand_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "fruits/cover.png",
+              "Plist": "fruits/fruits.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1778.5114,
+              "Y": 1435.0773
+            },
+            "Scale": {
+              "ScaleX": 0.8483,
+              "ScaleY": 0.8483
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6947,
+              "Y": 0.7973
+            },
+            "PreSize": {
+              "X": 0.5625,
+              "Y": 0.4017
+            },
+            "LeftMargin": 1058.5114,
+            "RightMargin": 61.4888,
+            "TopMargin": 3.4227,
+            "BottomMargin": 1073.5773,
+            "Tag": 512,
+            "ActionTag": -1394570658,
+            "Size": {
+              "X": 1440.0,
+              "Y": 723.0
+            },
+            "Name": "cover_2",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "fruits/wrapper.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 100.2394,
+              "Y": 205.6098
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.0392,
+              "Y": 0.1142
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 100.2394,
+            "RightMargin": 2459.7605,
+            "TopMargin": 1594.3901,
+            "BottomMargin": 205.6098,
+            "UserData": "wrapper",
+            "Tag": 581,
+            "ActionTag": 1765205293,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "wrapper",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FontSize": 20,
+            "IsCustomSize": true,
+            "LabelText": "Zizi rushed to help Toma.\n",
+            "PlaceHolderText": "Text Field",
+            "MaxLengthText": 10,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1280.8555,
+              "Y": 1594.4386
+            },
+            "Scale": {
+              "ScaleX": 4.0,
+              "ScaleY": 4.0
+            },
+            "CColor": {
+              "R": 30,
+              "G": 30,
+              "B": 30
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5003,
+              "Y": 0.8858
+            },
+            "PreSize": {
+              "X": 0.2344,
+              "Y": 0.0389
+            },
+            "LeftMargin": 980.8555,
+            "RightMargin": 979.1445,
+            "TopMargin": 170.5614,
+            "BottomMargin": 1559.4386,
+            "Tag": 366,
+            "ActionTag": 1583356646,
+            "Size": {
+              "X": 600.0,
+              "Y": 70.0
+            },
+            "Name": "display_text",
+            "ctype": "TextFieldObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Layer",
+        "ctype": "LayerObjectData"
+      },
+      "UsedResources": [
+        "fruits.plist",
+        "fruits.png",
+        "wrapper.json"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Layer"
+}
