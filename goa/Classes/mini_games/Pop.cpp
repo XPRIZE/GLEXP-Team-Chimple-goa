@@ -24,11 +24,13 @@ void Pop::onEnterTransitionDidFinish()
 
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
 
-	std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 4, 2, 8, 6);
+	//std::pair<int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 4, 2, 8, 6);
 	
 	Node* popBackground;
 	float multiplyFactor;
-	if (levelKeyNumber.first == 0)
+	auto scenePicker = RandomHelper::random_int(0, 1);
+
+	if (scenePicker == 0)
 	{
 		popBackground = CSLoader::createNode("pop/pop.csb");
 		multiplyFactor = 0.68;
@@ -47,13 +49,47 @@ void Pop::onEnterTransitionDidFinish()
 		 popBackground->setPositionX(myGameWidth);
 	 }
 
-	 int catagoryMap[] = {9, 4, 5, 6, 7, 8};
+	 //int catagoryMap[] = {9, 4, 5, 6, 7, 8};
 
-	 auto catagoryLevel = catagoryMap[levelKeyNumber.second];
-	// CCLOG("catagoryLevel: " + catagoryLevel);
-	 std::string wordForSentanceArray = TextGenerator::getInstance()->generateASentence(catagoryLevel);
-	 int length = wordForSentanceArray.length();
-	 auto sentanceBin = convertSentenceIntoWords(wordForSentanceArray);
+	// auto catagoryLevel = catagoryMap[levelKeyNumber.second];
+	//// CCLOG("catagoryLevel: " + catagoryLevel);
+	// std::string wordForSentanceArray = TextGenerator::getInstance()->generateASentence(catagoryLevel);
+	// int length = wordForSentanceArray.length();
+
+	 // _convertIntoLessonConcept
+	 std::vector<Lesson::Bag> vmc;
+	 if (_lesson.getComplexity() >= 0 && _lesson.getComplexity() <= 1)
+	 {
+		 auto noOfLesson = RandomHelper::random_int(3, 4);
+		 vmc = _lesson.getBag(noOfLesson, 1, 1, 0, 0);
+	 }
+	 else if (_lesson.getComplexity() >= 2 && _lesson.getComplexity() <= 4)
+	 {
+		 
+		 vmc = _lesson.getBag(5, 1, 1 , 0, 0);
+	 }
+	 else if (_lesson.getComplexity() >= 5 && _lesson.getComplexity() <= 6)
+	 {
+		 auto minimumAnswer = RandomHelper::random_int(5, 6);
+		 vmc = _lesson.getBag(6, 1, 1, 0, 0);
+	 }
+	 else if (_lesson.getComplexity() >= 7 && _lesson.getComplexity() <= 8)
+	 {
+		 auto minimumAnswer = RandomHelper::random_int(5, 6);
+		 vmc = _lesson.getBag(7, 1, 1, 0, 0, false);
+	 }
+	 else
+	 {
+		 auto noOfLesson = RandomHelper::random_int(8, 9);
+		 vmc = _lesson.getBag(noOfLesson, 1, 1, 0, 0, false);
+	 }
+
+	 std::vector<std::string> sentanceBin;
+	 for (size_t i = 0; i < vmc.size(); i++)
+	 {
+		 sentanceBin.push_back(vmc[i].answers[0]);
+	 }
+	 auto sentanceToDisplay = getConvertVectorStringIntoString(sentanceBin);
 	// _menuContext->setMaxPoints(vect.length()*1);
 
 	 cocostudio::timeline::ActionTimeline* timeline = CSLoader::createTimeline("pop/plane.csb");
@@ -65,7 +101,7 @@ void Pop::onEnterTransitionDidFinish()
 	 plane->setPosition(Vec2(visibleSize.width + 200, visibleSize.height*multiplyFactor));
 
 
-	 auto label = CommonLabelTTF::create(wordForSentanceArray, "Helvetica", 90);
+	 auto label = CommonLabelTTF::create(sentanceToDisplay, "Helvetica", 90);
 	 label->setPosition(Vec2(visibleSize.width/2, visibleSize.height*0.93));
 	 label->setColor(cocos2d::Color3B(255, 255, 255));
 	 label->setName("displaySentance");
@@ -245,9 +281,7 @@ void Pop::setWordInRightOrder(Node* wordObj)
 			audio->playEffect("sounds/sfx/error.ogg", false);
 			_menuContext->addPoints(-1);
 		}
-
 	}
-
 }
 
 void Pop::makeSentance(Node* clickedObj)
@@ -320,4 +354,14 @@ std::pair<int, int> Pop::levelAllInfo(int currentLevel, int sceneRepetitionNo, i
 	int catagoryNo = catagoryBaseValue % totalcatagory;
 
 	return std::make_pair(sceneNo, catagoryNo);
+}
+string Pop::getConvertVectorStringIntoString(vector<string> value) {
+
+	std::ostringstream convertedString;
+
+	for (size_t i = 0; i < value.size(); i++) {
+		convertedString << value[i];
+	}
+
+	return convertedString.str();
 }
