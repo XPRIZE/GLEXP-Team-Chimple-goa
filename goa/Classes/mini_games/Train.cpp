@@ -1,6 +1,8 @@
 #include "Train.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../util/CommonLabelTTF.h"
+#include "../util/MatrixUtil.h"
+
 
 USING_NS_CC;
 
@@ -79,7 +81,7 @@ void Train::onEnterTransitionDidFinish()
 	_position.push_back(p9);
 
 	wordPosition = 1;
-
+	/*
 	if (currentLevel >= 1 && currentLevel <= 8)
 	{
 		wordForSentanceArray = TextGenerator::getInstance()->generateASentence(4);
@@ -105,15 +107,23 @@ void Train::onEnterTransitionDidFinish()
 		wordForSentanceArray = TextGenerator::getInstance()->generateASentence(9);
 	}
 
-
+	*/
 	auto _background = CSLoader::createNode("train/train.csb");
 	_background->setPosition(Vec2(0,0));
 	this->addChild(_background);
 
-	std::istringstream iss(wordForSentanceArray);
+/*	std::istringstream iss(wordForSentanceArray);
 	for (std::string s; iss >> s; )
 		sentense.push_back(s);
+*/
+	auto complexity = _menuContext->getCurrentLevel()+2;
+	if (complexity > 10)
+		complexity = 9;
 
+	auto vmcBag = _lesson.getBag(complexity,1,1,0,0);
+
+	for (size_t i = 0; i < vmcBag.size(); i++)
+		sentense.push_back(vmcBag[i].answers[0]);
 
 	random = sentense.size();
 	_menuContext->setMaxPoints(random);
