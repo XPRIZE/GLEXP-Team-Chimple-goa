@@ -891,6 +891,7 @@ void StoryPlaying::playSplitAudio(std::string audioFile, CommonText* text) {
 void StoryPlaying::highlightedNarrateDialog(float dt) {
     if(_loadedSplitWordsEffects.size() >0 && _contentCommonTextTokens.size() > 0)
     {
+        MenuContext::_isInStoryDialogSpeechCurrentlyActive = true;
         _currentSplitWordIndex = 0;
         _totalSplitWords = _loadedSplitWordsEffects.size();
         
@@ -964,6 +965,7 @@ void StoryPlaying::enableTouchAndDisableTextShown() {
         _prevButton->setEnabled(true);
         _prevButton->setVisible(true);
     }
+    MenuContext::_isInStoryDialogSpeechCurrentlyActive = false;
 }
 
 void StoryPlaying::closeDialog(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
@@ -1121,7 +1123,7 @@ void StoryPlaying::processPixelPerfectNodes(Node* parent) {
             CCLOG("n dragon bone name %s", dbNodeName.c_str());
             
             this->createDragonBoneNode(n, dbNodeName);
-
+            
         }
         
         std::string dbDisplayText = "display_text";
@@ -1212,15 +1214,14 @@ void StoryPlaying::onExitTransitionDidStart() {
             CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect(effect.c_str());
         }
     }
-
     
-//    if(_isAudionEngineInitialized)
-//    {
-//        AudioEngine::uncacheAll();
-//        AudioEngine::end();
-//    }
     
-
+    if(_isAudionEngineInitialized)
+    {
+        AudioEngine::uncacheAll();
+    }
+    
+    
     if(!_contentCommonTextTokens.empty())
     {
         for (std::vector<CommonText*>::iterator it = _contentCommonTextTokens.begin() ; it != _contentCommonTextTokens.end(); ++it) {
