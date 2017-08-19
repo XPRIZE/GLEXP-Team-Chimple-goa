@@ -577,7 +577,7 @@ void StoryPlaying::preloadAllAudio() {
         for (int i=0; i<_individualTextsTokens.size(); i++)
         {
             prefix = i * 10 % 10;
-            std::string _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".mp3";
+            std::string _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".ogg";
             
             if(!_splitFile.empty() && FileUtils::getInstance()->isFileExist(_splitFile)) {
                 _loadedSplitWordsEffects.push_back(_splitFile);
@@ -677,7 +677,7 @@ void StoryPlaying::loadContentPageText() {
 void StoryPlaying::renderTextAndPlayDialog(Node* parentNode, Node* storyTextNode) {
     renderStoryText(parentNode, storyTextNode);
     std::string pageI = MenuContext::to_string(_pageIndex + 1);
-    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".mp3";
+    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
     
     if(_soundEnabled.compare("true") == 0 && !_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
         
