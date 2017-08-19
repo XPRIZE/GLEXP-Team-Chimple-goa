@@ -1292,50 +1292,57 @@
             "ctype": "SpriteObjectData"
           },
           {
-            "FontSize": 20,
-            "IsCustomSize": true,
+            "FontSize": 72,
             "LabelText": "She told \"Now you know the importance of cleanliness\"\nToma promised to never throw garbage on the street.\n",
-            "PlaceHolderText": "Text Field",
-            "MaxLengthText": 10,
-            "TouchEnable": true,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.455,
+              "ScaleY": 1.0
             },
             "Position": {
-              "X": 1280.8555,
-              "Y": 1594.4386
+              "X": 836.7595,
+              "Y": 1747.514
             },
             "Scale": {
-              "ScaleX": 4.0,
-              "ScaleY": 4.0
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {
-              "R": 30,
-              "G": 30,
-              "B": 30
+              "R": 39,
+              "G": 39,
+              "B": 39
             },
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5003,
-              "Y": 0.8858
+              "X": 0.3269,
+              "Y": 0.9708
             },
             "PreSize": {
-              "X": 0.2344,
-              "Y": 0.0389
+              "X": 0.6848,
+              "Y": 0.135
             },
-            "LeftMargin": 980.8555,
-            "RightMargin": 979.1445,
-            "TopMargin": 170.5614,
-            "BottomMargin": 1559.4386,
-            "Tag": 519,
-            "ActionTag": -1237177887,
+            "LeftMargin": 39.1619,
+            "RightMargin": 767.8381,
+            "TopMargin": 52.486,
+            "BottomMargin": 1504.514,
+            "Tag": 298,
+            "ActionTag": 837725281,
             "Size": {
-              "X": 600.0,
-              "Y": 70.0
+              "X": 1753.0,
+              "Y": 243.0
             },
             "Name": "display_text",
-            "ctype": "TextFieldObjectData"
+            "ctype": "TextObjectData"
           }
         ],
         "Size": {

@@ -80,7 +80,9 @@ _armatureScale(1.0f),
 _armatureIndex(0),
 _animationIndex(0),
 _armature(nullptr),
-_armatureDisplay(nullptr)
+_armatureDisplay(nullptr),
+_isTextNodeDisplayTextAvailable(false),
+_displayTextNode(nullptr)
 {
 }
 
@@ -202,6 +204,13 @@ void StoryPlaying::cleanUpWhenTouchEnded(cocos2d::Touch *touch, cocos2d::Event *
         _mainTimeLine->pause();
     }
     _animationToPlayWhenTouched = "";
+    
+    CCLOG("_animationToPlayWhenTouched for node %s", target->getName().c_str());
+    std::string dbNodeStartsWith = "db_";
+    if (target->getName().find(dbNodeStartsWith) != std::string::npos)
+    {
+        _stopAnimationTo(_animationToPlayWhenTouched.c_str());
+    }
     
     
     bool isSkeletonCharacter = dynamic_cast<cocostudio::timeline::SkeletonNode *>(target);
@@ -568,7 +577,7 @@ void StoryPlaying::preloadAllAudio() {
         for (int i=0; i<_individualTextsTokens.size(); i++)
         {
             prefix = i * 10 % 10;
-            std::string _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".ogg";
+            std::string _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".mp3";
             
             if(!_splitFile.empty() && FileUtils::getInstance()->isFileExist(_splitFile)) {
                 _loadedSplitWordsEffects.push_back(_splitFile);
@@ -665,6 +674,21 @@ void StoryPlaying::loadContentPageText() {
     
     
 }
+void StoryPlaying::renderTextAndPlayDialog(Node* parentNode, Node* storyTextNode) {
+    renderStoryText(parentNode, storyTextNode);
+    std::string pageI = MenuContext::to_string(_pageIndex + 1);
+    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".mp3";
+    
+    if(_soundEnabled.compare("true") == 0 && !_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
+        
+        if(_isAudionEngineInitialized && _loadedSplitWordsEffects.size() > 0)
+        {
+            this->scheduleOnce(schedule_selector(StoryPlaying::highlightedNarrateDialog), 1.0f);
+        } else {
+            this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
+        }
+    }
+}
 
 void StoryPlaying::createDialogBubble() {
     if(!_contentPageText.empty())
@@ -712,20 +736,7 @@ void StoryPlaying::createDialogBubble() {
         CCLOG("chooseText height %f", chooseText->getBoundingBox().size.height);
         
         
-        renderStoryText(_talkBubbleNode, chooseText);
-        std::string pageI = MenuContext::to_string(_pageIndex + 1);
-        _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
-        
-        if(_soundEnabled.compare("true") == 0 && !_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
-            
-            if(_isAudionEngineInitialized && _loadedSplitWordsEffects.size() > 0)
-            {
-                this->scheduleOnce(schedule_selector(StoryPlaying::highlightedNarrateDialog), 1.0f);
-            } else {
-                this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
-            }
-        }
-        
+        renderTextAndPlayDialog(_talkBubbleNode, chooseText);
         
         if(chooseText != NULL) {
             cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
@@ -747,7 +758,7 @@ void StoryPlaying::createDialogBubble() {
 }
 
 
-void StoryPlaying::positionTextNode(CommonText* textNode, Node* parentNode, Node* storyTextNode, float currentNodeX, float currentNodeY) {
+void StoryPlaying::positionTextNode(CommonText* textNode, Node* storyTextNode, float currentNodeX, float currentNodeY) {
     float xPos = 0.0f;
     float yPos = 0.0f;
     if(currentNodeX == 0.0f) {
@@ -817,9 +828,9 @@ void StoryPlaying::renderStoryText(Node* parentNode, Node* storyTextNode) {
                 lastRenderedLabelPosition = Vec2(lastRenderedLabel->getPosition().x + lastRenderedLabel->getBoundingBox().size.width/2 + label->getBoundingBox().size.width/2, lastRenderedLabel->getPosition().y);
             }
             
-            positionTextNode(label, parentNode, storyTextNode, lastRenderedLabelPosition.x, lastRenderedLabelPosition.y);
+            positionTextNode(label, storyTextNode, lastRenderedLabelPosition.x, lastRenderedLabelPosition.y);
         } else {
-            positionTextNode(label, parentNode, storyTextNode, 0.0f, 0.0f);
+            positionTextNode(label, storyTextNode, 0.0f, 0.0f);
             yOffset = label->getPosition().y;
         }
         
@@ -853,6 +864,10 @@ void StoryPlaying::playNextSplitWordCallBack(int id, const std::string& file) {
         std::string audioFile = _loadedSplitWordsEffects.at(_currentSplitWordIndex);
         CommonText* highlighteWord = _contentCommonTextTokens.at(_currentSplitWordIndex);
         StoryPlaying::playSplitAudio(audioFile, highlighteWord);
+    } else {
+        if(_isTextNodeDisplayTextAvailable) {
+            enableTouchAndDisableTextShown();
+        }
     }
 }
 
@@ -866,6 +881,10 @@ void StoryPlaying::playSplitAudio(std::string audioFile, CommonText* text) {
         cocos2d::experimental::AudioEngine::setVolume(musicId, 1.0f);
         _currentSplitWordIndex++;
         cocos2d::experimental::AudioEngine::setFinishCallback(musicId,CC_CALLBACK_2(StoryPlaying::playNextSplitWordCallBack, this));
+    } else {
+        if(_isTextNodeDisplayTextAvailable) {
+            enableTouchAndDisableTextShown();
+        }
     }
 }
 
@@ -937,6 +956,15 @@ void StoryPlaying::playSound(Ref* pSender, cocos2d::ui::Widget::TouchEventType e
     
 }
 
+void StoryPlaying::enableTouchAndDisableTextShown() {
+    _isTextShown = false;
+    _nextButton->setEnabled(true);
+    _nextButton->setVisible(true);
+    if(_pageIndex != 0) {
+        _prevButton->setEnabled(true);
+        _prevButton->setVisible(true);
+    }
+}
 
 void StoryPlaying::closeDialog(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
 {
@@ -944,7 +972,6 @@ void StoryPlaying::closeDialog(Ref* pSender, cocos2d::ui::Widget::TouchEventType
     switch (eEventType) {
         case cocos2d::ui::Widget::TouchEventType::BEGAN:
         {
-//            _contentCommonTextTokens.clear();
             clickedButton->setHighlighted(true);
             break;
         }
@@ -959,27 +986,9 @@ void StoryPlaying::closeDialog(Ref* pSender, cocos2d::ui::Widget::TouchEventType
             
             clickedButton->setEnabled(false);
             _talkBubbleNode->setVisible(false);
-//            _talkBubbleNode->removeFromParentAndCleanup(true);
-            _isTextShown = false;
             _showAgainTextButton->setEnabled(true);
             _showAgainTextButton->setVisible(true);
-            //show next/prev buttons
-            _nextButton->setEnabled(true);
-            _nextButton->setVisible(true);
-#if defined(AUTO_CLICK) && (AUTO_CLICK > 0)
-            runAction(Sequence::create(DelayTime::create(1.0), CallFunc::create([=]() {
-                this->nextStory(_nextButton, ui::Widget::TouchEventType::ENDED);
-            }), NULL));
-            
-#endif
-            
-            
-            if(_pageIndex != 0) {
-                _prevButton->setEnabled(true);
-                _prevButton->setVisible(true);
-            }
-            
-            
+            enableTouchAndDisableTextShown();
             break;
         }
             
@@ -993,8 +1002,15 @@ void StoryPlaying::closeDialog(Ref* pSender, cocos2d::ui::Widget::TouchEventType
 void StoryPlaying::playEnded() {
     _isPlayEnded = true;
     _isPlayStarted = false;
+    if(!_isTextNodeDisplayTextAvailable) {
+        createDialogBubble();
+    } else {
+        renderTextAndPlayDialog(this, _displayTextNode);
+        if(_loadedSplitWordsEffects.size() == 0 || _soundEnabled.compare("true") != 0) {
+            enableTouchAndDisableTextShown();
+        }
+    }
     
-    createDialogBubble();
 }
 
 void StoryPlaying::createNextAndPreviousButtons() {
@@ -1108,6 +1124,26 @@ void StoryPlaying::processPixelPerfectNodes(Node* parent) {
 
         }
         
+        std::string dbDisplayText = "display_text";
+        if (n->getName().find(dbDisplayText) != std::string::npos)
+        {
+            std::string displayTextNodeName = n->getName();
+            CCLOG("displayTextNodeName %s",displayTextNodeName.c_str());
+            _displayTextNode = dynamic_cast<cocos2d::ui::TextField *>(n);
+            if(_displayTextNode != NULL) {
+                _displayTextNode->setTouchEnabled(false);
+                _displayTextNode->setString("");
+                _displayTextNode->setPlaceHolder("");
+                _displayTextNode->setFontSize(100);
+                _displayTextNode->setTextHorizontalAlignment(TextHAlignment::CENTER);
+                _displayTextNode->setTextVerticalAlignment(TextVAlignment::CENTER);
+                _displayTextNode->setFontName("fonts/Roboto-Regular.ttf");
+                _displayTextNode->setTextColor(Color4B::BLACK);
+            }
+            
+            _isTextNodeDisplayTextAvailable = true;
+        }
+        
         if(_pixelPerfectMapping.find(n->getName()) != _pixelPerfectMapping.end()) {
             CCLOG("pixel processing node %s", n->getName().c_str());
             std::string spriteUrl = _pixelPerfectMapping.at(n->getName());
@@ -1176,21 +1212,27 @@ void StoryPlaying::onExitTransitionDidStart() {
             CocosDenshion::SimpleAudioEngine::getInstance()->unloadEffect(effect.c_str());
         }
     }
+
     
+//    if(_isAudionEngineInitialized)
+//    {
+//        AudioEngine::uncacheAll();
+//        AudioEngine::end();
+//    }
     
-    if(_isAudionEngineInitialized)
+
+    if(!_contentCommonTextTokens.empty())
     {
-        AudioEngine::uncacheAll();
-        AudioEngine::end();
+        for (std::vector<CommonText*>::iterator it = _contentCommonTextTokens.begin() ; it != _contentCommonTextTokens.end(); ++it) {
+            CommonText* nCommonText = *it;
+            nCommonText->removeFromParentAndCleanup(true);
+        }
+        _contentCommonTextTokens.clear();
     }
+    
     if(_talkBubbleNode != NULL)
     {
         _talkBubbleNode->removeFromParentAndCleanup(true);
-    }
-    
-    if(!_contentCommonTextTokens.empty())
-    {
-        _contentCommonTextTokens.clear();
     }
 }
 
@@ -1462,6 +1504,34 @@ void StoryPlaying::_changeAnimation()
     _armatureDisplay->getAnimation().play(animationName, 100);
 }
 
+void StoryPlaying::_stopAnimationTo(std::string animName)
+{
+    const auto& animationNames = _armatureDisplay->getAnimation().getAnimationNames();
+    if (animationNames.empty())
+    {
+        return;
+    }
+    
+    
+    // Get next Animation name.
+    _animationIndex++;
+    if (_animationIndex >= animationNames.size())
+    {
+        _animationIndex = 0;
+    }
+    
+    
+    for (std::vector<std::string>::const_iterator p = animationNames.begin();
+         p != animationNames.end(); ++p) {
+        std::string s = *p;
+        
+        if (s.find(animName) != std::string::npos)
+        {
+            _armatureDisplay->getAnimation().stop(animName);
+        }
+    }
+}
+
 void StoryPlaying::_changeAnimationTo(std::string animName)
 {
     const auto& animationNames = _armatureDisplay->getAnimation().getAnimationNames();
@@ -1485,7 +1555,7 @@ void StoryPlaying::_changeAnimationTo(std::string animName)
         
         if (s.find(animName) != std::string::npos)
         {
-            _armatureDisplay->getAnimation().play(animName, 100);
+            _armatureDisplay->getAnimation().play(animName);
         }
     }
 }
