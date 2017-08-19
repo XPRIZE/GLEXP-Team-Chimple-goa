@@ -5,9 +5,12 @@
 #include "../menu/StartMenuScene.h"
 #include "../menu/MenuContext.h"
 #include "../lang/TextGenerator.h"
+#include "../lang/Lesson.h"
 
 class Train : public cocos2d::Layer
 {
+private:
+	Lesson _lesson;
 public:
 	
 	Train();
