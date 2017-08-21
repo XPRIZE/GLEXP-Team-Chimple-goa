@@ -62,7 +62,7 @@ public class FlashCardAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LetterView letterView = new LetterView(mContext);
-        letterView.setLetter(mFlashCards.get(i).objectUnit.name);
+        letterView.setLetter(mFlashCards.get(i).objectUnit);
         return letterView;
     }
 }
