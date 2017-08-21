@@ -91,7 +91,7 @@ public:
         os << value ;
         return os.str() ;
     }
-    
+    static bool _isInStoryDialogSpeechCurrentlyActive;
     
 CC_CONSTRUCTOR_ACCESS:
     MenuContext();

@@ -16,45 +16,20 @@
 
 package org.chimple.bali.model;
 
+import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class MultipleChoiceQuiz implements Parcelable {
+public class MultipleChoiceQuiz {
+    public static final String HELP = "help";
+    public static final String QUESTION = "question";
+    public static final String ANSWERS = "answers";
+    public static final String CORRECT_ANSWER = "correctAnswer";
+
     public String help;
     public String question;
     public String[] answers;
     public int correctAnswer;
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(help);
-        parcel.writeString(question);
-        parcel.writeStringArray(answers);
-        parcel.writeInt(correctAnswer);
-    }
-
-    public static final Parcelable.Creator<MultipleChoiceQuiz> CREATOR
-            = new Parcelable.Creator<MultipleChoiceQuiz>() {
-        public MultipleChoiceQuiz createFromParcel(Parcel in) {
-            return new MultipleChoiceQuiz(in);
-        }
-
-        public MultipleChoiceQuiz[] newArray(int size) {
-            return new MultipleChoiceQuiz[size];
-        }
-    };
-
-    private MultipleChoiceQuiz(Parcel in) {
-        help = in.readString();
-        question = in.readString();
-        in.readStringArray(answers);
-        correctAnswer = in.readInt();
-    }
 
     public MultipleChoiceQuiz(String help, String question, String[] answers, int correctAnswer) {
         this.help = help;
@@ -62,4 +37,19 @@ public class MultipleChoiceQuiz implements Parcelable {
         this.answers = answers;
         this.correctAnswer = correctAnswer;
     }
+
+    public MultipleChoiceQuiz(Bundle bundle) {
+        this(bundle.getString(HELP), bundle.getString(QUESTION),
+                bundle.getStringArray(ANSWERS), bundle.getInt(CORRECT_ANSWER));
+    }
+
+    public Bundle getBundle() {
+        Bundle b = new Bundle();
+        b.putString(HELP, help);
+        b.putString(QUESTION, question);
+        b.putStringArray(ANSWERS, answers);
+        b.putInt(CORRECT_ANSWER, correctAnswer);
+        return b;
+    }
+
 }

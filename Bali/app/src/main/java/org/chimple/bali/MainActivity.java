@@ -14,11 +14,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import org.chimple.bali.activity.LessonActivity;
 import org.chimple.bali.model.MultipleChoiceQuiz;
 import org.chimple.bali.service.LessonService;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_MESSAGE = "org.chimple.bali.MESSAGE";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,11 +72,18 @@ public class MainActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case LessonService.MULTIPLE_CHOICE_QUIZ:
-                    Bundle obj = (Bundle) msg.obj;
-                    String[] objStr = obj.getStringArray("key");
+//                    String[] objStr = obj.getStringArray("key");
 //                    MultipleChoiceQuiz mcq = (MultipleChoiceQuiz) msg.obj;
 
-                    Toast.makeText(getApplicationContext(), objStr[0], Toast.LENGTH_SHORT).show();
+                    Bundle obj = (Bundle) msg.obj;
+                    int numBundles = obj.getInt(LessonService.NUM_BUNDLES);
+                    MultipleChoiceQuiz[] mcqs = new MultipleChoiceQuiz[numBundles];
+                    for (int i = 0; i < numBundles; i++) {
+                        Bundle b = obj.getBundle("bundle" + i);
+                        MultipleChoiceQuiz mcq = new MultipleChoiceQuiz(b);
+                        mcqs[i] = mcq;
+                    }
+                    Toast.makeText(getApplicationContext(), mcqs[1].answers[3], Toast.LENGTH_SHORT).show();
                     break;
                 default:
                     super.handleMessage(msg);
@@ -123,5 +132,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void startLesson(View view) {
+        Intent intent = new Intent(this, LessonActivity.class);
+        intent.putExtra(EXTRA_MESSAGE, new Long(1));
+        startActivity(intent);
+    }
 
 }
