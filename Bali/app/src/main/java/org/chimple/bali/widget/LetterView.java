@@ -27,42 +27,35 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import org.chimple.bali.R;
+import org.chimple.bali.db.entity.Unit;
 
 public class LetterView extends FrameLayout {
-    private String letter;
+    private Unit mLetter;
 
-    public String getLetter() {
-        return letter;
-    }
-
-    public void setLetter(String letter) {
-        this.letter = letter;
-        TextView textView = (TextView) findViewById(R.id.letter);
-        textView.setText(letter);
-    }
-
-    public LetterView(@NonNull Context context) {
+    public LetterView(@NonNull Context context, Unit letter) {
         super(context);
-        initView();
+        initView(letter);
     }
 
-    public LetterView(@NonNull Context context, @Nullable AttributeSet attrs) {
+    public LetterView(@NonNull Context context, @Nullable AttributeSet attrs, Unit letter) {
         super(context, attrs);
-        initView();
+        initView(letter);
     }
 
-    public LetterView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr) {
+    public LetterView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, Unit letter) {
         super(context, attrs, defStyleAttr);
-        initView();
+        initView(letter);
     }
 
-    public LetterView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes) {
+    public LetterView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes, Unit letter) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        initView();
+        initView(letter);
     }
 
-    private void initView() {
+    private void initView(Unit letter) {
+        mLetter = letter;
         View view = inflate(getContext(), R.layout.letter, null);
         addView(view);
+
     }
 }
