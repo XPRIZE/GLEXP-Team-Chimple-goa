@@ -447,7 +447,6 @@ void Dash::wordGenerateWithOptions()
 
 	_topLabel = CommonLabel::createWithTTF(boardName.str(), "fonts/Roboto-Regular.ttf", 75);
 	_topLabel->setPositionX(visibleSize.width/2);
-	_topLabel->setName(_gameWord.c_str());
 	_topLabel->setPositionY(visibleSize.height - _topLabel->getContentSize().height);
 	_topLabel->setColor(Color3B(0, 0, 0));
 	this->addChild(_topLabel);
