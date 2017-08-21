@@ -27,7 +27,7 @@ import android.support.test.runner.AndroidJUnit4;
 import org.chimple.bali.db.entity.Lesson;
 import org.chimple.bali.db.entity.LessonUnit;
 import org.chimple.bali.db.entity.Unit;
-import org.chimple.bali.db.pojo.LessonUnitComposite;
+import org.chimple.bali.db.pojo.FlashCard;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -67,7 +67,7 @@ public class LessonUnitTest {
         LessonUnit lessonUnit = new LessonUnit(lessonId, 1, subjectUnitId, objectUnitId, "a");
         db.lessonUnitDao().insertLessonUnit(lessonUnit);
 
-        LessonUnitComposite luc = db.lessonUnitDao().getLessonUnitCompositeByLessonIdAndSeq(lessonId, 1);
+        FlashCard luc = db.lessonUnitDao().getFlashCardByLessonIdAndSeq(lessonId, 1);
         assertThat(luc.subjectUnit.name, is("a"));
         assertThat(luc.objectUnit.name, is("apple"));
     }

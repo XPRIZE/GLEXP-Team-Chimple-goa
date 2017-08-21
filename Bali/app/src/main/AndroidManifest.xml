@@ -16,8 +16,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".service.LessonService" android:exported="true">
-        </service>
+
+        <service
+            android:name=".service.LessonService"
+            android:exported="true" />
+
+        <activity android:name=".activity.LessonActivity" />
     </application>
 
 </manifest>

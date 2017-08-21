@@ -17,39 +17,37 @@
 package org.chimple.bali.model;
 
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 
-public class MultipleChoiceQuiz {
+public class BagOfChoiceQuiz {
     public static final String HELP = "help";
-    public static final String QUESTION = "question";
+    public static final String ANSWER = "answer";
     public static final String ANSWERS = "answers";
-    public static final String CORRECT_ANSWER = "correctAnswer";
+    public static final String OTHER_CHOICES = "otherChoices";
 
     public String help;
-    public String question;
+    public String answer;
     public String[] answers;
-    public int correctAnswer;
+    public String[] otherChoices;
 
-    public MultipleChoiceQuiz(String help, String question, String[] answers, int correctAnswer) {
+    public BagOfChoiceQuiz(String help, String answer, String[] answers, String[] otherChoices) {
         this.help = help;
-        this.question = question;
+        this.answer = answer;
         this.answers = answers;
-        this.correctAnswer = correctAnswer;
+        this.otherChoices = otherChoices;
     }
 
-    public MultipleChoiceQuiz(Bundle bundle) {
-        this(bundle.getString(HELP), bundle.getString(QUESTION),
-                bundle.getStringArray(ANSWERS), bundle.getInt(CORRECT_ANSWER));
+    public BagOfChoiceQuiz(Bundle bundle) {
+        this(bundle.getString(HELP), bundle.getString(ANSWER),
+                bundle.getStringArray(ANSWERS), bundle.getStringArray(OTHER_CHOICES));
     }
 
     public Bundle getBundle() {
-        Bundle b = new Bundle();
-        b.putString(HELP, help);
-        b.putString(QUESTION, question);
-        b.putStringArray(ANSWERS, answers);
-        b.putInt(CORRECT_ANSWER, correctAnswer);
-        return b;
+        Bundle bundle = new Bundle();
+        bundle.putString(HELP, help);
+        bundle.putString(ANSWER, answer);
+        bundle.putStringArray(ANSWERS, answers);
+        bundle.putStringArray(OTHER_CHOICES, otherChoices);
+        return bundle;
     }
-
 }
+

@@ -21,7 +21,7 @@ import android.arch.persistence.room.Embedded;
 import org.chimple.bali.db.entity.LessonUnit;
 import org.chimple.bali.db.entity.Unit;
 
-public class LessonUnitComposite {
+public class FlashCard {
     @Embedded
     public LessonUnit lessonUnit;
 
