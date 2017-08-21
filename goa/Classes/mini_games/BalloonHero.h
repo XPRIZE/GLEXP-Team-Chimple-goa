@@ -12,8 +12,12 @@
 #include "../menu/MenuContext.h"
 #include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
+#include "../lang/Lesson.h"
 
 class BalloonHero : public cocos2d::Layer {
+
+private:
+	Lesson _lesson;
 public:
 	static cocos2d::Scene* createScene();
 	static BalloonHero *create();
