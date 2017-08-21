@@ -1096,52 +1096,6 @@
             "ctype": "SpriteObjectData"
           },
           {
-            "FontSize": 20,
-            "IsCustomSize": true,
-            "LabelText": "A gust of wind picked up the wrapper and it floated in the air.",
-            "PlaceHolderText": "Text Field",
-            "MaxLengthText": 10,
-            "TouchEnable": true,
-            "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
-            },
-            "Position": {
-              "X": 1280.8555,
-              "Y": 1594.4386
-            },
-            "Scale": {
-              "ScaleX": 4.0,
-              "ScaleY": 4.0
-            },
-            "CColor": {
-              "R": 30,
-              "G": 30,
-              "B": 30
-            },
-            "IconVisible": false,
-            "PrePosition": {
-              "X": 0.5003,
-              "Y": 0.8858
-            },
-            "PreSize": {
-              "X": 0.2344,
-              "Y": 0.0389
-            },
-            "LeftMargin": 980.8555,
-            "RightMargin": 979.1445,
-            "TopMargin": 170.5614,
-            "BottomMargin": 1559.4386,
-            "Tag": 289,
-            "ActionTag": 766731800,
-            "Size": {
-              "X": 600.0,
-              "Y": 70.0
-            },
-            "Name": "display_text",
-            "ctype": "TextFieldObjectData"
-          },
-          {
             "ClipAble": false,
             "ComboBoxIndex": 1,
             "SingleColor": {
@@ -1191,6 +1145,59 @@
             },
             "Name": "covering_birds",
             "ctype": "PanelObjectData"
+          },
+          {
+            "FontSize": 72,
+            "LabelText": "A gust of wind picked up the wrapper and it floated in the air.",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.455,
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": 1165.926,
+              "Y": 1650.7032
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 39,
+              "G": 39,
+              "B": 39
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4554,
+              "Y": 0.9171
+            },
+            "PreSize": {
+              "X": 0.75,
+              "Y": 0.045
+            },
+            "LeftMargin": 292.345,
+            "RightMargin": 347.655,
+            "TopMargin": 149.2968,
+            "BottomMargin": 1569.7032,
+            "Tag": 238,
+            "ActionTag": 1460481249,
+            "Size": {
+              "X": 1920.0,
+              "Y": 81.0
+            },
+            "Name": "display_text",
+            "ctype": "TextObjectData"
           }
         ],
         "Size": {

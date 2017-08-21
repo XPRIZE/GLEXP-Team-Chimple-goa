@@ -1009,50 +1009,57 @@
             "ctype": "SpriteObjectData"
           },
           {
-            "FontSize": 20,
-            "IsCustomSize": true,
+            "FontSize": 72,
             "LabelText": "Zizi told Toma \"Do not litter on the street. No one likes a dirty street\"",
-            "PlaceHolderText": "Text Field",
-            "MaxLengthText": 10,
-            "TouchEnable": true,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.455,
+              "ScaleY": 1.0
             },
             "Position": {
-              "X": 1280.8555,
-              "Y": 1594.4386
+              "X": 1185.2905,
+              "Y": 1715.2445
             },
             "Scale": {
-              "ScaleX": 4.0,
-              "ScaleY": 4.0
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {
-              "R": 30,
-              "G": 30,
-              "B": 30
+              "R": 39,
+              "G": 39,
+              "B": 39
             },
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5003,
-              "Y": 0.8858
+              "X": 0.463,
+              "Y": 0.9529
             },
             "PreSize": {
-              "X": 0.2344,
-              "Y": 0.0389
+              "X": 0.8414,
+              "Y": 0.045
             },
-            "LeftMargin": 980.8555,
-            "RightMargin": 979.1445,
-            "TopMargin": 170.5614,
-            "BottomMargin": 1559.4386,
-            "Tag": 216,
-            "ActionTag": -855354562,
+            "LeftMargin": 205.2418,
+            "RightMargin": 200.7583,
+            "TopMargin": 84.7555,
+            "BottomMargin": 1634.2445,
+            "Tag": 178,
+            "ActionTag": 750136091,
             "Size": {
-              "X": 600.0,
-              "Y": 70.0
+              "X": 2154.0,
+              "Y": 81.0
             },
             "Name": "display_text",
-            "ctype": "TextFieldObjectData"
+            "ctype": "TextObjectData"
           }
         ],
         "Size": {

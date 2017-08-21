@@ -190,7 +190,7 @@ private:
     
     bool pointInTriangle(cocos2d::Point p0, cocos2d::Point p1, cocos2d::Point p2, cocos2d::Point p3);
     
-    void positionTextNode(CommonText* textNode, Node* parentNode, Node* storyTextNode, float currentNodeX, float currentNodeY);
+    void positionTextNode(CommonText* textNode, Node* storyTextNode, float currentNodeX, float currentNodeY);
     
     void renderStoryText(Node* parentNode, Node* storyTextNode);
     
@@ -219,9 +219,13 @@ private:
     void _changeArmature(cocos2d::Node* parentNode);
     void _changeAnimation();
     void _changeAnimationTo(std::string name);
+    void _stopAnimationTo(std::string animName);
         
     void createDragonBoneNode(cocos2d::Node* parentNode, std::string dragonBoneName);
-
+    void renderTextAndPlayDialog(cocos2d::Node* parentNode, cocos2d::Node* storyTextNode);
+    void enableTouchAndDisableTextShown();
+    bool _isTextNodeDisplayTextAvailable;
+    cocos2d::ui::TextField* _displayTextNode;
     
 };
 

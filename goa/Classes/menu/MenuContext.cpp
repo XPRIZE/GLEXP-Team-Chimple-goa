@@ -114,6 +114,7 @@ static const int NUMBER_OF_TIMES_READ_STORY_TO_UNLOCK_NEXT_STORY = 2;
 static const int NUMBER_OF_STORIES_TO_BE_UNLOCKED = 1;
 bool MenuContext::_gameIsStatic = false;
 std::string MenuContext::_lastAudioId = "";
+bool MenuContext::_isInStoryDialogSpeechCurrentlyActive = false;
 
 MenuContext* MenuContext::create(Node* main, std::string gameName, bool launchCustomEventOnExit, std::string sceneName) {
     MenuContext* menuContext = new (std::nothrow) MenuContext();

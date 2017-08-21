@@ -24,7 +24,10 @@ bool CommonText::touchSpeak(cocos2d::Touch* touch, cocos2d::Event* event) {
             runAction(Sequence::create(elasticUp, elasticDown, NULL));
             if(isInStory && !inStoryWhichFilename.empty())
             {
-                MenuContext::pronounceSplitFileFromStory(inStoryWhichFilename);
+                if(!MenuContext::_isInStoryDialogSpeechCurrentlyActive)
+                {
+                    MenuContext::pronounceSplitFileFromStory(inStoryWhichFilename);
+                }
             } else {
                 MenuContext::pronounceWord(this->getString());
             }
@@ -67,6 +70,7 @@ void CommonText::setCommonTextInStory(bool fromStory) {
     this->isInStory = fromStory;
 }
 
+
 void CommonText::setSplitFileNameInStory(std::string fileName) {
     this->inStoryWhichFilename = fileName;
 }
@@ -82,7 +86,9 @@ CommonText *CommonText::create() {
     return nullptr;
 }
 
-CommonText::CommonText():isInStory(false) {
+CommonText::CommonText():
+isInStory(false)
+{
     
 }
 

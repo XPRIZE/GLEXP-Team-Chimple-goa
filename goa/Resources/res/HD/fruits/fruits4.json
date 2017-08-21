@@ -1562,50 +1562,57 @@
             "ctype": "SingleNodeObjectData"
           },
           {
-            "FontSize": 20,
-            "IsCustomSize": true,
+            "FontSize": 72,
             "LabelText": "Toma laughed and got on his motor cycle and sped away.",
-            "PlaceHolderText": "Text Field",
-            "MaxLengthText": 10,
-            "TouchEnable": true,
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
             "AnchorPoint": {
-              "ScaleX": 0.5,
-              "ScaleY": 0.5
+              "ScaleX": 0.455,
+              "ScaleY": 1.0
             },
             "Position": {
-              "X": 1280.8555,
-              "Y": 1594.4386
+              "X": 1086.7844,
+              "Y": 1649.1815
             },
             "Scale": {
-              "ScaleX": 4.0,
-              "ScaleY": 4.0
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
             },
             "CColor": {
-              "R": 30,
-              "G": 30,
-              "B": 30
+              "R": 39,
+              "G": 39,
+              "B": 39
             },
             "IconVisible": false,
             "PrePosition": {
-              "X": 0.5003,
-              "Y": 0.8858
+              "X": 0.4245,
+              "Y": 0.9162
             },
             "PreSize": {
-              "X": 0.2344,
-              "Y": 0.0389
+              "X": 0.7137,
+              "Y": 0.045
             },
-            "LeftMargin": 980.8555,
-            "RightMargin": 979.1445,
-            "TopMargin": 170.5614,
-            "BottomMargin": 1559.4386,
-            "Tag": 265,
-            "ActionTag": -1182949452,
+            "LeftMargin": 255.5175,
+            "RightMargin": 477.4827,
+            "TopMargin": 150.8185,
+            "BottomMargin": 1568.1815,
+            "Tag": 212,
+            "ActionTag": 343450151,
             "Size": {
-              "X": 600.0,
-              "Y": 70.0
+              "X": 1827.0,
+              "Y": 81.0
             },
             "Name": "display_text",
-            "ctype": "TextFieldObjectData"
+            "ctype": "TextObjectData"
           }
         ],
         "Size": {
