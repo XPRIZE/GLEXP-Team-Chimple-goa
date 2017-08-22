@@ -479,8 +479,9 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			std::string letterName;
 			if (flag == 0)
 			{
-				wchar_t lett;
-				if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 4)
+				//wchar_t lett; 
+				std::string lett;
+			/*	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 4)
 				{
 					lett = CharGenerator::getInstance()->generateAnotherChar(MainChars[0], true);
 				}
@@ -488,10 +489,10 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 				{
 					lett = CharGenerator::getInstance()->generateAnotherChar(MainChars[0], false);
 				}
-				else
-					lett = MainChars[0][remcharPos];
+				else*/
+					lett = _mainChars[0][remcharPos];
 
-				MainChars[0][remcharPos] = lett;
+				_mainChars[0][remcharPos] = lett;
 				letterName = lett;
 			}
 			else
