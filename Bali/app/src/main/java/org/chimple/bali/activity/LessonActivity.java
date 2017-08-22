@@ -3,6 +3,7 @@ package org.chimple.bali.activity;
 import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.ProgressBar;
 
 import org.chimple.bali.MainActivity;
 import org.chimple.bali.R;
+import org.chimple.bali.db.entity.Unit;
 import org.chimple.bali.ui.FlashCardAdapter;
 import org.chimple.bali.viewmodel.FlashCardViewModel;
 
