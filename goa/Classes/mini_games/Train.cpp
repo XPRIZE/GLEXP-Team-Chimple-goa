@@ -117,7 +117,7 @@ void Train::onEnterTransitionDidFinish()
 		sentense.push_back(s);
 */
 	auto complexity = _menuContext->getCurrentLevel()+2;
-	if (complexity > 10)
+	if (complexity >= 10)
 		complexity = 9;
 
 	auto vmcBag = _lesson.getBag(complexity,1,1,0,0);
