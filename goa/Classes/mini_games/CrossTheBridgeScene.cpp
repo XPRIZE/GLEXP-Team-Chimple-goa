@@ -327,11 +327,11 @@ void CrossTheBridge::alphabetAndMonsterGeneration(float dt)
     }
 else {
 	std::string alphabetName;
-	wchar_t name;
+	
 	if (_gameCurrentLevel == 1 && _flagForHelpLayer)
 	{
 		_flagForHelpLayer = false;
-		name = 'B';
+		alphabetName = "B";
 	}
 	else
 	{
