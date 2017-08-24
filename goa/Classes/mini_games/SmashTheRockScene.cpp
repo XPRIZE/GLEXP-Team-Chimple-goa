@@ -10,6 +10,7 @@
 #include "../menu/HelpLayer.h"
 
 #include "../menu/StartMenuScene.h"
+#include "../util/MatrixUtil.h"
 #define COCOS2D_DEBUG 1
 
 USING_NS_CC;
@@ -97,7 +98,7 @@ void SmashTheRock::update(float dt)
 
 void SmashTheRock::startGame() {
     menu->showStartupHelp(CC_CALLBACK_0(SmashTheRock::begin, this));
-	menu->setMaxPoints(5);
+	//menu->setMaxPoints(5);
 //	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(SmashTheRock::begin, this)), NULL));
 }
 
@@ -124,11 +125,14 @@ void SmashTheRock::begin()
 		mychar = LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1];
 	}
 */
-	auto vmc = _lesson.getMultiChoices(1,0);
+//	_lesson.setConcept(Lesson::CONCEPT::LETTER_CASE_EQUATE);
+
+	auto vmc = _lesson.getMultiChoices(1,5);
 
 	mychar = vmc[0].question;
-
-    _charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(LangUtil::getInstance()->convertStringToUTF16Char(mychar), 2, 7, 50);
+	_answer = vmc[0].answers[vmc[0].correctAnswer];
+//    _charkey = CharGenerator::getInstance()->generateMatrixForChoosingAChar(LangUtil::getInstance()->convertStringToUTF16Char(mychar), 2, 7, 50);
+	_charkey = MatrixUtil::generateMatrixForChoosing(vmc[0].answers[vmc[0].correctAnswer],vmc[0].answers,2,7,50);
 	bool firstMychar = true;
 	int dis = (220.0 / 2560)*visibleSize.width;
 	auto keyboard = Node::create();
@@ -177,18 +181,18 @@ void SmashTheRock::begin()
 			keyboard->addChild(wrong, 2);
 			//	wrong->setGlobalZOrder(6);
 			//	std::string str = Alphabets.at(cocos2d::RandomHelper::random_int(key, (key + 20)) % 20).c_str();
-			wchar_t str1 = _charkey.at(i ).at(j );
+			auto str1 = _charkey.at(i ).at(j );
 			//std::string ttttt(&str1,1) ;
 			//label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
 			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
 			//CCLOG("alpha = %s",str.c_str());
-            auto mystr = LangUtil::convertUTF16CharToString(str1);
+            auto mystr = str1;
 			Alphabet *label = Alphabet::createWithSize(mystr, 350);
 			//	label->setScale(0.15);
 			label->setPositionX(xx + block->getContentSize().width/2);
 			auto letter = label->getString();
 			label->setPositionY(yy - block->getContentSize().height/2);
-			if (str1 == LangUtil::getInstance()->convertStringToUTF16Char(mychar) && firstMychar)
+			if (str1 == mychar && firstMychar)
 			{
 				helpX = xx +(block->getContentSize().width * 0.9);
 				helpY = yy +(block->getContentSize().height * 0.8);
@@ -380,6 +384,8 @@ void SmashTheRock::change(float dt)
 {
 	
 	stopAllActions();
+	menu->setMaxPoints(_totalClick);
+	menu->addPoints(_totalClick - clickWrong);
 	menu->showScore();
 }
 
@@ -402,7 +408,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 	{
 		auto scale = ScaleBy::create(0.1, 0.75);
 		target->runAction(Sequence::create(scale, scale->reverse(), NULL));
-		menu->pickWord(myletter,mychar, true);
+		//menu->pickWord(myletter,mychar, true);
 		flag = false;
 		int myIndex = 0;
 		for (int i = 0; i < labelRef.size(); i++) {
@@ -411,7 +417,7 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 				myIndex = i;
 			}
 		}
-		if (myletter == mychar)
+		if (myletter == _answer)
 		{
 			int indexj = (target->getPositionX());
 			int indexi = (target->getPositionY());
@@ -429,9 +435,9 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			_eventDispatcher->removeEventListenersForTarget(target, false);
 			hit();
 			click++;
-			menu->addPoints(1);
-
-			menu->pickWord(mychar, myletter, true);
+			//menu->addPoints(1);
+			_totalClick++;
+			//menu->pickWord(mychar, myletter, true);
 
 			if (_helpFlage) {
 				this->removeChildByName("helpLayer");
@@ -455,12 +461,13 @@ bool SmashTheRock::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event * event)
 			keyboard->removeChild(labelRef.at(myIndex));
 			keyboard->removeChild(blockRef.at(myIndex));
 			clickWrong++;
+			_totalClick++;
 			CCLOG("clickwrong = %d", clickWrong);
 			flag = true;
 			FShake* shake = FShake::actionWithDuration(1.0f, 10.0f);
 			maskedFill->runAction(shake);
-			menu->addPoints(-1);
-			menu->pickWord(mychar, myletter, true);
+			//menu->addPoints(-1);
+			//menu->pickWord(mychar, myletter, true);
 			
 			
 			return false;

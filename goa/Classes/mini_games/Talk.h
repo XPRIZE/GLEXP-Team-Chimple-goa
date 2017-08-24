@@ -15,19 +15,23 @@
 #include <string>
 #include <sstream>
 #include "../menu/HelpLayer.h"
+#include "../lang/Lesson.h"
 
 
 class Talk : public cocos2d::Layer
 {
-	
+private:
+	Lesson _lesson;
 public:
 	static cocos2d::Scene* createScene();
 	Talk();
 	~Talk();
 	virtual bool init();
 	void onEnterTransitionDidFinish() override;
-	std::vector<std::pair<std::string, TextGenerator::P_O_S>> _textToShow;
+	std::vector<std::pair<std::string, int>> _textToShow;
 
+	vector<Lesson::MultiChoice> _vmc;
+	int _theQuestionSetNumber = 0;
 	std::map<std::string, std::map<std::string, int>> differntSceneMapping;
 	std::vector<std::string> _scene;
 	Node *_talkBg;
@@ -45,7 +49,7 @@ public:
 
 //	std::vector<std::string> _allSentense;
 
-	std::vector<std::vector<std::pair<std::string, TextGenerator::P_O_S>>> _allSentense;
+	std::vector<std::vector<std::pair<std::string, int>>> _allSentense;
 
 	CREATE_FUNC(Talk);
     
