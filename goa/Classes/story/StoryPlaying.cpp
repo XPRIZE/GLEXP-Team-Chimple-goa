@@ -561,7 +561,7 @@ void StoryPlaying::createDragonBoneNode(Node* parentNode, std::string dragonBone
         _listener->setSwallowTouches(true);
         _listener->onTouchBegan = CC_CALLBACK_2(StoryPlaying::onTouchBeganOnComposite, this);
         _listener->onTouchEnded = CC_CALLBACK_2(StoryPlaying::onTouchEndedOnComposite, this);
-        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _armatureDisplay->getParent());
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _armatureDisplay->getParent());                
     }
     
 }
@@ -1007,10 +1007,13 @@ void StoryPlaying::playEnded() {
     if(!_isTextNodeDisplayTextAvailable) {
         createDialogBubble();
     } else {
-        renderTextAndPlayDialog(this, _displayTextNode);
+        if(_displayTextNode != NULL)
+        {
+            renderTextAndPlayDialog(this, _displayTextNode);
+        }
         if(_loadedSplitWordsEffects.size() == 0 || _soundEnabled.compare("true") != 0) {
             enableTouchAndDisableTextShown();
-        }
+        }        
     }
     
 }

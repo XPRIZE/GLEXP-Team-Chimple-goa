@@ -61,7 +61,9 @@ void CCArmatureDisplay::dispose()
 
 void CCArmatureDisplay::update(float passedTime)
 {
-    _armature->advanceTime(passedTime);
+    if(_armature) {
+        _armature->advanceTime(passedTime);
+    }
 }
 
 void CCArmatureDisplay::advanceTimeBySelf(bool on)
