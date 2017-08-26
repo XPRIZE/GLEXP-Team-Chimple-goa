@@ -30,6 +30,7 @@ import org.chimple.bali.db.dao.UnitDao;
 import org.chimple.bali.db.dao.UnitPartDao;
 import org.chimple.bali.db.dao.UserDao;
 import org.chimple.bali.db.dao.UserLessonDao;
+import org.chimple.bali.db.dao.UserLogDao;
 import org.chimple.bali.db.dao.UserUnitDao;
 import org.chimple.bali.db.entity.Lesson;
 import org.chimple.bali.db.entity.LessonUnit;
@@ -37,10 +38,11 @@ import org.chimple.bali.db.entity.Unit;
 import org.chimple.bali.db.entity.UnitPart;
 import org.chimple.bali.db.entity.User;
 import org.chimple.bali.db.entity.UserLesson;
+import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.db.entity.UserUnit;
 
 @Database(entities = {Lesson.class, LessonUnit.class, Unit.class, UnitPart.class,
-        User.class, UserLesson.class, UserUnit.class},
+        User.class, UserLesson.class, UserUnit.class, UserLog.class},
         version = 1
 )
 @TypeConverters(DateConverter.class)
@@ -65,6 +67,8 @@ public abstract class AppDatabase extends RoomDatabase {
     public abstract UserLessonDao userLessonDao();
 
     public abstract UserUnitDao userUnitDao();
+
+    public abstract UserLogDao userLogDao();
 
 //    public static synchronized AppDatabase getInstance(Context context) {
 //        if (sInstance == null) {

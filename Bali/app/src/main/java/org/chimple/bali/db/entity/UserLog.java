@@ -16,46 +16,55 @@
 
 package org.chimple.bali.db.entity;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.util.Date;
+
 @Entity
-public class Unit {
+public class UserLog {
     @Ignore
-    public static final int LETTER_TYPE = 1;
+    public static final int LESSON_TYPE = 1;
+
     @Ignore
-    public static final int PHONETIC_TYPE = 2;
+    public static final int LESSON_UNIT_TYPE = 2;
+
     @Ignore
-    public static final int SYLLABLE_TYPE = 3;
+    public static final int UNIT_TYPE = 3;
+
     @Ignore
-    public static final int WORD_TYPE = 4;
+    public static final int START_EVENT = 1;
+
     @Ignore
-    public static final int SENTENCE_TYPE = 5;
+    public static final int STOP_EVENT = 2;
+
+    @Ignore
+    public static final int PAUSE_EVENT = 3;
+
+    @Ignore
+    public static final int RESUME_EVENT = 4;
 
     @PrimaryKey(autoGenerate = true)
     public Long id;
 
-    public String name;
+    public Date loggedAt;
 
-    public int type;
+    public int entityType;
 
-    public String picture;
+    public Long entityId;
 
-    public String sound;
-
-    public String phonemeSound;
+    public int event;
 
     @Ignore
-    public Unit(String name, int type, String picture, String sound, String phonemeSound) {
-        this.name = name;
-        this.type = type;
-        this.picture = picture;
-        this.sound = sound;
-        this.phonemeSound = phonemeSound;
+    public UserLog(Date loggedAt, int entityType, Long entityId, int event) {
+        this.loggedAt = loggedAt;
+        this.entityType = entityType;
+        this.entityId = entityId;
+        this.event = event;
     }
 
-    public Unit() {
+    public UserLog() {
+
     }
 }

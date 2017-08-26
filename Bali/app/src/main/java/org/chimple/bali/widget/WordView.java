@@ -1,3 +1,4 @@
+package org.chimple.bali.widget;
 /*
  * Copyright 2017, Team Chimple
  *
@@ -14,10 +15,9 @@
  * limitations under the License.
  */
 
-package org.chimple.bali.widget;
-
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
@@ -25,18 +25,19 @@ import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.chimple.bali.R;
 import org.chimple.bali.db.entity.Unit;
 
 import java.io.IOException;
+import java.io.InputStream;
 
-public class LetterView extends FrameLayout {
-    private Unit mLetter;
+public class WordView extends FrameLayout{
+    private Unit mWord;
     private FloatingActionButton mSoundFab;
     private Context mContext;
 
@@ -46,7 +47,7 @@ public class LetterView extends FrameLayout {
         public void onClick(View view) {
             MediaPlayer mediaPlayer = new MediaPlayer();
             try {
-                AssetFileDescriptor afd = mContext.getAssets().openFd(mLetter.sound);
+                AssetFileDescriptor afd = mContext.getAssets().openFd(mWord.sound);
                 mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(),
                         afd.getLength());
                 afd.close();
@@ -57,34 +58,49 @@ public class LetterView extends FrameLayout {
             }
         }
     };
-    public LetterView(@NonNull Context context, Unit letter) {
+    public WordView(@NonNull Context context, Unit word) {
         super(context);
-        initView(context, letter);
+        initView(context, word);
     }
 
-    public LetterView(@NonNull Context context, @Nullable AttributeSet attrs, Unit letter) {
+    public WordView(@NonNull Context context, @Nullable AttributeSet attrs, Unit word) {
         super(context, attrs);
-        initView(context, letter);
+        initView(context, word);
     }
 
-    public LetterView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, Unit letter) {
+    public WordView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, Unit word) {
         super(context, attrs, defStyleAttr);
-        initView(context, letter);
+        initView(context, word);
     }
 
-    public LetterView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes, Unit letter) {
+    public WordView(@NonNull Context context, @Nullable AttributeSet attrs, @AttrRes int defStyleAttr, @StyleRes int defStyleRes, Unit word) {
         super(context, attrs, defStyleAttr, defStyleRes);
-        initView(context, letter);
+        initView(context, word);
     }
 
-    private void initView(Context context, Unit letter) {
+    private void initView(Context context, Unit word) {
         mContext = context;
-        mLetter = letter;
-        View view = inflate(getContext(), R.layout.letter, null);
+        mWord = word;
+        View view = inflate(getContext(), R.layout.word, null);
         addView(view);
-        TextView letterView = (TextView) findViewById(R.id.letter);
-        letterView.setText(letter.name);
+        TextView wordView = (TextView) findViewById(R.id.word);
+        wordView.setText(word.name);
+
+        ImageView imageView = (ImageView) findViewById(R.id.imageView);
+        try
+        {
+            InputStream inputStream = mContext.getAssets().open(word.picture);
+            Drawable d = Drawable.createFromStream(inputStream, null);
+            imageView.setImageDrawable(d);
+            inputStream .close();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+
         mSoundFab = (FloatingActionButton) findViewById(R.id.soundFab);
         mSoundFab.setOnClickListener(mOnClickListener);
     }
+
 }

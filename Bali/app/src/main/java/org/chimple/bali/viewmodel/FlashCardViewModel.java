@@ -45,7 +45,7 @@ public class FlashCardViewModel extends AndroidViewModel {
     public FlashCardViewModel(Application application, Long lessonId) {
         super(application);
         mLessonId = lessonId;
-        final DatabaseCreator databaseCreator = DatabaseCreator.getInstance(this.getApplication());
+        final DatabaseCreator databaseCreator = DatabaseCreator.getInstance();
 
         mFlashCards = Transformations.switchMap(databaseCreator.isDatabaseCreated(), new Function<Boolean, LiveData<List<FlashCard>>>() {
             @Override

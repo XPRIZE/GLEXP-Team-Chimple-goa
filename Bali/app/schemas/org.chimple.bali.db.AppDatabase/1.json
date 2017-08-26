@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "05826b9778f927765fb43583f92d57ff",
+    "identityHash": "553f0e0cb9f14a2d6089f0d66216e65c",
     "entities": [
       {
         "tableName": "Lesson",
@@ -53,12 +53,18 @@
       },
       {
         "tableName": "LessonUnit",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`highlight` TEXT, `lessonId` INTEGER, `objectUnitId` INTEGER, `seq` INTEGER NOT NULL, `subjectUnitId` INTEGER, PRIMARY KEY(`lessonId`, `seq`), FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`subjectUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`objectUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`highlight` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `lessonId` INTEGER, `objectUnitId` INTEGER, `seq` INTEGER NOT NULL, `subjectUnitId` INTEGER, FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`subjectUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`objectUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "highlight",
             "columnName": "highlight",
             "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
             "notNull": false
           },
           {
@@ -88,27 +94,19 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "lessonId",
-            "seq"
+            "id"
           ],
-          "autoGenerate": false
+          "autoGenerate": true
         },
         "indices": [
           {
-            "name": "index_LessonUnit_subjectUnitId",
-            "unique": false,
+            "name": "index_LessonUnit_lessonId_seq",
+            "unique": true,
             "columnNames": [
-              "subjectUnitId"
+              "lessonId",
+              "seq"
             ],
-            "createSql": "CREATE  INDEX `index_LessonUnit_subjectUnitId` ON `${TABLE_NAME}` (`subjectUnitId`)"
-          },
-          {
-            "name": "index_LessonUnit_objectUnitId",
-            "unique": false,
-            "columnNames": [
-              "objectUnitId"
-            ],
-            "createSql": "CREATE  INDEX `index_LessonUnit_objectUnitId` ON `${TABLE_NAME}` (`objectUnitId`)"
+            "createSql": "CREATE UNIQUE INDEX `index_LessonUnit_lessonId_seq` ON `${TABLE_NAME}` (`lessonId`, `seq`)"
           }
         ],
         "foreignKeys": [
@@ -498,11 +496,55 @@
             ]
           }
         ]
+      },
+      {
+        "tableName": "UserLog",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`entityId` INTEGER, `entityType` INTEGER NOT NULL, `event` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `loggedAt` INTEGER)",
+        "fields": [
+          {
+            "fieldPath": "entityId",
+            "columnName": "entityId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "entityType",
+            "columnName": "entityType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "event",
+            "columnName": "event",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "loggedAt",
+            "columnName": "loggedAt",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"05826b9778f927765fb43583f92d57ff\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"553f0e0cb9f14a2d6089f0d66216e65c\")"
     ]
   }
 }

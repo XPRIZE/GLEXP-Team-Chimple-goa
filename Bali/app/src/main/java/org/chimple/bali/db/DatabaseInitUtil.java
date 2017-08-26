@@ -27,19 +27,19 @@ public class DatabaseInitUtil {
                 Lesson lesson = new Lesson("vowels", 1, 1);
                 long lessonId = db.lessonDao().insertLesson(lesson);
 
-                Unit subjectUnit = new Unit("a", 1, "file://test/test.png", "file://test/test.mp3", "file://test/testp.mp3");
+                Unit subjectUnit = new Unit("a", 1, "swa/image/a.png", "swa/audio/a.mp3", "file://test/testp.mp3");
                 long subjectUnitId = db.unitDao().insertUnit(subjectUnit);
 
-                Unit objectUnit = new Unit("apple", 2, "file://test/apple.png", "file://test/apple.mp3", "file://test/applep.mp3");
+                Unit objectUnit = new Unit("apple", 4, "swa/image/apple.jpg", "swa/audio/a.mp3", "file://test/applep.mp3");
                 long objectUnitId = db.unitDao().insertUnit(objectUnit);
 
                 LessonUnit lessonUnit = new LessonUnit(lessonId, 1, subjectUnitId, objectUnitId, "a");
                 db.lessonUnitDao().insertLessonUnit(lessonUnit);
 
-                subjectUnit = new Unit("b", 1, "file://test/test.png", "file://test/test.mp3", "file://test/testp.mp3");
+                subjectUnit = new Unit("b", 1, "swa/image/b.png", "swa/audio/b.mp3", "file://test/testp.mp3");
                 subjectUnitId = db.unitDao().insertUnit(subjectUnit);
 
-                objectUnit = new Unit("bat", 2, "file://test/apple.png", "file://test/apple.mp3", "file://test/applep.mp3");
+                objectUnit = new Unit("b", 1, "swa/image/bat.png", "swa/audio/bat.mp3", "file://test/applep.mp3");
                 objectUnitId = db.unitDao().insertUnit(objectUnit);
 
                 lessonUnit = new LessonUnit(lessonId, 2, subjectUnitId, objectUnitId, "b");
