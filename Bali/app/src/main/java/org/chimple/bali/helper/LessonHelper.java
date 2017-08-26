@@ -17,20 +17,14 @@
 package org.chimple.bali.helper;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
-import org.chimple.bali.R;
-import org.chimple.bali.db.AppDatabase;
-import org.chimple.bali.db.entity.Lesson;
-import org.chimple.bali.db.entity.User;
-import org.chimple.bali.db.pojo.LessonUnitComposite;
+import org.chimple.bali.db.pojo.FlashCard;
+import org.chimple.bali.model.BagOfChoiceQuiz;
 import org.chimple.bali.model.MultipleChoiceQuiz;
-
-import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class LessonHelper {
     public static MultipleChoiceQuiz[] getMultipleChoiceQuizes(Context context, int numQuizes, int numChoices) {
+/*
         AppDatabase db = AppDatabase.getInstance(context);
 
         // Get the current user
@@ -46,14 +40,14 @@ public class LessonHelper {
         Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
         //TODO: Handle no lesson
 
-        LessonUnitComposite[] lucs = db.lessonUnitDao().getLessonUnitCompositesByLessonId(lesson.id);
+        FlashCard[] lucs = db.lessonUnitDao().getFlashCardArrayByLessonId(lesson.id);
         //TODO: Handle no lucs
 
         MultipleChoiceQuiz[] mcqs = new MultipleChoiceQuiz[numQuizes];
         for (int i = 0; i < numQuizes; i++) {
             int lucIndex = ThreadLocalRandom.current().nextInt(lucs.length);
             //TODO: do not repeat mcq
-            LessonUnitComposite luc = lucs[lucIndex];
+            FlashCard luc = lucs[lucIndex];
             String[] choices = new String[numChoices];
             int answerIndex = ThreadLocalRandom.current().nextInt(numChoices);
             //TODO: IF object is not there, put subject
@@ -73,5 +67,22 @@ public class LessonHelper {
             mcqs[i] = mcq;
         }
         return mcqs;
+*/
+        return null;
+    }
+
+    public static BagOfChoiceQuiz[] getBagOfChoiceQuizes() {
+        //TODO
+        return null;
+    }
+
+    public static FlashCard[] getLessonUnits(Context context, Long lessonId) {
+/*
+        AppDatabase db = AppDatabase.getInstance(context);
+
+        FlashCard[] lucs = db.lessonUnitDao().getFlashCardArrayByLessonId(lessonId);
+        return lucs;
+*/
+        return null;
     }
 }

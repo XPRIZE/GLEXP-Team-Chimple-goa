@@ -36,6 +36,8 @@ public class LessonService extends Service {
 
     public static final String NUM_QUIZES = "numQuizes";
     public static final String NUM_CHOICES = "numChoices";
+    public static final String NUM_BUNDLES = "numBundles";
+    public static final String BUNDLE = "bundle";
 
     /**
      * Handler of incoming messages from clients.
@@ -49,16 +51,29 @@ public class LessonService extends Service {
                     int numQuizes = obj.getInt(NUM_QUIZES);
                     int numChoices = obj.getInt(NUM_CHOICES);
 //                    MultipleChoiceQuiz mcqs[] = LessonHelper.getMultipleChoiceQuizes(getApplicationContext(), numQuizes, numChoices);
+
                     Messenger messenger = msg.replyTo;
                     Message reply = Message.obtain(null, LessonService.MULTIPLE_CHOICE_QUIZ, 0, 0);
+
+                    MultipleChoiceQuiz[] mcqs = new MultipleChoiceQuiz[] {
+                            new MultipleChoiceQuiz("dummy help",
+                                    "A",
+                                    new String[]{"Apple", "Boy", "Cat", "Dog"},
+                                    0),
+                            new MultipleChoiceQuiz("Dogs go awalking",
+                                    "B",
+                                    new String[]{"Apple", "Boy", "Cat", "Dog"},
+                                    1)
+                    };
+
                     Bundle bundle = new Bundle();
-                    bundle.putStringArray("key", new String[]{"Apple", "Boy", "Cat", "Dog"});
-                    bundle.putString("help", "Its all right!");
                     reply.obj = bundle;
-//                    reply.obj = new MultipleChoiceQuiz("dummy help",
-//                            "A",
-//                            new String[]{"Apple", "Boy", "Cat", "Dog"},
-//                            0);
+
+                    bundle.putInt(NUM_BUNDLES, mcqs.length);
+                    for (int i = 0; i < mcqs.length; i++) {
+                        bundle.putBundle("bundle"+i, mcqs[i].getBundle());
+                    }
+
                     try {
                         messenger.send(reply);
                     } catch (RemoteException e) {

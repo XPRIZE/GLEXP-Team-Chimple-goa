@@ -76,7 +76,7 @@ void BalloonHero::onEnterTransitionDidFinish() {
 	//_sceneNumber = RandomHelper::random_int(1, 2);
 
 	
-	if (_menuContext->getCurrentLevel() <= 8 && _menuContext->getCurrentLevel() >= 1) {
+	/* if (_menuContext->getCurrentLevel() <= 8 && _menuContext->getCurrentLevel() >= 1) {
 		
 		//_menuContext->setMaxPoints(10);
 		_sceneNumber = 1;
@@ -484,7 +484,16 @@ void BalloonHero::onEnterTransitionDidFinish() {
 		}
 
 	}
-	
+	*/
+
+     // _convertIntoLessonConcept
+    
+     _sceneNumber = RandomHelper::random_int(1, 3);
+     auto vmc = _lesson.getBag(1, 10, 10, 20,20);
+	 _set1 = vmc[0].answers;
+	 _set2 = vmc[0].otherChoices;
+	 _hint = vmc[0].help + " : " + vmc[0].answerString;
+
 	_menuContext->setMaxPoints(20);
 
 	//_sceneNumber = 3;
@@ -948,11 +957,11 @@ void BalloonHero::generateObjectsAndMove() {
 
 			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
-				label->setString(LangUtil::getInstance()->translateString(_set1[nounPicker]));
+				label->setString(_set1[nounPicker]);
 				_cloud1->setName("balloon");
 			}
 			if (numberPicker == 0) {
-				label->setString(LangUtil::getInstance()->translateString(_set2[otherPicker]));
+				label->setString(_set2[otherPicker]);
 				_cloud1->setName("m");
 				_cloud1->setTag(2);
 			}
@@ -1015,11 +1024,11 @@ void BalloonHero::generateObjectsAndMove() {
 
 			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
-				label->setString(LangUtil::getInstance()->translateString(_set1[nounPicker]));
+				label->setString(_set1[nounPicker]);
 				_cloud2->setName("balloon");
 			}
 			if (numberPicker == 0) {
-				label->setString(LangUtil::getInstance()->translateString(_set2[otherPicker]));
+				label->setString(_set2[otherPicker]);
 				_cloud2->setName("m");
 				_cloud2->setTag(2);
 			}
@@ -1082,11 +1091,11 @@ void BalloonHero::generateObjectsAndMove() {
 
             auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
-				label->setString(LangUtil::getInstance()->translateString(_set1[nounPicker]));
+				label->setString(_set1[nounPicker]);
 				_cloud3->setName("balloon");
 			}
 			if (numberPicker == 0) {
-				label->setString(LangUtil::getInstance()->translateString(_set2[otherPicker]));
+				label->setString(_set2[otherPicker]);
 				_cloud3->setName("m");
 				_cloud3->setTag(2);
 			}
@@ -1152,11 +1161,11 @@ void BalloonHero::generateObjectsAndMove() {
 
 			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
-				label->setString(LangUtil::getInstance()->translateString(_set1[nounPicker]));
+				label->setString(_set1[nounPicker]);
 				_cloud4->setName("balloon");
 			}
 			if (numberPicker == 0) {
-				label->setString(LangUtil::getInstance()->translateString(_set2[otherPicker]));
+				label->setString(_set2[otherPicker]);
 				_cloud4->setName("m");
 				_cloud1->setTag(2);
 			}

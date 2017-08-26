@@ -45,10 +45,12 @@ import org.chimple.bali.db.entity.UserUnit;
 )
 @TypeConverters(DateConverter.class)
 public abstract class AppDatabase extends RoomDatabase {
+    public static final String DATABASE_NAME = "bali-db";
+
     /**
      * The only instance
      */
-    private static AppDatabase sInstance;
+//    private static AppDatabase sInstance;
 
     public abstract LessonDao lessonDao();
 
@@ -64,26 +66,42 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserUnitDao userUnitDao();
 
-    public static synchronized AppDatabase getInstance(Context context) {
-        if (sInstance == null) {
-            sInstance = Room
-                    .databaseBuilder(context.getApplicationContext(), AppDatabase.class, "bali_db")
-                    .build();
-            //sInstance.populateInitialData();
-        }
-        return sInstance;
-    }
+//    public static synchronized AppDatabase getInstance(Context context) {
+//        if (sInstance == null) {
+//            sInstance = Room
+//                    .databaseBuilder(context.getApplicationContext(), AppDatabase.class, "bali_db")
+//                    .build();
+//            sInstance.populateInitialData();
+//        }
+//        return sInstance;
+//    }
+//
+//    private void populateInitialData() {
+//        if(lessonDao().count() == 0) {
+//            Lesson lesson = new Lesson("vowels", 1, 1);
+//            long lessonId = lessonDao().insertLesson(lesson);
+//
+//            Unit subjectUnit = new Unit("a", 1, "file://test/test.png", "file://test/test.mp3", "file://test/testp.mp3");
+//            long subjectUnitId = unitDao().insertUnit(subjectUnit);
+//
+//            Unit objectUnit = new Unit("apple", 2, "file://test/apple.png", "file://test/apple.mp3", "file://test/applep.mp3");
+//            long objectUnitId = unitDao().insertUnit(objectUnit);
+//
+//            LessonUnit lessonUnit = new LessonUnit(lessonId, 1, subjectUnitId, objectUnitId, "a");
+//            lessonUnitDao().insertLessonUnit(lessonUnit);
+//        }
+//    }
 
-    /**
-     * Switches the internal implementation with an empty in-memory database.
-     *
-     * @param context The context.
-     */
-    @VisibleForTesting
-    public static void switchToInMemory(Context context) {
-        sInstance = Room.inMemoryDatabaseBuilder(context.getApplicationContext(),
-                AppDatabase.class).build();
-    }
+//    /**
+//     * Switches the internal implementation with an empty in-memory database.
+//     *
+//     * @param context The context.
+//     */
+//    @VisibleForTesting
+//    public static void switchToInMemory(Context context) {
+//        sInstance = Room.inMemoryDatabaseBuilder(context.getApplicationContext(),
+//                AppDatabase.class).build();
+//    }
 
 
 }
