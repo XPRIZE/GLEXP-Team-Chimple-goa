@@ -29,6 +29,9 @@ public interface UserLessonDao {
     @Query("SELECT * FROM UserLesson WHERE userId=:userId AND lessonId=:lessonId")
     public UserLesson getUserLessonByUserIdAndLessonId(Long userId, Long lessonId);
 
+    @Query("SELECT * FROM UserLesson WHERE userId=:userId ORDER BY lessonId DESC LIMIT 1")
+    public UserLesson getUserLessonByUserIdWithMax(Long userId);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public Long insertUserLesson(UserLesson userLesson);
 

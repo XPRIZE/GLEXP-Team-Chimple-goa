@@ -1,3 +1,4 @@
+package org.chimple.bali.repo;
 /*
  * Copyright 2017, Team Chimple
  *
@@ -14,8 +15,6 @@
  * limitations under the License.
  */
 
-package org.chimple.bali.repo;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -23,32 +22,29 @@ import android.os.AsyncTask;
 import org.chimple.bali.R;
 import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.db.DatabaseCreator;
-import org.chimple.bali.db.entity.UserLesson;
+import org.chimple.bali.db.entity.Lesson;
+import org.chimple.bali.db.entity.User;
 
-import java.util.Date;
-
-public class UserLessonRepo {
-    public static void createOrUpdateUserLesson(Context context, Long lessonId, int score) {
+public class LessonRepo {
+    public static void markNextLesson(Context context) {
+        final DatabaseCreator databaseCreator = DatabaseCreator.getInstance();
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
-                final AppDatabase db = DatabaseCreator.getInstance().getDatabase();
+                AppDatabase db = databaseCreator.getDatabase();
                 SharedPreferences sharedPref = context.getSharedPreferences(
                         context.getString(R.string.preference_file_key),
                         Context.MODE_PRIVATE);
                 Long userId = sharedPref.getLong(context.getString(R.string.user_id), -1);
                 if (userId != -1) {
-                    UserLesson userLesson = db.userLessonDao().getUserLessonByUserIdAndLessonId(userId, lessonId);
-                    if (userLesson == null) {
-                        userLesson = new UserLesson(userId, lessonId, new Date(), 1, score == -1 ? 0 : score);
-                        db.userLessonDao().insertUserLesson(userLesson);
-                    } else {
-                        userLesson.seenCount++;
-                        userLesson.lastSeenAt = new Date();
-                        if(score != -1) {
-                            userLesson.score = score;
-                        }
-                        db.userLessonDao().updateUserLesson(userLesson);
+                    User user = db.userDao().getUserById(userId);
+                    //TODO: Handle no user
+
+                    Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
+                    Lesson newLesson = db.lessonDao().getLessonBySeq(lesson.seq + 1);
+                    if (newLesson != null) {
+                        user.currentLessonId = newLesson.id;
+                        db.userDao().updateUser(user);
                     }
                 }
                 return null;
