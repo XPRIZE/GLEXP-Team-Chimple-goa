@@ -48,19 +48,18 @@ public class UserLesson {
 
     public Long lessonId;
 
-    public Date startedAt;
+    public Date seenAt;
 
-    public Date endedAt;
+    public int seenCount;
 
     public int score;
 
     @Ignore
-    public UserLesson(Long userId, Long lessonId, Date startedAt, Date endedAt, int score) {
-
+    public UserLesson(Long userId, Long lessonId, Date seenAt, int seenCount, int score) {
         this.userId = userId;
         this.lessonId = lessonId;
-        this.startedAt = startedAt;
-        this.endedAt = endedAt;
+        this.seenAt = seenAt;
+        this.seenCount = seenCount;
         this.score = score;
     }
 

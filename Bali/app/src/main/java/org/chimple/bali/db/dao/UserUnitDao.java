@@ -20,15 +20,19 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
+import android.arch.persistence.room.Update;
 
 import org.chimple.bali.db.entity.UserUnit;
 
 @Dao
 public interface UserUnitDao {
     @Query("SELECT * FROM UserUnit WHERE userId=:userId AND unitId=:unitId")
-    public UserUnit[] getUserUnitsByUserIdAndUnitId(Long userId, Long unitId);
+    public UserUnit getUserUnitByUserIdAndUnitId(Long userId, Long unitId);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public Long insertUserUnit(UserUnit userUnit);
+
+    @Update
+    public void updateUserUnit(UserUnit userUnit);
     
 }

@@ -28,6 +28,7 @@ import android.support.annotation.NonNull;
 
 import org.chimple.bali.db.DatabaseCreator;
 import org.chimple.bali.db.pojo.FlashCard;
+import org.chimple.bali.repo.FlashCardRepo;
 
 import java.util.List;
 
@@ -45,22 +46,23 @@ public class FlashCardViewModel extends AndroidViewModel {
     public FlashCardViewModel(Application application, Long lessonId) {
         super(application);
         mLessonId = lessonId;
-        final DatabaseCreator databaseCreator = DatabaseCreator.getInstance();
-
-        mFlashCards = Transformations.switchMap(databaseCreator.isDatabaseCreated(), new Function<Boolean, LiveData<List<FlashCard>>>() {
-            @Override
-            public LiveData<List<FlashCard>> apply(Boolean isDbCreated) {
-                if (!isDbCreated) {
-                    //noinspection unchecked
-                    return ABSENT;
-                } else {
-                    //noinspection ConstantConditions
-                    return databaseCreator.getDatabase().lessonUnitDao().getFlashCards();
-                }
-            }
-        });
-
-        databaseCreator.createDb(this.getApplication());
+//        final DatabaseCreator databaseCreator = DatabaseCreator.getInstance();
+//
+//        mFlashCards = Transformations.switchMap(databaseCreator.isDatabaseCreated(), new Function<Boolean, LiveData<List<FlashCard>>>() {
+//            @Override
+//            public LiveData<List<FlashCard>> apply(Boolean isDbCreated) {
+//                if (!isDbCreated) {
+//                    //noinspection unchecked
+//                    return ABSENT;
+//                } else {
+//                    //noinspection ConstantConditions
+//                    return databaseCreator.getDatabase().lessonUnitDao().getFlashCards();
+//                }
+//            }
+//        });
+//
+//        databaseCreator.createDb(this.getApplication());
+        mFlashCards = FlashCardRepo.getFlashCards(application);
     }
 
     public LiveData<List<FlashCard>> getFlashCards() {

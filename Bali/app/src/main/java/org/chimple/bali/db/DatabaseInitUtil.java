@@ -15,12 +15,17 @@ package org.chimple.bali.db;
  * limitations under the License.
  */
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import org.chimple.bali.R;
 import org.chimple.bali.db.entity.Lesson;
 import org.chimple.bali.db.entity.LessonUnit;
 import org.chimple.bali.db.entity.Unit;
+import org.chimple.bali.db.entity.User;
 
 public class DatabaseInitUtil {
-    static void initializeDb(AppDatabase db) {
+    static void initializeDb(AppDatabase db, Context context) {
         if(db.lessonDao().count() == 0) {
             db.beginTransaction();
             try {
@@ -44,6 +49,15 @@ public class DatabaseInitUtil {
 
                 lessonUnit = new LessonUnit(lessonId, 2, subjectUnitId, objectUnitId, "b");
                 db.lessonUnitDao().insertLessonUnit(lessonUnit);
+
+                User user = new User("test", "test.png", lessonId, 5);
+                long userId = db.userDao().insertUser(user);
+                SharedPreferences sharedPref = context.getSharedPreferences(
+                        context.getString(R.string.preference_file_key),
+                        Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putLong(context.getString(R.string.user_id), userId);
+                editor.commit();
 
                 db.setTransactionSuccessful();
             } finally {

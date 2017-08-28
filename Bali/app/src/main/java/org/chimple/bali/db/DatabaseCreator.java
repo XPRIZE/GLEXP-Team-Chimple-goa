@@ -93,7 +93,7 @@ public class DatabaseCreator {
                 // addDelay();
 
                 // Add some data to the database
-                DatabaseInitUtil.initializeDb(db);
+                DatabaseInitUtil.initializeDb(db, context);
                 Log.d("DatabaseCreator",
                         "DB was populated in thread " + Thread.currentThread().getName());
 

@@ -14,7 +14,9 @@ import org.chimple.bali.MainActivity;
 import org.chimple.bali.R;
 import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.db.pojo.FlashCard;
+import org.chimple.bali.repo.UserLessonRepo;
 import org.chimple.bali.repo.UserLogRepo;
+import org.chimple.bali.repo.UserUnitRepo;
 import org.chimple.bali.ui.FlashCardAdapter;
 import org.chimple.bali.viewmodel.FlashCardViewModel;
 
@@ -23,6 +25,7 @@ public class LessonActivity extends LifecycleActivity {
     private ProgressBar mProgressBar;
     private int mCurrentCardIndex;
     private Long mLessonId;
+    private int mScore;
 
     @Override
     public void onBackPressed() {
@@ -48,6 +51,10 @@ public class LessonActivity extends LifecycleActivity {
             if(flashCards != null) {
                 final FlashCardAdapter flashCardAdapter = new FlashCardAdapter(this, flashCards);
                 mFlashCardView.setAdapter(flashCardAdapter);
+                UserUnitRepo.createOrUpdateUserUnit(this, flashCards.get(0).objectUnit.id, -1);
+                if(flashCards.get(0).subjectUnit != null) {
+                    UserUnitRepo.createOrUpdateUserUnit(this, flashCards.get(0).subjectUnit.id, -1);
+                }
                 UserLogRepo.logEntity(UserLog.LESSON_UNIT_TYPE, flashCards.get(0).lessonUnit.id, UserLog.STOP_EVENT);
 
                 mProgressBar.setMax(flashCardAdapter.getCount());
@@ -93,6 +100,7 @@ public class LessonActivity extends LifecycleActivity {
     @Override
     protected void onStop() {
         super.onStop();
+        UserLessonRepo.createOrUpdateUserLesson(this, mLessonId, mScore);
         UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.STOP_EVENT);
     }
 }
