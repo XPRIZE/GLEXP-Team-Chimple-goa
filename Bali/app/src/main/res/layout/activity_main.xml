@@ -1,47 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:columnCount="4"
     android:gravity="center"
-    android:orientation="vertical"
-    tools:context="org.chimple.bali.MainActivity">
+    android:orientation="horizontal"
+    android:rowCount="2"
+    android:useDefaultMargins="false"
+    tools:context="org.chimple.bali.MainActivity"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="81dp">
 
-    <TextView
+    <ImageButton
+        android:id="@+id/readButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_columnWeight="1"
+        android:layout_gravity="center"
+        android:layout_rowWeight="1"
+        android:onClick="startActivity"
+        app:srcCompat="@mipmap/ic_launcher" />
 
-    <Button
-        android:id="@+id/button"
+    <ImageButton
+        android:id="@+id/writeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="sendMessage"
-        android:text="Button"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="166dp" />
+        android:layout_columnWeight="1"
+        android:layout_gravity="center"
+        android:layout_rowWeight="1"
+        android:onClick="startActivity"
+        app:srcCompat="@mipmap/ic_launcher" />
 
-    <Button
-        android:id="@+id/button2"
+    <ImageButton
+        android:id="@+id/mathsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="sayHello"
-        android:text="Lesson"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="306dp" />
+        android:layout_columnWeight="1"
+        android:layout_gravity="center"
+        android:layout_rowWeight="1"
+        android:onClick="startActivity"
+        app:srcCompat="@mipmap/ic_launcher" />
 
-    <Button
-        android:id="@+id/button3"
+    <ImageButton
+        android:id="@+id/storyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="startLesson"
-        android:text="Letter"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="400dp" />
+        android:layout_columnWeight="1"
+        android:layout_gravity="center"
+        android:layout_rowWeight="1"
+        android:onClick="startActivity"
+        app:srcCompat="@mipmap/ic_launcher" />
 
-</android.widget.LinearLayout>
+    <ImageButton
+        android:id="@+id/cameraButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="center"
+        android:layout_rowWeight="1"
+        android:onClick="startActivity"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/galleryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="center"
+        android:layout_rowWeight="1"
+        android:onClick="startActivity"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/musicButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="center"
+        android:layout_rowWeight="1"
+        android:onClick="startActivity"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/gamesButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="center"
+        android:layout_rowWeight="1"
+        android:onClick="startActivity"
+        app:srcCompat="@mipmap/ic_launcher" />
+</android.widget.GridLayout>

@@ -1,0 +1,854 @@
+{
+  "ID": "2530c39e-972c-45e9-a14e-3e8563886fb2",
+  "Version": "3.10.0.0",
+  "Name": "Medicine_for_Topi_14",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 360,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 144,
+              "G": 144,
+              "B": 144
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -11.5769,
+              "Y": -9.165
+            },
+            "Scale": {
+              "ScaleX": 12.8505,
+              "ScaleY": 9.2428
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0045,
+              "Y": -0.0051
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -11.5769,
+            "RightMargin": 2371.5769,
+            "TopMargin": 1609.165,
+            "BottomMargin": -9.165,
+            "Tag": 84,
+            "ActionTag": 1014625280,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 195,
+              "G": 241
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -492.8722,
+              "Y": -40.2814
+            },
+            "Scale": {
+              "ScaleX": 17.8447,
+              "ScaleY": 9.2971
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1925,
+              "Y": -0.0224
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -492.8722,
+            "RightMargin": 2852.8721,
+            "TopMargin": 1640.2814,
+            "BottomMargin": -40.2814,
+            "Tag": 1181,
+            "ActionTag": -194431229,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Medicine_for_Topi/bgwave.png",
+              "Plist": "Medicine_for_Topi/Medicine_for_Topi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1299.9575,
+              "Y": 1479.3451
+            },
+            "Scale": {
+              "ScaleX": 1.0234,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 164,
+              "G": 225,
+              "B": 244
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5078,
+              "Y": 0.8219
+            },
+            "PreSize": {
+              "X": 1.3008,
+              "Y": 0.2733
+            },
+            "LeftMargin": -365.0425,
+            "RightMargin": -404.9575,
+            "TopMargin": 74.6549,
+            "BottomMargin": 1233.3451,
+            "Tag": 1182,
+            "ActionTag": -2037680711,
+            "Size": {
+              "X": 3330.0,
+              "Y": 492.0
+            },
+            "Name": "bgwave_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 164,
+              "G": 225,
+              "B": 244
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": -400.1768,
+              "Y": 1287.2606
+            },
+            "Scale": {
+              "ScaleX": 17.0643,
+              "ScaleY": 2.1351
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1563,
+              "Y": 0.7151
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -400.1768,
+            "RightMargin": 2760.1768,
+            "TopMargin": 512.7394,
+            "BottomMargin": 1087.2606,
+            "Tag": 1187,
+            "ActionTag": 449726152,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Medicine_for_Topi/bgwave.png",
+              "Plist": "Medicine_for_Topi/Medicine_for_Topi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1304.1814,
+              "Y": 1032.8887
+            },
+            "Scale": {
+              "ScaleX": 1.0234,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 144,
+              "G": 209,
+              "B": 229
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5094,
+              "Y": 0.5738
+            },
+            "PreSize": {
+              "X": 1.3008,
+              "Y": 0.2733
+            },
+            "LeftMargin": -360.8186,
+            "RightMargin": -409.1814,
+            "TopMargin": 521.1113,
+            "BottomMargin": 786.8887,
+            "Tag": 1188,
+            "ActionTag": 696457220,
+            "Size": {
+              "X": 3330.0,
+              "Y": 492.0
+            },
+            "Name": "bgwave_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Medicine_for_Topi/bgwave.png",
+              "Plist": "Medicine_for_Topi/Medicine_for_Topi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1234.6312,
+              "Y": 765.8716
+            },
+            "Scale": {
+              "ScaleX": 1.0234,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 112,
+              "G": 168,
+              "B": 87
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4823,
+              "Y": 0.4255
+            },
+            "PreSize": {
+              "X": 1.3008,
+              "Y": 0.2733
+            },
+            "LeftMargin": -430.3688,
+            "RightMargin": -339.6313,
+            "TopMargin": 788.1284,
+            "BottomMargin": 519.8716,
+            "Tag": 16946,
+            "ActionTag": 1482941895,
+            "Size": {
+              "X": 3330.0,
+              "Y": 492.0
+            },
+            "Name": "bgwave_3_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Medicine_for_Topi/bgwave.png",
+              "Plist": "Medicine_for_Topi/Medicine_for_Topi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1243.3608,
+              "Y": 558.4022
+            },
+            "Scale": {
+              "ScaleX": 1.1106,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 137,
+              "G": 200,
+              "B": 110
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4857,
+              "Y": 0.3102
+            },
+            "PreSize": {
+              "X": 1.3008,
+              "Y": 0.2733
+            },
+            "LeftMargin": -421.6392,
+            "RightMargin": -348.3608,
+            "TopMargin": 995.5978,
+            "BottomMargin": 312.4022,
+            "Tag": 16947,
+            "ActionTag": 432291109,
+            "Size": {
+              "X": 3330.0,
+              "Y": 492.0
+            },
+            "Name": "bgwave_3_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Medicine_for_Topi/bgwave.png",
+              "Plist": "Medicine_for_Topi/Medicine_for_Topi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1352.5524,
+              "Y": 310.576
+            },
+            "Scale": {
+              "ScaleX": 1.1241,
+              "ScaleY": 0.5771
+            },
+            "CColor": {
+              "R": 214,
+              "G": 185,
+              "B": 114
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5283,
+              "Y": 0.1725
+            },
+            "PreSize": {
+              "X": 1.3008,
+              "Y": 0.2733
+            },
+            "LeftMargin": -312.4476,
+            "RightMargin": -457.5522,
+            "TopMargin": 1243.4241,
+            "BottomMargin": 64.576,
+            "Tag": 16948,
+            "ActionTag": 1072753519,
+            "Size": {
+              "X": 3330.0,
+              "Y": 492.0
+            },
+            "Name": "bgwave_3_0_0_0_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 214,
+              "G": 185,
+              "B": 114
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -518.4988,
+              "Y": -102.2819
+            },
+            "Scale": {
+              "ScaleX": 18.7794,
+              "ScaleY": 1.5372
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2025,
+              "Y": -0.0568
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -518.4988,
+            "RightMargin": 2878.4988,
+            "TopMargin": 1702.2819,
+            "BottomMargin": -102.2819,
+            "Tag": 16950,
+            "ActionTag": -1150370287,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Medicine_for_Topi/tree.png",
+              "Plist": "Medicine_for_Topi/Medicine_for_Topi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": -102.3705,
+              "Y": 888.5775
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.04,
+              "Y": 0.4937
+            },
+            "PreSize": {
+              "X": 0.1355,
+              "Y": 0.3717
+            },
+            "LeftMargin": -275.8705,
+            "RightMargin": 2488.8706,
+            "TopMargin": 576.9226,
+            "BottomMargin": 554.0775,
+            "Tag": 441,
+            "ActionTag": -231979626,
+            "Size": {
+              "X": 347.0,
+              "Y": 669.0
+            },
+            "Name": "tree_1",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Medicine_for_Topi/db_tortoise.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 387.4556,
+              "Y": 55.1001
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.1513,
+              "Y": 0.0306
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 387.4556,
+            "RightMargin": 2172.5444,
+            "TopMargin": 1744.8999,
+            "BottomMargin": 55.1001,
+            "Tag": 25889,
+            "ActionTag": 1053019552,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "db_tortoise",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Medicine_for_Topi/db_penguin.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 2081.1812,
+              "Y": 58.7651
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.813,
+              "Y": 0.0326
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 2081.1812,
+            "RightMargin": 478.8188,
+            "TopMargin": 1741.2349,
+            "BottomMargin": 58.7651,
+            "Tag": 25886,
+            "ActionTag": -293818987,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "db_penguin",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Medicine_for_Topi/db_flamingo.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1194.5963,
+              "Y": 54.4306
+            },
+            "Scale": {
+              "ScaleX": -0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4666,
+              "Y": 0.0302
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1194.5963,
+            "RightMargin": 1365.4037,
+            "TopMargin": 1745.5695,
+            "BottomMargin": 54.4306,
+            "Tag": 25881,
+            "FrameEvent": "givemedicine",
+            "ActionTag": -1940892507,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "db_flamingo",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Medicine_for_Topi/dilogbox.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1260.8184,
+              "Y": 1412.9099
+            },
+            "Scale": {
+              "ScaleX": 0.75,
+              "ScaleY": 0.75
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.4925,
+              "Y": 0.7849
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1260.8184,
+            "RightMargin": 1299.1816,
+            "TopMargin": 387.0901,
+            "BottomMargin": 1412.9099,
+            "Tag": 26206,
+            "ActionTag": -639663711,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1_0",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FontSize": 100,
+            "LabelText": "   Topi was very happy to see the medicines. \n\"My boy will be fine now. Thank you!\" she said.",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1275.9587,
+              "Y": 1389.0531
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 32,
+              "G": 32,
+              "B": 32
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.4984,
+              "Y": 0.7717
+            },
+            "PreSize": {
+              "X": 0.8105,
+              "Y": 0.1244
+            },
+            "LeftMargin": 238.4587,
+            "RightMargin": 246.5413,
+            "TopMargin": 298.9469,
+            "BottomMargin": 1277.0531,
+            "Tag": 26205,
+            "ActionTag": -1850405486,
+            "Size": {
+              "X": 2075.0,
+              "Y": 224.0
+            },
+            "Name": "Text_1",
+            "ctype": "TextObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Medicine_for_Topi/tree.png",
+              "Plist": "Medicine_for_Topi/Medicine_for_Topi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 2337.5833,
+              "Y": 809.536
+            },
+            "Scale": {
+              "ScaleX": 0.7695,
+              "ScaleY": 0.8206
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.9131,
+              "Y": 0.4497
+            },
+            "PreSize": {
+              "X": 0.1355,
+              "Y": 0.3717
+            },
+            "LeftMargin": 2164.0833,
+            "RightMargin": 48.9167,
+            "TopMargin": 655.964,
+            "BottomMargin": 475.036,
+            "Tag": 883,
+            "ActionTag": -1134611231,
+            "Size": {
+              "X": 347.0,
+              "Y": 669.0
+            },
+            "Name": "tree_1_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Medicine_for_Topi/tree.png",
+              "Plist": "Medicine_for_Topi/Medicine_for_Topi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1554.2155,
+              "Y": 873.7106
+            },
+            "Scale": {
+              "ScaleX": 0.6951,
+              "ScaleY": 0.6085
+            },
+            "CColor": {
+              "R": 232,
+              "G": 232,
+              "B": 232
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.6071,
+              "Y": 0.4854
+            },
+            "PreSize": {
+              "X": 0.1355,
+              "Y": 0.3717
+            },
+            "LeftMargin": 1380.7155,
+            "RightMargin": 832.2845,
+            "TopMargin": 591.7893,
+            "BottomMargin": 539.2106,
+            "Tag": 884,
+            "ActionTag": 1879664764,
+            "Size": {
+              "X": 347.0,
+              "Y": 669.0
+            },
+            "Name": "tree_1_0_0",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "db_flamingo.json",
+        "db_penguin.json",
+        "db_tortoise.json",
+        "dilogbox.json",
+        "Medicine_for_Topi.plist",
+        "Medicine_for_Topi.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

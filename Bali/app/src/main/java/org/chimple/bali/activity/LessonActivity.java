@@ -12,13 +12,26 @@ import android.widget.ProgressBar;
 
 import org.chimple.bali.MainActivity;
 import org.chimple.bali.R;
-import org.chimple.bali.db.entity.Unit;
+import org.chimple.bali.db.entity.UserLog;
+import org.chimple.bali.db.pojo.FlashCard;
+import org.chimple.bali.repo.UserLessonRepo;
+import org.chimple.bali.repo.UserLogRepo;
+import org.chimple.bali.repo.UserUnitRepo;
 import org.chimple.bali.ui.FlashCardAdapter;
 import org.chimple.bali.viewmodel.FlashCardViewModel;
 
 public class LessonActivity extends LifecycleActivity {
     private AdapterViewAnimator mFlashCardView;
     private ProgressBar mProgressBar;
+    private int mCurrentCardIndex;
+    private Long mLessonId;
+    private int mScore;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,10 +40,10 @@ public class LessonActivity extends LifecycleActivity {
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         Intent intent = getIntent();
-        Long lessonId = intent.getLongExtra(MainActivity.EXTRA_MESSAGE, 0);
+        mLessonId = intent.getLongExtra(MainActivity.EXTRA_MESSAGE, 0);
         FlashCardViewModel.Factory factory =
                 new FlashCardViewModel.Factory(
-                        getApplication(), lessonId
+                        getApplication(), mLessonId
                 );
         final FlashCardViewModel model = ViewModelProviders.of(this, factory)
                 .get(FlashCardViewModel.class);
@@ -38,6 +51,11 @@ public class LessonActivity extends LifecycleActivity {
             if(flashCards != null) {
                 final FlashCardAdapter flashCardAdapter = new FlashCardAdapter(this, flashCards);
                 mFlashCardView.setAdapter(flashCardAdapter);
+                UserUnitRepo.createOrUpdateUserUnit(this, flashCards.get(0).objectUnit.id, -1);
+                if(flashCards.get(0).subjectUnit != null) {
+                    UserUnitRepo.createOrUpdateUserUnit(this, flashCards.get(0).subjectUnit.id, -1);
+                }
+                UserLogRepo.logEntity(UserLog.LESSON_UNIT_TYPE, flashCards.get(0).lessonUnit.id, UserLog.STOP_EVENT);
 
                 mProgressBar.setMax(flashCardAdapter.getCount());
                 mProgressBar.setProgress(0);
@@ -46,12 +64,43 @@ public class LessonActivity extends LifecycleActivity {
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        mFlashCardView.advance();
-                        mProgressBar.incrementProgressBy(1);
+                        UserLogRepo.logEntity(UserLog.LESSON_UNIT_TYPE, flashCards.get(mCurrentCardIndex).lessonUnit.id, UserLog.STOP_EVENT);
+                        if(++mCurrentCardIndex >= flashCardAdapter.getCount()) {
+                            finish();
+                        } else {
+                            mFlashCardView.advance();
+                            UserLogRepo.logEntity(UserLog.LESSON_UNIT_TYPE, flashCards.get(mCurrentCardIndex).lessonUnit.id, UserLog.START_EVENT);
+                            mProgressBar.incrementProgressBy(1);
+                        }
                     }
                 });
 
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.PAUSE_EVENT);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.RESUME_EVENT);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.START_EVENT);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        UserLessonRepo.createOrUpdateUserLesson(this, mLessonId, mScore);
+        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.STOP_EVENT);
     }
 }

@@ -38,7 +38,7 @@ public class DatabaseCreator {
     // For Singleton instantiation
     private static final Object LOCK = new Object();
 
-    public synchronized static DatabaseCreator getInstance(Context context) {
+    public synchronized static DatabaseCreator getInstance() {
         if (sInstance == null) {
             synchronized (LOCK) {
                 if (sInstance == null) {
@@ -93,7 +93,7 @@ public class DatabaseCreator {
                 // addDelay();
 
                 // Add some data to the database
-                DatabaseInitUtil.initializeDb(db);
+                DatabaseInitUtil.initializeDb(db, context);
                 Log.d("DatabaseCreator",
                         "DB was populated in thread " + Thread.currentThread().getName());
 
