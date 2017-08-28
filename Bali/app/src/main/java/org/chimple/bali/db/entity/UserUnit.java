@@ -47,15 +47,18 @@ public class UserUnit {
 
     public Long unitId;
 
-    public Date reviewedAt;
+    public Date seenAt;
+
+    public int seenCount;
 
     public int score;
 
     @Ignore
-    public UserUnit(Long userId, Long unitId, Date reviewedAt, int score) {
+    public UserUnit(Long userId, Long unitId, Date seenAt, int seenCount, int score) {
         this.userId = userId;
         this.unitId = unitId;
-        this.reviewedAt = reviewedAt;
+        this.seenAt = seenAt;
+        this.seenCount = seenCount;
         this.score = score;
     }
 

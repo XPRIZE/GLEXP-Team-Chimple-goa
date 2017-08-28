@@ -1,0 +1,657 @@
+{
+  "ID": "d9267e17-492d-4e47-98e3-5bee219dd8c3",
+  "Version": "3.10.0.0",
+  "Name": "Medicine_for_Topi_09",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 120,
+        "Speed": 1.0,
+        "ActivedAnimationName": "master",
+        "Timelines": [
+          {
+            "ActionTag": -194431229,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 194,
+                  "G": 214,
+                  "B": 220
+                },
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": -2037680711,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 169,
+                  "G": 196,
+                  "B": 205
+                },
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 449726152,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 169,
+                  "G": 196,
+                  "B": 205
+                },
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          },
+          {
+            "ActionTag": 696457220,
+            "Property": "CColor",
+            "Frames": [
+              {
+                "Alpha": 255,
+                "Color": {
+                  "R": 153,
+                  "G": 183,
+                  "B": 193
+                },
+                "FrameIndex": 120,
+                "EasingData": {
+                  "Type": 0
+                },
+                "ctype": "ColorFrameData"
+              }
+            ],
+            "ctype": "TimelineData"
+          }
+        ],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [
+        {
+          "StartIndex": 0,
+          "EndIndex": 360,
+          "Name": "master",
+          "ctype": "AnimationInfoData"
+        }
+      ],
+      "ObjectData": {
+        "Children": [
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 144,
+              "G": 144,
+              "B": 144
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -11.5769,
+              "Y": -9.165
+            },
+            "Scale": {
+              "ScaleX": 12.8505,
+              "ScaleY": 9.2428
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.0045,
+              "Y": -0.0051
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -11.5769,
+            "RightMargin": 2371.5769,
+            "TopMargin": 1609.165,
+            "BottomMargin": -9.165,
+            "Tag": 84,
+            "ActionTag": 1014625280,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -492.8722,
+              "Y": -40.2814
+            },
+            "Scale": {
+              "ScaleX": 17.8447,
+              "ScaleY": 9.2971
+            },
+            "CColor": {
+              "R": 194,
+              "G": 214,
+              "B": 220
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1925,
+              "Y": -0.0224
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -492.8722,
+            "RightMargin": 2852.8721,
+            "TopMargin": 1640.2814,
+            "BottomMargin": -40.2814,
+            "Tag": 1181,
+            "ActionTag": -194431229,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Medicine_for_Topi/bgwave.png",
+              "Plist": "Medicine_for_Topi/Medicine_for_Topi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1318.3138,
+              "Y": 1457.926
+            },
+            "Scale": {
+              "ScaleX": 1.0234,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 169,
+              "G": 196,
+              "B": 205
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.515,
+              "Y": 0.81
+            },
+            "PreSize": {
+              "X": 1.3008,
+              "Y": 0.2733
+            },
+            "LeftMargin": -346.6862,
+            "RightMargin": -423.314,
+            "TopMargin": 96.074,
+            "BottomMargin": 1211.926,
+            "Tag": 1182,
+            "ActionTag": -2037680711,
+            "Size": {
+              "X": 3330.0,
+              "Y": 492.0
+            },
+            "Name": "bgwave_3",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {},
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {
+              "ScaleY": 1.0
+            },
+            "Position": {
+              "X": -392.3139,
+              "Y": 1242.3041
+            },
+            "Scale": {
+              "ScaleX": 17.0643,
+              "ScaleY": 6.3889
+            },
+            "CColor": {
+              "R": 169,
+              "G": 196,
+              "B": 205
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.1532,
+              "Y": 0.6902
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -392.3139,
+            "RightMargin": 2752.314,
+            "TopMargin": 557.6959,
+            "BottomMargin": 1042.3041,
+            "Tag": 1187,
+            "ActionTag": 449726152,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_2_1",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FlipX": true,
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "Medicine_for_Topi/bgwave.png",
+              "Plist": "Medicine_for_Topi/Medicine_for_Topi.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1324.8712,
+              "Y": 1038.579
+            },
+            "Scale": {
+              "ScaleX": 1.0234,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 153,
+              "G": 183,
+              "B": 193
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5175,
+              "Y": 0.577
+            },
+            "PreSize": {
+              "X": 1.3008,
+              "Y": 0.2733
+            },
+            "LeftMargin": -340.1288,
+            "RightMargin": -429.8711,
+            "TopMargin": 515.421,
+            "BottomMargin": 792.579,
+            "Tag": 1188,
+            "ActionTag": 696457220,
+            "Size": {
+              "X": 3330.0,
+              "Y": 492.0
+            },
+            "Name": "bgwave_3_0",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 168,
+              "G": 115,
+              "B": 51
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -676.5409,
+              "Y": -52.3788
+            },
+            "Scale": {
+              "ScaleX": 20.4403,
+              "ScaleY": 3.9832
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2643,
+              "Y": -0.0291
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -676.5409,
+            "RightMargin": 3036.541,
+            "TopMargin": 1652.3788,
+            "BottomMargin": -52.3788,
+            "Tag": 5550,
+            "ActionTag": 36557529,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_6",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "ClipAble": false,
+            "ComboBoxIndex": 1,
+            "SingleColor": {
+              "R": 124,
+              "G": 84,
+              "B": 44
+            },
+            "FirstColor": {
+              "R": 150,
+              "G": 200
+            },
+            "EndColor": {},
+            "ColorVector": {
+              "ScaleY": 1.0
+            },
+            "Scale9Width": 1,
+            "Scale9Height": 1,
+            "TouchEnable": true,
+            "AnchorPoint": {},
+            "Position": {
+              "X": -673.0972,
+              "Y": 612.9662
+            },
+            "Scale": {
+              "ScaleX": 20.4403,
+              "ScaleY": 1.3606
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": -0.2629,
+              "Y": 0.3405
+            },
+            "PreSize": {
+              "X": 0.0781,
+              "Y": 0.1111
+            },
+            "LeftMargin": -673.0972,
+            "RightMargin": 3033.0972,
+            "TopMargin": 987.0338,
+            "BottomMargin": 612.9662,
+            "Tag": 5551,
+            "ActionTag": -128674094,
+            "Size": {
+              "X": 200.0,
+              "Y": 200.0
+            },
+            "Name": "Panel_6_0",
+            "ctype": "PanelObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Medicine_for_Topi/db_flamingo.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1902.4772,
+              "Y": 44.1377
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.7432,
+              "Y": 0.0245
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1902.4772,
+            "RightMargin": 657.5228,
+            "TopMargin": 1755.8623,
+            "BottomMargin": 44.1377,
+            "Tag": 5552,
+            "FrameEvent": "shout",
+            "ActionTag": 264260808,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "db_flamingo",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Medicine_for_Topi/db_tortoise.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 640.9586,
+              "Y": 41.8488
+            },
+            "Scale": {
+              "ScaleX": 0.8,
+              "ScaleY": 0.8
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.2504,
+              "Y": 0.0232
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 640.9586,
+            "RightMargin": 1919.0414,
+            "TopMargin": 1758.1512,
+            "BottomMargin": 41.8488,
+            "Tag": 5555,
+            "ActionTag": 595766978,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "db_tortoise",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "Normal",
+              "Path": "Medicine_for_Topi/dilogbox.json",
+              "Plist": ""
+            },
+            "StretchWidthEnable": false,
+            "StretchHeightEnable": false,
+            "InnerActionSpeed": 1.0,
+            "AnchorPoint": {},
+            "Position": {
+              "X": 1304.9237,
+              "Y": 1608.4661
+            },
+            "Scale": {
+              "ScaleX": 0.6,
+              "ScaleY": 0.6
+            },
+            "CColor": {},
+            "IconVisible": true,
+            "PrePosition": {
+              "X": 0.5097,
+              "Y": 0.8936
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 1304.9237,
+            "RightMargin": 1255.0763,
+            "TopMargin": 191.5339,
+            "BottomMargin": 1608.4661,
+            "Tag": 15116,
+            "ActionTag": 339822935,
+            "Size": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Name": "FileNode_1",
+            "ctype": "ProjectNodeObjectData"
+          },
+          {
+            "FontSize": 100,
+            "LabelText": "Amigo shouted loudly - \"Caw Caw\"",
+            "OutlineColor": {
+              "G": 0,
+              "B": 0
+            },
+            "ShadowColor": {
+              "R": 110,
+              "G": 110,
+              "B": 110
+            },
+            "ShadowOffsetX": 2.0,
+            "ShadowOffsetY": -2.0,
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 1315.2152,
+              "Y": 1584.6091
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {
+              "R": 32,
+              "G": 32,
+              "B": 32
+            },
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.5138,
+              "Y": 0.8803
+            },
+            "PreSize": {
+              "X": 0.6039,
+              "Y": 0.0622
+            },
+            "LeftMargin": 542.2152,
+            "RightMargin": 471.7847,
+            "TopMargin": 159.3909,
+            "BottomMargin": 1528.6091,
+            "Tag": 15115,
+            "ActionTag": -401435594,
+            "Size": {
+              "X": 1546.0,
+              "Y": 112.0
+            },
+            "Name": "Text_1",
+            "ctype": "TextObjectData"
+          }
+        ],
+        "Size": {
+          "X": 2560.0,
+          "Y": 1800.0
+        },
+        "Name": "Scene",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "db_flamingo.json",
+        "db_tortoise.json",
+        "dilogbox.json",
+        "Medicine_for_Topi.plist",
+        "Medicine_for_Topi.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Scene"
+}

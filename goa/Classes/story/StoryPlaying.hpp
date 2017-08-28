@@ -197,7 +197,7 @@ private:
     void playSplitAudio(std::string audioFile, CommonText* text);
     
     void playNextSplitWordCallBack(int id, const std::string& file);
-    
+            
     void loadContentPageText();
     
     
@@ -214,7 +214,6 @@ private:
     dragonBones::CCArmatureDisplay* _armatureDisplay;
     dragonBones::CCFactory _factory;
     cocos2d::Node* _bg;
-    dragonBones::CCArmatureDisplay* addArmature(dragonBones::DragonBonesData*);
     
     void _changeArmature(cocos2d::Node* parentNode);
     void _changeAnimation();

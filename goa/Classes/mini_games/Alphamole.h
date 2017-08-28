@@ -14,6 +14,7 @@
 #include "../menu/MenuContext.h"
 #include "../alphamon/Alphamon.h"
 #include "../lang/Lesson.h"
+#include "../util/MatrixUtil.h"
 
 class Alphamole : public cocos2d::Layer
 {
@@ -22,7 +23,7 @@ private:
 public:
 	Alphamole();
 	~Alphamole();
-	wchar_t _mychar;
+	std::string _mychar;
 	static Alphamole* create();
 	static cocos2d::Scene* createScene();
 	virtual bool init();
@@ -44,7 +45,7 @@ protected:
 	MenuContext * menu;
 	void onExitTransitionDidStart();
 	void onAlphabetSelect(cocos2d::EventCustom *event);
-	std::vector<std::vector<char>> _jumpArray;
+	std::vector<std::vector<std::string>> _jumpArray;
 };
 
 #endif 

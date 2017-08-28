@@ -41,7 +41,7 @@ public interface LessonUnitDao {
             + "WHERE lu.lessonId = :lessonId "
             + "AND lu.subjectUnitId = su.id "
             + "AND lu.objectUnitId = ou.id")
-    public LiveData<List<FlashCard>> getFlashCardsByLessonId(Long lessonId);
+    public List<FlashCard> getFlashCardsByLessonId(Long lessonId);
 
     @Query("SELECT lu.*, "
             + "su.id AS su_id, su.name AS su_name, su.type AS su_type, su.picture AS su_picture, "

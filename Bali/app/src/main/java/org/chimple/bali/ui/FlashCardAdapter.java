@@ -17,12 +17,18 @@
 package org.chimple.bali.ui;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import org.chimple.bali.R;
+import org.chimple.bali.db.entity.Unit;
 import org.chimple.bali.db.pojo.FlashCard;
+import org.chimple.bali.widget.FlashCardView;
 import org.chimple.bali.widget.LetterView;
+import org.chimple.bali.widget.SentenceView;
+import org.chimple.bali.widget.WordView;
 
 import java.util.List;
 
@@ -61,8 +67,16 @@ public class FlashCardAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        LetterView letterView = new LetterView(mContext);
-        letterView.setLetter(mFlashCards.get(i).objectUnit);
-        return letterView;
+        FlashCard flashCard = mFlashCards.get(i);
+//        if(flashCard.objectUnit.type == Unit.WORD_TYPE) {
+//            WordView wordView = new WordView(mContext, flashCard.objectUnit);
+//            return wordView;
+//        } else if(flashCard.objectUnit.type == Unit.SENTENCE_TYPE) {
+//            SentenceView sentenceView = new SentenceView(mContext, flashCard.objectUnit);
+//            return sentenceView;
+//        }
+//        LetterView letterView = new LetterView(mContext, flashCard.objectUnit);
+//        return letterView;
+        return new FlashCardView(mContext, flashCard);
     }
 }

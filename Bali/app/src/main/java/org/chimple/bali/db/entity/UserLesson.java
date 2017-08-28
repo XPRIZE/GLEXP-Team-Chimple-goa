@@ -16,7 +16,6 @@
 
 package org.chimple.bali.db.entity;
 
-import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
@@ -48,19 +47,18 @@ public class UserLesson {
 
     public Long lessonId;
 
-    public Date startedAt;
+    public Date lastSeenAt;
 
-    public Date endedAt;
+    public int seenCount;
 
     public int score;
 
     @Ignore
-    public UserLesson(Long userId, Long lessonId, Date startedAt, Date endedAt, int score) {
-
+    public UserLesson(Long userId, Long lessonId, Date lastSeenAt, int seenCount, int score) {
         this.userId = userId;
         this.lessonId = lessonId;
-        this.startedAt = startedAt;
-        this.endedAt = endedAt;
+        this.lastSeenAt = lastSeenAt;
+        this.seenCount = seenCount;
         this.score = score;
     }
 

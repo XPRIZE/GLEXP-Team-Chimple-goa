@@ -23,6 +23,17 @@ import android.arch.persistence.room.PrimaryKey;
 
 @Entity
 public class Unit {
+    @Ignore
+    public static final int LETTER_TYPE = 1;
+    @Ignore
+    public static final int PHONETIC_TYPE = 2;
+    @Ignore
+    public static final int SYLLABLE_TYPE = 3;
+    @Ignore
+    public static final int WORD_TYPE = 4;
+    @Ignore
+    public static final int SENTENCE_TYPE = 5;
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
 

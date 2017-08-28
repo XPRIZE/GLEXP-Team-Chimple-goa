@@ -4,6 +4,7 @@
 #include "ui/UIScale9Sprite.h"
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabelTTF.h"
+#include "../util/MatrixUtil.h"
 
 USING_NS_CC;
 
@@ -27,7 +28,7 @@ void Talk::onEnterTransitionDidFinish()
 {
 	_menuContext->setMaxPoints(8);
 	_level = _menuContext->getCurrentLevel();
-
+	/*
 	int a = - (_level - 54);
 
 	if ((_level >= 1 && _level <= 6) || (_level >= 19 && _level <= 24) || (_level >= 37 && _level <= 42) || (_level >= 55 && _level <= 60))
@@ -135,6 +136,33 @@ void Talk::onEnterTransitionDidFinish()
 		_questionType = "ARTICLE";
 		_qName = LangUtil::getInstance()->translateString("Select Article");
 		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::ARTICLE, 10, -(49 - _level));
+	}
+*/
+
+	std::map<int, std::string> talkSceneMapping = {
+		{ 1,	"talkisland" },
+		{ 2,	"talkcity" },
+		{ 3,    "talkjungle" }
+	};
+	auto complexity = _level+2;
+	if (complexity >= 10)
+		complexity = 9;
+
+	_lesson.setConcept(Lesson::CONCEPT::LETTER_CASE_EQUATE);
+
+	sceneName = talkSceneMapping.at(RandomHelper::random_int(1,3));
+	_vmc = _lesson.getMultiChoices(5, complexity);
+	_qName = _vmc[_theQuestionSetNumber].help +" : " +_vmc[_theQuestionSetNumber].question;
+
+	//_allSentense.clear();
+
+	for (size_t i = 0; i < _vmc.size(); i++) {
+		vector<pair<string , int>> tempVector;
+		for (int indexAnswers = 0; indexAnswers < _vmc[i].answers.size(); indexAnswers++) {
+			tempVector.push_back(make_pair(_vmc[i].answers[indexAnswers], _vmc[i].correctAnswer));
+		}
+		_allSentense.push_back(tempVector);
+		tempVector.clear();
 	}
 
 
@@ -253,7 +281,10 @@ void Talk::onEnterTransitionDidFinish()
 	_lbl->setAnchorPoint(Vec2(.5, 0));
 	_board->setAnchorPoint(Vec2(0, .5));
 	_board->addChild(_lbl);
+	_lbl->setName("topBoardLabel");
 	this->addChild(_board);
+	_board->setName("topBoard");
+	
 
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -276,17 +307,26 @@ bool Talk::init()
 
 void Talk::displayWord()
 {
-	if (_allSentense.size() == 0 || _enemyFish.size() == 5 || _heroFish.size() == 5)
+
+	if (_theQuestionSetNumber == 5 || _enemyFish.size() == 5 || _heroFish.size() == 5)
 	{
-		//_menuContext->showScore();
+		_menuContext->showScore();
 //        this->unscheduleUpdate();
 //		_menuContext->showAnswer("Sentence", _questionType);
 		return;
 	}
+	
+	_qName = _vmc[_theQuestionSetNumber].help + " : " + _vmc[_theQuestionSetNumber].question;
+	_textToShow = _allSentense.at(_theQuestionSetNumber);
+	_theQuestionSetNumber++;
 
-	_textToShow = _allSentense.at((rand() % _allSentense.size()));
+	if (getChildByName("topBoard")) {
+		CommonLabelTTF* label = ((CommonLabelTTF*)getChildByName("topBoard")->getChildByName("topBoardLabel"));
+		label->setString(_qName);
+	}
+	
 
-	int count = 0;
+/*	int count = 0;
 	for (int i = 0; i < _textToShow.size(); i++)
 	{
 		if ((_questionType == "NOUN" && _textToShow.at(i).second == TextGenerator::P_O_S::NOUN) ||
@@ -309,7 +349,7 @@ void Talk::displayWord()
 		Talk::displayWord();
 	}
 	else
-	{
+	{*/
 		_handFlag = 0;
 		for (int i = 0; i < _labelDetails.size(); i++)
 		{
@@ -339,7 +379,7 @@ void Talk::displayWord()
 		//	Color4F white(1, 1, 1, 1);
 		//	drawNode->drawRect(Vec2(_hhand->getBoundingBox().origin.x , _hhand->getBoundingBox().origin.y), Vec2(_hhand->getBoundingBox().origin.x + _hhand->getBoundingBox().size.width, _hhand->getBoundingBox().origin.y + _hhand->getBoundingBox().size.height), white);
 
-		_allSentense.erase(std::remove(_allSentense.begin(), _allSentense.end(), _textToShow), _allSentense.end());
+		//_allSentense.erase(std::remove(_allSentense.begin(), _allSentense.end(), _textToShow), _allSentense.end());
 
 
 		for (int i = 0; i < _textToShow.size(); i++)
@@ -373,7 +413,7 @@ void Talk::displayWord()
 			LabelDetails.flag = 0;
 			LabelDetails.label->setAnchorPoint(Vec2(.5, .5));
 
-			if ((_questionType == "NOUN" && _textToShow.at(i).second == TextGenerator::P_O_S::NOUN) ||
+		/*	if ((_questionType == "NOUN" && _textToShow.at(i).second == TextGenerator::P_O_S::NOUN) ||
 				(_questionType == "PRONOUN" && _textToShow.at(i).second == TextGenerator::P_O_S::PRONOUN) ||
 				(_questionType == "ADJECTIVE" && _textToShow.at(i).second == TextGenerator::P_O_S::ADJECTIVE) ||
 				(_questionType == "VERB" && _textToShow.at(i).second == TextGenerator::P_O_S::VERB) ||
@@ -382,7 +422,8 @@ void Talk::displayWord()
 				(_questionType == "CONJUNCTION" && _textToShow.at(i).second == TextGenerator::P_O_S::CONJUNCTION) ||
 				(_questionType == "INTERJECTION" && _textToShow.at(i).second == TextGenerator::P_O_S::INTERJECTION) ||
 				(_questionType == "ARTICLE" && _textToShow.at(i).second == TextGenerator::P_O_S::ARTICLE))
-			{
+			{*/
+			if(_textToShow[i].second == i){
 				LabelDetails.answer = 'c';
 				_totalAnswer++;
 
@@ -403,9 +444,9 @@ void Talk::displayWord()
 			addChild(LabelDetails.sprite);
 			_labelDetails.push_back(LabelDetails);
 		}
-	}
+//	}
 }
-
+/*
 std::vector<std::string> Talk::split(std::string s, char delim)
 {
 	std::vector<std::string> elems;
@@ -417,7 +458,7 @@ std::vector<std::string> Talk::split(std::string s, char delim)
 	}
 	return elems;
 }
-
+*/
 void Talk::update(float d)
 {
 	if (_handFlag == 1)
@@ -533,13 +574,13 @@ void Talk::update(float d)
 			_totalAnswer = -1;
 			_enemyChar->setAnimationEndCallFunc("e_die", CC_CALLBACK_0(Talk::gameEnd, this));
 			_heroFish.clear();
-			_allSentense.clear();
+		//	_allSentense.clear();
 		}
 		else
 		{
 			//_menuContext->showScore();
             this->unscheduleUpdate();
-			_menuContext->showAnswer("Sentence", _questionType);
+			//_menuContext->showAnswer("Sentence", _questionType);
 		}
 	}
 	else if (_enemyFish.size() == 5)
@@ -564,19 +605,20 @@ void Talk::update(float d)
 			_totalAnswer = -1;
 			_heroChar->setAnimationEndCallFunc("h_die", CC_CALLBACK_0(Talk::gameEnd, this));
 			_enemyFish.clear();
-			_allSentense.clear();
+			//_allSentense.clear();
 		}
 		else
 		{
-			//_menuContext->showScore();
+			_menuContext->showScore();
             this->unscheduleUpdate();
-			_menuContext->showAnswer("Sentence", _questionType);
+			//_menuContext->showAnswer("Sentence", _questionType);
 		}
 	}
 	else if (_allSentense.size() == 0)
 	{
+		_menuContext->showScore();
 		this->unscheduleUpdate();
-		_menuContext->showAnswer("Sentence", _questionType);
+		//_menuContext->showAnswer("Sentence", _questionType);
 	}
 }
 
@@ -632,7 +674,7 @@ void Talk::addEvents(struct LabelDetails sprite)
 
 					CocosDenshion::SimpleAudioEngine *success = CocosDenshion::SimpleAudioEngine::getInstance();
 					success->playEffect("sounds/sfx/success.ogg", false);
-					_menuContext->wordPairList(_string, sprite.id ,true);
+					//_menuContext->wordPairList(_string, sprite.id ,true);
 					_fish->setPosition(Vec2(differntSceneMapping.at(_scene.at(pos)).at("hero") , visibleSize.height));
 					_heroChar->play("h_correct", true);
 					_enemyChar->play("e_wrong", true);

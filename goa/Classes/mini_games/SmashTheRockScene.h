@@ -20,9 +20,9 @@ public:
 
 	virtual bool init();
 
-	int click = 0;
+	int click = 0 , _totalClick = 0;
 	int clickWrong = 0;
-	string mychar;
+	string mychar, _answer;
 	bool flag = true;
     cocos2d::Sprite* target;
 	cocos2d::Node* character;
@@ -65,7 +65,7 @@ public:
 	bool _helpFlage;
 	float helpX, helpY;
 	Alphabet* _label1;
-	std::vector<std::vector<wchar_t>> _charkey;
+	std::vector<std::vector<string>> _charkey;
 	void addMainCharacterToScene(cocostudio::timeline::SkeletonNode* skeleton);
 	// implement the "static create()" method manually
 
