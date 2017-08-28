@@ -67,8 +67,6 @@ bool Alphamole::init()
 
 	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(Alphamole::startGame, this));
 	return true;
-
-
 }
 
 void Alphamole::startGame()
@@ -136,19 +134,20 @@ void Alphamole::startGame()
 	// _convertToLessonConcept
 
 	auto vmc = _lesson.getMultiChoices(1, 5);
-	int column = 1, row = 6;
+	int column = 1, row = 10;
 	_jumpArray.resize(row);
 	/*for(int i=0; i<row; i++)
 	_jumpArray[i].resize(column);*/
 
-	for (int i = 0; i<row; i++)
-	_jumpArray[i].push_back(LangUtil::convertStringToUTF16Char(vmc[0].answers[i]));
+	/*for (int i = 0; i<row; i++)
+	_jumpArray[i].push_back(vmc[0].answers[i]);*/
 
-	auto a = _jumpArray;
+	_jumpArray = MatrixUtil::generateMatrixForChoosing(vmc[0].answers[vmc[0].correctAnswer], vmc[0].answers, 10, 1, 20);
+	
 	std::random_shuffle(_jumpArray.begin(), _jumpArray.end());
 
-	_mychar = LangUtil::convertStringToUTF16Char(vmc[0].question);
-    _mainChar = Alphamon::createWithAlphabet(LangUtil::convertUTF16CharToString(_mychar));
+	_mychar =vmc[0].question;
+    _mainChar = Alphamon::createWithAlphabet(_mychar);
 	_mainChar->setScaleX(0.5);
 	_mainChar->setScaleY(0.5);
 	_mainChar->setPositionX(visibleSize.width * 0.1);
@@ -180,7 +179,8 @@ void Alphamole::showAlpha(float ft)
 		
 		//auto str = jumpAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
 
-		auto str = _jumpArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
+		int size = _jumpArray.size()-1;
+		auto str = _jumpArray.at(cocos2d::RandomHelper::random_int(0, size)).at(0);
 		
 		std::vector<std::string> holes = { "hole1", "hole3", "hole2" };
 		auto child = _background->getChildByName(holes.at(cocos2d::RandomHelper::random_int(0, 2)));
@@ -201,7 +201,7 @@ void Alphamole::showAlpha(float ft)
 		}
 		_particle->setPosition(Vec2(child->getPositionX() + _Xpos, child->getPositionY()));
 		_alphabetLayer->addChild(_particle);
-        _monsterReff = Alphamon::createWithAlphabet(LangUtil::convertUTF16CharToString(str));
+        _monsterReff = Alphamon::createWithAlphabet(str);
 		float x = child->getPositionX();
 		float y = child->getPositionY();
 		_monsterReff->setPositionX(x + _Xpos);
@@ -248,7 +248,8 @@ void Alphamole::leafOpen(float ft)
 		//auto jumpAlphaArray = CharGenerator::getInstance()->generateMatrixForChoosingAChar(_mychar, 6, 1, 50);
 		//auto str = jumpAlphaArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
 
-		auto str = _jumpArray.at(cocos2d::RandomHelper::random_int(0, 5)).at(0);
+		int size = _jumpArray.size() - 1;
+		auto str = _jumpArray.at(cocos2d::RandomHelper::random_int(0, size)).at(0);
 		
 		_leaf_openRff = _background->getChildByName(open_leaf_name.at(random_leaf).c_str());
 		_leaf_openRff->setVisible(true);
@@ -263,7 +264,7 @@ void Alphamole::leafOpen(float ft)
 			help->setName("helpLayer");
 			this->addChild(help);
 		}
-        _monsterReff = Alphamon::createWithAlphabet(LangUtil::convertUTF16CharToString(str));
+        _monsterReff = Alphamon::createWithAlphabet(str);
 		
 		_monsterReff->setPositionX(_leaf_closeRff->getPositionX() + _Xpos);
 		_monsterReff->setPositionY(_leaf_closeRff->getPositionY() - 75);
@@ -297,15 +298,16 @@ void Alphamole::leafClose(float ft)
 
 void Alphamole::onAlphabetSelect(EventCustom *event) {
 	wchar_t* buf1 = static_cast<wchar_t*>(event->getUserData());
+	std::string* userData = static_cast<std::string*>(event->getUserData());
 	auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 	auto path = LangUtil::getInstance()->getAlphabetSoundFileName(buf1[0]);
 	audio->playEffect(path.c_str(), false);
 	//menu->pickAlphabet(_mychar, buf1[0], true);
 	CCLOG("touched letter");
-	if (_mychar == buf1[0]) {
+	if (_mychar == userData[0]) {
 		_score++;
 		menu->addPoints(1);
-		menu->pickAlphabet(_mychar, buf1[0], true);
+		menu->pickAlphabet(LangUtil::convertStringToUTF16Char(_mychar), LangUtil::convertStringToUTF16Char(userData[0]), true);
 
 		CCLOG("right = %d",_score);
 		std::stringstream ss;
@@ -316,7 +318,7 @@ void Alphamole::onAlphabetSelect(EventCustom *event) {
 	}else{
 		CCLOG("wrong");
 		menu->addPoints(-1);
-		menu->pickAlphabet(_mychar, buf1[0], true);
+		menu->pickAlphabet(LangUtil::convertStringToUTF16Char(_mychar), LangUtil::convertStringToUTF16Char(userData[0]), true);
 		_mainChar->alphamonMouthAnimation("spit", false);
 		_mainChar->alphamonEyeAnimation("angry1", false);
 		auto animation = _mainChar->shakeAction();
