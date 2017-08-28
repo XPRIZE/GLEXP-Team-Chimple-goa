@@ -14,6 +14,7 @@ import org.chimple.bali.MainActivity;
 import org.chimple.bali.R;
 import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.db.pojo.FlashCard;
+import org.chimple.bali.repo.LessonRepo;
 import org.chimple.bali.repo.UserLessonRepo;
 import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.repo.UserUnitRepo;
@@ -66,6 +67,7 @@ public class LessonActivity extends LifecycleActivity {
                     public void onClick(View view) {
                         UserLogRepo.logEntity(UserLog.LESSON_UNIT_TYPE, flashCards.get(mCurrentCardIndex).lessonUnit.id, UserLog.STOP_EVENT);
                         if(++mCurrentCardIndex >= flashCardAdapter.getCount()) {
+                            LessonRepo.markNextLesson(LessonActivity.this);
                             finish();
                         } else {
                             mFlashCardView.advance();

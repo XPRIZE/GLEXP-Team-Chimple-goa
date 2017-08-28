@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "fb2b6843996759931759d473e9403d17",
+    "identityHash": "67bb050b0bab43eb0efbfc89793342a0",
     "entities": [
       {
         "tableName": "Lesson",
@@ -325,11 +325,17 @@
       },
       {
         "tableName": "UserLesson",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `lessonId` INTEGER, `score` INTEGER NOT NULL, `seenAt` INTEGER, `seenCount` INTEGER NOT NULL, `userId` INTEGER, FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `lastSeenAt` INTEGER, `lessonId` INTEGER, `score` INTEGER NOT NULL, `seenCount` INTEGER NOT NULL, `userId` INTEGER, FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lastSeenAt",
+            "columnName": "lastSeenAt",
             "affinity": "INTEGER",
             "notNull": false
           },
@@ -344,12 +350,6 @@
             "columnName": "score",
             "affinity": "INTEGER",
             "notNull": true
-          },
-          {
-            "fieldPath": "seenAt",
-            "columnName": "seenAt",
-            "affinity": "INTEGER",
-            "notNull": false
           },
           {
             "fieldPath": "seenCount",
@@ -550,7 +550,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fb2b6843996759931759d473e9403d17\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"67bb050b0bab43eb0efbfc89793342a0\")"
     ]
   }
 }

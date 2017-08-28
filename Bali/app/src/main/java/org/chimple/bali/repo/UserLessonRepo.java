@@ -24,7 +24,6 @@ import org.chimple.bali.R;
 import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.db.DatabaseCreator;
 import org.chimple.bali.db.entity.UserLesson;
-import org.chimple.bali.db.entity.UserLog;
 
 import java.util.Date;
 
@@ -45,7 +44,7 @@ public class UserLessonRepo {
                         db.userLessonDao().insertUserLesson(userLesson);
                     } else {
                         userLesson.seenCount++;
-                        userLesson.seenAt = new Date();
+                        userLesson.lastSeenAt = new Date();
                         if(score != -1) {
                             userLesson.score = score;
                         }

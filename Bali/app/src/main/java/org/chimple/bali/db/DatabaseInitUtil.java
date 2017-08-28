@@ -59,6 +59,28 @@ public class DatabaseInitUtil {
                 editor.putLong(context.getString(R.string.user_id), userId);
                 editor.commit();
 
+                lesson = new Lesson("alphabets", 1, 2);
+                lessonId = db.lessonDao().insertLesson(lesson);
+
+                subjectUnit = new Unit("c", 1, "swa/image/a.png", "swa/audio/a.mp3", "file://test/testp.mp3");
+                subjectUnitId = db.unitDao().insertUnit(subjectUnit);
+
+                objectUnit = new Unit("cat", 4, "swa/image/apple.jpg", "swa/audio/a.mp3", "file://test/applep.mp3");
+                objectUnitId = db.unitDao().insertUnit(objectUnit);
+
+                lessonUnit = new LessonUnit(lessonId, 1, subjectUnitId, objectUnitId, "c");
+                db.lessonUnitDao().insertLessonUnit(lessonUnit);
+
+                subjectUnit = new Unit("d", 1, "swa/image/b.png", "swa/audio/b.mp3", "file://test/testp.mp3");
+                subjectUnitId = db.unitDao().insertUnit(subjectUnit);
+
+                objectUnit = new Unit("d", 1, "swa/image/bat.png", "swa/audio/bat.mp3", "file://test/applep.mp3");
+                objectUnitId = db.unitDao().insertUnit(objectUnit);
+
+                lessonUnit = new LessonUnit(lessonId, 2, subjectUnitId, objectUnitId, "d");
+                db.lessonUnitDao().insertLessonUnit(lessonUnit);
+
+
                 db.setTransactionSuccessful();
             } finally {
                 db.endTransaction();
