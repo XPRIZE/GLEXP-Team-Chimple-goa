@@ -1,0 +1,170 @@
+{
+  "ID": "dbd6aa48-7ab4-4b9c-8a43-81d106f482c8",
+  "Version": "3.10.0.0",
+  "Name": "speaker",
+  "Content": {
+    "Content": {
+      "Animation": {
+        "Duration": 0,
+        "Speed": 1.0,
+        "Timelines": [],
+        "ctype": "TimelineActionData"
+      },
+      "AnimationList": [],
+      "ObjectData": {
+        "Tag": 65,
+        "Children": [
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "audio_icon/audio.png",
+              "Plist": "audio_icon/audio_icon.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": -256.5,
+            "RightMargin": -256.5,
+            "TopMargin": -256.5,
+            "BottomMargin": -256.5,
+            "Tag": 66,
+            "ActionTag": -2099385449,
+            "Size": {
+              "X": 513.0,
+              "Y": 513.0
+            },
+            "Name": "audio",
+            "ctype": "SpriteObjectData"
+          },
+          {
+            "FileData": {
+              "Type": "MarkedSubImage",
+              "Path": "audio_icon/check_box.png",
+              "Plist": "audio_icon/audio_icon.plist"
+            },
+            "BlendFunc": {
+              "Src": 1,
+              "Dst": 771
+            },
+            "AnchorPoint": {
+              "ScaleX": 0.5,
+              "ScaleY": 0.5
+            },
+            "Position": {
+              "X": 147.3441,
+              "Y": 148.3755
+            },
+            "Scale": {
+              "ScaleX": 1.0,
+              "ScaleY": 1.0
+            },
+            "CColor": {},
+            "IconVisible": false,
+            "PrePosition": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "PreSize": {
+              "X": 0.0,
+              "Y": 0.0
+            },
+            "LeftMargin": 54.8441,
+            "RightMargin": -239.8441,
+            "TopMargin": -241.8755,
+            "BottomMargin": 54.8755,
+            "Tag": 68,
+            "Children": [
+              {
+                "FileData": {
+                  "Type": "MarkedSubImage",
+                  "Path": "audio_icon/tick.png",
+                  "Plist": "audio_icon/audio_icon.plist"
+                },
+                "BlendFunc": {
+                  "Src": 1,
+                  "Dst": 771
+                },
+                "AnchorPoint": {
+                  "ScaleX": 0.5,
+                  "ScaleY": 0.5
+                },
+                "Position": {
+                  "X": 97.7868,
+                  "Y": 98.2793
+                },
+                "Scale": {
+                  "ScaleX": 1.0,
+                  "ScaleY": 1.0
+                },
+                "CColor": {},
+                "IconVisible": false,
+                "PrePosition": {
+                  "X": 0.5286,
+                  "Y": 0.5256
+                },
+                "PreSize": {
+                  "X": 0.8541,
+                  "Y": 0.5508
+                },
+                "LeftMargin": 18.7868,
+                "RightMargin": 8.2132,
+                "TopMargin": 37.2207,
+                "BottomMargin": 46.7793,
+                "Tag": 69,
+                "ActionTag": 385978512,
+                "Size": {
+                  "X": 158.0,
+                  "Y": 103.0
+                },
+                "Name": "tick",
+                "ctype": "SpriteObjectData"
+              }
+            ],
+            "ActionTag": 697057239,
+            "Size": {
+              "X": 185.0,
+              "Y": 187.0
+            },
+            "Name": "checkbox",
+            "ctype": "SpriteObjectData"
+          }
+        ],
+        "Size": {
+          "X": 0.0,
+          "Y": 0.0
+        },
+        "Name": "Node",
+        "ctype": "SingleNodeObjectData"
+      },
+      "UsedResources": [
+        "audio_icon.plist",
+        "audio_icon.png"
+      ],
+      "ctype": "GameFileData"
+    }
+  },
+  "Type": "Node"
+}
