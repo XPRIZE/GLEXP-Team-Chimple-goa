@@ -386,6 +386,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClCompile Include="..\Classes\util\CommonText.cpp" />
     <ClCompile Include="..\Classes\util\CommonTextField.cpp" />
     <ClCompile Include="..\Classes\util\MatrixUtil.cpp" />
+    <ClCompile Include="..\Classes\util\Speaker.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -705,6 +706,7 @@ xcopy "$(ProjectDir)..\Resources" "$(OutDir)" /D /E /I /F /Y
     <ClInclude Include="..\Classes\util\CommonText.h" />
     <ClInclude Include="..\Classes\util\CommonTextField.hpp" />
     <ClInclude Include="..\Classes\util\MatrixUtil.h" />
+    <ClInclude Include="..\Classes\util\Speaker.h" />
     <ClInclude Include="main.h" />
   </ItemGroup>
   <ItemGroup>

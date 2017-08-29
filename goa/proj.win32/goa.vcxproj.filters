@@ -882,6 +882,9 @@
     <ClCompile Include="..\Classes\lang\StudySession.cpp">
       <Filter>Classes\lang</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\util\Speaker.cpp">
+      <Filter>Classes\utile</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -1834,6 +1837,9 @@
     </ClInclude>
     <ClInclude Include="..\Classes\lang\StudySession.h">
       <Filter>Classes\lang</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\util\Speaker.h">
+      <Filter>Classes\utile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
