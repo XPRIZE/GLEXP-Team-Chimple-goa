@@ -76,6 +76,29 @@ Speaker*  Speaker::createSpeaker(string word,Vec2 position,bool selectionMode) {
 	return this;
 }
 
+/*
+	Update the existing word in speaker ... 
+*/
+void Speaker::updateStringInSpeaker(string newWord) {
+	_speakerWord = newWord;
+}
+
+
+/*
+	Freez the checkBox option after select corrcet option ...
+*/
+void Speaker::setFreezCheckBoxTickStatus(bool freezSelectionOption) {
+	_freezSelectionOption = freezSelectionOption;
+}
+
+/*
+ get the status of Freezing the checkBox option ...
+*/
+bool Speaker::getFreezCheckBoxTickStatus() {
+	return _freezSelectionOption;
+}
+
+
 /* 
  it check the word is match with audio or not
  if correct then return true else false
@@ -106,12 +129,9 @@ bool Speaker::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 	return false;
 }
 
-
 void Speaker::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
-	
 	auto target = event->getCurrentTarget();
 	target->setColor(Color3B::WHITE);
-	
 }
 
 /*

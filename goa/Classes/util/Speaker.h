@@ -29,12 +29,16 @@ private:
 	bool _isOptionSelected = false;
 	bool _isCheckBoxEnable = false;
 	void handleClickEffectOnSpeaker(cocos2d::Event* event);
+	bool _freezSelectionOption = false;
 
 public:
 
 	Speaker();
 	~Speaker();
 	Speaker* createSpeaker(string word, Vec2 position, bool selectionMode = false);
+	void updateStringInSpeaker(string newWord);
+	void setFreezCheckBoxTickStatus(bool freezSelectionOption);
+	bool getFreezCheckBoxTickStatus();
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 	bool checkAnswer(string word);
 	void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event);

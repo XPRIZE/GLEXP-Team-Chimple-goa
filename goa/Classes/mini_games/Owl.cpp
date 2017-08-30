@@ -476,7 +476,7 @@ void Owl::createGrid() {
 			auto gridObject = speaker->createSpeaker(bag[counter], Vec2(xPosi, height),true);
 			addChild(gridObject,1);
 
-
+			CCLOG("ROW: %d  COLUMN: %d   letter : %s",row,column,bag[counter].c_str());
 
 			//auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
 			//setSpriteProperties(gridObject, xPosi, height, 1, 1, 0.5, 0.5, 0, 1);
@@ -602,7 +602,7 @@ void Owl::triggerTheOwlActivity(cocos2d::Touch* touch, cocos2d::Event* event) {
 
 			if (blockChild.at(_textCounter)->getName() == target->getName() && _flagToControlMuiltipleTouch) {
 				_flagToControlMuiltipleTouch = false;
-
+				
 				if (_flagTurnHelp && (_menuContext->getCurrentLevel() == 1)) {
 					this->removeChildByName("helpLayer");
 					_flagTurnHelp = false;
@@ -676,7 +676,7 @@ void Owl::triggerTheOwlActivity(cocos2d::Touch* touch, cocos2d::Event* event) {
 							this->addChild(_particle, 5);
 							auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 							audioBg->playEffect("res/sounds/sfx/success.ogg", false);
-
+							
 						}),
 							DelayTime::create(3),
 							CallFunc::create([=]() {this->removeChildByName("celebration");  _menuContext->showAnswer("wordPairs", _sentenceShow); }), NULL));
@@ -1075,10 +1075,13 @@ void Owl::recreateKeyboardLetters() {
 			auto labelOnKeyboardGrid = this->getChildByTag(800 + counter);
 			if (labelOnKeyboardGrid) {
 				
-				labelOnKeyboardGrid->setName(bag[counter++]);
-				auto label = labelOnKeyboardGrid->getChildByTag(1);
-				label->setName(labelOnKeyboardGrid->getName());
-				((CommonLabelTTF*)label)->setString(labelOnKeyboardGrid->getName());
+				labelOnKeyboardGrid->setName(bag[counter]);
+				((Speaker*)labelOnKeyboardGrid)->updateStringInSpeaker(bag[counter]);
+				CCLOG("ROW: %d  COLUMN: %d   letter : %s", i, j, bag[counter].c_str());
+				counter++;
+//				auto label = labelOnKeyboardGrid->getChildByTag(1);
+//				label->setName(labelOnKeyboardGrid->getName());		// ERROR AFTER ONE BUILDING DONE !!!
+//				((CommonLabelTTF*)label)->setString(labelOnKeyboardGrid->getName());
 			}
 		}
 	}
