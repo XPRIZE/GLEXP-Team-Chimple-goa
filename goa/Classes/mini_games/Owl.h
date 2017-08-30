@@ -72,6 +72,8 @@ public:
 
 	void addEventsOnGrid(cocos2d::Sprite * callerObject);
 
+	void triggerTheOwlActivity(cocos2d::Touch * touch, cocos2d::Event * event);
+
 	void checkMistakeOnWord();
 
 	void pronounceWord();

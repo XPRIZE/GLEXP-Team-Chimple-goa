@@ -10,6 +10,7 @@
 #include "../menu/HelpLayer.h"
 #include "../util/CommonLabelTTF.h"
 #include "../util/MatrixUtil.h"
+#include "../util/Speaker.h"
 
 USING_NS_CC;
 
@@ -453,7 +454,8 @@ void Owl::createGrid() {
 	auto bag = matrixValue[0];
 	auto keyboardAllLetters = matrixValue[0].size();
 
-	auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
+	Speaker* speaker = new Speaker();
+	auto gridObject = speaker->createSpeaker("", Vec2(0, 0));
 	float space = visibleSize.width - (gridObject->getContentSize().width * keyboardAllLetters/2);
 	float IndiSpace = space / ((keyboardAllLetters / 2) + 1);
 	float xPosi = IndiSpace + gridObject->getContentSize().width / 2;
@@ -469,21 +471,28 @@ void Owl::createGrid() {
 		}
 
 		for (int column = 1; column <= keyboardAllLetters/2; column++) {
-			auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
-			setSpriteProperties(gridObject, xPosi, height, 1, 1, 0.5, 0.5, 0, 1);
+		
+			Speaker* speaker = new Speaker();
+			auto gridObject = speaker->createSpeaker(bag[counter], Vec2(xPosi, height),true);
+			addChild(gridObject,1);
+
+
+
+			//auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
+			//setSpriteProperties(gridObject, xPosi, height, 1, 1, 0.5, 0.5, 0, 1);
 			xPosi = xPosi + IndiSpace + gridObject->getContentSize().width;
-			addEventsOnGrid(gridObject);
+			addEventsOnGrid((Sprite*)gridObject);
 			
 			// Set Alphabet one by one in KEYBOARD ... 
 
-			auto label = CommonLabelTTF::create(bag[counter], "Helvetica", gridObject->getContentSize().width * 0.8);
-			label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
-			label->setColor(Color3B::WHITE);
-			label->setName(bag[counter]);
-			label->setTag(1);
+			//auto label = CommonLabelTTF::create(bag[counter], "Helvetica", gridObject->getContentSize().width * 0.8);
+			//label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
+			//label->setColor(Color3B::WHITE);
+			//label->setName(bag[counter]);
+			//label->setTag(1);
 
 			gridObject->setName(bag[counter]);
-			gridObject->addChild(label);
+			//gridObject->addChild(label);
 			gridObject->setTag(800+counter);
 			counter++;
 		}
@@ -548,20 +557,11 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 	{
 		auto target = event->getCurrentTarget();
 		Size s = target->getContentSize();
-		Rect rect = Rect(0, 0, s.width, s.height);
-		if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+		Rect rect = Rect(target->getPositionX() - s.width/2, target->getPositionY() - s.height / 2, s.width, s.height);
+		if (rect.containsPoint(touch->getLocation())) {
 			
-			auto childText =  target->getChildByName(target->getName());
 			target->setColor(Color3B::GRAY);
-			auto x = childText->getName();
-			CCLOG("Touched : %s", x.c_str());
-/*
-			if (LangUtil::getInstance()->getLang() == "eng" || LangUtil::getInstance()->getLang() == "swa") {
-				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileName(x);
-				audio->playEffect(path.c_str(), false);
-			}
-*/
+			
 			return true;
 		}
 		return false;
@@ -576,220 +576,233 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			target->setColor(Color3B(255,255,255));
 			CCLOG("Touched : %s",x.c_str());
 			bool flipBird = false;
-			if (target->getBoundingBox().containsPoint(touch->getLocation())) {
+			triggerTheOwlActivity(touch, event);
 
-				std::ostringstream blockName;	blockName << "blockLevel1" << _blockLevel1; std::string blockNameInString = blockName.str();
-				
-				if (_blockLevel1 <= _data_key.size()) {
-					auto blockChild = target->getParent()->getChildByName(blockNameInString)->getChildren();
-
-					if (blockChild.at(_textCounter)->getName() == target->getName() && _flagToControlMuiltipleTouch) {
-						_flagToControlMuiltipleTouch = false;
-						
-						if (_flagTurnHelp && (_menuContext->getCurrentLevel() == 1)) {
-							this->removeChildByName("helpLayer");
-							_flagTurnHelp = false;
-						}
-						_menuContext->addPoints(1);
-						_menuContext->wordPairList(_data_key[_textBoard], getConvertVectorStringIntoString(_data_value[_textBoard]));
-
-						//auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-						//audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
-						auto y = _sprite->getPositionY() - target->getPositionY();
-						auto x = -_sprite->getPositionX() + target->getPositionX();
-						float dist = sqrt((y*y) + (x*x));
-						auto blockBox = target->getParent()->getChildByName(blockNameInString);
-
-						auto moveToAlphaGridAction = MoveTo::create(dist/1300,Vec2(target->getPositionX(),target->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
-						auto moveToAnswerGridAction = MoveTo::create(dist / 1300, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width/2)+blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY()+_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height/ _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
-						auto callFunct = CallFunc::create([=]() {
-							_flagDemo = true;
-							_flagToControlMuiltipleTouch = true;
-							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(false);
-							blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
-							
-							auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-							audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
-							
-							_textCounter++;
-							_xStart = _sprite->getPositionX();      // Pixels
-							_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
-							if (counter % 2 != 0) {
-								_sprite->setScaleX(1.0f);
-								_xStop = blockBox->getPositionX() - blockBox->getContentSize().width/2;
-								_ticks = 0;
-								_ticksTotal = 3 / (1.0/60.0);// Pixels
-							}else {
-								_sprite->setScaleX(-1.0f);
-								_xStop = blockBox->getPositionX() + blockBox->getContentSize().width / 2;
-								_ticks = 0;
-								_ticksTotal = 3 / (1.0/60.0);// Pixels
-							}
-
-							if (_textCounter == blockChild.size() && _blockLevel1 < _data_key.size()) {
-								std::ostringstream boardName;
-								boardName << _sentence <<" : "<< _data_key[++_textBoard];
-
-								_textLabel->setString(boardName.str());
-								setBuildingBlock(++_blockLevel1);
-								recreateKeyboardLetters();
-								crateLetterGridOnBuilding(_blockLevel1, _data_value[_textBoard]);
-								_textCounter = 0;
-							}
-							else if (_textCounter == blockChild.size() && _blockLevel1 == _data_key.size() && _removeCharacterAnimation) {
-								_textCounter = 0;
-								_blockLevel1++;
-								_removeCharacterAnimation = false;
-								this->runAction(Sequence::create(CallFunc::create([=]() {
-
-									_flagDemo = false;
-									_flagDemoSecond = false;
-									_sprite->runAction(ScaleTo::create(1.0f, _sprite->getScaleX()*1.3f , _sprite->getScaleY()*1.3f));
-									_sprite->runAction(MoveTo::create(1, Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2)));
-									
-								}), 
-									DelayTime::create(1),
-									CallFunc::create([=]() {
-								
-									CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("res/owllevel/particle_texture.plist");
-									_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("res/owllevel/particle_texture.png"));
-									_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
-									_particle->setName("celebration");
-									this->addChild(_particle, 5);
-									auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-									audioBg->playEffect("res/sounds/sfx/success.ogg", false);
-
-								}),
-									DelayTime::create(3),
-									CallFunc::create([=]() {this->removeChildByName("celebration");  _menuContext->showAnswer("wordPairs", _sentenceShow); }), NULL));
-							}
-						});
-						//_textCounter == blockChild.size() && _blockLevel1 == _data_key.size()
-						CCLOG("blockGridSize : %d  , _textCounter value : %d , _blocklevel1 : %d , _data_key.size() : %d ", blockChild.size(), _textCounter, _blockLevel1, _data_key.size());
-						auto pickBoard = CallFunc::create([=]() { 
-							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
-							_textOwlBoard->setString(target->getName());
-
-								if (_sprite->getPositionX() < blockChild.at(_textCounter)->getPositionX()) {
-									_sprite->setScaleX(-1.0f);
-								}
-								else {
-									_sprite->setScaleX(1.0f);
-								}
-								if (_sprite->getScaleX() == -1) {
-									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(-1.0f);
-								}
-								else {
-									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(1.0f);
-								}
-						});
-						auto initAction = CallFunc::create([=]() {
-							_flagDemo = false;
-								if (_sprite->getPositionX() < target->getPositionX()) {
-									_sprite->setScaleX(-1.0f);			
-								}
-								else {
-									_sprite->setScaleX(1.0f);
-								}
-						});
-						_sprite->runAction(Sequence::create(initAction, moveToAlphaGridAction, pickBoard, moveToAnswerGridAction, callFunct, NULL));
-					}
-
-					else if(blockChild.at(_textCounter)->getName() != target->getName() && _flagToControlMuiltipleTouch ){
-						_menuContext->addPoints(-1);
-						//auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-						//audioBg->playEffect("res/sounds/sfx/error.ogg", false);
-						_flagToControlMuiltipleTouch = false;
-						auto y = _sprite->getPositionY() - target->getPositionY();
-						auto x = -_sprite->getPositionX() + target->getPositionX();
-						float dist = sqrt((y*y) + (x*x));
-						auto blockBox = target->getParent()->getChildByName(blockNameInString);
-
-						auto moveToAlphaGridAction = MoveTo::create(dist / 1300, Vec2(target->getPositionX(), target->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
-						auto moveToAnswerGridAction = MoveTo::create(dist / 1300, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
-						auto afterDrop = CallFunc::create([=]() {
-							 blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(true);
-							_flagDemo = true;
-							_flagToControlMuiltipleTouch = true;
-							this->removeChildByName("transImg");
-							this->removeChildByName("whiteLetterDrop");
-						});
-						auto callFunct = CallFunc::create([=]() {
-							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(false);
-							blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
-							
-							auto whiteTrans = Sprite::createWithSpriteFrameName(_sceneMap.at(_owlCurrentTheme).at("gridWhite"));
-							setSpriteProperties(whiteTrans, (target->getParent()->getChildByName(blockNameInString)->getPositionX() - target->getParent()->getChildByName(blockNameInString)->getContentSize().width/2) + blockChild.at(_textCounter)->getPositionX(), (target->getParent()->getChildByName(blockNameInString)->getPositionY() - target->getParent()->getChildByName(blockNameInString)->getContentSize().height/ 2) + blockChild.at(_textCounter)->getPositionY(),1, 1, 0.5, 0.5, 0, 3);
-							whiteTrans->setOpacity(80);
-							whiteTrans->setName("transImg");
-							
-							if(LevelInfoForSpeaker())
-								checkMistakeOnWord();
-
-							auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
-							audioBg->playEffect("res/sounds/sfx/error.ogg", false);
-
-							_xStart = _sprite->getPositionX();      // Pixels
-							_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
-							if (counter % 2 != 0) {
-								_sprite->setScaleX(1.0f);
-								_xStop = blockBox->getPositionX() - blockBox->getContentSize().width / 2;
-								_ticks = 0;
-								_ticksTotal = 3 / (1.0 / 60.0);// Pixels
-							}
-							else {
-								_sprite->setScaleX(-1.0f);
-								_xStop = blockBox->getPositionX() + blockBox->getContentSize().width / 2;
-								_ticks = 0;
-								_ticksTotal = 3 / (1.0 / 60.0);// Pixels
-							}
-
-							auto whiteTran = Sprite::createWithSpriteFrameName(_sceneMap.at(_owlCurrentTheme).at("gridWhite"));
-							setSpriteProperties(whiteTran, (target->getParent()->getChildByName(blockNameInString)->getPositionX() - target->getParent()->getChildByName(blockNameInString)->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), (target->getParent()->getChildByName(blockNameInString)->getPositionY() - target->getParent()->getChildByName(blockNameInString)->getContentSize().height / 2) + blockChild.at(_textCounter)->getPositionY(), 1, 1, 0.5, 0.5, 0, 3);
-							whiteTran->setName("whiteLetterDrop");
-							
-							auto labelWhite = CommonLabelTTF::create(target->getName(), "Helvetica", whiteTran->getContentSize().width * 0.8);
-							whiteTran->addChild(labelWhite);
-							labelWhite->setPosition(Vec2(whiteTran->getContentSize().width / 2, whiteTran->getContentSize().height / 2));
-							labelWhite->setColor(Color3B::BLACK);
-							whiteTran->runAction(MoveTo::create(0.6, Vec2(whiteTran->getPositionX(), whiteTran->getPositionY() - 300)));
-						});
-						auto pickBoard = CallFunc::create([=]() {
-								if (_sprite->getPositionX() < blockChild.at(_textCounter)->getPositionX()) {
-									_sprite->setScaleX(-1.0f);
-								}
-								else {
-									_sprite->setScaleX(1.0f);
-								}
-								if (_sprite->getScaleX() == -1) {
-									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(-1.0f);
-								}
-								else {
-									_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(1.0f);
-								}
-
-							_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
-							_textOwlBoard->setString(target->getName());
-						});
-						auto initAction = CallFunc::create([=]() {
-							_flagDemo = false;
-								if (_sprite->getPositionX() < target->getPositionX()) {
-									_sprite->setScaleX(-1.0f);
-								}
-								else {
-									_sprite->setScaleX(1.0f);
-								}
-						});
-						_sprite->runAction(Sequence::create(initAction, moveToAlphaGridAction, pickBoard, moveToAnswerGridAction, callFunct, DelayTime::create(0.6),afterDrop, NULL));
-					}
-				}
-			}
 		return false;
 	};
 
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
 }
 
+void Owl::triggerTheOwlActivity(cocos2d::Touch* touch, cocos2d::Event* event) {
+	auto target = event->getCurrentTarget();
+	Size s = target->getContentSize();
+	Rect rect = Rect(target->getPositionX() - s.width / 2, target->getPositionY() - s.height / 2, s.width, s.height);
+	
+	bool isCheckBoxSelected = true;
+	
+	isCheckBoxSelected = ((Speaker*)target)->getCheckBoxStatus();
+
+	if (rect.containsPoint(touch->getLocation()) && isCheckBoxSelected) {
+
+		std::ostringstream blockName;	blockName << "blockLevel1" << _blockLevel1; std::string blockNameInString = blockName.str();
+
+		if (_blockLevel1 <= _data_key.size()) {
+			auto blockChild = target->getParent()->getChildByName(blockNameInString)->getChildren();
+
+			if (blockChild.at(_textCounter)->getName() == target->getName() && _flagToControlMuiltipleTouch) {
+				_flagToControlMuiltipleTouch = false;
+
+				if (_flagTurnHelp && (_menuContext->getCurrentLevel() == 1)) {
+					this->removeChildByName("helpLayer");
+					_flagTurnHelp = false;
+				}
+				_menuContext->addPoints(1);
+				_menuContext->wordPairList(_data_key[_textBoard], getConvertVectorStringIntoString(_data_value[_textBoard]));
+
+				//auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+				//audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
+				auto y = _sprite->getPositionY() - target->getPositionY();
+				auto x = -_sprite->getPositionX() + target->getPositionX();
+				float dist = sqrt((y*y) + (x*x));
+				auto blockBox = target->getParent()->getChildByName(blockNameInString);
+
+				auto moveToAlphaGridAction = MoveTo::create(dist / 1300, Vec2(target->getPositionX(), target->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+				auto moveToAnswerGridAction = MoveTo::create(dist / 1300, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+				auto callFunct = CallFunc::create([=]() {
+					_flagDemo = true;
+					_flagToControlMuiltipleTouch = true;
+					_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(false);
+					blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
+
+					auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+					audioBg->playEffect("res/sounds/sfx/drop_obj.ogg", false);
+
+					_textCounter++;
+					_xStart = _sprite->getPositionX();      // Pixels
+					_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
+					if (counter % 2 != 0) {
+						_sprite->setScaleX(1.0f);
+						_xStop = blockBox->getPositionX() - blockBox->getContentSize().width / 2;
+						_ticks = 0;
+						_ticksTotal = 3 / (1.0 / 60.0);// Pixels
+					}
+					else {
+						_sprite->setScaleX(-1.0f);
+						_xStop = blockBox->getPositionX() + blockBox->getContentSize().width / 2;
+						_ticks = 0;
+						_ticksTotal = 3 / (1.0 / 60.0);// Pixels
+					}
+
+					if (_textCounter == blockChild.size() && _blockLevel1 < _data_key.size()) {
+						std::ostringstream boardName;
+						boardName << _sentence << " : " << _data_key[++_textBoard];
+
+						_textLabel->setString(boardName.str());
+						setBuildingBlock(++_blockLevel1);
+						recreateKeyboardLetters();
+						crateLetterGridOnBuilding(_blockLevel1, _data_value[_textBoard]);
+						_textCounter = 0;
+					}
+					else if (_textCounter == blockChild.size() && _blockLevel1 == _data_key.size() && _removeCharacterAnimation) {
+						_textCounter = 0;
+						_blockLevel1++;
+						_removeCharacterAnimation = false;
+						this->runAction(Sequence::create(CallFunc::create([=]() {
+
+							_flagDemo = false;
+							_flagDemoSecond = false;
+							_sprite->runAction(ScaleTo::create(1.0f, _sprite->getScaleX()*1.3f, _sprite->getScaleY()*1.3f));
+							_sprite->runAction(MoveTo::create(1, Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2)));
+
+						}),
+							DelayTime::create(1),
+							CallFunc::create([=]() {
+
+							CCParticleSystemQuad *_particle = CCParticleSystemQuad::create("res/owllevel/particle_texture.plist");
+							_particle->setTexture(CCTextureCache::sharedTextureCache()->addImage("res/owllevel/particle_texture.png"));
+							_particle->setPosition(Vec2(Director::getInstance()->getVisibleSize().width / 2, Director::getInstance()->getVisibleSize().height / 2));
+							_particle->setName("celebration");
+							this->addChild(_particle, 5);
+							auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+							audioBg->playEffect("res/sounds/sfx/success.ogg", false);
+
+						}),
+							DelayTime::create(3),
+							CallFunc::create([=]() {this->removeChildByName("celebration");  _menuContext->showAnswer("wordPairs", _sentenceShow); }), NULL));
+					}
+				});
+				//_textCounter == blockChild.size() && _blockLevel1 == _data_key.size()
+				CCLOG("blockGridSize : %d  , _textCounter value : %d , _blocklevel1 : %d , _data_key.size() : %d ", blockChild.size(), _textCounter, _blockLevel1, _data_key.size());
+				auto pickBoard = CallFunc::create([=]() {
+					_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
+					_textOwlBoard->setString(target->getName());
+
+					if (_sprite->getPositionX() < blockChild.at(_textCounter)->getPositionX()) {
+						_sprite->setScaleX(-1.0f);
+					}
+					else {
+						_sprite->setScaleX(1.0f);
+					}
+					if (_sprite->getScaleX() == -1) {
+						_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(-1.0f);
+					}
+					else {
+						_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(1.0f);
+					}
+				});
+				auto initAction = CallFunc::create([=]() {
+					_flagDemo = false;
+					if (_sprite->getPositionX() < target->getPositionX()) {
+						_sprite->setScaleX(-1.0f);
+					}
+					else {
+						_sprite->setScaleX(1.0f);
+					}
+				});
+				_sprite->runAction(Sequence::create(initAction, moveToAlphaGridAction, pickBoard, moveToAnswerGridAction, callFunct, NULL));
+			}
+
+			else if (blockChild.at(_textCounter)->getName() != target->getName() && _flagToControlMuiltipleTouch) {
+				_menuContext->addPoints(-1);
+				//auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+				//audioBg->playEffect("res/sounds/sfx/error.ogg", false);
+				_flagToControlMuiltipleTouch = false;
+				auto y = _sprite->getPositionY() - target->getPositionY();
+				auto x = -_sprite->getPositionX() + target->getPositionX();
+				float dist = sqrt((y*y) + (x*x));
+				auto blockBox = target->getParent()->getChildByName(blockNameInString);
+
+				auto moveToAlphaGridAction = MoveTo::create(dist / 1300, Vec2(target->getPositionX(), target->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+				auto moveToAnswerGridAction = MoveTo::create(dist / 1300, Vec2((blockBox->getPositionX() - blockBox->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), blockBox->getPositionY() + _sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("bodyCharacter"))->getContentSize().height / _owlPropertyMap.at(_owlCurrentTheme).at("owlheightToAlpha")));
+				auto afterDrop = CallFunc::create([=]() {
+					blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(true);
+					_flagDemo = true;
+					_flagToControlMuiltipleTouch = true;
+					this->removeChildByName("transImg");
+					this->removeChildByName("whiteLetterDrop");
+				});
+				auto callFunct = CallFunc::create([=]() {
+					_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(false);
+					blockChild.at(_textCounter)->getChildByName("hideBoard")->setVisible(false);
+
+					auto whiteTrans = Sprite::createWithSpriteFrameName(_sceneMap.at(_owlCurrentTheme).at("gridWhite"));
+					setSpriteProperties(whiteTrans, (target->getParent()->getChildByName(blockNameInString)->getPositionX() - target->getParent()->getChildByName(blockNameInString)->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), (target->getParent()->getChildByName(blockNameInString)->getPositionY() - target->getParent()->getChildByName(blockNameInString)->getContentSize().height / 2) + blockChild.at(_textCounter)->getPositionY(), 1, 1, 0.5, 0.5, 0, 3);
+					whiteTrans->setOpacity(80);
+					whiteTrans->setName("transImg");
+
+					if (LevelInfoForSpeaker())
+						checkMistakeOnWord();
+
+					auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+					audioBg->playEffect("res/sounds/sfx/error.ogg", false);
+
+					_xStart = _sprite->getPositionX();      // Pixels
+					_yStart = blockBox->getPositionY() + blockBox->getContentSize().height;
+					if (counter % 2 != 0) {
+						_sprite->setScaleX(1.0f);
+						_xStop = blockBox->getPositionX() - blockBox->getContentSize().width / 2;
+						_ticks = 0;
+						_ticksTotal = 3 / (1.0 / 60.0);// Pixels
+					}
+					else {
+						_sprite->setScaleX(-1.0f);
+						_xStop = blockBox->getPositionX() + blockBox->getContentSize().width / 2;
+						_ticks = 0;
+						_ticksTotal = 3 / (1.0 / 60.0);// Pixels
+					}
+
+					auto whiteTran = Sprite::createWithSpriteFrameName(_sceneMap.at(_owlCurrentTheme).at("gridWhite"));
+					setSpriteProperties(whiteTran, (target->getParent()->getChildByName(blockNameInString)->getPositionX() - target->getParent()->getChildByName(blockNameInString)->getContentSize().width / 2) + blockChild.at(_textCounter)->getPositionX(), (target->getParent()->getChildByName(blockNameInString)->getPositionY() - target->getParent()->getChildByName(blockNameInString)->getContentSize().height / 2) + blockChild.at(_textCounter)->getPositionY(), 1, 1, 0.5, 0.5, 0, 3);
+					whiteTran->setName("whiteLetterDrop");
+
+					auto labelWhite = CommonLabelTTF::create(target->getName(), "Helvetica", whiteTran->getContentSize().width * 0.8);
+					whiteTran->addChild(labelWhite);
+					labelWhite->setPosition(Vec2(whiteTran->getContentSize().width / 2, whiteTran->getContentSize().height / 2));
+					labelWhite->setColor(Color3B::BLACK);
+					whiteTran->runAction(MoveTo::create(0.6, Vec2(whiteTran->getPositionX(), whiteTran->getPositionY() - 300)));
+				});
+				auto pickBoard = CallFunc::create([=]() {
+					if (_sprite->getPositionX() < blockChild.at(_textCounter)->getPositionX()) {
+						_sprite->setScaleX(-1.0f);
+					}
+					else {
+						_sprite->setScaleX(1.0f);
+					}
+					if (_sprite->getScaleX() == -1) {
+						_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(-1.0f);
+					}
+					else {
+						_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setScaleX(1.0f);
+					}
+
+					_sprite->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard"))->setVisible(true);
+					_textOwlBoard->setString(target->getName());
+				});
+				auto initAction = CallFunc::create([=]() {
+					_flagDemo = false;
+					if (_sprite->getPositionX() < target->getPositionX()) {
+						_sprite->setScaleX(-1.0f);
+					}
+					else {
+						_sprite->setScaleX(1.0f);
+					}
+				});
+				_sprite->runAction(Sequence::create(initAction, moveToAlphaGridAction, pickBoard, moveToAnswerGridAction, callFunct, DelayTime::create(0.6), afterDrop, NULL));
+			}
+		}
+	}
+}
 
 // This the method to check the mistake done by kids ... after max 3 wrong attempt show the 
 // TEXT ON BOARD and after few second again disapper board and set speaker ....
