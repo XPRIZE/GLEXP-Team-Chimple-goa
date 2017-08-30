@@ -37,13 +37,13 @@ Speaker*  Speaker::createSpeaker(string word,Vec2 position,bool selectionMode) {
 	_speakerWord = word;
 	_isCheckBoxEnable = selectionMode;
 
-	this->setPosition(position);
-
 	// create Speaker object ...
 	_speaker = Sprite::createWithSpriteFrameName("audio_icon/audio.png");
-	//_speaker->setPosition(position);
 	_speaker->setName("speaker");
 	addChild(_speaker);
+
+	this->setPosition(position);
+	this->setContentSize(Size(_speaker->getContentSize()));
 
 	if (_isCheckBoxEnable) {
 		// create checkBox object ...
@@ -68,9 +68,9 @@ Speaker*  Speaker::createSpeaker(string word,Vec2 position,bool selectionMode) {
 	listener->onTouchEnded = CC_CALLBACK_2(Speaker::onTouchEnded, this);
 	listener->setSwallowTouches(true);
 
-	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), _speaker);
+	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, _speaker);
 	if (_isCheckBoxEnable) {
-		cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, _checkBox);
+		cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), _checkBox);
 	}
 
 	return this;
@@ -96,14 +96,11 @@ bool Speaker::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 	if (target->getBoundingBox().containsPoint(locationInNode)) {
 		handleClickEffectOnSpeaker(event);
 
-		if(_speakerWord.length() > 0)
-			MenuContext::pronounceWord(_speakerWord);
-		
-		_speaker->runAction(ScaleTo::create(0.3, 0.8));
+		target->setColor(Color3B(211,211,211));
 
-		if (_isCheckBoxEnable)
-			_checkBox->runAction(ScaleTo::create(0.3,0.8));
-		
+		if(_speakerWord.length() > 0){
+			MenuContext::pronounceWord(_speakerWord);
+		}
 
 		return true;
 	}
@@ -114,11 +111,7 @@ bool Speaker::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 void Speaker::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 	
 	auto target = event->getCurrentTarget();
-
-	_speaker->runAction(ScaleTo::create(0.3, 1));
-	if(_isCheckBoxEnable)
-		_checkBox->runAction(ScaleTo::create(0.3, 1));
-	
+	target->setColor(Color3B::WHITE);
 	
 }
 
@@ -128,6 +121,7 @@ void Speaker::onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event) {
 */
 void Speaker::setCheckBoxStatus(bool isOptionSelected) {
 	_isOptionSelected = isOptionSelected;
+	_checkBox->getChildByName("tick")->setVisible(isOptionSelected);
 }
 
 
@@ -147,14 +141,9 @@ void Speaker::handleClickEffectOnSpeaker(cocos2d::Event* event)
 	auto target = event->getCurrentTarget();
 
 	if (target->getName().compare("checkbox") == 0) {
-		if (getCheckBoxStatus()) {
-			_checkBox->getChildByName("tick")->setVisible(false);
+		if (getCheckBoxStatus())
 			setCheckBoxStatus(false);
-		}
-		else {
-			_checkBox->getChildByName("tick")->setVisible(true);
-			setCheckBoxStatus(true);
-		}
+				setCheckBoxStatus(true);
 	}
 	else if(target->getName().compare("speaker") == 0){
 	
