@@ -44,7 +44,7 @@ Speaker*  Speaker::createSpeaker(string word,Vec2 position,bool selectionMode) {
 
 	this->setPosition(position);
 	this->setContentSize(Size(_speaker->getContentSize()));
-
+	
 	if (_isCheckBoxEnable) {
 		// create checkBox object ...
 		_checkBox = Sprite::createWithSpriteFrameName("audio_icon/check_box.png");
@@ -66,7 +66,7 @@ Speaker*  Speaker::createSpeaker(string word,Vec2 position,bool selectionMode) {
 	auto listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = CC_CALLBACK_2(Speaker::onTouchBegan, this);
 	listener->onTouchEnded = CC_CALLBACK_2(Speaker::onTouchEnded, this);
-	listener->setSwallowTouches(true);
+	listener->setSwallowTouches(false);
 
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, _speaker);
 	if (_isCheckBoxEnable) {
@@ -101,7 +101,6 @@ bool Speaker::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 		if(_speakerWord.length() > 0){
 			MenuContext::pronounceWord(_speakerWord);
 		}
-
 		return true;
 	}
 	return false;
@@ -139,16 +138,12 @@ Speaker and checkBox button effects and enabel or disable the checkBox status
 void Speaker::handleClickEffectOnSpeaker(cocos2d::Event* event)
 {
 	auto target = event->getCurrentTarget();
-
 	if (target->getName().compare("checkbox") == 0) {
-		if (getCheckBoxStatus())
+		if (getCheckBoxStatus()) {
 			setCheckBoxStatus(false);
-				setCheckBoxStatus(true);
-	}
-	else if(target->getName().compare("speaker") == 0){
-	
-	}
-	else {
-		CCLOG("CLICK ISSUES ON SPEAKER ... ");
+		}
+		else {
+			setCheckBoxStatus(true);
+		}
 	}
 }
