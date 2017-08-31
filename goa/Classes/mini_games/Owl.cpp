@@ -1076,7 +1076,7 @@ void Owl::recreateKeyboardLetters() {
 			if (labelOnKeyboardGrid) {
 				
 				labelOnKeyboardGrid->setName(bag[counter]);
-				((Speaker*)labelOnKeyboardGrid)->updateStringInSpeaker(bag[counter]);
+				((Speaker*)labelOnKeyboardGrid)->setStringInSpeaker(bag[counter]);
 				CCLOG("ROW: %d  COLUMN: %d   letter : %s", i, j, bag[counter].c_str());
 				counter++;
 //				auto label = labelOnKeyboardGrid->getChildByTag(1);
