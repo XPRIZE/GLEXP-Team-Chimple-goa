@@ -678,8 +678,9 @@ void StoryPlaying::renderTextAndPlayDialog(Node* parentNode, Node* storyTextNode
     renderStoryText(parentNode, storyTextNode);
     std::string pageI = MenuContext::to_string(_pageIndex + 1);
     _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
+    bool isSplitWordsEffectedLoaded = _loadedSplitWordsEffects.size() > 0;
     
-    if(_soundEnabled.compare("true") == 0 && !_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)) {
+    if(_soundEnabled.compare("true") == 0 && (isSplitWordsEffectedLoaded || (!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)))) {
         
         if(_isAudionEngineInitialized && _loadedSplitWordsEffects.size() > 0)
         {
