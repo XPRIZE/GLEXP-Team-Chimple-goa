@@ -11,7 +11,7 @@
 #include "../util/CommonLabelTTF.h"
 
 USING_NS_CC;
-
+// create scene AlphaPhonic game ..
 Scene* AlphaPhonics::createScene()
 {
 	auto scene = Scene::create();
@@ -22,6 +22,7 @@ Scene* AlphaPhonics::createScene()
 	return scene;
 }
 
+// create method is use for trigger init()
 AlphaPhonics *AlphaPhonics::create() {
 	AlphaPhonics *blast = new (std::nothrow) AlphaPhonics();
 	if (blast && blast->init()) {
@@ -32,6 +33,7 @@ AlphaPhonics *AlphaPhonics::create() {
 	return nullptr;
 }
 
+// init method calling ..
 bool AlphaPhonics::init()
 {
 	if (!Layer::init()) { return false; }
@@ -39,8 +41,10 @@ bool AlphaPhonics::init()
 	return true;
 }
 
+// after init onEnterTransitionDidFinish called ...
 void AlphaPhonics::onEnterTransitionDidFinish() {
 
+	//	Adding Background csb ....
 	Node* bg = CSLoader::createNode("alphaphonics/alphaphonics.csb");
 	addChild(bg);
 	bg->setName("bg");
@@ -49,6 +53,7 @@ void AlphaPhonics::onEnterTransitionDidFinish() {
 		auto myGameWidth = (Director::getInstance()->getVisibleSize().width - 2560) / 2;
 		bg->setPositionX(myGameWidth);
 	}
+
 	_optionValue = getRandomValueRange(1, 4, 4);
 	LiftAnimationHandler(_optionValue[liftOpenChoice]);
 
