@@ -314,5 +314,6 @@ BasicLetterCase::BasicLetterCase(){
 
 BasicLetterCase::~BasicLetterCase(void)
 {
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 	this->removeAllChildrenWithCleanup(true);
 }
