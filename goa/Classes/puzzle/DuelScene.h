@@ -28,6 +28,7 @@ public:
     
     static const char* gameName() { return DUEL_SCENE.c_str();}
     void onEnterTransitionDidFinish() override;
+    void onLessonReady(cocos2d::EventCustom* eventCustom);
     
 CC_CONSTRUCTOR_ACCESS:
     DuelScene();

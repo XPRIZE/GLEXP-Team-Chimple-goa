@@ -50,6 +50,25 @@ public class User {
         this.coins = coins;
     }
 
+    @Ignore
+    public User(String[] columns) {
+        if(columns.length < 6) {
+            throw new IllegalArgumentException("User: Column length lesser than expected");
+        }
+        if(!columns[0].equals("User")) {
+            throw new IllegalArgumentException("User: table name is not User");
+        }
+        try {
+            id = Long.parseLong(columns[1]);
+            name = columns[2];
+            photo = columns[3];
+            currentLessonId = Long.parseLong(columns[4]);
+            coins = Integer.parseInt(columns[5]);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("User: Failed parsing string to number");
+        }
+    }
+
     public User() {
 
     }

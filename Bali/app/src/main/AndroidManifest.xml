@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.chimple.bali">
 
+    <permission android:name="org.chimple.bali.provider.READ_WRITE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -35,6 +37,13 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
             android:theme="@style/FullscreenTheme"></activity>
+
+        <provider
+            android:name=".provider.LessonContentProvider"
+            android:authorities="org.chimple.bali.provider"
+            android:exported="true"
+            android:permission="org.chimple.bali.provider.READ_WRITE"/>
+
     </application>
 
 </manifest>

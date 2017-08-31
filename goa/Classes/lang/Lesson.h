@@ -66,7 +66,11 @@ public:
     void setConcept(CONCEPT concept);
     void setComplexityAndConcept(int cc);
     CONCEPT getConcept();
-
+    
+    std::function<void(std::vector<MultiChoice>)> multiChoiceReadyCallback;
+    virtual void onReceivedMultipleChoiceQuiz(cocos2d::EventCustom *eventCustom);
+    static std::vector<MultiChoice> unmarshallMultiChoices(std::string* strArray);
+    
 CC_CONSTRUCTOR_ACCESS:
     Lesson();
     virtual ~Lesson();

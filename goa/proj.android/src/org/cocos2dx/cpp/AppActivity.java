@@ -78,6 +78,8 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.UUID;
 import android.widget.Toast;
+import android.net.Uri;
+import android.database.Cursor;
 
 public class AppActivity extends Cocos2dxActivity {
 	static {
@@ -241,6 +243,77 @@ public class AppActivity extends Cocos2dxActivity {
 
 		}
 	}
+
+	public static native void setMultipleChoiceQuiz(String[] jsonInfo);
+
+    public static final String AUTHORITY = "org.chimple.bali.provider";
+
+    public static final String MULTIPLE_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
+
+    public static final String COL_HELP = "help";
+    public static final String COL_QUESTION = "question";
+    public static final String COL_CORRECT_ANSWER = "correct_answer";
+    public static final String COL_CHOICE = "choice_";
+
+    /** The URI for the Multiple Choice Quiz */
+    public static final Uri URI_MULTIPLE_CHOICE_QUIZ = Uri.parse(
+            "content://" + AUTHORITY + "/" + MULTIPLE_CHOICE_QUIZ);
+
+    public static void queryMultipleChoiceQuiz(int numQuizes, int numChoices) {
+    	System.out.println("entry queryMultipleChoiceQuiz");
+    	new AsyncTask<int[], Void, Void>() {
+			@Override
+			protected Void doInBackground(int[]... params) {
+				System.out.println("doInBackground");
+
+				Cursor cursor = _context.getContentResolver().query(
+	                URI_MULTIPLE_CHOICE_QUIZ,
+	                null,
+	                null,
+	                new String[]{Integer.toString(params[0][0]), Integer.toString(params[0][1])},
+	                null
+        		);
+        		System.out.println("called getContentResolver");
+
+		        if(cursor == null) {
+
+		        } else if (cursor.getCount() < 1) {
+		        } else {
+		        	System.out.println("got data getContentResolver");
+		            String[] columnNames = cursor.getColumnNames();
+		            for (String s: columnNames ) {
+		            	System.out.println(s);
+		            }
+		            String[] sendArray = new String[cursor.getCount() * columnNames.length + 2];
+		            int i = 0;
+		            sendArray[i++] = Integer.toString(cursor.getCount());
+		            sendArray[i++] = Integer.toString(columnNames.length - 3);
+		            while (cursor.moveToNext()) {
+		            	int j = 0;
+		                sendArray[i++] = cursor.getString(j++);
+		                sendArray[i++] = cursor.getString(j++);
+		                sendArray[i++] = Integer.toString(cursor.getInt(j++));
+		                for(; j < columnNames.length; j++) {
+		                	sendArray[i++] = cursor.getString(j);
+		                }
+		            }
+		            final String[] finalSendArray = sendArray;
+	                ((Cocos2dxActivity) _activity).runOnGLThread(new Runnable() {
+						@Override
+						public void run() {
+							System.out.println("calling setMultipleChoiceQuiz");
+							for (String s: finalSendArray ) {
+		            			System.out.println(s);
+		            		}
+	                		setMultipleChoiceQuiz(finalSendArray);
+						}
+					});
+		        }
+				return null;
+			}
+		}.execute(new int[]{numQuizes, numChoices});
+
+    }
 
 	public static native boolean discoveredBluetoothDevices(String devices);
 	

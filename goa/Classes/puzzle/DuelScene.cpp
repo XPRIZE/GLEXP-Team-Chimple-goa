@@ -46,7 +46,8 @@ _otherMonStr("")
 
 DuelScene::~DuelScene() {
     _eventDispatcher->removeCustomEventListeners("alphabet_selected");
-    _eventDispatcher->removeCustomEventListeners("alphabet_unselected");    
+    _eventDispatcher->removeCustomEventListeners("alphabet_unselected");
+    _eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 }
 
 Scene* DuelScene::createScene(Lesson* lesson) {
@@ -70,17 +71,37 @@ DuelScene* DuelScene::create()
 }
 
 void DuelScene::onEnterTransitionDidFinish() {
+//    getLesson()->multiChoiceReadyCallback = CC_CALLBACK_1(DuelScene::onLessonReady, this);
+    _eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(DuelScene::onLessonReady, this));
+    
+    getLesson()->getMultiChoices(2, 8);
+}
+
+void DuelScene::onLessonReady(cocos2d::EventCustom *eventCustom) {
+    CCLOG("onLessonReady begin");
+    std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+    CCLOG("onLessonReady to unmarshallMultiChoices");
+    vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
     if(_myMonStr.empty()) {
-        auto vmc = getLesson()->getMultiChoices(2, 8);
+        CCLOG("onLessonReady");
         auto mc = vmc[0];
+        CCLOG("onLessonReady1");
         _myMonStr = vmc[0].question;
+        std::transform(_myMonStr.begin(), _myMonStr.end(),_myMonStr.begin(), ::toupper);
+
+        CCLOG("onLessonReady2");
         _answer = vmc[0].answers[vmc[0].correctAnswer];
+        CCLOG("onLessonReady3");
         _choices = MatrixUtil::getOnlyChoices(vmc[0].answers, vmc[0].correctAnswer);
-        _otherMonStr = vmc[1].question;
+        CCLOG("onLessonReady4");
+        _otherMonStr = vmc.at(1).question;
+        std::transform(_otherMonStr.begin(), _otherMonStr.end(),_otherMonStr.begin(), ::toupper);
+
     }
     _background = CSLoader::createNode("battle_ground.csb");
     addChild(_background);
-    
+    CCLOG("onLessonReady5");
+
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
@@ -97,7 +118,8 @@ void DuelScene::onEnterTransitionDidFinish() {
     _timer->setPosition(Vec2(_timer->getPositionX() + offsetX, visibleSize.height * 3 / 4));
     _timerPosition = _timer->getPosition();
     _timer->setPosition(Vec2(_timerPosition.x, visibleSize.height + 150));
-    
+    CCLOG("onLessonReady6");
+
     auto right = _background->getChildByName(RIGHT_STAND_NAME);
     right->setPositionX(right->getPositionX() + offsetX);
     
@@ -108,7 +130,8 @@ void DuelScene::onEnterTransitionDidFinish() {
     panel->setContentSize(Size(visibleSize.width, panel->getContentSize().height));
     panel->addChild(_grid);
     _grid->setPosition(Vec2((panel->getContentSize().width - SQUARE_WIDTH * numCols) / 2, (panel->getContentSize().height - SQUARE_WIDTH * numRows) / 2));
-    
+    CCLOG("onLessonReady7");
+
     _timerAnimation = CSLoader::createTimeline("battle_ground/timer.csb");
     _timer->runAction(_timerAnimation);
     _timerAnimation->setLastFrameCallFunc(CC_CALLBACK_0(DuelScene::armMyMon, this));
@@ -116,6 +139,8 @@ void DuelScene::onEnterTransitionDidFinish() {
     
     _eventDispatcher->addCustomEventListener("alphabet_selected", CC_CALLBACK_1(DuelScene::onAlphabetSelected, this));
     _eventDispatcher->addCustomEventListener("alphabet_unselected", CC_CALLBACK_1(DuelScene::onAlphabetUnselected, this));
+    CCLOG("onLessonReady8");
+
     startDuel();
 }
 
@@ -130,6 +155,8 @@ bool DuelScene::init()
 }
 
 void DuelScene::startDuel() {
+    CCLOG("startDuel");
+
     auto node = CSLoader::createNode("booknode.csb");
     auto pos = Vec2(2300, 1600);
     node->setPosition(pos);
