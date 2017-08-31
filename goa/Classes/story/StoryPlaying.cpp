@@ -571,7 +571,7 @@ void StoryPlaying::preloadAllAudio() {
     std::string pageI = MenuContext::to_string(_pageIndex + 1);
     _splitSoundFilesDirectoryUrl = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI;
     
-    if(!_splitSoundFilesDirectoryUrl.empty() && FileUtils::getInstance()->isFileExist(_splitSoundFilesDirectoryUrl))
+    if(!_splitSoundFilesDirectoryUrl.empty())
     {
         int prefix = 0;
         std::string _splitFile = "";
