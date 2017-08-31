@@ -36,7 +36,8 @@ public:
 	Speaker();
 	~Speaker();
 	Speaker* createSpeaker(string word, Vec2 position, bool selectionMode = false);
-	void updateStringInSpeaker(string newWord);
+	string getStringInSpeaker();
+	void setStringInSpeaker(string newWord);
 	void setFreezCheckBoxTickStatus(bool freezSelectionOption);
 	bool getFreezCheckBoxTickStatus();
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
