@@ -7,6 +7,7 @@
 //
 
 #include "Lesson.h"
+#include "../menu/MenuContext.h"
 
 using namespace std;
 
@@ -24,6 +25,7 @@ static const int MIN_COMPLEXITY = 0;
 
 vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choices) {
     vector<Lesson::MultiChoice> vmc;
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
     vmc.reserve(lessons);
     for (int i = 0; i < lessons; i++) {
         Lesson::MultiChoice mc;
@@ -42,8 +44,94 @@ vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choices) {
         mc.answers = answers;
         vmc.insert(vmc.begin() + i, mc);
     }
+    string* sendArray = new string[lessons * (choices + 3) + 2];
+    int i = 0;
+    sendArray[i++] = MenuContext::to_string(lessons);
+    sendArray[i++] = MenuContext::to_string(choices);
+    for (int j = 0; j < lessons; j++) {
+        sendArray[i++] = "Select the same letter";
+        sendArray[i++] = allUpperStrings[j % allUpperStrings.size()];
+        sendArray[i++] = "0";
+        
+        for (int k = 0; k < choices; k++) {
+            sendArray[i++] = allUpperStrings[(j + k) % allUpperStrings.size()];
+        }
+    }
+    Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("multipleChoiceQuiz", static_cast<void*>(sendArray));
+    
+//    if(multiChoiceReadyCallback) {
+//        multiChoiceReadyCallback(vmc);
+    
+//    }
+#else
+    CCLOG("getMultiChoices");
+    cocos2d::JniMethodInfo methodInfo;
+    if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "queryMultipleChoiceQuiz", "(II)V")) {
+    }
+    CCLOG("calling getMultiChoices");
+    methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, lessons, choices);
+    methodInfo.env->DeleteLocalRef(methodInfo.classID);
+#endif
     return vmc;
 }
+
+void Lesson::onReceivedMultipleChoiceQuiz(cocos2d::EventCustom *eventCustom) {
+    std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+    CCLOG("onMultipleChoiceQuiz %s", buf[0].c_str());
+    CCLOG("onMultipleChoiceQuiz %s", buf[1].c_str());
+    CCLOG("onMultipleChoiceQuiz %s", buf[2].c_str());
+    if(multiChoiceReadyCallback) {
+        vector<Lesson::MultiChoice> vmc;
+        Lesson::MultiChoice mc;
+        mc.help = buf[0];
+        mc.question = buf[1];
+        mc.correctAnswer = 0;
+        vector<string> answers;
+        answers.reserve(10);
+        for (int i = 0; i < 10; i++) {
+            answers.insert(answers.begin() + i, buf[2]);
+        }
+        mc.answers = answers;
+        vmc.insert(vmc.begin() + 0, mc);
+
+        Lesson::MultiChoice mc1;
+        mc1.help = buf[0];
+        mc1.question = buf[1];
+        mc1.correctAnswer = 0;
+        vector<string> answers1;
+        answers1.reserve(10);
+        for (int i = 0; i < 10; i++) {
+            answers1.insert(answers1.begin() + i, buf[2]);
+        }
+        mc1.answers = answers1;
+        vmc.insert(vmc.begin() + 1, mc1);
+
+        multiChoiceReadyCallback(vmc);
+    }
+
+}
+
+vector<Lesson::MultiChoice> Lesson::unmarshallMultiChoices(std::string* strArray) {
+    vector<Lesson::MultiChoice> vmc;
+    int k = 0;
+    int numQuizes = atoi(strArray[k++].c_str());
+    int numChoices = atoi(strArray[k++].c_str());
+    for (int i = 0; i < numQuizes; i++) {
+        Lesson::MultiChoice mc;
+        mc.help = strArray[k++];
+        mc.question = strArray[k++];
+        mc.correctAnswer = atoi(strArray[k++].c_str());
+        vector<string> answers;
+        answers.reserve(numChoices);
+        for (int j = 0; j < numChoices; j++) {
+            answers.insert(answers.begin() + j, strArray[k++]);
+        }
+        mc.answers = answers;
+        vmc.insert(vmc.begin() + i, mc);
+    }
+    return vmc;
+}
+
 
 static const vector<vector<string>> wordsByLength = {
     {"N","O","N","E"},

@@ -59,6 +59,7 @@ public:
     void exitMultiPlayerGame();
     void sendMessageToPeer(std::string message);
     std::vector<std::string> split(std::string s, char delim);
+    std::vector<std::string> splitRegEx(std::string s, std::string delim);
     int getCurrentLevel();
     void setCurrentLevel(int level);
     int getMaxPoints();

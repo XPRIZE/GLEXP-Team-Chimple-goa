@@ -80,7 +80,7 @@ public class FlashCardView extends LinearLayout {
 
     private void initView(Context context, FlashCard flashCard) {
         mFlashCard = flashCard;
-        UserLogRepo.logEntity(UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.START_EVENT);
+        UserLogRepo.logEntity(context, UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.START_EVENT);
         setOrientation(HORIZONTAL);
 
         View objectView = getView(context, mFlashCard.objectUnit);
@@ -89,7 +89,7 @@ public class FlashCardView extends LinearLayout {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 1);
         addView(objectView, layoutParams);
-        UserLogRepo.logEntity(UserLog.UNIT_TYPE, flashCard.objectUnit.id, UserLog.START_EVENT);
+        UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.objectUnit.id, UserLog.START_EVENT);
 
         if(mFlashCard.subjectUnit != null) {
             View subjectView = getView(context, mFlashCard.subjectUnit);
@@ -98,7 +98,7 @@ public class FlashCardView extends LinearLayout {
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     1);
             addView(subjectView, sLayoutParams);
-            UserLogRepo.logEntity(UserLog.UNIT_TYPE, flashCard.subjectUnit.id, UserLog.START_EVENT);
+            UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.subjectUnit.id, UserLog.START_EVENT);
         }
     }
 

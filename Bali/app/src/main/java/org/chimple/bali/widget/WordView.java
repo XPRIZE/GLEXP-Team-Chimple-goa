@@ -1,4 +1,3 @@
-package org.chimple.bali.widget;
 /*
  * Copyright 2017, Team Chimple
  *
@@ -14,6 +13,8 @@ package org.chimple.bali.widget;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+package org.chimple.bali.widget;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;

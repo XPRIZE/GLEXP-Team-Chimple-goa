@@ -26,8 +26,8 @@ import android.util.Log;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class DatabaseCreator {
-    private static DatabaseCreator sInstance;
+public class DatabaseCreatorUnused {
+    private static DatabaseCreatorUnused sInstance;
 
     private final MutableLiveData<Boolean> mIsDatabaseCreated = new MutableLiveData<>();
 
@@ -38,11 +38,11 @@ public class DatabaseCreator {
     // For Singleton instantiation
     private static final Object LOCK = new Object();
 
-    public synchronized static DatabaseCreator getInstance() {
+    public synchronized static DatabaseCreatorUnused getInstance() {
         if (sInstance == null) {
             synchronized (LOCK) {
                 if (sInstance == null) {
-                    sInstance = new DatabaseCreator();
+                    sInstance = new DatabaseCreatorUnused();
                 }
             }
         }

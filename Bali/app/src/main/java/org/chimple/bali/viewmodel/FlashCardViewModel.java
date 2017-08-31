@@ -26,7 +26,6 @@ import android.arch.lifecycle.ViewModel;
 import android.arch.lifecycle.ViewModelProvider;
 import android.support.annotation.NonNull;
 
-import org.chimple.bali.db.DatabaseCreator;
 import org.chimple.bali.db.pojo.FlashCard;
 import org.chimple.bali.repo.FlashCardRepo;
 

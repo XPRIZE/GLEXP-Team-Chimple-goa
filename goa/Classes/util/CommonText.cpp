@@ -24,7 +24,7 @@ bool CommonText::touchSpeak(cocos2d::Touch* touch, cocos2d::Event* event) {
             runAction(Sequence::create(elasticUp, elasticDown, NULL));
             if(isInStory && !inStoryWhichFilename.empty())
             {
-                if(!MenuContext::_isInStoryDialogSpeechCurrentlyActive)
+                if(MenuContext::_isInStoryDialogSpeechCurrentlyActive)
                 {
                     MenuContext::pronounceSplitFileFromStory(inStoryWhichFilename);
                 }

@@ -64,6 +64,30 @@ public class LessonUnit {
         this.highlight = highlight;
     }
 
+    @Ignore
+    public LessonUnit(String[] columns) {
+        if(columns.length < 5) {
+            throw new IllegalArgumentException("LessonUnit: Column length lesser than expected");
+        }
+        if(!columns[0].equals("LessonUnit")) {
+            throw new IllegalArgumentException("LessonUnit: table name is not LessonUnit");
+        }
+        try {
+            id = Long.parseLong(columns[1]);
+            lessonId = Long.parseLong(columns[2]);
+            seq = Integer.parseInt(columns[3]);
+            subjectUnitId = Long.parseLong(columns[4]);
+            if(columns.length > 5 && columns[5] != null) {
+                objectUnitId = Long.parseLong(columns[5]);
+            }
+            if(columns.length > 6) {
+                highlight = columns[6];
+            }
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("LessonUnit: Failed parsing string to number");
+        }
+    }
+
     public LessonUnit() {
     }
 }

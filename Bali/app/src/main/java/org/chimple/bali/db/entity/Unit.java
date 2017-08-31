@@ -56,6 +56,26 @@ public class Unit {
         this.phonemeSound = phonemeSound;
     }
 
+    @Ignore
+    public Unit(String[] columns) {
+        if(columns.length < 7) {
+            throw new IllegalArgumentException("Unit: Column length lesser than expected");
+        }
+        if(!columns[0].equals("Unit")) {
+            throw new IllegalArgumentException("Unit: table name is not Unit");
+        }
+        try {
+            id = Long.parseLong(columns[1]);
+            name = columns[2];
+            type = Integer.parseInt(columns[3]);
+            picture = columns[4];
+            sound = columns[5];
+            phonemeSound = columns[6];
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Unit: Failed parsing string to number");
+        }
+    }
+
     public Unit() {
     }
 }

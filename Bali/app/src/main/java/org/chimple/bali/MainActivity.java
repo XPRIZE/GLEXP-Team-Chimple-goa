@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import org.chimple.bali.activity.FullscreenActivity;
 import org.chimple.bali.activity.LessonActivity;
-import org.chimple.bali.db.DatabaseCreator;
+import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.model.MultipleChoiceQuiz;
 import org.chimple.bali.service.LessonService;
 
@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        DatabaseCreator.getInstance().createDb(this);
+        //TODO: for now force the creation here
+        AppDatabase.getInstance(this);
     }
 
     public void startActivity(View v) {

@@ -22,17 +22,17 @@ import android.os.AsyncTask;
 
 import org.chimple.bali.R;
 import org.chimple.bali.db.AppDatabase;
-import org.chimple.bali.db.DatabaseCreator;
 import org.chimple.bali.db.entity.UserLesson;
 
 import java.util.Date;
 
 public class UserLessonRepo {
     public static void createOrUpdateUserLesson(Context context, Long lessonId, int score) {
-        new AsyncTask<Void, Void, Void>() {
+        new AsyncTask<Context, Void, Void>() {
             @Override
-            protected Void doInBackground(Void... voids) {
-                final AppDatabase db = DatabaseCreator.getInstance().getDatabase();
+            protected Void doInBackground(Context... params) {
+                Context context = params[0];
+                final AppDatabase db = AppDatabase.getInstance(context);
                 SharedPreferences sharedPref = context.getSharedPreferences(
                         context.getString(R.string.preference_file_key),
                         Context.MODE_PRIVATE);
@@ -53,6 +53,6 @@ public class UserLessonRepo {
                 }
                 return null;
             }
-        }.execute();
+        }.execute(context);
     }
 }

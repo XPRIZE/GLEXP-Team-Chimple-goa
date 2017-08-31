@@ -18,12 +18,48 @@ package org.chimple.bali.provider;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.UriMatcher;
 import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import org.chimple.bali.model.MultipleChoiceQuiz;
+import org.chimple.bali.repo.LessonRepo;
+
+import java.util.List;
+
 public class LessonContentProvider extends ContentProvider {
+    /** The authority of this content provider. */
+    public static final String AUTHORITY = "org.chimple.bali.provider";
+
+    public static final String MULTIPLE_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
+
+    private static final int DEFAULT_NUM_QUIZES = 1;
+    private static final int DEFAULT_NUM_CHOICES = 4;
+
+    public static final String COL_HELP = "help";
+    public static final String COL_QUESTION = "question";
+    public static final String COL_CORRECT_ANSWER = "correct_answer";
+    public static final String COL_CHOICE = "choice_";
+
+    /** The URI for the Multiple Choice Quiz */
+    public static final Uri URI_MULTIPLE_CHOICE_QUIZ = Uri.parse(
+            "content://" + AUTHORITY + "/" + MULTIPLE_CHOICE_QUIZ);
+
+    /** The match code for next quiz */
+    private static final int CODE_GET_MULTIPLE_CHOICE_QUIZ = 1;
+
+    /** The URI matcher. */
+    private static final UriMatcher MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
+
+    static {
+        MATCHER.addURI(AUTHORITY, MULTIPLE_CHOICE_QUIZ, CODE_GET_MULTIPLE_CHOICE_QUIZ);
+    }
+
+
     @Override
     public boolean onCreate() {
         return true;
@@ -31,14 +67,64 @@ public class LessonContentProvider extends ContentProvider {
 
     @Nullable
     @Override
-    public Cursor query(@NonNull Uri uri, @Nullable String[] strings, @Nullable String s, @Nullable String[] strings1, @Nullable String s1) {
-        return null;
+    public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection,
+                        @Nullable String[] selectionArgs, @Nullable String sortOrder) {
+        final int code = MATCHER.match(uri);
+        if(code == CODE_GET_MULTIPLE_CHOICE_QUIZ) {
+            final Context context = getContext();
+            if (context == null) {
+                return null;
+            }
+            int numQuizes = DEFAULT_NUM_QUIZES;
+            int numChoices = DEFAULT_NUM_CHOICES;
+            if(selectionArgs != null) {
+                if(selectionArgs.length >= 1) {
+                    try {
+                        numQuizes = Integer.parseInt(selectionArgs[0]);
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                    if(selectionArgs.length >= 2) {
+                        try {
+                            numChoices = Integer.parseInt(selectionArgs[1]);
+                        } catch (NumberFormatException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+            List<MultipleChoiceQuiz> mcqList = LessonRepo.getMultipleChoiceQuizes(context, numQuizes, numChoices);
+            String[] rowNames = new String[numChoices + 3];
+            rowNames[0] = COL_HELP;
+            rowNames[1] = COL_QUESTION;
+            rowNames[2] = COL_CORRECT_ANSWER;
+            for (int i = 0; i < numChoices; i++) {
+                rowNames[3 + i] = COL_CHOICE + i;
+            }
+            MatrixCursor matrixCursor = new MatrixCursor(rowNames, numQuizes);
+            for (MultipleChoiceQuiz mcq: mcqList ) {
+                MatrixCursor.RowBuilder rowBuilder = matrixCursor.newRow();
+                rowBuilder.add(mcq.help).add(mcq.question).add(mcq.correctAnswer);
+                for (String choice: mcq.answers ) {
+                    rowBuilder.add(choice);
+                }
+            }
+            return matrixCursor;
+        } else {
+            throw new IllegalArgumentException("Unknown URI: " + uri);
+        }
     }
 
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
-        return null;
+        switch (MATCHER.match(uri)) {
+            case CODE_GET_MULTIPLE_CHOICE_QUIZ:
+                return "vnd.android.cursor.dir/" + AUTHORITY + "." + MULTIPLE_CHOICE_QUIZ;
+            default:
+                throw new IllegalArgumentException("Unknown URI: " + uri);
+        }
+
     }
 
     @Nullable

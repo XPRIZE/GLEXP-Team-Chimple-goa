@@ -3,7 +3,7 @@ package org.chimple.bali.activity;
 import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.View;
@@ -14,6 +14,7 @@ import org.chimple.bali.MainActivity;
 import org.chimple.bali.R;
 import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.db.pojo.FlashCard;
+import org.chimple.bali.provider.LessonContentProvider;
 import org.chimple.bali.repo.LessonRepo;
 import org.chimple.bali.repo.UserLessonRepo;
 import org.chimple.bali.repo.UserLogRepo;
@@ -56,7 +57,7 @@ public class LessonActivity extends LifecycleActivity {
                 if(flashCards.get(0).subjectUnit != null) {
                     UserUnitRepo.createOrUpdateUserUnit(this, flashCards.get(0).subjectUnit.id, -1);
                 }
-                UserLogRepo.logEntity(UserLog.LESSON_UNIT_TYPE, flashCards.get(0).lessonUnit.id, UserLog.STOP_EVENT);
+                UserLogRepo.logEntity(this, UserLog.LESSON_UNIT_TYPE, flashCards.get(0).lessonUnit.id, UserLog.STOP_EVENT);
 
                 mProgressBar.setMax(flashCardAdapter.getCount());
                 mProgressBar.setProgress(0);
@@ -65,13 +66,13 @@ public class LessonActivity extends LifecycleActivity {
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        UserLogRepo.logEntity(UserLog.LESSON_UNIT_TYPE, flashCards.get(mCurrentCardIndex).lessonUnit.id, UserLog.STOP_EVENT);
+                        UserLogRepo.logEntity(view.getContext(), UserLog.LESSON_UNIT_TYPE, flashCards.get(mCurrentCardIndex).lessonUnit.id, UserLog.STOP_EVENT);
                         if(++mCurrentCardIndex >= flashCardAdapter.getCount()) {
                             LessonRepo.markNextLesson(LessonActivity.this);
                             finish();
                         } else {
                             mFlashCardView.advance();
-                            UserLogRepo.logEntity(UserLog.LESSON_UNIT_TYPE, flashCards.get(mCurrentCardIndex).lessonUnit.id, UserLog.START_EVENT);
+                            UserLogRepo.logEntity(view.getContext(), UserLog.LESSON_UNIT_TYPE, flashCards.get(mCurrentCardIndex).lessonUnit.id, UserLog.START_EVENT);
                             mProgressBar.incrementProgressBy(1);
                         }
                     }
@@ -79,6 +80,25 @@ public class LessonActivity extends LifecycleActivity {
 
             }
         });
+
+        //Testing
+//        Cursor cursor = getContentResolver().query(
+//                LessonContentProvider.URI_MULTIPLE_CHOICE_QUIZ,
+//                null,
+//                null,
+//                new String[]{"2", "2"},
+//                null
+//        );
+//        if(cursor == null) {
+//
+//        } else if (cursor.getCount() < 1) {
+//            String[] columnNames = cursor.getColumnNames();
+//            while (cursor.moveToNext()) {
+//                String a = cursor.getString(0);
+//            }
+//        } else {
+//
+//        }
     }
 
     @Override
