@@ -26,7 +26,6 @@ import android.os.AsyncTask;
 
 import org.chimple.bali.R;
 import org.chimple.bali.db.AppDatabase;
-import org.chimple.bali.db.DatabaseCreator;
 import org.chimple.bali.db.entity.Lesson;
 import org.chimple.bali.db.entity.User;
 import org.chimple.bali.db.pojo.FlashCard;
@@ -41,12 +40,12 @@ public class FlashCardRepo {
     }
 
     public static LiveData<List<FlashCard>> getFlashCards(Context context) {
-        final DatabaseCreator databaseCreator = DatabaseCreator.getInstance();
         MutableLiveData<List<FlashCard>> flashCards = ABSENT;
-        new AsyncTask<Void, Void, Void>() {
+        new AsyncTask<Context, Void, Void>() {
             @Override
-            protected Void doInBackground(Void... voids) {
-                AppDatabase db = databaseCreator.getDatabase();
+            protected Void doInBackground(Context... params) {
+                Context context1 = params[0];
+                AppDatabase db = AppDatabase.getInstance(context1);
                 // Get the current user
                 SharedPreferences sharedPref = context.getSharedPreferences(
                         context.getString(R.string.preference_file_key),
@@ -65,7 +64,7 @@ public class FlashCardRepo {
                 }
                 return null;
             }
-        }.execute();
+        }.execute(context);
         return flashCards;
     }
 }

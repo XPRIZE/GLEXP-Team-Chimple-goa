@@ -20,41 +20,26 @@ import android.arch.lifecycle.LifecycleOwner;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.Transformations;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.os.AsyncTask;
 
-import org.chimple.bali.db.DatabaseCreator;
+import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.db.entity.UserLog;
 
 import java.util.Date;
 
 public class UserLogRepo {
-    public static void logEntity(LifecycleOwner lifecycleOwner, int entityType, Long entityId, int event) {
-        final DatabaseCreator databaseCreator = DatabaseCreator.getInstance();
-        databaseCreator.isDatabaseCreated().observe(lifecycleOwner, isDatabaseCreated -> {
-            if(isDatabaseCreated) {
-                new AsyncTask<Void, Void, Void>() {
-                    @Override
-                    protected Void doInBackground(Void... voids) {
-                        UserLog userLog = new UserLog(new Date(), entityType, entityId, event);
-                        databaseCreator.getDatabase().userLogDao().insertUserLog(userLog);
-                        return null;
-                    }
-                }.execute();
-            }
-        });
-    }
-
     //TODO: for now a hack to do wothout observe
-    public static void logEntity(int entityType, Long entityId, int event) {
-        final DatabaseCreator databaseCreator = DatabaseCreator.getInstance();
-        new AsyncTask<Void, Void, Void>() {
+    public static void logEntity(Context context, int entityType, Long entityId, int event) {
+        new AsyncTask<Context, Void, Void>() {
             @Override
-            protected Void doInBackground(Void... voids) {
+            protected Void doInBackground(Context... params) {
+                Context context1 = params[0];
                 UserLog userLog = new UserLog(new Date(), entityType, entityId, event);
-                databaseCreator.getDatabase().userLogDao().insertUserLog(userLog);
+                AppDatabase.getInstance(context1).userLogDao().insertUserLog(userLog);
                 return null;
             }
-        }.execute();
+        }.execute(context);
     }
 
 }

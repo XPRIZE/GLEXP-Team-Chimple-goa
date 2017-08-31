@@ -561,7 +561,7 @@ void StoryPlaying::createDragonBoneNode(Node* parentNode, std::string dragonBone
         _listener->setSwallowTouches(true);
         _listener->onTouchBegan = CC_CALLBACK_2(StoryPlaying::onTouchBeganOnComposite, this);
         _listener->onTouchEnded = CC_CALLBACK_2(StoryPlaying::onTouchEndedOnComposite, this);
-        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _armatureDisplay->getParent());                
+        _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _armatureDisplay->getParent());
     }
     
 }
@@ -574,10 +574,16 @@ void StoryPlaying::preloadAllAudio() {
     if(!_splitSoundFilesDirectoryUrl.empty() && FileUtils::getInstance()->isFileExist(_splitSoundFilesDirectoryUrl))
     {
         int prefix = 0;
+        std::string _splitFile = "";
         for (int i=0; i<_individualTextsTokens.size(); i++)
         {
-            prefix = i * 10 % 10;
-            std::string _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".ogg";
+            if(i < 10) {
+                _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".mp3";
+            } else {
+                _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" +  MenuContext::to_string(i) +".mp3";
+                
+            }
+            
             
             if(!_splitFile.empty() && FileUtils::getInstance()->isFileExist(_splitFile)) {
                 _loadedSplitWordsEffects.push_back(_splitFile);
@@ -664,7 +670,7 @@ void StoryPlaying::loadContentPageText() {
                         _contentPageText.erase(_contentPageText.length()-1);
                     }
                     
-                    _individualTextsTokens = _menuContext->split(_contentPageText, ' ');
+                    _individualTextsTokens = _menuContext->splitRegEx(_contentPageText, "\\s+");
                     break;
                 }
                 i++;
@@ -677,7 +683,7 @@ void StoryPlaying::loadContentPageText() {
 void StoryPlaying::renderTextAndPlayDialog(Node* parentNode, Node* storyTextNode) {
     renderStoryText(parentNode, storyTextNode);
     std::string pageI = MenuContext::to_string(_pageIndex + 1);
-    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
+    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".mp3";
     bool isSplitWordsEffectedLoaded = _loadedSplitWordsEffects.size() > 0;
     
     if(_soundEnabled.compare("true") == 0 && (isSplitWordsEffectedLoaded || (!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)))) {
@@ -1014,7 +1020,7 @@ void StoryPlaying::playEnded() {
         }
         if(_loadedSplitWordsEffects.size() == 0 || _soundEnabled.compare("true") != 0) {
             enableTouchAndDisableTextShown();
-        }        
+        }
     }
     
 }
@@ -1072,7 +1078,7 @@ void StoryPlaying::onFrameEvent(cocostudio::timeline::Frame* frame) {
 
 void StoryPlaying::playFrameEventEffect(std::string eventData) {
     if(!eventData.empty()) {
-        std::string eventSoundFile = "sounds/sfx/" +  eventData + ".ogg";
+        std::string eventSoundFile = "sounds/sfx/" +  eventData + ".mp3";
         if(!eventSoundFile.empty() && FileUtils::getInstance()->isFileExist(eventSoundFile)) {
             _loadedEffects.push_back(eventSoundFile);
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(eventSoundFile.c_str(), false);
@@ -1420,6 +1426,7 @@ void StoryPlaying::showTextAgain(Ref* pSender, cocos2d::ui::Widget::TouchEventTy
         {
             clickedButton->setVisible(false);
             clickedButton->setEnabled(false);
+            MenuContext::_isInStoryDialogSpeechCurrentlyActive = true;
             if(_talkBubbleNode) {
                 _talkBubbleNode ->setVisible(true);
                 Node* closeNode = _talkBubbleNode->getChildByName(CLOSE_BUTTON);

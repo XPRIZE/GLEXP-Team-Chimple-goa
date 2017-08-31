@@ -23,6 +23,8 @@ import android.arch.persistence.room.Query;
 
 import org.chimple.bali.db.entity.Lesson;
 
+import java.util.List;
+
 @Dao
 public interface LessonDao {
     @Query("SELECT * FROM Lesson WHERE id=:id")
@@ -30,6 +32,9 @@ public interface LessonDao {
 
     @Query("SELECT * FROM Lesson WHERE seq=:seq")
     public Lesson getLessonBySeq(int seq);
+
+    @Query("SELECT * FROM Lesson")
+    public Lesson[] getLessons();
 
     @Query("SELECT COUNT(*) FROM Lesson")
     public int count();
