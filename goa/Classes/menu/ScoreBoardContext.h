@@ -16,6 +16,7 @@
 #include "extensions/cocos-ext.h"
 #include "ScrollableGameMapScene.hpp"
 #include "StartMenuScene.h"
+#include "MainMenuHome.hpp"
 
 #ifndef ScoreBoardContext_h
 #define ScoreBoardContext_h
