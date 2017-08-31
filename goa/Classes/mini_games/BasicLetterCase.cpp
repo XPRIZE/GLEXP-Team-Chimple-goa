@@ -46,14 +46,15 @@ void BasicLetterCase::onEnterTransitionDidFinish() {
 	addChild(bg);
 	bg->setName("bg");
 
-	createIceCreams();
+    _eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(BasicLetterCase::createIceCreams, this));
+    _lesson.getMultiChoices(4, 0);
 
 	if (Director::getInstance()->getVisibleSize().width > 2560) {
 		auto myGameWidth = (Director::getInstance()->getVisibleSize().width - 2560) / 2;
 		bg->setPositionX(myGameWidth);
 	}
 
-	this->scheduleUpdate();
+	//this->scheduleUpdate();
 }
 
 void BasicLetterCase::update(float delta) {
@@ -78,13 +79,16 @@ CommonLabelTTF* BasicLetterCase::createText(string text,string name,float positi
 }
 
 
-void BasicLetterCase::createIceCreams() {
+void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
+    CCLOG("onLessonReady begin");
+    std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+    CCLOG("onLessonReady to unmarshallMultiChoices");
+    vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
 
 	//set Info for each Item ...
 	auto indexCream = getRandomValueRange(1, 9, 4);
 	float positionX[] = { 0.20 , 0.40 , 0.60 , 0.80};
 
-    auto vmc = _lesson.getMultiChoices(4, 0);
     auto mapping = MatrixUtil::questionToAnswerMapping(vmc);
     vector<string> coneLetter, creamLetter;
     

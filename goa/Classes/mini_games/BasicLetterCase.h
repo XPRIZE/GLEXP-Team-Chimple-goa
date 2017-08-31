@@ -44,7 +44,7 @@ public:
 	void update(float) override;
 	void setSpriteProperties(Node * ImageObject, float positionX, float positionY, float scale, float anchorX, float anchorY, float rotation, int zorder);
 	CommonLabelTTF* createText(string text, string name, float positionX, float positionY);
-	void createIceCreams();
+	void createIceCreams(cocos2d::EventCustom *eventCustom);
 	vector<int> getLettersAccordingToLevels();
 	void addEventsOnCream(cocos2d::Sprite * callerObject);
 	void GameDone();
