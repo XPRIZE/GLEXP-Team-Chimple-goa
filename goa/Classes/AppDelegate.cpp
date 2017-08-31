@@ -56,6 +56,25 @@ extern "C"
         
         return true;
     }
+    
+    jboolean Java_org_cocos2dx_cpp_AppActivity_setMultipleChoiceQuiz(JNIEnv* env, jobject thiz, jobjectArray stringArray)
+    {
+        int stringCount = env->GetArrayLength(stringArray);
+        CCLOG("stringCount %d", stringCount);
+        std::string *mcqStrings = new std::string[stringCount];
+        for (int i=0; i<stringCount; i++) {
+            jstring string = (jstring) (env->GetObjectArrayElement(stringArray, i));
+            const char *rawString = env->GetStringUTFChars(string, 0);
+            // Don't forget to call `ReleaseStringUTFChars` when you're done.
+            CCLOG("mcq information %s", rawString);
+            std::string inputStr(rawString);
+            mcqStrings[i] = inputStr;
+            //env->ReleaseStringUTFChars(string, rawString);
+        }
+        CCLOG("dispatching multipleChoiceQuiz");
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("multipleChoiceQuiz", static_cast<void*>(mcqStrings));        
+    }
+
 }
 #endif
 

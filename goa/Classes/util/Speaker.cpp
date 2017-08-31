@@ -76,10 +76,18 @@ Speaker*  Speaker::createSpeaker(string word,Vec2 position,bool selectionMode) {
 	return this;
 }
 
+
+/*
+	It return the word which exist in speaker ...
+*/
+string Speaker::getStringInSpeaker() {
+	return _speakerWord;
+}
+
 /*
 	Update the existing word in speaker ... 
 */
-void Speaker::updateStringInSpeaker(string newWord) {
+void Speaker::setStringInSpeaker(string newWord) {
 	_speakerWord = newWord;
 }
 

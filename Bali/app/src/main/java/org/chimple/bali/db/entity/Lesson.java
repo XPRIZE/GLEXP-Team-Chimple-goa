@@ -42,6 +42,24 @@ public class Lesson {
         this.seq = seq;
     }
 
+    @Ignore
+    public Lesson(String[] columns) {
+        if(columns.length < 5) {
+            throw new IllegalArgumentException("Lesson: Column length lesser than expected");
+        }
+        if(!columns[0].equals("Lesson")) {
+            throw new IllegalArgumentException("Lesson: table name is not Lesson");
+        }
+        try {
+            id = Long.parseLong(columns[1]);
+            title = columns[2];
+            concept = Integer.parseInt(columns[3]);
+            seq = Integer.parseInt(columns[4]);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Lesson: Failed parsing string to number");
+        }
+    }
+
     public Lesson() {
     }
 }

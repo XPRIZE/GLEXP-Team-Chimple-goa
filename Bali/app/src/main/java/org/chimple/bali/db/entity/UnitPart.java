@@ -53,6 +53,24 @@ public class UnitPart {
         this.seq = seq;
     }
 
+    @Ignore
+    public UnitPart(String[] columns) {
+        if(columns.length < 5) {
+            throw new IllegalArgumentException("UnitPart: Column length lesser than expected");
+        }
+        if(!columns[0].equals("UnitPart")) {
+            throw new IllegalArgumentException("UnitPart: table name is not UnitPart");
+        }
+        try {
+            unitId = Long.parseLong(columns[1]);
+            partUnitId = Long.parseLong(columns[2]);
+            type = Integer.parseInt(columns[3]);
+            seq = Integer.parseInt(columns[4]);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("UnitPart: Failed parsing string to number");
+        }
+    }
+
     public UnitPart() {
 
     }
