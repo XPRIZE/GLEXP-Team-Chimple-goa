@@ -44,7 +44,7 @@ vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choices) {
         mc.answers = answers;
         vmc.insert(vmc.begin() + i, mc);
     }
-    string* sendArray = new string[lessons * (choices + 3) + 2];
+    string* sendArray = new string[lessons * (choices + 1 + 3) + 2];
     int i = 0;
     sendArray[i++] = MenuContext::to_string(lessons);
     sendArray[i++] = MenuContext::to_string(choices);
@@ -53,7 +53,7 @@ vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choices) {
         sendArray[i++] = allUpperStrings[j % allUpperStrings.size()];
         sendArray[i++] = "0";
         
-        for (int k = 0; k < choices; k++) {
+        for (int k = 0; k < choices + 1; k++) {
             sendArray[i++] = allUpperStrings[(j + k) % allUpperStrings.size()];
         }
     }
@@ -122,8 +122,8 @@ vector<Lesson::MultiChoice> Lesson::unmarshallMultiChoices(std::string* strArray
         mc.question = strArray[k++];
         mc.correctAnswer = atoi(strArray[k++].c_str());
         vector<string> answers;
-        answers.reserve(numChoices);
-        for (int j = 0; j < numChoices; j++) {
+        answers.reserve(numChoices + 1);
+        for (int j = 0; j < numChoices + 1; j++) {
             answers.insert(answers.begin() + j, strArray[k++]);
         }
         mc.answers = answers;
