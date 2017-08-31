@@ -270,7 +270,7 @@ public class AppActivity extends Cocos2dxActivity {
 	                URI_MULTIPLE_CHOICE_QUIZ,
 	                null,
 	                null,
-	                new String[]{Integer.toString(params[0][0]), Integer.toString(params[0][1])},
+	                new String[]{Integer.toString(params[0][0]), Integer.toString(params[0][1] + 1)},
 	                null
         		);
         		System.out.println("called getContentResolver");
@@ -287,7 +287,7 @@ public class AppActivity extends Cocos2dxActivity {
 		            String[] sendArray = new String[cursor.getCount() * columnNames.length + 2];
 		            int i = 0;
 		            sendArray[i++] = Integer.toString(cursor.getCount());
-		            sendArray[i++] = Integer.toString(columnNames.length - 3);
+		            sendArray[i++] = Integer.toString(columnNames.length - 4);
 		            while (cursor.moveToNext()) {
 		            	int j = 0;
 		                sendArray[i++] = cursor.getString(j++);

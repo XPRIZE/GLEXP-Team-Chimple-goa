@@ -571,16 +571,16 @@ void StoryPlaying::preloadAllAudio() {
     std::string pageI = MenuContext::to_string(_pageIndex + 1);
     _splitSoundFilesDirectoryUrl = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI;
     
-    if(!_splitSoundFilesDirectoryUrl.empty() && FileUtils::getInstance()->isFileExist(_splitSoundFilesDirectoryUrl))
+    if(!_splitSoundFilesDirectoryUrl.empty())
     {
         int prefix = 0;
         std::string _splitFile = "";
         for (int i=0; i<_individualTextsTokens.size(); i++)
         {
             if(i < 10) {
-                _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".mp3";
+                _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".ogg";
             } else {
-                _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" +  MenuContext::to_string(i) +".mp3";
+                _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" +  MenuContext::to_string(i) +".ogg";
                 
             }
             
@@ -683,7 +683,7 @@ void StoryPlaying::loadContentPageText() {
 void StoryPlaying::renderTextAndPlayDialog(Node* parentNode, Node* storyTextNode) {
     renderStoryText(parentNode, storyTextNode);
     std::string pageI = MenuContext::to_string(_pageIndex + 1);
-    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".mp3";
+    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
     bool isSplitWordsEffectedLoaded = _loadedSplitWordsEffects.size() > 0;
     
     if(_soundEnabled.compare("true") == 0 && (isSplitWordsEffectedLoaded || (!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)))) {
@@ -917,7 +917,7 @@ void StoryPlaying::highlightedNarrateDialog(float dt) {
 
 void StoryPlaying::narrateDialog(float dt) {
     CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
-    CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(_soundFile.c_str(), false);
+    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(_soundFile.c_str(), false);
 }
 
 void StoryPlaying::playSound(Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType)
@@ -947,8 +947,22 @@ void StoryPlaying::playSound(Ref* pSender, cocos2d::ui::Widget::TouchEventType e
                 _soundEnabled = "true";
                 clickedButton->setHighlighted(true);
                 localStorageSetItem(SOUND_ENABLED_FOR_STORIES, _soundEnabled);
-                CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
-                CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(_soundFile.c_str(), false);
+                
+                std::string pageI = MenuContext::to_string(_pageIndex + 1);
+                _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_"  + pageI + ".ogg";
+                bool isSplitWordsEffectedLoaded = _loadedSplitWordsEffects.size() > 0;
+                
+                if(_soundEnabled.compare("true") == 0 && (isSplitWordsEffectedLoaded || (!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)))) {
+                    
+                    if(_isAudionEngineInitialized && _loadedSplitWordsEffects.size() > 0)
+                    {
+                        this->scheduleOnce(schedule_selector(StoryPlaying::highlightedNarrateDialog), 1.0f);
+                    } else {
+                        CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+                        CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(_soundFile.c_str(), false);
+                    }
+                }
+                
                 
                 
             }
@@ -1078,7 +1092,7 @@ void StoryPlaying::onFrameEvent(cocostudio::timeline::Frame* frame) {
 
 void StoryPlaying::playFrameEventEffect(std::string eventData) {
     if(!eventData.empty()) {
-        std::string eventSoundFile = "sounds/sfx/" +  eventData + ".mp3";
+        std::string eventSoundFile = "sounds/sfx/" +  eventData + ".ogg";
         if(!eventSoundFile.empty() && FileUtils::getInstance()->isFileExist(eventSoundFile)) {
             _loadedEffects.push_back(eventSoundFile);
             CocosDenshion::SimpleAudioEngine::getInstance()->playEffect(eventSoundFile.c_str(), false);
