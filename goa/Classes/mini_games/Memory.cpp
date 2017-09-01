@@ -46,7 +46,7 @@ Memory::Memory() :
 }
 
 Memory::~Memory() {
-	
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 }
 
 
@@ -76,19 +76,8 @@ Memory *Memory::create() {
 }
 
 void Memory::onEnterTransitionDidFinish() {
-
-
-	_finalGridIds.resize(0);
-
-	_wrong = 0;
-	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");
-	//_sceneNumber = RandomHelper::random_int(1, 2);
-	//_sceneNumber = 3;
-
-	//auto x = _menuContext->getCurrentLevel();
-
-	vector<Lesson::MultiChoice> vmc;
-	_data.clear();
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(Memory::gameBegin, this));
+	
 	auto complexity = _lesson.getComplexity();
 	if (_lesson.getComplexity() >= 0.0f && _lesson.getComplexity() <= 0.15f) {
 		_gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size);
@@ -97,24 +86,8 @@ void Memory::onEnterTransitionDidFinish() {
 		_finalGridIds = _gridTwoByTwoIds;
 		_right = _pairCount * 2;
 		_menuContext->setMaxPoints(_right);
-	
-		vmc = _lesson.getMultiChoices(_pairCount,0);
-/*		
-		if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 2) {
-			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the opposites");
-		}
 
-		if (_menuContext->getCurrentLevel() >= 3 && _menuContext->getCurrentLevel() <= 4) {
-			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
-		}
-
-		if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 6) {
-			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
-		}
-*/
+		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
 	if (_lesson.getComplexity() >= 0.16f && _lesson.getComplexity() <= 0.30f) {
@@ -124,23 +97,7 @@ void Memory::onEnterTransitionDidFinish() {
 		_finalGridIds = _gridTwoByThreeIds;
 		_right = _pairCount * 2;
 		_menuContext->setMaxPoints(_right);
-		vmc = _lesson.getMultiChoices(_pairCount, 0);
-/*
-		if (_menuContext->getCurrentLevel() >= 7 && _menuContext->getCurrentLevel() <= 8) {
-			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the opposites");
-		}
-
-		if (_menuContext->getCurrentLevel() >= 9 && _menuContext->getCurrentLevel() <= 10) {
-			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
-		}
-
-		if (_menuContext->getCurrentLevel() >= 11 && _menuContext->getCurrentLevel() <= 12) {
-			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
-		}
-*/
+		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
 	if (_lesson.getComplexity() >= 0.31f && _lesson.getComplexity() <= 0.45f) {
@@ -151,23 +108,7 @@ void Memory::onEnterTransitionDidFinish() {
 
 		_right = _pairCount * 2;
 		_menuContext->setMaxPoints(_right);
-		vmc = _lesson.getMultiChoices(_pairCount, 0);
-/*
-		if (_menuContext->getCurrentLevel() >= 13 && _menuContext->getCurrentLevel() <= 14) {
-			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the opposites");
-		}
-
-		if (_menuContext->getCurrentLevel() >= 15 && _menuContext->getCurrentLevel() <= 16) {
-			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
-		}
-
-		if (_menuContext->getCurrentLevel() >= 17 && _menuContext->getCurrentLevel() <= 18) {
-			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
-		}
-*/
+		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
 	if (_lesson.getComplexity() >= 0.46f && _lesson.getComplexity() <= 0.60f) {
@@ -178,23 +119,7 @@ void Memory::onEnterTransitionDidFinish() {
 
 		_right = _pairCount * 2;
 		_menuContext->setMaxPoints(_right);
-		vmc = _lesson.getMultiChoices(_pairCount, 0);
-/*
-		if (_menuContext->getCurrentLevel() >= 19 && _menuContext->getCurrentLevel() <= 20) {
-			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the opposites");
-		}
-
-		if (_menuContext->getCurrentLevel() >= 21 && _menuContext->getCurrentLevel() <= 22) {
-			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
-		}
-
-		if (_menuContext->getCurrentLevel() >= 23 && _menuContext->getCurrentLevel() <= 24) {
-			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
-		}
-*/
+		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
 	if (_lesson.getComplexity() >= 0.61f && _lesson.getComplexity() <= 0.80f) {
@@ -204,23 +129,7 @@ void Memory::onEnterTransitionDidFinish() {
 		_finalGridIds = _gridFourByFiveIds;
 		_right = _pairCount * 2;
 		_menuContext->setMaxPoints(_right);
-		vmc = _lesson.getMultiChoices(_pairCount, 0);
-/*
-		if (_menuContext->getCurrentLevel() >= 25 && _menuContext->getCurrentLevel() <= 26) {
-			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the opposites");
-		}
-
-		if (_menuContext->getCurrentLevel() >= 27 && _menuContext->getCurrentLevel() <= 28) {
-			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
-		}
-
-		if (_menuContext->getCurrentLevel() >= 29 && _menuContext->getCurrentLevel() <= 30) {
-			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
-		}
-*/
+		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
 	if (_lesson.getComplexity() >= 0.81f && _lesson.getComplexity() <= 1.0f) {
@@ -231,24 +140,29 @@ void Memory::onEnterTransitionDidFinish() {
 
 		_right = _pairCount * 2;
 		_menuContext->setMaxPoints(_right);
-		vmc = _lesson.getMultiChoices(_pairCount, 0);
-/*
-		if (_menuContext->getCurrentLevel() >= 31 && _menuContext->getCurrentLevel() <= 32) {
-			_data = TextGenerator::getInstance()->getAntonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the opposites");
-		}
-
-		if (_menuContext->getCurrentLevel() >= 33 && _menuContext->getCurrentLevel() <= 34) {
-			_data = TextGenerator::getInstance()->getSynonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same meaning words");
-		}
-
-		if (_menuContext->getCurrentLevel() >= 35 && _menuContext->getCurrentLevel() <= 36) {
-			_data = TextGenerator::getInstance()->getHomonyms(_pairCount);
-			_hint = LangUtil::getInstance()->translateString("Match the same sounding words");
-		}
-*/
+		_lesson.getMultiChoices(_pairCount, 0);
 	}
+
+
+}
+
+void Memory::gameBegin(cocos2d::EventCustom *eventCustom) {
+
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
+	_finalGridIds.resize(0);
+
+	_wrong = 0;
+	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");
+	//_sceneNumber = RandomHelper::random_int(1, 2);
+	//_sceneNumber = 3;
+
+	//auto x = _menuContext->getCurrentLevel();
+
+	_data.clear();
 	
 	auto mapping = MatrixUtil::questionToAnswerMapping(vmc);
 	_data = mapping;
