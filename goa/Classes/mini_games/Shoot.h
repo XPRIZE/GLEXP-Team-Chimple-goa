@@ -71,6 +71,7 @@ public:
 	virtual bool init();
 	static Shoot* create();
 	void onEnterTransitionDidFinish();
+	void gameBegin(cocos2d::EventCustom * eventCustom);
 	void update(float) override;
 	void choosingListner();
 	float radToDeg(float angle);
