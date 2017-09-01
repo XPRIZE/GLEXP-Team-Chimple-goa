@@ -34,11 +34,12 @@ protected:
 	int _score;
 	int _randomBackground;
 	cocos2d::Label * _score_label;
-	void startGame();
+	void startGame(cocos2d::EventCustom *eventCustom);
 	void jumpAlphabet();
 	void showAlpha(float ft);
 	void leafOpen(float ft);
 	void leafClose(float ft);
+	void onEnterTransitionDidFinish();
 	cocos2d::Node * _background, * _leaf_openRff, *_leaf_closeRff;
 	Alphamon * _mainChar, *_monsterReff;
 	cocos2d::Layer * _alphabetLayer;

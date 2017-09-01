@@ -43,6 +43,7 @@ MainGame::MainGame()
 
 MainGame:: ~MainGame() {
 	MainGame::audioBg->stopAllEffects();
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 }
 
 Scene* MainGame::createScene()
@@ -154,9 +155,11 @@ void MainGame::onEnterTransitionDidFinish()
 
 	self = this;
 
-	startGame();
+	//startGame();
 
-	if (_menuContext->getCurrentLevel() == 1)
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(MainGame::startGame, this));
+	_lesson.getMultiChoices(10, 0);
+	/*if (_menuContext->getCurrentLevel() == 1)
 	{
 		displayHelp();
 	}
@@ -165,7 +168,7 @@ void MainGame::onEnterTransitionDidFinish()
 		letterCome(1);
 		self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
 	}
-	self->scheduleUpdate();
+	self->scheduleUpdate();*/
 }
 
 //	function display help for first time when game is open
@@ -218,7 +221,7 @@ void MainGame::AfterPlayVideo()
 //	MainGame::audioBg->playEffect("cannonball/gamesound/background1.ogg", true);
 } 
 
-void MainGame::startGame()	// starting of game
+void MainGame::startGame(cocos2d::EventCustom *eventCustom)	// starting of game
 {
 	lettertmpPosition = letterPosition;
 
@@ -269,8 +272,13 @@ void MainGame::startGame()	// starting of game
 
 	// _revampToNewLessonGame
 
-	auto vmc = _lesson.getMultiChoices(10, 0);
+	//auto vmc = _lesson.getMultiChoices(10, 0);
 	
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
 	_mainChars.clear();
 	int column = 10, row = 1;
 	_mainChars.resize(row);
@@ -300,6 +308,16 @@ void MainGame::startGame()	// starting of game
 		letterComespeed = 3;
 
 	cannonLetterCome();
+	if (_menuContext->getCurrentLevel() == 1)
+	{
+		displayHelp();
+	}
+	else
+	{
+		letterCome(1);
+		self->schedule(schedule_selector(MainGame::letterCome), letterComespeed);
+	}
+	self->scheduleUpdate();
 }
 
 void MainGame::letterCome(float d)

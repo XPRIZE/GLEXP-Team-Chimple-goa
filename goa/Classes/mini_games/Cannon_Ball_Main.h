@@ -70,7 +70,7 @@ public:
 	void PlayVideo();
 	void loadCannon(EventListenerClass*);
 	void startFire(EventListenerClass*, Node*);
-	void startGame();
+	void startGame(cocos2d::EventCustom *eventCustom);
 	void cannonLetterCome();
 	void letterCome(float d);
 	void removeLetter(EventListenerClass *);
