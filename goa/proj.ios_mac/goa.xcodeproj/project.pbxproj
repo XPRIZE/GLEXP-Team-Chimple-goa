@@ -13,8 +13,8 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
 		294D0D641D0D56D500F7F5D4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 294D0D631D0D56D500F7F5D4 /* CoreText.framework */; };
-		37E952731F580F3100A431C5 /* Speaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37E952711F580F3100A431C5 /* Speaker.cpp */; };
-		37E952751F580F4500A431C5 /* Speaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37E952711F580F3100A431C5 /* Speaker.cpp */; };
+		37438E221F582A0000F4CA33 /* Speaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37438E201F582A0000F4CA33 /* Speaker.cpp */; };
+		37438E231F582A0B00F4CA33 /* Speaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 37438E201F582A0000F4CA33 /* Speaker.cpp */; };
 		3EACC98F19EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		3EACC99019EE6D4300EB3C5E /* res in Resources */ = {isa = PBXBuildFile; fileRef = 3EACC98E19EE6D4300EB3C5E /* res */; };
 		46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */ = {isa = PBXBuildFile; fileRef = 46880B7619C43A67006E1F66 /* CloseNormal.png */; };
@@ -85,7 +85,6 @@
 		F30575F41E88F21C00171925 /* SortIt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575EC1E88F21C00171925 /* SortIt.cpp */; };
 		F30575F51E88F21C00171925 /* SortIt.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30575EC1E88F21C00171925 /* SortIt.cpp */; };
 		F30968361F5815BB00311399 /* Speaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30968341F5815BB00311399 /* Speaker.cpp */; };
-		F30968371F5815BB00311399 /* Speaker.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F30968341F5815BB00311399 /* Speaker.cpp */; };
 		F32182471ED4317A007B0F87 /* CommonTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F32182451ED4317A007B0F87 /* CommonTextField.cpp */; };
 		F32182481ED4317A007B0F87 /* CommonTextField.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F32182451ED4317A007B0F87 /* CommonTextField.cpp */; };
 		F33C90B61F2AFCF900E71364 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F33C90491F2AFCF900E71364 /* Animation.cpp */; };
@@ -608,8 +607,8 @@
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		294D0D631D0D56D500F7F5D4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/CoreText.framework; sourceTree = DEVELOPER_DIR; };
-		37E952711F580F3100A431C5 /* Speaker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Speaker.cpp; sourceTree = "<group>"; };
-		37E952721F580F3100A431C5 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
+		37438E201F582A0000F4CA33 /* Speaker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Speaker.cpp; sourceTree = "<group>"; };
+		37438E211F582A0000F4CA33 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
 		3EACC98E19EE6D4300EB3C5E /* res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = res; sourceTree = "<group>"; };
 		46880B7619C43A67006E1F66 /* CloseNormal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseNormal.png; sourceTree = "<group>"; };
 		46880B7719C43A67006E1F66 /* CloseSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CloseSelected.png; sourceTree = "<group>"; };
@@ -677,7 +676,6 @@
 		F30575EC1E88F21C00171925 /* SortIt.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SortIt.cpp; sourceTree = "<group>"; };
 		F30575ED1E88F21C00171925 /* SortIt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortIt.h; sourceTree = "<group>"; };
 		F30968341F5815BB00311399 /* Speaker.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Speaker.cpp; sourceTree = "<group>"; };
-		F30968351F5815BB00311399 /* Speaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Speaker.h; sourceTree = "<group>"; };
 		F32182451ED4317A007B0F87 /* CommonTextField.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommonTextField.cpp; sourceTree = "<group>"; };
 		F32182461ED4317A007B0F87 /* CommonTextField.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CommonTextField.hpp; sourceTree = "<group>"; };
 		F33C90491F2AFCF900E71364 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
@@ -2321,8 +2319,8 @@
 		F35042421E32199F0005DF8D /* util */ = {
 			isa = PBXGroup;
 			children = (
-				37E952711F580F3100A431C5 /* Speaker.cpp */,
-				37E952721F580F3100A431C5 /* Speaker.h */,
+				37438E201F582A0000F4CA33 /* Speaker.cpp */,
+				37438E211F582A0000F4CA33 /* Speaker.h */,
 				F32182451ED4317A007B0F87 /* CommonTextField.cpp */,
 				F32182461ED4317A007B0F87 /* CommonTextField.hpp */,
 				F35042431E32199F0005DF8D /* Calculator.cpp */,
@@ -2422,7 +2420,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0830;
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "goa" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -2756,6 +2754,7 @@
 				F35043C71E3219A00005DF8D /* Picture.cpp in Sources */,
 				F350432D1E3219A00005DF8D /* BajaWordScene.cpp in Sources */,
 				F33C90CE1F2AFCF900E71364 /* EventObject.cpp in Sources */,
+				37438E221F582A0000F4CA33 /* Speaker.cpp in Sources */,
 				F35042C11E32199F0005DF8D /* SkeletonPosition.cpp in Sources */,
 				F35043171E32199F0005DF8D /* ScoreBoardContent.cpp in Sources */,
 				F350430D1E32199F0005DF8D /* LevelHelpScene.cpp in Sources */,
@@ -2863,7 +2862,6 @@
 				F35043601E3219A00005DF8D /* Item.cpp in Sources */,
 				F35042841E32199F0005DF8D /* PointFloatShapeFeatureExtractor.cpp in Sources */,
 				F33C90DD1F2AFCF900E71364 /* DataParser.cpp in Sources */,
-				F30968371F5815BB00311399 /* Speaker.cpp in Sources */,
 				F35043061E32199F0005DF8D /* GameScene.cpp in Sources */,
 				F350429E1E32199F0005DF8D /* LTKImageWriter.cpp in Sources */,
 				F33C90D71F2AFCF900E71364 /* DragonBonesData.cpp in Sources */,
@@ -2884,6 +2882,7 @@
 				F350430C1E32199F0005DF8D /* LevelHelpOverlay.cpp in Sources */,
 				F350408C1E3219890005DF8D /* HPMeter.cpp in Sources */,
 				F35043521E3219A00005DF8D /* Decomon.cpp in Sources */,
+				37438E231F582A0B00F4CA33 /* Speaker.cpp in Sources */,
 				F35043821E3219A00005DF8D /* SmashTheRockLevelScene.cpp in Sources */,
 				F350427A1E32199F0005DF8D /* LTKShapeFeatureExtractor.cpp in Sources */,
 				F33C90C11F2AFCF900E71364 /* Bone.cpp in Sources */,
@@ -3066,12 +3065,13 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.chimple.goa;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3098,12 +3098,13 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = ios/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = (
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.chimple.goa;
 				SDKROOT = iphoneos;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -3116,7 +3117,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3139,6 +3139,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.chimple.goa;
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
 			};
 			name = Debug;
@@ -3147,7 +3148,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -3169,6 +3169,7 @@
 					"$(_COCOS_LIB_MAC_BEGIN)",
 					"$(_COCOS_LIB_MAC_END)",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = org.chimple.goa;
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_MAC_BEGIN) $(_COCOS_HEADER_MAC_END)";
 			};
 			name = Release;
@@ -3176,11 +3177,28 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../cocos2d",
@@ -3191,7 +3209,7 @@
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
 					"$(SRCROOT)/../Classes/ext",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -3202,9 +3220,25 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/../cocos2d",
@@ -3215,7 +3249,7 @@
 					"$(SRCROOT)/../cocos2d/external/chipmunk/include/chipmunk",
 					"$(SRCROOT)/../Classes/ext",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
