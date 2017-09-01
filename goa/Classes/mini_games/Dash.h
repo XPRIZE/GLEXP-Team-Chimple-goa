@@ -66,6 +66,7 @@ protected:
 	static const char* gameName() { return DASH.c_str(); }
 	bool _helpFlage = false;
 	void onEnterTransitionDidFinish();
+	void gameBegin(cocos2d::EventCustom * eventCustom);
 	void gameHelp();
 	std::map<std::string, std::map<std::string, std::string>> _differntSceneMapping;
 	cocos2d::RepeatForever * _enemyActions;
