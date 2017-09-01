@@ -95,6 +95,7 @@ public:
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 	void onEnterTransitionDidFinish();
+	void gameBegin(cocos2d::EventCustom * eventCustom);
 	static BubbleShooter* create();
 	void update(float) override;
 	std::vector<std::vector<Sprite*>> create2dVectorSprite(int column, int row);

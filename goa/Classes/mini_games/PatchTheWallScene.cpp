@@ -13,7 +13,7 @@ PatchTheWall::PatchTheWall(){
     
 }
 PatchTheWall::~PatchTheWall() {
-
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 }
 Scene* PatchTheWall::createScene()
 {
@@ -50,8 +50,20 @@ void PatchTheWall::onEnterTransitionDidFinish()
     _slideBar->setPercent(0);
     _slideBar->setEnabled(false);
     
-	auto vmc = _lesson.getMultiChoices(10, 0);
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(PatchTheWall::gameBegin, this));
+
+	_lesson.getMultiChoices(10, 0);
 	
+}
+
+void PatchTheWall::gameBegin(cocos2d::EventCustom *eventCustom) {
+
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
+
 	vector<string> suffleVmcData;
 	int counterVmc = 0;
 	for (int i = 0; i < 10; i++) {
@@ -60,9 +72,9 @@ void PatchTheWall::onEnterTransitionDidFinish()
 
 	std::random_shuffle(suffleVmcData.begin(), suffleVmcData.end());
 	_matrix.resize(2);
-	
-	for(int i = 0 ; i < _matrix.size() ; i++)
-	_matrix[i].resize(5);
+
+	for (int i = 0; i < _matrix.size(); i++)
+		_matrix[i].resize(5);
 
 	counterVmc = 0;
 	for (size_t i = 0; i < _matrix.size(); i++) {
@@ -70,81 +82,68 @@ void PatchTheWall::onEnterTransitionDidFinish()
 			_matrix[i][j] = suffleVmcData[counterVmc++];
 		}
 	}
-	/*
-    _matrix = CharGenerator::getInstance()->generateCharMatrix(2, 5);
-    
-	if (_menuContext->getCurrentLevel() >= 1 && _menuContext->getCurrentLevel() <= 4)
-	{
-		_matrix = CharGenerator::getInstance()->generateCharMatrix(2, 5, true, true);
-	}
-	else if (_menuContext->getCurrentLevel() >= 5 && _menuContext->getCurrentLevel() <= 8)
-	{
-		_matrix = CharGenerator::getInstance()->generateCharMatrix(2, 5, true, false);
-	}
-	else
-		_matrix = CharGenerator::getInstance()->generateNumberMatrix(2, 5, true);
 
-    */
-    float _gridY = visibleSize.height * .19;
-    for (int i = 0; i < 5; i++)
-    {
-        float _gridX = visibleSize.width * .80;
-        
-        for (int j = 0; j < 2; j++)
-        {
-            std::ostringstream _labelName;
-            SpriteDetails._sprite = Sprite::createWithSpriteFrameName("patchthewall/alphagrid.png");
-            SpriteDetails._sprite->setPosition(Vec2(_gridX, _gridY));
-            this->addChild(SpriteDetails._sprite);
+	float _gridY = visibleSize.height * .19;
+	for (int i = 0; i < 5; i++)
+	{
+		float _gridX = visibleSize.width * .80;
+
+		for (int j = 0; j < 2; j++)
+		{
+			std::ostringstream _labelName;
+			SpriteDetails._sprite = Sprite::createWithSpriteFrameName("patchthewall/alphagrid.png");
+			SpriteDetails._sprite->setPosition(Vec2(_gridX, _gridY));
+			this->addChild(SpriteDetails._sprite);
 			SpriteDetails._sprite->setColor(Color3B(205, 133, 63));
 
-            auto aplhabets = CommonLabel::createWithTTF(_matrix[j][i], "fonts/Roboto-Regular.ttf", 170);
+			auto aplhabets = CommonLabel::createWithTTF(_matrix[j][i], "fonts/Roboto-Regular.ttf", 170);
 			SpriteDetails._label = aplhabets;
 
-            SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
-            this->addChild(SpriteDetails._label);
-            SpriteDetails._id = _matrix[j][i];
-            SpriteDetails.xP = SpriteDetails._sprite->getPositionX();
-            SpriteDetails.yP = SpriteDetails._sprite->getPositionY();
-            SpriteDetails._sequence = _spriteDetails.size();
-            _labelName << _spriteDetails.size();
-            SpriteDetails._label->setName(_labelName.str());
-            
-            _spriteDetails.push_back(SpriteDetails);
-            _gridX += SpriteDetails._sprite->getContentSize().width * 1.05;
-            
-            addEvents(SpriteDetails);
-        }
-        _gridY += _spriteDetails.at(0)._sprite->getContentSize().height * 1.02;
-    }
-    
-    _gridY = visibleSize.height * .18;
-    for (int i = 0; i < 5; i++)
-    {
-        float _gridX = visibleSize.width * .20;
-        for (int j = 0; j < 5; j++)
-        {
-            Position.x = _gridX;
-            Position.y = _gridY;
-            Position._flag = 0;
-            Position._sequence = _position.size();
-            _position.push_back(Position);
-            _gridX += SpriteDetails._sprite->getContentSize().width * 1.05;
-        }
-        _gridY += _spriteDetails.at(0)._sprite->getContentSize().height * 1.02;
-    }
+			SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
+			this->addChild(SpriteDetails._label);
+			SpriteDetails._id = _matrix[j][i];
+			SpriteDetails.xP = SpriteDetails._sprite->getPositionX();
+			SpriteDetails.yP = SpriteDetails._sprite->getPositionY();
+			SpriteDetails._sequence = _spriteDetails.size();
+			_labelName << _spriteDetails.size();
+			SpriteDetails._label->setName(_labelName.str());
 
-    _level = _menuContext->getCurrentLevel();
-    _menuContext->setMaxPoints(20);
-    _moveFlag = 1;
-    _helpFlag = 0;
-    blastCome(0);
-    if (_level != 1)
-    {
-        _helpFlag = -1;
-        _moveFlag = 0;
-        this->schedule(schedule_selector(PatchTheWall::blastCome), 5.0f);
-    }
+			_spriteDetails.push_back(SpriteDetails);
+			_gridX += SpriteDetails._sprite->getContentSize().width * 1.05;
+
+			addEvents(SpriteDetails);
+		}
+		_gridY += _spriteDetails.at(0)._sprite->getContentSize().height * 1.02;
+	}
+
+	_gridY = visibleSize.height * .18;
+	for (int i = 0; i < 5; i++)
+	{
+		float _gridX = visibleSize.width * .20;
+		for (int j = 0; j < 5; j++)
+		{
+			Position.x = _gridX;
+			Position.y = _gridY;
+			Position._flag = 0;
+			Position._sequence = _position.size();
+			_position.push_back(Position);
+			_gridX += SpriteDetails._sprite->getContentSize().width * 1.05;
+		}
+		_gridY += _spriteDetails.at(0)._sprite->getContentSize().height * 1.02;
+	}
+
+	_level = _menuContext->getCurrentLevel();
+	_menuContext->setMaxPoints(20);
+	_moveFlag = 1;
+	_helpFlag = 0;
+	blastCome(0);
+	if (_level != 1)
+	{
+		_helpFlag = -1;
+		_moveFlag = 0;
+		this->schedule(schedule_selector(PatchTheWall::blastCome), 5.0f);
+	}
+
 }
 
 void PatchTheWall::addEvents(struct SpriteDetails sprite)

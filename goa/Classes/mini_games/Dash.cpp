@@ -24,7 +24,7 @@ Dash::Dash(){
 
 Dash::~Dash()
 {
-
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 }
 
 Dash * Dash::create()
@@ -150,79 +150,39 @@ std::string Dash::constructSendMessage(std::string charName, int position) {
 
 void Dash::onEnterTransitionDidFinish()
 {
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(Dash::gameBegin, this));
+	_lesson.getMultiChoices(15, 3);
+
+}
+
+void Dash::gameBegin(cocos2d::EventCustom *eventCustom) {
+
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Node::onEnterTransitionDidFinish();
 	menu->setMaxPoints(10);
 
 	auto SceneIndex = RandomHelper::random_int(0, 2);
-	auto vmc = _lesson.getMultiChoices(15,3);
+	
 	auto mapping = MatrixUtil::questionToAnswerMapping(vmc);
 	_synonyms.clear();
 	_synonyms = mapping;
 
-	//int level = menu->getCurrentLevel();
-	//int division = ((level - 1) % 15)+1;
-	if (SceneIndex == 0 ) {
-	/*	int roundLevel = std::ceil(level / 15.0);
-		int inner = division + ((roundLevel - 1) * 5);
-		int subLevel = 1;
-		if (inner < 16) {
-			subLevel = (std::ceil(inner / 3.0));
-		}
-		else {
-			inner = inner - 15;
-			subLevel = (std::ceil(inner / 2.0));
-			subLevel += 5;
-		}
-		CCLOG("Sysnonyms sub Level = %d", subLevel);
-	//	std::vector<std::string> theme = { "city","candy","iceLand" };
-		*/
+
+	if (SceneIndex == 0) {
 		_scenePath = _differntSceneMapping.at("city");
-		//_title = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
-		//_catagory = LangUtil::getInstance()->translateString("List of same meaning words");
-		//_synonyms = TextGenerator::getInstance()->getSynonyms(15, subLevel);
-	} 
+	}
 	else if (SceneIndex == 1) {
-		/*int roundLevel = std::ceil(level / 15.0);
-		int inner = division - 5 + ((roundLevel - 1) * 5);
-		
-		int subLevel = 1;
-		if (inner < 16) {
-			subLevel = (std::ceil(inner / 3.0));
-		}
-		else {
-			inner = inner - 15;
-			subLevel = (std::ceil(inner / 2.0));
-			subLevel += 5;
-		}
-		CCLOG("Antonyms Sub Level = %d", subLevel);
-		*/
 		_scenePath = _differntSceneMapping.at("candy");
-		//_title = LangUtil::getInstance()->translateString("Make opposite of : ");
-		//_catagory = LangUtil::getInstance()->translateString("List of opposite words");
-		//_synonyms = TextGenerator::getInstance()->getAntonyms(15, subLevel);
 	}
 	else {
-		/*int roundLevel = std::ceil(level / 15.0);
-		int inner = division - 10 + ((roundLevel - 1) * 5);
-		
-		int subLevel = 1;
-		if (inner < 16) {
-			subLevel = (std::ceil(inner / 3.0));
-		}
-		else {
-			inner = inner - 15;
-			subLevel = (std::ceil(inner / 2.0));
-			subLevel += 5;
-		}
-		CCLOG("Homonyms SubLevel = %d", subLevel);
-		*/
 		_scenePath = _differntSceneMapping.at("iceLand");
-		//_title = LangUtil::getInstance()->translateString("Make same sounding word as : ");
-		//_catagory = LangUtil::getInstance()->translateString("List of same sounding words");
-		//_synonyms = TextGenerator::getInstance()->getHomonyms(15, subLevel);
 	}
-	
+
 	_title = LangUtil::getInstance()->translateString(vmc[0].help);
 	_catagory = LangUtil::getInstance()->translateString("List of given Answer ");
 
@@ -309,6 +269,7 @@ void Dash::onEnterTransitionDidFinish()
 	runAction(_enemyActions);
 
 }
+
 
 void Dash::gameHelp()
 {

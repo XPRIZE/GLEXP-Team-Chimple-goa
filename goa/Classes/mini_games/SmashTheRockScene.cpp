@@ -24,6 +24,7 @@ SmashTheRock::SmashTheRock(){
 }
 SmashTheRock::~SmashTheRock()
 {
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 	audio->stopBackgroundMusic();
 	
 }
@@ -71,23 +72,14 @@ bool SmashTheRock::init()
 	centre->setAnchorPoint(Vec2(0.5,0));
     this->addChild(centre,1);
 
-	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(SmashTheRock::startGame, this));
-	/*auto letterRock = (Sprite *)centre->getChildByName("letterboard");
-	letterRock->setGlobalZOrder(5);
-	auto boundary = (Sprite *)centre->getChildByName("boundary");
-	boundary->setGlobalZOrder(4);
-	auto punchHandLeft = (Sprite *)centre->getChildByName("boxing_gloves_left");
-	punchHandLeft->setGlobalZOrder(3);
-	auto punchHandRight = (Sprite *)centre->getChildByName("boxing_gloves_right");
-	punchHandRight->setGlobalZOrder(3);*/
-	
-	//auto stone_bace = (Sprite *)centre->getChildByName("stone_bace");
-	//stone_bace->setGlobalZOrder(0);
-
-
-			
 
 	return true;
+}
+
+void SmashTheRock::onEnterTransitionDidFinish() {
+	
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(SmashTheRock::startGame, this));
+	_lesson.getMultiChoices(1, 5);
 }
 
 void SmashTheRock::update(float dt)
@@ -96,14 +88,13 @@ void SmashTheRock::update(float dt)
 	
 }
 
-void SmashTheRock::startGame() {
-    menu->showStartupHelp(CC_CALLBACK_0(SmashTheRock::begin, this));
-	//menu->setMaxPoints(5);
-//	runAction(Sequence::create(CallFunc::create(CC_CALLBACK_0(MenuContext::showStartupHelp, menu)), CallFunc::create(CC_CALLBACK_0(SmashTheRock::begin, this)), NULL));
-}
-
-void SmashTheRock::begin()
+void SmashTheRock::startGame(cocos2d::EventCustom *eventCustom)
 {
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -127,7 +118,6 @@ void SmashTheRock::begin()
 */
 //	_lesson.setConcept(Lesson::CONCEPT::LETTER_CASE_EQUATE);
 
-	auto vmc = _lesson.getMultiChoices(1,5);
 
 	mychar = vmc[0].question;
 	_answer = vmc[0].answers[vmc[0].correctAnswer];

@@ -31,6 +31,7 @@ EndlessRunner::EndlessRunner(){
 //  jump_sound
 EndlessRunner::~EndlessRunner(void)
 {
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 	this->removeAllChildrenWithCleanup(true);
 }
 
@@ -44,50 +45,29 @@ void EndlessRunner::onEnterTransitionDidFinish()
 
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
-	/*const wchar_t*  alpha;
-	int currentLevel = _menuContext->getCurrentLevel();
 
-	if (currentLevel != 1) {
-		_flagHelp = false;
-	}
-
-	std::ostringstream blockName;
-	if (currentLevel >= 1 && currentLevel <= 9) {
-		alpha = LangUtil::getInstance()->getAllCharacters();
-		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha,currentLevel,0,3);
-	}
-	else if (currentLevel >= 10 && currentLevel <= 18) {
-		alpha = LangUtil::getInstance()->getAllLowerCaseCharacters();
-		_caseSensitivity = true;
-		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 9, 3);// three letter sequence like : A,B,C or P,Q,R (caps letter)
-	}
-	else if (currentLevel >= 19 && currentLevel <= 23) {
-		alpha = LangUtil::getInstance()->getAllCharacters();
-		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 18, 6);// six letter sequence like : A,B,C,D,E,F
-	}
-	else if (currentLevel >= 24 && currentLevel <= 28) {
-		alpha = LangUtil::getInstance()->getAllLowerCaseCharacters();
-		_caseSensitivity = true;
-		_alphabets = EndlessRunner::getStringDataLevelInfo(alpha, currentLevel, 23, 6);// six letter sequence like : a,b,c,d,e,f
-	}
-	else {
-		_alphabets = "ABCDEF";
-	}
-
-	tempChar = _alphabets[letterBoardAlphaLength];
-	letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
-	_menuContext->setMaxPoints(_alphabets.size() * 5);
-	
-	//std::random_shuffle(letters.at(0).begin(), letters.at(20).end());
-	*/
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(EndlessRunner::GameBegin, this));
 
 	// lesson API use for set choices and questions ... begin
 	_vmc = _lesson.getMultiChoices(3, 5);
+
+	
+}
+
+void EndlessRunner::GameBegin(cocos2d::EventCustom *eventCustom) {
+
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
+	_vmc = vmc;
+
 	_correctAnswerFromVmc = _vmc[letterBoardAlphaLength].answers[_vmc[letterBoardAlphaLength].correctAnswer];
 	tempChar = _vmc[letterBoardAlphaLength].question;
 
 	auto multipleChoices = MatrixUtil::generateMatrixForChoosing(_correctAnswerFromVmc,
-		_vmc[letterBoardAlphaLength].answers,1,15,65);
+		_vmc[letterBoardAlphaLength].answers, 1, 15, 65);
 	_letterStream = multipleChoices[0];
 	std::random_shuffle(_letterStream.begin(), _letterStream.end());
 
@@ -105,7 +85,7 @@ void EndlessRunner::onEnterTransitionDidFinish()
 
 	Character.action = CSLoader::createTimeline("endlessrunner/main_char.csb");
 	Character.character = (Sprite *)CSLoader::createNode("endlessrunner/main_char.csb");
-	Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x,(int)(visibleSize.height * 11 / 100) + origin.y));
+	Character.character->setPosition(Vec2((visibleSize.width * 25 / 100) + origin.x, (int)(visibleSize.height * 11 / 100) + origin.y));
 	this->addChild(Character.character, 11);
 	Character.character->runAction(Character.action);
 	Character.character->setScale(1.2);
@@ -113,7 +93,7 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	Character.character->getChildByName("net")->setVisible(false);
 	happyManAction = CSLoader::createTimeline("endlessrunner/happy_mad.csb");
 	hpUiCatchAction = CSLoader::createTimeline("endlessrunner/catch_score.csb");
-	
+
 	auto rotate1 = CSLoader::createTimeline("endlessrunner/life.csb");
 	auto rotate2 = CSLoader::createTimeline("endlessrunner/life.csb");
 	auto rotate3 = CSLoader::createTimeline("endlessrunner/life.csb");
@@ -121,7 +101,7 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	auto rotate5 = CSLoader::createTimeline("endlessrunner/life.csb");
 
 	hpUi = (Sprite *)CSLoader::createNode("endlessrunner/hp_ui.csb");
-	hpUi->setPosition(Vec2((visibleSize.width * 0.005) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.38)));
+	hpUi->setPosition(Vec2((visibleSize.width * 0.005) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.38)));
 	hpUi->setScale(0.7);
 	this->addChild(hpUi, 7);
 	hpUi->runAction(hpUiCatchAction);
@@ -131,17 +111,17 @@ void EndlessRunner::onEnterTransitionDidFinish()
 	hpUi->getChildByName("life_3")->runAction(rotate3); rotate3->play("rotate", true);
 	hpUi->getChildByName("life_4")->runAction(rotate4); rotate4->play("rotate", true);
 	hpUi->getChildByName("life_5")->runAction(rotate5); rotate5->play("rotate", true);
-	
+
 	hpUi->runAction(happyManAction);
-	happyManAction->play("happy_idle",true);
+	happyManAction->play("happy_idle", true);
 
 	auto boardDisplay = (Sprite *)CSLoader::createNode("endlessrunner/letter_board.csb");
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	this->addChild(boardDisplay, 10);
-	
-	letterOnBoard =  Alphabet::createWithSize(tempChar, 300);
+
+	letterOnBoard = Alphabet::createWithSize(tempChar, 300);
 	letterOnBoard->setName("mainBoard");
-	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x,(visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
+	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	this->addChild(letterOnBoard, 10);
 
@@ -162,10 +142,12 @@ void EndlessRunner::onEnterTransitionDidFinish()
 		startPosition = startPosition + mountain->getContentSize().width - LayerMode.tolerence;
 		allPathBlocks.push_back(mountain);
 		mountain->runAction(MoveTo::create(EndlessRunner::movingTime(mountain), Vec2((leftBarrier->getPosition().x), origin.y)));
-		}
-		EndlessRunner::CreateMonsterWithLetter(1.0/60.0);
-		EndlessRunner::startGame();
+	}
+	EndlessRunner::CreateMonsterWithLetter(1.0 / 60.0);
+	EndlessRunner::startGame();
+
 }
+
 
 void EndlessRunner::scheduleMethod() {
 	Character.onAir = true;

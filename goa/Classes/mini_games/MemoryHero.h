@@ -83,6 +83,8 @@ protected:
 	int _pairCount;
 	
     
+	void gameBegin(cocos2d::EventCustom * eventCustom);
+
 	void setupTouch();
 	int _wrong;
 	int _right;

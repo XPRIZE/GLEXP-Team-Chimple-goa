@@ -44,14 +44,27 @@ bool Shoot::init()
 
 void Shoot::onEnterTransitionDidFinish() {
 
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(Shoot::gameBegin, this));
+
+	_lesson.getMultiChoices(5, 2);
+	
+
+}
+
+void Shoot::gameBegin(cocos2d::EventCustom *eventCustom) {
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
 	std::string playerGUI = "";
 	int heightTolrence = 0;
 	_menuContext->setMaxPoints(10);
 
 	std::string gameRand[] = { "pinatacity" ,"pinatacream","pinatajungle" };
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
-//	std::tuple<int, int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 3, 5, 3, 10);
-	std::string gameTheme = gameRand[RandomHelper::random_int(0,2)];
+	//	std::tuple<int, int, int> levelKeyNumber = levelAllInfo(gameCurrentLevel, 3, 5, 3, 10);
+	std::string gameTheme = gameRand[RandomHelper::random_int(0, 2)];
 
 	auto topBoard = Sprite::create();
 	topBoard->setTextureRect(Rect(0, 0, Director::getInstance()->getVisibleSize().width / 2, 165));
@@ -102,15 +115,17 @@ void Shoot::onEnterTransitionDidFinish() {
 		this->xPosi = Director::getInstance()->getVisibleSize().width - 2560;
 		this->getChildByName("bg")->setPositionX(this->xPosi / 2);
 	}
-	
-	_vmc = _lesson.getMultiChoices(5, 2);
-	
+
+
+	_vmc = vmc;
+
 	mapKey = _vmc[counterlevelStatus].question;
 	_correctAnswerVmc = _vmc[counterlevelStatus].answers[_vmc[counterlevelStatus].correctAnswer];
-//	mapKey = _data_key[getRandomInt(0, 2)];
+	//	mapKey = _data_key[getRandomInt(0, 2)];
 
-	int a = 0 , b = 1 ,c = 2 ;
+	int a = 0, b = 1, c = 2;
 
+	
 	if (gameCurrentLevel == 1) {
 		if (_vmc[counterlevelStatus].correctAnswer == 0) { a = 1; c = 2;  b = 0; }
 		else if (_vmc[counterlevelStatus].correctAnswer == 1) { a = 0; c = 2; b = 1; }
@@ -159,12 +174,12 @@ void Shoot::onEnterTransitionDidFinish() {
 	player.x = bubblePlayer->getPositionX();    player.y = bubblePlayer->getPositionY();
 
 	rightLine = DrawNode::create();
-	rightLine->drawSegment(Vec2(this->getChildByName("bg")->getChildByName("right")->getPositionX() + (xPosi / 2), this->getChildByName("bg")->getChildByName("right")->getPositionY()),Vec2(player.x + (bubblePlayer->getContentSize().width / 2), player.y),10,stringColor);
-	this->addChild(rightLine,3);
+	rightLine->drawSegment(Vec2(this->getChildByName("bg")->getChildByName("right")->getPositionX() + (xPosi / 2), this->getChildByName("bg")->getChildByName("right")->getPositionY()), Vec2(player.x + (bubblePlayer->getContentSize().width / 2), player.y), 10, stringColor);
+	this->addChild(rightLine, 3);
 	rightLine->setName("rightLine");
 
 	leftLine = DrawNode::create();
-	leftLine->drawSegment(Vec2(this->getChildByName("bg")->getChildByName("left")->getPositionX() + (xPosi / 2), this->getChildByName("bg")->getChildByName("left")->getPositionY()), Vec2(player.x - (bubblePlayer->getContentSize().width / 2), player.y),10,stringColor);
+	leftLine->drawSegment(Vec2(this->getChildByName("bg")->getChildByName("left")->getPositionX() + (xPosi / 2), this->getChildByName("bg")->getChildByName("left")->getPositionY()), Vec2(player.x - (bubblePlayer->getContentSize().width / 2), player.y), 10, stringColor);
 	this->addChild(leftLine);
 	leftLine->setName("leftLine");
 
@@ -194,6 +209,7 @@ void Shoot::onEnterTransitionDidFinish() {
 	bgListner();
 	choosingListner();
 	this->scheduleUpdate();
+
 }
 
 void Shoot::update(float dt) {

@@ -45,9 +45,20 @@ bool BubbleShooter::init()
 
 void BubbleShooter::onEnterTransitionDidFinish() {
 
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(BubbleShooter::gameBegin, this));
+	_lesson.getMultiChoices(3, 0);
+}
+
+void BubbleShooter::gameBegin(cocos2d::EventCustom *eventCustom) {
+
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
 	std::string mainScenePath = "";
 
-	if ((RandomHelper::random_int(1,19) % 2) == 0) {
+	if ((RandomHelper::random_int(1, 19) % 2) == 0) {
 		mainScenePath = "bubble_shooter/bubble_shooter.csb";
 		_AlphabetsScene = false;
 	}
@@ -62,22 +73,22 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 
 	_negativePoints = 0;
 	_flagSwitchTwoColor = true;
-	std::string imageSprite[8] = {"bubble_shooter/red_ball", "bubble_shooter/green_ball", "bubble_shooter/yellow_ball", "bubble_shooter/purple_ball", "bubble_shooter/blue_ball", "bubble_shooter/orange_ball", "bubble_shooter/yellow_ball", "bubble_shooter/blue_ball" };
+	std::string imageSprite[8] = { "bubble_shooter/red_ball", "bubble_shooter/green_ball", "bubble_shooter/yellow_ball", "bubble_shooter/purple_ball", "bubble_shooter/blue_ball", "bubble_shooter/orange_ball", "bubble_shooter/yellow_ball", "bubble_shooter/blue_ball" };
 
 	for (int i = 0; i < 8; i++)
 		_imageSprite[i] = imageSprite[i];
 
 	std::vector<std::string> LangLetter;
 	int numberOfLetter = 3;
-	if(_AlphabetsScene){
+	if (_AlphabetsScene) {
 		LangLetter = TextGenerator::getInstance()->getAllChars();
-	
+
 		if (numberOfLetter <= ceil(LangLetter.size() / 12)) {
 			numberOfLetter = ceil(LangLetter.size() / 12);
 		}
 	}
 	else {
-		string NumbersArray[]= {"0","1","2","3","4","5","6","7","8","9"};
+		string NumbersArray[] = { "0","1","2","3","4","5","6","7","8","9" };
 		for (int i = 0; i < 10; i++)
 			LangLetter.push_back(NumbersArray[i]);
 	}
@@ -86,10 +97,10 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	textHitsLabel->setPosition(Vec2(Director::getInstance()->getVisibleSize().width*0.1, Director::getInstance()->getVisibleSize().height*0.975));
 	textHitsLabel->setName("HitText");
 	addChild(textHitsLabel);
-	
+
 	_bubbleName = create2dVectorSprite(level.columns, level.rows);
 	_LetterName = create2dVectorLetter(level.columns, level.rows);
-	level.tiles = create2dVectorTiles(level.columns , level.rows);
+	level.tiles = create2dVectorTiles(level.columns, level.rows);
 
 	for (int i = 0; i < level.columns; i++) {
 		for (int j = 0; j < level.rows; j++) {
@@ -98,13 +109,13 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	}
 	auto tilesdata = level.tiles;
 
-	auto bubbleSizeReference =  Sprite::createWithSpriteFrameName("bubble_shooter/red_ball.png");
+	auto bubbleSizeReference = Sprite::createWithSpriteFrameName("bubble_shooter/red_ball.png");
 	level.tilewidth = bubbleSizeReference->getContentSize().width;  // Visual width of a tile
 	level.tileheight = bubbleSizeReference->getContentSize().height; // Visual height of a tile
 	level.rowheight = bubbleSizeReference->getContentSize().height * 0.85;  // Height of a row
 	level.radius = bubbleSizeReference->getContentSize().width * 0.52;     // Bubble collision radius
-	
-	// Define a level width and height
+
+																		   // Define a level width and height
 	level.width = level.columns * level.tilewidth + level.tilewidth / 2;
 	level.height = (level.rows) * level.rowheight + level.tileheight;
 
@@ -114,7 +125,6 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	letterSprite.resize(numberOfLetter);
 	int bubblelevelValues = 1;
 
-	auto vmc = _lesson.getMultiChoices(3, 0);
 
 	for (int i = 0; i < vmc.size(); i++)
 		letterSprite[i] = vmc[i].question;
@@ -123,98 +133,14 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	// Create the level of bubbles
 	createLevel(color, repeat);
 
-	/*
-	if (_AlphabetsScene) {
-		bubblelevelValues = _menuContext->getCurrentLevel();
-		for (int i = 0; i < numberOfLetter; i++) {
-			auto indexLetter = (((bubblelevelValues - 1)*numberOfLetter) + i);
-		
-			if (indexLetter >= 26 && LangUtil::getInstance()->getLang() == "eng") {
-				indexLetter = floor(rand_0_1() * (indexLetter - 3));
-			}
-
-			if (indexLetter >= 24 && LangUtil::getInstance()->getLang() == "swa") {
-				indexLetter = floor(rand_0_1() * (indexLetter - 3));
-			}
-
-			if (LangLetter.size() < indexLetter) {
-				indexLetter = getRandomInt(0, (LangLetter.size() - 1));
-			}
-
-			auto letter = LangLetter[indexLetter];
-			if (letter.empty()) {
-				letterSprite[i] = LangLetter[getRandomInt(0, (LangLetter.size() - 1))];
-			}
-			else {
-				letterSprite[i] = letter;
-			}
-		}
-		int color = numberOfLetter, repeat = 4;
-		// Create the level of bubbles
-		createLevel(color, repeat);
-	}
-	else {
-		bubblelevelValues = _menuContext->getCurrentLevel() - 9;
-		if (bubblelevelValues == 1) {
-			letterSprite = { "0", "1", "2" };
-			auto color = 3, repeat = 4;
-			// Create the level of bubbles
-			this->createLevel(color, repeat);
-
-		}
-		else if (bubblelevelValues == 2) {
-			letterSprite = { "3", "4", "5" };
-			auto color = 3, repeat = 4;
-			// Create the level of bubbles
-			this->createLevel(color, repeat);
-
-		}
-		else if (bubblelevelValues == 3) {
-			auto color = 3, repeat = 4;
-			letterSprite = { "6", "7", "8" };
-			
-			// Create the level of bubbles
-			this->createLevel(color, repeat);
-
-		}
-		else if (bubblelevelValues == 4) {
-			auto color = 3, repeat = 4;
-			auto numbers = this->rndNumber(color);
-			string DataNumber[] = { "0","1","2","3","4","5","6","7","8","9" };
-
-			if (DataNumber[numbers[0]] == "9") {
-				numbers[0] = numbers[2];
-			}
-			else if (DataNumber[numbers[1]] == "9") {
-				numbers[1] = numbers[2];
-			}
-
-			letterSprite = { "9", DataNumber[numbers[0]], DataNumber[numbers[1]] };
-
-			// Create the level of bubbles
-			this->createLevel(color, repeat);
-
-		}
-		else if (bubblelevelValues == 5) {
-			auto color = 3, repeat = 4;
-			auto numbers = this->rndNumber(color);
-			string DataNumber[] = { "0","1","2","3","4","5","6","7","8","9" };
-			letterSprite = { DataNumber[numbers[0]], DataNumber[numbers[1]], DataNumber[numbers[2]] };
-
-			// Create the level of bubbles
-			this->createLevel(color, repeat);
-
-		}
-	}
-	*/
 	auto trnspImg = Sprite::createWithSpriteFrameName("bubble_shooter/pixel.png");
 	trnspImg->setName("touch");
 	trnspImg->setAnchorPoint(Vec2(0, 0));        trnspImg->setPosition(Vec2(0, 0));       trnspImg->setOpacity(0);
-	bg->getChildByName("Panel_2")->addChild(trnspImg);
+	getChildByName("bg")->getChildByName("Panel_2")->addChild(trnspImg);
 
 	// Set the gun Pointer
 	auto gun = Sprite::createWithSpriteFrameName("bubble_shooter/gun_tricker.png");
-	gun->setAnchorPoint(Vec2(0.5,0.5));
+	gun->setAnchorPoint(Vec2(0.5, 0.5));
 	gun->setPosition(Vec2(trnspImg->getContentSize().width / 2, Director::getInstance()->getVisibleSize().height*0.08));
 	gun->setName("gunPointer");
 	addChild(gun);
@@ -237,7 +163,7 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	// Init the next-this.player
 	player->nextbubble.x = player->x - 3 * level.tilewidth;
 	player->nextbubble.y = player->y;
-	
+
 	// Init the next bubble and set the current bubble
 	nextBubble();
 	nextBubble();
@@ -249,7 +175,7 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 
 	auto bubblePlayer = Sprite::createWithSpriteFrameName(imageSprite[player->bubble.tiletype] + ".png");
 	bubblePlayer->setName("bubblePlayer");
-	bubblePlayer->setPosition(Vec2(gunBase->getPositionX(),getPositionY()+bubblePlayer->getContentSize().width/2));
+	bubblePlayer->setPosition(Vec2(gunBase->getPositionX(), getPositionY() + bubblePlayer->getContentSize().width / 2));
 	addChild(bubblePlayer, 1);
 
 	auto letterPlayer = CommonLabelTTF::create(letterSprite[player->bubble.tiletype], "Helvetica", 150);
@@ -263,7 +189,7 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 	auto nextBubblePlayer = Sprite::createWithSpriteFrameName(_imageSprite[player->nextbubble.tiletype] + ".png");
 	auto nextLetterPlayer = CommonLabelTTF::create(letterSprite[player->nextbubble.tiletype], "Helvetica", 150);
 	nextBubblePlayer->setName("nextBubblePlayer"); nextLetterPlayer->setName("nextLetterPlayer");
-	nextBubblePlayer->setPosition(Vec2(gunBase->getPositionX()-300, getPositionY() + nextBubblePlayer->getContentSize().width / 2));
+	nextBubblePlayer->setPosition(Vec2(gunBase->getPositionX() - 300, getPositionY() + nextBubblePlayer->getContentSize().width / 2));
 	addChild(nextBubblePlayer);
 	nextBubblePlayer->addChild(nextLetterPlayer);
 	renderTiles();
@@ -296,9 +222,10 @@ void BubbleShooter::onEnterTransitionDidFinish() {
 		help->setName("help");
 		// help.click((this.xPosi/2)+targetB.x,targetB.y);
 	}
-	
+
 
 	this->scheduleUpdate();
+
 }
 
 void BubbleShooter::update(float delta) {
@@ -1374,7 +1301,7 @@ BubbleShooter::BubbleShooter(){
 
 BubbleShooter::~BubbleShooter(void)
 {
-	
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 }
 
 TileData::TileData(float x, float y, int type, int shift) {
