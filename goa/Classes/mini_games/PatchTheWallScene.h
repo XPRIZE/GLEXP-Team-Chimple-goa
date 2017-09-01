@@ -53,6 +53,7 @@ public:
 	void blastCome(float);
 	void letterCome(Node *blastNode, int);
 	void onEnterTransitionDidFinish() override;
+	void gameBegin(cocos2d::EventCustom * eventCustom);
     CREATE_FUNC(PatchTheWall);
     
     static const char* gameName() { return PATCH_THE_WALL.c_str();}
