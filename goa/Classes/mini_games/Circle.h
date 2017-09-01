@@ -29,6 +29,7 @@ public:
 	int _score = 0;
 	void bigpuff(float dt);
 	float extraX;
+	void startGame(cocos2d::EventCustom *eventCustom);
 	std::string _target;
 	std::map<std::string, std::string> _scenePath;
 	std::map<std::string, std::string> _sceneMap;
