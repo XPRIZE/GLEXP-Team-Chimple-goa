@@ -27,6 +27,7 @@ Alphamole::~Alphamole()
 	_mainChar = nullptr;
 	_eventDispatcher->removeCustomEventListeners("alphabet_selected");
 	_eventDispatcher->removeCustomEventListeners("alphabet_unselected");
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 }
 
 Alphamole * Alphamole::create()
@@ -65,11 +66,15 @@ bool Alphamole::init()
 	_Xpos = 0.0f;
 
 
-	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(Alphamole::startGame, this));
+	//setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(Alphamole::startGame, this));
 	return true;
 }
-
-void Alphamole::startGame()
+void Alphamole::onEnterTransitionDidFinish()
+{
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(Alphamole::startGame, this));
+	_lesson.getMultiChoices(1, 5);
+}
+void Alphamole::startGame(cocos2d::EventCustom *eventCustom)
 {
 	menu->setMaxPoints(5);
 	Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -133,7 +138,12 @@ void Alphamole::startGame()
 
 	// _convertToLessonConcept
 
-	auto vmc = _lesson.getMultiChoices(1, 5);
+	
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
 	int column = 1, row = 10;
 	_jumpArray.resize(row);
 	/*for(int i=0; i<row; i++)

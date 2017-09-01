@@ -76,6 +76,7 @@ protected:
 	bool _eyeFlag = true, _mouthFlag = true, _skateFlag = true, _noseFlag = true, _paintFlag = true, _mustacheFlag = true, _hornFlag = true, _gearFlag = true;
 	void wordGenerate();
 	void gameEnd(float dt);
+	void createGameLayout(cocos2d::EventCustom *eventCustom);
 	bool _isTouchBegan = true, _backFromGallery = true;
 	Rect _rect = Rect(0, 0, 0, 0);
 	Vec2 _touchPoint = Vec2(-1, -1);

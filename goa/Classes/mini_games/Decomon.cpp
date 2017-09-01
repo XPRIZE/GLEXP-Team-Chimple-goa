@@ -198,7 +198,7 @@ Decomon::Decomon()
 
 Decomon::~Decomon()
 {
-
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 }
 void Decomon::update(float dt)
 {
@@ -738,309 +738,9 @@ void Decomon::captureImage(bool capture, const std::string & outputFile)
 
 void Decomon::onEnterTransitionDidFinish()
 {
-	Node::onEnterTransitionDidFinish();
-	Size visibleSize = Director::getInstance()->getVisibleSize();
-	/* level 1 to 26 upperCase
-	level 27 to 52 lowerCase
-	level 53 to 62 numbers
-	*/
-	if ((menu->getCurrentLevel() == 1) && _backFromGallery)
-	{
-		auto decomonBackground = (cocos2d::Sprite*)CSLoader::createNode("decomon/decomon1.csb");
-		this->addChild(decomonBackground, 0);
-		decomonBackground->setName("paintBg");
-
-		auto bgLayerGradient = LayerGradient::create(Color4B(255, 255, 255, 0), Color4B(255, 255, 255, 0));
-		this->addChild(bgLayerGradient, 0);
-		bgLayerGradient->setName("background");
-		addTouchEvents(bgLayerGradient);
-
-		//START
-		auto camera = Sprite::createWithSpriteFrameName("decomon/decomon3/decomon_icon_camera.png");
-		camera->setPosition(Vec2(visibleSize.width*0.65, visibleSize.height*.925));
-		camera->setAnchorPoint(Vec2(0.5, 0.5));
-		camera->setName("decomon_icon_camera");
-		this->addChild(camera, 1);
-
-		auto listener = EventListenerTouchOneByOne::create();
-		listener->setSwallowTouches(true);
-		listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this->getChildByName("decomon_icon_camera"));
-
-		auto fullpath = FileUtils::sharedFileUtils()->getWritablePath() + "decomon.txt";
-
-		std::string contents = FileUtils::getInstance()->getStringFromFile(fullpath);
-
-		std::vector<std::string> imagePath;
-
-		std::stringstream ss;
-		ss.str(contents);
-		std::string item;
-		while (std::getline(ss, item, '%')) {
-			imagePath.push_back(item);
-		}
-
-		if (imagePath.size() != 0) {
-			auto gallery = Sprite::createWithSpriteFrameName("decomon/decomon3/decomon_icon_gallery.png");
-			gallery->setPosition(Vec2(visibleSize.width*0.79, visibleSize.height*.925));
-			gallery->setAnchorPoint(Vec2(0.5, 0.5));
-			gallery->setName("decomon_icon_gallery");
-			this->addChild(gallery, 1);
-
-			auto listener1 = EventListenerTouchOneByOne::create();
-			listener1->setSwallowTouches(true);
-			listener1->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
-			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this->getChildByName("decomon_icon_gallery"));
-		}
-
-		//END
-
-		if (visibleSize.width > 2560) {
-			auto myGameWidth = (visibleSize.width - 2560) / 2;
-			decomonBackground->setPositionX(myGameWidth);
-		}
-
-
-		/*	auto drawingSheet = (cocos2d::Sprite*)this->getChildByName("paintBg")->getChildByName("bg");
-		addTouchEvents(drawingSheet);*/
-
-		auto drawing = this->getChildByName("paintBg")->getChildByName("draw");
-		auto posX = drawing->getPositionX();
-		auto posY = drawing->getPositionY();
-		auto sheetWidth = drawing->getContentSize().width;
-		auto sheetHeight = drawing->getContentSize().height;
-		_rect = CCRectMake(posX, posY, sheetWidth, sheetHeight);
-
-
-		/*	auto aa = DrawNode::create();
-		this->addChild(aa, 20);
-
-		aa->drawRect(Vec2(posX, posY),
-		Vec2(posX + sheetWidth, posY + sheetHeight),
-		Color4F(0, 0, 255, 22));*/
-
-
-		auto gap = Director::getInstance()->getVisibleSize().width / _paintPath.size();
-
-		float delay = 0;
-
-		for (int i = 0; i < _paintPath.size(); i++)
-		{
-			this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=] {
-
-				auto paintBucket = (cocos2d::Sprite*)Sprite::createWithSpriteFrameName(_paintPath.at(i).c_str());
-				paintBucket->setScale(0.001);
-				paintBucket->setPositionY(Director::getInstance()->getVisibleSize().height * 0.07);
-				paintBucket->setPositionX((i*gap + gap / 2));
-				paintBucket->setName("bucket");
-				paintBucket->setTag(i);
-				this->addChild(paintBucket);
-
-				auto scaleTo = ScaleTo::create(1, 0.85);
-				EaseElasticOut *easeAction = EaseElasticOut::create(scaleTo);
-				paintBucket->runAction(easeAction);
-				addTouchEventsOnBacket(paintBucket);
-			}), NULL));
-
-			delay += 0.1;
-		}
-
-		_drawingPaintNode = DrawNode::create();
-		this->addChild(_drawingPaintNode);
-
-
-	}
-	else if(_backFromGallery){
-		// START
-
-		auto bg = CSLoader::createNode("decomon/decomon.csb");
-		if (visibleSize.width > 2560) {
-			float extar_X = (visibleSize.width - 2560);
-			auto right_panel = bg->getChildByName("right_panel");
-			right_panel->setPositionX(right_panel->getPositionX() + extar_X);
-			auto background = bg->getChildByName("bg1");
-			background->setPositionX(background->getPositionX() + (extar_X / 2));
-		}
-		bg->setName("bg");
-		this->addChild(bg);
-
-
-
-		auto children = bg->getChildByName("left_panel")->getChildren();
-		for (auto item = children.rbegin(); item != children.rend(); ++item) {
-			Node * monsterItem = *item;
-			std::string str = monsterItem->getName().c_str();
-			CCLOG("child = %s", str.c_str());
-		}
-
-		std::vector<std::string> right_iconsName = { "decomon_icon_gear","decomon_icon_skate","decomon_icon_mustache","decomon_icon_paintbrush" };
-		std::vector<std::string> left_iconsName = { "decomon_icon_mouth","decomon_icon_nose","decomon_icon_eye","decomon_icon_headgear" };
-		for (int i = 0; i < right_iconsName.size(); i++) {
-			auto listener = EventListenerTouchOneByOne::create();
-			listener->setSwallowTouches(true);
-			listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
-			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, bg->getChildByName("right_panel")->getChildByName(right_iconsName.at(i)));
-		}
-		for (int i = 0; i < left_iconsName.size(); i++) {
-			auto listener = EventListenerTouchOneByOne::create();
-			listener->setSwallowTouches(true);
-			listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
-			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, bg->getChildByName("left_panel")->getChildByName(left_iconsName.at(i)));
-		}
-
-		auto listener = EventListenerTouchOneByOne::create();
-		listener->setSwallowTouches(true);
-		listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
-		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, bg->getChildByName("decomon_icon_camera"));
-
-
-		auto fullpath = FileUtils::sharedFileUtils()->getWritablePath() + "decomon.txt";
-
-		std::string contents = FileUtils::getInstance()->getStringFromFile(fullpath);
-
-		std::vector<std::string> imagePath;
-
-		std::stringstream ss;
-		ss.str(contents);
-		std::string item;
-		while (std::getline(ss, item, '%')) {
-			imagePath.push_back(item);
-		}
-
-		if (imagePath.size() != 0) {
-			auto listener1 = EventListenerTouchOneByOne::create();
-			listener1->setSwallowTouches(true);
-			listener1->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
-			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, bg->getChildByName("decomon_icon_gallery"));
-		}
-		else
-		{
-			bg->getChildByName("decomon_icon_gallery")->setVisible(false);
-		}
-
-		//END
-
-		auto currentLevel = menu->getCurrentLevel();
-		//for(int i = 1 ; i < 64 ;i++){
-		//	currentLevel = i;
-		
-		// _revampToNewLessonGame
-
-		auto vmc = _lesson.getMultiChoices(1, 0);
-
-		if ((currentLevel > 1) && (currentLevel < 54)) //28 
-		{
-			_myChar = vmc[0].question;
-			/*if (currentLevel > LangUtil::getInstance()->getNumberOfCharacters() + 1) {
-				int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
-				auto mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];
-				_myChar = LangUtil::convertUTF16CharToString(mychar);
-			}
-			else {
-				_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[currentLevel - 2]);
-			}*/
-
-		}
-		/*else if ((currentLevel > 27) && (currentLevel < 54)) {
-			int level = currentLevel - 28;
-			if (level >= LangUtil::getInstance()->getNumberOfCharacters()) {
-				int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 2);
-				auto mychar = LangUtil::getInstance()->getAllLowerCaseCharacters()[randomNumber];
-				_myChar = LangUtil::convertUTF16CharToString(mychar);
-			}
-			else {
-				_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllLowerCaseCharacters()[level]);
-			}
-
-		}*/
-		else {
-			int level = currentLevel - 54;
-			auto mychar = LangUtil::getInstance()->getAllNumbers()[level];
-			_myChar = LangUtil::convertUTF16CharToString(mychar);
-
-		}
-
-		//CCLOG("\nlevel: %d , THE LETTER OR NUMBER IS : %s",i,_myChar.c_str());
-		//}
-		//_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
-		menu->setMaxPoints(8);
-		cocos2d::ui::TextBMFont * my = cocos2d::ui::TextBMFont::create(_myChar, LangUtil::getInstance()->getBMFontFileName());
-		my->setPositionX(visibleSize.width / 2);
-		my->setPositionY(visibleSize.height / 2);
-		my->setScale(4);
-
-		auto x = my->getBoundingBox().origin;
-		auto sssize = my->getContentSize();
-		_width = my->getContentSize().width;
-		_myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
-
-		if (LangUtil::getInstance()->getLang() == "kan") {
-			_myLabel->setAnchorPoint(Vec2(0.5, 0.65));
-		}
-		_myLabel->setColor(Color3B(222, 232, 121));
-		_myLabel->setContentSize(Size(sssize.width * 2.5, 1000));
-		_myLabel->setScale(3);
-		_myLabel->setName("alphabet");
-
-
-		_alphaNode = Node::create();
-		_alphaNode->setPositionX(visibleSize.width / 2);
-		_alphaNode->setPositionY(visibleSize.height / 1.75);
-		_alphaNode->setContentSize(Size(sssize.width * 2.5, 1000));
-
-		_alphaNode->setColor(Color3B(222, 232, 255));
-		_alphaNode->setAnchorPoint(Vec2(0.5, 0.5));
-		_alphaNode->addChild(_myLabel);
-		_myLabel->setPositionX(_alphaNode->getContentSize().width / 2);
-		_myLabel->setPositionY(_alphaNode->getContentSize().height / 2);
-		auto maskedFill = ClippingNode::create(_alphaNode);
-
-		maskedFill->setContentSize(visibleSize);
-
-		_maskingLayer = LayerColor::create(Color4B(255, 255, 255, 255), visibleSize.width, visibleSize.height);
-
-		_maskingLayer->setAnchorPoint(Vec2(0.5, 0.5));
-
-		maskedFill->setAlphaThreshold(0.1);
-
-		maskedFill->addChild(_maskingLayer);
-		this->addChild(maskedFill);
-
-		_alphabetLayer = Layer::create();
-		this->addChild(_alphabetLayer);
-
-		_costumeLayer = Layer::create();
-		this->addChild(_costumeLayer);
-
-		_iconLayer = Layer::create();
-		this->addChild(_iconLayer);
-
-		/*_coloringLayer = Layer::create();
-		_coloringLayer->setName("colouringLayer");
-		this->addChild(_coloringLayer);*/
-		CCLOG("++++++++++++++++++decomon++++++++++++");
-		auto node = DrawNode::create();
-		auto nodeWidth = sssize.width * 1.25;
-		Vec2 vertices[] =
-		{
-			Vec2(visibleSize.width / 2 - nodeWidth,visibleSize.height / 1.75 - 500),
-			Vec2(visibleSize.width / 2 + nodeWidth, visibleSize.height / 1.75 - 500),
-
-			Vec2(visibleSize.width / 2 + nodeWidth,visibleSize.height / 1.75 + 500),
-			Vec2(visibleSize.width / 2 - nodeWidth,visibleSize.height / 1.75 + 500)
-
-		};
-		node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
-		//addChild(node);
-
-		_paintingNode = DrawNode::create();
-		_maskingLayer->addChild(_paintingNode);
-		_audioEffect = CocosDenshion::SimpleAudioEngine::getInstance();
-
-		if (menu->getCurrentLevel() == 2) {
-			gameHelp();
-		}
-	}
+	//createGameLayout();
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(Decomon::createGameLayout, this));
+	_lesson.getMultiChoices(1, 0);
 }
 
 void Decomon::gameHelp()
@@ -1203,4 +903,311 @@ void Decomon::gameEnd(float dt)
 {
 
 	menu->showScore();
+}
+
+void Decomon::createGameLayout(cocos2d::EventCustom *eventCustom)
+{
+	Node::onEnterTransitionDidFinish();
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	if ((menu->getCurrentLevel() == 1) && _backFromGallery)
+	{
+		auto decomonBackground = (cocos2d::Sprite*)CSLoader::createNode("decomon/decomon1.csb");
+		this->addChild(decomonBackground, 0);
+		decomonBackground->setName("paintBg");
+
+		auto bgLayerGradient = LayerGradient::create(Color4B(255, 255, 255, 0), Color4B(255, 255, 255, 0));
+		this->addChild(bgLayerGradient, 0);
+		bgLayerGradient->setName("background");
+		addTouchEvents(bgLayerGradient);
+
+		//START
+		auto camera = Sprite::createWithSpriteFrameName("decomon/decomon3/decomon_icon_camera.png");
+		camera->setPosition(Vec2(visibleSize.width*0.65, visibleSize.height*.925));
+		camera->setAnchorPoint(Vec2(0.5, 0.5));
+		camera->setName("decomon_icon_camera");
+		this->addChild(camera, 1);
+
+		auto listener = EventListenerTouchOneByOne::create();
+		listener->setSwallowTouches(true);
+		listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this->getChildByName("decomon_icon_camera"));
+
+		auto fullpath = FileUtils::sharedFileUtils()->getWritablePath() + "decomon.txt";
+
+		std::string contents = FileUtils::getInstance()->getStringFromFile(fullpath);
+
+		std::vector<std::string> imagePath;
+
+		std::stringstream ss;
+		ss.str(contents);
+		std::string item;
+		while (std::getline(ss, item, '%')) {
+			imagePath.push_back(item);
+		}
+
+		if (imagePath.size() != 0) {
+			auto gallery = Sprite::createWithSpriteFrameName("decomon/decomon3/decomon_icon_gallery.png");
+			gallery->setPosition(Vec2(visibleSize.width*0.79, visibleSize.height*.925));
+			gallery->setAnchorPoint(Vec2(0.5, 0.5));
+			gallery->setName("decomon_icon_gallery");
+			this->addChild(gallery, 1);
+
+			auto listener1 = EventListenerTouchOneByOne::create();
+			listener1->setSwallowTouches(true);
+			listener1->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
+			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this->getChildByName("decomon_icon_gallery"));
+		}
+
+		//END
+
+		if (visibleSize.width > 2560) {
+			auto myGameWidth = (visibleSize.width - 2560) / 2;
+			decomonBackground->setPositionX(myGameWidth);
+		}
+
+
+		/*	auto drawingSheet = (cocos2d::Sprite*)this->getChildByName("paintBg")->getChildByName("bg");
+		addTouchEvents(drawingSheet);*/
+
+		auto drawing = this->getChildByName("paintBg")->getChildByName("draw");
+		auto posX = drawing->getPositionX();
+		auto posY = drawing->getPositionY();
+		auto sheetWidth = drawing->getContentSize().width;
+		auto sheetHeight = drawing->getContentSize().height;
+		_rect = CCRectMake(posX, posY, sheetWidth, sheetHeight);
+
+
+		/*	auto aa = DrawNode::create();
+		this->addChild(aa, 20);
+
+		aa->drawRect(Vec2(posX, posY),
+		Vec2(posX + sheetWidth, posY + sheetHeight),
+		Color4F(0, 0, 255, 22));*/
+
+
+		auto gap = Director::getInstance()->getVisibleSize().width / _paintPath.size();
+
+		float delay = 0;
+
+		for (int i = 0; i < _paintPath.size(); i++)
+		{
+			this->runAction(Sequence::create(DelayTime::create(delay), CallFunc::create([=] {
+
+				auto paintBucket = (cocos2d::Sprite*)Sprite::createWithSpriteFrameName(_paintPath.at(i).c_str());
+				paintBucket->setScale(0.001);
+				paintBucket->setPositionY(Director::getInstance()->getVisibleSize().height * 0.07);
+				paintBucket->setPositionX((i*gap + gap / 2));
+				paintBucket->setName("bucket");
+				paintBucket->setTag(i);
+				this->addChild(paintBucket);
+
+				auto scaleTo = ScaleTo::create(1, 0.85);
+				EaseElasticOut *easeAction = EaseElasticOut::create(scaleTo);
+				paintBucket->runAction(easeAction);
+				addTouchEventsOnBacket(paintBucket);
+			}), NULL));
+
+			delay += 0.1;
+		}
+
+		_drawingPaintNode = DrawNode::create();
+		this->addChild(_drawingPaintNode);
+
+
+	}
+	else if (_backFromGallery) {
+		// START
+
+		auto bg = CSLoader::createNode("decomon/decomon.csb");
+		if (visibleSize.width > 2560) {
+			float extar_X = (visibleSize.width - 2560);
+			auto right_panel = bg->getChildByName("right_panel");
+			right_panel->setPositionX(right_panel->getPositionX() + extar_X);
+			auto background = bg->getChildByName("bg1");
+			background->setPositionX(background->getPositionX() + (extar_X / 2));
+		}
+		bg->setName("bg");
+		this->addChild(bg);
+
+
+
+		auto children = bg->getChildByName("left_panel")->getChildren();
+		for (auto item = children.rbegin(); item != children.rend(); ++item) {
+			Node * monsterItem = *item;
+			std::string str = monsterItem->getName().c_str();
+			CCLOG("child = %s", str.c_str());
+		}
+
+		std::vector<std::string> right_iconsName = { "decomon_icon_gear","decomon_icon_skate","decomon_icon_mustache","decomon_icon_paintbrush" };
+		std::vector<std::string> left_iconsName = { "decomon_icon_mouth","decomon_icon_nose","decomon_icon_eye","decomon_icon_headgear" };
+		for (int i = 0; i < right_iconsName.size(); i++) {
+			auto listener = EventListenerTouchOneByOne::create();
+			listener->setSwallowTouches(true);
+			listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
+			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, bg->getChildByName("right_panel")->getChildByName(right_iconsName.at(i)));
+		}
+		for (int i = 0; i < left_iconsName.size(); i++) {
+			auto listener = EventListenerTouchOneByOne::create();
+			listener->setSwallowTouches(true);
+			listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
+			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, bg->getChildByName("left_panel")->getChildByName(left_iconsName.at(i)));
+		}
+
+		auto listener = EventListenerTouchOneByOne::create();
+		listener->setSwallowTouches(true);
+		listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
+		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, bg->getChildByName("decomon_icon_camera"));
+
+
+		auto fullpath = FileUtils::sharedFileUtils()->getWritablePath() + "decomon.txt";
+
+		std::string contents = FileUtils::getInstance()->getStringFromFile(fullpath);
+
+		std::vector<std::string> imagePath;
+
+		std::stringstream ss;
+		ss.str(contents);
+		std::string item;
+		while (std::getline(ss, item, '%')) {
+			imagePath.push_back(item);
+		}
+
+		if (imagePath.size() != 0) {
+			auto listener1 = EventListenerTouchOneByOne::create();
+			listener1->setSwallowTouches(true);
+			listener1->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
+			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, bg->getChildByName("decomon_icon_gallery"));
+		}
+		else
+		{
+			bg->getChildByName("decomon_icon_gallery")->setVisible(false);
+		}
+
+		//END
+
+		auto currentLevel = menu->getCurrentLevel();
+		//for(int i = 1 ; i < 64 ;i++){
+		//	currentLevel = i;
+
+		// _revampToNewLessonGame
+
+		//auto vmc = _lesson.getMultiChoices(1, 0);
+		CCLOG("onLessonReady begin");
+		std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+		CCLOG("onLessonReady to unmarshallMultiChoices");
+		vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
+		if ((currentLevel > 1) && (currentLevel < 54)) //28 
+		{
+			_myChar = vmc[0].question;
+			/*if (currentLevel > LangUtil::getInstance()->getNumberOfCharacters() + 1) {
+			int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 1);
+			auto mychar = LangUtil::getInstance()->getAllCharacters()[randomNumber];
+			_myChar = LangUtil::convertUTF16CharToString(mychar);
+			}
+			else {
+			_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[currentLevel - 2]);
+			}*/
+
+		}
+		/*else if ((currentLevel > 27) && (currentLevel < 54)) {
+		int level = currentLevel - 28;
+		if (level >= LangUtil::getInstance()->getNumberOfCharacters()) {
+		int randomNumber = cocos2d::RandomHelper::random_int(0, LangUtil::getInstance()->getNumberOfCharacters() - 2);
+		auto mychar = LangUtil::getInstance()->getAllLowerCaseCharacters()[randomNumber];
+		_myChar = LangUtil::convertUTF16CharToString(mychar);
+		}
+		else {
+		_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllLowerCaseCharacters()[level]);
+		}
+
+		}*/
+		else {
+			int level = currentLevel - 54;
+			auto mychar = LangUtil::getInstance()->getAllNumbers()[level];
+			_myChar = LangUtil::convertUTF16CharToString(mychar);
+
+		}
+
+		//CCLOG("\nlevel: %d , THE LETTER OR NUMBER IS : %s",i,_myChar.c_str());
+		//}
+		//_myChar = LangUtil::convertUTF16CharToString(LangUtil::getInstance()->getAllCharacters()[menu->getCurrentLevel() - 1]);
+		menu->setMaxPoints(8);
+		cocos2d::ui::TextBMFont * my = cocos2d::ui::TextBMFont::create(_myChar, LangUtil::getInstance()->getBMFontFileName());
+		my->setPositionX(visibleSize.width / 2);
+		my->setPositionY(visibleSize.height / 2);
+		my->setScale(4);
+
+		auto x = my->getBoundingBox().origin;
+		auto sssize = my->getContentSize();
+		_width = my->getContentSize().width;
+		_myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
+
+		if (LangUtil::getInstance()->getLang() == "kan") {
+			_myLabel->setAnchorPoint(Vec2(0.5, 0.65));
+		}
+		_myLabel->setColor(Color3B(222, 232, 121));
+		_myLabel->setContentSize(Size(sssize.width * 2.5, 1000));
+		_myLabel->setScale(3);
+		_myLabel->setName("alphabet");
+
+
+		_alphaNode = Node::create();
+		_alphaNode->setPositionX(visibleSize.width / 2);
+		_alphaNode->setPositionY(visibleSize.height / 1.75);
+		_alphaNode->setContentSize(Size(sssize.width * 2.5, 1000));
+
+		_alphaNode->setColor(Color3B(222, 232, 255));
+		_alphaNode->setAnchorPoint(Vec2(0.5, 0.5));
+		_alphaNode->addChild(_myLabel);
+		_myLabel->setPositionX(_alphaNode->getContentSize().width / 2);
+		_myLabel->setPositionY(_alphaNode->getContentSize().height / 2);
+		auto maskedFill = ClippingNode::create(_alphaNode);
+
+		maskedFill->setContentSize(visibleSize);
+
+		_maskingLayer = LayerColor::create(Color4B(255, 255, 255, 255), visibleSize.width, visibleSize.height);
+
+		_maskingLayer->setAnchorPoint(Vec2(0.5, 0.5));
+
+		maskedFill->setAlphaThreshold(0.1);
+
+		maskedFill->addChild(_maskingLayer);
+		this->addChild(maskedFill);
+
+		_alphabetLayer = Layer::create();
+		this->addChild(_alphabetLayer);
+
+		_costumeLayer = Layer::create();
+		this->addChild(_costumeLayer);
+
+		_iconLayer = Layer::create();
+		this->addChild(_iconLayer);
+
+		/*_coloringLayer = Layer::create();
+		_coloringLayer->setName("colouringLayer");
+		this->addChild(_coloringLayer);*/
+		CCLOG("++++++++++++++++++decomon++++++++++++");
+		auto node = DrawNode::create();
+		auto nodeWidth = sssize.width * 1.25;
+		Vec2 vertices[] =
+		{
+			Vec2(visibleSize.width / 2 - nodeWidth,visibleSize.height / 1.75 - 500),
+			Vec2(visibleSize.width / 2 + nodeWidth, visibleSize.height / 1.75 - 500),
+
+			Vec2(visibleSize.width / 2 + nodeWidth,visibleSize.height / 1.75 + 500),
+			Vec2(visibleSize.width / 2 - nodeWidth,visibleSize.height / 1.75 + 500)
+
+		};
+		node->drawPolygon(vertices, 4, Color4F(1.0f, 0.3f, 0.3f, 0), 3, Color4F(0.2f, 0.2f, 0.2f, 1));
+		//addChild(node);
+
+		_paintingNode = DrawNode::create();
+		_maskingLayer->addChild(_paintingNode);
+		_audioEffect = CocosDenshion::SimpleAudioEngine::getInstance();
+
+		if (menu->getCurrentLevel() == 2) {
+			gameHelp();
+		}
+	}
 }

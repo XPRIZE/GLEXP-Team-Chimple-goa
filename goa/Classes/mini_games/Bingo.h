@@ -30,6 +30,7 @@ public:
 	std::map<std::string, std::string> _scenePath;
 	std::map<std::string, float> _gridBasedValue;
 	void onEnterTransitionDidFinish();
+	void createGameSetupAndLayout(cocos2d::EventCustom *eventCustom);
 	void creatHelp(Sprite* letterBox, Sprite* helpBox,int i, int j);
 	Bingo();
 	~Bingo();
@@ -37,6 +38,7 @@ public:
 	int bingoVertically();
 	int bingoRightDiagonally();
 	int bingoLeftDiagonally();
+	int _pairNo, _gridDimension;
 	std::string getConvertInUpperCase(std::string data);
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
 
