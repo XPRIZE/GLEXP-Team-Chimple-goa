@@ -90,6 +90,7 @@ public:
 
 	std::string getStringDataLevelInfo(const wchar_t* alpha, int currentLevel, int deductionValue, int groupLetter);
 	void onEnterTransitionDidFinish();
+	void GameBegin(cocos2d::EventCustom * eventCustom);
 	float movingTime(SpriteCreate* SpriteObject);
 	float movingTimes(cocos2d::Sprite* SpriteObject, int Speed);
 	std::pair<float, float> movingUpto(float positionY);
