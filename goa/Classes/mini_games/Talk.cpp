@@ -12,6 +12,7 @@ Talk::Talk() {
 }
 
 Talk::~Talk() {
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 }
 
 Scene* Talk::createScene()
@@ -24,134 +25,35 @@ Scene* Talk::createScene()
 	return scene;
 }
 
-void Talk::onEnterTransitionDidFinish()
-{
-	_menuContext->setMaxPoints(8);
-	_level = _menuContext->getCurrentLevel();
-	/*
-	int a = - (_level - 54);
-
-	if ((_level >= 1 && _level <= 6) || (_level >= 19 && _level <= 24) || (_level >= 37 && _level <= 42) || (_level >= 55 && _level <= 60))
-	{
-		sceneName = "talkisland";
-	}
-	else if ((_level >= 7 && _level <= 12) || (_level >= 25 && _level <= 30) || (_level >= 43 && _level <= 48) || (_level >= 61 && _level <= 66))
-	{
-		sceneName = "talkcity";
-	}
-	else if ((_level >= 13 && _level <= 18) || (_level >= 31 && _level <= 36) || (_level >= 49 && _level <= 54) || (_level >= 67 && _level <= 72))
-	{
-		sceneName = "talkjungle";
-	}
-
-	if ((_level >= 1 && _level <= 6) || (_level >= 55 && _level <= 60))
-	{
-		_questionType = "VERB";
-		_qName = LangUtil::getInstance()->translateString("Select Verb");
-
-		if (_level <= 6)
-		{
-			_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::VERB, 10, -(0 - _level));
-		}
-		else
-		{
-			if ((-(48 - _level) > 10))
-			{
-				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::VERB, 10, 10);
-			}
-			else
-				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::VERB, 10, -(48 - _level));
-		}
-	}
-	else if ((_level >= 7 && _level <= 12) || (_level >= 61 && _level <= 66))
-	{
-		_questionType = "NOUN";
-		_qName = LangUtil::getInstance()->translateString("Select Noun");
-
-		if (_level <= 12)
-		{
-			_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::NOUN, 10, -(7 - _level));
-		}
-		else
-		{
-			if ((-(54 - _level) > 10))
-			{
-				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::NOUN, 10, 10);
-			}
-			else
-				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::NOUN, 10, -(54 - _level));
-		}
-	}
-	else if ((_level >= 13 && _level <= 18) || (_level >= 67 && _level <= 72))
-	{
-		_questionType = "PRONOUN";
-		_qName = LangUtil::getInstance()->translateString("Select Pronoun");
-
-		if (_level <= 18)
-		{
-			_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PRONOUN, 10, -(13 - _level));
-		}
-		else
-		{
-			if ((-(60 - _level) > 10))
-			{
-				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PRONOUN, 10, 10);
-			}
-			else
-				_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PRONOUN, 10, -(60 - _level));
-		}
-	}
-	else if (_level >= 19 && _level <= 24)
-	{
-		_questionType = "ADVERB";
-		_qName = LangUtil::getInstance()->translateString("Select Adverb");
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::ADVERB, 10, -(19 - _level));
-	}
-	else if (_level >= 25 && _level <= 30)
-	{
-		_questionType = "ADJECTIVE";
-		_qName = LangUtil::getInstance()->translateString("Select Adjective");
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::ADJECTIVE, 10, -(25 - _level));
-	}
-	else if (_level >= 31 && _level <= 36)
-	{
-		_questionType = "PREPOSITION";
-		_qName = LangUtil::getInstance()->translateString("Select Preposition");
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::PREPOSITION, 10, -(31 - _level));
-	}
-	else if (_level >= 37 && _level <= 42)
-	{
-		_questionType = "CONJUNCTION";
-		_qName = LangUtil::getInstance()->translateString("Select Conjunction");
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::CONJUNCTION, 10, -(37 - _level));
-	}
-	else if (_level >= 43 && _level <= 48)
-	{
-		_questionType = "INTERJECTION";
-		_qName = LangUtil::getInstance()->translateString("Select Interjection");
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::INTERJECTION, 10, -(43 - _level));
-	}
-	else if (_level >= 49 && _level <= 54)
-	{
-		_questionType = "ARTICLE";
-		_qName = LangUtil::getInstance()->translateString("Select Article");
-		_allSentense = TextGenerator::getInstance()->getSentenceWithPOS(TextGenerator::P_O_S::ARTICLE, 10, -(49 - _level));
-	}
-*/
-
+void Talk::onEnterTransitionDidFinish() {
 	std::map<int, std::string> talkSceneMapping = {
 		{ 1,	"talkisland" },
 		{ 2,	"talkcity" },
 		{ 3,    "talkjungle" }
 	};
-	auto complexity = _level+2;
+	_level = _menuContext->getCurrentLevel();
+	auto complexity = _level + 2;
 	if (complexity >= 10)
 		complexity = 9;
 
-	_lesson.setConcept(Lesson::CONCEPT::LETTER_CASE_EQUATE);
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(Talk::gameBegin, this));
+	sceneName = talkSceneMapping.at(RandomHelper::random_int(1, 3));
+	_lesson.getMultiChoices(5, complexity);
+}
 
-	sceneName = talkSceneMapping.at(RandomHelper::random_int(1,3));
-	_vmc = _lesson.getMultiChoices(5, complexity);
+void Talk::gameBegin(cocos2d::EventCustom *eventCustom)
+{
+
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+	
+	_menuContext->setMaxPoints(8);
+	_level = _menuContext->getCurrentLevel();
+	
+	_vmc = vmc;
+
 	_qName = _vmc[_theQuestionSetNumber].help +" : " +_vmc[_theQuestionSetNumber].question;
 
 	//_allSentense.clear();

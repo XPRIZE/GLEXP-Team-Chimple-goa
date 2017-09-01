@@ -20,6 +20,8 @@ public:
 
 	virtual bool init();
 
+	void onEnterTransitionDidFinish();
+
 	int click = 0 , _totalClick = 0;
 	int clickWrong = 0;
 	string mychar, _answer;
@@ -58,7 +60,6 @@ public:
 	virtual void jump();
 	virtual void hit();
 	virtual void blast();
-	virtual void begin();
 	virtual void change(float dt);
 	virtual void createSkeletonCharacter();
 	void gameHelp();
@@ -77,7 +78,7 @@ private:
 
 protected:
 	MenuContext * menu;
-	void startGame();
+	void startGame(cocos2d::EventCustom *eventCustom);
 	CREATE_FUNC(SmashTheRock);
 };
 

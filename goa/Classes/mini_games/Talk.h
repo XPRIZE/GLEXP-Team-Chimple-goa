@@ -28,6 +28,7 @@ public:
 	~Talk();
 	virtual bool init();
 	void onEnterTransitionDidFinish() override;
+	void gameBegin(cocos2d::EventCustom * eventCustom);
 	std::vector<std::pair<std::string, int>> _textToShow;
 
 	vector<Lesson::MultiChoice> _vmc;

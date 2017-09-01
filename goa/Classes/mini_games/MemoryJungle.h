@@ -85,6 +85,8 @@ protected:
 	int _right;
     
     
+	void gameBegin(cocos2d::EventCustom * eventCustom);
+
 	void setupTouch();
 
 	MenuContext *_menuContext;

@@ -21,6 +21,8 @@ AlphamonFeed::AlphamonFeed(){
 }
 
 AlphamonFeed::~AlphamonFeed() {
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
+
 //	backgroundMusic->stopBackgroundMusic();
 	if (listener) {
 		_eventDispatcher->removeEventListener(listener);
@@ -62,9 +64,13 @@ bool AlphamonFeed::init()
     {
         return false;
     }
+    return true;
+}
 
-    Size visibleSize = Director::getInstance()->getVisibleSize();
-    Vec2 origin = Director::getInstance()->getVisibleOrigin();
+void AlphamonFeed::onEnterTransitionDidFinish() {
+
+	Size visibleSize = Director::getInstance()->getVisibleSize();
+	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	float myGameWidth = 0;
 	score = 0;
 	_isPlayFirst = true;
@@ -73,43 +79,49 @@ bool AlphamonFeed::init()
 	// background loaded using csb file
 	background = CSLoader::createNode("alpha_feed.csb");
 	if (visibleSize.width > 2560) {
-		myGameWidth = (visibleSize.width - 2560)/2;
+		myGameWidth = (visibleSize.width - 2560) / 2;
 		background->setPositionX(myGameWidth);
 
 	}
 	this->addChild(background, 0);
 	slideBar = (cocos2d::ui::Slider *)(background->getChildByName("Slider_1"));
-	(background->getChildByName("progress_emotion_3"))->setPositionX(visibleSize.width - slideBar->getContentSize().height- myGameWidth);
+	(background->getChildByName("progress_emotion_3"))->setPositionX(visibleSize.width - slideBar->getContentSize().height - myGameWidth);
 	//smile
 	smile = background->getChildByName("smile_7");
 	smile->setVisible(true);
-	smile->setPositionX(visibleSize.width - slideBar->getContentSize().height- myGameWidth);
+	smile->setPositionX(visibleSize.width - slideBar->getContentSize().height - myGameWidth);
 	//sad
 	sad = background->getChildByName("sad_6");
 	sad->setVisible(false);
-	sad->setPositionX(visibleSize.width - slideBar->getContentSize().height- myGameWidth);
+	sad->setPositionX(visibleSize.width - slideBar->getContentSize().height - myGameWidth);
 	// angry 
 	angry = background->getChildByName("angry_5");
-	angry->setPositionX(visibleSize.width - slideBar->getContentSize().height- myGameWidth);
+	angry->setPositionX(visibleSize.width - slideBar->getContentSize().height - myGameWidth);
 	// laughing
 	laughing = background->getChildByName("laughing_4");
-	laughing->setPositionX(visibleSize.width - slideBar->getContentSize().height- myGameWidth);
+	laughing->setPositionX(visibleSize.width - slideBar->getContentSize().height - myGameWidth);
 	// slideBar for score 
-	
-	slideBar->setPositionX(visibleSize.width - slideBar->getContentSize().height- myGameWidth);
+
+	slideBar->setPositionX(visibleSize.width - slideBar->getContentSize().height - myGameWidth);
 	slideBar->setPercent(1);
 	slideBar->setEnabled(false);
 	CCLOG("slider bar %d", slideBar->getPercent());// image->getPercent();
-	//loading Monster alphabet
-	//sprite1 = CSLoader::createNode(CCString::createWithFormat("english/%s.csb", alphaLevelString.c_str())->getCString());
-	
-	
-	setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(AlphamonFeed::startGame, this));
+												   //loading Monster alphabet
+												   //sprite1 = CSLoader::createNode(CCString::createWithFormat("english/%s.csb", alphaLevelString.c_str())->getCString());
 
-    return true;
+	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(AlphamonFeed::startGame, this));
+	_lesson.getMultiChoices(1, 0);
+
 }
 
-void AlphamonFeed::startGame() {
+void AlphamonFeed::startGame(cocos2d::EventCustom *eventCustom) {
+
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
+
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	menu->setMaxPoints(10);
 
@@ -129,7 +141,6 @@ void AlphamonFeed::startGame() {
 	//std::string mycharString = LangUtil::convertUTF16CharToString(mychar);
 	*/
 
-	auto vmc = _lesson.getMultiChoices(1, 0);
 	mychar = vmc[0].question;
 
 	sprite1 = Alphamon::createWithAlphabet(mychar);//alphaLevelString.at(0));
