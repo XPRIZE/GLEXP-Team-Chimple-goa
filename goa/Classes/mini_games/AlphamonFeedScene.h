@@ -29,6 +29,7 @@ public:
 	cocos2d::Node * laughing;
     static cocos2d::Scene* createScene();
 	cocostudio::timeline::ActionTimeline* alpha_animation;
+	void onEnterTransitionDidFinish();
     virtual bool init();
 	cocos2d::DrawNode * myBox;
 	cocos2d::Node * sprite;
@@ -51,7 +52,7 @@ public:
 	virtual void update(float dt);
 
 	void showFruits(float dt);
-	void startGame();
+	void startGame(cocos2d::EventCustom *eventCustom);
 
 protected:
 	bool isTouching , _helpLayer, _isPlayFirst, _touched = false;
