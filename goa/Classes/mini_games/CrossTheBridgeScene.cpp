@@ -37,38 +37,9 @@ bool CrossTheBridge::init()
 }
 void CrossTheBridge::onEnterTransitionDidFinish()
 {
-
-			 _crossTheBridgeLevelMapping = {
-
-				{ 1,'A' },
-				{ 2,'B' },
-				{ 3,'C' },
-				{ 4,'D' },
-				{ 5,'E' },
-				{ 6,'F' },
-				{ 7,'G' },
-				{ 8,'H' },
-				{ 9,'I' },
-				{ 10,'J' },
-				{ 11,'K' },
-				{ 12,'L' },
-				{ 13,'M' },
-				{ 14,'N' },
-				{ 15,'O' },
-				{ 16,'P' },
-				{ 17,'Q' },
-				{ 18,'R' },
-				{ 19,'S' },
-				{ 20,'T' },
-				{ 21,'U' },
-				{ 22,'V' },
-				{ 23,'W' },
-				{ 24,'X' },
-				{ 25,'Y' },
-				{ 26,'Z' }
-			};
 			 _gameCurrentLevel= _menuContext->getCurrentLevel();
 			auto gameBG = CSLoader::createNode("crossthebridge/MainScene.csb");
+			gameBG->setName("gameBG");
 			this->addChild(gameBG, 1);
 
 			CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
@@ -80,9 +51,7 @@ void CrossTheBridge::onEnterTransitionDidFinish()
 			//	std::string str = monsterItem->getName().c_str();
 			//	CCLOG("name : %s", str.c_str());
 			//	}
-			Sprite* letterBoard = (Sprite *)gameBG->getChildByName("alphabet_board_10");
-			letterBoard->setPosition(Vec2(visibleSize.width / 2 + origin.x, 1703.02 + origin.y));
-			//setAllSpriteProperties(letterBoard, 3, visibleSize.width / 2, 1703.02, true, 0.5, 0, 0.6, 0.6);
+			
 
 			Sprite* house_wall = (Sprite *)gameBG->getChildByName("house_Wall");
 			Sprite* house_front = (Sprite *)gameBG->getChildByName("house_front_1");
@@ -139,19 +108,18 @@ void CrossTheBridge::onEnterTransitionDidFinish()
 			{
 				addEvents(transparentBG);
 			}
-			sceneMaking();
-			startGame();
-			if (_menuContext->getCurrentLevel() == 1)
-			{
-				creatHelp(letterBoard, cubeAtRest);
-				_helpFlag = true;
-			}
+			
+			_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(CrossTheBridge::letterDisplayCombinationMethod, this));
+			_lesson.getMultiChoices(1, 6);
+			
 			/*setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(CrossTheBridge::startGame, this));*/
 
 }
 CrossTheBridge::~CrossTheBridge() {
 	gameMelody->stopAllEffects();
 	this->removeAllChildrenWithCleanup(true);
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
+
 }
 
 void CrossTheBridge::menuCloseCallback(Ref* pSender)
@@ -209,8 +177,8 @@ void CrossTheBridge::sceneMaking()
 	barrierLowerSide = Sprite::create("crossthebridge/barrier.png");
 	setAllSpriteProperties(barrierLowerSide, 3, ((80 / visibleSize.width)*visibleSize.width), ((400 / visibleSize.height)*visibleSize.height), false, 0, 47.0f, 1, 0.18f);
 
-	letterDisplayCombinationMethod();
-	alphabetAndMonsterGeneration(2.0f);
+	//letterDisplayCombinationMethod();
+	
 }
 
 void CrossTheBridge::update(float delta) {
@@ -247,8 +215,19 @@ void CrossTheBridge::update(float delta) {
 		alphaContainer[0]->pause();
 	}
 }
-void CrossTheBridge::letterDisplayCombinationMethod()
+void CrossTheBridge::letterDisplayCombinationMethod(cocos2d::EventCustom *eventCustom)
 {
+	sceneMaking();
+	startGame();
+	Sprite* letterBoard = (Sprite *)getChildByName("gameBG")->getChildByName("alphabet_board_10");
+	letterBoard->setPosition(Vec2(visibleSize.width / 2 + origin.x, 1703.02 + origin.y));
+	//setAllSpriteProperties(letterBoard, 3, visibleSize.width / 2, 1703.02, true, 0.5, 0, 0.6, 0.6);
+	if (_menuContext->getCurrentLevel() == 1)
+	{
+		creatHelp(letterBoard, cubeAtRest);
+		_helpFlag = true;
+	}
+
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 
@@ -256,11 +235,15 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 
  	    // Getting the answer, quetion, help and choices required from API
 
-		auto vmc = _lesson.getMultiChoices(1, 6);
+		//auto vmc = _lesson.getMultiChoices(1, 6);
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallMultiChoices");
+	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
 		_letterOnDisplayBoard = vmc[0].question;
 		_answer = vmc[0].answers[vmc[0].correctAnswer];
 		
-		std::vector<std::vector<std::string>> choices = MatrixUtil::generateMatrixForChoosing(_answer, vmc[0].answers, 1, 7, 60);
+		std::vector<std::vector<std::string>> choices = MatrixUtil::generateMatrixForChoosing(_answer, vmc[0].answers, 1, 7, 40);
 		_choices = choices[0];
 		std::random_shuffle(_choices.begin(), _choices.end());
 
@@ -308,6 +291,7 @@ void CrossTheBridge::letterDisplayCombinationMethod()
 		displayLetter->setScale(0.0001);
 		letterContainer.push_back(displayLetter);
 	}
+	alphabetAndMonsterGeneration(2.0f);
 }
 
 void CrossTheBridge::alphabetAndMonsterGeneration(float dt)
@@ -441,7 +425,8 @@ void CrossTheBridge::alphaDeletion()
 					_menuContext->setMaxPoints(_pointCounter);
 					_menuContext->showScore();
 				});
-				auto delayInCallingMethod = Sequence::create(DelayTime::create(1.5f), clearLetter, CallFunc::create([=]() { letterDisplayCombinationMethod(); }), NULL);
+				auto delayInCallingMethod = Sequence::create(DelayTime::create(1.5f), clearLetter, CallFunc::create([=]() { //letterDisplayCombinationMethod(cocos2d::EventCustom *eventCustom);
+				}), NULL);
 				this->runAction(delayInCallingMethod);
 			}
 			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() { _gamePointFlag = true; }), NULL));

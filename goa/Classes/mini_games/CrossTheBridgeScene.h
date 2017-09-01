@@ -49,7 +49,7 @@ public:
 	void alphaIntersectBridgeCurve();
 	void monsIntersectBridgeCurve();
 
-	void letterDisplayCombinationMethod();
+	void letterDisplayCombinationMethod(cocos2d::EventCustom *eventCustom);
 
 	void rightAlphaMonDelete();
 
