@@ -91,7 +91,7 @@ bool MemoryJungle::init() {
 
 void MemoryJungle::onEnterTransitionDidFinish() {
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(MemoryJungle::gameBegin, this));
-
+	_finalGridIds.resize(0);
 	auto complexity = _lesson.getComplexity();
 
 	if (_lesson.getComplexity() >= 0.0f && _lesson.getComplexity() <= 0.15f) {
@@ -169,7 +169,7 @@ void MemoryJungle::gameBegin(cocos2d::EventCustom *eventCustom) {
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
 
-    _finalGridIds.resize(0);
+   
 
 	_data.clear();
 

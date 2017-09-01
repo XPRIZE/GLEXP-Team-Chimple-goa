@@ -77,7 +77,7 @@ Memory *Memory::create() {
 
 void Memory::onEnterTransitionDidFinish() {
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(Memory::gameBegin, this));
-	
+	_finalGridIds.resize(0);
 	auto complexity = _lesson.getComplexity();
 	if (_lesson.getComplexity() >= 0.0f && _lesson.getComplexity() <= 0.15f) {
 		_gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size);
@@ -153,7 +153,7 @@ void Memory::gameBegin(cocos2d::EventCustom *eventCustom) {
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
 
-	_finalGridIds.resize(0);
+	
 
 	_wrong = 0;
 	//SpriteFrameCache::getInstance()->addSpriteFramesWithFile("balloonhero/balloonhero.plist");

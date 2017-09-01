@@ -90,7 +90,7 @@ void MemoryHero::onEnterTransitionDidFinish() {
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(MemoryHero::gameBegin, this));
 
 	auto complexity = _lesson.getComplexity();
-
+	_finalGridIds.resize(0);
 	if (_lesson.getComplexity() >= 0.0f && _lesson.getComplexity() <= 0.15f) {
 		_gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size);
 		_gridTwoByTwoIds = { 7, 9, 13, 15 };
@@ -167,7 +167,7 @@ void MemoryHero::gameBegin(cocos2d::EventCustom *eventCustom) {
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
 
-    _finalGridIds.resize(0);
+  
 	
 	_data.clear();
     
