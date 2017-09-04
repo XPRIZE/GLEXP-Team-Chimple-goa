@@ -151,53 +151,6 @@ public abstract class AppDatabase extends RoomDatabase {
                                     break;
                             }
                         }
-//                        Lesson lesson = new Lesson("vowels", 1, 1);
-//                        lesson.id = new Long(1);
-//                        long lessonId = lessonDao().insertLesson(lesson);
-//
-//                        Unit subjectUnit = new Unit("a", 1, "swa/image/a.png", "swa/audio/a.mp3", "file://test/testp.mp3");
-//                        long subjectUnitId = unitDao().insertUnit(subjectUnit);
-//
-//                        Unit objectUnit = new Unit("apple", 4, "swa/image/apple.jpg", "swa/audio/a.mp3", "file://test/applep.mp3");
-//                        long objectUnitId = unitDao().insertUnit(objectUnit);
-//
-//                        LessonUnit lessonUnit = new LessonUnit(lessonId, 1, subjectUnitId, objectUnitId, "a");
-//                        lessonUnitDao().insertLessonUnit(lessonUnit);
-//
-//                        subjectUnit = new Unit("b", 1, "swa/image/b.png", "swa/audio/b.mp3", "file://test/testp.mp3");
-//                        subjectUnitId = unitDao().insertUnit(subjectUnit);
-//
-//                        objectUnit = new Unit("b", 1, "swa/image/bat.png", "swa/audio/bat.mp3", "file://test/applep.mp3");
-//                        objectUnitId = unitDao().insertUnit(objectUnit);
-//
-//                        lessonUnit = new LessonUnit(lessonId, 2, subjectUnitId, objectUnitId, "b");
-//                        lessonUnitDao().insertLessonUnit(lessonUnit);
-//
-//                        User user = new User("test", "test.png", lessonId, 5);
-//                        long userId = userDao().insertUser(user);
-//
-//                        lesson = new Lesson("alphabets", 1, 2);
-//                        lessonId = lessonDao().insertLesson(lesson);
-//
-//                        subjectUnit = new Unit("c", 1, "swa/image/a.png", "swa/audio/a.mp3", "file://test/testp.mp3");
-//                        subjectUnitId = unitDao().insertUnit(subjectUnit);
-//
-//                        objectUnit = new Unit("cat", 4, "swa/image/apple.jpg", "swa/audio/a.mp3", "file://test/applep.mp3");
-//                        objectUnitId = unitDao().insertUnit(objectUnit);
-//
-//                        lessonUnit = new LessonUnit(lessonId, 1, subjectUnitId, objectUnitId, "c");
-//                        lessonUnitDao().insertLessonUnit(lessonUnit);
-//
-//                        subjectUnit = new Unit("d", 1, "swa/image/b.png", "swa/audio/b.mp3", "file://test/testp.mp3");
-//                        subjectUnitId = unitDao().insertUnit(subjectUnit);
-//
-//                        objectUnit = new Unit("d", 1, "swa/image/bat.png", "swa/audio/bat.mp3", "file://test/applep.mp3");
-//                        objectUnitId = unitDao().insertUnit(objectUnit);
-//
-//                        lessonUnit = new LessonUnit(lessonId, 2, subjectUnitId, objectUnitId, "d");
-//                        lessonUnitDao().insertLessonUnit(lessonUnit);
-
-
                         setTransactionSuccessful();
                     } catch (IOException e) {
                         e.printStackTrace();

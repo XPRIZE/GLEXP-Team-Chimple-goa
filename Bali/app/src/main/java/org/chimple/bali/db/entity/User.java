@@ -22,6 +22,10 @@ import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
+import android.os.Build;
+import android.util.Log;
+
+import java.util.UUID;
 
 @Entity(foreignKeys = {
                 @ForeignKey(entity = Lesson.class,
@@ -42,12 +46,15 @@ public class User {
 
     public int coins;
 
+    public String uuid;
+
     @Ignore
-    public User(String name, String photo, Long currentLessonId, int coins) {
+    public User(String name, String photo, Long currentLessonId, int coins, String uuid) {
         this.name = name;
         this.photo = photo;
         this.currentLessonId = currentLessonId;
         this.coins = coins;
+        this.uuid = uuid;
     }
 
     @Ignore
@@ -64,6 +71,7 @@ public class User {
             photo = columns[3];
             currentLessonId = Long.parseLong(columns[4]);
             coins = Integer.parseInt(columns[5]);
+            uuid = Build.SERIAL;
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("User: Failed parsing string to number");
         }

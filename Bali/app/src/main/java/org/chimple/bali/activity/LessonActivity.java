@@ -53,12 +53,15 @@ public class LessonActivity extends LifecycleActivity {
             if(flashCards != null) {
                 final FlashCardAdapter flashCardAdapter = new FlashCardAdapter(this, flashCards);
                 mFlashCardView.setAdapter(flashCardAdapter);
-                UserUnitRepo.createOrUpdateUserUnit(this, flashCards.get(0).objectUnit.id, -1);
-                if(flashCards.get(0).subjectUnit != null) {
-                    UserUnitRepo.createOrUpdateUserUnit(this, flashCards.get(0).subjectUnit.id, -1);
-                }
-                UserLogRepo.logEntity(this, UserLog.LESSON_UNIT_TYPE, flashCards.get(0).lessonUnit.id, UserLog.STOP_EVENT);
-
+//                Object object = flashCardAdapter.getItem(0);
+//                if(object instanceof FlashCard) {
+//                    FlashCard flashCard = (FlashCard) object;
+//                    UserUnitRepo.createOrUpdateUserUnit(this, flashCard.objectUnit.id, -1);
+//                    if (flashCards.get(0).subjectUnit != null) {
+//                        UserUnitRepo.createOrUpdateUserUnit(this, flashCard.subjectUnit.id, -1);
+//                    }
+//                    UserLogRepo.logEntity(this, UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.STOP_EVENT);
+//                }
                 mProgressBar.setMax(flashCardAdapter.getCount());
                 mProgressBar.setProgress(0);
 
@@ -66,13 +69,20 @@ public class LessonActivity extends LifecycleActivity {
                 fab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        UserLogRepo.logEntity(view.getContext(), UserLog.LESSON_UNIT_TYPE, flashCards.get(mCurrentCardIndex).lessonUnit.id, UserLog.STOP_EVENT);
+//                        Object object = flashCardAdapter.getItem(mCurrentCardIndex);
+//                        if(object instanceof FlashCard) {
+//                            FlashCard flashCard = (FlashCard) object;
+//                            UserLogRepo.logEntity(view.getContext(), UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.STOP_EVENT);
+//                        }
                         if(++mCurrentCardIndex >= flashCardAdapter.getCount()) {
                             LessonRepo.markNextLesson(LessonActivity.this);
                             finish();
                         } else {
                             mFlashCardView.advance();
-                            UserLogRepo.logEntity(view.getContext(), UserLog.LESSON_UNIT_TYPE, flashCards.get(mCurrentCardIndex).lessonUnit.id, UserLog.START_EVENT);
+//                            if(object instanceof FlashCard) {
+//                                FlashCard flashCard = (FlashCard) object;
+//                                UserLogRepo.logEntity(view.getContext(), UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.START_EVENT);
+//                            }
                             mProgressBar.incrementProgressBy(1);
                         }
                     }

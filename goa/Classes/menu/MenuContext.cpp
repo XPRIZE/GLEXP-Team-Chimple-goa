@@ -1328,6 +1328,19 @@ void MenuContext::showScore() {
     CCLOG("Points: %d MaxPoints: %d", _points, _maxPoints);
     int stars = MIN(round(MAX(_points, 0) * 3.0/_maxPoints), 3);
 
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    //TODO: Give coins based on difficulty of game
+    if(stars >= 2) {
+        CCLOG("updateCoins");
+        cocos2d::JniMethodInfo methodInfo;
+        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "updateCoins", "(I)V")) {
+        }
+        CCLOG("calling updateCoins");
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, 1);
+        methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    }
+#endif
+    
     std::string progressStr;
     localStorageGetItem(gameName + LEVEL, &progressStr);
 
