@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "67bb050b0bab43eb0efbfc89793342a0",
+    "identityHash": "79c615163967010079fc181ab8d9477f",
     "entities": [
       {
         "tableName": "Lesson",
@@ -269,7 +269,7 @@
       },
       {
         "tableName": "User",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`coins` INTEGER NOT NULL, `currentLessonId` INTEGER, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `photo` TEXT, FOREIGN KEY(`currentLessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`coins` INTEGER NOT NULL, `currentLessonId` INTEGER, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `photo` TEXT, `uuid` TEXT, FOREIGN KEY(`currentLessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "coins",
@@ -298,6 +298,12 @@
           {
             "fieldPath": "photo",
             "columnName": "photo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "uuid",
+            "columnName": "uuid",
             "affinity": "TEXT",
             "notNull": false
           }
@@ -550,7 +556,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"67bb050b0bab43eb0efbfc89793342a0\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"79c615163967010079fc181ab8d9477f\")"
     ]
   }
 }

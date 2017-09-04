@@ -29,61 +29,61 @@ public class DatabaseInitUtil {
         if(db.lessonDao().count() == 0) {
             db.beginTransaction();
             try {
-                Lesson lesson = new Lesson("vowels", 1, 1);
-                long lessonId = db.lessonDao().insertLesson(lesson);
-
-                Unit subjectUnit = new Unit("a", 1, "swa/image/a.png", "swa/audio/a.mp3", "file://test/testp.mp3");
-                long subjectUnitId = db.unitDao().insertUnit(subjectUnit);
-
-                Unit objectUnit = new Unit("apple", 4, "swa/image/apple.jpg", "swa/audio/a.mp3", "file://test/applep.mp3");
-                long objectUnitId = db.unitDao().insertUnit(objectUnit);
-
-                LessonUnit lessonUnit = new LessonUnit(lessonId, 1, subjectUnitId, objectUnitId, "a");
-                db.lessonUnitDao().insertLessonUnit(lessonUnit);
-
-                subjectUnit = new Unit("b", 1, "swa/image/b.png", "swa/audio/b.mp3", "file://test/testp.mp3");
-                subjectUnitId = db.unitDao().insertUnit(subjectUnit);
-
-                objectUnit = new Unit("b", 1, "swa/image/bat.png", "swa/audio/bat.mp3", "file://test/applep.mp3");
-                objectUnitId = db.unitDao().insertUnit(objectUnit);
-
-                lessonUnit = new LessonUnit(lessonId, 2, subjectUnitId, objectUnitId, "b");
-                db.lessonUnitDao().insertLessonUnit(lessonUnit);
-
-                User user = new User("test", "test.png", lessonId, 5);
-                long userId = db.userDao().insertUser(user);
-                SharedPreferences sharedPref = context.getSharedPreferences(
-                        context.getString(R.string.preference_file_key),
-                        Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sharedPref.edit();
-                editor.putLong(context.getString(R.string.user_id), userId);
-                editor.commit();
-
-                lesson = new Lesson("alphabets", 1, 2);
-                lessonId = db.lessonDao().insertLesson(lesson);
-
-                subjectUnit = new Unit("c", 1, "swa/image/a.png", "swa/audio/a.mp3", "file://test/testp.mp3");
-                subjectUnitId = db.unitDao().insertUnit(subjectUnit);
-
-                objectUnit = new Unit("cat", 4, "swa/image/apple.jpg", "swa/audio/a.mp3", "file://test/applep.mp3");
-                objectUnitId = db.unitDao().insertUnit(objectUnit);
-
-                lessonUnit = new LessonUnit(lessonId, 1, subjectUnitId, objectUnitId, "c");
-                db.lessonUnitDao().insertLessonUnit(lessonUnit);
-
-                subjectUnit = new Unit("d", 1, "swa/image/b.png", "swa/audio/b.mp3", "file://test/testp.mp3");
-                subjectUnitId = db.unitDao().insertUnit(subjectUnit);
-
-                objectUnit = new Unit("d", 1, "swa/image/bat.png", "swa/audio/bat.mp3", "file://test/applep.mp3");
-                objectUnitId = db.unitDao().insertUnit(objectUnit);
-
-                lessonUnit = new LessonUnit(lessonId, 2, subjectUnitId, objectUnitId, "d");
-                db.lessonUnitDao().insertLessonUnit(lessonUnit);
-
-
-                db.setTransactionSuccessful();
+//                Lesson lesson = new Lesson("vowels", 1, 1);
+//                long lessonId = db.lessonDao().insertLesson(lesson);
+//
+//                Unit subjectUnit = new Unit("a", 1, "swa/image/a.png", "swa/audio/a.mp3", "file://test/testp.mp3");
+//                long subjectUnitId = db.unitDao().insertUnit(subjectUnit);
+//
+//                Unit objectUnit = new Unit("apple", 4, "swa/image/apple.jpg", "swa/audio/a.mp3", "file://test/applep.mp3");
+//                long objectUnitId = db.unitDao().insertUnit(objectUnit);
+//
+//                LessonUnit lessonUnit = new LessonUnit(lessonId, 1, subjectUnitId, objectUnitId, "a");
+//                db.lessonUnitDao().insertLessonUnit(lessonUnit);
+//
+//                subjectUnit = new Unit("b", 1, "swa/image/b.png", "swa/audio/b.mp3", "file://test/testp.mp3");
+//                subjectUnitId = db.unitDao().insertUnit(subjectUnit);
+//
+//                objectUnit = new Unit("b", 1, "swa/image/bat.png", "swa/audio/bat.mp3", "file://test/applep.mp3");
+//                objectUnitId = db.unitDao().insertUnit(objectUnit);
+//
+//                lessonUnit = new LessonUnit(lessonId, 2, subjectUnitId, objectUnitId, "b");
+//                db.lessonUnitDao().insertLessonUnit(lessonUnit);
+//
+//                User user = new User("test", "test.png", lessonId, 5);
+//                long userId = db.userDao().insertUser(user);
+//                SharedPreferences sharedPref = context.getSharedPreferences(
+//                        context.getString(R.string.preference_file_key),
+//                        Context.MODE_PRIVATE);
+//                SharedPreferences.Editor editor = sharedPref.edit();
+//                editor.putLong(context.getString(R.string.user_id), userId);
+//                editor.commit();
+//
+//                lesson = new Lesson("alphabets", 1, 2);
+//                lessonId = db.lessonDao().insertLesson(lesson);
+//
+//                subjectUnit = new Unit("c", 1, "swa/image/a.png", "swa/audio/a.mp3", "file://test/testp.mp3");
+//                subjectUnitId = db.unitDao().insertUnit(subjectUnit);
+//
+//                objectUnit = new Unit("cat", 4, "swa/image/apple.jpg", "swa/audio/a.mp3", "file://test/applep.mp3");
+//                objectUnitId = db.unitDao().insertUnit(objectUnit);
+//
+//                lessonUnit = new LessonUnit(lessonId, 1, subjectUnitId, objectUnitId, "c");
+//                db.lessonUnitDao().insertLessonUnit(lessonUnit);
+//
+//                subjectUnit = new Unit("d", 1, "swa/image/b.png", "swa/audio/b.mp3", "file://test/testp.mp3");
+//                subjectUnitId = db.unitDao().insertUnit(subjectUnit);
+//
+//                objectUnit = new Unit("d", 1, "swa/image/bat.png", "swa/audio/bat.mp3", "file://test/applep.mp3");
+//                objectUnitId = db.unitDao().insertUnit(objectUnit);
+//
+//                lessonUnit = new LessonUnit(lessonId, 2, subjectUnitId, objectUnitId, "d");
+//                db.lessonUnitDao().insertLessonUnit(lessonUnit);
+//
+//
+//                db.setTransactionSuccessful();
             } finally {
-                db.endTransaction();
+//                db.endTransaction();
             }
         }
     }

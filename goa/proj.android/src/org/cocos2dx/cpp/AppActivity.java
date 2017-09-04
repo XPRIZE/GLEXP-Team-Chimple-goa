@@ -70,6 +70,7 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.os.Message;
 import android.util.Log;
+import android.content.ContentValues;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -249,6 +250,7 @@ public class AppActivity extends Cocos2dxActivity {
     public static final String AUTHORITY = "org.chimple.bali.provider";
 
     public static final String MULTIPLE_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
+    public static final String COINS = "COINS";
 
     public static final String COL_HELP = "help";
     public static final String COL_QUESTION = "question";
@@ -258,6 +260,9 @@ public class AppActivity extends Cocos2dxActivity {
     /** The URI for the Multiple Choice Quiz */
     public static final Uri URI_MULTIPLE_CHOICE_QUIZ = Uri.parse(
             "content://" + AUTHORITY + "/" + MULTIPLE_CHOICE_QUIZ);
+
+    public static final Uri URI_COIN = Uri.parse(
+            "content://" + AUTHORITY + "/" + COINS);
 
     public static void queryMultipleChoiceQuiz(int numQuizes, int numChoices) {
     	System.out.println("entry queryMultipleChoiceQuiz");
@@ -314,6 +319,28 @@ public class AppActivity extends Cocos2dxActivity {
 		}.execute(new int[]{numQuizes, numChoices});
 
     }
+
+	public static void updateCoins(int coins) {
+    	new AsyncTask<Integer, Void, Void>() {
+			@Override
+			protected Void doInBackground(Integer... params) {
+				Integer coins1 = params[0];
+				System.out.println("doInBackground");
+
+		        ContentValues contentValues = new ContentValues(1);
+		        contentValues.put(COINS, coins1);
+		        int coins = _context.getContentResolver().update(
+		                URI_COIN,
+		                contentValues,
+		                null,
+		                null
+		        );
+		        Log.d(COINS, String.valueOf(coins));
+
+				return null;
+			}
+		}.execute(coins);
+	}    
 
 	public static native boolean discoveredBluetoothDevices(String devices);
 	
@@ -394,15 +421,23 @@ public class AppActivity extends Cocos2dxActivity {
 		super.onStop();
 	}
 
-	@Override
-	public void onResume() {
-		super.onResume();
-	}
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = new Intent();
+        intent.setClassName("org.chimple.bali", "org.chimple.bali.service.TollBroadcastReceiver");
+        intent.putExtra("onResume", "org.chimple.goa");
+        sendBroadcast(intent);
+    }
 
-	@Override
-	public void onPause() {
-		super.onPause();
-	}
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Intent intent = new Intent();
+        intent.setClassName("org.chimple.bali", "org.chimple.bali.service.TollBroadcastReceiver");
+        intent.putExtra("onPause", "org.chimple.goa");
+        sendBroadcast(intent);
+    }
 
 	public void showToast(final String msg) {
         AppActivity.this.runOnUiThread(new Runnable() {

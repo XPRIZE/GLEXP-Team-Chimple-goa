@@ -29,7 +29,13 @@
         <service
             android:name=".service.LessonService"
             android:exported="true" />
+        <service
+            android:name=".service.TollJobServiceUnused"
+            android:label="Toll service"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
+        <receiver android:name=".service.TollBroadcastReceiver"
+            android:exported="true"/>
         <activity android:name=".activity.LessonActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity
