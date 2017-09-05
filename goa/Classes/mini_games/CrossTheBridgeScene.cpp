@@ -116,10 +116,10 @@ void CrossTheBridge::onEnterTransitionDidFinish()
 
 }
 CrossTheBridge::~CrossTheBridge() {
+
+	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 	gameMelody->stopAllEffects();
 	this->removeAllChildrenWithCleanup(true);
-	_eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
-
 }
 
 void CrossTheBridge::menuCloseCallback(Ref* pSender)
