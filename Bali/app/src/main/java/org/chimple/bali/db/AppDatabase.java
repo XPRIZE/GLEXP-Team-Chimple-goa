@@ -141,6 +141,7 @@ public abstract class AppDatabase extends RoomDatabase {
                                 case "User":
                                     User user = new User(columns);
                                     userDao().insertUser(user);
+                                    Log.d("User", "SERIAL UUID: " + user.uuid);
                                     SharedPreferences sharedPref = context.getSharedPreferences(
                                             context.getString(R.string.preference_file_key),
                                             Context.MODE_PRIVATE);
