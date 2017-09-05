@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="4"
+    android:columnCount="3"
     android:gravity="center"
     android:orientation="horizontal"
     android:rowCount="2"
@@ -14,7 +14,7 @@
     tools:layout_editor_absoluteY="81dp">
 
     <ImageButton
-        android:id="@+id/readButton"
+        android:id="@+id/learnButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
@@ -24,7 +24,7 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageButton
-        android:id="@+id/writeButton"
+        android:id="@+id/goaButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
@@ -34,17 +34,7 @@
         app:srcCompat="@mipmap/ic_launcher" />
 
     <ImageButton
-        android:id="@+id/mathsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_gravity="center"
-        android:layout_rowWeight="1"
-        android:onClick="startActivity"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <ImageButton
-        android:id="@+id/storyButton"
+        android:id="@+id/gamesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
@@ -75,16 +65,6 @@
 
     <ImageButton
         android:id="@+id/musicButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_columnWeight="1"
-        android:layout_gravity="center"
-        android:layout_rowWeight="1"
-        android:onClick="startActivity"
-        app:srcCompat="@mipmap/ic_launcher" />
-
-    <ImageButton
-        android:id="@+id/gamesButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
