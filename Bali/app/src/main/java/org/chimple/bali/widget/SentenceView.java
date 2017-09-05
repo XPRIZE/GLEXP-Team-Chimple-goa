@@ -93,7 +93,7 @@ public class SentenceView extends FrameLayout{
             InputStream inputStream = mContext.getAssets().open(sentence.picture);
             Drawable d = Drawable.createFromStream(inputStream, null);
             imageView.setImageDrawable(d);
-            inputStream .close();
+            inputStream.close();
         }
         catch(IOException e)
         {

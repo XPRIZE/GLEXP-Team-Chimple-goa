@@ -1,27 +1,24 @@
 package org.chimple.bali;
 
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
-import android.content.ServiceConnection;
+import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.os.Handler;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import org.chimple.bali.activity.FullscreenActivity;
 import org.chimple.bali.activity.LessonActivity;
 import org.chimple.bali.db.AppDatabase;
-import org.chimple.bali.model.MultipleChoiceQuiz;
-import org.chimple.bali.service.LessonService;
+import org.chimple.bali.service.TollBroadcastReceiver;
+import org.chimple.bali.service.TollJobServiceUnused;
 
 import java.util.List;
 
@@ -43,6 +40,20 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO: for now force the creation here
         AppDatabase.getInstance(this);
+        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        BroadcastReceiver mReceiver = new TollBroadcastReceiver();
+        registerReceiver(mReceiver, filter);
+
+    }
+
+    public static void scheduleJob(Context context) {
+        ComponentName componentName = new ComponentName(context, TollJobServiceUnused.class);
+        JobInfo.Builder builder = new JobInfo.Builder(0, componentName);
+        builder.setMinimumLatency(10 * 1000);
+        builder.setOverrideDeadline(15 * 1000);
+        JobScheduler jobScheduler = (JobScheduler) context.getSystemService(JOB_SCHEDULER_SERVICE);
+        jobScheduler.schedule(builder.build());
     }
 
     public void startActivity(View v) {
@@ -72,4 +83,22 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void  onResume() {
+        super.onResume();
+
+        Intent intent = new Intent(this, TollBroadcastReceiver.class);
+        intent.putExtra("onResume", "org.chimple.bali");
+        sendBroadcast(intent);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        Intent intent = new Intent(this, TollBroadcastReceiver.class);
+        intent.putExtra("onPause", "org.chimple.bali");
+        sendBroadcast(intent);
+
+    }
 }

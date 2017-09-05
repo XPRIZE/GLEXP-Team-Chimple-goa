@@ -17,6 +17,7 @@
 package org.chimple.bali.widget;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -29,6 +30,7 @@ import org.chimple.bali.db.entity.Unit;
 import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.db.pojo.FlashCard;
 import org.chimple.bali.repo.UserLogRepo;
+import org.chimple.bali.repo.UserUnitRepo;
 
 public class FlashCardView extends LinearLayout {
     private FlashCard mFlashCard;
@@ -56,11 +58,18 @@ public class FlashCardView extends LinearLayout {
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
+        UserUnitRepo.createOrUpdateUserUnit(getContext(), mFlashCard.objectUnit.id, -1);
+        if (mFlashCard.subjectUnit != null) {
+            UserUnitRepo.createOrUpdateUserUnit(getContext(), mFlashCard.subjectUnit.id, -1);
+        }
+        UserLogRepo.logEntity(getContext(), UserLog.LESSON_UNIT_TYPE, mFlashCard.lessonUnit.id, UserLog.START_EVENT);
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
+        UserLogRepo.logEntity(getContext(), UserLog.LESSON_UNIT_TYPE, mFlashCard.lessonUnit.id, UserLog.STOP_EVENT);
+
     }
 
     @Override
@@ -76,6 +85,11 @@ public class FlashCardView extends LinearLayout {
     @Override
     protected void onAnimationEnd() {
         super.onAnimationEnd();
+    }
+
+    @Override
+    protected void onFocusChanged(boolean gainFocus, int direction, @Nullable Rect previouslyFocusedRect) {
+        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
     }
 
     private void initView(Context context, FlashCard flashCard) {

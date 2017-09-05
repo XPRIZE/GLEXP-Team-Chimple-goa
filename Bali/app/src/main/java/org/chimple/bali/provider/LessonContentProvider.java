@@ -25,9 +25,11 @@ import android.database.MatrixCursor;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import org.chimple.bali.model.MultipleChoiceQuiz;
 import org.chimple.bali.repo.LessonRepo;
+import org.chimple.bali.repo.UserRepo;
 
 import java.util.List;
 
@@ -36,6 +38,8 @@ public class LessonContentProvider extends ContentProvider {
     public static final String AUTHORITY = "org.chimple.bali.provider";
 
     public static final String MULTIPLE_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
+
+    public static final String COINS = "COINS";
 
     private static final int DEFAULT_NUM_QUIZES = 1;
     private static final int DEFAULT_NUM_CHOICES = 4;
@@ -52,11 +56,19 @@ public class LessonContentProvider extends ContentProvider {
     /** The match code for next quiz */
     private static final int CODE_GET_MULTIPLE_CHOICE_QUIZ = 1;
 
+    /** The URI for the Multiple Choice Quiz */
+    public static final Uri URI_COIN = Uri.parse(
+            "content://" + AUTHORITY + "/" + COINS);
+
+    /** The match code for next quiz */
+    private static final int CODE_ADD_COIN = 2;
+
     /** The URI matcher. */
     private static final UriMatcher MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
         MATCHER.addURI(AUTHORITY, MULTIPLE_CHOICE_QUIZ, CODE_GET_MULTIPLE_CHOICE_QUIZ);
+        MATCHER.addURI(AUTHORITY, COINS, CODE_ADD_COIN);
     }
 
 
@@ -121,6 +133,8 @@ public class LessonContentProvider extends ContentProvider {
         switch (MATCHER.match(uri)) {
             case CODE_GET_MULTIPLE_CHOICE_QUIZ:
                 return "vnd.android.cursor.dir/" + AUTHORITY + "." + MULTIPLE_CHOICE_QUIZ;
+            case CODE_ADD_COIN:
+                return "vnd.android.cursor.dir/" + AUTHORITY + "." + COINS;
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
         }
@@ -140,6 +154,18 @@ public class LessonContentProvider extends ContentProvider {
 
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
-        return 0;
+        switch (MATCHER.match(uri)) {
+            case CODE_ADD_COIN:
+                int coins = contentValues.getAsInteger(COINS);
+                int updatedCoins = UserRepo.updateCoins(getContext(), coins);
+                Log.d("LessonContentProvider", "adding coins: "
+                        + String.valueOf(coins)
+                        + " for total of: "
+                        + String.valueOf(updatedCoins));
+                //TODO: Display notification on coins
+                return updatedCoins;
+            default:
+                throw new IllegalArgumentException("Unknown URI: " + uri);
+        }
     }
 }
