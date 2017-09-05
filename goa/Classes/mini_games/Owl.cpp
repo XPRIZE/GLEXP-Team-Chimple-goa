@@ -455,7 +455,7 @@ void Owl::createGrid() {
 	auto keyboardAllLetters = matrixValue[0].size();
 
 	Speaker* speaker = new Speaker();
-	auto gridObject = speaker->createSpeaker("", Vec2(0, 0));
+	auto gridObject = speaker->createSpeaker("", Vec2(0, 0),true);
 	float space = visibleSize.width - (gridObject->getContentSize().width * keyboardAllLetters/2);
 	float IndiSpace = space / ((keyboardAllLetters / 2) + 1);
 	float xPosi = IndiSpace + gridObject->getContentSize().width / 2;
@@ -588,9 +588,11 @@ void Owl::triggerTheOwlActivity(cocos2d::Touch* touch, cocos2d::Event* event) {
 	auto target = event->getCurrentTarget();
 	Size s = target->getContentSize();
 	Rect rect = Rect(target->getPositionX() - s.width / 2, target->getPositionY() - s.height / 2, s.width, s.height);
-	
 	bool isCheckBoxSelected = true;
-	
+
+	// Speaker for Listner and reset the speakers ... 
+	auto speaker = ((Speaker*)target);	
+	resetSpeakerCheckboxStatus(target);
 	isCheckBoxSelected = ((Speaker*)target)->getCheckBoxStatus();
 
 	if (rect.containsPoint(touch->getLocation()) && isCheckBoxSelected) {
@@ -1086,4 +1088,26 @@ void Owl::recreateKeyboardLetters() {
 		}
 	}
 
+}
+
+void Owl::resetSpeakerCheckboxStatus(Node* speaker) {
+	auto bag = _vmcBag[_blockLevel1 - 1].otherChoices;
+	int counter = 0;
+	for (int i = 0; i <= 1; i++) {
+		for (int j = 0; j < bag.size() / 2; j++) {
+
+			auto labelOnKeyboardGrid = this->getChildByTag(800 + counter);
+			if (labelOnKeyboardGrid) {
+
+				if (!(speaker->getTag() == labelOnKeyboardGrid->getTag())) {
+					((Speaker*)labelOnKeyboardGrid)->setCheckBoxVisibility(false);
+					CCLOG("RESET TAG : %d", labelOnKeyboardGrid->getTag());
+				}
+				else {
+					CCLOG("NOT RESET TAG : %d", labelOnKeyboardGrid->getTag());
+				}
+				counter++;
+			}
+		}
+	}
 }
