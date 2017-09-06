@@ -57,22 +57,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startActivity(View v) {
-        if(v.getId() == R.id.readButton) {
+        if(v.getId() == R.id.learnButton) {
             Intent intent = new Intent(this, LessonActivity.class);
             intent.putExtra(EXTRA_MESSAGE, new Long(1));
             startActivity(intent);
+        } else if(v.getId() == R.id.goaButton){
+            Intent intent = getPackageManager().getLaunchIntentForPackage("org.chimple.goa");
+            if (intent != null) {
+                startActivity(intent);
+            }
         } else if(v.getId() == R.id.musicButton){
-            Intent intent = getPackageManager().getLaunchIntentForPackage("com.android.music");
+            Intent intent = getPackageManager().getLaunchIntentForPackage("com.google.android.music");
             if (intent != null) {
                 startActivity(intent);
             }
         } else if(v.getId() == R.id.cameraButton){
-            Intent intent = getPackageManager().getLaunchIntentForPackage("com.android.camera");
+            Intent intent = getPackageManager().getLaunchIntentForPackage("com.google.android.GoogleCamera");
             if (intent != null) {
                 startActivity(intent);
             }
         } else if(v.getId() == R.id.galleryButton){
-            Intent intent = getPackageManager().getLaunchIntentForPackage("com.android.gallery3d");
+            Intent intent = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.photos");
             if (intent != null) {
                 startActivity(intent);
             }

@@ -40,11 +40,17 @@ public:
 	void setStringInSpeaker(string newWord);
 	void setFreezCheckBoxTickStatus(bool freezSelectionOption);
 	bool getFreezCheckBoxTickStatus();
+	void setCurrentSpeakerStatus(bool currentSpeaker);
+	bool getCurrentSpeakerStatus();
 	bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
 	bool checkAnswer(string word);
 	void onTouchEnded(cocos2d::Touch *touch, cocos2d::Event *event);
 
 	void setCheckBoxStatus(bool isOptionSelected);
+
+	void setCheckBoxVisibility(bool visible);
+
+	bool getCheckBoxVisibility();
 
 	 bool getCheckBoxStatus();
 	

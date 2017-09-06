@@ -54,6 +54,8 @@ public:
 	void UpdateAnimationSecond(float dt);
 	string getConvertVectorStringIntoString(vector<string> value);
 	void recreateKeyboardLetters();
+	void setCurrentStatusInSpeaker();
+	void resetSpeakerCheckboxStatus(Node *speaker);
 	static cocos2d::Scene* createScene();
 	void update(float) override;
 	void autoPlayerController(float);

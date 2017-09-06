@@ -51,6 +51,7 @@ Speaker*  Speaker::createSpeaker(string word,Vec2 position,bool selectionMode) {
 		_checkBox->setPosition(Vec2(_speaker->getPositionX()+ _speaker->getContentSize().width / 4,
 			_speaker->getPositionY()+ _speaker->getContentSize().height / 4));
 		_checkBox->setName("checkbox");
+		_checkBox->setVisible(false);
 		addChild(_checkBox);
 
 
@@ -69,9 +70,9 @@ Speaker*  Speaker::createSpeaker(string word,Vec2 position,bool selectionMode) {
 	listener->setSwallowTouches(false);
 
 	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener, _speaker);
-	if (_isCheckBoxEnable) {
-		cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), _checkBox);
-	}
+	//if (_isCheckBoxEnable) {
+	//	cocos2d::Director::getInstance()->getEventDispatcher()->addEventListenerWithSceneGraphPriority(listener->clone(), _checkBox);
+	//}
 
 	return this;
 }
@@ -106,7 +107,6 @@ bool Speaker::getFreezCheckBoxTickStatus() {
 	return _freezSelectionOption;
 }
 
-
 /* 
  it check the word is match with audio or not
  if correct then return true else false
@@ -117,7 +117,6 @@ bool Speaker::getFreezCheckBoxTickStatus() {
 		return true;
 	return false;
 }
-
 
 bool Speaker::onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event)
 {
@@ -151,12 +150,23 @@ void Speaker::setCheckBoxStatus(bool isOptionSelected) {
 	_checkBox->getChildByName("tick")->setVisible(isOptionSelected);
 }
 
-
-/* 
+/*
 It return status , the checkbox is selected or not
 */
 bool Speaker::getCheckBoxStatus() {
 	return _isOptionSelected;
+}
+
+
+void Speaker::setCheckBoxVisibility(bool visible) {
+	if (_isCheckBoxEnable) {
+		_checkBox->setVisible(visible);
+		setCheckBoxStatus(false);
+	}
+}
+
+bool Speaker::getCheckBoxVisibility() {
+	return _checkBox->isVisible();
 }
 
 
@@ -166,12 +176,15 @@ Speaker and checkBox button effects and enabel or disable the checkBox status
 void Speaker::handleClickEffectOnSpeaker(cocos2d::Event* event)
 {
 	auto target = event->getCurrentTarget();
-	if (target->getName().compare("checkbox") == 0) {
-		if (getCheckBoxStatus()) {
-			setCheckBoxStatus(false);
+
+	if (_isCheckBoxEnable) {
+	
+		if (getCheckBoxVisibility()) {
+			setCheckBoxStatus(true);
 		}
 		else {
-			setCheckBoxStatus(true);
+			setCheckBoxVisibility(true);
+			setCheckBoxStatus(false);
 		}
 	}
 }
