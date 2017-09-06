@@ -70,6 +70,7 @@ public:
     std::function<void(std::vector<MultiChoice>)> multiChoiceReadyCallback;
     virtual void onReceivedMultipleChoiceQuiz(cocos2d::EventCustom *eventCustom);
     static std::vector<MultiChoice> unmarshallMultiChoices(std::string* strArray);
+    static std::vector<Bag> unmarshallBag(std::string* strArray);
     
 CC_CONSTRUCTOR_ACCESS:
     Lesson();

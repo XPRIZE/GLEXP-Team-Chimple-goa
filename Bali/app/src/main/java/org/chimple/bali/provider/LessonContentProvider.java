@@ -207,12 +207,10 @@ public class LessonContentProvider extends ContentProvider {
                 MatrixCursor.RowBuilder rowBuilder = matrixCursor.newRow();
                 rowBuilder.add(bcq.help).add(bcq.answer);
                 for(int i = 0; i < maxAnswers; i++) {
-                    rowBuilder.add(bcq.answers.length < i ? bcq.answers.length : "");
+                    rowBuilder.add(i < bcq.answers.length ? bcq.answers[i] : "");
                 }
-                for (String answer : bcq.answers) {
-                }
-                for (String choice : bcq.otherChoices) {
-                    rowBuilder.add(choice);
+                for(int i = 0; i < maxChoices; i++) {
+                    rowBuilder.add(i < bcq.otherChoices.length ? bcq.otherChoices[i] : "");
                 }
             }
             return matrixCursor;

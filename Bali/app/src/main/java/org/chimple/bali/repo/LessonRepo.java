@@ -169,8 +169,8 @@ public class LessonRepo {
                 List<String> choiceList = new LinkedList<String>(choiceCloneSet);
                 Collections.shuffle(choiceList);
 
-                String[] choices = new String[maxChoices];
-                for (int c = 0; c < maxChoices; c++) {
+                String[] choices = new String[maxChoices - answers.length];
+                for (int c = 0; c < choices.length; c++) {
                     choices[c] = choiceList.get(Math.min(c, choiceList.size() - 1));
                 }
 
@@ -211,8 +211,8 @@ public class LessonRepo {
                 List<String> choiceList = new LinkedList<String>(choiceCloneSet);
                 Collections.shuffle(choiceList);
 
-                String[] choices = new String[maxChoices];
-                for (int c = 0; c < maxChoices; c++) {
+                String[] choices = new String[maxChoices - answers.length];
+                for (int c = 0; c < choices.length; c++) {
                     choices[c] = choiceList.get(Math.min(c, choiceList.size() - 1));
                 }
 
@@ -248,7 +248,7 @@ public class LessonRepo {
                     answers.add(luc.subjectUnit.name);
                 }
 
-                for (int c = 0; c < maxChoices; c++) {
+                for (int c = 0; c < maxChoices - maxAnswers; c++) {
                     int randIndex = choiceList.get(Math.min(c, choiceList.size() - 1));
                     choices.add(lucs[randIndex].subjectUnit.name);
                 }
