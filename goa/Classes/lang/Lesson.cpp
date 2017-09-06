@@ -136,12 +136,12 @@ vector<Lesson::Bag> Lesson::unmarshallBag(std::string* strArray) {
     vector<Lesson::Bag> vbag;
     int k = 0;
     int numQuizes = atoi(strArray[k++].c_str());
-    int numAnswers = atoi(strArray[k++].c_str());
-    int numChoices = atoi(strArray[k++].c_str());
     for (int i = 0; i < numQuizes; i++) {
         Lesson::Bag bag;
         bag.help = strArray[k++];
         bag.answerString = strArray[k++];
+        int numAnswers = atoi(strArray[k++].c_str());
+        int numChoices = atoi(strArray[k++].c_str());
         vector<string> answers;
         answers.reserve(numAnswers);
         for (int j = 0; j < numAnswers; j++) {
