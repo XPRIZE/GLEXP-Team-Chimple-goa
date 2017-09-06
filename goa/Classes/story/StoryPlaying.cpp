@@ -574,7 +574,7 @@ std::vector<float> StoryPlaying::splitFloat(std::string s, char delim)
     ss.str(s);
     std::string item;
     while (getline(ss, item, delim)) {
-        float i = std::stof(item);
+        float i = std::atof(item.c_str());
         elems.push_back(i);
     }
     return elems;
