@@ -132,6 +132,35 @@ vector<Lesson::MultiChoice> Lesson::unmarshallMultiChoices(std::string* strArray
     return vmc;
 }
 
+vector<Lesson::Bag> Lesson::unmarshallBag(std::string* strArray) {
+    vector<Lesson::Bag> vbag;
+    int k = 0;
+    int numQuizes = atoi(strArray[k++].c_str());
+    int numAnswers = atoi(strArray[k++].c_str());
+    int numChoices = atoi(strArray[k++].c_str());
+    for (int i = 0; i < numQuizes; i++) {
+        Lesson::Bag bag;
+        bag.help = strArray[k++];
+        bag.answerString = strArray[k++];
+        vector<string> answers;
+        answers.reserve(numAnswers);
+        for (int j = 0; j < numAnswers; j++) {
+            answers.insert(answers.begin() + j, strArray[k++]);
+        }
+        bag.answers = answers;
+
+        vector<string> choices;
+        answers.reserve(numChoices);
+        for (int j = 0; j < numChoices; j++) {
+            choices.insert(choices.begin() + j, strArray[k++]);
+        }
+        bag.otherChoices = choices;
+
+        vbag.insert(vbag.begin() + i, bag);
+    }
+    return vbag;
+}
+
 
 static const vector<vector<string>> wordsByLength = {
     {"N","O","N","E"},
@@ -150,7 +179,8 @@ static const vector<vector<string>> wordsByLength = {
 vector<Lesson::Bag> Lesson::getBag(int lessons, int minAnswers, int maxAnswers,
                                    int minChoices, int maxChoices,
                                    bool order) {
-    vector<Lesson::Bag> vb;
+vector<Lesson::Bag> vb;
+#if (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
     vb.reserve(lessons);
     for (int i = 0; i < lessons; i++) {
         Lesson::Bag b;
@@ -235,6 +265,37 @@ vector<Lesson::Bag> Lesson::getBag(int lessons, int minAnswers, int maxAnswers,
         
         vb.insert(vb.begin() + i, b);
     }
+    
+    string* sendArray = new string[lessons * (maxChoices) + 3];
+    int i = 0;
+    sendArray[i++] = MenuContext::to_string(lessons);
+    sendArray[i++] = MenuContext::to_string(maxAnswers);
+    sendArray[i++] = MenuContext::to_string(maxChoices - maxAnswers);
+    for (int j = 0; j < lessons; j++) {
+        sendArray[i++] = "Arrange the word";
+        auto wordAnswer = wordsByLength[maxAnswers];
+        ostringstream imploded;
+        copy(wordAnswer.begin(), wordAnswer.end(),
+             ostream_iterator<string>(imploded));
+        sendArray[i++] = imploded.str();
+        for(int k = 0; k < maxAnswers; k++) {
+            sendArray[i++] = wordAnswer[k];
+        }
+        for (int k = 0; k < maxChoices - maxAnswers; k++) {
+            sendArray[i++] = allUpperStrings[(j + k) % allUpperStrings.size()];
+        }
+    }
+    Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("bagOfChoiceQuiz", static_cast<void*>(sendArray));
+    
+#else
+    CCLOG("bagOfChoiceQuiz");
+    cocos2d::JniMethodInfo methodInfo;
+    if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "queryBagOfChoiceQuiz", "(IIIIII)V")) {
+    }
+    CCLOG("calling bagOfChoiceQuiz");
+    methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, lessons, minAnswers, maxAnswers, minChoices, maxChoices, 1);
+    methodInfo.env->DeleteLocalRef(methodInfo.classID);
+#endif
     return vb;
 };
 

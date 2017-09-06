@@ -30,6 +30,7 @@ public:
     virtual void checkAnswer();
     void onExitTransitionDidStart() override;
     void onEnterTransitionDidFinish() override;
+    void onLessonReady(cocos2d::EventCustom *eventCustom);
     void enableHandWriting();
     bool isHandWritingEnabled();
     static void textReceived(std::string text);

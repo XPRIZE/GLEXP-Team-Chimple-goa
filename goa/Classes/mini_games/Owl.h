@@ -54,7 +54,6 @@ public:
 	void UpdateAnimationSecond(float dt);
 	string getConvertVectorStringIntoString(vector<string> value);
 	void recreateKeyboardLetters();
-	void setCurrentStatusInSpeaker();
 	void resetSpeakerCheckboxStatus(Node *speaker);
 	static cocos2d::Scene* createScene();
 	void update(float) override;
@@ -74,16 +73,6 @@ public:
 	void addEventsOnGrid(cocos2d::Sprite * callerObject);
 
 	void triggerTheOwlActivity(cocos2d::Touch * touch, cocos2d::Event * event);
-
-	void checkMistakeOnWord();
-
-	void pronounceWord();
-
-	void popUpText();
-
-	bool LevelInfoForSpeaker();
-
-	void addEventsOnSpeaker(cocos2d::Sprite * callerObject);
 
 	static const char* gameName() { return OWL.c_str(); }
 };

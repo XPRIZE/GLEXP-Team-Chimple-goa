@@ -64,6 +64,7 @@ public class MainActivity extends AppCompatActivity {
         } else if(v.getId() == R.id.goaButton){
             Intent intent = getPackageManager().getLaunchIntentForPackage("org.chimple.goa");
             if (intent != null) {
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         } else if(v.getId() == R.id.musicButton){
