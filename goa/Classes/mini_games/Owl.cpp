@@ -143,8 +143,9 @@ void Owl::onEnterTransitionDidFinish()
 	// Here we set the level of complexity and concept ....
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
 	string categoryTitle = "";
-	_lesson.setConcept(Lesson::CONCEPT::WORD_SPELLING);
 
+	// lesson word spelling ....
+	//_lesson.setConcept(Lesson::CONCEPT::WORD_SPELLING);
 
 	//The complexity level set According to the MenuContext-> currentLevel ...
 	auto complexityValue = _menuContext->getCurrentLevel();
@@ -159,7 +160,6 @@ void Owl::onEnterTransitionDidFinish()
 	_sentence = LangUtil::getInstance()->translateString(_vmcBag[0].help);
 	_sentenceShow = LangUtil::getInstance()->translateString("List of same words");
 	_owlCurrentTheme = owlSceneMapping.at(RandomHelper::random_int(1,3));
-	
 
 	// Here the bag question and answer set in vector<string> of _data_key and _data_value ....
 	for (size_t i = 0; i < _vmcBag.size(); i++) {
@@ -360,11 +360,6 @@ string Owl::getConvertInUpperCase(string data)
 // To set the letter on Building for Main Character ...
 void Owl::crateLetterGridOnBuilding(int blockLevel, vector<string> displayWord) {
 
-	if (LevelInfoForSpeaker()) {
-		_wrongCounter = 0;
-		pronounceWord();
-	}
-
 	CCLOG("Letters on new building : %s ", getConvertVectorStringIntoString(displayWord).c_str());
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	auto blockObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("orangebase"));
@@ -454,8 +449,12 @@ void Owl::createGrid() {
 	auto bag = matrixValue[0];
 	auto keyboardAllLetters = matrixValue[0].size();
 
-	Speaker* speaker = new Speaker();
-	auto gridObject = speaker->createSpeaker("", Vec2(0, 0),true);
+	Sprite* gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
+
+	if (_lesson.getConcept() == Lesson::CONCEPT::WORD_SOUND) {
+		Speaker* speaker = new Speaker();
+		gridObject = (Sprite*)speaker->createSpeaker("", Vec2(0, 0),true);
+	}
 	float space = visibleSize.width - (gridObject->getContentSize().width * keyboardAllLetters/2);
 	float IndiSpace = space / ((keyboardAllLetters / 2) + 1);
 	float xPosi = IndiSpace + gridObject->getContentSize().width / 2;
@@ -471,30 +470,40 @@ void Owl::createGrid() {
 		}
 
 		for (int column = 1; column <= keyboardAllLetters/2; column++) {
-		
-			Speaker* speaker = new Speaker();
-			auto gridObject = speaker->createSpeaker(bag[counter], Vec2(xPosi, height),true);
-			addChild(gridObject,1);
-
+			
 			CCLOG("ROW: %d  COLUMN: %d   letter : %s",row,column,bag[counter].c_str());
 
-			//auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
-			//setSpriteProperties(gridObject, xPosi, height, 1, 1, 0.5, 0.5, 0, 1);
-			xPosi = xPosi + IndiSpace + gridObject->getContentSize().width;
-			addEventsOnGrid((Sprite*)gridObject);
-			
-			// Set Alphabet one by one in KEYBOARD ... 
+			if (_lesson.getConcept() == Lesson::CONCEPT::WORD_SOUND) {
+				Speaker* speaker = new Speaker();
+				auto gridObject = speaker->createSpeaker(bag[counter], Vec2(xPosi, height), true);
+				addChild(gridObject, 1);
+				xPosi = xPosi + IndiSpace + gridObject->getContentSize().width;
+				addEventsOnGrid((Sprite*)gridObject);
 
-			//auto label = CommonLabelTTF::create(bag[counter], "Helvetica", gridObject->getContentSize().width * 0.8);
-			//label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
-			//label->setColor(Color3B::WHITE);
-			//label->setName(bag[counter]);
-			//label->setTag(1);
+				gridObject->setName(bag[counter]);
+				gridObject->setTag(800 + counter);
+				counter++;
+			}
+			else {
+				auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
+				setSpriteProperties(gridObject, xPosi, height, 1, 1, 0.5, 0.5, 0, 1);
+				
+				xPosi = xPosi + IndiSpace + gridObject->getContentSize().width;
+				addEventsOnGrid((Sprite*)gridObject);
 
-			gridObject->setName(bag[counter]);
-			//gridObject->addChild(label);
-			gridObject->setTag(800+counter);
-			counter++;
+				// Set Alphabet one by one in KEYBOARD ... 
+
+				auto label = CommonLabelTTF::create(bag[counter], "Helvetica", gridObject->getContentSize().width * 0.8);
+				label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
+				label->setColor(Color3B::WHITE);
+				label->setName(bag[counter]);
+				label->setTag(1);
+				gridObject->addChild(label);
+
+				gridObject->setName(bag[counter]);
+				gridObject->setTag(800 + counter);
+				counter++;
+			}
 		}
 	}
 }
@@ -587,13 +596,17 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 void Owl::triggerTheOwlActivity(cocos2d::Touch* touch, cocos2d::Event* event) {
 	auto target = event->getCurrentTarget();
 	Size s = target->getContentSize();
-	Rect rect = Rect(target->getPositionX() - s.width / 2, target->getPositionY() - s.height / 2, s.width, s.height);
 	bool isCheckBoxSelected = true;
+	Rect rect = target->getBoundingBox();
 
-	// Speaker for Listner and reset the speakers ... 
-	auto speaker = ((Speaker*)target);	
-	resetSpeakerCheckboxStatus(target);
-	isCheckBoxSelected = ((Speaker*)target)->getCheckBoxStatus();
+	if(_lesson.getConcept() == Lesson::CONCEPT::WORD_SOUND){
+		rect = Rect(target->getPositionX() - s.width / 2, target->getPositionY() - s.height / 2, s.width, s.height);
+
+		// Speaker for Listner and reset the speakers ... 
+		auto speaker = ((Speaker*)target);	
+		resetSpeakerCheckboxStatus(target);
+		isCheckBoxSelected = ((Speaker*)target)->getCheckBoxStatus();
+	}
 
 	if (rect.containsPoint(touch->getLocation()) && isCheckBoxSelected) {
 
@@ -743,9 +756,6 @@ void Owl::triggerTheOwlActivity(cocos2d::Touch* touch, cocos2d::Event* event) {
 					whiteTrans->setOpacity(80);
 					whiteTrans->setName("transImg");
 
-					if (LevelInfoForSpeaker())
-						checkMistakeOnWord();
-
 					auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 					audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 
@@ -805,114 +815,6 @@ void Owl::triggerTheOwlActivity(cocos2d::Touch* touch, cocos2d::Event* event) {
 		}
 	}
 }
-
-// This the method to check the mistake done by kids ... after max 3 wrong attempt show the 
-// TEXT ON BOARD and after few second again disapper board and set speaker ....
-void Owl::checkMistakeOnWord() {
-
-	_wrongCounter++;
-
-	if (_wrongCounter >= 3) {
-		_wrongCounter = 0;
-		_textLabel->stopAllActions();
-		popUpText();
-	}
-}
-
-//To pronounce word by click on Speaker Button ....
-void Owl::pronounceWord() {
-
-	auto topBoard = getChildByName("bg")->getChildByName("topBoard");
-	auto size = topBoard->getContentSize();
-
-	if (getChildByName("speaker"))
-		removeChildByName("speaker");
-
-	auto speaker = Sprite::create("speaker/speaker.png");
-	speaker->setPosition(Vec2(topBoard->getPositionX() + size.width * 0.72, topBoard->getPositionY() + size.height/2));
-	speaker->setScale(0.5);
-	addChild(speaker, 1);
-	speaker->setName("speaker");
-	speaker->setTag(1);
-	addEventsOnSpeaker(speaker);
-	popUpText();
-}
-
-
-// The Upper board text popup to high-light the string to the kids ....
-void Owl::popUpText() {
-
-	auto action1 = ScaleTo::create(0.2, 1.1);
-	auto action2 = ScaleTo::create(0.2, 1);
-	auto action3 = ScaleTo::create(0.2, 1.1);
-	auto action4 = ScaleTo::create(0.2, 1);
-	auto self = this;
-	auto scaleAction = Sequence::create(
-		CallFunc::create([=]() {
-			std::ostringstream boardName;
-			boardName << _sentence<< " : "<<_data_key[_textBoard];
-			_textLabel->setString(boardName.str());
-			auto speaker = self->getChildByName("speaker");
-			speaker->setVisible(false);
-			speaker->setTag(0);
-		}),
-		action1, action2, action3, action4,DelayTime::create(2),
-	
-		CallFunc::create([=]() {
-			std::ostringstream boardName;
-			boardName << _sentence;
-			_textLabel->setString(boardName.str());
-			auto speaker = self->getChildByName("speaker");
-			speaker->setVisible(true);
-			speaker->setTag(1);
-		}),
-	NULL);
-
-	_textLabel->runAction(scaleAction);
-
-}
-
-
-// This is the information in which level the speaker should concept should be display ....
-bool Owl::LevelInfoForSpeaker() {
-
-	int levelInfo[] = { 1, 4, 6 };
-	auto lenght = sizeof(levelInfo) / sizeof(levelInfo[0]);
-	for (int i = 0; i < lenght; i++) {
-		if (_menuContext->getCurrentLevel() == levelInfo[i])
-			return false;//return true;
-	}
-	return false;
-}
-
-// Listner for Speaker button ... 
-void Owl::addEventsOnSpeaker(cocos2d::Sprite* callerObject)
-{
-	auto listener = cocos2d::EventListenerTouchOneByOne::create();
-	listener->setSwallowTouches(false);
-
-	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
-	{
-		auto target = event->getCurrentTarget();
-		Size s = target->getContentSize();
-		Rect rect = Rect(0, 0, s.width, s.height);
-		if (target->getBoundingBox().containsPoint(touch->getLocation()) &&  target->getTag() == 1) {
-
-			auto action1 = ScaleTo::create(0.1, 0.4);
-			auto action2 = ScaleTo::create(0.1, 0.5);
-			auto scaleAction = Sequence::create(action1, action2, NULL);
-			target->runAction(scaleAction);
-			
-			_menuContext->pronounceWord(_data_key[_textBoard]);
-
-			return true;
-		}
-		return false;
-	};
-
-	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, callerObject);
-}
-
 
 // Destructor for OWL class
 Owl::~Owl(void)
@@ -1076,14 +978,18 @@ void Owl::recreateKeyboardLetters() {
 		
 			auto labelOnKeyboardGrid = this->getChildByTag(800 + counter);
 			if (labelOnKeyboardGrid) {
-				
 				labelOnKeyboardGrid->setName(bag[counter]);
-				((Speaker*)labelOnKeyboardGrid)->setStringInSpeaker(bag[counter]);
+
+				if (_lesson.getConcept() == Lesson::CONCEPT::WORD_SOUND) {
+					((Speaker*)labelOnKeyboardGrid)->setStringInSpeaker(bag[counter]);
+				}
+				else {
+					auto label = labelOnKeyboardGrid->getChildByTag(1);
+					label->setName(labelOnKeyboardGrid->getName());		// ERROR AFTER ONE BUILDING DONE !!!
+					((CommonLabelTTF*)label)->setString(labelOnKeyboardGrid->getName());
+				}
 				CCLOG("ROW: %d  COLUMN: %d   letter : %s", i, j, bag[counter].c_str());
 				counter++;
-//				auto label = labelOnKeyboardGrid->getChildByTag(1);
-//				label->setName(labelOnKeyboardGrid->getName());		// ERROR AFTER ONE BUILDING DONE !!!
-//				((CommonLabelTTF*)label)->setString(labelOnKeyboardGrid->getName());
 			}
 		}
 	}
