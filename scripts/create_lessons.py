@@ -7,6 +7,17 @@ import csv
 import re
 from operator import itemgetter, attrgetter, methodcaller
 
+LETTER_TYPE = 1
+PHONETIC_TYPE = 2
+SYLLABLE_TYPE = 3
+WORD_TYPE = 4
+SENTENCE_TYPE = 5
+
+LETTER_CONCEPT = 1
+UPPER_CASE_TO_LOWER_CASE_CONCEPT = 2
+LETTER_TO_WORD_CONCEPT = 3
+SYLLABLE_TO_WORD_CONCEPT = 4
+
 #mapping from letter to unit_id
 letter_dict = {}
 
@@ -47,37 +58,37 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 	for val in upper_case_letters:
 		unit_id = unit_id + 1
 		letter_dict[val] = unit_id
-		db_writer.writerow(['Unit', unit_id, val, 1,'',val+'.mp3',val+'.mp3'])
+		db_writer.writerow(['Unit', unit_id, val, LETTER_TYPE,'',val+'.mp3',val+'.mp3'])
 	for val in lower_case_letters:
 		unit_id = unit_id + 1
 		letter_dict[val] = unit_id
-		db_writer.writerow(['Unit', unit_id, val, 1,'',val+'.mp3',val+'.mp3'])
+		db_writer.writerow(['Unit', unit_id, val, LETTER_TYPE,'',val+'.mp3',val+'.mp3'])
 	for val in syllable_list:
 		unit_id = unit_id + 1
 		syllable_dict[val] = unit_id
-		db_writer.writerow(['Unit', unit_id, val, 3,'',val+'.mp3',val+'.mp3'])
+		db_writer.writerow(['Unit', unit_id, val, SYLLABLE_TYPE,'',val+'.mp3',val+'.mp3'])
 	for val in word_list:
 		unit_id = unit_id + 1
 		word_dict[val] = (unit_id, 0)
-		db_writer.writerow(['Unit', unit_id, val, 4,val+'.png',val+'.mp3',val+'.mp3'])
+		db_writer.writerow(['Unit', unit_id, val, WORD_TYPE,val+'.png',val+'.mp3',val+'.mp3'])
 	for val in word_list:
 		if len(word_syllable_dict[val]) > 1:
 			for i, syllable in enumerate(word_syllable_dict[val]):
-				db_writer.writerow(['UnitPart', word_dict[val][0], syllable_dict[syllable], 3, i + 1, '#',val,syllable])
+				db_writer.writerow(['UnitPart', word_dict[val][0], syllable_dict[syllable], SYLLABLE_TYPE, i + 1, '#',val,syllable])
 	lesson_id = 0
 	lesson_unit_id = 0
 	nsplit = 3
 	for ir in range(nsplit):
 		lesson_id = lesson_id + 1
 		ll = len(upper_case_letters)
-		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)], 1, lesson_id])
+		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)], LETTER_CONCEPT, lesson_id])
 		for i, val in enumerate(upper_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 			lesson_unit_id = lesson_unit_id + 1
 			db_writer.writerow(['LessonUnit', lesson_unit_id, lesson_id, i + 1, letter_dict[val], letter_dict[val], '#', val])
 	for ir in range(nsplit):
 		lesson_id = lesson_id + 1
 		ll = len(lower_case_letters)
-		db_writer.writerow(['Lesson', lesson_id, lower_case_letters[int(ir*ll/nsplit)], 1, lesson_id])
+		db_writer.writerow(['Lesson', lesson_id, lower_case_letters[int(ir*ll/nsplit)], LETTER_CONCEPT, lesson_id])
 		for i, val in enumerate(lower_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 			lesson_unit_id = lesson_unit_id + 1
 			db_writer.writerow(['LessonUnit', lesson_unit_id, lesson_id, i + 1, letter_dict[val], letter_dict[val], '#', val])
@@ -87,7 +98,7 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 		lesson_id = lesson_id + 1
 		seq = 0
 		ll = len(upper_case_letters)
-		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)], 1, lesson_id])
+		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)], LETTER_TO_WORD_CONCEPT, lesson_id])
 		for rep in range(3):
 			for i, val in enumerate(upper_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 				lesson_unit_id = lesson_unit_id + 1
@@ -105,7 +116,7 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 		lesson_id = lesson_id + 1
 		seq = 0
 		ll = len(upper_case_letters)
-		db_writer.writerow(['Lesson', lesson_id, lower_case_letters[int(ir*ll/nsplit)], 1, lesson_id])
+		db_writer.writerow(['Lesson', lesson_id, lower_case_letters[int(ir*ll/nsplit)], LETTER_TO_WORD_CONCEPT, lesson_id])
 		for rep in range(3):
 			for i, val in enumerate(lower_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 				lesson_unit_id = lesson_unit_id + 1
@@ -123,7 +134,7 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 		lesson_id = lesson_id + 1
 		seq = 0
 		ll = len(syllable_list)
-		db_writer.writerow(['Lesson', lesson_id, syllable_list[int(ir*ll/nsplit)], 1, lesson_id])
+		db_writer.writerow(['Lesson', lesson_id, syllable_list[int(ir*ll/nsplit)], SYLLABLE_TO_WORD_CONCEPT, lesson_id])
 		for rep in range(3):
 			for i, val in enumerate(syllable_list[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 				lesson_unit_id = lesson_unit_id + 1

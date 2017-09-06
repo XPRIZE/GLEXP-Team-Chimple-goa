@@ -22,11 +22,22 @@ import android.arch.persistence.room.OnConflictStrategy;
 import android.arch.persistence.room.Query;
 
 import org.chimple.bali.db.entity.UnitPart;
+import org.chimple.bali.db.pojo.EagerUnitPart;
 
 @Dao
 public interface UnitPartDao {
     @Query("SELECT * FROM UnitPart WHERE unitId=:unitId AND type=:type ORDER BY seq ASC")
     public UnitPart[] getUnitPartsByUnitIdAndType(Long unitId, int type);
+
+    @Query("SELECT up.*, "
+            + "u.id AS u_id, u.name AS u_name, u.picture AS u_picture, u.sound AS u_sound, u.phonemeSound AS u_phonemeSound, "
+            + "p.id AS p_id, p.name AS p_name, p.picture AS p_picture, p.sound AS p_sound, p.phonemeSound AS p_phonemeSound "
+            + "FROM UnitPart up, Unit u, Unit p "
+            + "WHERE up.unitId = :unitId "
+            + "AND up.type = :type "
+            + "AND up.unitId = u.id "
+            + "AND up.partUnitId = p.id")
+    public EagerUnitPart[] getEagerUnitPartsByUnitIdAndType(Long unitId, int type);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public void insertUnitPart(UnitPart unitPart);
