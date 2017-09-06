@@ -206,8 +206,10 @@ public class LessonContentProvider extends ContentProvider {
             for (BagOfChoiceQuiz bcq : bcqList) {
                 MatrixCursor.RowBuilder rowBuilder = matrixCursor.newRow();
                 rowBuilder.add(bcq.help).add(bcq.answer);
+                for(int i = 0; i < maxAnswers; i++) {
+                    rowBuilder.add(bcq.answers.length < i ? bcq.answers.length : "");
+                }
                 for (String answer : bcq.answers) {
-                    rowBuilder.add(answer);
                 }
                 for (String choice : bcq.otherChoices) {
                     rowBuilder.add(choice);
