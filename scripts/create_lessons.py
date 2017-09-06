@@ -85,48 +85,54 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 	nsplit = 6
 	for ir in range(nsplit):
 		lesson_id = lesson_id + 1
+		seq = 0
 		ll = len(upper_case_letters)
 		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)], 1, lesson_id])
 		for rep in range(3):
 			for i, val in enumerate(upper_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 				lesson_unit_id = lesson_unit_id + 1
+				seq = seq + 1
 				word_dict_list = [(k,v[0],v[1]) for (k,v) in word_dict.items()]
 				start_words = [w for w in word_dict_list if w[0].startswith(val.lower())]
 				#sort by alphabetical order, length, num_uses
 				sorted_start_words = sorted(sorted(sorted(start_words),key=lambda w: len(w[0])),key=itemgetter(2))
-				db_writer.writerow(['LessonUnit', lesson_unit_id, lesson_id, i + 1, letter_dict[val], sorted_start_words[0][1], '#', val, sorted_start_words[0][0]])
+				db_writer.writerow(['LessonUnit', lesson_unit_id, lesson_id, seq, letter_dict[val], sorted_start_words[0][1], '#', val, sorted_start_words[0][0]])
 				word_dict[sorted_start_words[0][0]] = (sorted_start_words[0][1], sorted_start_words[0][2]+1)
 
 	# lessons for lower case letter -> word with starting letter
 	nsplit = 6
 	for ir in range(nsplit):
 		lesson_id = lesson_id + 1
+		seq = 0
 		ll = len(upper_case_letters)
 		db_writer.writerow(['Lesson', lesson_id, lower_case_letters[int(ir*ll/nsplit)], 1, lesson_id])
 		for rep in range(3):
 			for i, val in enumerate(lower_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 				lesson_unit_id = lesson_unit_id + 1
+				seq = seq + 1
 				word_dict_list = [(k,v[0],v[1]) for (k,v) in word_dict.items()]
 				start_words = [w for w in word_dict_list if w[0].startswith(val)]
 				#sort by alphabetical order, length, num_uses
 				sorted_start_words = sorted(sorted(sorted(start_words),key=lambda w: len(w[0])),key=itemgetter(2))
-				db_writer.writerow(['LessonUnit', lesson_unit_id, lesson_id, i + 1, letter_dict[val], sorted_start_words[0][1], '#', val, sorted_start_words[0][0]])
+				db_writer.writerow(['LessonUnit', lesson_unit_id, lesson_id, seq, letter_dict[val], sorted_start_words[0][1], '#', val, sorted_start_words[0][0]])
 				word_dict[sorted_start_words[0][0]] = (sorted_start_words[0][1], sorted_start_words[0][2]+1)
 
 	# lessons for syllable -> word with syllable
 	nsplit = 40
 	for ir in range(nsplit):
 		lesson_id = lesson_id + 1
+		seq = 0
 		ll = len(syllable_list)
 		db_writer.writerow(['Lesson', lesson_id, syllable_list[int(ir*ll/nsplit)], 1, lesson_id])
 		for rep in range(3):
 			for i, val in enumerate(syllable_list[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 				lesson_unit_id = lesson_unit_id + 1
+				seq = seq + 1
 				word_dict_list = [(k,v[0],v[1]) for (k,v) in word_dict.items()]
 				start_words = [w for w in word_dict_list if val in w[0]]
 				#sort by length, location of syllable, num_uses
 				sorted_start_words = sorted(sorted(sorted(start_words,key=lambda w: len(w[0])),key=lambda w: w[0].find(val)),key=itemgetter(2))
-				db_writer.writerow(['LessonUnit', lesson_unit_id, lesson_id, i + 1, syllable_dict[val], sorted_start_words[0][1], '#', val, sorted_start_words[0][0]])
+				db_writer.writerow(['LessonUnit', lesson_unit_id, lesson_id, seq, syllable_dict[val], sorted_start_words[0][1], '#', val, sorted_start_words[0][0]])
 				word_dict[sorted_start_words[0][0]] = (sorted_start_words[0][1], sorted_start_words[0][2]+1)
 
 	db_writer.writerow(['User',1,'test','test.png',1,5])
