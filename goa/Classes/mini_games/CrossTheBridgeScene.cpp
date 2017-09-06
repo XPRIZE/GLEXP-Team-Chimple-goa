@@ -110,6 +110,14 @@ void CrossTheBridge::onEnterTransitionDidFinish()
 			}
 			
 			_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(CrossTheBridge::letterDisplayCombinationMethod, this));
+			if (_menuContext->getCurrentLevel() == 1)
+			{
+				_lesson.setConcept(Lesson::CONCEPT::LETTER);
+			}
+			else if (_menuContext->getCurrentLevel() == 2)
+			{
+				_lesson.setConcept(Lesson::CONCEPT::LETTER_CASE_EQUATE);
+			}
 			_lesson.getMultiChoices(1, 6);
 			
 			/*setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(CrossTheBridge::startGame, this));*/
@@ -235,11 +243,13 @@ void CrossTheBridge::letterDisplayCombinationMethod(cocos2d::EventCustom *eventC
 
  	    // Getting the answer, quetion, help and choices required from API
 
-		//auto vmc = _lesson.getMultiChoices(1, 6);
+	
+	
 	CCLOG("onLessonReady begin");
 	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
 		_letterOnDisplayBoard = vmc[0].question;
 		_answer = vmc[0].answers[vmc[0].correctAnswer];
 		
