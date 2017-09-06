@@ -75,6 +75,24 @@ extern "C"
         Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("multipleChoiceQuiz", static_cast<void*>(mcqStrings));        
     }
 
+    jboolean Java_org_cocos2dx_cpp_AppActivity_setBagOfChoiceQuiz(JNIEnv* env, jobject thiz, jobjectArray stringArray)
+    {
+        int stringCount = env->GetArrayLength(stringArray);
+        CCLOG("stringCount %d", stringCount);
+        std::string *bagStrings = new std::string[stringCount];
+        for (int i=0; i<stringCount; i++) {
+            jstring string = (jstring) (env->GetObjectArrayElement(stringArray, i));
+            const char *rawString = env->GetStringUTFChars(string, 0);
+            // Don't forget to call `ReleaseStringUTFChars` when you're done.
+            CCLOG("bag information %s", rawString);
+            std::string inputStr(rawString);
+            bagStrings[i] = inputStr;
+            //env->ReleaseStringUTFChars(string, rawString);
+        }
+        CCLOG("dispatching bagOfChoiceQuiz");
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("bagOfChoiceQuiz", static_cast<void*>(bagStrings));
+    }
+
 }
 #endif
 
