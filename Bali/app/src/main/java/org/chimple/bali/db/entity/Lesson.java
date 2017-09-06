@@ -26,6 +26,15 @@ import android.arch.persistence.room.PrimaryKey;
         )
 )
 public class Lesson {
+    @Ignore
+    public static final int LETTER_CONCEPT = 1;
+    @Ignore
+    public static final int UPPER_CASE_TO_LOWER_CASE_CONCEPT = 2;
+    @Ignore
+    public static final int LETTER_TO_WORD_CONCEPT = 3;
+    @Ignore
+    public static final int SYLLABLE_TO_WORD_CONCEPT = 4;
+
     @PrimaryKey(autoGenerate = true)
     public Long id;
 

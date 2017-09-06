@@ -528,6 +528,8 @@ void StoryPlaying::load() {
         
         loadContentPage(contentPageName);
         
+        loadTimings();
+        
         processScene(_contentPageNode);
         
         processPixelPerfectNodes(_contentPageNode);
@@ -563,8 +565,57 @@ void StoryPlaying::createDragonBoneNode(Node* parentNode, std::string dragonBone
         _listener->onTouchEnded = CC_CALLBACK_2(StoryPlaying::onTouchEndedOnComposite, this);
         _eventDispatcher->addEventListenerWithSceneGraphPriority(_listener, _armatureDisplay->getParent());
     }
-    
 }
+
+std::vector<float> StoryPlaying::splitFloat(std::string s, char delim)
+{
+    std::vector<float> elems;
+    std::stringstream ss;
+    ss.str(s);
+    std::string item;
+    while (getline(ss, item, delim)) {
+        float i = std::stof(item);
+        elems.push_back(i);
+    }
+    return elems;
+}
+
+
+void StoryPlaying::loadTimings() {
+    std::string pageI = MenuContext::to_string(_pageIndex + 1);
+    std::string timeFileUrl = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "_timing" + ".json";
+    if(!timeFileUrl.empty() && FileUtils::getInstance()->isFileExist(timeFileUrl))
+    {
+        std::string jsonData = FileUtils::getInstance()->getStringFromFile(timeFileUrl);
+        CCLOG("got data %s", jsonData.c_str());
+        rapidjson::Document coverPageTextDocument;
+        if (false == coverPageTextDocument.Parse<0>(jsonData.c_str()).HasParseError()) {
+            // document is ok
+            rapidjson::Value::MemberIterator M;
+            const char *key,*value;
+            int i = 0;
+            for (M=coverPageTextDocument.MemberBegin(); M!=coverPageTextDocument.MemberEnd(); M++)
+            {
+                key   = M->name.GetString();
+                value = M->value.GetString();
+                std::string sValue = value;
+                
+                if(i == _pageIndex + 1) {
+                    _contentPageText = value;
+                    
+                    if (!_contentPageText.empty() && _contentPageText[_contentPageText.length()-1] == '\n') {
+                        _contentPageText.erase(_contentPageText.length()-1);
+                    }
+                    
+                    _loadedSplitWordsTimings = this->splitFloat(_contentPageText, ',');
+                    break;
+                }
+                i++;
+            }
+        }
+    }
+}
+
 
 void StoryPlaying::preloadAllAudio() {
     _loadedSplitWordsEffects.clear();
@@ -578,9 +629,9 @@ void StoryPlaying::preloadAllAudio() {
         for (int i=0; i<_individualTextsTokens.size(); i++)
         {
             if(i < 10) {
-                _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".mp3";
+                _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".ogg";
             } else {
-                _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" +  MenuContext::to_string(i) +".mp3";
+                _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" +  MenuContext::to_string(i) +".ogg";
                 
             }
             
@@ -601,6 +652,8 @@ void StoryPlaying::preloadAllAudio() {
         }
     }
 }
+
+
 
 void StoryPlaying::createWordBubble() {
     
@@ -688,14 +741,68 @@ void StoryPlaying::renderTextAndPlayDialog(Node* parentNode, Node* storyTextNode
     
     if(_soundEnabled.compare("true") == 0 && (isSplitWordsEffectedLoaded || (!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)))) {
         
-        if(_isAudionEngineInitialized && _loadedSplitWordsEffects.size() > 0)
+        this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
+        this->scheduleOnce(schedule_selector(StoryPlaying::highlightedNarrateWord), 1.0f);
+
+//        if(_isAudionEngineInitialized && _loadedSplitWordsEffects.size() > 0)
+//        {
+//            this->scheduleOnce(schedule_selector(StoryPlaying::highlightedNarrateDialog), 1.0f);
+//        } else {
+//            this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
+//            this->scheduleOnce(schedule_selector(StoryPlaying::highlightedNarrateWord), 1.0f);
+//        }
+    }
+}
+
+
+void StoryPlaying::highlightedNarrateWord(float dt) {
+    if(_loadedSplitWordsEffects.size() >0 && _contentCommonTextTokens.size() > 0)
+    {
+        MenuContext::_isInStoryDialogSpeechCurrentlyActive = true;
+    }
+    
+    if(_loadedSplitWordsTimings.size() > 0)
+    {
+        _currentSplitWordIndex = 0;
+        _totalSplitTimings = _loadedSplitWordsTimings.size();
+        
+        
+        if(_currentSplitWordIndex < _loadedSplitWordsTimings.size() &&
+           _currentSplitWordIndex < _totalSplitTimings)
         {
-            this->scheduleOnce(schedule_selector(StoryPlaying::highlightedNarrateDialog), 1.0f);
-        } else {
-            this->scheduleOnce(schedule_selector(StoryPlaying::narrateDialog), 1.0f);
+            float time = _loadedSplitWordsTimings.at(_currentSplitWordIndex);
+            highlightedNWord = _contentCommonTextTokens.at(_currentSplitWordIndex);
+            this->highlightWord(time, highlightedNWord);
         }
     }
 }
+
+void StoryPlaying::unhighlightText(float dt) {
+    this->unschedule(schedule_selector(StoryPlaying::unhighlightText));
+    if(_currentSplitWordIndex < _contentCommonTextTokens.size())
+    {
+        preHighlightedNWord = _contentCommonTextTokens.at(_currentSplitWordIndex - 1);
+        preHighlightedNWord->setTextColor(Color4B::BLACK);
+    }
+    
+    if(_currentSplitWordIndex < _loadedSplitWordsTimings.size() &&
+       _currentSplitWordIndex < _totalSplitTimings)
+    {
+        float time = _loadedSplitWordsTimings.at(_currentSplitWordIndex);
+        highlightedNWord = _contentCommonTextTokens.at(_currentSplitWordIndex);
+        this->highlightWord(time, highlightedNWord);
+    }
+}
+
+void StoryPlaying::highlightWord(float time, cocos2d::ui::Text* text) {
+    
+    text->setTextColor(Color4B::BLUE);
+    _currentSplitWordIndex++;
+    this->schedule(schedule_selector(StoryPlaying::unhighlightText), time);
+}
+
+
+
 
 void StoryPlaying::createDialogBubble() {
     if(!_contentPageText.empty())
@@ -954,13 +1061,17 @@ void StoryPlaying::playSound(Ref* pSender, cocos2d::ui::Widget::TouchEventType e
                 
                 if(_soundEnabled.compare("true") == 0 && (isSplitWordsEffectedLoaded || (!_soundFile.empty() && FileUtils::getInstance()->isFileExist(_soundFile)))) {
                     
-                    if(_isAudionEngineInitialized && _loadedSplitWordsEffects.size() > 0)
-                    {
-                        this->scheduleOnce(schedule_selector(StoryPlaying::highlightedNarrateDialog), 1.0f);
-                    } else {
-                        CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
-                        CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(_soundFile.c_str(), false);
-                    }
+                    CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+                    CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(_soundFile.c_str(), false);
+                    this->scheduleOnce(schedule_selector(StoryPlaying::highlightedNarrateWord), 0.0f);
+
+//                    if(_isAudionEngineInitialized && _loadedSplitWordsEffects.size() > 0)
+//                    {
+////                        this->scheduleOnce(schedule_selector(StoryPlaying::highlightedNarrateDialog), 1.0f);
+//                    } else {
+//                        CocosDenshion::SimpleAudioEngine::getInstance()->setEffectsVolume(1.0f);
+//                        CocosDenshion::SimpleAudioEngine::getInstance()->playBackgroundMusic(_soundFile.c_str(), false);
+//                    }
                 }
                 
                 

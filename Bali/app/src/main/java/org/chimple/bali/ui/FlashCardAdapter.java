@@ -34,6 +34,7 @@ import org.chimple.bali.widget.SentenceView;
 import org.chimple.bali.widget.WordView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -66,39 +67,39 @@ public class FlashCardAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int i) {
-        if ((mCurrentIndex >= mFlashCards.size() - 1 || mCurrentIndex % 4 == 0 ) &&
+        if ((mCurrentIndex >= mFlashCards.size() || mCurrentIndex % 4 == 0 ) &&
                 mUnquizzedIndexes.size() > 0) {
-            int quizIndex =  mUnquizzedIndexes.remove(0);
-            int[] choices = new int[4];
+            Collections.shuffle(mUnquizzedIndexes);
+            int quizIndex =  mUnquizzedIndexes.remove(mUnquizzedIndexes.size() - 1);
+            ArrayList<Integer> choiceList = new ArrayList<Integer>();
+            for (int j=0; j<mCurrentIndex; j++) {
+                if(!mFlashCards.get(quizIndex).subjectUnit.name.equals(mFlashCards.get(j).subjectUnit.name)) {
+                    choiceList.add(new Integer(j));
+                }
+            }
+            Collections.shuffle(choiceList);
+
+            String[] choices = new String[4];
             int randIndex = ThreadLocalRandom.current().nextInt(choices.length);
             for (int j = 0; j < choices.length; j++) {
                 if(j == randIndex) {
-                    choices[j] = quizIndex;
+                    choices[j] = mFlashCards.get(quizIndex).objectUnit.name;
                 } else {
-                    int x = 0;
-                    do {
-                        x = ThreadLocalRandom.current().nextInt(mCurrentIndex);
-                        choices[j] = x;
-                    } while(x == quizIndex);
+                    int randChoiceIndex = choiceList.get(Math.min(j, choiceList.size() - 1));
+                    choices[j] = mFlashCards.get(randChoiceIndex).objectUnit.name;
                 }
             }
-            String[] answers = {
-                    mFlashCards.get(choices[0]).subjectUnit.name,
-                    mFlashCards.get(choices[1]).subjectUnit.name,
-                    mFlashCards.get(choices[2]).subjectUnit.name,
-                    mFlashCards.get(choices[3]).subjectUnit.name
-            };
             MultipleChoiceQuiz multipleChoiceQuiz = new MultipleChoiceQuiz(
                     "help",
                     mFlashCards.get(quizIndex).subjectUnit.name,
-                    answers,
+                    choices,
                     randIndex
             );
             return multipleChoiceQuiz;
         }
         mUnquizzedIndexes.add(mCurrentIndex);
         FlashCard flashCard = mFlashCards.get(mCurrentIndex);
-        if(mCurrentIndex < mFlashCards.size() - 1) {
+        if(mCurrentIndex < mFlashCards.size()) {
             mCurrentIndex++;
         }
         return flashCard;

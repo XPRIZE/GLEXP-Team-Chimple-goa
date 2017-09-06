@@ -200,6 +200,16 @@ private:
             
     void loadContentPageText();
     
+    void loadTimings();
+    
+    void highlightedNarrateWord(float dt);
+    
+    void unhighlightText(float dt);
+    
+    void highlightWord(float time, cocos2d::ui::Text* text);
+
+    
+    std::vector<float> splitFloat(std::string s, char delim);
     
     //DRAGON BONE SPECIFIC
     
@@ -214,6 +224,11 @@ private:
     dragonBones::CCArmatureDisplay* _armatureDisplay;
     dragonBones::CCFactory _factory;
     cocos2d::Node* _bg;
+    std::vector<float> _loadedSplitWordsTimings;
+    unsigned long _totalSplitTimings;
+    cocos2d::ui::Text* highlightedNWord;
+    cocos2d::ui::Text* preHighlightedNWord;
+
     
     void _changeArmature(cocos2d::Node* parentNode);
     void _changeAnimation();
