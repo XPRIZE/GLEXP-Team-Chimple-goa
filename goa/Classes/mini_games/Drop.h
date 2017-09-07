@@ -63,6 +63,7 @@ public:
 	void removeLetterHolder();
 	void removeHolderAnimation(Sprite* obj);
 	void creatHelp( float gap);
+	void gameStart(cocos2d::EventCustom *eventCustom);
 	//void removeHolderAnimationForHero(std::tuple<Sprite*,Sprite*,int> tp);
 	void basketLetterCollisionChecker();
 	void removeHeroTrailer();

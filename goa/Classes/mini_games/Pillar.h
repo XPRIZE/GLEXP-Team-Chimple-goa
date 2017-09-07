@@ -41,6 +41,7 @@ public:
 	void enableListener(float dt);
 	void newCake();
 	void onEnterTransitionDidFinish();
+	void startGame(cocos2d::EventCustom * eventCustom);
 	void gameHelp();
 	bool _helpFlage = false;
 	bool _cakeFlag = false;

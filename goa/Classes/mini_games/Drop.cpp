@@ -24,55 +24,82 @@ bool Drop::init()
 
 void Drop::onEnterTransitionDidFinish() 
 {
+	
+	// Taking a bag of a lesson according to complexity
+	//int minimumAnswer;
+	//if (_lesson.getComplexity() >= 0 && _lesson.getComplexity() <= 4)
+	//{
+	//	minimumAnswer = RandomHelper::random_int(2,4);
+	//	//vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer+1, 3, 5, false);
+	//}
+	//else if(_lesson.getComplexity() >= 5 && _lesson.getComplexity() <= 7)
+	//{
+	//	minimumAnswer = RandomHelper::random_int(5, 6);
+	//	//vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer + 1,3,5, false);
+	//}
+	//else
+	//{
+	//	minimumAnswer = RandomHelper::random_int(7, 8);
+	//	//vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer + 1, 3, 5, false);
+	//}
+	 
+	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Drop::gameStart, this));
+
+	_lesson.getBag(1, 2, 7, 3, 7, true);
+	
+}
+void Drop::gameStart(cocos2d::EventCustom *eventCustom)
+{
+	// Distributing choices , answer, question and help in their respective variables 
 	std::map<std::string, std::map<std::string, std::string>> dropSceneMap = {
 
 		{ "dropjungle",
-						{
-							{ "bg", "dropjungle/dropjungle.csb" },
-							{ "holderAnimation", "dropjungle/leafball.csb" },
-							{ "removalPole", "dropjungle/leafbal.png" },
-							{ "basketAnimation","dropjungle/basket.csb" },
-							{ "pseudoHolderImage","dropjungle/leafbal.png" },
-							{ "basketImageName", "basketouter_1" },
-							{ "rightAnimName", "full" },
-							{ "ball", "dropjungle/ball.png" },
-							{ "wrongAnimName", "correct" },
-							{ "blastAnimName", "click" },
-							{ "demoBasket","" },
-							{ "helpBoard", "boardhelp_16" }
-						}
+		{
+			{ "bg", "dropjungle/dropjungle.csb" },
+			{ "holderAnimation", "dropjungle/leafball.csb" },
+			{ "removalPole", "dropjungle/leafbal.png" },
+			{ "basketAnimation","dropjungle/basket.csb" },
+			{ "pseudoHolderImage","dropjungle/leafbal.png" },
+			{ "basketImageName", "basketouter_1" },
+			{ "rightAnimName", "full" },
+			{ "ball", "dropjungle/ball.png" },
+			{ "wrongAnimName", "correct" },
+			{ "blastAnimName", "click" },
+			{ "demoBasket","" },
+			{ "helpBoard", "boardhelp_16" }
+		}
 		},
 		{ "drophero",
-						{
-							{ "bg", "drophero/drophero.csb" },
-							{ "holderAnimation", "drophero/trailer.csb" },
-							{ "removalPole", "drophero/boxback.png" },
-							{ "basketAnimation","drophero/dropbox.csb" },
-							{ "pseudoHolderImage","drophero/trailer1.png" },
-							{ "basketImageName", "boxback" },
-							{ "rightAnimName", "right" },
-							{ "wrongAnimName", "wrong" },
-							{ "ball", "drophero/ball.png" },
-							{ "blastAnimName", "" },
-							{ "demoBasket","drophero/box1.png" },
-							{ "helpBoard", "board" }
-						}
+		{
+			{ "bg", "drophero/drophero.csb" },
+			{ "holderAnimation", "drophero/trailer.csb" },
+			{ "removalPole", "drophero/boxback.png" },
+			{ "basketAnimation","drophero/dropbox.csb" },
+			{ "pseudoHolderImage","drophero/trailer1.png" },
+			{ "basketImageName", "boxback" },
+			{ "rightAnimName", "right" },
+			{ "wrongAnimName", "wrong" },
+			{ "ball", "drophero/ball.png" },
+			{ "blastAnimName", "" },
+			{ "demoBasket","drophero/box1.png" },
+			{ "helpBoard", "board" }
+		}
 		},
 		{ "dropcity",
-						{
-							{ "bg", "dropcity/dropcity.csb" },
-							{ "holderAnimation", "dropcity/blast.csb" },
-							{ "removalPole", "dropcity/balloon.png" },
-							{ "basketAnimation","dropcity/basket.csb" },
-							{ "pseudoHolderImage","dropcity/balloon.png" },
-							{ "basketImageName", "Sprite_3" },
-							{ "rightAnimName", "correct" },
-							{ "wrongAnimName", "wrong" },
-							{ "ball", "dropcity/ball.png" },
-							{ "blastAnimName", "blast" },
-							{ "demoBasket","dropcity/closebox.png" },
-							{ "helpBoard", "board" }
-						}
+		{
+			{ "bg", "dropcity/dropcity.csb" },
+			{ "holderAnimation", "dropcity/blast.csb" },
+			{ "removalPole", "dropcity/balloon.png" },
+			{ "basketAnimation","dropcity/basket.csb" },
+			{ "pseudoHolderImage","dropcity/balloon.png" },
+			{ "basketImageName", "Sprite_3" },
+			{ "rightAnimName", "correct" },
+			{ "wrongAnimName", "wrong" },
+			{ "ball", "dropcity/ball.png" },
+			{ "blastAnimName", "blast" },
+			{ "demoBasket","dropcity/closebox.png" },
+			{ "helpBoard", "board" }
+		}
 		}
 
 	};
@@ -80,34 +107,34 @@ void Drop::onEnterTransitionDidFinish()
 	std::map<std::string, std::map<std::string, float>> dropSceneNumValue = {
 
 		{ "dropjungle",
-						{
-							{ "boxLabelYFactor",0.1138 },
-							{ "basketRectYFactor", 0 },
-							{ "flaotingLetterYFactor", 1 },
-							{ "floatBoxHeightFactor",0.75 },
-							{ "helpBoardHeight",0.93 },
-							{ "basketAnchorY",0.0 }
-						}
+		{
+			{ "boxLabelYFactor",0.1138 },
+			{ "basketRectYFactor", 0 },
+			{ "flaotingLetterYFactor", 1 },
+			{ "floatBoxHeightFactor",0.75 },
+			{ "helpBoardHeight",0.93 },
+			{ "basketAnchorY",0.0 }
+		}
 		},
 		{ "drophero",
-						{
-							{ "boxLabelYFactor",0.07 },
-							{ "basketRectYFactor", 1 },
-							{ "flaotingLetterYFactor", 0.85 },
-							{ "floatBoxHeightFactor",0.62 },
-							{ "helpBoardHeight",0.884 },
-							{ "basketAnchorY",0.5 }
-						}
+		{
+			{ "boxLabelYFactor",0.07 },
+			{ "basketRectYFactor", 1 },
+			{ "flaotingLetterYFactor", 0.85 },
+			{ "floatBoxHeightFactor",0.62 },
+			{ "helpBoardHeight",0.884 },
+			{ "basketAnchorY",0.5 }
+		}
 		},
 		{ "dropcity",
-						{
-							{ "boxLabelYFactor",0.14 },
-							{ "basketRectYFactor", 0 },
-							{ "flaotingLetterYFactor", 1.36 },
-							{ "floatBoxHeightFactor",0.65 },
-							{ "helpBoardHeight",0.938 },
-							{ "basketAnchorY",0.0 }
-						}
+		{
+			{ "boxLabelYFactor",0.14 },
+			{ "basketRectYFactor", 0 },
+			{ "flaotingLetterYFactor", 1.36 },
+			{ "floatBoxHeightFactor",0.65 },
+			{ "helpBoardHeight",0.938 },
+			{ "basketAnchorY",0.0 }
+		}
 		}
 	};
 	std::map<int, std::string> dropSceneMapping = {
@@ -125,36 +152,36 @@ void Drop::onEnterTransitionDidFinish()
 
 	int level;
 	if (gameCurrentLevel >= 1 && gameCurrentLevel <= 15)
-		level = RandomHelper::random_int(1, 2);
+	level = RandomHelper::random_int(1, 2);
 	else if(gameCurrentLevel >= 16 && gameCurrentLevel <= 30)
-		level = RandomHelper::random_int(3, 4);
+	level = RandomHelper::random_int(3, 4);
 	else if (gameCurrentLevel >= 31 && gameCurrentLevel <= 45)
-		level = 5;
+	level = 5;
 	else
-		level = 6;
+	level = 6;
 
 	if (levelKeyNumber.second == 0)
 	{
-		auto tg = TextGenerator::getInstance();
-		auto _data = TextGenerator::getInstance()->getAntonyms(1, level);
-		wordOnLabel = getConvertInUpperCase(_data.begin()->first);
-		wordOnLayout = getConvertInUpperCase(_data.begin()->second);
-		_labelPrefix = LangUtil::getInstance()->translateString("Make opposite of : ");
+	auto tg = TextGenerator::getInstance();
+	auto _data = TextGenerator::getInstance()->getAntonyms(1, level);
+	wordOnLabel = getConvertInUpperCase(_data.begin()->first);
+	wordOnLayout = getConvertInUpperCase(_data.begin()->second);
+	_labelPrefix = LangUtil::getInstance()->translateString("Make opposite of : ");
 	}
 	else if (levelKeyNumber.second == 1)
 	{
-		auto word = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY,1,level);
-		wordOnLabel = getConvertInUpperCase(word[0]);
-		wordOnLayout = wordOnLabel;
-		_labelPrefix = LangUtil::getInstance()->translateString("Make same word : ");
+	auto word = TextGenerator::getInstance()->getWords(TextGenerator::P_O_S::ANY,1,level);
+	wordOnLabel = getConvertInUpperCase(word[0]);
+	wordOnLayout = wordOnLabel;
+	_labelPrefix = LangUtil::getInstance()->translateString("Make same word : ");
 	}
 	else
 	{
-		auto tg = TextGenerator::getInstance();
-		auto _data = TextGenerator::getInstance()->getSynonyms(1, level);
-		wordOnLabel = getConvertInUpperCase(_data.begin()->first);
-		wordOnLayout = getConvertInUpperCase(_data.begin()->second);
-		_labelPrefix = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
+	auto tg = TextGenerator::getInstance();
+	auto _data = TextGenerator::getInstance()->getSynonyms(1, level);
+	wordOnLabel = getConvertInUpperCase(_data.begin()->first);
+	wordOnLayout = getConvertInUpperCase(_data.begin()->second);
+	_labelPrefix = LangUtil::getInstance()->translateString("Make word of same meaning as : ");
 	}
 	*/
 
@@ -167,34 +194,19 @@ void Drop::onEnterTransitionDidFinish()
 
 	// Change the game concept according to game
 
-	_lesson.setConcept(Lesson::CONCEPT::WORD_SPELLING);
-	std::vector<Lesson::Bag> vmc;
+	//_lesson.setConcept(Lesson::CONCEPT::WORD_SPELLING);
+	//std::vector<Lesson::Bag> vBag;
 
-	// Taking a bag of a lesson according to complexity
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallBagOfChoices");
+	vector<Lesson::Bag> vBag = Lesson::unmarshallBag(buf);
 
-	if (_lesson.getComplexity() >= 0 && _lesson.getComplexity() <= 4)
-	{
-		auto minimumAnswer = RandomHelper::random_int(2,4);
-		vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer+1, 3, 5, false);
-	}
-	else if(_lesson.getComplexity() >= 5 && _lesson.getComplexity() <= 7)
-	{
-		auto minimumAnswer = RandomHelper::random_int(5, 6);
-		vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer + 1,3,5, false);
-	}
-	else
-	{
-		auto minimumAnswer = RandomHelper::random_int(7, 8);
-		vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer + 1, 3, 5, false);
-	}
-	 
-	// Distributing choices , answer, question and help in their respective variables 
-
-	 wordOnLayout = vmc[0].answers;
-	_wordToDisplay = vmc[0].answerString;
-	_labelPrefix = vmc[0].help + " : ";
-	int columnSize = vmc[0].answers.size() + vmc[0].otherChoices.size();
-	std::vector<std::vector<std::string>> choices = MatrixUtil::generateMatrix(vmc[0].answers, vmc[0].otherChoices, 1, columnSize);
+	 wordOnLayout = vBag[0].answers;
+	_wordToDisplay = vBag[0].answerString;
+	_labelPrefix = vBag[0].help + " : ";
+	int columnSize = vBag[0].answers.size() + vBag[0].otherChoices.size();
+	std::vector<std::vector<std::string>> choices = MatrixUtil::generateMatrix(vBag[0].answers, vBag[0].otherChoices, 1, columnSize);
 	_choices = choices[0];
 	_scenePath = dropSceneMap.at(_dropCurrentTheme);
 	_sceneBasedNumericalVal = dropSceneNumValue.at(_dropCurrentTheme);
@@ -228,11 +240,11 @@ void Drop::onEnterTransitionDidFinish()
 	/*Vector <Node*> children = dropBackground->getChildren().at(2)->getChildren();
 	int size = children.size();
 	for (auto item = children.rbegin(); item != children.rend(); ++item) {
-		Node * monsterItem = *item;
-		std::string str = monsterItem->getName().c_str();
-		CCLOG("name : %s", str.c_str());
+	Node * monsterItem = *item;
+	std::string str = monsterItem->getName().c_str();
+	CCLOG("name : %s", str.c_str());
 	}
-*/
+	*/
 	_removalPole = Sprite::createWithSpriteFrameName(_scenePath.at("removalPole"));
 	setAllSpriteProperties(_removalPole, 0, -(visibleSize.width*0.13), visibleSize.height*_sceneBasedNumericalVal.at("floatBoxHeightFactor"), true, 0.5, 0.5, 0, 1, 1);
 	this->addChild(_removalPole);
@@ -244,21 +256,21 @@ void Drop::onEnterTransitionDidFinish()
 
 	//bool levelForSpeaker = isSpeakerAddLevel();
 	bool levelForSpeaker = false;
-	if(levelForSpeaker)
+	if (levelForSpeaker)
 	{
 		std::ostringstream boardName;
 		boardName << _labelPrefix << _wordToDisplay;
 		_label = setAllLabelProperties(boardName.str(), 2, (visibleSize.width / 2), (visibleSize.height*_sceneBasedNumericalVal.at("helpBoardHeight")), true, 0.5, 0.5, 0, 1, 1, 100);
 		this->addChild(_label, 2);
 
-		this->runAction(Sequence::create(   DelayTime::create(2),  CCCallFunc::create([=] {
+		this->runAction(Sequence::create(DelayTime::create(2), CCCallFunc::create([=] {
 			std::ostringstream nameOnBoard1;
-			nameOnBoard1 << _labelPrefix ;
+			nameOnBoard1 << _labelPrefix;
 			_label->setString(nameOnBoard1.str());
 			addSpeaker(_wordToDisplay);//wordOnLable
 		}), NULL));
 
-		
+
 	}
 	else
 	{
@@ -276,7 +288,7 @@ void Drop::onEnterTransitionDidFinish()
 	if (sizeOfWord % 2 == 0)
 	{
 		sizeOfRandomIndexVector = sizeOfWord / 2;
-		_middleBasketIndex = sizeOfWord / 2-1;
+		_middleBasketIndex = sizeOfWord / 2 - 1;
 	}
 	else
 	{
@@ -316,26 +328,26 @@ void Drop::onEnterTransitionDidFinish()
 	/*if (_dropHelpSelector == 0)
 	{
 
-		auto a = _basketBin[0]->getPositionY();
-		HelpLayer *_dropHelp = HelpLayer::create(Rect(boardHelp->getPosition().x*1.044, boardHelp->getPosition().y, boardHelp->getContentSize().width*1.04, boardHelp->getContentSize().height),
-			Rect(boardHelp->getPosition().x*1.044, visibleSize.height*0.45, boardHelp->getContentSize().width*1.04, visibleSize.height*0.9));
-		this->addChild(_dropHelp, 5);
-		_dropHelp->setName("Help");
-		_dropHelp->click(Vec2(visibleSize.width*0.5, 0.75));
-		_dropHelpSelector = 1;
+	auto a = _basketBin[0]->getPositionY();
+	HelpLayer *_dropHelp = HelpLayer::create(Rect(boardHelp->getPosition().x*1.044, boardHelp->getPosition().y, boardHelp->getContentSize().width*1.04, boardHelp->getContentSize().height),
+	Rect(boardHelp->getPosition().x*1.044, visibleSize.height*0.45, boardHelp->getContentSize().width*1.04, visibleSize.height*0.9));
+	this->addChild(_dropHelp, 5);
+	_dropHelp->setName("Help");
+	_dropHelp->click(Vec2(visibleSize.width*0.5, 0.75));
+	_dropHelpSelector = 1;
 	}*/
 	/*auto callShowScore = CCCallFunc::create([=] {
-		for (int i = 0; i < this->getChildren().size(); i++)
-		{
-			auto str = this->getChildren().at(i)->getName();
-			if (!str.compare("Help"))
-			{
-				this->removeChild(this->getChildren().at(i));
-				break;
-			}
-		}
+	for (int i = 0; i < this->getChildren().size(); i++)
+	{
+	auto str = this->getChildren().at(i)->getName();
+	if (!str.compare("Help"))
+	{
+	this->removeChild(this->getChildren().at(i));
+	break;
+	}
+	}
 	});*/
-	
+
 	if (_menuContext->getCurrentLevel() == 1)
 	{
 		Sprite* floatBox = Sprite::createWithSpriteFrameName(_scenePath.at("pseudoHolderImage"));
@@ -353,17 +365,18 @@ void Drop::onEnterTransitionDidFinish()
 		letterHolderId++;
 		_helpFlag = true;
 		_gapBetweenTwoBasket = gap;
-		 creatHelp(gap);
+		creatHelp(gap);
 
-		 CCLOG("LINE NO : 288");
+		CCLOG("LINE NO : 288");
 	}
-	
+
 	//this->runAction(Sequence::create(DelayTime::create(2), callShowScore, NULL));
 	if (_menuContext->getCurrentLevel() != 1)
 	{
 		this->schedule(schedule_selector(Drop::letterAndHolderMaker), 3);
 	}
 	this->scheduleUpdate();
+
 
 }
 
@@ -506,6 +519,7 @@ bool Drop::isSpeakerAddLevel()
 Drop::~Drop(void)
 {
 	this->removeAllChildrenWithCleanup(true);
+	this->getEventDispatcher()->removeCustomEventListeners("bagOfChoiceQuiz");
 }
 void Drop::creatHelp(float gap)
 {
@@ -514,6 +528,7 @@ void Drop::creatHelp(float gap)
 	 this->addChild(_help, 6);
 	_help->setName("helpLayer");
 }
+
 void Drop::letterAndHolderMaker(float dt)
 {
 	if (!_dropCurrentTheme.compare("dropjungle") || !_dropCurrentTheme.compare("dropcity"))
