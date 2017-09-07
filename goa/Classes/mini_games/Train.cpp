@@ -12,6 +12,7 @@ Train::Train()
 
 Train::~Train()
 {
+	this->getEventDispatcher()->removeCustomEventListeners("bagOfChoiceQuiz");
 }
 
 cocos2d::Scene * Train::createScene()
@@ -36,8 +37,18 @@ bool Train::init()
 	return true;
 }
 
-void Train::onEnterTransitionDidFinish()
+void Train::onEnterTransitionDidFinish() {
+	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Train::startGame, this));
+	_lesson.getBag(1, 3, 9, 10, 10);
+}
+
+void Train::startGame(cocos2d::EventCustom *eventCustom)
 {
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallBagOfChoices");
+	vector<Lesson::Bag> vbag = Lesson::unmarshallBag(buf);
+
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
 
@@ -120,10 +131,10 @@ void Train::onEnterTransitionDidFinish()
 	if (complexity >= 10)
 		complexity = 9;
 
-	auto vmcBag = _lesson.getBag(complexity,1,1,0,0);
+	auto vmcBag = vbag;
 
-	for (size_t i = 0; i < vmcBag.size(); i++)
-		sentense.push_back(vmcBag[i].answers[0]);
+	for (size_t i = 0; i < vmcBag[0].answers.size(); i++)
+		sentense.push_back(vmcBag[0].answers[i]);
 
 	random = sentense.size();
 	_menuContext->setMaxPoints(random);
