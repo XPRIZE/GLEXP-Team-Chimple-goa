@@ -159,7 +159,7 @@ void StoryCoverPage::loadCoverPage(std::string coverPageUrl) {
         }
     }
     
-    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_0.mp3";
+    _soundFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + _baseDir + "_0.ogg";
     
     //get configuration
     
@@ -199,7 +199,7 @@ void StoryCoverPage::preloadAllAudio() {
         std::string _splitFile = "";
         for (int i=0; i<_individualTextsTokens.size(); i++)
         {
-            _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".mp3";
+            _splitFile = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + "/" + pageI + "/"  +  _baseDir  + "_" + pageI + "-" + MenuContext::to_string(prefix) + MenuContext::to_string(i) +".ogg";
             
             if(!_splitFile.empty() && FileUtils::getInstance()->isFileExist(_splitFile)) {
                 _loadedSplitWordsEffects.push_back(_splitFile);
@@ -419,6 +419,7 @@ void StoryCoverPage::unhighlightText(float dt) {
     }
     
     if(_currentSplitWordIndex < _loadedSplitWordsTimings.size() &&
+       _currentSplitWordIndex < _contentCommonTextTokens.size() &&
        _currentSplitWordIndex < _totalSplitTimings)
     {
         float time = _loadedSplitWordsTimings.at(_currentSplitWordIndex);
