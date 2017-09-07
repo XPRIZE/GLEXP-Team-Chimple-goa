@@ -383,6 +383,12 @@ void ScrollableGameMapScene::backButtonPressed(Ref* pSender, ui::Widget::TouchEv
 cocos2d::ui::Button* ScrollableGameMapScene::createButton(const rapidjson::Value& gameJson, bool active) {
     std::string ICONS = ICON_FOLDER;
     std::string gameName = gameJson["name"].GetString();
+    rapidjson::StringBuffer buffer;
+    rapidjson::Writer<rapidjson::StringBuffer> writer(buffer);
+    gameJson.Accept(writer);
+    const char* output = buffer.GetString();
+    localStorageSetItem(gameName + ".json", output);
+
     if(gameName != "dummy") {
         std::string buttonNormalIcon = gameJson["icon"].GetString();
         std::string buttonPressedIcon = gameJson["cIcon"].GetString();
@@ -508,6 +514,11 @@ std::map<std::string, std::string> ScrollableGameMapScene::parseGameConfigToMap(
         } else {
             returnMap["unlock"] = "false";
         }
+        if(gameConfig.HasMember("autoLevel") && gameConfig["autoLevel"].GetBool()) {
+            returnMap["autoLevel"] = "true";
+        } else {
+            returnMap["autoLevel"] = "false";
+        }
     }else{
         // error
     }
@@ -565,10 +576,15 @@ void ScrollableGameMapScene::pushTopBarGame(std::string game) {
 void ScrollableGameMapScene::nagivateToGame(std::string gameName) {
     pushTopBarGame(gameName);
     std::string gameConfig;
-    localStorageGetItem(gameName, &gameConfig);
-    CCLOG("gameConfig %s", gameConfig.c_str());
+    localStorageGetItem(gameName + ".json", &gameConfig);
     CCLOG("gameName %s", gameName.c_str());
-    std::string script = parseGameConfig(gameConfig);
+    auto configMap = parseGameConfigToMap(gameConfig);
+    bool autoLevel = false;
+    auto it = configMap.find("autoLevel");
+    if(it != configMap.end() && "true" == it->second) {
+        autoLevel = true;
+    }
+    CCLOG("autoLevel %s", configMap.at("autoLevel").c_str());
     localStorageSetItem("currentGame", gameName);
     if(gameName == "show_bluetoothPeers")
     {
@@ -590,7 +606,23 @@ void ScrollableGameMapScene::nagivateToGame(std::string gameName) {
     {
         Director::getInstance()->replaceScene(LevelHelpScene::createScene(gameName));
     }
-    else
+    else if(autoLevel)
+    {
+        std::string progressStr;
+        localStorageGetItem(gameName + ".level", &progressStr);
+        
+        rapidjson::Document d;
+        rapidjson::Document::AllocatorType& allocator = d.GetAllocator();
+        if(progressStr.empty()) {
+            d.SetArray();
+            d.PushBack(0, allocator);
+        } else {
+            d.Parse(progressStr.c_str());
+        }
+
+        localStorageSetItem(gameName + ".currentLevel", MenuContext::to_string(d.Size()));
+        MenuContext::launchGameFromJS(gameName);
+    } else
     {
         //                ScriptingCore::getInstance()->runScript("src/start/menu.js");
         Director::getInstance()->replaceScene(LevelMenu::createScene(gameName));

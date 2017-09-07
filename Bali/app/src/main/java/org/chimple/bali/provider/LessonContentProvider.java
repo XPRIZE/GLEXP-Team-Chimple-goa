@@ -42,6 +42,8 @@ public class LessonContentProvider extends ContentProvider {
 
     private static final int DEFAULT_NUM_QUIZES = 1;
     private static final int DEFAULT_NUM_CHOICES = 4;
+    private static final int DEFAULT_ANSWER_FORMAT = LessonRepo.ANY_FORMAT;
+    private static final int DEFAULT_CHOICE_FORMAT = LessonRepo.ANY_FORMAT;
 
     public static final String COL_HELP = "help";
     public static final String COL_QUESTION = "question";
@@ -109,6 +111,8 @@ public class LessonContentProvider extends ContentProvider {
             }
             int numQuizes = DEFAULT_NUM_QUIZES;
             int numChoices = DEFAULT_NUM_CHOICES;
+            int answerFormat = LessonRepo.UPPER_CASE_LETTER_FORMAT;
+            int choiceFormat = DEFAULT_CHOICE_FORMAT;
             if (selectionArgs != null) {
                 if (selectionArgs.length >= 1) {
                     try {
@@ -122,10 +126,24 @@ public class LessonContentProvider extends ContentProvider {
                         } catch (NumberFormatException e) {
                             e.printStackTrace();
                         }
+                        if (selectionArgs.length >= 3) {
+                            try {
+                                answerFormat = Integer.parseInt(selectionArgs[2]);
+                            } catch (NumberFormatException e) {
+                                e.printStackTrace();
+                            }
+                            if (selectionArgs.length >= 4) {
+                                try {
+                                    choiceFormat = Integer.parseInt(selectionArgs[3]);
+                                } catch (NumberFormatException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
                     }
                 }
             }
-            List<MultipleChoiceQuiz> mcqList = LessonRepo.getMultipleChoiceQuizes(context, numQuizes, numChoices);
+            List<MultipleChoiceQuiz> mcqList = LessonRepo.getMultipleChoiceQuizes(context, numQuizes, numChoices, answerFormat, choiceFormat);
             String[] rowNames = new String[numChoices + 3];
             rowNames[0] = COL_HELP;
             rowNames[1] = COL_QUESTION;

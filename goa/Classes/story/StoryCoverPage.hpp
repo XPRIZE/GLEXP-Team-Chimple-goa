@@ -19,6 +19,7 @@
 #include "editor-support/cocostudio/CCComExtensionData.h"
 #include "ui/UIWidget.h"
 #include "ui/GUIExport.h"
+#include "../util/CommonText.h"
 #include "cocos-ext.h"
 #include "storage/local-storage/LocalStorage.h"
 
@@ -53,6 +54,23 @@ CC_CONSTRUCTOR_ACCESS:
     
     void narrateDialog(float dt);
     
+
+    void loadTimings();
+    
+    void highlightedNarrateWord(float dt);
+    
+    void unhighlightText(float dt);
+    
+    void highlightWord(float time, cocos2d::ui::Text* text);
+    
+    std::vector<float> splitFloat(std::string s, char delim);
+    
+    void renderStoryText(Node* parentNode, Node* storyTextNode);
+    
+    void positionTextNode(CommonText* textNode, Node* storyTextNode, float currentNodeX, float currentNodeY);
+    
+    void preloadAllAudio();
+
     
 private:
     std::string _baseDir;
@@ -60,6 +78,18 @@ private:
     std::string _soundFile;
     std::string _soundEnabled;
     std::string _storyId;
+    std::string _contentPageText;
+    std::vector<float> _loadedSplitWordsTimings;
+    unsigned long _totalSplitTimings;
+    cocos2d::ui::Text* highlightedNWord;
+    cocos2d::ui::Text* preHighlightedNWord;
+    unsigned long _currentSplitWordIndex;
+    unsigned long _totalSplitWords;
+    std::vector<CommonText*> _contentCommonTextTokens;
+    std::vector<std::string> _individualTextsTokens;
+    std::vector<std::string> _loadedSplitWordsEffects;
+    bool _isAudionEngineInitialized;
+    Node* talkBubbleNode;
 };
 
 
