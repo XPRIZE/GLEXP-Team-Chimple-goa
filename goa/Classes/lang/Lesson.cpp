@@ -266,11 +266,9 @@ vector<Lesson::Bag> vb;
         vb.insert(vb.begin() + i, b);
     }
     
-    string* sendArray = new string[lessons * (maxChoices) + 3];
+    string* sendArray = new string[lessons * (maxChoices + 4) + 1];
     int i = 0;
     sendArray[i++] = MenuContext::to_string(lessons);
-    sendArray[i++] = MenuContext::to_string(maxAnswers);
-    sendArray[i++] = MenuContext::to_string(maxChoices - maxAnswers);
     for (int j = 0; j < lessons; j++) {
         sendArray[i++] = "Arrange the word";
         auto wordAnswer = wordsByLength[maxAnswers];
@@ -278,6 +276,8 @@ vector<Lesson::Bag> vb;
         copy(wordAnswer.begin(), wordAnswer.end(),
              ostream_iterator<string>(imploded));
         sendArray[i++] = imploded.str();
+        sendArray[i++] = MenuContext::to_string(maxAnswers);
+        sendArray[i++] = MenuContext::to_string(maxChoices - maxAnswers);
         for(int k = 0; k < maxAnswers; k++) {
             sendArray[i++] = wordAnswer[k];
         }
