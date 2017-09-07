@@ -74,7 +74,7 @@ void DuelScene::onEnterTransitionDidFinish() {
 //    getLesson()->multiChoiceReadyCallback = CC_CALLBACK_1(DuelScene::onLessonReady, this);
     _eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(DuelScene::onLessonReady, this));
     
-    getLesson()->getMultiChoices(2, 8);
+    getLesson()->getMultiChoices(2, 8, UPPER_CASE_LETTER_FORMAT, ANY_FORMAT);
 }
 
 void DuelScene::onLessonReady(cocos2d::EventCustom *eventCustom) {
