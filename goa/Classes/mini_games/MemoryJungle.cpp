@@ -169,7 +169,12 @@ void MemoryJungle::gameBegin(cocos2d::EventCustom *eventCustom) {
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
 
-   
+	for (int i = 0; i < vmc.size(); i++) {
+		CCLOG("vmc : %d question -> %s , correctAnswer index : %d  , correctAnswer value : %s", i, vmc[i].question.c_str(), vmc[i].correctAnswer, vmc[i].answers[vmc[i].correctAnswer].c_str());
+		for (int j = 0; j < vmc[i].answers.size(); j++) {
+			CCLOG("%d answerchoice -> %s\n", j, vmc[i].answers[j].c_str());
+		}
+	}
 
 	_data.clear();
 
