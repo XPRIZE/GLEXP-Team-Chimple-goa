@@ -247,10 +247,13 @@ public class AppActivity extends Cocos2dxActivity {
 
 	public static native void setMultipleChoiceQuiz(String[] jsonInfo);
 
+	public static native void setBagOfChoiceQuiz(String[] jsonInfo);
+
     public static final String AUTHORITY = "org.chimple.bali.provider";
 
     public static final String MULTIPLE_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
     public static final String COINS = "COINS";
+    public static final String BAG_OF_CHOICE_QUIZ = "BAG_OF_CHOICE_QUIZ";
 
     public static final String COL_HELP = "help";
     public static final String COL_QUESTION = "question";
@@ -260,6 +263,13 @@ public class AppActivity extends Cocos2dxActivity {
     /** The URI for the Multiple Choice Quiz */
     public static final Uri URI_MULTIPLE_CHOICE_QUIZ = Uri.parse(
             "content://" + AUTHORITY + "/" + MULTIPLE_CHOICE_QUIZ);
+
+    public static final String COL_ANSWER = "answer";
+    public static final String COL_ANSWERS = "answers_";
+    public static final String COL_OTHER_CHOICES = "other_choices_";
+
+    public static final Uri URI_BAG_OF_CHOICE_QUIZ = Uri.parse(
+            "content://" + AUTHORITY + "/" + BAG_OF_CHOICE_QUIZ);
 
     public static final Uri URI_COIN = Uri.parse(
             "content://" + AUTHORITY + "/" + COINS);
@@ -317,6 +327,67 @@ public class AppActivity extends Cocos2dxActivity {
 				return null;
 			}
 		}.execute(new int[]{numQuizes, numChoices});
+
+    }
+
+    public static void queryBagOfChoiceQuiz(int numQuizes, int minAnswers, int maxAnswers, 
+    	int minChoices, int maxChoices, int order) {
+    	Log.d("queryBagOfChoiceQuiz","entry queryBagOfChoiceQuiz");
+    	new AsyncTask<int[], Void, Void>() {
+			@Override
+			protected Void doInBackground(int[]... params) {
+				Log.d("queryBagOfChoiceQuiz","doInBackground");
+				int numQuizes = params[0][0];
+				int minAnswers = params[0][1];
+				int maxAnswers = params[0][2];
+				int minChoices = params[0][3];
+				int maxChoices = params[0][4];
+				int order = params[0][5];
+				Cursor cursor = _context.getContentResolver().query(
+	                URI_BAG_OF_CHOICE_QUIZ,
+	                null,
+	                null,
+	                new String[]{Integer.toString(numQuizes), Integer.toString(minAnswers),
+	                	Integer.toString(maxAnswers), Integer.toString(minChoices),
+	                	Integer.toString(maxChoices), Integer.toString(order)},
+	                null
+        		);
+        		Log.d("queryBagOfChoiceQuiz","called getContentResolver");
+
+		        if(cursor == null) {
+
+		        } else if (cursor.getCount() < 1) {
+		        } else {
+		        	System.out.println("got data getContentResolver");
+		            String[] columnNames = cursor.getColumnNames();
+		            for (String s: columnNames ) {
+		            	Log.d("queryBagOfChoiceQuiz",s);
+		            }
+		            String[] sendArray = new String[cursor.getCount() * columnNames.length + 1];
+		            int i = 0;
+		            sendArray[i++] = Integer.toString(cursor.getCount());
+		            while (cursor.moveToNext()) {
+		            	for(int j = 0; j < columnNames.length; j++) {
+			                sendArray[i++] = cursor.getString(j);
+		            	}
+		            }
+		            final String[] finalSendArray = sendArray;
+	                ((Cocos2dxActivity) _activity).runOnGLThread(new Runnable() {
+						@Override
+						public void run() {
+							Log.d("queryBagOfChoiceQuiz","calling setMultipleChoiceQuiz");
+							for (String s: finalSendArray ) {
+								if(s != null) {
+			            			Log.d("queryBagOfChoiceQuiz",s);
+								}
+		            		}
+	                		setBagOfChoiceQuiz(finalSendArray);
+						}
+					});
+		        }
+				return null;
+			}
+		}.execute(new int[]{numQuizes, minAnswers, maxAnswers, minChoices, maxChoices, order});
 
     }
 

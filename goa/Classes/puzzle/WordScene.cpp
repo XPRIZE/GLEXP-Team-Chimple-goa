@@ -64,6 +64,7 @@ _lessonMode(true)
 WordScene::~WordScene() {
     this->getEventDispatcher()->removeCustomEventListeners("chars_recognized");
     this->getEventDispatcher()->removeCustomEventListeners("clearPrintedCharacters");
+    this->getEventDispatcher()->removeCustomEventListeners("bagOfChoiceQuiz");
 }
 
 void WordScene::clearLipiTKResult() {
@@ -140,22 +141,32 @@ void WordScene::onExitTransitionDidStart() {
 
 void WordScene::onEnterTransitionDidFinish() {
     Node::onEnterTransitionDidFinish();
+    _eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(WordScene::onLessonReady, this));
+    
+    getLesson()->getBag(1, 3, 6, getGridNumCols() * getGridNumRows(), getGridNumCols() * getGridNumRows(), true);
+}
 
+void WordScene::onLessonReady(cocos2d::EventCustom *eventCustom) {
     auto tg = TextGenerator::getInstance();
     if(_lessonMode) {
-        int minLength = 2 + getLesson()->getComplexity() / 2;
-        auto vbag = getLesson()->getBag(1, minLength, 6,
-                                        getGridNumCols() * getGridNumRows(),
-                                        getGridNumCols() * getGridNumRows(),
-                                        true);
+        // int minLength = 2 + getLesson()->getComplexity() / 2;
+//        auto vbag = getLesson()->getBag(1, minLength, 6,
+//                                        getGridNumCols() * getGridNumRows(),
+//                                        getGridNumCols() * getGridNumRows(),
+//                                        true);
+//        auto bag = vbag[0];
+        CCLOG("onLessonReady begin");
+        std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+        CCLOG("onLessonReady to unmarshallBagOfChoices");
+        vector<Lesson::Bag> vbag = Lesson::unmarshallBag(buf);
         auto bag = vbag[0];
         _word = bag.answerString;
         _answerGraphemes = bag.answers;
         _numGraphemes = _answerGraphemes.size();
         _choiceGraphemes = bag.otherChoices;
-//        int level = std::ceil(_menuContext->getCurrentLevel() / 8.0);
-//        level = MIN(level, 5);
-//        _word = tg->generateAWord(level);
+        //        int level = std::ceil(_menuContext->getCurrentLevel() / 8.0);
+        //        level = MIN(level, 5);
+        //        _word = tg->generateAWord(level);
         
     } else {
         _answerGraphemes = tg->getGraphemes(_word);
@@ -167,7 +178,7 @@ void WordScene::onEnterTransitionDidFinish() {
     createAnswer();
     createChoice();
     createGrid();
-
+    
     _eventDispatcher->addCustomEventListener("grapheme_anim_done", CC_CALLBACK_0(WordScene::checkAnswer, this));
     _eventDispatcher->addCustomEventListener("clearPrintedCharacters", CC_CALLBACK_0(WordScene::clearLipiTKResult, this));
     

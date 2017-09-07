@@ -779,14 +779,16 @@ void StoryPlaying::highlightedNarrateWord(float dt) {
 
 void StoryPlaying::unhighlightText(float dt) {
     this->unschedule(schedule_selector(StoryPlaying::unhighlightText));
-    if(_currentSplitWordIndex < _contentCommonTextTokens.size())
+    
+    if(_currentSplitWordIndex <= _contentCommonTextTokens.size())
     {
         preHighlightedNWord = _contentCommonTextTokens.at(_currentSplitWordIndex - 1);
         preHighlightedNWord->setTextColor(Color4B::BLACK);
     }
     
     if(_currentSplitWordIndex < _loadedSplitWordsTimings.size() &&
-       _currentSplitWordIndex < _totalSplitTimings)
+       _currentSplitWordIndex < _totalSplitTimings &&
+       MenuContext::_isInStoryDialogSpeechCurrentlyActive)
     {
         float time = _loadedSplitWordsTimings.at(_currentSplitWordIndex);
         highlightedNWord = _contentCommonTextTokens.at(_currentSplitWordIndex);
