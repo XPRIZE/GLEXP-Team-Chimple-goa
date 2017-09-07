@@ -41,6 +41,7 @@ CC_CONSTRUCTOR_ACCESS:
 	void fuelMeterPlus();
 	void fuelMeterMinus();
 	void removeMeteor4Animation();
+	void gameStart(cocos2d::EventCustom *eventCustom);
 	void onEnterTransitionDidFinish() override;
 	HelpLayer * _help;
 	static const char* classname() { return BALLONHERO.c_str(); }
