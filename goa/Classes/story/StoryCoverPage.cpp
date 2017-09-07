@@ -400,6 +400,7 @@ void StoryCoverPage::highlightedNarrateWord(float dt) {
         
         
         if(_currentSplitWordIndex < _loadedSplitWordsTimings.size() &&
+           _currentSplitWordIndex < _contentCommonTextTokens.size() &&
            _currentSplitWordIndex < _totalSplitTimings)
         {
             float time = _loadedSplitWordsTimings.at(_currentSplitWordIndex);
