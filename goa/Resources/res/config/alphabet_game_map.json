@@ -695,6 +695,7 @@
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
     "span": "2",
+    "autoLevel": true,
     "rewards": {
       "5": {
         "unlock": "bubble",
@@ -721,7 +722,6 @@
       }
     },
     "numLevels": "10",
-    "autoLevel": true,
     "backgroundJson": "plevelscreen2/cblevelbg.json",
     "foregroundJson": "plevelscreen2/cblevelfrg.json",
     "frontgroundJson": "plevelscreen2/cblevelfng.json",
