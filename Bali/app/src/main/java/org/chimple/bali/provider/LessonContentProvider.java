@@ -65,8 +65,8 @@ public class LessonContentProvider extends ContentProvider {
     private static final boolean DEFAULT_ORDER = true;
 
     public static final String COL_ANSWER = "answer";
-    public static final String COL_ANSWERS = "answers_";
-    public static final String COL_OTHER_CHOICES = "other_choices_";
+    public static final String COL_NUM_ANSWERS = "num_answers";
+    public static final String COL_NUM_OTHER_CHOICES = "num_other_choices";
 
     public static final Uri URI_BAG_OF_CHOICE_QUIZ = Uri.parse(
             "content://" + AUTHORITY + "/" + BAG_OF_CHOICE_QUIZ);
@@ -192,25 +192,25 @@ public class LessonContentProvider extends ContentProvider {
                 }
             }
             List<BagOfChoiceQuiz> bcqList = LessonRepo.getBagOfChoiceQuizes(context, numQuizes, minAnswers, maxAnswers, minChoices, maxChoices, order);
-            String[] rowNames = new String[maxAnswers + maxChoices + 2];
+            String[] rowNames = new String[maxChoices + 4];
             int col = 0;
             rowNames[col++] = COL_HELP;
             rowNames[col++] = COL_ANSWER;
-            for (int i = 0; i < maxAnswers; i++) {
-                rowNames[col++] = COL_ANSWERS + i;
-            }
+            rowNames[col++] = COL_NUM_ANSWERS;
+            rowNames[col++] = COL_NUM_OTHER_CHOICES;
+
             for (int i = 0; i < maxChoices; i++) {
-                rowNames[col++] = COL_OTHER_CHOICES + i;
+                rowNames[col++] = COL_CHOICE + i;
             }
             MatrixCursor matrixCursor = new MatrixCursor(rowNames, numQuizes);
             for (BagOfChoiceQuiz bcq : bcqList) {
                 MatrixCursor.RowBuilder rowBuilder = matrixCursor.newRow();
-                rowBuilder.add(bcq.help).add(bcq.answer);
-                for(int i = 0; i < maxAnswers; i++) {
-                    rowBuilder.add(i < bcq.answers.length ? bcq.answers[i] : "");
+                rowBuilder.add(bcq.help).add(bcq.answer).add(bcq.answers.length).add(bcq.otherChoices.length);
+                for (String a: bcq.answers) {
+                    rowBuilder.add(a);
                 }
-                for(int i = 0; i < maxChoices; i++) {
-                    rowBuilder.add(i < bcq.otherChoices.length ? bcq.otherChoices[i] : "");
+                for (String c: bcq.otherChoices) {
+                    rowBuilder.add(c);
                 }
             }
             return matrixCursor;

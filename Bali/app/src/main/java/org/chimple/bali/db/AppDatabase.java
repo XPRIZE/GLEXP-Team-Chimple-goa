@@ -118,24 +118,28 @@ public abstract class AppDatabase extends RoomDatabase {
                                 case "Lesson":
                                     Lesson lesson = new Lesson(columns);
                                     Long lessonId = lessonDao().insertLesson(lesson);
-                                    Log.d("lesson", String.valueOf(lesson.id));
-                                    for (Lesson l : lessonDao().getLessons()) {
-                                        Log.d("lesson", String.valueOf(l.id));
-                                    }
+//                                    Log.d("lesson", String.valueOf(lesson.id));
+//                                    for (Lesson l : lessonDao().getLessons()) {
+//                                        Log.d("lesson", String.valueOf(l.id));
+//                                    }
                                     break;
                                 case "Unit":
                                     Unit unit = new Unit(columns);
                                     unitDao().insertUnit(unit);
-                                    Log.d("unit", String.valueOf(unit.id));
+//                                    Log.d("unit", String.valueOf(unit.id));
+                                    break;
+                                case "UnitPart":
+                                    UnitPart unitPart = new UnitPart(columns);
+                                    unitPartDao().insertUnitPart(unitPart);
                                     break;
                                 case "LessonUnit":
                                     LessonUnit lessonUnit = new LessonUnit(columns);
-                                    for (Lesson l : lessonDao().getLessons()) {
-                                        Log.d("lesson", String.valueOf(l.id));
-                                    }
-                                    Lesson lesson1 = lessonDao().getLessonById(lessonUnit.lessonId);
-                                    Unit unit1 = unitDao().getUnitById(lessonUnit.objectUnitId);
-                                    Unit unit2 = unitDao().getUnitById(lessonUnit.subjectUnitId);
+//                                    for (Lesson l : lessonDao().getLessons()) {
+//                                        Log.d("lesson", String.valueOf(l.id));
+//                                    }
+//                                    Lesson lesson1 = lessonDao().getLessonById(lessonUnit.lessonId);
+//                                    Unit unit1 = unitDao().getUnitById(lessonUnit.objectUnitId);
+//                                    Unit unit2 = unitDao().getUnitById(lessonUnit.subjectUnitId);
                                     lessonUnitDao().insertLessonUnit(lessonUnit);
                                     break;
                                 case "User":

@@ -253,7 +253,7 @@ public class AppActivity extends Cocos2dxActivity {
 
     public static final String MULTIPLE_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
     public static final String COINS = "COINS";
-    public static final String BAG_OF_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
+    public static final String BAG_OF_CHOICE_QUIZ = "BAG_OF_CHOICE_QUIZ";
 
     public static final String COL_HELP = "help";
     public static final String COL_QUESTION = "question";
@@ -337,14 +337,19 @@ public class AppActivity extends Cocos2dxActivity {
 			@Override
 			protected Void doInBackground(int[]... params) {
 				Log.d("queryBagOfChoiceQuiz","doInBackground");
-
+				int numQuizes = params[0][0];
+				int minAnswers = params[0][1];
+				int maxAnswers = params[0][2];
+				int minChoices = params[0][3];
+				int maxChoices = params[0][4];
+				int order = params[0][5];
 				Cursor cursor = _context.getContentResolver().query(
 	                URI_BAG_OF_CHOICE_QUIZ,
 	                null,
 	                null,
-	                new String[]{Integer.toString(params[0][0]), Integer.toString(params[0][1]),
-	                	Integer.toString(params[0][2]), Integer.toString(params[0][3]),
-	                	Integer.toString(params[0][4]), Integer.toString(params[0][5])},
+	                new String[]{Integer.toString(numQuizes), Integer.toString(minAnswers),
+	                	Integer.toString(maxAnswers), Integer.toString(minChoices),
+	                	Integer.toString(maxChoices), Integer.toString(order)},
 	                null
         		);
         		Log.d("queryBagOfChoiceQuiz","called getContentResolver");
@@ -358,14 +363,12 @@ public class AppActivity extends Cocos2dxActivity {
 		            for (String s: columnNames ) {
 		            	Log.d("queryBagOfChoiceQuiz",s);
 		            }
-		            String[] sendArray = new String[cursor.getCount() * columnNames.length + 3];
+		            String[] sendArray = new String[cursor.getCount() * columnNames.length + 1];
 		            int i = 0;
 		            sendArray[i++] = Integer.toString(cursor.getCount());
-		            sendArray[i++] = Integer.toString(maxAnswers);
-		            sendArray[i++] = Integer.toString(maxChoices);
 		            while (cursor.moveToNext()) {
 		            	for(int j = 0; j < columnNames.length; j++) {
-			                sendArray[i++] = cursor.getString(j++);
+			                sendArray[i++] = cursor.getString(j);
 		            	}
 		            }
 		            final String[] finalSendArray = sendArray;
@@ -374,7 +377,9 @@ public class AppActivity extends Cocos2dxActivity {
 						public void run() {
 							Log.d("queryBagOfChoiceQuiz","calling setMultipleChoiceQuiz");
 							for (String s: finalSendArray ) {
-		            			Log.d("queryBagOfChoiceQuiz",s);
+								if(s != null) {
+			            			Log.d("queryBagOfChoiceQuiz",s);
+								}
 		            		}
 	                		setBagOfChoiceQuiz(finalSendArray);
 						}
