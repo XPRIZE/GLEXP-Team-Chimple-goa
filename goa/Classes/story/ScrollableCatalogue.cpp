@@ -241,8 +241,7 @@ bool ScrollableCatalogue::init() {
         menuContext->createNewUnlockStoryDocument("storyId_73");
         menuContext->createNewUnlockStoryDocument("storyId_74");
         menuContext->createNewUnlockStoryDocument("storyId_75");
-        menuContext->createNewUnlockStoryDocument("storyId_76");
-        menuContext->createNewUnlockStoryDocument("storyId_77");
+        menuContext->createNewUnlockStoryDocument("storyId_76");        
     }
     
     
