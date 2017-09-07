@@ -274,18 +274,22 @@ public class AppActivity extends Cocos2dxActivity {
     public static final Uri URI_COIN = Uri.parse(
             "content://" + AUTHORITY + "/" + COINS);
 
-    public static void queryMultipleChoiceQuiz(int numQuizes, int numChoices) {
+    public static void queryMultipleChoiceQuiz(int numQuizes, int numChoices, int answerFormat, int choiceFormat) {
     	System.out.println("entry queryMultipleChoiceQuiz");
     	new AsyncTask<int[], Void, Void>() {
 			@Override
 			protected Void doInBackground(int[]... params) {
 				System.out.println("doInBackground");
-
+				int numQuizes = params[0][0];
+				int numChoices = params[0][1];
+				int answerFormat = params[0][2];
+				int choiceFormat = params[0][3];
 				Cursor cursor = _context.getContentResolver().query(
 	                URI_MULTIPLE_CHOICE_QUIZ,
 	                null,
 	                null,
-	                new String[]{Integer.toString(params[0][0]), Integer.toString(params[0][1] + 1)},
+	                new String[]{Integer.toString(numQuizes), Integer.toString(numChoices + 1)
+	                			Integer.toString(answerFormat), Integer.toString(choiceFormat)},
 	                null
         		);
         		System.out.println("called getContentResolver");

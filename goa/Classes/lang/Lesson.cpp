@@ -23,7 +23,7 @@ static const int MAX_CONCEPTS = 100;
 static const int MAX_COMPLEXITY = 9;
 static const int MIN_COMPLEXITY = 0;
 
-vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choices) {
+vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choices, int answerFormat, int choiceFormat) {
     vector<Lesson::MultiChoice> vmc;
 #if (CC_TARGET_PLATFORM != CC_PLATFORM_ANDROID)
     vmc.reserve(lessons);
@@ -66,10 +66,10 @@ vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choices) {
 #else
     CCLOG("getMultiChoices");
     cocos2d::JniMethodInfo methodInfo;
-    if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "queryMultipleChoiceQuiz", "(II)V")) {
+    if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "queryMultipleChoiceQuiz", "(IIII)V")) {
     }
     CCLOG("calling getMultiChoices");
-    methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, lessons, choices);
+    methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, lessons, choices, answerFormat, choiceFormat);
     methodInfo.env->DeleteLocalRef(methodInfo.classID);
 #endif
     return vmc;

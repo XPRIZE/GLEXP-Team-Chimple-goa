@@ -43,6 +43,10 @@ import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class LessonRepo {
+    public static final int ANY_FORMAT = 0;
+
+    public static final int UPPER_CASE_LETTER_FORMAT = 1;
+
     private static final MutableLiveData ABSENT = new MutableLiveData();
 
     {
@@ -76,7 +80,8 @@ public class LessonRepo {
         }.execute(context);
     }
 
-    public static List<MultipleChoiceQuiz> getMultipleChoiceQuizes(Context context, int numQuizes, int numChoices) {
+    public static List<MultipleChoiceQuiz> getMultipleChoiceQuizes(Context context, int numQuizes
+            , int numChoices, int answerFormat, int choiceFormat) {
         AppDatabase db = AppDatabase.getInstance(context);
         SharedPreferences sharedPref = context.getSharedPreferences(
                 context.getString(R.string.preference_file_key),
@@ -84,13 +89,33 @@ public class LessonRepo {
         Long userId = sharedPref.getLong(context.getString(R.string.user_id), 0);
         User user = db.userDao().getUserById(userId);
         Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
-        FlashCard[] lucs = db.lessonUnitDao().getFlashCardArrayByLessonId(lesson.id);
-
+        FlashCard[] lucs = null;
+        if((answerFormat == ANY_FORMAT
+                || (answerFormat == UPPER_CASE_LETTER_FORMAT
+                    && (lesson.concept == Lesson.LETTER_CONCEPT
+                        || lesson.concept == Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT
+                        || lesson.concept == Lesson.LETTER_TO_WORD_CONCEPT)))
+            &&(choiceFormat == ANY_FORMAT
+                || (choiceFormat == UPPER_CASE_LETTER_FORMAT
+                    && (lesson.concept == Lesson.LETTER_CONCEPT
+                        || lesson.concept == Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT)))) {
+            lucs = db.lessonUnitDao().getFlashCardArrayByLessonId(lesson.id);
+        } else {
+            List<Integer> formats = new LinkedList<Integer>();
+            formats.add(Lesson.LETTER_CONCEPT);
+            formats.add(Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT);
+            if(choiceFormat == ANY_FORMAT) {
+                formats.add(Lesson.LETTER_TO_WORD_CONCEPT);
+            }
+            Lesson[] lessons = db.lessonDao().getLessonsBelowSeqAndByConcept(lesson.seq, formats);
+            int lessonIndex = ThreadLocalRandom.current().nextInt(lessons.length);
+            lucs = db.lessonUnitDao().getFlashCardArrayByLessonId(lessons[lessonIndex].id);
+        }
         List<MultipleChoiceQuiz> mcqs = new ArrayList<MultipleChoiceQuiz>(numQuizes);
 
         ArrayList<Integer> quizList = new ArrayList<Integer>();
         for (int i = 0; i < lucs.length; i++) {
-            quizList.add(new Integer(i));
+            quizList.add(i);
         }
         Collections.shuffle(quizList);
 
@@ -102,7 +127,7 @@ public class LessonRepo {
             ArrayList<Integer> choiceList = new ArrayList<Integer>();
             for (int j = 0; j < lucs.length; j++) {
                 if (!luc.subjectUnit.name.equals(lucs[j].subjectUnit.name)) {
-                    choiceList.add(new Integer(j));
+                    choiceList.add(j);
                 }
             }
             Collections.shuffle(choiceList);
@@ -116,8 +141,18 @@ public class LessonRepo {
                     choices[c] = lucs[randIndex].objectUnit.name;
                 }
             }
+            String answer = luc.subjectUnit.name;
+            if(answerFormat == UPPER_CASE_LETTER_FORMAT) {
+                answer = luc.subjectUnit.name.toUpperCase();
+            }
+            if(choiceFormat == UPPER_CASE_LETTER_FORMAT) {
+                for(int c = 0; c < choices.length; c++) {
+                    //TODO: Handle unicode
+                    choices[c] = choices[c].substring(0, 1).toUpperCase();
+                }
+            }
             MultipleChoiceQuiz mcq = new MultipleChoiceQuiz("TODO: Dummy Help",
-                    luc.subjectUnit.name, choices, answerIndex);
+                    answer, choices, answerIndex);
             mcqs.add(mcq);
         }
         return mcqs;
