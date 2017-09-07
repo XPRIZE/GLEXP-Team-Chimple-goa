@@ -169,6 +169,9 @@ void Dash::gameBegin(cocos2d::EventCustom *eventCustom) {
 	auto SceneIndex = RandomHelper::random_int(0, 2);
 	
 	auto mapping = MatrixUtil::questionToAnswerMapping(vmc);
+	for (std::map<std::string, std::string>::iterator it = mapping.begin(); it != mapping.end(); ++it) {
+		CCLOG("map ->  key :%s , value :%s", it->first.c_str(), it->second.c_str());
+	}
 	_synonyms.clear();
 	_synonyms = mapping;
 
@@ -313,6 +316,7 @@ void Dash::syncEnemyCharacterPosition(cocos2d::EventCustom *event) {
 
 void Dash::myCharacterJumping(int jumpCount)
 {
+	CCLOG("My character jumping method is calling --- start");
 	//_jumpCount++;
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto jump = JumpBy::create(1, Vec2(0, 0), 200, 1);
@@ -335,6 +339,7 @@ void Dash::myCharacterJumping(int jumpCount)
 			wordGenerateWithOptions();
 		}
 	}), NULL));	
+	CCLOG("My character jumping method is calling --- end");
 }
 
 void Dash::myCharacterEyeBlinking()
@@ -385,6 +390,7 @@ void Dash::updatePlayerPosition(std::string playerName, int stepPosition)
 
 void Dash::wordGenerateWithOptions()
 {
+	CCLOG("word generation with option method is calling --  start");
 	if (_helpFlage) {
 		this->removeChildByName("helpLayer");
 		_helpFlage = false;
@@ -447,7 +453,7 @@ void Dash::wordGenerateWithOptions()
 	if (menu->getCurrentLevel() == 1 && _gameScore == 0) {
 		gameHelp();
 	}
-	
+	CCLOG("word generation with option method is calling --  end");
 }
 
 void Dash::winningCelebration()
