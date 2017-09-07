@@ -768,7 +768,9 @@ void StoryPlaying::highlightedNarrateWord(float dt) {
         
         
         if(_currentSplitWordIndex < _loadedSplitWordsTimings.size() &&
-           _currentSplitWordIndex < _totalSplitTimings)
+           _currentSplitWordIndex < _totalSplitTimings &&
+           _currentSplitWordIndex < _contentCommonTextTokens.size()
+           )
         {
             float time = _loadedSplitWordsTimings.at(_currentSplitWordIndex);
             highlightedNWord = _contentCommonTextTokens.at(_currentSplitWordIndex);
@@ -788,6 +790,7 @@ void StoryPlaying::unhighlightText(float dt) {
     
     if(_currentSplitWordIndex < _loadedSplitWordsTimings.size() &&
        _currentSplitWordIndex < _totalSplitTimings &&
+       _currentSplitWordIndex < _contentCommonTextTokens.size() &&
        MenuContext::_isInStoryDialogSpeechCurrentlyActive)
     {
         float time = _loadedSplitWordsTimings.at(_currentSplitWordIndex);
@@ -975,7 +978,9 @@ void StoryPlaying::playNextSplitWordCallBack(int id, const std::string& file) {
     //unhighlited word
     preHighlighteWord->setTextColor(Color4B::BLACK);
     
-    if(_currentSplitWordIndex < _totalSplitWords)
+    if(_currentSplitWordIndex < _totalSplitWords &&
+       _currentSplitWordIndex < _loadedSplitWordsEffects.size() &&
+       _currentSplitWordIndex < _contentCommonTextTokens.size())
     {
         std::string audioFile = _loadedSplitWordsEffects.at(_currentSplitWordIndex);
         CommonText* highlighteWord = _contentCommonTextTokens.at(_currentSplitWordIndex);

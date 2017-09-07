@@ -288,7 +288,7 @@ public class AppActivity extends Cocos2dxActivity {
 	                URI_MULTIPLE_CHOICE_QUIZ,
 	                null,
 	                null,
-	                new String[]{Integer.toString(numQuizes), Integer.toString(numChoices + 1)
+	                new String[]{Integer.toString(numQuizes), Integer.toString(numChoices + 1),
 	                			Integer.toString(answerFormat), Integer.toString(choiceFormat)},
 	                null
         		);

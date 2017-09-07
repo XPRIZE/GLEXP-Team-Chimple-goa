@@ -131,6 +131,9 @@ void StoryCoverPage::loadCoverPage(std::string coverPageUrl) {
     if(chooseText != NULL) {
         cocos2d::ui::TextField* chooseLabel = dynamic_cast<cocos2d::ui::TextField *>(chooseText);
         if(chooseLabel != NULL) {
+            chooseLabel->setTouchEnabled(false);
+            chooseLabel->setFocusEnabled(false);
+            
             std::string coverPageText = "";
             std::string textFileUrl = "story/" + LangUtil::getInstance()->getLang() + "/" + _baseDir + ".json";
             if(!textFileUrl.empty() && FileUtils::getInstance()->isFileExist(textFileUrl)) {
