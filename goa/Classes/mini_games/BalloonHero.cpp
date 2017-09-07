@@ -24,6 +24,7 @@ BalloonHero::BalloonHero(){
 
 BalloonHero::~BalloonHero() {
 
+	this->getEventDispatcher()->removeCustomEventListeners("bagOfChoiceQuiz");
 }
 
 
@@ -64,7 +65,13 @@ bool BalloonHero::init() {
 
 }
 
-void BalloonHero::onEnterTransitionDidFinish() {
+void BalloonHero::onEnterTransitionDidFinish()
+{
+	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(BalloonHero::gameStart, this));
+
+	_lesson.getBag(1, 10, 10, 20, 20, true);
+}
+void BalloonHero::gameStart(cocos2d::EventCustom *eventCustom) {
 	/*
 	auto help = HelpLayer::create(Rect(boxPosition.x, boxPosition.y, boxContentSize.width, boxContentSize.height), Rect(0, 0, 0, 0));
 	help->clickAndDrag(Vec2(boxPosition), Vec2(visibleSize.width / 2, visibleSize.height *0.1));
@@ -489,10 +496,16 @@ void BalloonHero::onEnterTransitionDidFinish() {
      // _convertIntoLessonConcept
     
      _sceneNumber = RandomHelper::random_int(1, 3);
-     auto vmc = _lesson.getBag(1, 10, 10, 20,20);
-	 _set1 = vmc[0].answers;
-	 _set2 = vmc[0].otherChoices;
-	 _hint = vmc[0].help + " : " + vmc[0].answerString;
+    // auto vmc = _lesson.getBag(1, 10, 10, 20,20);
+	
+	 CCLOG("onLessonReady begin");
+	 std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	 CCLOG("onLessonReady to unmarshallBagOfChoices");
+	 vector<Lesson::Bag> vBag = Lesson::unmarshallBag(buf);
+
+	 _set1 = vBag[0].answers;
+	 _set2 = vBag[0].otherChoices;
+	 _hint = vBag[0].help + " : " + vBag[0].answerString;
 
 	_menuContext->setMaxPoints(20);
 

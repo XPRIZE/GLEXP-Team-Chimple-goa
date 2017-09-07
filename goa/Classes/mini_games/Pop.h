@@ -49,6 +49,7 @@ public:
 	void makeSentance(Node* cloud);
 	void cloudShake(Node* sprite);
 	void removePlaneFromScene();
+	void gameStart(cocos2d::EventCustom *eventCustom);
 	static const char* gameName() { return POP.c_str(); }
 };
 
