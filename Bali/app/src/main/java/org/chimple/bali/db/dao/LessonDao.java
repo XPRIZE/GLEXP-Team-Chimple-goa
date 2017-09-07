@@ -33,6 +33,9 @@ public interface LessonDao {
     @Query("SELECT * FROM Lesson WHERE seq=:seq")
     public Lesson getLessonBySeq(int seq);
 
+    @Query("SELECT * FROM Lesson WHERE seq<=:seq AND concept in (:concepts)")
+    public Lesson[] getLessonsBelowSeqAndByConcept(int seq, List<Integer> concepts);
+
     @Query("SELECT * FROM Lesson")
     public Lesson[] getLessons();
 

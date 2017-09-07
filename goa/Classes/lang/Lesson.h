@@ -43,7 +43,7 @@ public:
         int correctAnswer;
     } MultiChoice;
 
-    std::vector<MultiChoice> getMultiChoices(int lessons = 1, int choices = 4);
+    std::vector<MultiChoice> getMultiChoices(int lessons = 1, int choices = 4, int answerFormat = 0, int choiceFormat = 0);
     
     typedef struct _Bag
     {

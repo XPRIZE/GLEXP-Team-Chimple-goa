@@ -38,7 +38,8 @@ ScoreBoardContext* ScoreBoardContext::create(int stars, std::string gameName, st
 
 ScoreBoardContext::ScoreBoardContext():
 _stars(0),
-_gameToUnlock("")
+_gameToUnlock(""),
+_autoLevel(false)
 {
     
 }
@@ -74,6 +75,9 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
             gameIconMap["title"] = LangUtil::getInstance()->translateString(game["title"].GetString());
             gameIcons[jsonGameName] = gameIconMap;
             if(gameName == jsonGameName) {
+                if(game.HasMember("autoLevel") && game["autoLevel"].GetBool() == true) {
+                    _autoLevel = true;
+                }
                 if(game.HasMember("numLevels")) {
                     _numberOfLevels = game["numLevels"].GetString();
                     
@@ -88,6 +92,10 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                     }
                 } else {
                     _nextButton->setEnabled(false);
+                }
+                
+                if(_autoLevel) {
+                    _levelButton->setVisible(false);
                 }
                 
                 if(game.HasMember("rewards")) {
@@ -438,6 +446,9 @@ void ScoreBoardContext::processChildNodes(cocos2d::Node *rootNode) {
                     }
                     if(button->getName() == "replay") {
                         _replayButton = button;
+                    }
+                    if(button->getName() == "level") {
+                        _levelButton = button;
                     }
                     
                 }

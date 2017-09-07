@@ -54,7 +54,7 @@ public class LessonService extends LifecycleService {
                     Bundle obj = (Bundle) msg.obj;
                     int numQuizes = obj.getInt(NUM_QUIZES);
                     int numChoices = obj.getInt(NUM_CHOICES);
-                    List<MultipleChoiceQuiz> mcqs = LessonRepo.getMultipleChoiceQuizes(getApplicationContext(), numQuizes, numChoices);
+                    List<MultipleChoiceQuiz> mcqs = LessonRepo.getMultipleChoiceQuizes(getApplicationContext(), numQuizes, numChoices, LessonRepo.ANY_FORMAT, LessonRepo.ANY_FORMAT);
 
 
                         Messenger messenger = msg.replyTo;
