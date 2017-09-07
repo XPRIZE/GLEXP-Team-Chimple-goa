@@ -6,6 +6,7 @@
     "cIcon": "gameicons/decomone_pressed.png",
     "icon": "gameicons/decomone.png",
     "multiPlayer": false,
+    "autoLevel": true,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
     "span": "10",
@@ -192,6 +193,7 @@
     "unlock": true,
     "span": "5",
     "numLevels": "28",
+    "autoLevel": true,
     "backgroundJson": "endlessrunner/Layer1.json",
     "foregroundJson": "endlessrunner/Layer3.json",
     "frontgroundJson": "endlessrunner/Layer4.json",
@@ -305,6 +307,7 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "5",
     "numLevels": "26",
+    "autoLevel": true,
     "rewards": {
       "13": {
         "unlock": "book"
@@ -413,7 +416,8 @@
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
     "span": "1",
-    "numLevels": "2",
+    "numLevels": "26",
+    "autoLevel": true,
     "backgroundJson": "bgmap/bgmap_background.json",
     "foregroundJson": "bgmap/bgmap_foreground.json",
     "frontgroundJson": "bgmap/bgmap_frontground.json",
@@ -475,6 +479,7 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "3",
     "numLevels": "26",
+    "autoLevel": true,
     "rewards": {
       "13": {
         "unlock": "Cross The Bridge"
@@ -584,6 +589,7 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "3",
     "numLevels": "26",
+    "autoLevel": true,
     "rewards": {
       "4": {
         "badge": "m/impervious_bridge"
@@ -715,6 +721,7 @@
       }
     },
     "numLevels": "10",
+    "autoLevel": true,
     "backgroundJson": "plevelscreen2/cblevelbg.json",
     "foregroundJson": "plevelscreen2/cblevelfrg.json",
     "frontgroundJson": "plevelscreen2/cblevelfng.json",
@@ -733,6 +740,7 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "3",
     "numLevels": "14",
+    "autoLevel": true,
     "rewards": {
       "6": {
         "unlock": "Smash The Rock"
@@ -818,6 +826,7 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "5",
     "numLevels": "26",
+    "autoLevel": true,
     "rewards": {
       "13": {
         "unlock": "dino"
@@ -959,6 +968,7 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "3",
     "numLevels": "10",
+    "autoLevel": true,
     "rewards": {
       "1": {
         "badge": "s/bouncy_castle"
@@ -1039,6 +1049,7 @@
     "unlock": true,
     "span": "2",
     "numLevels": "10",
+    "autoLevel": true,
     "backgroundJson": "endlessrunner/Layer1.json",
     "foregroundJson": "endlessrunner/Layer3.json",
     "frontgroundJson": "endlessrunner/Layer4.json",

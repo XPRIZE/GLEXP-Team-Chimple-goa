@@ -143,7 +143,7 @@ void WordScene::onEnterTransitionDidFinish() {
     Node::onEnterTransitionDidFinish();
     _eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(WordScene::onLessonReady, this));
     
-    getLesson()->getBag(1, 3, 6, getGridNumCols() * getGridNumRows(), getGridNumCols() * getGridNumRows(), true);
+    getLesson()->getBag(1, 2, 6, getGridNumCols() * getGridNumRows(), getGridNumCols() * getGridNumRows(), true);
 }
 
 void WordScene::onLessonReady(cocos2d::EventCustom *eventCustom) {
