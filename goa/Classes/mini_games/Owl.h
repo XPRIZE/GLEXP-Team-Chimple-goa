@@ -64,6 +64,7 @@ public:
 
 	void crateLetterGridOnBuildingSecond(int blockLevel, vector<string> displayWord);
 	void onEnterTransitionDidFinish();
+	void gameStart(cocos2d::EventCustom * eventCustom);
 	void createGrid();
 
 	void setBuildingBlock(int blockLevel);

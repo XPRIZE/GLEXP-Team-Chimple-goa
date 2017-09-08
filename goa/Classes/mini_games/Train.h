@@ -57,6 +57,7 @@ public:
 	static cocos2d::Scene* createScene();
 	virtual bool init();
 	void onEnterTransitionDidFinish() override;
+	void startGame(cocos2d::EventCustom * eventCustom);
 	void addEvents(struct labelDet);
 	void resetPosition();
 	// implement the "static create()" method manually
