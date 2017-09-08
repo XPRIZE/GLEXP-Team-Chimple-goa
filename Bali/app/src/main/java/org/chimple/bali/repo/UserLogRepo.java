@@ -42,4 +42,7 @@ public class UserLogRepo {
         }.execute(context);
     }
 
+    public static UserLog[] getUserLogs(Context context) {
+        return AppDatabase.getInstance(context).userLogDao().getUserLogs();
+    }
 }

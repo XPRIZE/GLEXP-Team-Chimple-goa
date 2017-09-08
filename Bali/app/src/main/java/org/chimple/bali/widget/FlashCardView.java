@@ -16,11 +16,14 @@
 
 package org.chimple.bali.widget;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +34,8 @@ import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.db.pojo.FlashCard;
 import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.repo.UserUnitRepo;
+
+import static org.chimple.bali.R.id.floatingActionButton;
 
 public class FlashCardView extends LinearLayout {
     private FlashCard mFlashCard;
@@ -95,24 +100,30 @@ public class FlashCardView extends LinearLayout {
     private void initView(Context context, FlashCard flashCard) {
         mFlashCard = flashCard;
         UserLogRepo.logEntity(context, UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.START_EVENT);
-        setOrientation(HORIZONTAL);
 
-        View objectView = getView(context, mFlashCard.objectUnit);
-        LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.MATCH_PARENT,
-                1);
-        addView(objectView, layoutParams);
-        UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.objectUnit.id, UserLog.START_EVENT);
-
-        if(mFlashCard.subjectUnit != null) {
-            View subjectView = getView(context, mFlashCard.subjectUnit);
-            LayoutParams sLayoutParams = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.WRAP_CONTENT,
+        LayoutParams layoutParams = null;
+        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            setOrientation(VERTICAL);
+            layoutParams = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    0,
+                    1);
+        } else {
+            setOrientation(HORIZONTAL);
+            layoutParams = new LinearLayout.LayoutParams(
+                    0,
                     ViewGroup.LayoutParams.MATCH_PARENT,
                     1);
-            addView(subjectView, sLayoutParams);
-            UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.subjectUnit.id, UserLog.START_EVENT);
+        }
+
+        View subjectView = getView(context, mFlashCard.subjectUnit);
+        addView(subjectView, layoutParams);
+        UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.subjectUnit.id, UserLog.START_EVENT);
+
+        if(mFlashCard.objectUnit != null) {
+            View objectView = getView(context, mFlashCard.objectUnit);
+            addView(objectView, layoutParams);
+            UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.objectUnit.id, UserLog.START_EVENT);
         }
     }
 
