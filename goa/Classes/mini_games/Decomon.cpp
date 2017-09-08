@@ -740,7 +740,7 @@ void Decomon::onEnterTransitionDidFinish()
 {
 	//createGameLayout();
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(Decomon::createGameLayout, this));
-	_lesson.getMultiChoices(1, 0);
+	_lesson.getMultiChoices(1, 0, UPPER_CASE_LETTER_FORMAT, ANY_FORMAT);
 }
 
 void Decomon::gameHelp()

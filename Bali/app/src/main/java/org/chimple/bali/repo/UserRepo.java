@@ -26,6 +26,14 @@ import org.chimple.bali.db.entity.User;
 public class UserRepo {
     public static int updateCoins(Context context, int coins) {
         AppDatabase db = AppDatabase.getInstance(context);
+        User user = getCurrentUser(context);
+        user.coins = Math.max(0, user.coins + coins);
+        db.userDao().updateUser(user);
+        return user.coins;
+    }
+
+    public static User getCurrentUser(Context context) {
+        AppDatabase db = AppDatabase.getInstance(context);
 
         // Get the current user
         SharedPreferences sharedPref = context.getSharedPreferences(
@@ -33,8 +41,6 @@ public class UserRepo {
                 Context.MODE_PRIVATE);
         Long userId = sharedPref.getLong(context.getString(R.string.user_id), 0);
         User user = db.userDao().getUserById(userId);
-        user.coins = Math.max(0, user.coins + coins);
-        db.userDao().updateUser(user);
-        return user.coins;
+        return user;
     }
 }

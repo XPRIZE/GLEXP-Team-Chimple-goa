@@ -72,7 +72,7 @@ bool Alphamole::init()
 void Alphamole::onEnterTransitionDidFinish()
 {
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(Alphamole::startGame, this));
-	_lesson.getMultiChoices(1, 5);
+	_lesson.getMultiChoices(1, 5, UPPER_CASE_LETTER_FORMAT, UPPER_CASE_LETTER_FORMAT);
 }
 void Alphamole::startGame(cocos2d::EventCustom *eventCustom)
 {

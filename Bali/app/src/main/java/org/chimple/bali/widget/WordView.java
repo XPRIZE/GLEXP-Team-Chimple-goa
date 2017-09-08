@@ -16,7 +16,12 @@
 
 package org.chimple.bali.widget;
 
+import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.arch.lifecycle.LifecycleActivity;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
@@ -32,7 +37,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.chimple.bali.R;
+import org.chimple.bali.activity.LessonActivity;
 import org.chimple.bali.db.entity.Unit;
+import org.chimple.bali.viewmodel.CardStatusViewModel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,8 +54,17 @@ public class WordView extends FrameLayout{
         @Override
         public void onClick(View view) {
             MediaPlayer mediaPlayer = new MediaPlayer();
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    view.setEnabled(true);
+                    CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
+                    cardStatusViewModel.viewed(true);
+                }
+            });
             try {
-                AssetFileDescriptor afd = mContext.getAssets().openFd(mWord.sound);
+                //AssetFileDescriptor afd = mContext.getAssets().openFd(mWord.sound);
+                AssetFileDescriptor afd = mContext.getAssets().openFd("swa/audio/a.mp3");
                 mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(),
                         afd.getLength());
                 afd.close();
@@ -56,6 +72,8 @@ public class WordView extends FrameLayout{
                 mediaPlayer.start();
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                view.setEnabled(false);
             }
         }
     };
@@ -90,7 +108,8 @@ public class WordView extends FrameLayout{
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         try
         {
-            InputStream inputStream = mContext.getAssets().open(word.picture);
+//            InputStream inputStream = mContext.getAssets().open(word.picture);
+            InputStream inputStream = mContext.getAssets().open("swa/image/apple.jpg");
             Drawable d = Drawable.createFromStream(inputStream, null);
             imageView.setImageDrawable(d);
             inputStream .close();
@@ -101,7 +120,29 @@ public class WordView extends FrameLayout{
         }
 
         mSoundFab = (FloatingActionButton) findViewById(R.id.soundFab);
+        float x = mSoundFab.getX();
         mSoundFab.setOnClickListener(mOnClickListener);
     }
 
+    private LifecycleActivity getActivity() {
+        Context context = getContext();
+        while (context instanceof ContextWrapper) {
+            if (context instanceof LifecycleActivity) {
+                return (LifecycleActivity)context;
+            }
+            context = ((ContextWrapper)context).getBaseContext();
+        }
+        return null;
+    }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        float x = mSoundFab.getX();
+        float y = mSoundFab.getY();
+        ObjectAnimator animator = ObjectAnimator.ofFloat(mSoundFab, "x", -x, x);
+        animator.setDuration(250);
+        animator.start();
+
+    }
 }

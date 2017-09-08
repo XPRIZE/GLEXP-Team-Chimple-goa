@@ -118,7 +118,7 @@ void CrossTheBridge::onEnterTransitionDidFinish()
 			{
 				_lesson.setConcept(Lesson::CONCEPT::LETTER_CASE_EQUATE);
 			}
-			_lesson.getMultiChoices(1, 6);
+			_lesson.getMultiChoices(1, 6, UPPER_CASE_LETTER_FORMAT, UPPER_CASE_LETTER_FORMAT);
 			
 			/*setonEnterTransitionDidFinishCallback(CC_CALLBACK_0(CrossTheBridge::startGame, this));*/
 
