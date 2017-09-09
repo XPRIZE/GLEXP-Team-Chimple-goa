@@ -475,11 +475,14 @@ void EndlessRunner::startingIntersectMode() {
 
 			if (boxs.intersectsRect(allBeforeStartBlocks[i]->getBoundingBox())) {
 				flagLifeDemo = false;
-				counterLife = counterLife - 1;
-				std::ostringstream sstreamc; sstreamc << "life_" << counterLife; std::string counterLife = sstreamc.str();
-				hpUi->getChildByName(counterLife)->stopAllActions();
-				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
-				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
+
+				if (counterLife > 0) {
+					counterLife = counterLife - 1;
+					std::ostringstream sstreamc; sstreamc << "life_" << counterLife; std::string counterLife = sstreamc.str();
+					hpUi->getChildByName(counterLife)->stopAllActions();
+					hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
+					hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
+				}
 				auto upVisible = CallFunc::create([=]() {
 					Character.character->setVisible(false);
 				});
@@ -840,6 +843,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		}
 
 		auto label = Alphabet::createWithSize(str, 300);
+		label->setBMFontSize(std::max(float(50.0), float(300 - (str.length() - 1) * 10)));
 		label->setName(str);
 		label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 		label->setTag(Character.uniqueId);

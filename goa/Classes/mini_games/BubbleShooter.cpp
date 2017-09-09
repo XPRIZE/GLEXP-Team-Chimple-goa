@@ -46,7 +46,7 @@ bool BubbleShooter::init()
 void BubbleShooter::onEnterTransitionDidFinish() {
 
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(BubbleShooter::gameBegin, this));
-	_lesson.getMultiChoices(3, 0);
+	_lesson.getMultiChoices(3, 0,UPPER_CASE_LETTER_FORMAT,UPPER_CASE_LETTER_FORMAT);
 }
 
 void BubbleShooter::gameBegin(cocos2d::EventCustom *eventCustom) {
