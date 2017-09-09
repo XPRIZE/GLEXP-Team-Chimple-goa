@@ -144,7 +144,8 @@ void Owl::onEnterTransitionDidFinish()
 
 	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Owl::gameStart, this));
 
-	_lesson.getBag(5, 2, 9, 24 , 24, true);
+    auto complexity = 2 + _menuContext->getCurrentLevel() / 50.0 * 7.0;
+	_lesson.getBag(5, 2, complexity, 24 , 24, true);
 
 }
 
