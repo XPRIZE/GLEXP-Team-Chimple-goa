@@ -29,7 +29,7 @@ bool Bingo::init()
 
 void Bingo::onEnterTransitionDidFinish()
 {
-	auto complexity = _menuContext->getCurrentLevel() / 36;
+	auto complexity = ((float)_menuContext->getCurrentLevel()) / 50.0f;
 
 	if (complexity >= 0.0f && complexity <= 0.33f)
 	{
