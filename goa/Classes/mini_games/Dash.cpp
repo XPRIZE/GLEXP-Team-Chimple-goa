@@ -189,9 +189,12 @@ void Dash::gameBegin(cocos2d::EventCustom *eventCustom) {
 	_title = LangUtil::getInstance()->translateString(vmc[0].help);
 	_catagory = LangUtil::getInstance()->translateString("List of given Answer ");
 
-	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
-		_mapKey.push_back(it->first);
-	}
+//	for (auto it = _synonyms.begin(); it != _synonyms.end(); ++it) {
+//		_mapKey.push_back(it->first);
+//	}
+    for (auto it = vmc.begin(); it != vmc.end(); ++it) {
+        _mapKey.push_back(it->question);
+    }
 
 	auto spritecache1 = SpriteFrameCache::getInstance();
 	spritecache1->addSpriteFramesWithFile(_scenePath.at("plist"));

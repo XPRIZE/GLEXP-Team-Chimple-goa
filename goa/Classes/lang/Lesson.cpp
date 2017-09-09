@@ -19,6 +19,15 @@ static const vector<string> allUpperStrings = {
     "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
 };
 
+static const vector<string> allWords = {
+    "Apple",
+    "Baby",
+    "Cat",
+    "Dalmatian",
+    "Elephant",
+    "Firebird"
+};
+
 static const int MAX_CONCEPTS = 100;
 static const int MAX_COMPLEXITY = 9;
 static const int MIN_COMPLEXITY = 0;
@@ -50,11 +59,11 @@ vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choices, in
     sendArray[i++] = MenuContext::to_string(choices);
     for (int j = 0; j < lessons; j++) {
         sendArray[i++] = "Select the same letter";
-        sendArray[i++] = allUpperStrings[j % allUpperStrings.size()];
+        sendArray[i++] = allUpperStrings[i % allUpperStrings.size()];
         sendArray[i++] = "0";
         
         for (int k = 0; k < choices + 1; k++) {
-            sendArray[i++] = allUpperStrings[(j + k) % allUpperStrings.size()];
+            sendArray[i++] = allWords[(i + k) % allWords.size()];
         }
     }
     Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("multipleChoiceQuiz", static_cast<void*>(sendArray));

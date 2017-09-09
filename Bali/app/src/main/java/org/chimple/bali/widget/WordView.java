@@ -59,8 +59,8 @@ public class WordView extends FrameLayout{
                 @Override
                 public void onCompletion(MediaPlayer mediaPlayer) {
                     view.setEnabled(true);
-                    CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
-                    cardStatusViewModel.viewed(true);
+//                    CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
+//                    cardStatusViewModel.viewed(true);
                 }
             });
             try {
@@ -104,7 +104,8 @@ public class WordView extends FrameLayout{
         View view = inflate(getContext(), R.layout.word, null);
         addView(view);
         TextView wordView = (TextView) findViewById(R.id.word);
-        wordView.setText(Html.fromHtml("<b>"+word.name+"</b><i>h</i>"));
+//        wordView.setText(Html.fromHtml("<b>"+word.name+"</b><i>h</i>"));
+        wordView.setText(word.name);
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         try

@@ -330,7 +330,7 @@ public class AppActivity extends Cocos2dxActivity {
 		        }
 				return null;
 			}
-		}.execute(new int[]{numQuizes, numChoices});
+		}.execute(new int[]{numQuizes, numChoices, answerFormat, choiceFormat});
 
     }
 

@@ -92,9 +92,9 @@ bool MemoryJungle::init() {
 void MemoryJungle::onEnterTransitionDidFinish() {
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(MemoryJungle::gameBegin, this));
 	_finalGridIds.resize(0);
-	auto complexity = _lesson.getComplexity();
+	auto complexity = (float)_menuContext->getCurrentLevel() / 50.0f;
 
-	if (_lesson.getComplexity() >= 0.0f && _lesson.getComplexity() <= 0.15f) {
+	if (complexity >= 0.0f && complexity <= 0.15f) {
 		_gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size);
 		_gridTwoByTwoIds = { 9, 10, 15, 16 };
 		_pairCount = 2;
@@ -105,7 +105,7 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
-	if (_lesson.getComplexity() >= 0.16f && _lesson.getComplexity() <= 0.30f) {
+	if (complexity >= 0.16f && complexity <= 0.30f) {
 		_gridTwoByThreeIds.resize(_gridTwoByThreeIds_Size);
 		_gridTwoByThreeIds = { 8, 9, 10, 14, 15, 16 };
 		_pairCount = 3;
@@ -116,7 +116,7 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
-	if (_lesson.getComplexity() >= 0.31f && _lesson.getComplexity() <= 0.45f) {
+	if (complexity >= 0.31f && complexity <= 0.45f) {
 		_gridThreeByFourIds.resize(_gridThreeByFourIds_Size);
 		_gridThreeByFourIds = { 8, 9, 10, 11, 14, 15, 16, 17, 20, 21, 22, 23 };
 		_pairCount = 6;
@@ -127,7 +127,7 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
-	if (_lesson.getComplexity() >= 0.46f && _lesson.getComplexity() <= 0.60f) {
+	if (complexity >= 0.46f && complexity <= 0.60f) {
 		_gridThreeBySixIds.resize(_gridThreeBySixIds_Size);
 		_gridThreeBySixIds = { 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24 };
 		_pairCount = 9;
@@ -138,7 +138,7 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
-	if (_lesson.getComplexity() >= 0.61f && _lesson.getComplexity() <= 0.80f) {
+	if (complexity >= 0.61f && complexity <= 0.80f) {
 		_gridFourByFiveIds.resize(_gridFourByFiveIds_Size);
 		_gridFourByFiveIds = { 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 13, 14, 15, 16, 17, 19, 20, 21, 22, 23 };
 		_pairCount = 10;
@@ -149,7 +149,7 @@ void MemoryJungle::onEnterTransitionDidFinish() {
 		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
-	if (_lesson.getComplexity() >= 0.81f && _lesson.getComplexity() <= 1.0f) {
+	if (complexity >= 0.81f && complexity <= 1.0f) {
 		_gridFourBySixIds.resize(_gridFourBySixIds_Size);
 		_gridFourBySixIds = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,  13, 14, 15, 16,  17, 18, 19, 20, 21, 22, 23, 24 };
 		_pairCount = 12;
