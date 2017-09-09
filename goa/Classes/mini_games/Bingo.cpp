@@ -29,11 +29,13 @@ bool Bingo::init()
 
 void Bingo::onEnterTransitionDidFinish()
 {
-	if (_lesson.getComplexity() >= 0.0f && _lesson.getComplexity() <= 0.33f)
+	auto complexity = _menuContext->getCurrentLevel() / 36;
+
+	if (complexity >= 0.0f && complexity <= 0.33f)
 	{
 		_gridDimension = 0; _pairNo = 9;
 	}
-	else if (_lesson.getComplexity() >= 0.34f && _lesson.getComplexity() <= 0.66f)
+	else if (complexity >= 0.34f && complexity <= 0.66f)
 	{
 		_gridDimension = 1; _pairNo = 16;
 	}
