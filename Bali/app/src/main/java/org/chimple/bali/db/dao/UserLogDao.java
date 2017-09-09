@@ -35,4 +35,7 @@ public interface UserLogDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public Long insertUserLog(UserLog userLog);
+
+    @Query("DELETE FROM UserLog")
+    public void deleteAllUserLogs();
 }

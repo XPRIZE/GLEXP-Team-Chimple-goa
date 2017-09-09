@@ -21,6 +21,13 @@ public class BaliApplication extends Application {
     private FtpManager ftpManager;
     private ThreadManager threadManager;
 
+
+    public static final String ftpHost = "192.168.1.6";
+    public static final int ftpPort = 21;
+    public static final String ftpUser = "shyamalupadhyaya";
+    public static final String ftpPassword = "doggy";
+
+
     @Override
     public void onCreate() {
         super.onCreate();
@@ -52,9 +59,5 @@ public class BaliApplication extends Application {
         Log.d(TAG, "Initialization complete...");
         ftpManager = BaliContext.getInstance().getFtpManager();
         threadManager = BaliContext.getInstance().getThreadManager();
-        OpState testFTP = new OpState(FtpServiceImpl.DO_FTP_TRANSFER);
-        BaliContext.getInstance().getFtpService().getOperationManager().addOperation(testFTP);
-
-
     }
 }

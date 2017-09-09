@@ -9,12 +9,22 @@ import org.chimple.bali.operation.OpState;
 
 public class FtpServiceImpl extends BaseService {
     public static final int DO_FTP_TRANSFER = 1;
+    String host = null;
+    int port = 21;
+    String user = null;
+    String password = null;
 
+    public FtpServiceImpl(String host, String user, String password, int port) {
+        this.host = host;
+        this.user = user;
+        this.password = password;
+        this.port = port;
+    }
     @Override
     public void handleOperation(final OpState operationState) {
 
         if (operationState.getOperationType() == DO_FTP_TRANSFER) {
-            perform("", new ServiceListener() {
+            perform(this.host, this.user, this.password, this.port, new ServiceListener() {
                 @Override
                 public void onSuccess() {
                     getOperationManager().onSuccessfulComplete(operationState);
@@ -28,11 +38,11 @@ public class FtpServiceImpl extends BaseService {
         }
     }
 
-    private void perform(final String endPoint, final ServiceListener listener) {
+    private void perform(final String host, final String user, final String password, final int port, final ServiceListener listener) {
         runInBackground(new ServiceRunnable() {
             @Override
             public void execute() throws Exception {
-                getFtpManager().uploadToFtp("test", new FtpManagerListener() {
+                getFtpManager().uploadToFtp(host, user, password, port, new FtpManagerListener() {
                     @Override
                     public void onFtpUploadSuccess() {
                         runOnMainThread(new Runnable() {

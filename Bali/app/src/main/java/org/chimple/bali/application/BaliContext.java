@@ -3,7 +3,6 @@ package org.chimple.bali.application;
 import android.content.Context;
 
 import org.chimple.bali.ftp.FtpManager;
-import org.chimple.bali.service.FtpService;
 import org.chimple.bali.service.FtpServiceImpl;
 import org.chimple.bali.service.ThreadManager;
 
@@ -50,11 +49,9 @@ public class BaliContext {
         threadManager = new ThreadManager();
     }
 
-    public void createFtpService(Context context)
-    {
-        if (ftpService == null)
-        {
-            ftpService = new FtpServiceImpl();
+    public void createFtpService(Context context) {
+        if (ftpService == null) {
+            ftpService = new FtpServiceImpl(BaliApplication.ftpHost, BaliApplication.ftpUser, BaliApplication.ftpPassword, BaliApplication.ftpPort);
             ftpService.setFtpManager(this.ftpManager);
             ftpService.setThreadManager(this.threadManager);
             ftpService.initialize(context);

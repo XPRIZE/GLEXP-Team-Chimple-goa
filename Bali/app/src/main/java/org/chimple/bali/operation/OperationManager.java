@@ -2,15 +2,21 @@ package org.chimple.bali.operation;
 
 import android.content.Context;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
+import org.chimple.bali.application.BaliContext;
 import org.chimple.bali.broadcasts.ConnectivityBroadcastReceiver;
 import org.chimple.bali.broadcasts.ConnectivityBroadcastReceiver.ConnectivityListener;
+import org.chimple.bali.repo.UserLogRepo;
+import org.chimple.bali.service.FtpServiceImpl;
 import org.chimple.bali.service.SimpleServiceRunnable;
 import org.chimple.bali.service.ThreadManager;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -27,18 +33,23 @@ public class OperationManager implements ConnectivityListener {
     private ConnectivityBroadcastReceiver connectivityBroadcastReceiver;
     private OperationListener listener;
     private Queue<OpState> queue;
-
+    private static final String FTP_SYNC_JOB = "FTP_SYNC_JOB";
+    private static final int THRESH_HOLD_JOB_TIME_IN_HOURS = 5;
+    private Context context;
 
     private static final long INITIAL_NOTIFY_DELAY = 2000;
     private static final long NOTIFY_COOLDOWN = 10000;
     private static final int RETRY_COUNT = 5;
-
+    private SharedPreferences sharedPreferences;
 
     public OperationManager(Context context, OperationListener listener, ThreadManager threadManager) {
         Log.d(TAG, "Initializing OperationManager");
         queue = new LinkedList<OpState>();
         this.threadManager = threadManager;
         this.listener = listener;
+        this.context = context;
+        sharedPreferences = context.getSharedPreferences(FTP_SYNC_JOB, Context.MODE_PRIVATE);
+
         connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         registerForBroadcasts(context);
 
@@ -48,6 +59,33 @@ public class OperationManager implements ConnectivityListener {
         if (connectivityBroadcastReceiver != null) {
             context.unregisterReceiver(connectivityBroadcastReceiver);
         }
+    }
+
+    private void saveSyncTime() {
+        try {
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            Calendar calendar = Calendar.getInstance();
+            Date currentDate = calendar.getTime();
+            editor.putLong(FTP_SYNC_JOB, currentDate.getTime());
+            editor.apply();
+
+            UserLogRepo.deleteAllUserLogs(this.context);
+
+        } catch (Exception e) {
+
+        }
+    }
+
+    private long getLastSyncTime() {
+        long lastSyncTime = 0L;
+
+        try {
+            lastSyncTime = sharedPreferences.getLong(FTP_SYNC_JOB, 0L);
+        } catch (Exception e) {
+            // No-op
+        }
+
+        return lastSyncTime;
     }
 
     private void registerForBroadcasts(Context context) {
@@ -62,8 +100,32 @@ public class OperationManager implements ConnectivityListener {
     public void onConnectionChanged(boolean connected) {
         if (connected) {
             Log.d(TAG, "Internet connection available, notifying listener");
-
+            scheduleSyncJob();
             notifyListener();
+        }
+    }
+
+    private void scheduleSyncJob() {
+        long lastSyncTime = getLastSyncTime();
+        if (lastSyncTime != 0L) {
+            Date lastSyncDate = new Date(lastSyncTime);
+            Calendar calendar = Calendar.getInstance();
+            Date currentDate = calendar.getTime();
+
+            long difference = (currentDate.getTime() - lastSyncDate.getTime()) / 1000;
+            long hours = difference / 3600;
+
+            difference = difference % 3600;
+            long mins = difference / 60;
+            //only for testing using min
+
+            if (mins >= THRESH_HOLD_JOB_TIME_IN_HOURS) {
+                OpState testFTP = new OpState(FtpServiceImpl.DO_FTP_TRANSFER);
+                BaliContext.getInstance().getFtpService().getOperationManager().addOperation(testFTP);
+            }
+        } else {
+            OpState testFTP = new OpState(FtpServiceImpl.DO_FTP_TRANSFER);
+            BaliContext.getInstance().getFtpService().getOperationManager().addOperation(testFTP);
         }
     }
 
@@ -107,6 +169,7 @@ public class OperationManager implements ConnectivityListener {
                 Log.d(TAG, "Operation successful " + opState);
 
                 isNotificationBeingHandled = false;
+                saveSyncTime();
                 deleteOperationState(opState);
                 notifyListener();
             }
@@ -114,7 +177,7 @@ public class OperationManager implements ConnectivityListener {
     }
 
     private void deleteOperationState(OpState operationState) {
-        if(!queue.isEmpty()) {
+        if (!queue.isEmpty()) {
             queue.remove();
         }
     }
@@ -157,8 +220,7 @@ public class OperationManager implements ConnectivityListener {
 
     private void queueOperation(OpState operation) {
         operation.setRetryCount(RETRY_COUNT);
-        if(!queue.contains(operation))
-        {
+        if (!queue.contains(operation)) {
             queue.add(operation);
             Log.d(TAG, "Queuing operation state " + operation);
         } else {

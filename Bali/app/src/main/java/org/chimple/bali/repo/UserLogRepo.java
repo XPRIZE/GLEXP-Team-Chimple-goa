@@ -45,4 +45,8 @@ public class UserLogRepo {
     public static UserLog[] getUserLogs(Context context) {
         return AppDatabase.getInstance(context).userLogDao().getUserLogs();
     }
+
+    public static void deleteAllUserLogs(Context context) {
+        AppDatabase.getInstance(context).userLogDao().deleteAllUserLogs();
+    }
 }
