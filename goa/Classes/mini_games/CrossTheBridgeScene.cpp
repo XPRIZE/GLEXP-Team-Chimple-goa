@@ -626,7 +626,7 @@ void CrossTheBridge::leftMove_Mons(Sprite* spriteAlphabet, int time, float posit
 void CrossTheBridge::addEvents(Sprite* callerObject)
 {
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
-	listener->setSwallowTouches(true);
+	listener->setSwallowTouches(false);
 
 	listener->onTouchBegan = [=](cocos2d::Touch* touch, cocos2d::Event* event)
 	{
