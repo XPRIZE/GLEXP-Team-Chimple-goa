@@ -33,7 +33,7 @@ void BajaWordScene::createAnswer() {
 
 	auto label = CommonText::create();
 	label->setString(_word);
-	label->setFontSize(200);
+	label->setFontSize(std::max(float(50.0), float(200 - (_word.length() - 1) * 10)));
 
     if(LangUtil::getInstance()->getLang() == "eng") {
         label->setFontName("fonts/Roboto-Regular.ttf");

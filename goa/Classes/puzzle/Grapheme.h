@@ -13,7 +13,7 @@
 
 class Grapheme : public cocos2d::Node {
 public:
-    static Grapheme* create(std::string graphemeString);
+    static Grapheme* create(std::string graphemeString, float size = 200);
 	virtual void setSelectedBackground(Node* selectedBackground);
 	virtual void setUnselectedBackground(Node* unSelectedBackground);
     void selected(bool sel);
@@ -31,13 +31,14 @@ public:
 CC_CONSTRUCTOR_ACCESS:
     Grapheme();
     virtual ~Grapheme();
-    bool init(std::string graphemeString);
+    bool init(std::string graphemeString, float size = 200);
     virtual bool onTouchBegan(cocos2d::Touch* touch, cocos2d::Event* event);
     virtual void onTouchEnded(cocos2d::Touch* touch, cocos2d::Event* event);
     virtual void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
 
 protected:
     std::string _graphemeString;
+    float _size;
     cocos2d::ui::Text* _text;
     Node* _unselectedBackground;
     Node* _selectedBackground;

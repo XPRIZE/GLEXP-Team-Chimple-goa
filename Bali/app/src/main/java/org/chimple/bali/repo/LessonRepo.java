@@ -60,20 +60,14 @@ public class LessonRepo {
             protected Void doInBackground(Context... params) {
                 Context context1 = params[0];
                 AppDatabase db = AppDatabase.getInstance(context1);
-                SharedPreferences sharedPref = context1.getSharedPreferences(
-                        context.getString(R.string.preference_file_key),
-                        Context.MODE_PRIVATE);
-                Long userId = sharedPref.getLong(context.getString(R.string.user_id), -1);
-                if (userId != -1) {
-                    User user = db.userDao().getUserById(userId);
+                User user = UserRepo.getCurrentUser(context1);
                     //TODO: Handle no user
 
-                    Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
-                    Lesson newLesson = db.lessonDao().getLessonBySeq(lesson.seq + 1);
-                    if (newLesson != null) {
-                        user.currentLessonId = newLesson.id;
-                        db.userDao().updateUser(user);
-                    }
+                Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
+                Lesson newLesson = db.lessonDao().getLessonBySeq(lesson.seq + 1);
+                if (newLesson != null) {
+                    user.currentLessonId = newLesson.id;
+                    db.userDao().updateUser(user);
                 }
                 return null;
             }
@@ -83,11 +77,7 @@ public class LessonRepo {
     public static List<MultipleChoiceQuiz> getMultipleChoiceQuizes(Context context, int numQuizes
             , int numChoices, int answerFormat, int choiceFormat) {
         AppDatabase db = AppDatabase.getInstance(context);
-        SharedPreferences sharedPref = context.getSharedPreferences(
-                context.getString(R.string.preference_file_key),
-                Context.MODE_PRIVATE);
-        Long userId = sharedPref.getLong(context.getString(R.string.user_id), 0);
-        User user = db.userDao().getUserById(userId);
+        User user = UserRepo.getCurrentUser(context);
         Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
         FlashCard[] lucs = null;
         if((answerFormat == ANY_FORMAT
@@ -162,11 +152,7 @@ public class LessonRepo {
             , int minAnswers, int maxAnswers, int minChoices, int maxChoices, boolean order) {
         //TODO: for now assume order is true
         AppDatabase db = AppDatabase.getInstance(context);
-        SharedPreferences sharedPref = context.getSharedPreferences(
-                context.getString(R.string.preference_file_key),
-                Context.MODE_PRIVATE);
-        Long userId = sharedPref.getLong(context.getString(R.string.user_id), 0);
-        User user = db.userDao().getUserById(userId);
+        User user = UserRepo.getCurrentUser(context);
         Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
         FlashCard[] lucs = db.lessonUnitDao().getFlashCardArrayByLessonId(lesson.id);
 

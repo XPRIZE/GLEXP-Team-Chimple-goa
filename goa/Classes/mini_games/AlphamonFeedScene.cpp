@@ -174,7 +174,7 @@ void AlphamonFeed::startGame(cocos2d::EventCustom *eventCustom) {
 void AlphamonFeed::callingFruits()
 {
 	listener = EventListenerTouchOneByOne::create();
-	listener->setSwallowTouches(true);
+	listener->setSwallowTouches(false);
 	listener->onTouchBegan = CC_CALLBACK_2(AlphamonFeed::onTouchBegan, this);
 	listener->onTouchMoved = CC_CALLBACK_2(AlphamonFeed::onTouchMoved, this);
 	listener->onTouchEnded = CC_CALLBACK_2(AlphamonFeed::onTouchEnded, this);

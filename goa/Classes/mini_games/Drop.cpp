@@ -42,10 +42,12 @@ void Drop::onEnterTransitionDidFinish()
 	//	minimumAnswer = RandomHelper::random_int(7, 8);
 	//	//vmc = _lesson.getBag(1, minimumAnswer, minimumAnswer + 1, 3, 5, false);
 	//}
-	 
+	auto level = _menuContext->getCurrentLevel();
+	auto ceilValueForLevelSelection = std::floor((((float)_menuContext->getCurrentLevel() / 50.0f) * 6.0f));
+	int complexity = 2 + ceilValueForLevelSelection;
 	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Drop::gameStart, this));
 
-	_lesson.getBag(1, 2, 7, 3, 7, true);
+	_lesson.getBag(1, 2, complexity, 3, 7, true);
 	
 }
 void Drop::gameStart(cocos2d::EventCustom *eventCustom)

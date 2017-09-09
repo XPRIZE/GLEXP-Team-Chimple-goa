@@ -19,6 +19,15 @@ static const vector<string> allUpperStrings = {
     "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"
 };
 
+static const vector<string> allWords = {
+    "Apple",
+    "Baby",
+    "Cat",
+    "Dalmatian",
+    "Elephant",
+    "Firebird"
+};
+
 static const int MAX_CONCEPTS = 100;
 static const int MAX_COMPLEXITY = 9;
 static const int MIN_COMPLEXITY = 0;
@@ -164,9 +173,9 @@ vector<Lesson::Bag> Lesson::unmarshallBag(std::string* strArray) {
 
 static const vector<vector<string>> wordsByLength = {
     {"N","O","N","E"},
-    {"A"},
-    {"I","T"},
-    {"CA","AA","TA"},
+    {"AAAA"},
+    {"IIII","TTTT"},
+    {"CASD","AAWE","TADD"},
     {"M","I","N","T"},
     {"A","P","P","L","E"},
     {"O","R","A","N","G","E"},

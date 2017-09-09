@@ -59,7 +59,7 @@ public class LessonActivity extends LifecycleActivity {
                 mProgressBar.setProgress(0);
 
                 mFab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
-                mFab.hide();
+//                mFab.hide();
                 mFab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -69,18 +69,22 @@ public class LessonActivity extends LifecycleActivity {
                         } else {
                             mFlashCardView.advance();
                             mProgressBar.incrementProgressBy(1);
+//                            CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(LessonActivity.this).get(CardStatusViewModel.class);
+//                            cardStatusViewModel.viewed(false);
                         }
                     }
                 });
 
             }
         });
-        CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(this).get(CardStatusViewModel.class);
-        cardStatusViewModel.getViewed().observe(this, viewed -> {
-            if(viewed) {
-                mFab.show();
-            }
-        });
+//        CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(this).get(CardStatusViewModel.class);
+//        cardStatusViewModel.getViewed().observe(this, viewed -> {
+//            if(viewed) {
+//                mFab.show();
+//            } else {
+//                mFab.hide();
+//            }
+//        });
     }
 
     @Override
