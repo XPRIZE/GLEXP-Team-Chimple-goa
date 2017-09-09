@@ -79,7 +79,7 @@ bool SmashTheRock::init()
 void SmashTheRock::onEnterTransitionDidFinish() {
 	
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(SmashTheRock::startGame, this));
-	_lesson.getMultiChoices(1, 5, UPPER_CASE_LETTER_FORMAT, ANY_FORMAT);
+	_lesson.getMultiChoices(1, 5, UPPER_CASE_LETTER_FORMAT, UPPER_CASE_LETTER_FORMAT);
 }
 
 void SmashTheRock::update(float dt)
