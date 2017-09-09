@@ -19,7 +19,7 @@ Scene* Pop::createScene()
 
 void Pop::onEnterTransitionDidFinish()
 {
-	auto ceilValueForLevelSelection = std::ceil((((float)_menuContext->getCurrentLevel() / 50.0f) * 7.0f));
+	auto ceilValueForLevelSelection = std::floor((((float)_menuContext->getCurrentLevel() / 50.0f) * 7.0f));
 	int complexity = 3 + ceilValueForLevelSelection;
 	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Pop::gameStart, this));
 	_lesson.getBag(1, 3, complexity, 24, 24, true);
