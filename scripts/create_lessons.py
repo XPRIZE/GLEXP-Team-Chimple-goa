@@ -147,3 +147,6 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 				word_dict[sorted_start_words[0][0]] = (sorted_start_words[0][1], sorted_start_words[0][2]+1)
 
 	db_writer.writerow(['User',1,'test','test.png',1,5])
+unused = [w for (w,n) in word_dict.items() if n[1] == 0]
+print("Unused words:" + str(len(unused)))
+print(unused)

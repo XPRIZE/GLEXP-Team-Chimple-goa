@@ -110,7 +110,7 @@ void AlphamonFeed::onEnterTransitionDidFinish() {
 												   //sprite1 = CSLoader::createNode(CCString::createWithFormat("english/%s.csb", alphaLevelString.c_str())->getCString());
 
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(AlphamonFeed::startGame, this));
-	_lesson.getMultiChoices(1, 0);
+	_lesson.getMultiChoices(1, 0, UPPER_CASE_LETTER_FORMAT, UPPER_CASE_LETTER_FORMAT);
 
 }
 
