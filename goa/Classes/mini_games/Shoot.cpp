@@ -959,5 +959,6 @@ void Shoot::addEventsOnSpeaker(cocos2d::Sprite* callerObject)
 }
 Shoot::~Shoot(void)
 {
+    _eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 	this->removeAllChildrenWithCleanup(true);
 }

@@ -19,6 +19,7 @@ class MatrixUtil
 public:
     static vector<vector<string>> generateMatrixForChoosing(string answer, vector<string> choices, int numRows, int numCols, int minPercentOfOccurence);
     static map<string, string> questionToAnswerMapping(vector<Lesson::MultiChoice>);
+    static vector<pair<string, string>> questionToAnswerVector(vector<Lesson::MultiChoice>);
     static vector<vector<string>> generateMatrix(vector<string> answer, vector<string> choices, int numRows, int numCols);
     static map<int, int> getRandomLocations(int numLoc, int totalNum);
 
