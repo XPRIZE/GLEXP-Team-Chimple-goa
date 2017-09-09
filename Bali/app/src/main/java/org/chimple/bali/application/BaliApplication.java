@@ -2,13 +2,17 @@ package org.chimple.bali.application;
 
 import android.app.Application;
 import android.content.Context;
-import android.os.Handler;
-import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import org.acra.ACRA;
+import org.acra.ReportField;
+import org.acra.annotation.ReportsCrashes;
+import org.acra.config.ACRAConfiguration;
+import org.acra.config.ACRAConfigurationException;
+import org.acra.config.ConfigurationBuilder;
+import org.acra.sender.ReportSenderFactory;
+import org.chimple.bali.crash.FtpCrashSenderFactory;
 import org.chimple.bali.ftp.FtpManager;
-import org.chimple.bali.operation.OpState;
-import org.chimple.bali.service.FtpServiceImpl;
 import org.chimple.bali.service.ThreadManager;
 
 
@@ -16,6 +20,17 @@ import org.chimple.bali.service.ThreadManager;
  * Created by shyamalupadhyaya on 08/09/17.
  */
 
+@ReportsCrashes(
+        customReportContent = {
+                ReportField.APP_VERSION_CODE,
+                ReportField.APP_VERSION_NAME,
+                ReportField.ANDROID_VERSION,
+                ReportField.PACKAGE_NAME,
+                ReportField.REPORT_ID,
+                ReportField.BUILD,
+                ReportField.STACK_TRACE
+        }
+)
 public class BaliApplication extends Application {
     private static final String TAG = BaliApplication.class.getName();
     private FtpManager ftpManager;
@@ -31,8 +46,10 @@ public class BaliApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d(TAG, "Created...");
-        initialize();
+        if (!ACRA.isACRASenderServiceProcess()) {
+            Log.d(TAG, "Created...");
+            initialize();
+        }
     }
 
     private void initialize()
@@ -59,5 +76,24 @@ public class BaliApplication extends Application {
         Log.d(TAG, "Initialization complete...");
         ftpManager = BaliContext.getInstance().getFtpManager();
         threadManager = BaliContext.getInstance().getThreadManager();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        Class<?>[] list = new Class<?>[]{FtpCrashSenderFactory.class};
+        final Class<? extends ReportSenderFactory>[] myReportSenderFactoryClasses = (Class<? extends ReportSenderFactory>[]) list;
+        try {
+            final ACRAConfiguration config = new ConfigurationBuilder(this)
+                    .setReportSenderFactoryClasses(myReportSenderFactoryClasses)
+                    .build();
+
+            ACRA.init(this, config);
+        } catch (ACRAConfigurationException e) {
+            e.printStackTrace();
+        }
+
+
+
     }
 }
