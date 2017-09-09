@@ -191,7 +191,7 @@ void PegGrid::resize(GLfloat width, GLfloat height, int numRows, int numCols, st
 }
 
 
-Grapheme* PegGrid::createGrapheme(std::string graphemeString) {
+Grapheme* PegGrid::createGrapheme(std::string graphemeString, float size) {
     return PegGrapheme::create(graphemeString);
 }
 

@@ -59,11 +59,11 @@ vector<Lesson::MultiChoice> Lesson::getMultiChoices(int lessons, int choices, in
     sendArray[i++] = MenuContext::to_string(choices);
     for (int j = 0; j < lessons; j++) {
         sendArray[i++] = "Select the same letter";
-        sendArray[i++] = allUpperStrings[i % allUpperStrings.size()];
+        sendArray[i++] = allUpperStrings[j % allUpperStrings.size()];
         sendArray[i++] = "0";
         
         for (int k = 0; k < choices + 1; k++) {
-            sendArray[i++] = allWords[(i + k) % allWords.size()];
+            sendArray[i++] = allUpperStrings[(j + k) % allUpperStrings.size()];
         }
     }
     Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("multipleChoiceQuiz", static_cast<void*>(sendArray));
@@ -173,9 +173,9 @@ vector<Lesson::Bag> Lesson::unmarshallBag(std::string* strArray) {
 
 static const vector<vector<string>> wordsByLength = {
     {"N","O","N","E"},
-    {"A"},
-    {"I","T"},
-    {"CA","AA","TA"},
+    {"AAAA"},
+    {"IIII","TTTT"},
+    {"CASD","AAWE","TADD"},
     {"M","I","N","T"},
     {"A","P","P","L","E"},
     {"O","R","A","N","G","E"},
