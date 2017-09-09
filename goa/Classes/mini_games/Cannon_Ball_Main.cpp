@@ -188,7 +188,9 @@ void MainGame::displayHelp()
 	MainGame::meteorArray.push_back(meteor);
 
 	Alphabet *myLabel = Alphabet::createWithSize(letterName, 300);
-	myLabel->setBMFontSize(std::max(float(50.0), float(200 - (letterName.length() - 1) * 10)));
+	auto cal = float(200 - (letterName.length() - 1) * 10);
+	auto vv = std::max(float(50.0), float(200 - (letterName.length() - 1) * 10));
+	//myLabel->setBMFontSize(std::max(float(50.0), float(300 - (letterName.length() - 1) * 10)));
 	myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
 	lett->addChild(myLabel);
 	MainGame::meteorArray_actualImage.push_back(myLabel);
@@ -412,7 +414,9 @@ void MainGame::letterCome(float d)
 	
 
 		Alphabet *myLabel = Alphabet::createWithSize(letterName, 300);
-		myLabel->setBMFontSize(std::max(float(50.0), float(200 - (letterName.length() - 1) * 10)));
+		auto cal = float(200 - (letterName.length() - 1) * 10);
+		auto vv = std::max(float(50.0), float(200 - (letterName.length() - 1) * 10));
+		//myLabel->setBMFontSize(std::max(float(50.0), float(300 - (letterName.length() - 1) * 10)));
 		myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
 		lett->addChild(myLabel);
 		MainGame::meteorArray_actualImage.push_back(myLabel);
@@ -464,7 +468,9 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 
 			// _chnage
 			Alphabet *myLabel = Alphabet::createWithSize(tmpMainChars[i], 200);
-			myLabel->setBMFontSize(std::max(float(50.0), float(200 - (tmpMainChars[i].length() - 1) * 10)));
+			auto cal = float(200 - (tmpMainChars[i].length() - 1) * 10);
+			auto vv = std::max(float(50.0), float(200 - (tmpMainChars[i].length() - 1) * 10));
+			//myLabel->setBMFontSize(std::max(float(50.0), float(200 - (tmpMainChars[i].length() - 1) * 10)));
 			myLabel->setPosition(e1->getBoundingBox().size.width/2 , e1->getBoundingBox().size.height/2);
 			e1->addChild(myLabel);			
 			MainGame::cannonLetter_actualImage.push_back(myLabel);
@@ -525,7 +531,9 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			self->addChild(letter);
 
 			Alphabet *myLabel = Alphabet::createWithSize(letterName, 200);
-			myLabel->setBMFontSize(std::max(float(50.0), float(200 - (letterName.length() - 1) * 10)));
+			auto cal = float(200 - (letterName.length() - 1) * 10);
+			auto vv = std::max(float(50.0), float(200 - (letterName.length() - 1) * 10));
+			//myLabel->setBMFontSize(std::max(float(50.0), float(200 - (letterName.length() - 1) * 10)));
 			myLabel->setPosition(letter->getBoundingBox().size.width / 2, letter->getBoundingBox().size.height / 2);
 			letter->addChild(myLabel);
 			MainGame::cannonLetter_actualImage[remcharPos] = myLabel;
@@ -598,7 +606,9 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 		MainGame::bulletArray.push_back(fire);
 
 		Alphabet *myLabel = Alphabet::createWithSize(letterObject->id, 200);
-		myLabel->setBMFontSize(std::max(float(50.0), float(200 - (((std::string)letterObject->id).length() - 1) * 10)));
+		auto cal = float(200 - (((std::string)letterObject->id).length() - 1) * 10);
+		auto vv = std::max(float(50.0), float(200 - (((std::string)letterObject->id).length() - 1) * 10));
+		//myLabel->setBMFontSize(std::max(float(50.0), float(200 - (((std::string)letterObject->id).length() - 1) * 10)));
 		myLabel->setPosition(letterObject->getPositionX() - (letterObject->getContentSize().width * 2.8), letterObject->getPositionY());
 		self->addChild(myLabel);
 		MainGame::bulletArray_actualImage.push_back(myLabel);
