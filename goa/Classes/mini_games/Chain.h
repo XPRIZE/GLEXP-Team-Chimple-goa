@@ -54,18 +54,18 @@ CC_CONSTRUCTOR_ACCESS:
 	bool init(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground);
 
 protected:
-	Grapheme* createGrapheme(std::string graphemeString) override;
-	Grapheme* createAndAddGrapheme(std::string graphemeString) override;
+	Grapheme* createGrapheme(std::string graphemeString, float size=200) override;
+	Grapheme* createAndAddGrapheme(std::string graphemeString, float size=200) override;
 };
 
 class ChainGrapheme : public Grapheme
 {
 public:
-	static ChainGrapheme* create(std::string graphemeString);
+	static ChainGrapheme* create(std::string graphemeString, float size);
 	void setSelectedBackground(Node* selectedBackground) override;
 	void animateToPositionAndChangeBackground(cocos2d::Vec2 toPosition) override;
 CC_CONSTRUCTOR_ACCESS:
-	bool init(std::string graphemeString);
+	bool init(std::string graphemeString, float size);
 protected:
 	Node* _letterBG;
 	cocostudio::timeline::ActionTimeline *_monkeyTimeline;

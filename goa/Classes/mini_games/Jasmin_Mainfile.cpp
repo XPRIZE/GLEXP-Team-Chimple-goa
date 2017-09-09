@@ -32,7 +32,7 @@ void Jasmin_Mainfile::createAnswer() {
 
 	auto label = CommonText::create();
 	label->setString(_word);
-	label->setFontSize(200);
+	label->setFontSize(std::max(float(50.0), float(200 - (_word.length() - 1) * 10)));
 	_answer = Node::create();
 	_answer->addChild(label);
 	_answer->setPosition(Vec2(_size.width / 2, _size.height*92/100));

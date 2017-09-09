@@ -44,7 +44,7 @@ public:
 CC_CONSTRUCTOR_ACCESS:
     bool init(GLfloat width, GLfloat height, int numRows, int numCols, std::string spriteName, std::vector<std::vector<std::string>> graphemes, std::string graphemeUnselectedBackground, std::string graphemeSelectedBackground);
 protected:
-    Grapheme* createGrapheme(std::string graphemeString) override;
+    Grapheme* createGrapheme(std::string graphemeString, float size = 200) override;
 };
 
 class PegGrapheme : public Grapheme {
