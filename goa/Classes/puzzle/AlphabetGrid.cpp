@@ -73,10 +73,19 @@ void AlphabetGrid::setCharacters(std::vector<std::vector<std::string> > charArra
     _alphabetLayer->removeAllChildren();
     const float squareWidth = _width / _numCols;
     const float squareHeight = _height / _numRows;
+    long maxCharLen = 1;
     for (int i = 0; i < _numRows; i++) {
         for (int j = 0; j < _numCols; j++) {
-            const float maxWidth = 600.0; //somehow OPENGL exception if more than this
-            auto alphabet = Alphabet::createWithSize(charArray.at(i).at(j), std::min(squareWidth, maxWidth));
+            if(maxCharLen < charArray.at(i).at(j).length()) {
+                maxCharLen = charArray.at(i).at(j).length();
+            }
+        }
+    }
+    
+    for (int i = 0; i < _numRows; i++) {
+        for (int j = 0; j < _numCols; j++) {
+            const float maxWidth = std::min(squareWidth, float(600.0)) - (maxCharLen - 1) * 45.0; //somehow OPENGL exception if more than this
+            auto alphabet = Alphabet::createWithSize(charArray.at(i).at(j), maxWidth);
             alphabet->setPosition(Vec2(j * squareWidth + squareWidth/2, i * squareHeight + squareHeight/2));
             alphabet->touchBeganCallback = CC_CALLBACK_2(AlphabetGrid::onTouchBegan, this);
             _alphabetLayer->addChild(alphabet, 1);
