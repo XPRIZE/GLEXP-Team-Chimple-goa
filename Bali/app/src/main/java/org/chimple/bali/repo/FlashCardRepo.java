@@ -46,22 +46,13 @@ public class FlashCardRepo {
             protected Void doInBackground(Context... params) {
                 Context context1 = params[0];
                 AppDatabase db = AppDatabase.getInstance(context1);
-                // Get the current user
-                SharedPreferences sharedPref = context.getSharedPreferences(
-                        context.getString(R.string.preference_file_key),
-                        Context.MODE_PRIVATE);
-                Long userId = sharedPref.getLong(context.getString(R.string.user_id), -1);
-                if (userId != -1) {
-                    User user = db.userDao().getUserById(userId);
-                    //TODO: Handle no user
-
-                    Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
+                User user = UserRepo.getCurrentUser(context1);
+                Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
                     //TODO: Handle no lesson
 
-                    List<FlashCard> flashCardList = db.lessonUnitDao().getFlashCardsByLessonId(lesson.id);
+                List<FlashCard> flashCardList = db.lessonUnitDao().getFlashCardsByLessonId(lesson.id);
 
-                    flashCards.postValue(flashCardList);
-                }
+                flashCards.postValue(flashCardList);
                 return null;
             }
         }.execute(context);
