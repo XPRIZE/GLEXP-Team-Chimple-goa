@@ -19,8 +19,10 @@ Scene* Pop::createScene()
 
 void Pop::onEnterTransitionDidFinish()
 {
+	auto ceilValueForLevelSelection = std::floor((((float)_menuContext->getCurrentLevel() / 50.0f) * 7.0f));
+	int complexity = 3 + ceilValueForLevelSelection;
 	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Pop::gameStart, this));
-	_lesson.getBag(1, 3, 10, 24, 24, true);
+	_lesson.getBag(1, 3, complexity, 24, 24, true);
 }
 void Pop::gameStart(cocos2d::EventCustom *eventCustom)
 {

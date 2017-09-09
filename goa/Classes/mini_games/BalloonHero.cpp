@@ -67,9 +67,22 @@ bool BalloonHero::init() {
 
 void BalloonHero::onEnterTransitionDidFinish()
 {
+	auto ceilValueForLevelSelection = std::floor((((float)_menuContext->getCurrentLevel() / 50.0f) * 6.0f));
+	int complexity = 2 + ceilValueForLevelSelection;
 	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(BalloonHero::gameStart, this));
 
-	_lesson.getBag(1, 10, 10, 20, 20, true);
+	_lesson.getBag(1, 2, complexity, complexity*2, complexity * 2, true);
+}
+void BalloonHero::labelPronounce(std::string str)
+{
+	if (_pronounceFlag)
+	{
+		MenuContext::pronounceWord(str);
+		_pronounceFlag = false;
+	}
+	this->runAction(Sequence::create(DelayTime::create(1.7), CCCallFunc::create([=] {
+		_pronounceFlag = true;
+	}), NULL));
 }
 void BalloonHero::gameStart(cocos2d::EventCustom *eventCustom) {
 	/*
@@ -964,9 +977,10 @@ void BalloonHero::generateObjectsAndMove() {
 		}
 		if (numberPicker == 5 || numberPicker == 1 || numberPicker == 0) {
 			
-
-			int nounPicker = RandomHelper::random_int(0, 9);
-			int otherPicker = RandomHelper::random_int(0, 9);
+			int set1Size = (_set1.size() - 1);
+			int set2Size = (_set2.size() - 1);
+			int nounPicker = RandomHelper::random_int(0, set1Size);
+			int otherPicker = RandomHelper::random_int(0, set2Size);
 
 			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
@@ -1032,8 +1046,10 @@ void BalloonHero::generateObjectsAndMove() {
 
 		if (numberPicker == 5 || numberPicker == 1 || numberPicker == 0) {
 			
-			int nounPicker = RandomHelper::random_int(0, 9);
-			int otherPicker = RandomHelper::random_int(0, 9);
+			int set1Size = (_set1.size() - 1);
+			int set2Size = (_set2.size() - 1);
+			int nounPicker = RandomHelper::random_int(0, set1Size);
+			int otherPicker = RandomHelper::random_int(0, set2Size);
 
 			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
@@ -1099,8 +1115,10 @@ void BalloonHero::generateObjectsAndMove() {
 		}
 
 		if (numberPicker == 5 || numberPicker == 1 || numberPicker == 0) {
-			int nounPicker = RandomHelper::random_int(0, 9);
-			int otherPicker = RandomHelper::random_int(0, 9);
+			int set1Size = (_set1.size() - 1);
+			int set2Size = (_set2.size() - 1);
+			int nounPicker = RandomHelper::random_int(0, set1Size);
+			int otherPicker = RandomHelper::random_int(0, set2Size);
 
             auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
@@ -1169,8 +1187,10 @@ void BalloonHero::generateObjectsAndMove() {
 
 		if (numberPicker == 5 || numberPicker == 1 || numberPicker == 0) {
 			
-			int nounPicker = RandomHelper::random_int(0, 9);
-			int otherPicker = RandomHelper::random_int(0, 9);
+			int set1Size = (_set1.size() - 1);
+			int set2Size = (_set2.size() - 1);
+			int nounPicker = RandomHelper::random_int(0, set1Size);
+			int otherPicker = RandomHelper::random_int(0, set2Size);
 
 			auto label = CommonText::create();
 			if (numberPicker == 5 || numberPicker == 1) {
@@ -1460,8 +1480,8 @@ void BalloonHero::update(float delta) {
 		//_menuContext->addPoints(1);
 		_totalHit++;
 		_cloud1->setVisible(false);
-
-
+		labelPronounce(((CommonText*)_cloud1->getChildren().at(0))->getString());
+		
 		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		//audio->playEffect("sounds/baloonhero/pop_balloon.ogg", false);
 
@@ -1478,7 +1498,8 @@ void BalloonHero::update(float delta) {
 		//_menuContext->addPoints(1);
 		_totalHit++;
 		_cloud2->setVisible(false);
-
+		labelPronounce(((CommonText*)_cloud2->getChildren().at(0))->getString());
+		
 		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		//audio->playEffect("sounds/baloonhero/pop_balloon.ogg", false);
 
@@ -1494,7 +1515,7 @@ void BalloonHero::update(float delta) {
 		//_menuContext->addPoints(1);
 		_totalHit++;
 		_cloud3->setVisible(false);
-
+		labelPronounce(((CommonText*)_cloud3->getChildren().at(0))->getString());
 		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		//audio->playEffect("sounds/baloonhero/pop_balloon.ogg", false);
 
@@ -1510,6 +1531,7 @@ void BalloonHero::update(float delta) {
 		//_menuContext->addPoints(1);
 		_totalHit++;
 		_cloud4->setVisible(false);
+		labelPronounce(((CommonText*)_cloud4->getChildren().at(0))->getString());
 
 		//auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 		//audio->playEffect("sounds/baloonhero/pop_balloon.ogg", false);
