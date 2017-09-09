@@ -184,20 +184,16 @@ void Memory::gameBegin(cocos2d::EventCustom *eventCustom) {
 	_memoryfarm->setAnchorPoint(Vec2(0.5, 0.5));
 	addChild(_memoryfarm);
 
-	
-
 	generateGrid(_finalGridIds);
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryfarm/memoryfarm.plist");
 
-
-
-	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-		_data_key.push_back(it->first);
+	for (int i = 0; i < vmc.size();i++) {
+		_data_key.push_back(vmc[i].question);
 	}
 
-	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-		_data_value.push_back(it->second);
+	for (int i = 0; i < vmc.size(); i++) {
+		_data_value.push_back(vmc[i].answers[vmc[i].correctAnswer]);
 	}
 
 

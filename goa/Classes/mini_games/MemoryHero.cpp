@@ -182,13 +182,15 @@ void MemoryHero::gameBegin(cocos2d::EventCustom *eventCustom) {
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryhero/memoryhero.plist");
 
-	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-		_data_key.push_back(it->first);
+
+	for (int i = 0; i < vmc.size(); i++) {
+		_data_key.push_back(vmc[i].question);
 	}
 
-	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-		_data_value.push_back(it->second);
+	for (int i = 0; i < vmc.size(); i++) {
+		_data_value.push_back(vmc[i].answers[vmc[i].correctAnswer]);
 	}
+
 
 	generateRandomNumbers();
 
