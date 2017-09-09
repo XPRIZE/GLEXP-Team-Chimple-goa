@@ -120,8 +120,8 @@ bool Pillar::init()
 }
 void Pillar::onEnterTransitionDidFinish() {
 	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Pillar::startGame, this));
-
-	_lesson.getBag(1, 2, 7, 10, 10);
+	auto complexity = 2.0f + std::floor((((float)menu->getCurrentLevel() / 50.0f) * 7.0f));
+	_lesson.getBag(1, 2, (int)complexity, 10, 10);
 }
 
 void Pillar::startGame(cocos2d::EventCustom *eventCustom)

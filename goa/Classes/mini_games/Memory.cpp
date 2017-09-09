@@ -78,7 +78,7 @@ Memory *Memory::create() {
 void Memory::onEnterTransitionDidFinish() {
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(Memory::gameBegin, this));
 	_finalGridIds.resize(0);
-    auto complexity = _menuContext->getCurrentLevel() / 36.0;
+	auto complexity = (float)_menuContext->getCurrentLevel() / 50.0f;
 	if (complexity >= 0.0f && complexity <= 0.15f) {
 		_gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size);
 		_gridTwoByTwoIds = { 9, 10, 15, 16 };
