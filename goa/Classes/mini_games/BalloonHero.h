@@ -43,6 +43,7 @@ CC_CONSTRUCTOR_ACCESS:
 	void removeMeteor4Animation();
 	void gameStart(cocos2d::EventCustom *eventCustom);
 	void onEnterTransitionDidFinish() override;
+	void labelPronounce(std::string str);
 	HelpLayer * _help;
 	static const char* classname() { return BALLONHERO.c_str(); }
 protected:
@@ -54,6 +55,7 @@ protected:
 	bool animationTwoFlag =  true;
 	bool animationThreeFlag = true;
 	bool animationFourFlag = true;
+	bool _pronounceFlag = true;
 
 	int _labelFontSize = 150;
 	bool _flag1 = true, _flag2 = true, _flag3 = true, _flag4 = true;

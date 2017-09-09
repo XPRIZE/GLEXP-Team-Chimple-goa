@@ -29,11 +29,13 @@ bool Bingo::init()
 
 void Bingo::onEnterTransitionDidFinish()
 {
-	if (_lesson.getComplexity() >= 0.0f && _lesson.getComplexity() <= 0.33f)
+	auto complexity = ((float)_menuContext->getCurrentLevel()) / 50.0f;
+
+	if (complexity >= 0.0f && complexity <= 0.33f)
 	{
 		_gridDimension = 0; _pairNo = 9;
 	}
-	else if (_lesson.getComplexity() >= 0.34f && _lesson.getComplexity() <= 0.66f)
+	else if (complexity >= 0.34f && complexity <= 0.66f)
 	{
 		_gridDimension = 1; _pairNo = 16;
 	}
@@ -267,7 +269,7 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 	}
 
 	// _data = MatrixUtil::questionToAnswerMapping(vmc);
-	auto dataMapping = MatrixUtil::questionToAnswerMapping(vmc);
+	auto dataMapping = MatrixUtil::questionToAnswerVector(vmc);
 	_labelPrefix = vmc[0].help + " : ";
 
 	/*	 for (int i = 0; i < _pairNo; i++)
@@ -377,12 +379,12 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 		bingoBackground->setPositionX(myGameWidth);
 	}
 
-	for (std::map<std::string, std::string>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
+	for (vector<pair<string, string>>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
 		_data_keys.push_back(it->first);
 	}
 	_data_values.clear();
 	_data_values.resize(0);
-	for (std::map<std::string, std::string>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
+	for (vector<pair<string, string>>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
 		_data_values.push_back(it->second);
 	}
 
