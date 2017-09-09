@@ -39,7 +39,7 @@ public class UserRepo {
         SharedPreferences sharedPref = context.getSharedPreferences(
                 context.getString(R.string.preference_file_key),
                 Context.MODE_PRIVATE);
-        Long userId = sharedPref.getLong(context.getString(R.string.user_id), 0);
+        Long userId = sharedPref.getLong("user_id", 0);
         User user = db.userDao().getUserById(userId);
         return user;
     }
