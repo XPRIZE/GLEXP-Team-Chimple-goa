@@ -96,13 +96,13 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 	auto indexCream = getRandomValueRange(1, 9, 4);
 	float positionX[] = { 0.20 , 0.40 , 0.60 , 0.80};
 
-    auto mapping = MatrixUtil::questionToAnswerMapping(vmc);
+    auto mappingVector = MatrixUtil::questionToAnswerVector(vmc);
     vector<string> coneLetter, creamLetter;
 	
 	
-	for (std::map<std::string, std::string>::iterator it = mapping.begin(); it != mapping.end(); ++it) {
-		CCLOG("map -> key :%s , value :%s",it->first.c_str(),it->second.c_str());
-	}
+	//for (std::map<std::string, std::string>::iterator it = mapping.begin(); it != mapping.end(); ++it) {
+	//	CCLOG("map -> key :%s , value :%s",it->first.c_str(),it->second.c_str());
+	//}
 
 	// Get all Upper and Lower Case from API ....
 	for (int i = 0; i < vmc.size(); i++) {
@@ -110,8 +110,8 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 		creamLetter.push_back(vmc[i].answers[vmc[i].correctAnswer]);
 	}
 
-    std::random_shuffle(coneLetter.begin(),coneLetter.end());
-    std::random_shuffle(creamLetter.begin(), creamLetter.end());
+    //std::random_shuffle(coneLetter.begin(),coneLetter.end());
+   // std::random_shuffle(creamLetter.begin(), creamLetter.end());
 	 
 	auto size = Director::getInstance()->getVisibleSize();
 	for (size_t i = 0; i < indexCream.size(); i++) {
@@ -123,8 +123,8 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 		addChild(cone);
 
 		// coneAlphabet and Text config ...
-		auto coneText = createText(coneLetter[i], mapping.at(coneLetter[i]) ,0,0);
-		cone->setName(mapping.at(coneLetter[i]));
+		auto coneText = createText(coneLetter[i], coneLetter[i],0,0);
+		cone->setName(coneLetter[i]);
 		cone->setTag( 100 + i);
 		cone->addChild(coneText);
 
