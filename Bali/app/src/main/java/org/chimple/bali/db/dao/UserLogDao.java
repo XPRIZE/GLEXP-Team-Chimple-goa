@@ -30,6 +30,12 @@ public interface UserLogDao {
     @Query("SELECT * FROM UserLog WHERE loggedAt > :loggedAt")
     public UserLog[] getUserLogsAfter(Date loggedAt);
 
+    @Query("SELECT * FROM UserLog")
+    public UserLog[] getUserLogs();
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public Long insertUserLog(UserLog userLog);
+
+    @Query("DELETE FROM UserLog")
+    public void deleteAllUserLogs();
 }

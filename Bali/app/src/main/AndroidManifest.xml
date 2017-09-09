@@ -3,8 +3,12 @@
     package="org.chimple.bali">
 
     <permission android:name="org.chimple.bali.provider.READ_WRITE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
+        android:name=".application.BaliApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -49,7 +53,6 @@
             android:authorities="org.chimple.bali.provider"
             android:exported="true"
             android:permission="org.chimple.bali.provider.READ_WRITE"/>
-
     </application>
 
 </manifest>

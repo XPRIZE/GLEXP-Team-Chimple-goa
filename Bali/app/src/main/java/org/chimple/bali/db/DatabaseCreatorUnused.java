@@ -89,7 +89,7 @@ public class DatabaseCreatorUnused {
                 AppDatabase db = Room.databaseBuilder(context.getApplicationContext(),
                         AppDatabase.class, AppDatabase.DATABASE_NAME).build();
 
-                // Add a delay to simulate a long-running operation
+                // Add a delay to simulate a long-running org.chimple.bali.operation
                 // addDelay();
 
                 // Add some data to the database

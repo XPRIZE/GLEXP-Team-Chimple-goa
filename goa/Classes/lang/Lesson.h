@@ -15,6 +15,9 @@
 using namespace std;
 USING_NS_CC;
 
+static const int ANY_FORMAT = 0;
+static const int UPPER_CASE_LETTER_FORMAT = 1;
+
 class Lesson
 {
 public:
@@ -43,7 +46,7 @@ public:
         int correctAnswer;
     } MultiChoice;
 
-    std::vector<MultiChoice> getMultiChoices(int lessons = 1, int choices = 4, int answerFormat = 0, int choiceFormat = 0);
+    std::vector<MultiChoice> getMultiChoices(int lessons = 1, int choices = 4, int answerFormat = ANY_FORMAT, int choiceFormat = ANY_FORMAT);
     
     typedef struct _Bag
     {

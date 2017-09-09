@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity {
                 Log.v(a.packageName, intent.toString());
             }
         }
-
         //TODO: for now force the creation here
         AppDatabase.getInstance(this);
         IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);

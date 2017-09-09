@@ -20,6 +20,7 @@ import org.chimple.bali.repo.UserLessonRepo;
 import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.repo.UserUnitRepo;
 import org.chimple.bali.ui.FlashCardAdapter;
+import org.chimple.bali.viewmodel.CardStatusViewModel;
 import org.chimple.bali.viewmodel.FlashCardViewModel;
 
 public class LessonActivity extends LifecycleActivity {
@@ -28,6 +29,7 @@ public class LessonActivity extends LifecycleActivity {
     private int mCurrentCardIndex;
     private Long mLessonId;
     private int mScore;
+    private FloatingActionButton mFab;
 
     @Override
     public void onBackPressed() {
@@ -53,62 +55,36 @@ public class LessonActivity extends LifecycleActivity {
             if(flashCards != null) {
                 final FlashCardAdapter flashCardAdapter = new FlashCardAdapter(this, flashCards);
                 mFlashCardView.setAdapter(flashCardAdapter);
-//                Object object = flashCardAdapter.getItem(0);
-//                if(object instanceof FlashCard) {
-//                    FlashCard flashCard = (FlashCard) object;
-//                    UserUnitRepo.createOrUpdateUserUnit(this, flashCard.objectUnit.id, -1);
-//                    if (flashCards.get(0).subjectUnit != null) {
-//                        UserUnitRepo.createOrUpdateUserUnit(this, flashCard.subjectUnit.id, -1);
-//                    }
-//                    UserLogRepo.logEntity(this, UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.STOP_EVENT);
-//                }
                 mProgressBar.setMax(flashCardAdapter.getCount());
                 mProgressBar.setProgress(0);
 
-                final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
-                fab.setOnClickListener(new View.OnClickListener() {
+                mFab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+                mFab.hide();
+                mFab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-//                        Object object = flashCardAdapter.getItem(mCurrentCardIndex);
-//                        if(object instanceof FlashCard) {
-//                            FlashCard flashCard = (FlashCard) object;
-//                            UserLogRepo.logEntity(view.getContext(), UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.STOP_EVENT);
-//                        }
                         if(++mCurrentCardIndex >= flashCardAdapter.getCount()) {
                             LessonRepo.markNextLesson(LessonActivity.this);
                             finish();
                         } else {
                             mFlashCardView.advance();
-//                            if(object instanceof FlashCard) {
-//                                FlashCard flashCard = (FlashCard) object;
-//                                UserLogRepo.logEntity(view.getContext(), UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.START_EVENT);
-//                            }
                             mProgressBar.incrementProgressBy(1);
+                            CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(LessonActivity.this).get(CardStatusViewModel.class);
+                            cardStatusViewModel.viewed(false);
                         }
                     }
                 });
 
             }
         });
-
-        //Testing
-//        Cursor cursor = getContentResolver().query(
-//                LessonContentProvider.URI_MULTIPLE_CHOICE_QUIZ,
-//                null,
-//                null,
-//                new String[]{"2", "2"},
-//                null
-//        );
-//        if(cursor == null) {
-//
-//        } else if (cursor.getCount() < 1) {
-//            String[] columnNames = cursor.getColumnNames();
-//            while (cursor.moveToNext()) {
-//                String a = cursor.getString(0);
-//            }
-//        } else {
-//
-//        }
+        CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(this).get(CardStatusViewModel.class);
+        cardStatusViewModel.getViewed().observe(this, viewed -> {
+            if(viewed) {
+                mFab.show();
+            } else {
+                mFab.hide();
+            }
+        });
     }
 
     @Override

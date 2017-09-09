@@ -111,7 +111,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     try {
                         while ((line = bufferedReader.readLine()) != null) {
                             String[] columns = line.split(",");
-                            if(columns.length < 1) {
+                            if (columns.length < 1) {
                                 Log.d("AppDatabase", "Skipping bad row");
                             }
                             switch (columns[0]) {
@@ -170,16 +170,14 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
 
-/**
- * Switches the internal implementation with an empty in-memory database.
- *
- * @param context The context.
- */
-@VisibleForTesting
-public static void switchToInMemory(Context context){
-        sInstance=Room.inMemoryDatabaseBuilder(context.getApplicationContext(),
-        AppDatabase.class).build();
-        }
-
-
-        }
+    /**
+     * Switches the internal implementation with an empty in-memory database.
+     *
+     * @param context The context.
+     */
+    @VisibleForTesting
+    public static void switchToInMemory(Context context) {
+        sInstance = Room.inMemoryDatabaseBuilder(context.getApplicationContext(),
+                AppDatabase.class).build();
+    }
+}
