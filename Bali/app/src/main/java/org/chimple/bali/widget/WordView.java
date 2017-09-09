@@ -30,6 +30,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.design.widget.FloatingActionButton;
+import android.text.Html;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -103,7 +104,7 @@ public class WordView extends FrameLayout{
         View view = inflate(getContext(), R.layout.word, null);
         addView(view);
         TextView wordView = (TextView) findViewById(R.id.word);
-        wordView.setText(word.name);
+        wordView.setText(Html.fromHtml("<b>"+word.name+"</b><i>h</i>"));
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
         try

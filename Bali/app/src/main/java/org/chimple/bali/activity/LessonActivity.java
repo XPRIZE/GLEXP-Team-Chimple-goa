@@ -69,6 +69,8 @@ public class LessonActivity extends LifecycleActivity {
                         } else {
                             mFlashCardView.advance();
                             mProgressBar.incrementProgressBy(1);
+                            CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(LessonActivity.this).get(CardStatusViewModel.class);
+                            cardStatusViewModel.viewed(false);
                         }
                     }
                 });
@@ -79,6 +81,8 @@ public class LessonActivity extends LifecycleActivity {
         cardStatusViewModel.getViewed().observe(this, viewed -> {
             if(viewed) {
                 mFab.show();
+            } else {
+                mFab.hide();
             }
         });
     }
