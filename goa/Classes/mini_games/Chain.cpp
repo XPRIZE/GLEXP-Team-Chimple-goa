@@ -188,7 +188,7 @@ Chain* Chain::create() {
 void Chain::createAnswer() {
 	auto label = CommonText::create();
 	label->setString(_word);
-	label->setFontSize(200);
+	label->setFontSize(std::max(float(50.0), float(200 - (_word.length() - 1) * 10)));
 	_answer = Node::create();
 	_answer->addChild(label);
 	_answer->setPosition(Vec2(visibleSize.width / 2, visibleSize.height*.935));
@@ -285,12 +285,12 @@ bool ChainGrid::init(GLfloat width, GLfloat height, int numRows, int numCols, st
 	return true;
 }
 
-Grapheme* ChainGrid::createGrapheme(std::string graphemeString) {
-	return ChainGrapheme::create(graphemeString);
+Grapheme* ChainGrid::createGrapheme(std::string graphemeString, float size) {
+	return ChainGrapheme::create(graphemeString, size);
 }
 
-Grapheme* ChainGrid::createAndAddGrapheme(std::string graphemeString) {
-	auto grapheme = createGrapheme(graphemeString);
+Grapheme* ChainGrid::createAndAddGrapheme(std::string graphemeString, float size) {
+	auto grapheme = createGrapheme(graphemeString, size);
 	addChild(grapheme);
 	if (!_graphemeUnselectedBackground.empty()) {
 		auto bg = Sprite::createWithSpriteFrameName(_graphemeUnselectedBackground);
@@ -313,9 +313,9 @@ Grapheme* ChainGrid::createAndAddGrapheme(std::string graphemeString) {
 }
 
 
-ChainGrapheme* ChainGrapheme::create(std::string graphemeString) {
+ChainGrapheme* ChainGrapheme::create(std::string graphemeString, float size) {
 	ChainGrapheme *grapheme = new (std::nothrow) ChainGrapheme();
-	if (grapheme && grapheme->init(graphemeString)) {
+	if (grapheme && grapheme->init(graphemeString, size)) {
 		grapheme->autorelease();
 		return grapheme;
 	}
@@ -323,8 +323,8 @@ ChainGrapheme* ChainGrapheme::create(std::string graphemeString) {
 	return nullptr;
 }
 
-bool ChainGrapheme::init(std::string graphemeString) {
-	if (!Grapheme::init(graphemeString)) {
+bool ChainGrapheme::init(std::string graphemeString, float size) {
+	if (!Grapheme::init(graphemeString, size)) {
 		return false;
 	}
 	return true;

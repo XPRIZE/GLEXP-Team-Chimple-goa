@@ -56,6 +56,17 @@ void GraphemeGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
     _width = width;
     _height = height;
     
+    long maxCharLen = 1;
+    for (int i = 0; i < _numRows; i++) {
+        for (int j = 0; j < _numCols; j++) {
+            if(maxCharLen < graphemes.at(i).at(j).length()) {
+                maxCharLen = graphemes.at(i).at(j).length();
+            }
+        }
+    }
+    
+    const float fontSize = std::max(float(50.0), float(200 - (maxCharLen - 1) * 30));
+    
     const float squareWidth = width / numCols;
     const float squareHeight = height / numRows;
     _graphemeMatrix.clear();
@@ -67,7 +78,7 @@ void GraphemeGrid::resize(GLfloat width, GLfloat height, int numRows, int numCol
                 tile->setPosition(Vec2((j + 0.5) * squareWidth, (i + 0.5) * squareHeight));
                 _tileLayer->addChild(tile);
             }
-            auto grapheme = createAndAddGrapheme(graphemes.at(i).at(j));
+            auto grapheme = createAndAddGrapheme(graphemes.at(i).at(j), fontSize);
             grapheme->setPosition(Vec2((j + 0.5) * squareWidth, (i + 0.5) * squareHeight));
             grapheme->touchEndedCallback = CC_CALLBACK_2(GraphemeGrid::onTouchEnded, this);
             _graphemeMatrix.at(i).at(j) = grapheme;
@@ -98,12 +109,12 @@ void GraphemeGrid::setGraphemeUnselectedBackground(std::string spriteName) {
     _graphemeUnselectedBackground = spriteName;
 }
 
-Grapheme* GraphemeGrid::createGrapheme(std::string graphemeString) {
-	return Grapheme::create(graphemeString);
+Grapheme* GraphemeGrid::createGrapheme(std::string graphemeString, float size) {
+	return Grapheme::create(graphemeString, size);
 }
 
-Grapheme* GraphemeGrid::createAndAddGrapheme(std::string graphemeString) {
-	auto grapheme = createGrapheme(graphemeString);
+Grapheme* GraphemeGrid::createAndAddGrapheme(std::string graphemeString, float size) {
+	auto grapheme = createGrapheme(graphemeString, size);
     addChild(grapheme);
     if(!_graphemeUnselectedBackground.empty()) {
         auto bg = Sprite::createWithSpriteFrameName(_graphemeUnselectedBackground);
