@@ -25,7 +25,7 @@ public:
 	}p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p100, p101, p102, p103;
 
 	static float height, width, originX, originY;
-	static int _totalHit;
+	static int _totalHit, _maxLengthOfQuestion, _maxLengthOfAnswer;
 	int _score = 0;
 
 	MainGame();
@@ -39,16 +39,16 @@ public:
 	std::vector<Position> lettertmpPosition;
 
 	static std::vector<LabelClass*> cannonLetter;
-	static std::vector<Alphabet*> cannonLetter_actualImage;
+	static std::vector<LabelTTF*> cannonLetter_actualImage;
 
 	static std::vector<LabelClass*> bulletArray;
-	static std::vector<Alphabet*> bulletArray_actualImage;
+	static std::vector<LabelTTF*> bulletArray_actualImage;
 	static std::vector<cocos2d::Node*> bulletArray_Animation;
 
 	static std::vector<EventListenerClass*> cannonArray;
 	static std::vector<EventListenerClass*> cannon_ballArray;
 
-	static std::vector<Alphabet*> meteorArray_actualImage;
+	static std::vector<LabelTTF*> meteorArray_actualImage;
 	static std::vector<EventListenerClass*> letterArray;
 	static std::vector<LabelClass*> meteorArray;
 
@@ -56,6 +56,9 @@ public:
 	static HelpLayer *_help;
 	static Node *meteor_meteor_strike_node;
 	static cocostudio::timeline::ActionTimeline *meteor_meteor_strike_timeline;
+
+	vector<Lesson::MultiChoice> _vmc;
+	
 
 	static CocosDenshion::SimpleAudioEngine* audioBg;
 
@@ -74,9 +77,13 @@ public:
 	void cannonLetterCome();
 	void letterCome(float d);
 	void removeLetter(EventListenerClass *);
-	void removeFire(EventListenerClass *, Alphabet *, Node *);
+	void removeFire(EventListenerClass *, LabelTTF*, Node *);
 	virtual bool init();
 	void update(float dt);
+
+	bool checkAnswer(string boardText, string choiceText);
+
+	int getMaxWordLength(std::vector<string> wordVector);
 
 	void displayHelp();
 
@@ -84,7 +91,8 @@ public:
 
 	// _revampToNewLessonGame
 
-	std::vector<std::vector<std::string>> _mainChars;
+	std::vector<std::vector<std::string>> _mainQuestions;
+	std::vector<std::vector<std::string>> _mainAnswers;
 	
 	//
 
