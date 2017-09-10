@@ -33,6 +33,7 @@ protected:
 	MenuContext *_menuContext;
 	bool _touchFlag = true;
 	int _counterGameDone = 0 , _counterTotalHit = 0 , _counterWorng = 0;
+	vector<Lesson::MultiChoice> _vmc;
 
 public:
     BasicLetterCase();
@@ -45,6 +46,7 @@ public:
 	void setSpriteProperties(Node * ImageObject, float positionX, float positionY, float scale, float anchorX, float anchorY, float rotation, int zorder);
 	CommonLabelTTF* createText(string text, string name, float positionX, float positionY);
 	void createIceCreams(cocos2d::EventCustom *eventCustom);
+	bool checkAnswer(string creamText, string coneText);
 	vector<int> getLettersAccordingToLevels();
 	void addEventsOnCream(cocos2d::Sprite * callerObject);
 	void GameDone();
