@@ -387,12 +387,22 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, vector<string> displayWord) 
 
 	float xPosi = initSpace + letterbox->getContentSize().width/2;
 
+	int maxLengthText = 0;
+	for (int i = 0; i < displayWord.size(); i++) {
+
+		if (maxLengthText < displayWord[i].length()) {
+			maxLengthText = displayWord[i].length();
+		}
+	}
+
 	for (int i = 0; i <= (displayWord.size() - 1); i++) {
 		auto letterGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridOrange"));
 		auto hideGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("hideOrange"));
 
 		auto label = CommonLabelTTF::create(displayWord[i], "Helvetica", letterGrid->getContentSize().height*0.8);
 		letterGrid -> setPosition(Vec2(xPosi, blockObject->getContentSize().height *0.45));
+		label->setFontSize(std::max(float(20.0), float((letterGrid->getContentSize().height*0.8) - (maxLengthText - 1) * 17)));
+
 		label->setPosition(Vec2(letterGrid->getContentSize().width/2, letterGrid->getContentSize().height /2));
 		xPosi = xPosi + indiSpace + letterGrid->getContentSize().width;
 		std::ostringstream blockName;	blockName << "blockLevel1" << blockLevel; std::string blockNameInString = blockName.str();
@@ -514,7 +524,7 @@ void Owl::createGrid() {
 				auto textSize = gridObject->getContentSize().width * 0.8;
 
 				auto label = CommonLabelTTF::create(bag[counter], "Helvetica", textSize);
-				label->setFontSize(std::max(float(30.0), float(textSize - (maxLengthText - 1) * 15)));
+				label->setFontSize(std::max(float(30.0), float(textSize - (maxLengthText - 1) * 17)));
 				label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
 				label->setColor(Color3B::WHITE);
 				label->setName(bag[counter]);
