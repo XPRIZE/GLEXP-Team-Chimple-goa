@@ -378,14 +378,15 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
 		bingoBackground->setPositionX(myGameWidth);
 	}
-
-	for (vector<pair<string, string>>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
-		_data_keys.push_back(it->first);
-	}
 	_data_values.clear();
 	_data_values.resize(0);
 	for (vector<pair<string, string>>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
-		_data_values.push_back(it->second);
+		_data_values.push_back(it->first);
+	}
+	_data_keys.clear();
+	_data_keys.resize(0);
+	for (vector<pair<string, string>>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
+		_data_keys.push_back(it->second);
 	}
 	/*_data_keys = { "A", "A", "A", "A", "A", "A", "A", "A", "A" };
 	_data_values = { "App", "Apple", "Adog","Acat","Amat","AMCAT","Aball","Abat","Ahorse" };*/
