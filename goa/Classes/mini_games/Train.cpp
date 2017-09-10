@@ -39,7 +39,7 @@ bool Train::init()
 
 void Train::onEnterTransitionDidFinish() {
 	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Train::startGame, this));
-	auto complexity = 2 + std::floor((((float)_menuContext->getCurrentLevel() / 50.0f) * 7.0f));
+	auto complexity = 4 + std::floor((((float)_menuContext->getCurrentLevel() / 50.0f) * 7.0f));
 	_lesson.getBag(1, 3, complexity, 10, 10);
 }
 
