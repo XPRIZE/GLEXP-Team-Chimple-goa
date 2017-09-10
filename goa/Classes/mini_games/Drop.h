@@ -48,6 +48,8 @@ protected:
 	std::string _labelPrefix = "";
 	bool _isGameDone = false, _stopMovingHelpObject = false;
 	std::vector<std::string> _choices;
+	int _maxLengthOfChoice, _maxLengthOfLayoutWord;
+
 	
 
 public:
@@ -81,6 +83,7 @@ public:
 	std::string getConvertInUpperCase(std::string data);
 	string getConvertVectorStringIntoString(vector<string> value);
 	static const char* gameName() { return DROP.c_str(); }
+	int getMaxWordLength(std::vector<string>);
 };
 
 #endif // __DROP_SCENE_H__
