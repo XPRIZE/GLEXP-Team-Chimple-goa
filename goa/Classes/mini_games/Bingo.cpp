@@ -498,7 +498,8 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 		addY = addY + box->getBoundingBox().size.height + _boxBoard->getBoundingBox().size.width *0.013;
 		addX = _boxBoard->getBoundingBox().size.width * _gridBasedValue.at("addXFactor");
 	}
-	if (_menuContext->getCurrentLevel() == 1)
+	bool flagForOut = false;
+	if (_menuContext->getCurrentLevel() == 1 )
 	{
 		for (int i = 0; i < _boxContainer.size(); i++)
 		{
@@ -509,8 +510,13 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 				if (str.compare(str1) == 0)
 				{
 					creatHelp(_boxContainer[i][j], _helpBoard, i, j);
+					flagForOut = true;
 				}
+				if(flagForOut)
+					break;
 			}
+				if(flagForOut)
+					break;
 		}
 	}
 	/*Vector <Node*> children = bingoBackground->getChildren().at(0)->getChildren();
