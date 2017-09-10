@@ -16,21 +16,11 @@
 
 package org.chimple.bali.widget;
 
-import android.animation.ObjectAnimator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
 import android.content.Context;
-import android.content.res.Configuration;
-import android.graphics.Rect;
-import android.support.annotation.IntDef;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
-import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterViewFlipper;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.ViewSwitcher;
 
 import org.chimple.bali.R;
 import org.chimple.bali.db.entity.Unit;
@@ -39,15 +29,38 @@ import org.chimple.bali.db.pojo.FlashCard;
 import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.repo.UserUnitRepo;
 
-import static org.chimple.bali.R.id.floatingActionButton;
-
 public class FlashCardView extends FrameLayout {
     private FlashCard mFlashCard;
+    private View aView;
+    private View bView;
+    private boolean isShowingAView = true;
 
     private final OnClickListener mOnClickListener = new OnClickListener() {
         @Override
         public void onClick(View view) {
-//            showNext();
+            AnimatorSet setOut = (AnimatorSet) AnimatorInflater.loadAnimator(view.getContext(),
+                    R.animator.card_flip_right_out);
+            AnimatorSet setIn = (AnimatorSet) AnimatorInflater.loadAnimator(view.getContext(),
+                    R.animator.card_flip_right_in);
+            AnimatorSet setFlip;
+            if(isShowingAView) {
+                setOut.setTarget(aView);
+                setIn.setTarget(bView);
+                setFlip = (AnimatorSet) AnimatorInflater.loadAnimator(view.getContext(),
+                        R.animator.card_flip_back);
+                isShowingAView = false;
+            } else {
+                setOut.setTarget(bView);
+                setIn.setTarget(aView);
+                setFlip = (AnimatorSet) AnimatorInflater.loadAnimator(view.getContext(),
+                        R.animator.card_flip_front);
+                isShowingAView = true;
+            }
+
+            setFlip.setTarget(FlashCardView.this);
+            AnimatorSet set = new AnimatorSet();
+            set.playTogether(setIn, setOut, setFlip);
+            set.start();
         }
     };
 
@@ -76,21 +89,17 @@ public class FlashCardView extends FrameLayout {
         mFlashCard = flashCard;
         UserLogRepo.logEntity(context, UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.START_EVENT);
 
-        View subjectView = getView(context, mFlashCard.subjectUnit);
-        addView(subjectView);
+        aView = getView(context, mFlashCard.subjectUnit);
+        addView(aView);
         UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.subjectUnit.id, UserLog.START_EVENT);
         
         if(mFlashCard.objectUnit != null) {
-            View objectView = getView(context, mFlashCard.objectUnit);
-            addView(objectView);
+            bView = getView(context, mFlashCard.objectUnit);
+            addView(bView);
+            bView.setAlpha(0);
+            bView.setRotationY(180);
             UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.objectUnit.id, UserLog.START_EVENT);
         }
-//        setInAnimation(context, R.anim.card_flip_right_in);
-//        setInAnimation(context, R.animator.card_flip_right_in);
-//        setOutAnimation(context, R.animator.card_flip_right_out);
-//        setInAnimation(ObjectAnimator.ofFloat(this, "rotationY", 180, 0));
-//        setOutAnimation(context, R.anim.card_flip_right_out);
-
         setOnClickListener(mOnClickListener);
     }
 
