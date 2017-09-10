@@ -20,6 +20,7 @@ public:
 	~PatchTheWall();
 	MenuContext *_menuContext;
 
+	vector<Lesson::MultiChoice> _vmc;
 	cocos2d::Node *_patchBg;
 	cocos2d::ui::Slider * _slideBar;
 	cocos2d::Size visibleSize;
@@ -52,6 +53,7 @@ public:
 	void addEvents(struct SpriteDetails);
 	void blastCome(float);
 	void letterCome(Node *blastNode, int);
+	bool checkAnswer(string creamText, string coneText);
 	void onEnterTransitionDidFinish() override;
 	void gameBegin(cocos2d::EventCustom * eventCustom);
     CREATE_FUNC(PatchTheWall);

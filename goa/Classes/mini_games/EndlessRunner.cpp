@@ -843,7 +843,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		}
 
 		auto label = Alphabet::createWithSize(str, 300);
-		label->setBMFontSize(std::max(float(50.0), float(300 - (str.length() - 1) * 10)));
+		label->setBMFontSize(std::max(float(50.0), float(300 - (str.length() - 1) * 15)));
 		label->setName(str);
 		label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 		label->setTag(Character.uniqueId);
