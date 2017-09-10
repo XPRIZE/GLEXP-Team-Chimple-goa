@@ -168,7 +168,7 @@ void MemoryJungle::gameBegin(cocos2d::EventCustom *eventCustom) {
 	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
-
+	_vmc = vmc;
 	for (int i = 0; i < vmc.size(); i++) {
 		CCLOG("vmc : %d question -> %s , correctAnswer index : %d  , correctAnswer value : %s", i, vmc[i].question.c_str(), vmc[i].correctAnswer, vmc[i].answers[vmc[i].correctAnswer].c_str());
 		for (int j = 0; j < vmc[i].answers.size(); j++) {
@@ -530,17 +530,17 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 
 								addGrid(visibleSize.width / 2, visibleSize.height, visibleSize.width / 2, visibleSize.height / 2);
 								auto heightpercent = 0.90;
-								for (auto& x : _data) {
+								for (int i = 0; i < _data_key.size(); i++) {
 									cocos2d::ui::Text * _label;
 
 
 									_label = CommonText::create();
 									_label->setFontName("fonts/BalooBhai-Regular.ttf");
 
-									auto first = x.first;
-									auto second = x.second;
+									auto first = _data_key[i];
+									auto second = _data_value[i];
 									if (first.length() != 0 && second.length() != 0) {
-										_label->setString(x.first + " ------- " + x.second);
+										_label->setString(first + " ------- " +second);
 										_label->setFontSize(60);
 
 										_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * heightpercent));
@@ -753,14 +753,36 @@ bool MemoryJungle::checkMatch() {
 	std::string str1 = _currentSelectedNestNames[0];
 	std::string str2 = _currentSelectedNestNames[1];
 
-	if (_data[str1] == str2 || _data[str2] == str1) {
-		
-		_level++;
-		return true;
+	int strStatus = 1;
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		if (str1 == _vmc[i].question) {
+			strStatus = 0;
+		}
 	}
+
+	if (strStatus == 0) {
+		return checkAnswer(str1, str2);
+	}
+	else {
+		return checkAnswer(str2, str1);
+	}
+
 	return false;
 }
 
+bool MemoryJungle::checkAnswer(string questionText, string answerText) {
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		if (_vmc[i].question.compare(questionText) == 0) {
+			if (_vmc[i].answers[_vmc[i].correctAnswer].compare(answerText) == 0) {
+				_level++;
+				return true;
+			}
+		}
+	}
+	return false;
+}
 
 
 void MemoryJungle::chickenFly() {
@@ -827,10 +849,10 @@ void MemoryJungle::removecurrentlabelsandlisteners() {
 
 void MemoryJungle::generateRandomNumbers() {
 
-	int a = _data.size();
+	int a = _data_value.size();
 	//std::vector<int> randomIndex;
 	_randomIndex.clear();
-	while (_randomIndex.size() != _data.size()) {
+	while (_randomIndex.size() != _data_value.size()) {
 		bool duplicateCheck = true;
 		int numberPicker = RandomHelper::random_int(0, a - 1);
 		for (int i = 0; i < _randomIndex.size(); i++) {
