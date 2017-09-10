@@ -1,11 +1,14 @@
 package org.chimple.bali.activity;
 
+import android.animation.ObjectAnimator;
 import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.view.Display;
 import android.view.View;
 import android.widget.AdapterViewAnimator;
 import android.widget.ProgressBar;
@@ -43,6 +46,13 @@ public class LessonActivity extends LifecycleActivity {
         mFlashCardView = (AdapterViewAnimator) findViewById(R.id.flash_card_view);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
+//        mFlashCardView.setInAnimation(getApplicationContext(), R.animator.left_to_right);
+//        mFlashCardView.setOutAnimation(getApplicationContext(), R.animator.left_to_right_out);
+        Display display = getWindowManager().getDefaultDisplay();
+        Point point = new Point();
+        display.getSize(point);
+        mFlashCardView.setInAnimation(ObjectAnimator.ofFloat(mFlashCardView, "translationX", point.x, 0));
+        mFlashCardView.setOutAnimation(ObjectAnimator.ofFloat(mFlashCardView, "translationX", 0, -point.x));
         Intent intent = getIntent();
         mLessonId = intent.getLongExtra(MainActivity.EXTRA_MESSAGE, 0);
         FlashCardViewModel.Factory factory =

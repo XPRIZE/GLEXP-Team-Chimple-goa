@@ -32,6 +32,7 @@ import android.support.annotation.StyleRes;
 import android.support.design.widget.FloatingActionButton;
 import android.text.Html;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -78,6 +79,7 @@ public class WordView extends FrameLayout{
             }
         }
     };
+
     public WordView(@NonNull Context context, Unit word) {
         super(context);
         initView(context, word);

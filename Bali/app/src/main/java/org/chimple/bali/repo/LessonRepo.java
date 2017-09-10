@@ -162,19 +162,12 @@ public class LessonRepo {
             ArrayList<Integer> quizList = new ArrayList<Integer>();
             Set<String> choiceSet = new HashSet<String>(lucs.length);
             Map<String, String[]> wordMap = new HashMap<String, String[]>(lucs.length);
-            for (int i = 0; i < lucs.length; i++) {
-                String word = lucs[i].objectUnit.name;
-                String[] letters = new String[word.length()];
-                for (int s = 0; s < word.length(); s++) {
-                    //TODO: handle unicode and code points
-                    String letter = word.substring(s, s+1);
-                    choiceSet.add(letter);
-                    letters[s] = letter;
-                }
-                if (word.length() >= minAnswers && word.length() <= maxAnswers) {
-                    quizList.add(new Integer(i));
-                    wordMap.put(word, letters);
-                }
+            fillChoicesWithWords(minAnswers, maxAnswers, lucs, quizList, choiceSet, wordMap);
+            if(quizList.size() == 0) {
+                fillChoicesWithWords(minAnswers, maxChoices, lucs, quizList, choiceSet, wordMap);
+            }
+            if(quizList.size() == 0) {
+                fillChoicesWithWords(minChoices, maxChoices, lucs, quizList, choiceSet, wordMap);
             }
             Collections.shuffle(quizList);
 
@@ -206,16 +199,12 @@ public class LessonRepo {
             ArrayList<Integer> quizList = new ArrayList<Integer>();
             Map<Unit, EagerUnitPart[]> unitMap = new HashMap<Unit, EagerUnitPart[]>(lucs.length);
             Set<String> choiceSet = new HashSet<String>(lucs.length);
-            for (int i = 0; i < lucs.length; i++) {
-                EagerUnitPart[] unitParts = db.unitPartDao().getEagerUnitPartsByUnitIdAndType(
-                        lucs[i].objectUnit.id, Unit.SYLLABLE_TYPE);
-                for (EagerUnitPart unitPart : unitParts) {
-                    choiceSet.add(unitPart.partUnit.name);
-                }
-                if (unitParts.length >= minAnswers && unitParts.length <= maxAnswers) {
-                    quizList.add(new Integer(i));
-                    unitMap.put(lucs[i].objectUnit, unitParts);
-                }
+            fillChoicesWithSyllables(minAnswers, maxAnswers, db, lucs, quizList, unitMap, choiceSet);
+            if(quizList.size() == 0) {
+                fillChoicesWithSyllables(minAnswers, maxChoices, db, lucs, quizList, unitMap, choiceSet);
+            }
+            if(quizList.size() == 0) {
+                fillChoicesWithSyllables(minChoices, maxChoices, db, lucs, quizList, unitMap, choiceSet);
             }
             Collections.shuffle(quizList);
 
@@ -284,6 +273,37 @@ public class LessonRepo {
 
         }
         return bcqs;
+    }
+
+    private static void fillChoicesWithSyllables(int minAnswers, int maxAnswers, AppDatabase db, FlashCard[] lucs, ArrayList<Integer> quizList, Map<Unit, EagerUnitPart[]> unitMap, Set<String> choiceSet) {
+        for (int i = 0; i < lucs.length; i++) {
+            EagerUnitPart[] unitParts = db.unitPartDao().getEagerUnitPartsByUnitIdAndType(
+                    lucs[i].objectUnit.id, Unit.SYLLABLE_TYPE);
+            for (EagerUnitPart unitPart : unitParts) {
+                choiceSet.add(unitPart.partUnit.name);
+            }
+            if (unitParts.length >= minAnswers && unitParts.length <= maxAnswers) {
+                quizList.add(new Integer(i));
+                unitMap.put(lucs[i].objectUnit, unitParts);
+            }
+        }
+    }
+
+    private static void fillChoicesWithWords(int minAnswers, int maxAnswers, FlashCard[] lucs, ArrayList<Integer> quizList, Set<String> choiceSet, Map<String, String[]> wordMap) {
+        for (int i = 0; i < lucs.length; i++) {
+            String word = lucs[i].objectUnit.name;
+            String[] letters = new String[word.length()];
+            for (int s = 0; s < word.length(); s++) {
+                //TODO: handle unicode and code points
+                String letter = word.substring(s, s+1);
+                choiceSet.add(letter);
+                letters[s] = letter;
+            }
+            if (word.length() >= minAnswers && word.length() <= maxAnswers) {
+                quizList.add(new Integer(i));
+                wordMap.put(word, letters);
+            }
+        }
     }
 
 }
