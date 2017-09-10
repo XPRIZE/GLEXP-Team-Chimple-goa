@@ -121,7 +121,15 @@ void MultipleChoice::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::
             if(buttonName == "1") {
                 _qHandler->getMenuContext()->addPoints(1);
                 CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/sfx/success.ogg");
-                _qHandler->gotoNextQuestion(1);
+                auto soundButton = clickedButton->getParent()->getChildByName("sound_button");
+                if(soundButton != nullptr) {
+                    soundButton->removeFromParentAndCleanup(true);
+                }
+                clickedButton->runAction(Spawn::create(FadeOut::create(1.0f), NULL));
+                runAction(Sequence::create(DelayTime::create(1.0f), CallFunc::create([=]() {
+                }), DelayTime::create(1.0f), CallFunc::create([=]() {
+                    _qHandler->gotoNextQuestion(1);
+                }), NULL));
             } else {
                 clickedButton->runAction(FShake::actionWithDuration(1.0f, 10.0f));
                 _qHandler->getMenuContext()->addPoints(-1);

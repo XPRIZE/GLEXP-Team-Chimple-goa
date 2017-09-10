@@ -230,6 +230,7 @@ void QuestionHandler::setButtonProperties(Node* button, std::string name, std::s
         }
         
         Button* _soundButton = Button::create("template/template_02/sound_button.png", "template/template_02/click_sound_button.png", "template/template_02/click_sound_button.png", ui::Widget::TextureResType::PLIST);
+        _soundButton->setName("sound_button");
         _soundButton->setAnchorPoint(Vec2(1,1));
         _soundButton->setScale(0.5);
         _soundButton->setPosition(Vec2(button1->getPosition().x + button1->getBoundingBox().size

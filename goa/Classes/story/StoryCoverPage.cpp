@@ -259,7 +259,7 @@ void StoryCoverPage::renderStoryText(Node* parentNode, Node* storyTextNode) {
         label->setTextColor(Color4B(128, 64, 0, 255));
         if(firstPassFinished)
         {
-            if(newLineCharRecognized || lastRenderedLabel->getPosition().x + lastRenderedLabel->getBoundingBox().size.width/2 + label->getBoundingBox().size.width > parentNode->getBoundingBox().size.width - 250.0f)
+            if(newLineCharRecognized || lastRenderedLabel->getPosition().x + lastRenderedLabel->getBoundingBox().size.width/2 + label->getBoundingBox().size.width > parentNode->getBoundingBox().size.width - 50.0f)
             {
                 //wrap
                 howManyTimes++;
@@ -295,7 +295,7 @@ void StoryCoverPage::positionTextNode(CommonText* textNode, Node* storyTextNode,
     float xPos = 0.0f;
     float yPos = 0.0f;
     if(currentNodeX == 0.0f) {
-        xPos = storyTextNode->getPosition().x - storyTextNode->getBoundingBox().size.width/2 + 50.0f;
+        xPos = storyTextNode->getPosition().x - storyTextNode->getBoundingBox().size.width/2 + 175.0f;
     } else {
         xPos = currentNodeX;
     }
