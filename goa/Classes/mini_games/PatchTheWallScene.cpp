@@ -62,7 +62,7 @@ void PatchTheWall::gameBegin(cocos2d::EventCustom *eventCustom) {
 	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
-	_vmc = vmc;
+
 
 	vector<string> suffleVmcData;
 	int counterVmc = 0;
@@ -83,16 +83,6 @@ void PatchTheWall::gameBegin(cocos2d::EventCustom *eventCustom) {
 		}
 	}
 
-	int maxLengthQuestion = 0;
-	for (int i = 0; i < _vmc.size(); i++) {
-
-		auto textValue = _vmc[i].question;
-		if (maxLengthQuestion < textValue.length()) {
-			maxLengthQuestion = textValue.length();
-		}
-	}
-
-
 	float _gridY = visibleSize.height * .19;
 	for (int i = 0; i < 5; i++)
 	{
@@ -107,7 +97,6 @@ void PatchTheWall::gameBegin(cocos2d::EventCustom *eventCustom) {
 			SpriteDetails._sprite->setColor(Color3B(205, 133, 63));
 
 			auto aplhabets = CommonLabel::createWithTTF(_matrix[j][i], "fonts/Roboto-Regular.ttf", 170);
-			aplhabets->setBMFontSize(std::max(float(50.0), float(150 - (maxLengthQuestion - 1) * 10)));
 			SpriteDetails._label = aplhabets;
 
 			SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
@@ -203,7 +192,7 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
         {
             Rect _patchRect = _patchDetails.at(i)._label->getBoundingBox();
             
-            if (_patchRect.intersectsRect(_targetRect) && checkAnswer(_spriteDetails.at(_index)._id,_patchDetails.at(i)._id))
+            if (_patchRect.intersectsRect(_targetRect) && _spriteDetails.at(_index)._id == _patchDetails.at(i)._id)
             {
                 _spriteDetails.at(_index)._label->runAction(Sequence::create(MoveTo::create(.2, Vec2(_patchDetails.at(i)._label->getPositionX(), _patchDetails.at(i)._label->getPositionY())),
                                                                              CallFunc::create([=] {
@@ -304,27 +293,15 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
     
 	_position.erase(_position.begin() + _randomPosition);
 
-	auto randomIndex = cocos2d::RandomHelper::random_int(0, 9);
+    int _randomRow = cocos2d::RandomHelper::random_int(0, 4);
+    int _randomCol = cocos2d::RandomHelper::random_int(0, 1);
 
-    //int _randomRow = cocos2d::RandomHelper::random_int(0, 4);
-    //int _randomCol = cocos2d::RandomHelper::random_int(0, 1);
-
-	int maxLength = 0;
-	for (int i = 0; i < _vmc.size(); i++) {
-		
-		auto textValue = _vmc[i].answers[_vmc[i].correctAnswer];
-		if (maxLength < textValue.length()) {
-			maxLength = textValue.length();
-		}
-	}
-
-	auto aplhabets = CommonLabel::createWithTTF(_vmc[randomIndex].answers[_vmc[randomIndex].correctAnswer], "fonts/Roboto-Regular.ttf", 170);
-	aplhabets->setBMFontSize(std::max(float(30.0), float(170 - (maxLength - 1) * 10)));
+	auto aplhabets = CommonLabel::createWithTTF(_matrix[_randomCol][_randomRow], "fonts/Roboto-Regular.ttf", 170);
 	SpriteDetails._label = aplhabets;
 
     SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
     this->addChild(SpriteDetails._label);
-	SpriteDetails._id = aplhabets->getString();
+    SpriteDetails._id = _matrix[_randomCol][_randomRow];
     SpriteDetails.xP = SpriteDetails._sprite->getPositionX();
     SpriteDetails.yP = SpriteDetails._sprite->getPositionY();
     SpriteDetails._sequence = _randomPosition;
@@ -346,17 +323,4 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
             }
         }
     }
-}
-
-
-bool PatchTheWall::checkAnswer(string questionText, string answerText) {
-
-	for (int i = 0; i < _vmc.size(); i++) {
-		if (_vmc[i].question.compare(questionText) == 0) {
-			if (_vmc[i].answers[_vmc[i].correctAnswer].compare(answerText) == 0) {
-				return true;
-			}
-		}
-	}
-	return false;
 }
