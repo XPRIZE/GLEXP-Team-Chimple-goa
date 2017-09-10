@@ -235,7 +235,7 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 					_counterTotalHit++;
 					flag = false;
-					if (checkAnswer(target->getParent()->getName(),cone->getName())) {
+					if (checkAnswer(cone->getName(), target->getParent()->getName())) {
 						CCLOG("CORRECT");
 
 						audio->playEffect("sounds/sfx/success.ogg", false);

@@ -17,6 +17,7 @@ class Bingo :public cocos2d::Layer
 {
 private:
 	Lesson _lesson;
+	vector<Lesson::MultiChoice> _vmc;
 public:
 	static cocos2d::Scene* createScene();
 	virtual bool init();
@@ -40,6 +41,7 @@ public:
 	int bingoLeftDiagonally();
 	int _pairNo, _gridDimension;
 	std::string getConvertInUpperCase(std::string data);
+	bool checkAnswer(string creamText, string coneText);
 	std::pair<int, int> levelAllInfo(int levelNum, int sceneRepetitionNo, int totalScene, int catagoryRepetitionNo, int totalcatagory);
 
 

@@ -260,7 +260,7 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
-
+	_vmc = vmc;
 	for (int i = 0; i < vmc.size(); i++) {
 		CCLOG("vmc : %d question -> %s , correctAnswer index : %d  , correctAnswer value : %s", i, vmc[i].question.c_str(), vmc[i].correctAnswer, vmc[i].answers[vmc[i].correctAnswer].c_str());
 		for (int j = 0; j < vmc[i].answers.size(); j++) {
@@ -387,7 +387,8 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 	for (vector<pair<string, string>>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
 		_data_values.push_back(it->second);
 	}
-
+	/*_data_keys = { "A", "A", "A", "A", "A", "A", "A", "A", "A" };
+	_data_values = { "App", "Apple", "Adog","Acat","Amat","AMCAT","Aball","Abat","Ahorse" };*/
 	std::vector<int> randomIndex;
 	int dataMapSizeValue = _data_keys.size() - 1;
 
@@ -618,8 +619,8 @@ void Bingo::addEvents(Sprite* clickedObject)
 				_flagForSingleTouch = false;
 				bool bingo = false;
 				bool needLabel = false;
-				std::string helpLabelPair = target->getChildren().at(0)->getName();
-				if (helpLabelPair.compare(_label->getName()) == 0)
+				std::string helpLabelPair = ((CommonLabelTTF*)target->getChildren().at(0))->getString();
+				if (checkAnswer(_label->getName(), helpLabelPair))
 				{
 					auto answer = ((CommonLabelTTF*)target->getChildren().at(0))->getString();
 					_menuContext->wordPairList(_label->getName(), answer);
@@ -895,4 +896,16 @@ std::string Bingo::getConvertInUpperCase(std::string data)
 		i++;
 	}
 	return blockName.str();
+}
+
+bool Bingo::checkAnswer(string boardText, string choiceText) {
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		if (_vmc[i].question.compare(boardText) == 0) {
+			if (_vmc[i].answers[_vmc[i].correctAnswer].compare(choiceText) == 0) {
+				return true;
+			}
+		}
+	}
+	return false;
 }
