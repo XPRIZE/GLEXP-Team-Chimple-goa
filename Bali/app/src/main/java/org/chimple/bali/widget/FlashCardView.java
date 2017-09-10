@@ -27,8 +27,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterViewFlipper;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ViewSwitcher;
 
+import org.chimple.bali.R;
 import org.chimple.bali.db.entity.Unit;
 import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.db.pojo.FlashCard;
@@ -37,26 +41,18 @@ import org.chimple.bali.repo.UserUnitRepo;
 
 import static org.chimple.bali.R.id.floatingActionButton;
 
-public class FlashCardView extends LinearLayout {
+public class FlashCardView extends FrameLayout {
     private FlashCard mFlashCard;
+
+    private final OnClickListener mOnClickListener = new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+//            showNext();
+        }
+    };
 
     public FlashCardView(Context context, FlashCard flashCard) {
         super(context);
-        initView(context, flashCard);
-    }
-
-    public FlashCardView(Context context, @Nullable AttributeSet attrs, FlashCard flashCard) {
-        super(context, attrs);
-        initView(context, flashCard);
-    }
-
-    public FlashCardView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, FlashCard flashCard) {
-        super(context, attrs, defStyleAttr);
-        initView(context, flashCard);
-    }
-
-    public FlashCardView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes, FlashCard flashCard) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         initView(context, flashCard);
     }
 
@@ -74,57 +70,28 @@ public class FlashCardView extends LinearLayout {
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         UserLogRepo.logEntity(getContext(), UserLog.LESSON_UNIT_TYPE, mFlashCard.lessonUnit.id, UserLog.STOP_EVENT);
-
-    }
-
-    @Override
-    protected void onVisibilityChanged(@NonNull View changedView, int visibility) {
-        super.onVisibilityChanged(changedView, visibility);
-    }
-
-    @Override
-    protected void onAnimationStart() {
-        super.onAnimationStart();
-    }
-
-    @Override
-    protected void onAnimationEnd() {
-        super.onAnimationEnd();
-    }
-
-    @Override
-    protected void onFocusChanged(boolean gainFocus, int direction, @Nullable Rect previouslyFocusedRect) {
-        super.onFocusChanged(gainFocus, direction, previouslyFocusedRect);
     }
 
     private void initView(Context context, FlashCard flashCard) {
         mFlashCard = flashCard;
         UserLogRepo.logEntity(context, UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.START_EVENT);
 
-        LayoutParams layoutParams = null;
-        if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
-            setOrientation(VERTICAL);
-            layoutParams = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    0,
-                    1);
-        } else {
-            setOrientation(HORIZONTAL);
-            layoutParams = new LinearLayout.LayoutParams(
-                    0,
-                    ViewGroup.LayoutParams.MATCH_PARENT,
-                    1);
-        }
-
         View subjectView = getView(context, mFlashCard.subjectUnit);
-        addView(subjectView, layoutParams);
+        addView(subjectView);
         UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.subjectUnit.id, UserLog.START_EVENT);
-
+        
         if(mFlashCard.objectUnit != null) {
             View objectView = getView(context, mFlashCard.objectUnit);
-            addView(objectView, layoutParams);
+            addView(objectView);
             UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.objectUnit.id, UserLog.START_EVENT);
         }
+//        setInAnimation(context, R.anim.card_flip_right_in);
+//        setInAnimation(context, R.animator.card_flip_right_in);
+//        setOutAnimation(context, R.animator.card_flip_right_out);
+//        setInAnimation(ObjectAnimator.ofFloat(this, "rotationY", 180, 0));
+//        setOutAnimation(context, R.anim.card_flip_right_out);
+
+        setOnClickListener(mOnClickListener);
     }
 
     private View getView(Context context, Unit unit) {

@@ -129,7 +129,7 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 				word_dict[sorted_start_words[0][0]] = (sorted_start_words[0][1], sorted_start_words[0][2]+1)
 
 	# lessons for syllable -> word with syllable
-	nsplit = 40
+	nsplit = 120
 	for ir in range(nsplit):
 		lesson_id = lesson_id + 1
 		seq = 0
