@@ -68,7 +68,7 @@ bool BalloonHero::init() {
 void BalloonHero::onEnterTransitionDidFinish()
 {
 	auto ceilValueForLevelSelection = std::floor((((float)_menuContext->getCurrentLevel() / 50.0f) * 6.0f));
-	int complexity = 2 + ceilValueForLevelSelection;
+	int complexity = 3 + ceilValueForLevelSelection;
 	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(BalloonHero::gameStart, this));
 
 	_lesson.getBag(1, 2, complexity, complexity*2, complexity * 2, true);

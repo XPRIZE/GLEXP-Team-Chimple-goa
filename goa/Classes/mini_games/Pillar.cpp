@@ -120,7 +120,7 @@ bool Pillar::init()
 }
 void Pillar::onEnterTransitionDidFinish() {
 	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Pillar::startGame, this));
-	auto complexity = 2.0f + std::floor((((float)menu->getCurrentLevel() / 50.0f) * 7.0f));
+	auto complexity = 3.0f + std::floor((((float)menu->getCurrentLevel() / 50.0f) * 7.0f));
 	_lesson.getBag(1, 2, (int)complexity, 10, 10);
 }
 
