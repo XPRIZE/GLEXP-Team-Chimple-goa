@@ -106,7 +106,7 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 
 	int maxLengthSize = 0;
 
-	for (int i = 0; i < _vmc.size; i++) {
+	for (int i = 0; i < _vmc.size(); i++) {
 		auto text = _vmc[i].answers[_vmc[i].correctAnswer];
 
 		if (maxLengthSize < text.length()) {
