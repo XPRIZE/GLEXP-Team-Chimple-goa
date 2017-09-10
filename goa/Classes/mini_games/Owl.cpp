@@ -471,6 +471,14 @@ void Owl::createGrid() {
 	auto getSize = gridObject->getContentSize().width;
 	int counter = 0;
 
+	int maxLengthText = 0;
+	for (int i = 0; i < bag.size(); i++) {
+
+		if (maxLengthText < bag[i].length()) {
+			maxLengthText = bag[i].length();
+		}
+	}
+
 	for (int row = 1; row <= 2; row++) {
 
 		int height = visibleSize.height * _owlPropertyMap.at(_owlCurrentTheme).at("rowFirst");
@@ -503,7 +511,10 @@ void Owl::createGrid() {
 
 				// Set Alphabet one by one in KEYBOARD ... 
 
-				auto label = CommonLabelTTF::create(bag[counter], "Helvetica", gridObject->getContentSize().width * 0.8);
+				auto textSize = gridObject->getContentSize().width * 0.8;
+
+				auto label = CommonLabelTTF::create(bag[counter], "Helvetica", textSize);
+				label->setFontSize(std::max(float(30.0), float(textSize - (maxLengthText - 1) * 15)));
 				label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
 				label->setColor(Color3B::WHITE);
 				label->setName(bag[counter]);

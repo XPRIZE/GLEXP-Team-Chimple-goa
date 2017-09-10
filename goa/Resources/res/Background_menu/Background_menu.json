@@ -1892,14 +1892,14 @@
               "B": 70
             },
             "DisabledFileData": {
-              "Type": "Default",
-              "Path": "Default/Button_Disable.png",
-              "Plist": ""
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/alphabet_clicked.png",
+              "Plist": "Background_menu/Background_menu.plist"
             },
             "PressedFileData": {
-              "Type": "Default",
-              "Path": "Default/Button_Press.png",
-              "Plist": ""
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/alphabet_clicked.png",
+              "Plist": "Background_menu/Background_menu.plist"
             },
             "NormalFileData": {
               "Type": "MarkedSubImage",
@@ -2010,12 +2010,12 @@
             },
             "DisabledFileData": {
               "Type": "MarkedSubImage",
-              "Path": "Background_menu/number_cliked.png",
+              "Path": "Background_menu/number_clicked.png",
               "Plist": "Background_menu/Background_menu.plist"
             },
             "PressedFileData": {
               "Type": "MarkedSubImage",
-              "Path": "Background_menu/number_cliked.png",
+              "Path": "Background_menu/number_clicked.png",
               "Plist": "Background_menu/Background_menu.plist"
             },
             "NormalFileData": {
@@ -2126,14 +2126,14 @@
               "B": 70
             },
             "DisabledFileData": {
-              "Type": "Default",
-              "Path": "Default/Button_Disable.png",
-              "Plist": ""
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/writing_clicked.png",
+              "Plist": "Background_menu/Background_menu.plist"
             },
             "PressedFileData": {
-              "Type": "Default",
-              "Path": "Default/Button_Press.png",
-              "Plist": ""
+              "Type": "MarkedSubImage",
+              "Path": "Background_menu/writing_clicked.png",
+              "Plist": "Background_menu/Background_menu.plist"
             },
             "NormalFileData": {
               "Type": "MarkedSubImage",
@@ -2176,17 +2176,17 @@
               "Y": 0.6366
             },
             "PreSize": {
-              "X": 0.2109,
+              "X": 0.2105,
               "Y": 0.3
             },
-            "LeftMargin": 1021.5142,
-            "RightMargin": 998.4858,
+            "LeftMargin": 1022.0142,
+            "RightMargin": 998.9858,
             "TopMargin": 384.0979,
             "BottomMargin": 875.9021,
             "Tag": 50,
             "ActionTag": 1622159846,
             "Size": {
-              "X": 540.0,
+              "X": 539.0,
               "Y": 540.0
             },
             "Name": "writing",
@@ -2204,8 +2204,8 @@
               "ScaleY": 0.5
             },
             "Position": {
-              "X": 1287.9487,
-              "Y": 1333.0065
+              "X": 1287.9359,
+              "Y": 1333.08
             },
             "Scale": {
               "ScaleX": 1.0,
@@ -2223,10 +2223,10 @@
             },
             "HorizontalEdge": "BothEdge",
             "VerticalEdge": "BothEdge",
-            "LeftMargin": 1087.9487,
-            "RightMargin": 1072.0513,
-            "TopMargin": 421.9935,
-            "BottomMargin": 1288.0065,
+            "LeftMargin": 1087.9359,
+            "RightMargin": 1072.0641,
+            "TopMargin": 421.92,
+            "BottomMargin": 1288.08,
             "Tag": 51,
             "ActionTag": 1222803406,
             "Size": {
@@ -2246,12 +2246,12 @@
             },
             "DisabledFileData": {
               "Type": "MarkedSubImage",
-              "Path": "Background_menu/grammer_cliked.png",
+              "Path": "Background_menu/grammer_clicked.png",
               "Plist": "Background_menu/Background_menu.plist"
             },
             "PressedFileData": {
               "Type": "MarkedSubImage",
-              "Path": "Background_menu/grammer_cliked.png",
+              "Path": "Background_menu/grammer_clicked.png",
               "Plist": "Background_menu/Background_menu.plist"
             },
             "NormalFileData": {
@@ -2576,7 +2576,7 @@
             },
             "LeftMargin": 1985.168,
             "RightMargin": 174.832,
-            "TopMargin": 1052.4541,
+            "TopMargin": 1052.4542,
             "BottomMargin": 657.5458,
             "Tag": 42,
             "ActionTag": -1091178172,
@@ -2596,8 +2596,6 @@
         "ctype": "SingleNodeObjectData"
       },
       "UsedResources": [
-        "../Default/Button_Disable.png",
-        "../Default/Button_Press.png",
         "Background_menu.plist",
         "Background_menu.png"
       ],
