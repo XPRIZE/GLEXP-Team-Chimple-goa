@@ -32,6 +32,7 @@ CC_CONSTRUCTOR_ACCESS:
 	void pauseAllActiveListeners();
 	void resumeAllActiveListeners();
 	bool checkMatch();
+	bool checkAnswer(string questionText, string answerText);
 	void chickenFly();
 	void removecurrentlabelsandlisteners();
 	void generateRandomNumbers();
@@ -79,7 +80,7 @@ protected:
 	HelpLayer * help2;
 	cocos2d::Vec2 box1pos;
 	cocos2d::Vec2 box2pos;
-    
+	vector<Lesson::MultiChoice> _vmc;
 	int _pairCount;
 	int _wrong;
 	int _right;
