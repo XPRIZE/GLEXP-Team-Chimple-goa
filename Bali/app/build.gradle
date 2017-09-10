@@ -47,6 +47,7 @@ dependencies {
     compile 'com.android.support:support-v4:26.+'
     compile group: 'commons-net', name: 'commons-net', version: '1.4.0'
     compile group: 'com.opencsv', name: 'opencsv', version: '3.7'
+    compile 'ch.acra:acra:4.9.2'
     testCompile 'junit:junit:4.12'
     annotationProcessor 'android.arch.lifecycle:compiler:1.0.0-alpha9'
     annotationProcessor 'android.arch.persistence.room:compiler:1.0.0-alpha9'

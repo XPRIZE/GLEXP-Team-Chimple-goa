@@ -53,23 +53,23 @@ public class BlueToothBoardCastReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        String action = intent.getAction();
+        // String action = intent.getAction();
 
-        // When discovery finds a device
-        if (BluetoothDevice.ACTION_FOUND.equals(action)) {
-            // Get the BluetoothDevice object from the Intent
-            BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
-            // If it's already paired, skip it, because it's been listed already
-            //if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
-                blueToothSupport.addToNewDiscoveredDevices(device);
-                activity.sendDiscoveryResults(device.getName()+ "-" + device.getAddress());
-            //}
-            // When discovery is finished, change the Activity title
-        } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
-            System.out.println("BLUE TOOTH DISCOVERY FINISHED");
-            activity.discoveryFinished();
-            if(!blueToothSupport.didFindAnyNewDevice()) {
-            }
-        }
+        // // When discovery finds a device
+        // if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+        //     // Get the BluetoothDevice object from the Intent
+        //     BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
+        //     // If it's already paired, skip it, because it's been listed already
+        //     //if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
+        //         blueToothSupport.addToNewDiscoveredDevices(device);
+        //         activity.sendDiscoveryResults(device.getName()+ "-" + device.getAddress());
+        //     //}
+        //     // When discovery is finished, change the Activity title
+        // } else if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
+        //     System.out.println("BLUE TOOTH DISCOVERY FINISHED");
+        //     activity.discoveryFinished();
+        //     if(!blueToothSupport.didFindAnyNewDevice()) {
+        //     }
+        // }
     }
 }

@@ -538,11 +538,11 @@ void StoryPlaying::load() {
         
         createWordBubble();
         
-        playMasterAnimation();
-        
         loadContentPageText();
         
         preloadAllAudio();
+        
+        playMasterAnimation();
         
     }
 }
