@@ -72,7 +72,7 @@ void BasicLetterCase::setSpriteProperties(Node* ImageObject, float positionX, fl
 CommonLabelTTF* BasicLetterCase::createText(string text,string name,float positionX , float positionY) {
 	auto label = CommonLabelTTF::create(text, "Helvetica", 150);
 	label->setColor(Color3B::BLACK);
-	label->setFontSize(std::max(float(50.0), float(150 - (text.length() - 1) * 10)));
+//	label->setFontSize(std::max(float(50.0), float(150 - (text.length() - 1) * 10)));
 	label->setPosition(Vec2(positionX , positionY));
 	label->setName(name);
 	return label;
@@ -104,6 +104,16 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 		creamLetter.push_back(_vmc[i].answers[_vmc[i].correctAnswer]);
 	}
 
+	int maxLengthSize = 0;
+
+	for (int i = 0; i < _vmc.size; i++) {
+		auto text = _vmc[i].answers[_vmc[i].correctAnswer];
+
+		if (maxLengthSize < text.length()) {
+			maxLengthSize = text.length();
+		}
+	}
+
     std::random_shuffle(coneLetter.begin(),coneLetter.end());
     std::random_shuffle(creamLetter.begin(), creamLetter.end());
 	 
@@ -118,6 +128,7 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 
 		// coneAlphabet and Text config ...
 		auto coneText = createText(coneLetter[i], coneLetter[i],0,0);
+		coneText->setFontSize(std::max(float(50.0), float(150 - (maxLengthSize - 1) * 10)));
 		cone->setName(coneLetter[i]);
 		cone->setTag( 100 + i);
 		cone->addChild(coneText);
@@ -132,6 +143,7 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 
 		//cream alphabet and TextLabel config ...
 		auto creamText = createText(creamLetter[i], creamLetter[i] , 0, 20);
+		creamText->setFontSize(std::max(float(50.0), float(150 - (maxLengthSize - 1) * 10)));
 		cream->addChild(creamText);
 		cream->setName(creamLetter[i]);
 		addEventsOnCream((Sprite*)cream->getChildByName("icecream"));
@@ -235,7 +247,7 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 					_counterTotalHit++;
 					flag = false;
-					if (checkAnswer(cone->getName(), target->getParent()->getName())) {
+					if (checkAnswer(cone->getName(), target->getParent()->getName()) && (cone->getTag() > 0)) {
 						CCLOG("CORRECT");
 
 						audio->playEffect("sounds/sfx/success.ogg", false);
@@ -243,6 +255,7 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 
 						_counterGameDone++;
 						target->getParent()->setTag(-1);
+						cone->setTag(-1);
 						target->getParent()->getChildByName("cherry")->setVisible(true);
 						auto y = cone->getChildByName("cone")->getContentSize().height*0.5;
 						target->getParent()->runAction(MoveTo::create(0.5, Vec2(cone->getPositionX(),cone->getPositionY()+ y)));
