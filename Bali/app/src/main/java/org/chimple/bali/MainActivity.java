@@ -1,5 +1,6 @@
 package org.chimple.bali;
 
+import android.app.AlertDialog;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
@@ -31,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         PackageManager pm = this.getPackageManager();
         List<ApplicationInfo> apps = pm.getInstalledApplications(0);
-        for (ApplicationInfo a: apps) {
-            Intent intent = pm.getLaunchIntentForPackage(a.packageName);
-            if(intent != null) {
-                Log.v(a.packageName, intent.toString());
+        for (ApplicationInfo a : apps) {
+            Intent launchIntentForPackage = pm.getLaunchIntentForPackage(a.packageName);
+            if (launchIntentForPackage != null) {
+                Log.v(a.packageName, launchIntentForPackage.toString());
             }
         }
         //TODO: for now force the creation here
@@ -56,27 +57,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startActivity(View v) {
-        if(v.getId() == R.id.learnButton) {
+        if (v.getId() == R.id.learnButton) {
             Intent intent = new Intent(this, LessonActivity.class);
             intent.putExtra(EXTRA_MESSAGE, new Long(1));
             startActivity(intent);
-        } else if(v.getId() == R.id.goaButton){
+        } else if (v.getId() == R.id.goaButton) {
             Intent intent = getPackageManager().getLaunchIntentForPackage("org.chimple.goa");
             if (intent != null) {
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
-        } else if(v.getId() == R.id.musicButton){
+        } else if (v.getId() == R.id.musicButton) {
             Intent intent = getPackageManager().getLaunchIntentForPackage("com.google.android.music");
             if (intent != null) {
                 startActivity(intent);
             }
-        } else if(v.getId() == R.id.cameraButton){
+        } else if (v.getId() == R.id.cameraButton) {
             Intent intent = getPackageManager().getLaunchIntentForPackage("com.google.android.GoogleCamera");
             if (intent != null) {
                 startActivity(intent);
             }
-        } else if(v.getId() == R.id.galleryButton){
+        } else if (v.getId() == R.id.galleryButton) {
             Intent intent = getPackageManager().getLaunchIntentForPackage("com.google.android.apps.photos");
             if (intent != null) {
                 startActivity(intent);
@@ -89,12 +90,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public void  onResume() {
+    public void onResume() {
         super.onResume();
 
         Intent intent = new Intent(this, TollBroadcastReceiver.class);
         intent.putExtra("onResume", "org.chimple.bali");
         sendBroadcast(intent);
+
+        Intent receivedIntent = getIntent();
+        String action = receivedIntent.getAction();
+        String test = receivedIntent.getStringExtra("test");
+        if (Intent.ACTION_SEND.equals(action)) {
+            AlertDialog.Builder Builder = new AlertDialog.Builder(this)
+                    .setMessage("You do not have enough coins")
+                    .setTitle("Stop")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(android.R.string.yes, null);
+            AlertDialog alertDialog = Builder.create();
+            alertDialog.show();
+        }
     }
 
     @Override
@@ -106,4 +120,13 @@ public class MainActivity extends AppCompatActivity {
         sendBroadcast(intent);
 
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Intent receivedIntent = getIntent();
+        String action = receivedIntent.getAction();
+        String test = receivedIntent.getStringExtra("test");
+    }
+
 }

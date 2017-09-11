@@ -1,15 +1,19 @@
 package org.chimple.bali.service;
 
 import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.WindowManager;
 
-import org.chimple.bali.provider.LessonContentProvider;
+import org.chimple.bali.MainActivity;
+import org.chimple.bali.R;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -35,6 +39,8 @@ import static org.chimple.bali.provider.LessonContentProvider.URI_COIN;
 
 public class TollBroadcastReceiver extends BroadcastReceiver {
     private static final AtomicBoolean mIsLearning = new AtomicBoolean(true);
+    AlertDialog dialog;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("TollBroadcastReceiver", "onReceive");
@@ -65,6 +71,14 @@ public class TollBroadcastReceiver extends BroadcastReceiver {
                                 null,
                                 null
                         );
+                        if(coins <= 0) {
+                            Intent i=new Intent(context.getApplicationContext(),MainActivity.class);
+                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            i.setAction(Intent.ACTION_SEND);
+                            i.putExtra("test", "pop");
+                            context.startActivity(i);
+
+                        }
                         return null;
                     }
                 }.execute(context);
@@ -87,5 +101,29 @@ public class TollBroadcastReceiver extends BroadcastReceiver {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(ALARM_SERVICE);
         alarmManager.cancel(pendingIntent);
         Log.d("onResume", "cancelAlarm");
+    }
+
+    private void showDialog(Context context, String message)
+    {
+
+        if (dialog != null) {
+            if (dialog.isShowing()) {
+                dialog.dismiss();
+            }
+        }
+
+        dialog = new AlertDialog.Builder(context)
+                .setTitle(R.string.EXIT_SESSION)
+                .setMessage(R.string.SURE_EXIT)
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                    }
+                }).create();
+
+        dialog.getWindow().setType(WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY);
+        dialog.show();
+
     }
 }

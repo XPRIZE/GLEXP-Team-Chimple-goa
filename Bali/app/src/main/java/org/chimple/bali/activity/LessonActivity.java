@@ -1,8 +1,10 @@
 package org.chimple.bali.activity;
 
 import android.animation.ObjectAnimator;
+import android.app.AlertDialog;
 import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Point;
@@ -35,19 +37,12 @@ public class LessonActivity extends LifecycleActivity {
     private FloatingActionButton mFab;
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesson);
         mFlashCardView = (AdapterViewAnimator) findViewById(R.id.flash_card_view);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
 
-//        mFlashCardView.setInAnimation(getApplicationContext(), R.animator.left_to_right);
-//        mFlashCardView.setOutAnimation(getApplicationContext(), R.animator.left_to_right_out);
         Display display = getWindowManager().getDefaultDisplay();
         Point point = new Point();
         display.getSize(point);
@@ -69,7 +64,7 @@ public class LessonActivity extends LifecycleActivity {
                 mProgressBar.setProgress(0);
 
                 mFab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
-//                mFab.hide();
+                mFab.hide();
                 mFab.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -79,22 +74,36 @@ public class LessonActivity extends LifecycleActivity {
                         } else {
                             mFlashCardView.advance();
                             mProgressBar.incrementProgressBy(1);
-//                            CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(LessonActivity.this).get(CardStatusViewModel.class);
-//                            cardStatusViewModel.viewed(false);
+                            CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(LessonActivity.this).get(CardStatusViewModel.class);
+                            cardStatusViewModel.viewed(false);
                         }
                     }
                 });
 
             }
         });
-//        CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(this).get(CardStatusViewModel.class);
-//        cardStatusViewModel.getViewed().observe(this, viewed -> {
-//            if(viewed) {
-//                mFab.show();
-//            } else {
-//                mFab.hide();
-//            }
-//        });
+        CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(this).get(CardStatusViewModel.class);
+        cardStatusViewModel.getViewed().observe(this, viewed -> {
+            if(viewed) {
+                mFab.show();
+            } else {
+                mFab.hide();
+            }
+        });
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setTitle(R.string.EXIT_SESSION)
+                .setMessage(R.string.SURE_EXIT)
+                .setNegativeButton(android.R.string.no, null)
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        LessonActivity.super.onBackPressed();
+                    }
+                }).create().show();
     }
 
     @Override

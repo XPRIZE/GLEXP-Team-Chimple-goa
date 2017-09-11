@@ -128,17 +128,6 @@ public class WordView extends FrameLayout{
         mSoundFab.setOnClickListener(mOnClickListener);
     }
 
-    private LifecycleActivity getActivity() {
-        Context context = getContext();
-        while (context instanceof ContextWrapper) {
-            if (context instanceof LifecycleActivity) {
-                return (LifecycleActivity)context;
-            }
-            context = ((ContextWrapper)context).getBaseContext();
-        }
-        return null;
-    }
-
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
         super.onLayout(changed, left, top, right, bottom);

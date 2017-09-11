@@ -16,9 +16,14 @@
 
 package org.chimple.bali.widget;
 
+import android.animation.Animator;
 import android.animation.AnimatorInflater;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
+import android.arch.lifecycle.LifecycleActivity;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -28,6 +33,7 @@ import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.db.pojo.FlashCard;
 import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.repo.UserUnitRepo;
+import org.chimple.bali.viewmodel.CardStatusViewModel;
 
 public class FlashCardView extends FrameLayout {
     private FlashCard mFlashCard;
@@ -38,6 +44,7 @@ public class FlashCardView extends FrameLayout {
     private final OnClickListener mOnClickListener = new OnClickListener() {
         @Override
         public void onClick(View view) {
+            setClickable(false);
             AnimatorSet setOut = (AnimatorSet) AnimatorInflater.loadAnimator(view.getContext(),
                     R.animator.card_flip_right_out);
             AnimatorSet setIn = (AnimatorSet) AnimatorInflater.loadAnimator(view.getContext(),
@@ -60,6 +67,15 @@ public class FlashCardView extends FrameLayout {
             setFlip.setTarget(FlashCardView.this);
             AnimatorSet set = new AnimatorSet();
             set.playTogether(setIn, setOut, setFlip);
+            set.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    setClickable(true);
+                    CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
+                    cardStatusViewModel.viewed(true);
+
+                }
+            });
             set.start();
         }
     };
@@ -114,4 +130,17 @@ public class FlashCardView extends FrameLayout {
         LetterView letterView = new LetterView(context, unit);
         return letterView;
     }
+
+    private LifecycleActivity getActivity() {
+        Context context = getContext();
+        while (context instanceof ContextWrapper) {
+            if (context instanceof LifecycleActivity) {
+                return (LifecycleActivity)context;
+            }
+            context = ((ContextWrapper)context).getBaseContext();
+        }
+        return null;
+    }
+
+
 }
