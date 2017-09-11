@@ -5,11 +5,11 @@
 #include <vector>
 #include "../menu/MenuContext.h"
 #include "../puzzle/Alphabet.h"
-#include "../util/CommonLabel.h"
 #include "../lang/TextGenerator.h"
 #include "../menu/StartMenuScene.h"
 #include "../menu/HelpLayer.h"
 #include "../lang/Lesson.h"
+#include "../util/CommonLabelTTF.h"
 
 class PatchTheWall : public cocos2d::Layer
 {
@@ -27,12 +27,12 @@ public:
 	cocos2d::Vec2 origin;
 	int _moveFlag = 0, _totalLetter = 0, _totalCount = 0, _helpFlag = 0, _level;
 	HelpLayer *_help;
-
+	
 	std::vector<std::vector<string>> _matrix;
 
 	struct SpriteDetails
 	{
-		CommonLabel *_label;
+		CommonLabelTTF *_label;
 		cocos2d::Sprite *_sprite;
 		string _id;
 		float xP, yP;
