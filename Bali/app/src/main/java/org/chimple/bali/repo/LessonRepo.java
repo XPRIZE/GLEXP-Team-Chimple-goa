@@ -36,6 +36,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -79,7 +80,8 @@ public class LessonRepo {
         AppDatabase db = AppDatabase.getInstance(context);
         User user = UserRepo.getCurrentUser(context);
         Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
-        FlashCard[] lucs = null;
+        List<FlashCard> lucs = null;
+        boolean answerCaseParticular = (answerFormat == UPPER_CASE_LETTER_FORMAT);
         if((answerFormat == ANY_FORMAT
                 || (answerFormat == UPPER_CASE_LETTER_FORMAT
                     && (lesson.concept == Lesson.LETTER_CONCEPT
@@ -89,7 +91,12 @@ public class LessonRepo {
                 || (choiceFormat == UPPER_CASE_LETTER_FORMAT
                     && (lesson.concept == Lesson.LETTER_CONCEPT
                         || lesson.concept == Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT)))) {
-            lucs = db.lessonUnitDao().getFlashCardArrayByLessonId(lesson.id);
+            lucs = db.lessonUnitDao().getFlashCardsByLessonId(lesson.id);
+            convertToUniqueSubjects(lucs, answerCaseParticular);
+            if(lucs.size() < numQuizes) {
+                lucs = db.lessonUnitDao().getFlashCardArrayBelowSeqAndByConcept(lesson.seq, lesson.concept);
+                convertToUniqueSubjects(lucs, answerCaseParticular);
+            }
         } else {
             List<Integer> formats = new LinkedList<Integer>();
             formats.add(Lesson.LETTER_CONCEPT);
@@ -99,24 +106,30 @@ public class LessonRepo {
             }
             Lesson[] lessons = db.lessonDao().getLessonsBelowSeqAndByConcept(lesson.seq, formats);
             int lessonIndex = ThreadLocalRandom.current().nextInt(lessons.length);
-            lucs = db.lessonUnitDao().getFlashCardArrayByLessonId(lessons[lessonIndex].id);
+            lucs = db.lessonUnitDao().getFlashCardsByLessonId(lessons[lessonIndex].id);
+            convertToUniqueSubjects(lucs, answerCaseParticular);
+            if(lucs.size() < numQuizes) {
+                lucs = db.lessonUnitDao().getFlashCardArrayBelowSeqAndByConcept(lesson.seq, lessons[lessonIndex].concept);
+                convertToUniqueSubjects(lucs, answerCaseParticular);
+            }
+
         }
         List<MultipleChoiceQuiz> mcqs = new ArrayList<MultipleChoiceQuiz>(numQuizes);
 
         ArrayList<Integer> quizList = new ArrayList<Integer>();
-        for (int i = 0; i < lucs.length; i++) {
+        for (int i = 0; i < lucs.size(); i++) {
             quizList.add(i);
         }
         Collections.shuffle(quizList);
 
         for (int i = 0; i < numQuizes; i++) {
             int lucIndex = quizList.get(Math.min(i, quizList.size() - 1));
-            FlashCard luc = lucs[lucIndex];
+            FlashCard luc = lucs.get(lucIndex);
             String[] choices = new String[numChoices];
 
             ArrayList<Integer> choiceList = new ArrayList<Integer>();
-            for (int j = 0; j < lucs.length; j++) {
-                if (!luc.subjectUnit.name.equals(lucs[j].subjectUnit.name)) {
+            for (int j = 0; j < lucs.size(); j++) {
+                if (!luc.subjectUnit.name.equals(lucs.get(j).subjectUnit.name)) {
                     choiceList.add(j);
                 }
             }
@@ -128,7 +141,7 @@ public class LessonRepo {
                     choices[c] = luc.objectUnit.name;
                 } else {
                     int randIndex = choiceList.get(Math.min(c, choiceList.size() - 1));
-                    choices[c] = lucs[randIndex].objectUnit.name;
+                    choices[c] = lucs.get(randIndex).objectUnit.name;
                 }
             }
             String answer = luc.subjectUnit.name;
@@ -146,6 +159,22 @@ public class LessonRepo {
             mcqs.add(mcq);
         }
         return mcqs;
+    }
+
+    private static void convertToUniqueSubjects(List<FlashCard> lucs, boolean caseInvariant) {
+        Set<String> subjectSet = new HashSet<String>(lucs.size());
+        for(Iterator<FlashCard> iter = lucs.iterator(); iter.hasNext(); ) {
+            FlashCard luc = iter.next();
+            String compareStr = luc.subjectUnit.name;
+            if(caseInvariant) {
+                compareStr = compareStr.toUpperCase();
+            }
+            if(!subjectSet.contains(compareStr)) {
+                subjectSet.add(compareStr);
+            } else {
+                iter.remove();
+            }
+        }
     }
 
     public static List<BagOfChoiceQuiz> getBagOfChoiceQuizes(Context context, int numQuizes

@@ -19,7 +19,9 @@ story_dict = {}
 for story_json in glob(dirname + os.path.sep + "*.json"):
   if 'question' in story_json or 'timing' in story_json:
     continue
-  #print(story_json)
+  if 'Upepo_Wind' not in story_json:
+    continue
+  print(story_json)
   basename = os.path.splitext(os.path.splitext(os.path.basename(story_json))[0])[0]
   print(basename)
   timing = "{\n"

@@ -70,6 +70,17 @@ public interface LessonUnitDao {
             + "ou.id AS ou_id, ou.name AS ou_name, ou.type AS ou_type, ou.picture AS ou_picture, "
             + "ou.sound AS ou_sound, ou.phonemeSound AS ou_phonemeSound "
             + "FROM LessonUnit lu, Unit su, Unit ou "
+            + "WHERE lu.lessonId IN (select l.id FROM Lesson l WHERE l.seq <= :seq AND l.concept = :concept) "
+            + "AND lu.subjectUnitId = su.id "
+            + "AND lu.objectUnitId = ou.id")
+    public List<FlashCard> getFlashCardArrayBelowSeqAndByConcept(int seq, int concept);
+
+    @Query("SELECT lu.*, "
+            + "su.id AS su_id, su.name AS su_name, su.type AS su_type, su.picture AS su_picture, "
+            + "su.sound AS su_sound, su.phonemeSound AS su_phonemeSound, "
+            + "ou.id AS ou_id, ou.name AS ou_name, ou.type AS ou_type, ou.picture AS ou_picture, "
+            + "ou.sound AS ou_sound, ou.phonemeSound AS ou_phonemeSound "
+            + "FROM LessonUnit lu, Unit su, Unit ou "
             + "WHERE lu.lessonId = :lessonId "
             + "AND lu.seq = :seq "
             + "AND lu.subjectUnitId = su.id "
