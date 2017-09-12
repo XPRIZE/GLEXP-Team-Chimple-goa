@@ -31,12 +31,14 @@ Decomon * Decomon::create()
 
 cocos2d::Scene * Decomon::createScene()
 {
+	CCLOG("---------------START  createScene  METHOD ----------------------");
 	auto scene = cocos2d::Scene::create();
 	auto layer = Decomon::create();
 	scene->addChild(layer);
 
 	layer->menu = MenuContext::create(layer, Decomon::gameName());
 	scene->addChild(layer->menu);
+	CCLOG("---------------END  createScene  METHOD ----------------------");
 	return scene;
 }
 
@@ -745,6 +747,7 @@ void Decomon::onEnterTransitionDidFinish()
 
 void Decomon::gameHelp()
 {
+	CCLOG("---------------START GAMEHELP METHOD ----------------------");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	auto icon = this->getChildByName("bg")->getChildByName("right_panel")->getChildByName("decomon_icon_gear");
 	auto pos = this->convertToWorldSpace(icon->getPosition());
@@ -752,6 +755,7 @@ void Decomon::gameHelp()
 	help->click(Vec2(visibleSize.width * 0.05, visibleSize.height * 0.74));
 	help->setName("helpLayer");
 	this->addChild(help);
+	CCLOG("----------------END GAMEHELP METHOD ----------------------");
 }
 
 void Decomon::gameHelpDrag()
@@ -907,10 +911,12 @@ void Decomon::gameEnd(float dt)
 
 void Decomon::createGameLayout(cocos2d::EventCustom *eventCustom)
 {
+	CCLOG("---------------START  createGameLayout   METHOD ----------------------");
 	Node::onEnterTransitionDidFinish();
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	if ((menu->getCurrentLevel() == 1) && _backFromGallery)
 	{
+		CCLOG("---------------START  DRAWINGCODE   METHOD ----------------------");
 		auto decomonBackground = (cocos2d::Sprite*)CSLoader::createNode("decomon/decomon1.csb");
 		this->addChild(decomonBackground, 0);
 		decomonBackground->setName("paintBg");
@@ -932,6 +938,7 @@ void Decomon::createGameLayout(cocos2d::EventCustom *eventCustom)
 		listener->onTouchBegan = CC_CALLBACK_2(Decomon::onTouchBegan, this);
 		_eventDispatcher->addEventListenerWithSceneGraphPriority(listener, this->getChildByName("decomon_icon_camera"));
 
+		CCLOG("---------------START  LOCAL STORAGE GALLERY CODE  METHOD ----------------------");
 		auto fullpath = FileUtils::sharedFileUtils()->getWritablePath() + "decomon.txt";
 
 		std::string contents = FileUtils::getInstance()->getStringFromFile(fullpath);
@@ -958,6 +965,7 @@ void Decomon::createGameLayout(cocos2d::EventCustom *eventCustom)
 			_eventDispatcher->addEventListenerWithSceneGraphPriority(listener1, this->getChildByName("decomon_icon_gallery"));
 		}
 
+		CCLOG("---------------END  LOCAL STORAGE GALLERY CODE  METHOD ----------------------");
 		//END
 
 		if (visibleSize.width > 2560) {
@@ -1013,11 +1021,11 @@ void Decomon::createGameLayout(cocos2d::EventCustom *eventCustom)
 		_drawingPaintNode = DrawNode::create();
 		this->addChild(_drawingPaintNode);
 
-
+		CCLOG("---------------END  DRAWINGCODE   METHOD ----------------------");
 	}
 	else if (_backFromGallery) {
 		// START
-
+		CCLOG("---------------START  DECORATION   METHOD ----------------------");
 		auto bg = CSLoader::createNode("decomon/decomon.csb");
 		if (visibleSize.width > 2560) {
 			float extar_X = (visibleSize.width - 2560);
@@ -1209,5 +1217,7 @@ void Decomon::createGameLayout(cocos2d::EventCustom *eventCustom)
 		if (menu->getCurrentLevel() == 2) {
 			gameHelp();
 		}
+		CCLOG("---------------END  DECORATION   METHOD ----------------------");
 	}
+	CCLOG("---------------END  createGameLayout   METHOD ----------------------");
 }
