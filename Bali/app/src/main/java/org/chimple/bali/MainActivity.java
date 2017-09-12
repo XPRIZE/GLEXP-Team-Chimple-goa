@@ -15,9 +15,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-import org.chimple.bali.activity.FullscreenActivity;
 import org.chimple.bali.activity.LessonActivity;
 import org.chimple.bali.db.AppDatabase;
+import org.chimple.bali.launcher.LauncherScreen;
 import org.chimple.bali.service.TollBroadcastReceiver;
 import org.chimple.bali.service.TollJobServiceUnused;
 
@@ -82,9 +82,8 @@ public class MainActivity extends AppCompatActivity {
             if (intent != null) {
                 startActivity(intent);
             }
-        } else {
-            Intent intent = new Intent(this, FullscreenActivity.class);
-            intent.putExtra(EXTRA_MESSAGE, new Long(1));
+        } else if (v.getId() == R.id.gamesButton){
+            Intent intent = new Intent(this, LauncherScreen.class);
             startActivity(intent);
         }
     }

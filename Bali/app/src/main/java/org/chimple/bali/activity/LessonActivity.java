@@ -24,6 +24,7 @@ import org.chimple.bali.repo.LessonRepo;
 import org.chimple.bali.repo.UserLessonRepo;
 import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.repo.UserUnitRepo;
+import org.chimple.bali.service.TollBroadcastReceiver;
 import org.chimple.bali.ui.FlashCardAdapter;
 import org.chimple.bali.viewmodel.CardStatusViewModel;
 import org.chimple.bali.viewmodel.FlashCardViewModel;
@@ -109,12 +110,22 @@ public class LessonActivity extends LifecycleActivity {
     @Override
     protected void onPause() {
         super.onPause();
+
+        Intent intent = new Intent(this, TollBroadcastReceiver.class);
+        intent.putExtra("onPause", "org.chimple.bali");
+        sendBroadcast(intent);
+
         UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.PAUSE_EVENT);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        Intent intent = new Intent(this, TollBroadcastReceiver.class);
+        intent.putExtra("onResume", "org.chimple.bali");
+        sendBroadcast(intent);
+
         UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.RESUME_EVENT);
     }
 
