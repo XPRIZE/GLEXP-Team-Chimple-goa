@@ -119,10 +119,11 @@ void EndlessRunner::GameBegin(cocos2d::EventCustom *eventCustom) {
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	this->addChild(boardDisplay, 10);
 
-	letterOnBoard = Alphabet::createWithSize(tempChar, 300);
+	letterOnBoard = CommonLabelTTF::create(tempChar,"Helvetica" , 150);
+	letterOnBoard->setFontSize(std::max(float(20.0), float(150 - (tempChar.length() - 1) * 13)));
 	letterOnBoard->setName("mainBoard");
 	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
-	letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
+	//letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	this->addChild(letterOnBoard, 10);
 
 	EndlessRunner::beforeInitBackgroundScene();
@@ -354,11 +355,11 @@ void EndlessRunner::startingIntersectMode() {
 				}
 
 				// If correct alphabet picked ......
-				_menuContext->pickWord(_correctAnswerFromVmc,allLabels[i]->getChar(), true);
+				_menuContext->pickWord(_correctAnswerFromVmc,allLabels[i]->getString(), true);
 				_menuContext->addPoints(1);
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getChar());
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getString());
 				audio->playEffect(path.c_str(), false);
 
 				counterAlphabets = counterAlphabets + 2;
@@ -374,7 +375,7 @@ void EndlessRunner::startingIntersectMode() {
 						letterBoardAlphaLength++;
 						hpUiCatchAction->play("1", false);
 						tempChar = _vmc[letterBoardAlphaLength].question;
-						letterOnBoard->updateChar(tempChar);
+						letterOnBoard->setString(tempChar);
 						letterOnBoard->setString(tempChar);
 						counterAlphabets = 0;
 						//letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
@@ -424,7 +425,7 @@ void EndlessRunner::startingIntersectMode() {
 			}
 			else {
 				// If wrong alphabet picked ...
-				_menuContext->pickWord(_correctAnswerFromVmc, allLabels[i]->getChar(), true);
+				_menuContext->pickWord(_correctAnswerFromVmc, allLabels[i]->getString(), true);
 				_menuContext->addPoints(-1);
 
 				hpUi->getChildByName("happy_mad")->setScale(1);
@@ -440,7 +441,7 @@ void EndlessRunner::startingIntersectMode() {
 				}
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getChar());
+				auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getString());
 				audio->playEffect(path.c_str(), false);
 				if (popUp) {
 					auto highScale = CallFunc::create([=]() { happyManAction->play("change_happy_mad", false); });
@@ -476,12 +477,12 @@ void EndlessRunner::startingIntersectMode() {
 			if (boxs.intersectsRect(allBeforeStartBlocks[i]->getBoundingBox())) {
 				flagLifeDemo = false;
 
-				if (counterLife > 0) {
+				if (counterLife > 1) {
 					counterLife = counterLife - 1;
-					std::ostringstream sstreamc; sstreamc << "life_" << counterLife; std::string counterLife = sstreamc.str();
-					hpUi->getChildByName(counterLife)->stopAllActions();
-					hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
-					hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
+					std::ostringstream sstreamc; sstreamc << "life_" << counterLife; std::string counterLifeString = sstreamc.str();
+					hpUi->getChildByName(counterLifeString)->stopAllActions();
+					hpUi->getChildByName(counterLifeString)->getChildByName("life_on")->setVisible(false);
+					hpUi->getChildByName(counterLifeString)->getChildByName("life_off")->setVisible(true);
 				}
 				auto upVisible = CallFunc::create([=]() {
 					Character.character->setVisible(false);
@@ -842,10 +843,10 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 			_flagLetter = false;
 		}
 
-		auto label = Alphabet::createWithSize(str, 300);
-		label->setBMFontSize(std::max(float(50.0), float(300 - (str.length() - 1) * 15)));
+		auto label = CommonLabelTTF::create(str, "Helvetica",150);
+		label->setFontSize(std::max(float(20.0), float(150 - (str.length() - 1) * 13)));
 		label->setName(str);
-		label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
+		//label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 		label->setTag(Character.uniqueId);
 		monsterImage->setTag(Character.uniqueId);
 

@@ -37,10 +37,10 @@ public class BaliApplication extends Application {
     private ThreadManager threadManager;
 
 
-    public static final String ftpHost = "192.168.1.6";
+    public static final String ftpHost = "192.168.0.1";
     public static final int ftpPort = 21;
-    public static final String ftpUser = "shyamalupadhyaya";
-    public static final String ftpPassword = "doggy";
+    public static final String ftpUser = "anonymous";
+    public static final String ftpPassword = "nobody";
 
 
     @Override

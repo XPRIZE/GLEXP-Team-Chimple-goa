@@ -161,7 +161,7 @@ void MainGame::onEnterTransitionDidFinish()
 	//startGame();
 
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(MainGame::startGame, this));
-	_lesson.getMultiChoices(10, 0);
+    _lesson.getMultiChoices(10, 0, UPPER_CASE_LETTER_FORMAT, UPPER_CASE_LETTER_FORMAT);
 	/*if (_menuContext->getCurrentLevel() == 1)
 	{
 		displayHelp();
