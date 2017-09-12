@@ -110,17 +110,9 @@ public class WordView extends FrameLayout{
         wordView.setText(word.name);
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
-        try
-        {
-//            InputStream inputStream = mContext.getAssets().open(word.picture);
-            InputStream inputStream = mContext.getAssets().open("swa/image/apple.jpg");
-            Drawable d = Drawable.createFromStream(inputStream, null);
+        Drawable d = word.getPictureDrawable(context);
+        if(d != null) {
             imageView.setImageDrawable(d);
-            inputStream .close();
-        }
-        catch(IOException e)
-        {
-            e.printStackTrace();
         }
 
         mSoundFab = (FloatingActionButton) findViewById(R.id.soundFab);

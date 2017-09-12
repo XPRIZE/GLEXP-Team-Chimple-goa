@@ -17,8 +17,8 @@
 package org.chimple.bali.model;
 
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
+
+import org.chimple.bali.db.entity.Unit;
 
 public class MultipleChoiceQuiz {
     public static final String HELP = "help";
@@ -30,26 +30,33 @@ public class MultipleChoiceQuiz {
     public String question;
     public String[] answers;
     public int correctAnswer;
+    public Unit questionUnit;
+    public Unit[] answerUnits;
 
-    public MultipleChoiceQuiz(String help, String question, String[] answers, int correctAnswer) {
+    public MultipleChoiceQuiz(String help, Unit questionUnit, Unit[] answerUnits, int correctAnswer) {
         this.help = help;
-        this.question = question;
-        this.answers = answers;
+        this.questionUnit = questionUnit;
+        this.answerUnits = answerUnits;
+        this.question = questionUnit.name;
+        answers = new String[answerUnits.length];
+        for(int i = 0; i < answerUnits.length; i++) {
+            answers[i] = answerUnits[i].name;
+        }
         this.correctAnswer = correctAnswer;
     }
 
-    public MultipleChoiceQuiz(Bundle bundle) {
-        this(bundle.getString(HELP), bundle.getString(QUESTION),
-                bundle.getStringArray(ANSWERS), bundle.getInt(CORRECT_ANSWER));
-    }
-
-    public Bundle getBundle() {
-        Bundle b = new Bundle();
-        b.putString(HELP, help);
-        b.putString(QUESTION, question);
-        b.putStringArray(ANSWERS, answers);
-        b.putInt(CORRECT_ANSWER, correctAnswer);
-        return b;
-    }
+//    public MultipleChoiceQuiz(Bundle bundle) {
+//        this(bundle.getString(HELP), bundle.getString(QUESTION),
+//                bundle.getStringArray(ANSWERS), bundle.getInt(CORRECT_ANSWER));
+//    }
+//
+//    public Bundle getBundle() {
+//        Bundle b = new Bundle();
+//        b.putString(HELP, help);
+//        b.putString(QUESTION, question);
+//        b.putStringArray(ANSWERS, answers);
+//        b.putInt(CORRECT_ANSWER, correctAnswer);
+//        return b;
+//    }
 
 }

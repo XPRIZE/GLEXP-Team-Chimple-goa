@@ -76,15 +76,15 @@ public class TestActivity extends AppCompatActivity {
 //                    String[] objStr = obj.getStringArray("key");
 //                    MultipleChoiceQuiz mcq = (MultipleChoiceQuiz) msg.obj;
 
-                    Bundle obj = (Bundle) msg.obj;
-                    int numBundles = obj.getInt(LessonService.NUM_BUNDLES);
-                    MultipleChoiceQuiz[] mcqs = new MultipleChoiceQuiz[numBundles];
-                    for (int i = 0; i < numBundles; i++) {
-                        Bundle b = obj.getBundle("bundle" + i);
-                        MultipleChoiceQuiz mcq = new MultipleChoiceQuiz(b);
-                        mcqs[i] = mcq;
-                    }
-                    Toast.makeText(getApplicationContext(), mcqs[1].answers[3], Toast.LENGTH_SHORT).show();
+//                    Bundle obj = (Bundle) msg.obj;
+//                    int numBundles = obj.getInt(LessonService.NUM_BUNDLES);
+//                    MultipleChoiceQuiz[] mcqs = new MultipleChoiceQuiz[numBundles];
+//                    for (int i = 0; i < numBundles; i++) {
+//                        Bundle b = obj.getBundle("bundle" + i);
+//                        MultipleChoiceQuiz mcq = new MultipleChoiceQuiz(b);
+//                        mcqs[i] = mcq;
+//                    }
+//                    Toast.makeText(getApplicationContext(), mcqs[1].answers[3], Toast.LENGTH_SHORT).show();
                     break;
                 default:
                     super.handleMessage(msg);
