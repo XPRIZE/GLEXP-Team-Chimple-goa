@@ -8,6 +8,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Point;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.Display;
@@ -28,6 +30,9 @@ import org.chimple.bali.service.TollBroadcastReceiver;
 import org.chimple.bali.ui.FlashCardAdapter;
 import org.chimple.bali.viewmodel.CardStatusViewModel;
 import org.chimple.bali.viewmodel.FlashCardViewModel;
+
+import static org.chimple.bali.viewmodel.CardStatusViewModel.READY_TO_GO;
+import static org.chimple.bali.viewmodel.CardStatusViewModel.SELECTED;
 
 public class LessonActivity extends LifecycleActivity {
     private AdapterViewAnimator mFlashCardView;
@@ -76,7 +81,7 @@ public class LessonActivity extends LifecycleActivity {
                             mFlashCardView.advance();
                             mProgressBar.incrementProgressBy(1);
                             CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(LessonActivity.this).get(CardStatusViewModel.class);
-                            cardStatusViewModel.viewed(false);
+                            cardStatusViewModel.viewed(CardStatusViewModel.NONE);
                         }
                     }
                 });
@@ -85,7 +90,9 @@ public class LessonActivity extends LifecycleActivity {
         });
         CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(this).get(CardStatusViewModel.class);
         cardStatusViewModel.getViewed().observe(this, viewed -> {
-            if(viewed) {
+            if(READY_TO_GO == viewed) {
+                mFab.show();
+            } else if(SELECTED == viewed) {
                 mFab.show();
             } else {
                 mFab.hide();

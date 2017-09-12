@@ -1,4 +1,3 @@
-package org.chimple.bali.repo;
 /*
  * Copyright 2017, Team Chimple
  *
@@ -14,6 +13,8 @@ package org.chimple.bali.repo;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+package org.chimple.bali.repo;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
@@ -125,7 +126,7 @@ public class LessonRepo {
         for (int i = 0; i < numQuizes; i++) {
             int lucIndex = quizList.get(Math.min(i, quizList.size() - 1));
             FlashCard luc = lucs.get(lucIndex);
-            String[] choices = new String[numChoices];
+            Unit[] choices = new Unit[numChoices];
 
             ArrayList<Integer> choiceList = new ArrayList<Integer>();
             for (int j = 0; j < lucs.size(); j++) {
@@ -138,20 +139,20 @@ public class LessonRepo {
             int answerIndex = ThreadLocalRandom.current().nextInt(numChoices);
             for (int c = 0; c < numChoices; c++) {
                 if (c == answerIndex) {
-                    choices[c] = luc.objectUnit.name;
+                    choices[c] = luc.objectUnit;
                 } else {
                     int randIndex = choiceList.get(Math.min(c, choiceList.size() - 1));
-                    choices[c] = lucs.get(randIndex).objectUnit.name;
+                    choices[c] = lucs.get(randIndex).objectUnit;
                 }
             }
-            String answer = luc.subjectUnit.name;
+            Unit answer = luc.subjectUnit;
             if(answerFormat == UPPER_CASE_LETTER_FORMAT) {
-                answer = luc.subjectUnit.name.toUpperCase();
+                answer.name = answer.name.toUpperCase();
             }
             if(choiceFormat == UPPER_CASE_LETTER_FORMAT) {
                 for(int c = 0; c < choices.length; c++) {
                     //TODO: Handle unicode
-                    choices[c] = choices[c].substring(0, 1).toUpperCase();
+                    choices[c].name = choices[c].name.substring(0, 1).toUpperCase();
                 }
             }
             MultipleChoiceQuiz mcq = new MultipleChoiceQuiz("TODO: Dummy Help",

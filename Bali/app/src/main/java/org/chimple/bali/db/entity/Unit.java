@@ -20,6 +20,14 @@ import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+
+import org.chimple.bali.R;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 @Entity
 public class Unit {
@@ -77,5 +85,22 @@ public class Unit {
     }
 
     public Unit() {
+    }
+
+    @Ignore
+    public Drawable getPictureDrawable(Context context) {
+        Drawable d = null;
+        try
+        {
+//            InputStream inputStream = mContext.getAssets().open(word.picture);
+            InputStream inputStream = context.getAssets().open("swa/image/apple.jpg");
+            d = Drawable.createFromStream(inputStream, null);
+            inputStream .close();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        return d;
     }
 }
