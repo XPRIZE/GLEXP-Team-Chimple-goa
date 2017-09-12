@@ -17,6 +17,7 @@ LETTER_CONCEPT = 1
 UPPER_CASE_TO_LOWER_CASE_CONCEPT = 2
 LETTER_TO_WORD_CONCEPT = 3
 SYLLABLE_TO_WORD_CONCEPT = 4
+UPPER_CASE_LETTER_TO_WORD_CONCEPT = 5
 
 #mapping from letter to unit_id
 letter_dict = {}
@@ -98,7 +99,7 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 		lesson_id = lesson_id + 1
 		seq = 0
 		ll = len(upper_case_letters)
-		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)], LETTER_TO_WORD_CONCEPT, lesson_id])
+		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)], UPPER_CASE_LETTER_TO_WORD_CONCEPT, lesson_id])
 		for rep in range(3):
 			for i, val in enumerate(upper_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 				lesson_unit_id = lesson_unit_id + 1
