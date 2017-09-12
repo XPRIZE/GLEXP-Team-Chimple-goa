@@ -850,7 +850,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		label->setTag(Character.uniqueId);
 		monsterImage->setTag(Character.uniqueId);
 
-		CCLOG("NEW MONSTER WORD GENERATED : %s", label->getString());
+		CCLOG("NEW MONSTER WORD GENERATED : %s", label->getString().c_str());
 
 		if (!startSecondFlag) {
 			startSecondFlag = true;
