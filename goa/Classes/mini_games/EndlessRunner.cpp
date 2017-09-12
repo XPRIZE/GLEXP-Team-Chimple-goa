@@ -850,6 +850,8 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		label->setTag(Character.uniqueId);
 		monsterImage->setTag(Character.uniqueId);
 
+		CCLOG("NEW MONSTER WORD GENERATED : %s", label->getString());
+
 		if (!startSecondFlag) {
 			startSecondFlag = true;
 			monsterImage->setPosition(Vec2(rightBarrier->getPosition().x, (visibleSize.height * 0.52)));
@@ -885,6 +887,8 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		this->addChild(label, 9);
 		monsterImage->runAction(MoveTo::create((monsterImage->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, monsterImage->getPosition().y)));
 		label->runAction(MoveTo::create((label->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, label->getPosition().y)));
+
+		CCLOG("MONSTER GENERATED SUCCESSFULLY and TAG %d", monsterImage->getTag());
 
 		Character.uniqueId = Character.uniqueId + 1;
 		allMonster.push_back(monsterImage);
