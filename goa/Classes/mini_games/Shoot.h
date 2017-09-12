@@ -74,6 +74,7 @@ public:
 	void gameBegin(cocos2d::EventCustom * eventCustom);
 	void update(float) override;
 	void choosingListner();
+	bool checkAnswer(string creamText, string coneText);
 	float radToDeg(float angle);
 	float degToRad(float angle);
 	void bgListner();
