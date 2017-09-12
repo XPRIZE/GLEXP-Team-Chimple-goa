@@ -359,8 +359,8 @@ void EndlessRunner::startingIntersectMode() {
 				_menuContext->addPoints(1);
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getString());
-				audio->playEffect(path.c_str(), false);
+				//auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getString());
+				//audio->playEffect(path.c_str(), false);
 
 				counterAlphabets = counterAlphabets + 2;
 				_totalCounterAlphabets++;
@@ -441,8 +441,8 @@ void EndlessRunner::startingIntersectMode() {
 				}
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getString());
-				audio->playEffect(path.c_str(), false);
+				//auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getString());
+				//audio->playEffect(path.c_str(), false);
 				if (popUp) {
 					auto highScale = CallFunc::create([=]() { happyManAction->play("change_happy_mad", false); });
 					auto smallScale = CallFunc::create([=]() {happyManAction->play("mad_idle", true); });
