@@ -86,6 +86,10 @@ void PatchTheWall::gameBegin(cocos2d::EventCustom *eventCustom) {
 	int maxLengthWord = 0;
 
 	for (int i = 0; i < _vmc.size(); i++) {
+		
+		if (maxLengthWord < _vmc[i].question.length()) {
+			maxLengthWord = _vmc[i].question.length();
+		}
 		if (maxLengthWord < _vmc[i].answers[_vmc[i].correctAnswer].length()) {
 			maxLengthWord = _vmc[i].answers[_vmc[i].correctAnswer].length();
 		}
@@ -105,8 +109,8 @@ void PatchTheWall::gameBegin(cocos2d::EventCustom *eventCustom) {
 			this->addChild(SpriteDetails._sprite);
 			SpriteDetails._sprite->setColor(Color3B(205, 133, 63));
 
-			auto aplhabets = CommonLabelTTF::create(_matrix[j][i], "fonts/Roboto-Regular.ttf", 170);
-			aplhabets->setFontSize(std::max(float(30.0), float(170 - (maxLengthWord - 1) * 10)));
+			auto aplhabets = CommonLabelTTF::create(_matrix[j][i], "fonts/Roboto-Regular.ttf", 120);
+			aplhabets->setFontSize(std::max(float(30.0), float(130 - (maxLengthWord - 1) * 18)));
 			SpriteDetails._label = aplhabets;
 
 			SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
@@ -312,10 +316,13 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
 		if (maxLengthWord < _vmc[i].answers[_vmc[i].correctAnswer].length()) {
 			maxLengthWord = _vmc[i].answers[_vmc[i].correctAnswer].length();
 		}
+		if (maxLengthWord < _vmc[i].question.length()) {
+			maxLengthWord = _vmc[i].question.length();
+		}
 	}
 
-	auto aplhabets = CommonLabelTTF::create(text, "fonts/Roboto-Regular.ttf", 170);
-	aplhabets->setFontSize(std::max(float(30.0), float(170 - (maxLengthWord - 1) * 10)));
+	auto aplhabets = CommonLabelTTF::create(text, "fonts/Roboto-Regular.ttf", 120);
+	aplhabets->setFontSize(std::max(float(30.0), float(130 - (maxLengthWord - 1) * 18)));
 	SpriteDetails._label = aplhabets;
 
     SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
