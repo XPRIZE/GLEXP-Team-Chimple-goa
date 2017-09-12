@@ -120,7 +120,7 @@ void EndlessRunner::GameBegin(cocos2d::EventCustom *eventCustom) {
 	this->addChild(boardDisplay, 10);
 
 	letterOnBoard = CommonLabelTTF::create(tempChar,"Helvetica" , 150);
-	letterOnBoard->setFontSize(std::max(float(20.0), float(150 - (tempChar.length() - 1) * 13)));
+	letterOnBoard->setFontSize(std::max(float(50.0), float(150 - (tempChar.length() - 1) * 15)));
 	letterOnBoard->setName("mainBoard");
 	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	//letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
@@ -844,7 +844,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		}
 
 		auto label = CommonLabelTTF::create(str, "Helvetica",150);
-		label->setFontSize(std::max(float(20.0), float(150 - (str.length() - 1) * 13)));
+		label->setFontSize(std::max(float(30.0), float(150 - (str.length() - 1) * 13)));
 		label->setName(str);
 		//label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 		label->setTag(Character.uniqueId);

@@ -79,19 +79,19 @@ public class FlashCardAdapter extends BaseAdapter {
             }
             Collections.shuffle(choiceList);
 
-            String[] choices = new String[4];
+            Unit[] choices = new Unit[4];
             int randIndex = ThreadLocalRandom.current().nextInt(choices.length);
             for (int j = 0; j < choices.length; j++) {
                 if(j == randIndex) {
-                    choices[j] = mFlashCards.get(quizIndex).objectUnit.name;
+                    choices[j] = mFlashCards.get(quizIndex).objectUnit;
                 } else {
                     int randChoiceIndex = choiceList.get(Math.min(j, choiceList.size() - 1));
-                    choices[j] = mFlashCards.get(randChoiceIndex).objectUnit.name;
+                    choices[j] = mFlashCards.get(randChoiceIndex).objectUnit;
                 }
             }
             MultipleChoiceQuiz multipleChoiceQuiz = new MultipleChoiceQuiz(
                     "help",
-                    mFlashCards.get(quizIndex).subjectUnit.name,
+                    mFlashCards.get(quizIndex).subjectUnit,
                     choices,
                     randIndex
             );

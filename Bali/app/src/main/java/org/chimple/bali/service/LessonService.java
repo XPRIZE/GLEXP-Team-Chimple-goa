@@ -51,40 +51,40 @@ public class LessonService extends LifecycleService {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case MULTIPLE_CHOICE_QUIZ:
-                    Bundle obj = (Bundle) msg.obj;
-                    int numQuizes = obj.getInt(NUM_QUIZES);
-                    int numChoices = obj.getInt(NUM_CHOICES);
-                    List<MultipleChoiceQuiz> mcqs = LessonRepo.getMultipleChoiceQuizes(getApplicationContext(), numQuizes, numChoices, LessonRepo.ANY_FORMAT, LessonRepo.ANY_FORMAT);
-
-
-                        Messenger messenger = msg.replyTo;
-                        Message reply = Message.obtain(null, LessonService.MULTIPLE_CHOICE_QUIZ, 0, 0);
-
-//                    MultipleChoiceQuiz[] mcqs = new MultipleChoiceQuiz[] {
-//                            new MultipleChoiceQuiz("dummy help",
-//                                    "A",
-//                                    new String[]{"Apple", "Boy", "Cat", "Dog"},
-//                                    0),
-//                            new MultipleChoiceQuiz("Dogs go awalking",
-//                                    "B",
-//                                    new String[]{"Apple", "Boy", "Cat", "Dog"},
-//                                    1)
-//                    };
-
-                        Bundle bundle = new Bundle();
-                        reply.obj = bundle;
-
-                        bundle.putInt(NUM_BUNDLES, mcqs.size());
-                        for (int i = 0; i < mcqs.size(); i++) {
-                            bundle.putBundle("bundle" + i, mcqs.get(i).getBundle());
-                        }
-
-                        try {
-                            messenger.send(reply);
-                        } catch (RemoteException e) {
-                            e.printStackTrace();
-                        }
-
+//                    Bundle obj = (Bundle) msg.obj;
+//                    int numQuizes = obj.getInt(NUM_QUIZES);
+//                    int numChoices = obj.getInt(NUM_CHOICES);
+//                    List<MultipleChoiceQuiz> mcqs = LessonRepo.getMultipleChoiceQuizes(getApplicationContext(), numQuizes, numChoices, LessonRepo.ANY_FORMAT, LessonRepo.ANY_FORMAT);
+//
+//
+//                        Messenger messenger = msg.replyTo;
+//                        Message reply = Message.obtain(null, LessonService.MULTIPLE_CHOICE_QUIZ, 0, 0);
+//
+////                    MultipleChoiceQuiz[] mcqs = new MultipleChoiceQuiz[] {
+////                            new MultipleChoiceQuiz("dummy help",
+////                                    "A",
+////                                    new String[]{"Apple", "Boy", "Cat", "Dog"},
+////                                    0),
+////                            new MultipleChoiceQuiz("Dogs go awalking",
+////                                    "B",
+////                                    new String[]{"Apple", "Boy", "Cat", "Dog"},
+////                                    1)
+////                    };
+//
+//                        Bundle bundle = new Bundle();
+//                        reply.obj = bundle;
+//
+//                        bundle.putInt(NUM_BUNDLES, mcqs.size());
+//                        for (int i = 0; i < mcqs.size(); i++) {
+//                            bundle.putBundle("bundle" + i, mcqs.get(i).getBundle());
+//                        }
+//
+//                        try {
+//                            messenger.send(reply);
+//                        } catch (RemoteException e) {
+//                            e.printStackTrace();
+//                        }
+//
                     break;
                 default:
                     super.handleMessage(msg);

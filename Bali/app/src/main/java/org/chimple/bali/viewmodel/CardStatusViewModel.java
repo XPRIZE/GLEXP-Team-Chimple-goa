@@ -21,13 +21,17 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
 public class CardStatusViewModel extends ViewModel {
-    private final MutableLiveData<Boolean> mViewed = new MutableLiveData<Boolean>();
+    public static final int NONE = 0;
+    public static final int SELECTED = 1;
+    public static final int READY_TO_GO = 2;
 
-    public void viewed(boolean v) {
+    private final MutableLiveData<Integer> mViewed = new MutableLiveData<Integer>();
+
+    public void viewed(Integer v) {
         mViewed.setValue(v);
     }
 
-    public LiveData<Boolean> getViewed() {
+    public LiveData<Integer> getViewed() {
         return mViewed;
     }
 }

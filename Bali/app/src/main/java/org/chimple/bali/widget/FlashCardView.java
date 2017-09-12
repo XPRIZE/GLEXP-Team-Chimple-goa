@@ -72,7 +72,7 @@ public class FlashCardView extends FrameLayout {
                 public void onAnimationEnd(Animator animation) {
                     setClickable(true);
                     CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
-                    cardStatusViewModel.viewed(true);
+                    cardStatusViewModel.viewed(CardStatusViewModel.READY_TO_GO);
 
                 }
             });
