@@ -29,4 +29,17 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="LauncherBaseTheme" parent="android:Theme.Wallpaper.NoTitleBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+
+    <!-- Application theme. -->
+    <style name="LauncherTheme" parent="LauncherBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+
 </resources>
