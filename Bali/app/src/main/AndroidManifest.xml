@@ -47,6 +47,8 @@
         <receiver android:name=".service.TollBroadcastReceiver"
             android:exported="true"/>
         <activity android:name=".activity.LessonActivity" />
+        <activity android:name=".launcher.LauncherScreen"
+            android:theme="@style/LauncherTheme"/>
         <activity android:name=".activity.TestActivity" />
         <activity
             android:name=".activity.FullscreenActivity"
