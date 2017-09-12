@@ -290,15 +290,15 @@ void MainGame::startGame(cocos2d::EventCustom *eventCustom)	// starting of game
 	_mainQuestions.resize(row);
 	_mainQuestions[0].resize(column);
 
-	_mainAnswers.resize(row);
-	_mainAnswers[0].resize(column);
+	//_mainQuestions.resize(row);
+	//_mainQuestions[0].resize(column);
 
-	_maxLengthOfAnswer = getMaxWordLength(_mainAnswers[0]);
+	//_maxLengthOfAnswer = getMaxWordLength(_mainQuestions[0]);
 	_maxLengthOfQuestion = getMaxWordLength(_mainQuestions[0]);
 
 	for (size_t i = 0; i < 10; i++) {
 		_mainQuestions[0][i] = vmc[i].question;
-		_mainAnswers[0][i] = vmc[i].answers[vmc[i].correctAnswer];
+		//_mainQuestions[0][i] = vmc[i].answers[vmc[i].correctAnswer];
 	}
 
 	//
@@ -380,7 +380,7 @@ void MainGame::letterCome(float d)
 		//std::vector<wchar_t> chars = MainChars[0];
 		std::string letterName;
 		//std::vector<std::string> chars = _mainQuestions[0]; Old Value
-		std::vector<std::string> chars = _mainAnswers[0];
+		std::vector<std::string> chars = _mainQuestions[0];
 
 		while (flag == 0)
 		{
@@ -820,9 +820,9 @@ void MainGame::update(float dt)
 			Rect targetRect = Rect(MainGame::bulletArray_Animation[j]->getBoundingBox().origin.x - (MainGame::bulletArray_Animation[j]->getChildByName("blaze")->getContentSize().width / 2) , MainGame::bulletArray_Animation[j]->getBoundingBox().origin.y, MainGame::bulletArray_Animation[j]->getChildByName("blaze")->getContentSize().width, MainGame::bulletArray_Animation[j]->getChildByName("blaze")->getContentSize().height);
 			if (targetRect.intersectsRect(MainGame::letterArray[i]->getBoundingBox()))
 			{
-				//if (MainGame::letterArray[i]->id == MainGame::bulletArray[j]->id) old code
-				
-				if (checkAnswer(MainGame::bulletArray[j]->id, MainGame::letterArray[i]->id))
+
+				//if (checkAnswer(MainGame::bulletArray[j]->id, MainGame::letterArray[i]->id))
+				if(MainGame::letterArray[i]->id == MainGame::bulletArray[j]->id)
 				{
 					auto que = MainGame::letterArray[i]->id;
 					auto ans = MainGame::bulletArray[j]->id;
