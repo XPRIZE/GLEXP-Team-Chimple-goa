@@ -90,10 +90,10 @@ public class FtpManager {
             String destDirectory = Build.SERIAL;
             String extension = ".csv";
             String filename = destDirectory + extension;
-            String fullyFilePath = this.context.getFilesDir() + "/" + filename;
+            String fullyFilePath = this.context.getFilesDir() + File.separator + filename;
             List<String[]> csvResults = new ArrayList<String[]>();
 
-            CSVWriter writer = new CSVWriter(new FileWriter(fullyFilePath), '\t', '"', "\n");
+            CSVWriter writer = new CSVWriter(new FileWriter(fullyFilePath), ',', '"', "\n");
             UserLog[] userLogItems = UserLogRepo.getUserLogs(this.context);
             for (UserLog userLog  : userLogItems) {
                 Log.d(TAG, "Userlog information:" + userLog.toString());
@@ -135,30 +135,40 @@ public class FtpManager {
 
             FileInputStream srcFileStream = this.context.openFileInput(srcFilePath);
             boolean isDirectoryExists = false;
-
+            boolean isRemoteDirectoryExists = false;
+            String remoteDir = "remote";
             FTPFile[] files = ftpClient.listFiles();
             for (FTPFile file : files) {
                 String details = file.getName();
                 if (file.isDirectory() && desDirectory.equals(details)) {
                     isDirectoryExists = true;
-                    break;
+                }
+                if (file.isDirectory() && remoteDir.equals(details)) {
+                    isRemoteDirectoryExists = true;
                 }
             }
 
-            if(!isDirectoryExists)
+            if(!isRemoteDirectoryExists) {
+                ftpClient.makeDirectory(remoteDir);
+            }
+
+            if(ftpClient.changeWorkingDirectory(remoteDir))
             {
-                ftpClient.makeDirectory(desDirectory);
-            }
-
-            if (ftpClient.changeWorkingDirectory(desDirectory)) {
-
-                UserLog[] userLogItems = UserLogRepo.getUserLogs(this.context);
-                for (UserLog userLog  : userLogItems) {
-                    Log.d(TAG, "Userlog information:" + userLog.toString());
-
+                if(!isDirectoryExists)
+                {
+                    ftpClient.makeDirectory(desDirectory);
                 }
 
-                status = ftpClient.storeFile(desFileName, srcFileStream);
+                if (ftpClient.changeWorkingDirectory(desDirectory)) {
+
+                    UserLog[] userLogItems = UserLogRepo.getUserLogs(this.context);
+                    for (UserLog userLog  : userLogItems) {
+                        Log.d(TAG, "Userlog information:" + userLog.toString());
+
+                    }
+
+                    status = ftpClient.storeFile(desFileName, srcFileStream);
+                }
             }
             srcFileStream.close();
             return status;
