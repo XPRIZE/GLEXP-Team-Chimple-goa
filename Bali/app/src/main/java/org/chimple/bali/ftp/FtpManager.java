@@ -57,10 +57,12 @@ public class FtpManager {
         try {
             ftpClient = new FTPClient();
             ftpClient.connect(host, port);
+            Log.d(TAG, "Connected to ftp host: " + host);
             if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) {
                 boolean status = ftpClient.login(username, password);
                 ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
                 ftpClient.enterLocalPassiveMode();
+                Log.d(TAG, "Logged in to ftp host as user: " + username);
             }
 
         } catch (SocketException ex) {
@@ -97,7 +99,7 @@ public class FtpManager {
             CSVWriter writer = new CSVWriter(new FileWriter(fullyFilePath), ',', '"', "\n");
             UserLog[] userLogItems = UserLogRepo.getUserLogs(this.context);
             for (UserLog userLog  : userLogItems) {
-                Log.d(TAG, "Userlog information:" + userLog.toString());
+//                Log.d(TAG, "Userlog information:" + userLog.toString());
                 String userInfo = userLog.toString();
                 String[] result = userInfo.split(",");
                 csvResults.add(result);
@@ -158,17 +160,14 @@ public class FtpManager {
                 if(!isDirectoryExists)
                 {
                     ftpClient.makeDirectory(desDirectory);
+                    Log.d(TAG, "Make directory: " + desDirectory);
                 }
 
                 if (ftpClient.changeWorkingDirectory(desDirectory)) {
-
+                    Log.d(TAG, "Changed to directory: " + desDirectory);
                     UserLog[] userLogItems = UserLogRepo.getUserLogs(this.context);
-                    for (UserLog userLog  : userLogItems) {
-                        Log.d(TAG, "Userlog information:" + userLog.toString());
-
-                    }
-
                     status = ftpClient.storeFile(desFileName, srcFileStream);
+                    Log.d(TAG, "Stored ftp log to: " + desFileName);
                 }
             }
             srcFileStream.close();
