@@ -80,22 +80,24 @@ public class LessonRepo {
             , int numChoices, int answerFormat, int choiceFormat) {
         AppDatabase db = AppDatabase.getInstance(context);
         User user = UserRepo.getCurrentUser(context);
-        Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
+        Lesson currentLesson = db.lessonDao().getLessonById(user.currentLessonId);
+        int concept = currentLesson.concept;
         List<FlashCard> lucs = null;
         boolean answerCaseParticular = (answerFormat == UPPER_CASE_LETTER_FORMAT);
         if((answerFormat == ANY_FORMAT
                 || (answerFormat == UPPER_CASE_LETTER_FORMAT
-                    && (lesson.concept == Lesson.LETTER_CONCEPT
-                        || lesson.concept == Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT
-                        || lesson.concept == Lesson.LETTER_TO_WORD_CONCEPT)))
+                    && (currentLesson.concept == Lesson.LETTER_CONCEPT
+                        || currentLesson.concept == Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT
+                        || currentLesson.concept == Lesson.LETTER_TO_WORD_CONCEPT
+                        || currentLesson.concept == Lesson.UPPER_CASE_LETTER_TO_WORD_CONCEPT)))
             &&(choiceFormat == ANY_FORMAT
                 || (choiceFormat == UPPER_CASE_LETTER_FORMAT
-                    && (lesson.concept == Lesson.LETTER_CONCEPT
-                        || lesson.concept == Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT)))) {
-            lucs = db.lessonUnitDao().getFlashCardsByLessonId(lesson.id);
+                    && (currentLesson.concept == Lesson.LETTER_CONCEPT
+                        || currentLesson.concept == Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT)))) {
+            lucs = db.lessonUnitDao().getFlashCardsByLessonId(currentLesson.id);
             convertToUniqueSubjects(lucs, answerCaseParticular);
             if(lucs.size() < numQuizes) {
-                lucs = db.lessonUnitDao().getFlashCardArrayBelowSeqAndByConcept(lesson.seq, lesson.concept);
+                lucs = db.lessonUnitDao().getFlashCardArrayBelowSeqAndByConcept(currentLesson.seq, currentLesson.concept);
                 convertToUniqueSubjects(lucs, answerCaseParticular);
             }
         } else {
@@ -104,13 +106,15 @@ public class LessonRepo {
             formats.add(Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT);
             if(choiceFormat == ANY_FORMAT) {
                 formats.add(Lesson.LETTER_TO_WORD_CONCEPT);
+                formats.add(Lesson.UPPER_CASE_LETTER_TO_WORD_CONCEPT);
             }
-            Lesson[] lessons = db.lessonDao().getLessonsBelowSeqAndByConcept(lesson.seq, formats);
+            Lesson[] lessons = db.lessonDao().getLessonsBelowSeqAndByConcept(currentLesson.seq, formats);
             int lessonIndex = ThreadLocalRandom.current().nextInt(lessons.length);
             lucs = db.lessonUnitDao().getFlashCardsByLessonId(lessons[lessonIndex].id);
+            concept = lessons[lessonIndex].concept;
             convertToUniqueSubjects(lucs, answerCaseParticular);
             if(lucs.size() < numQuizes) {
-                lucs = db.lessonUnitDao().getFlashCardArrayBelowSeqAndByConcept(lesson.seq, lessons[lessonIndex].concept);
+                lucs = db.lessonUnitDao().getFlashCardArrayBelowSeqAndByConcept(currentLesson.seq, concept);
                 convertToUniqueSubjects(lucs, answerCaseParticular);
             }
 
@@ -153,6 +157,12 @@ public class LessonRepo {
                 for(int c = 0; c < choices.length; c++) {
                     //TODO: Handle unicode
                     choices[c].name = choices[c].name.substring(0, 1).toUpperCase();
+                }
+            }
+            if(concept == Lesson.UPPER_CASE_LETTER_TO_WORD_CONCEPT) {
+                for(int c = 0; c < choices.length; c++) {
+                    //TODO: Handle unicode
+                    choices[c].name = choices[c].name.substring(0, 1).toUpperCase() + choices[c].name.substring(1);
                 }
             }
             MultipleChoiceQuiz mcq = new MultipleChoiceQuiz("TODO: Dummy Help",

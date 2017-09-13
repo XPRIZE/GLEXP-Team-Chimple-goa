@@ -34,6 +34,8 @@ public class Lesson {
     public static final int LETTER_TO_WORD_CONCEPT = 3;
     @Ignore
     public static final int SYLLABLE_TO_WORD_CONCEPT = 4;
+    @Ignore
+    public static final int UPPER_CASE_LETTER_TO_WORD_CONCEPT = 5;
 
     @PrimaryKey(autoGenerate = true)
     public Long id;

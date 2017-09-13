@@ -51,7 +51,11 @@ public class FlashCardRepo {
                     //TODO: Handle no lesson
 
                 List<FlashCard> flashCardList = db.lessonUnitDao().getFlashCardsByLessonId(lesson.id);
-
+                if(lesson.concept == Lesson.UPPER_CASE_LETTER_TO_WORD_CONCEPT) {
+                    for(FlashCard flashCard: flashCardList) {
+                        flashCard.objectUnit.name =  flashCard.objectUnit.name.substring(0, 1).toUpperCase() + flashCard.objectUnit.name.substring(1);
+                    }
+                }
                 flashCards.postValue(flashCardList);
                 return null;
             }
