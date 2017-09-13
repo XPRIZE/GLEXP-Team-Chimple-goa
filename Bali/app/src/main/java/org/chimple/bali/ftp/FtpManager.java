@@ -30,6 +30,7 @@ import java.io.Writer;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -89,7 +90,7 @@ public class FtpManager {
             createFtpConnection(ftpHost, user, password, port, listener);
             String destDirectory = Build.SERIAL;
             String extension = ".csv";
-            String filename = destDirectory + extension;
+            String filename = "userlog" + "." + new Date().getTime() + extension;
             String fullyFilePath = this.context.getFilesDir() + File.separator + filename;
             List<String[]> csvResults = new ArrayList<String[]>();
 
@@ -105,7 +106,7 @@ public class FtpManager {
             writer.flush();
             writer.close();
 
-            boolean fileUploadStatus = ftpUpload(filename, destDirectory + extension, destDirectory, listener);
+            boolean fileUploadStatus = ftpUpload(filename, filename, destDirectory, listener);
 
             if (fileUploadStatus) {
                 listener.onFtpUploadSuccess();
