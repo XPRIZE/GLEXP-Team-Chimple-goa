@@ -367,7 +367,11 @@ void Drop::gameStart(cocos2d::EventCustom *eventCustom)
 
 		//Label
 		auto label = setAllLabelProperties(_levelOneString, 0, (floatBox->getBoundingBox().size.width / 2), ((floatBox->getBoundingBox().size.height / 2)*_sceneBasedNumericalVal.at("flaotingLetterYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
-		label->setFontSize(std::max(float(50.0), float(100 - (_levelOneString.length() - 1) * 10)));
+		float fontSize = std::max(float(50.0), float(100 - (_levelOneString.length() - 1) * 10));
+		if (fontSize < 50 || fontSize > 100) {
+			fontSize = 50.0f;
+		}
+		label->setFontSize(fontSize);
 		floatBox->addChild(label, 0);
 		letterHolderId++;
 		_helpFlag = true;
@@ -415,7 +419,12 @@ void Drop::layingOutBasket(bool flag, float gap, std::string letter, int i)
 
 	    _basketImg = (Sprite *)basket->getChildByName(_scenePath.at("basketImageName"));
 		auto label = setAllLabelProperties(letter, 0, (i*gap + gap / 2), (visibleSize.height*_sceneBasedNumericalVal.at("boxLabelYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
-		label->setFontSize(std::max(float(50.0), float(100 - (_maxLengthOfLayoutWord - 1) * 10)));
+		int fontSize = std::max(float(50.0), float(100 - (_maxLengthOfLayoutWord - 1) * 10));
+		if (fontSize < 50 || fontSize > 100) {
+			fontSize = 50.0f;
+		}
+		label->setFontSize(fontSize);
+
 		this->addChild(label, 2);
 
 		label->setVisible(false);
@@ -452,7 +461,11 @@ void Drop::layingOutBasket(bool flag, float gap, std::string letter, int i)
 			this->addChild(basket, 1);
 		}
 		auto label = setAllLabelProperties(letter, 0, (i*gap + gap / 2), (visibleSize.height*_sceneBasedNumericalVal.at("boxLabelYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
-		label->setFontSize(std::max(float(50.0), float(100 - (_maxLengthOfLayoutWord - 1) * 10)));
+		float fontSize = std::max(float(50.0), float(100 - (_maxLengthOfLayoutWord - 1) * 10));
+		if (fontSize < 50 || fontSize > 100) {
+			fontSize = 50.0f;
+		}
+		label->setFontSize(fontSize);
 		this->addChild(label, 2);
 	}
 }
@@ -566,7 +579,11 @@ void Drop::letterAndHolderMaker(float dt)
 	int maxIndex = _choices.size() - 1; //_wordOptionBin
 	std::string str = _choices[RandomHelper::random_int(0, maxIndex)];
 	auto label = setAllLabelProperties(str, 0, (floatBox->getBoundingBox().size.width / 2), ((floatBox->getBoundingBox().size.height / 2)*_sceneBasedNumericalVal.at("flaotingLetterYFactor")), true, 0.5, 0.5, 0, 1, 1, 100);
-	label->setFontSize(std::max(float(50.0), float(100 - (_maxLengthOfChoice - 1) * 10)));
+	float fontSize = std::max(float(50.0), float(100 - (_maxLengthOfChoice - 1) * 10));
+	if (fontSize < 50 || fontSize > 100) {
+		fontSize = 50.0f;
+	}
+	label->setFontSize(fontSize);
 	floatBox->addChild(label, 0);
 	addEvents(floatBox);
 	letterHolderId++;
@@ -664,7 +681,11 @@ void Drop::addEvents(Sprite* clickedObject)
 				CCLOG("LINE NO : 529");
 				auto calculate = ((std::string)_letterHolderSpriteBin[0]->getChildren().at(0)->getName()).length();
 				auto label = setAllLabelProperties(_letterHolderSpriteBin[0]->getChildren().at(0)->getName(), 0, (sprite->getBoundingBox().size.width / 2), (sprite->getBoundingBox().size.height / 2), true, 0.5, 0.5, 0, 1, 1, 100);
-				label->setFontSize(std::max(float(10), float(100 - (_maxLengthOfChoice - 1) * 10)));
+				float fontSize = std::max(float(10), float(100 - (_maxLengthOfChoice - 1) * 10));
+				if (fontSize < 10 || fontSize > 100) {
+					fontSize = 10.0f;
+				}
+				label->setFontSize(fontSize);
 				sprite->addChild(label, 0);
 				this->removeChild(_help);
 				this->schedule(schedule_selector(Drop::letterAndHolderMaker), 3);
@@ -675,7 +696,11 @@ void Drop::addEvents(Sprite* clickedObject)
 				CCLOG("LINE NO : 538");
 				auto calculate = ((std::string)target->getChildren().at(0)->getName()).length();
 				auto label = setAllLabelProperties(target->getChildren().at(0)->getName(), 0, (sprite->getBoundingBox().size.width / 2), (sprite->getBoundingBox().size.height / 2), true, 0.5, 0.5, 0, 1, 1, 100);
-				label->setFontSize(std::max(float(10), float(100 - (_maxLengthOfChoice - 1) * 10)));
+				float fontSize = std::max(float(10), float(100 - (_maxLengthOfChoice - 1) * 10));
+				if (fontSize < 10 || fontSize > 100) {
+					fontSize = 10.0f;
+				}
+				label->setFontSize(fontSize);
 				sprite->addChild(label, 0);
 				for (int i = 0; i < _letterHolderSpriteBin.size(); i++)
 				{

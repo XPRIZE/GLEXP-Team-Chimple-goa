@@ -134,7 +134,7 @@ void EndlessRunner::GameBegin(cocos2d::EventCustom *eventCustom) {
 
 	letterOnBoard = CommonLabelTTF::create(tempChar,"Helvetica" , 150);
 	float fontSize = std::max(float(50.0), float(150 - (tempChar.length() - 1) * 15));
-	if (fontSize < 50) {
+	if (fontSize < 50 || fontSize > 150) {
 		fontSize = 50.0f;
 	}
 	letterOnBoard->setFontSize(fontSize);
