@@ -2,37 +2,29 @@ package org.chimple.bali.ftp;
 
 import android.content.Context;
 import android.os.Build;
-import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import com.opencsv.CSVWriter;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
 import org.chimple.bali.db.entity.UserLog;
-import org.chimple.bali.model.MultipleChoiceQuiz;
-import org.chimple.bali.repo.LessonRepo;
 import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.service.ThreadManager;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Writer;
+import java.io.InputStream;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Created by shyamalupadhyaya on 08/09/17.
@@ -97,7 +89,6 @@ public class FtpManager {
             CSVWriter writer = new CSVWriter(new FileWriter(fullyFilePath), ',', '"', "\n");
             UserLog[] userLogItems = UserLogRepo.getUserLogs(this.context);
             for (UserLog userLog  : userLogItems) {
-                Log.d(TAG, "Userlog information:" + userLog.toString());
                 String userInfo = userLog.toString();
                 String[] result = userInfo.split(",");
                 csvResults.add(result);
@@ -129,12 +120,58 @@ public class FtpManager {
         return false;
     }
 
+//    public void saveFilesToServer(String remoteDest, File localSrc) throws IOException {
+//        FTPClient ftp = new FTPClient();
+//        ftp.connect("ftp.foobar.com");
+//        if (!FTPReply.isPositiveCompletion(ftp.getReplyCode())) {
+//            ftp.disconnect();
+//            log.fatal("FTP not disconnected");
+//        }
+//
+//        ftp.login("foo", "qwerty");
+//        log.info("Connected to server .");
+//        log.info(ftp.getReplyString());
+//
+//        ftp.changeWorkingDirectory(remoteDest);
+//        ftp.setFileType(FTPClient.BINARY_FILE_TYPE);
+//
+//        try {
+//            upload(localSrc, ftp);
+//        }
+//        finally {
+//            ftp.disconnect();
+//            log.info("FTP disconnected");
+//        }
+//    }
+
+    public void upload(File src, FTPClient ftp) throws IOException {
+        if (src.isDirectory()) {
+//            ftp.makeDirectory(src.getName());
+//            ftp.changeWorkingDirectory(src.getName());
+            for (File file : src.listFiles()) {
+                if (file.getName().endsWith(".report") || file.getName().endsWith(".csv")) {
+                    upload(file, ftp);
+                }
+            }
+            ftp.changeToParentDirectory();
+        } else {
+            InputStream srcStream = null;
+            try {
+                String currentDirName = ftp.printWorkingDirectory();
+                System.out.println("currentDirName" + currentDirName);
+                srcStream = src.toURI().toURL().openStream();
+                ftp.storeFile(src.getName(), srcStream);
+            } finally {
+                IOUtils.closeQuietly(srcStream);
+            }
+        }
+    }
 
     private boolean ftpUpload(String srcFilePath, String desFileName, String desDirectory, final FtpManagerListener listener) {
         boolean status = false;
         try {
 
-            FileInputStream srcFileStream = this.context.openFileInput(srcFilePath);
+            //FileInputStream srcFileStream = this.context.openFileInput(srcFilePath);
             boolean isDirectoryExists = false;
             boolean isRemoteDirectoryExists = false;
             String remoteDir = "remote";
@@ -149,6 +186,7 @@ public class FtpManager {
                 }
             }
 
+            File srcDir = new File(context.getFilesDir() + File.separator);
             if(!isRemoteDirectoryExists) {
                 ftpClient.makeDirectory(remoteDir);
             }
@@ -161,17 +199,19 @@ public class FtpManager {
                 }
 
                 if (ftpClient.changeWorkingDirectory(desDirectory)) {
-
-                    UserLog[] userLogItems = UserLogRepo.getUserLogs(this.context);
-                    for (UserLog userLog  : userLogItems) {
-                        Log.d(TAG, "Userlog information:" + userLog.toString());
-
+                    try {
+                        upload(srcDir, ftpClient);
+                        status = true;
+                    } catch (Exception e) {
+                        status = false;
+                    } finally {
+                        if(status) {
+                            //delete all files
+                            FileUtils.cleanDirectory(srcDir);
+                        }
                     }
-
-                    status = ftpClient.storeFile(desFileName, srcFileStream);
                 }
             }
-            srcFileStream.close();
             return status;
         } catch (Exception e) {
             e.printStackTrace();
