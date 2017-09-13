@@ -1,26 +1,3 @@
-package org.chimple.bali.service;
-
-import android.app.AlarmManager;
-import android.app.AlertDialog;
-import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.AsyncTask;
-import android.util.Log;
-import android.view.WindowManager;
-
-import org.chimple.bali.MainActivity;
-import org.chimple.bali.R;
-
-import java.util.concurrent.atomic.AtomicBoolean;
-
-import static android.content.Context.ALARM_SERVICE;
-import static org.chimple.bali.provider.LessonContentProvider.COINS;
-import static org.chimple.bali.provider.LessonContentProvider.URI_COIN;
-
 /*
  * Copyright 2017, Team Chimple
  *
@@ -36,6 +13,29 @@ import static org.chimple.bali.provider.LessonContentProvider.URI_COIN;
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+package org.chimple.bali.service;
+
+import android.app.AlarmManager;
+import android.app.AlertDialog;
+import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.util.Log;
+import android.view.WindowManager;
+
+import org.chimple.bali.MainActivityUnused;
+import org.chimple.bali.R;
+
+import java.util.concurrent.atomic.AtomicBoolean;
+
+import static android.content.Context.ALARM_SERVICE;
+import static org.chimple.bali.provider.LessonContentProvider.COINS;
+import static org.chimple.bali.provider.LessonContentProvider.URI_COIN;
 
 public class TollBroadcastReceiver extends BroadcastReceiver {
     private static final AtomicBoolean mIsLearning = new AtomicBoolean(true);
@@ -72,7 +72,7 @@ public class TollBroadcastReceiver extends BroadcastReceiver {
                                 null
                         );
                         if(coins <= 0) {
-                            Intent i=new Intent(context.getApplicationContext(),MainActivity.class);
+                            Intent i=new Intent(context.getApplicationContext(),MainActivityUnused.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i.setAction(Intent.ACTION_SEND);
                             i.putExtra("test", "pop");

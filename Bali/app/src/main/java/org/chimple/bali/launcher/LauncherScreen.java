@@ -16,10 +16,21 @@
 
 package org.chimple.bali.launcher;
 
+import android.app.AlertDialog;
+import android.app.job.JobInfo;
+import android.app.job.JobScheduler;
+import android.content.BroadcastReceiver;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 import org.chimple.bali.R;
+import org.chimple.bali.db.AppDatabase;
+import org.chimple.bali.service.TollBroadcastReceiver;
+import org.chimple.bali.service.TollJobServiceUnused;
 
 public class LauncherScreen extends FragmentActivity {
 
@@ -27,8 +38,46 @@ public class LauncherScreen extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
+
+        //TODO: for now force the creation here
+        AppDatabase.getInstance(this);
+        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        BroadcastReceiver mReceiver = new TollBroadcastReceiver();
+        registerReceiver(mReceiver, filter);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        Intent intent = new Intent(this, TollBroadcastReceiver.class);
+        intent.putExtra("onResume", "org.chimple.bali");
+        sendBroadcast(intent);
+
+        Intent receivedIntent = getIntent();
+        String action = receivedIntent.getAction();
+        String test = receivedIntent.getStringExtra("test");
+        if (Intent.ACTION_SEND.equals(action)) {
+            AlertDialog.Builder Builder = new AlertDialog.Builder(this)
+                    .setMessage("You do not have enough coins")
+                    .setTitle("Stop")
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .setPositiveButton(android.R.string.yes, null);
+            AlertDialog alertDialog = Builder.create();
+            alertDialog.show();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        Intent intent = new Intent(this, TollBroadcastReceiver.class);
+        intent.putExtra("onPause", "org.chimple.bali");
+        sendBroadcast(intent);
+
+    }
 
 //    @Override
 //    public boolean onCreateOptionsMenu(Menu menu) {

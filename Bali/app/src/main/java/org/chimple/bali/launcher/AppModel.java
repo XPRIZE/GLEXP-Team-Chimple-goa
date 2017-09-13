@@ -37,10 +37,12 @@ public class AppModel {
 
     private boolean mMounted;
     private final File mApkFile;
+    private boolean mEnabled;
 
-    public AppModel(Context context, ApplicationInfo info) {
+    public AppModel(Context context, ApplicationInfo info, boolean enabled) {
         mContext = context;
         mInfo = info;
+        mEnabled = enabled;
 
         mApkFile = new File(info.sourceDir);
     }
@@ -55,6 +57,10 @@ public class AppModel {
 
     public String getLabel() {
         return mAppLabel;
+    }
+
+    public boolean getEnabled() {
+        return mEnabled;
     }
 
     public Drawable getIcon() {

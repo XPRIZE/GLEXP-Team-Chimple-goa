@@ -25,6 +25,8 @@ import android.support.v4.content.Loader;
 import android.view.View;
 import android.widget.GridView;
 
+import org.chimple.bali.activity.LessonActivity;
+
 import java.util.ArrayList;
 
 public class AppsGridFragment extends GridFragment implements LoaderManager.LoaderCallbacks<ArrayList<AppModel>> {
@@ -72,10 +74,16 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
     public void onGridItemClick(GridView g, View v, int position, long id) {
         AppModel app = (AppModel) getGridAdapter().getItem(position);
         if (app != null) {
-            Intent intent = getActivity().getPackageManager().getLaunchIntentForPackage(app.getApplicationPackageName());
-
-            if (intent != null) {
-                startActivity(intent);
+            if(app.getEnabled()) {
+                Intent intent = null;
+                if(app.getApplicationPackageName().equals("org.chimple.bali")) {
+                    intent = new Intent(getActivity(), LessonActivity.class);
+                } else {
+                    intent = getActivity().getPackageManager().getLaunchIntentForPackage(app.getApplicationPackageName());
+                }
+                if (intent != null) {
+                    startActivity(intent);
+                }
             }
         }
     }

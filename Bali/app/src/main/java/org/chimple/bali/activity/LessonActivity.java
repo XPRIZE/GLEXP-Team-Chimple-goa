@@ -6,10 +6,7 @@ import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Point;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.Display;
@@ -17,15 +14,12 @@ import android.view.View;
 import android.widget.AdapterViewAnimator;
 import android.widget.ProgressBar;
 
-import org.chimple.bali.MainActivity;
+import org.chimple.bali.MainActivityUnused;
 import org.chimple.bali.R;
 import org.chimple.bali.db.entity.UserLog;
-import org.chimple.bali.db.pojo.FlashCard;
-import org.chimple.bali.provider.LessonContentProvider;
 import org.chimple.bali.repo.LessonRepo;
 import org.chimple.bali.repo.UserLessonRepo;
 import org.chimple.bali.repo.UserLogRepo;
-import org.chimple.bali.repo.UserUnitRepo;
 import org.chimple.bali.service.TollBroadcastReceiver;
 import org.chimple.bali.ui.FlashCardAdapter;
 import org.chimple.bali.viewmodel.CardStatusViewModel;
@@ -55,7 +49,7 @@ public class LessonActivity extends LifecycleActivity {
         mFlashCardView.setInAnimation(ObjectAnimator.ofFloat(mFlashCardView, "translationX", point.x, 0));
         mFlashCardView.setOutAnimation(ObjectAnimator.ofFloat(mFlashCardView, "translationX", 0, -point.x));
         Intent intent = getIntent();
-        mLessonId = intent.getLongExtra(MainActivity.EXTRA_MESSAGE, 0);
+        mLessonId = intent.getLongExtra(MainActivityUnused.EXTRA_MESSAGE, 0);
         FlashCardViewModel.Factory factory =
                 new FlashCardViewModel.Factory(
                         getApplication(), mLessonId

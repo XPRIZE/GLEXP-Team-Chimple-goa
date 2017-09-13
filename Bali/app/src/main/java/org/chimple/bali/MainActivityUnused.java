@@ -27,7 +27,7 @@ import org.chimple.bali.service.TollJobServiceUnused;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityUnused extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "org.chimple.bali.MESSAGE";
 
     @Override

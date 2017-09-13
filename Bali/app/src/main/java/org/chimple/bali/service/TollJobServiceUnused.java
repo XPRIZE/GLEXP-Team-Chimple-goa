@@ -22,7 +22,7 @@ import android.app.job.JobService;
 import android.content.Context;
 import android.util.Log;
 
-import org.chimple.bali.MainActivity;
+import org.chimple.bali.MainActivityUnused;
 
 import java.util.List;
 
@@ -34,7 +34,7 @@ public class TollJobServiceUnused extends JobService {
         for(ActivityManager.RunningTaskInfo runningTaskInfo: taskInfo) {
             Log.d("taskinfo", runningTaskInfo.topActivity.getClassName());
         }
-        MainActivity.scheduleJob(getApplicationContext());
+        MainActivityUnused.scheduleJob(getApplicationContext());
         return true;
     }
 

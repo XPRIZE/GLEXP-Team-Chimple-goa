@@ -12,17 +12,17 @@
     <application
         android:name=".application.BaliApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/learning"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/learning"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity"
+        <activity android:name=".launcher.LauncherScreen"
             android:launchMode="singleTask"
             android:clearTaskOnLaunch="true"
             android:stateNotNeeded="true"
             android:resumeWhilePausing="true"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/LauncherTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
@@ -47,8 +47,6 @@
         <receiver android:name=".service.TollBroadcastReceiver"
             android:exported="true"/>
         <activity android:name=".activity.LessonActivity" />
-        <activity android:name=".launcher.LauncherScreen"
-            android:theme="@style/LauncherTheme"/>
         <activity android:name=".activity.TestActivity" />
         <activity
             android:name=".activity.FullscreenActivity"
