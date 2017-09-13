@@ -49,10 +49,12 @@ public class FtpManager {
         try {
             ftpClient = new FTPClient();
             ftpClient.connect(host, port);
+            Log.d(TAG, "Connected to ftp host: " + host);
             if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) {
                 boolean status = ftpClient.login(username, password);
                 ftpClient.setFileType(FTP.ASCII_FILE_TYPE);
                 ftpClient.enterLocalPassiveMode();
+                Log.d(TAG, "Logged in to ftp host as user: " + username);
             }
 
         } catch (SocketException ex) {
@@ -146,8 +148,6 @@ public class FtpManager {
 
     public void upload(File src, FTPClient ftp) throws IOException {
         if (src.isDirectory()) {
-//            ftp.makeDirectory(src.getName());
-//            ftp.changeWorkingDirectory(src.getName());
             for (File file : src.listFiles()) {
                 if (file.getName().endsWith(".report") || file.getName().endsWith(".csv")) {
                     upload(file, ftp);
@@ -157,10 +157,9 @@ public class FtpManager {
         } else {
             InputStream srcStream = null;
             try {
-                String currentDirName = ftp.printWorkingDirectory();
-                System.out.println("currentDirName" + currentDirName);
                 srcStream = src.toURI().toURL().openStream();
                 ftp.storeFile(src.getName(), srcStream);
+                Log.d(TAG, "Stored ftp log to: " + src.getName());
             } finally {
                 IOUtils.closeQuietly(srcStream);
             }
@@ -196,9 +195,11 @@ public class FtpManager {
                 if(!isDirectoryExists)
                 {
                     ftpClient.makeDirectory(desDirectory);
+                    Log.d(TAG, "Make directory: " + desDirectory);
                 }
 
                 if (ftpClient.changeWorkingDirectory(desDirectory)) {
+                    Log.d(TAG, "Changed to directory: " + desDirectory);
                     try {
                         upload(srcDir, ftpClient);
                         status = true;
