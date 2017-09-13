@@ -128,7 +128,13 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 
 		// coneAlphabet and Text config ...
 		auto coneText = createText(coneLetter[i], coneLetter[i],0,0);
-		coneText->setFontSize(std::max(float(50.0), float(150 - (maxLengthSize - 1) * 10)));
+
+		float fontSize = std::max(float(50.0), float(150 - (maxLengthSize - 1) * 10));
+		if (fontSize < 40.0f || fontSize > 150.0f) {
+			fontSize = 60.0f;
+		}
+
+		coneText->setFontSize(fontSize);
 		cone->setName(coneLetter[i]);
 		cone->setTag( 100 + i);
 		cone->addChild(coneText);
@@ -143,7 +149,7 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 
 		//cream alphabet and TextLabel config ...
 		auto creamText = createText(creamLetter[i], creamLetter[i] , 0, 20);
-		creamText->setFontSize(std::max(float(50.0), float(150 - (maxLengthSize - 1) * 10)));
+		creamText->setFontSize(fontSize);
 		cream->addChild(creamText);
 		cream->setName(creamLetter[i]);
 		addEventsOnCream((Sprite*)cream->getChildByName("icecream"));

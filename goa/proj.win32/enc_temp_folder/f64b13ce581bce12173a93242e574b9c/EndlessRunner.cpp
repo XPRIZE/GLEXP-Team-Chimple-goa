@@ -74,7 +74,7 @@ void EndlessRunner::GameBegin(cocos2d::EventCustom *eventCustom) {
 	_correctAnswerFromVmc = _vmc[letterBoardAlphaLength].answers[_vmc[letterBoardAlphaLength].correctAnswer];
 	tempChar = _vmc[letterBoardAlphaLength].question;
 
-	auto multipleChoices = MatrixUtil::generateMatrixForChoosing(_correctAnswerFromVmc,
+	auto multipleChoices = MatrixUtil::generateMatrixForChoosing("kifyonzavumbi",
 		_vmc[letterBoardAlphaLength].answers, 1, 15, 65);
 	_letterStream = multipleChoices[0];
 	std::random_shuffle(_letterStream.begin(), _letterStream.end());
@@ -402,7 +402,7 @@ void EndlessRunner::startingIntersectMode() {
 
 						_letterStream.clear();
 						_correctAnswerFromVmc = _vmc[letterBoardAlphaLength].answers[_vmc[letterBoardAlphaLength].correctAnswer];
-						auto multipleChoices = MatrixUtil::generateMatrixForChoosing(_correctAnswerFromVmc,
+						auto multipleChoices = MatrixUtil::generateMatrixForChoosing("kifyonzavumbi",
 							_vmc[letterBoardAlphaLength].answers, 1, 15, 65);
 
 						_letterStream = multipleChoices[0];
