@@ -34,7 +34,7 @@ public class OperationManager implements ConnectivityListener {
     private OperationListener listener;
     private Queue<OpState> queue;
     private static final String FTP_SYNC_JOB = "FTP_SYNC_JOB";
-    private static final int THRESH_HOLD_JOB_TIME_IN_HOURS = 5;
+    private static final int THRESH_HOLD_JOB_TIME_IN_HOURS = 1;
     private Context context;
 
     private static final long INITIAL_NOTIFY_DELAY = 2000;

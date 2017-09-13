@@ -110,7 +110,11 @@ void PatchTheWall::gameBegin(cocos2d::EventCustom *eventCustom) {
 			SpriteDetails._sprite->setColor(Color3B(205, 133, 63));
 
 			auto aplhabets = CommonLabelTTF::create(_matrix[j][i], "fonts/Roboto-Regular.ttf", 120);
-			aplhabets->setFontSize(std::max(float(30.0), float(130 - (maxLengthWord - 1) * 18)));
+			float fontSize = std::max(float(30.0), float(130 - (maxLengthWord - 1) * 18));
+			if (fontSize <= 30.0f) {
+				fontSize = 40.0f;
+			}
+			aplhabets->setFontSize(fontSize);
 			SpriteDetails._label = aplhabets;
 
 			SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
@@ -322,7 +326,11 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
 	}
 
 	auto aplhabets = CommonLabelTTF::create(text, "fonts/Roboto-Regular.ttf", 120);
-	aplhabets->setFontSize(std::max(float(30.0), float(130 - (maxLengthWord - 1) * 18)));
+	float fontSize = std::max(float(30.0), float(130 - (maxLengthWord - 1) * 18));
+	if (fontSize <= 30.0f || fontSize > 150.0f) {
+		fontSize = 50.0f;
+	}
+	aplhabets->setFontSize(fontSize);
 	SpriteDetails._label = aplhabets;
 
     SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
