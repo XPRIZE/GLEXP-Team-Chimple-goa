@@ -401,7 +401,7 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, vector<string> displayWord) 
 
 		auto label = CommonLabelTTF::create(displayWord[i], "Helvetica", letterGrid->getContentSize().height*0.8);
 		letterGrid -> setPosition(Vec2(xPosi, blockObject->getContentSize().height *0.45));
-		label->setFontSize(std::max(float(20.0), float((letterGrid->getContentSize().height*0.8) - (maxLengthText - 1) * 17)));
+		label->setFontSize(std::max(float(20.0),  float(std::abs((letterGrid->getContentSize().height*0.8) - (maxLengthText - 1) * 17))));
 
 		label->setPosition(Vec2(letterGrid->getContentSize().width/2, letterGrid->getContentSize().height /2));
 		xPosi = xPosi + indiSpace + letterGrid->getContentSize().width;
@@ -524,7 +524,7 @@ void Owl::createGrid() {
 				auto textSize = gridObject->getContentSize().width * 0.8;
 
 				auto label = CommonLabelTTF::create(bag[counter], "Helvetica", textSize);
-				label->setFontSize(std::max(float(30.0), float(textSize - (maxLengthText - 1) * 17)));
+				label->setFontSize(std::max(float(30.0), float(std::abs(textSize - (maxLengthText - 1) * 17))));
 				label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
 				label->setColor(Color3B::WHITE);
 				label->setName(bag[counter]);
