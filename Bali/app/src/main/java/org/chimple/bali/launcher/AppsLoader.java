@@ -23,6 +23,9 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.support.v4.content.AsyncTaskLoader;
 
+import org.chimple.bali.db.entity.User;
+import org.chimple.bali.repo.UserRepo;
+
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,7 +51,8 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
     public ArrayList<AppModel> loadInBackground() {
         // retrieve the list of installed applications
         List<ApplicationInfo> apps = mPm.getInstalledApplications(0);
-
+        User user = UserRepo.getCurrentUser(getContext());
+        boolean enableApps = (user.coins > 0);
         if (apps == null) {
             apps = new ArrayList<ApplicationInfo>();
         }
@@ -57,19 +61,36 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
 
         // create corresponding apps and load their labels
         ArrayList<AppModel> items = new ArrayList<AppModel>(apps.size());
+        AppModel bali = null;
+        AppModel goa = null;
         for (int i = 0; i < apps.size(); i++) {
             String pkg = apps.get(i).packageName;
-
             // only apps which are launchable
             if (context.getPackageManager().getLaunchIntentForPackage(pkg) != null) {
-                AppModel app = new AppModel(context, apps.get(i));
-                app.loadLabel(context);
-                items.add(app);
+                if(pkg.equals("org.chimple.bali")) {
+                    AppModel app = new AppModel(context, apps.get(i), true);
+                    app.loadLabel(context);
+                    bali = app;
+                } else if(pkg.equals("org.chimple.goa")) {
+                    AppModel app = new AppModel(context, apps.get(i), true);
+                    app.loadLabel(context);
+                    goa = app;
+                } else {
+                    AppModel app = new AppModel(context, apps.get(i), enableApps);
+                    app.loadLabel(context);
+                    items.add(app);
+                }
             }
         }
-
         // sort the list
         Collections.sort(items, ALPHA_COMPARATOR);
+
+        if(bali != null) {
+            items.add(0, bali);
+        }
+        if(goa != null) {
+            items.add(1, goa);
+        }
 
         return items;
     }

@@ -28,7 +28,6 @@ EventListenerClass* MainGame::cannon4;
 
 int MainGame::_totalHit;
 int MainGame::_maxLengthOfQuestion;
-int MainGame::_maxLengthOfAnswer;
 float MainGame::height;
 float MainGame::width;
 float MainGame::originX;
@@ -192,7 +191,11 @@ void MainGame::displayHelp()
 
 	//Alphabet *myLabel = Alphabet::createWithSize(letterName, 300); old code
 	LabelTTF  *myLabel = CommonLabelTTF::create(letterName, "Helvetica", 150);
-	myLabel->setFontSize(std::max(float(50.0), float(150 - (_maxLengthOfAnswer - 1) * 10)));
+	float fontSize = std::max(float(50.0), float(150 - (_maxLengthOfQuestion - 1) * 10));
+	if (fontSize < 50 || fontSize > 150) {
+		fontSize = 50.0f;
+	}
+	myLabel->setFontSize(fontSize);
 	myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
 	lett->addChild(myLabel);
 	MainGame::meteorArray_actualImage.push_back(myLabel);
@@ -293,7 +296,7 @@ void MainGame::startGame(cocos2d::EventCustom *eventCustom)	// starting of game
 	//_mainQuestions.resize(row);
 	//_mainQuestions[0].resize(column);
 
-	//_maxLengthOfAnswer = getMaxWordLength(_mainQuestions[0]);
+	//_maxLengthOfQuestion = getMaxWordLength(_mainQuestions[0]);
 	_maxLengthOfQuestion = getMaxWordLength(_mainQuestions[0]);
 
 	for (size_t i = 0; i < 10; i++) {
@@ -426,7 +429,12 @@ void MainGame::letterCome(float d)
 
 		//Alphabet *myLabel = Alphabet::createWithSize(letterName, 300); old code
 		LabelTTF  *myLabel = CommonLabelTTF::create(letterName, "Helvetica", 150);
-		myLabel->setFontSize(std::max(float(50.0), float(150 - (_maxLengthOfAnswer - 1) * 10)));
+		
+		float fontSize = std::max(float(50.0), float(150 - (_maxLengthOfQuestion - 1) * 10));
+		if (fontSize < 50|| fontSize > 150) {
+			fontSize = 50.0f;
+		}
+		myLabel->setFontSize(fontSize);
 		myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
 		lett->addChild(myLabel);
 		MainGame::meteorArray_actualImage.push_back(myLabel);
@@ -479,7 +487,11 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			// _chnage
 			//Alphabet *myLabel = Alphabet::createWithSize(tmpMainChars[i], 200); old code
 			LabelTTF  *myLabel = CommonLabelTTF::create(tmpMainChars[i], "Helvetica", 100);
-			myLabel->setFontSize(std::max(float(50.0), float(100 - (_maxLengthOfQuestion - 1) * 10)));
+			float fontSize = std::max(float(50.0), float(100 - (_maxLengthOfQuestion - 1) * 10));
+			if (fontSize < 50 || fontSize > 100) {
+				fontSize = 50.0f;
+			}
+			myLabel->setFontSize(fontSize);
 			myLabel->setPosition(e1->getBoundingBox().size.width/2 , e1->getBoundingBox().size.height/2);
 			e1->addChild(myLabel);			
 			MainGame::cannonLetter_actualImage.push_back(myLabel);
@@ -541,7 +553,11 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 
 			//Alphabet *myLabel = Alphabet::createWithSize(letterName, 200); old code
 			LabelTTF  *myLabel = CommonLabelTTF::create(letterName, "Helvetica", 100);
-			myLabel->setFontSize(std::max(float(50.0), float(100 - (_maxLengthOfQuestion - 1) * 10)));
+			float fontSize = std::max(float(50.0), float(100 - (_maxLengthOfQuestion - 1) * 10));
+			if (fontSize < 50 || fontSize > 100) {
+				fontSize = 50.0f;
+			}
+			myLabel->setFontSize(fontSize);
 			myLabel->setPosition(letter->getBoundingBox().size.width / 2, letter->getBoundingBox().size.height / 2);
 			letter->addChild(myLabel);
 			MainGame::cannonLetter_actualImage[remcharPos] = myLabel;
@@ -616,7 +632,11 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 		//Alphabet *myLabel = Alphabet::createWithSize(letterObject->id, 200);old code
 		LabelTTF  *myLabel = CommonLabelTTF::create(letterObject->id, "Helvetica", 100);
 		auto a = _maxLengthOfQuestion;
-		myLabel->setFontSize(std::max(float(50.0), float(100.0 - (_maxLengthOfQuestion - 1) * 10)));
+		float fontSize = std::max(float(50.0), float(100.0 - (_maxLengthOfQuestion - 1) * 10));
+		if (fontSize < 50 || fontSize > 100) {
+			fontSize = 50.0f;
+		}
+		myLabel->setFontSize(fontSize);
 		myLabel->setPosition(letterObject->getPositionX() - (letterObject->getContentSize().width * 2.8), letterObject->getPositionY());
 		self->addChild(myLabel);
 		MainGame::bulletArray_actualImage.push_back(myLabel);

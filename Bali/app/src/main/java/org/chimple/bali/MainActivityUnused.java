@@ -1,6 +1,9 @@
 package org.chimple.bali;
 
 import android.app.AlertDialog;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
@@ -10,6 +13,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +27,7 @@ import org.chimple.bali.service.TollJobServiceUnused;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityUnused extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "org.chimple.bali.MESSAGE";
 
     @Override
@@ -45,6 +49,22 @@ public class MainActivity extends AppCompatActivity {
         BroadcastReceiver mReceiver = new TollBroadcastReceiver();
         registerReceiver(mReceiver, filter);
 
+        applyStatusBar("Statusbar Test", 10);
+
+    }
+
+    private void applyStatusBar(String iconTitle, int notificationId) {
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.mipmap.ic_launcher)
+                .setContentTitle(iconTitle);
+        Intent resultIntent = new Intent(this, MainActivity.class);
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(resultPendingIntent);
+        Notification notification = mBuilder.build();
+        notification.flags |= Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
+
+        NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mNotifyMgr.notify(notificationId, notification);
     }
 
     public static void scheduleJob(Context context) {
