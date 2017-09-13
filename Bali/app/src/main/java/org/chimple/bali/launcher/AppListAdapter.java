@@ -20,6 +20,8 @@ package org.chimple.bali.launcher;
 
 import android.annotation.TargetApi;
 import android.content.Context;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +31,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.chimple.bali.R;
+import org.chimple.bali.db.entity.User;
+import org.chimple.bali.repo.UserRepo;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -78,9 +82,21 @@ public class AppListAdapter extends ArrayAdapter<AppModel> {
         }
 
         AppModel item = getItem(position);
-        ((ImageView)view.findViewById(R.id.icon)).setImageDrawable(item.getIcon());
+        ImageView imageView = (ImageView)view.findViewById(R.id.icon);
+        imageView.setImageDrawable(item.getIcon());
+        if(!item.getEnabled()) {
+            setLocked(imageView);
+        }
         ((TextView)view.findViewById(R.id.text)).setText(item.getLabel());
 
         return view;
+    }
+
+    private void setLocked(ImageView imageView) {
+        ColorMatrix matrix = new ColorMatrix();
+        matrix.setSaturation(0);  //0 means grayscale
+        ColorMatrixColorFilter cf = new ColorMatrixColorFilter(matrix);
+        imageView.setColorFilter(cf);
+        imageView.setImageAlpha(128);   // 128 = 0.5
     }
 }
