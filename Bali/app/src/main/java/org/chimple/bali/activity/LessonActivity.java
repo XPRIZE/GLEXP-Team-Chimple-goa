@@ -7,11 +7,14 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.view.Display;
 import android.view.View;
 import android.widget.AdapterViewAnimator;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import org.chimple.bali.MainActivityUnused;
@@ -29,6 +32,7 @@ import static org.chimple.bali.viewmodel.CardStatusViewModel.READY_TO_GO;
 import static org.chimple.bali.viewmodel.CardStatusViewModel.SELECTED;
 
 public class LessonActivity extends LifecycleActivity {
+    public static final String EXTRA_MESSAGE = "org.chimple.bali.MESSAGE";
     private AdapterViewAnimator mFlashCardView;
     private ProgressBar mProgressBar;
     private int mCurrentCardIndex;
@@ -49,15 +53,17 @@ public class LessonActivity extends LifecycleActivity {
         mFlashCardView.setInAnimation(ObjectAnimator.ofFloat(mFlashCardView, "translationX", point.x, 0));
         mFlashCardView.setOutAnimation(ObjectAnimator.ofFloat(mFlashCardView, "translationX", 0, -point.x));
         Intent intent = getIntent();
-        mLessonId = intent.getLongExtra(MainActivityUnused.EXTRA_MESSAGE, 0);
+        mLessonId = intent.getLongExtra(EXTRA_MESSAGE, 0);
         FlashCardViewModel.Factory factory =
                 new FlashCardViewModel.Factory(
                         getApplication(), mLessonId
                 );
         final FlashCardViewModel model = ViewModelProviders.of(this, factory)
                 .get(FlashCardViewModel.class);
+        mFlashCardView.setVisibility(View.INVISIBLE);
         model.getFlashCards().observe(this, flashCards -> {
             if(flashCards != null) {
+                mFlashCardView.setVisibility(View.VISIBLE);
                 final FlashCardAdapter flashCardAdapter = new FlashCardAdapter(this, flashCards);
                 mFlashCardView.setAdapter(flashCardAdapter);
                 mProgressBar.setMax(flashCardAdapter.getCount());
@@ -69,8 +75,9 @@ public class LessonActivity extends LifecycleActivity {
                     @Override
                     public void onClick(View view) {
                         if(++mCurrentCardIndex >= flashCardAdapter.getCount()) {
-                            LessonRepo.markNextLesson(LessonActivity.this);
-                            finish();
+                            LessonRepo.markNextLesson(LessonActivity.this, mLessonId);
+                            Intent intentCoin = new Intent(LessonActivity.this, CoinRewardActivity.class);
+                            startActivity(intentCoin);
                         } else {
                             mFlashCardView.advance();
                             mProgressBar.incrementProgressBy(1);

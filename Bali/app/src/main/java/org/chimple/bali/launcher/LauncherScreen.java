@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 
 import org.chimple.bali.R;
+import org.chimple.bali.application.BaliApplication;
 import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.service.TollBroadcastReceiver;
 import org.chimple.bali.service.TollJobServiceUnused;
@@ -45,6 +46,12 @@ public class LauncherScreen extends FragmentActivity {
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         BroadcastReceiver mReceiver = new TollBroadcastReceiver();
         registerReceiver(mReceiver, filter);
+
+        BaliApplication application = (BaliApplication)getApplication();
+        String coinMessage = "Total Coins: "
+                + String.valueOf(BaliApplication.INITIAL_COIN);
+
+        application.updateCoinNotifications("Coins:", coinMessage, 5);
     }
 
     @Override

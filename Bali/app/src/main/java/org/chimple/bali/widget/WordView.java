@@ -23,6 +23,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.res.AssetFileDescriptor;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.support.annotation.AttrRes;
@@ -114,7 +115,6 @@ public class WordView extends FrameLayout{
         if(d != null) {
             imageView.setImageDrawable(d);
         }
-
         mSoundFab = (FloatingActionButton) findViewById(R.id.soundFab);
         float x = mSoundFab.getX();
         mSoundFab.setOnClickListener(mOnClickListener);

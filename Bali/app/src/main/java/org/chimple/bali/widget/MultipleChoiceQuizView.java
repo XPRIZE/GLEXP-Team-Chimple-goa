@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Color;
 import android.support.annotation.ColorInt;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -91,8 +92,9 @@ public class MultipleChoiceQuizView extends FrameLayout {
                         }
                         break;
                 }
-                CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
-                cardStatusViewModel.viewed(CardStatusViewModel.SELECTED);
+                FloatingActionButton checkFab = (FloatingActionButton) findViewById(R.id.checkFab);
+                checkFab.show();
+
             }
         };
 
@@ -172,6 +174,18 @@ public class MultipleChoiceQuizView extends FrameLayout {
             imageView.setLayoutParams(lay);
             cardView.addView(imageView);
         }
+        
+        OnClickListener checkOnClickListener = new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                view.setVisibility(INVISIBLE);
+                CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
+                cardStatusViewModel.viewed(CardStatusViewModel.SELECTED);
+            }
+        };
+
+        FloatingActionButton checkFab = (FloatingActionButton) findViewById(R.id.checkFab);
+        checkFab.setOnClickListener(checkOnClickListener);
     }
 
     private int decideQuizType() {

@@ -39,7 +39,7 @@ public class FlashCardRepo {
         ABSENT.setValue(null);
     }
 
-    public static LiveData<List<FlashCard>> getFlashCards(Context context) {
+    public static LiveData<List<FlashCard>> getFlashCards(Context context, long lessonId) {
         MutableLiveData<List<FlashCard>> flashCards = ABSENT;
         new AsyncTask<Context, Void, Void>() {
             @Override
@@ -47,8 +47,13 @@ public class FlashCardRepo {
                 Context context1 = params[0];
                 AppDatabase db = AppDatabase.getInstance(context1);
                 User user = UserRepo.getCurrentUser(context1);
-                Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
-                    //TODO: Handle no lesson
+                Lesson lesson;
+                if(lessonId != 0) {
+                    lesson = db.lessonDao().getLessonById(lessonId);
+                } else {
+                    lesson = db.lessonDao().getLessonById(user.currentLessonId);
+                }
+                //TODO: Handle no lesson
 
                 List<FlashCard> flashCardList = db.lessonUnitDao().getFlashCardsByLessonId(lesson.id);
                 if(lesson.concept == Lesson.UPPER_CASE_LETTER_TO_WORD_CONCEPT) {
