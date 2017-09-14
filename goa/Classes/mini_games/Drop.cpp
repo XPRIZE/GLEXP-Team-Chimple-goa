@@ -194,6 +194,10 @@ void Drop::gameStart(cocos2d::EventCustom *eventCustom)
 	auto randomSceneIndex = RandomHelper::random_int(0, 2);
 	_dropCurrentTheme = dropSceneMapping.at(randomSceneIndex);
 
+	if (_menuContext->getCurrentLevel() == 1)
+	{
+		_dropCurrentTheme = "dropcity";
+	}
 	// Change the game concept according to game
 
 	//_lesson.setConcept(Lesson::CONCEPT::WORD_SPELLING);
