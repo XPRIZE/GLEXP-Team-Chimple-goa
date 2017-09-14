@@ -1,7 +1,12 @@
 package org.chimple.bali.application;
 
 import android.app.Application;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import org.acra.ACRA;
@@ -11,8 +16,10 @@ import org.acra.config.ACRAConfiguration;
 import org.acra.config.ACRAConfigurationException;
 import org.acra.config.ConfigurationBuilder;
 import org.acra.sender.ReportSenderFactory;
+import org.chimple.bali.R;
 import org.chimple.bali.crash.FtpCrashSenderFactory;
 import org.chimple.bali.ftp.FtpManager;
+import org.chimple.bali.launcher.LauncherScreen;
 import org.chimple.bali.service.ThreadManager;
 
 
@@ -33,14 +40,25 @@ import org.chimple.bali.service.ThreadManager;
 )
 public class BaliApplication extends Application {
     private static final String TAG = BaliApplication.class.getName();
+    private static final int COIN_NOTIFICATION = 1;
+    public static final int INITIAL_COIN = 5;
+
+    private static final int COIN_NOTIFICATION_FIVE_RANGE = 5;
+    private static final int COIN_NOTIFICATION_TWENTY_RANGE = 20;
+    private static final int COIN_NOTIFICATION_FOURTY_RANGE = 40;
+    private static final int COIN_NOTIFICATION_SIXTY_RANGE = 60;
+    private static final int COIN_NOTIFICATION_EIGHTY_RANGE = 80;
+
+
+    private static final int TOTAL_COINS = 10;
+
     private FtpManager ftpManager;
     private ThreadManager threadManager;
-
 
     public static final String ftpHost = "192.168.0.104";
     public static final int ftpPort = 21;
     public static final String ftpUser = "anonymous";
-    public static final String ftpPassword = "nobody@chimple.org";
+    public static final String ftpPassword = "nobody@chimple.in";
 
 
     @Override
@@ -92,8 +110,47 @@ public class BaliApplication extends Application {
         } catch (ACRAConfigurationException e) {
             e.printStackTrace();
         }
+    }
+
+    public void updateCoinNotifications(String iconTitle, String message, int howManyCoins) {
+        int range = (int) howManyCoins * 100 / TOTAL_COINS;
+
+        if (range <= COIN_NOTIFICATION_FIVE_RANGE) {
+            buildAndSendNotification(0, COIN_NOTIFICATION, iconTitle, message);
+        } else if (range > COIN_NOTIFICATION_TWENTY_RANGE && range < COIN_NOTIFICATION_TWENTY_RANGE) {
+            buildAndSendNotification(1, COIN_NOTIFICATION, iconTitle, message);
+
+        } else if (range >= COIN_NOTIFICATION_TWENTY_RANGE && range < COIN_NOTIFICATION_FOURTY_RANGE) {
+            buildAndSendNotification(2, COIN_NOTIFICATION, iconTitle, message);
+
+        } else if (range >= COIN_NOTIFICATION_FOURTY_RANGE && range < COIN_NOTIFICATION_SIXTY_RANGE) {
+            buildAndSendNotification(3, COIN_NOTIFICATION, iconTitle, message);
+
+        } else if (range >= COIN_NOTIFICATION_SIXTY_RANGE && range < COIN_NOTIFICATION_EIGHTY_RANGE) {
+            buildAndSendNotification(4, COIN_NOTIFICATION, iconTitle, message);
+
+        } else if (range >= COIN_NOTIFICATION_EIGHTY_RANGE) {
+            buildAndSendNotification(5, COIN_NOTIFICATION, iconTitle, message);
+        }
+
+    }
+
+    private void buildAndSendNotification(int level, int notificationId, String iconTitle, String message) {
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.level_list, 0)
+                .setContentTitle(iconTitle)
+                .setContentText(message);
 
 
+        Intent resultIntent = new Intent(this, LauncherScreen.class);
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        mBuilder.setContentIntent(resultPendingIntent);
+
+        Notification notification = mBuilder.build();
+        notification.iconLevel = level;
+        notification.flags |= Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
+        NotificationManager mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        mNotifyMgr.notify(notificationId, notification);
 
     }
 }

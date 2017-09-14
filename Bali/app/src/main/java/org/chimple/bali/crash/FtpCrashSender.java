@@ -23,6 +23,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Set;
 
 /**
@@ -51,10 +52,9 @@ public class FtpCrashSender implements ReportSender {
     private void writeToFileSystem(@NonNull Context context, String contents) {
         String destDirectory = Build.SERIAL;
         String extension = ".report";
-        Calendar calendar = Calendar.getInstance();
 
-        String filename = destDirectory + "_" + calendar.getTime() + extension;
-        String crashFolder = context.getFilesDir() + File.separator + "crash-reports";
+        String filename = "crash" + "." + new Date().getTime() + extension;
+        String crashFolder = context.getFilesDir() + File.separator;
 
         // Create the folder.
         final File crashPath = new File(crashFolder);

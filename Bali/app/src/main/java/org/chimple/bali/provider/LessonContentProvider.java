@@ -27,6 +27,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import org.chimple.bali.application.BaliApplication;
 import org.chimple.bali.model.BagOfChoiceQuiz;
 import org.chimple.bali.model.MultipleChoiceQuiz;
 import org.chimple.bali.repo.LessonRepo;
@@ -276,6 +277,13 @@ public class LessonContentProvider extends ContentProvider {
                         + " for total of: "
                         + String.valueOf(updatedCoins));
                 //TODO: Display notification on coins
+
+                String coinMessage = "Added Coins:" + String.valueOf(coins) + " for total of: "
+                        + String.valueOf(updatedCoins);
+
+                BaliApplication application = (BaliApplication) getContext().getApplicationContext();
+                application.updateCoinNotifications("Coins:", coinMessage, updatedCoins);
+
                 return updatedCoins;
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
