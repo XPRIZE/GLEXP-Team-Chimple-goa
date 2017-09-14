@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Color;
-import android.support.annotation.ColorInt;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
@@ -16,7 +15,6 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import org.chimple.bali.R;
@@ -41,7 +39,13 @@ public class MultipleChoiceQuizView extends FrameLayout {
     private static final String TAG = MultipleChoiceQuizView.class.getName();
     private MultipleChoiceQuiz mMcq;
     private int mQuizType;
+    View mButton0;
+    View mButton1;
+    View mButton2;
+    View mButton3;
     private View mcurrentSelectedView;
+    private View mCorrectView;
+
 
     public MultipleChoiceQuizView(Context context, MultipleChoiceQuiz mcq) {
         super(context);
@@ -62,90 +66,30 @@ public class MultipleChoiceQuizView extends FrameLayout {
         mMcq = mcq;
         mQuizType = decideQuizType();
 
-        OnClickListener onClickListener = new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mcurrentSelectedView != null) {
-                    mcurrentSelectedView.setBackgroundColor(Color.WHITE);
-                }
-                view.setBackgroundColor(Color.BLUE);
-                mcurrentSelectedView = view;
-                switch (view.getId()) {
-                    case R.id.button0:
-                        if(mcq.correctAnswer == 0) {
-                            Log.d(TAG, "Correct answer 0");
-                        }
-                        break;
-                    case R.id.button1:
-                        if(mcq.correctAnswer == 1) {
-                            Log.d(TAG, "Correct answer 1");
-                        }
-                        break;
-                    case R.id.button2:
-                        if(mcq.correctAnswer == 2) {
-                            Log.d(TAG, "Correct answer 2");
-                        }
-                        break;
-                    case R.id.button3:
-                        if(mcq.correctAnswer == 3) {
-                            Log.d(TAG, "Correct answer 3");
-                        }
-                        break;
-                }
-                FloatingActionButton checkFab = (FloatingActionButton) findViewById(R.id.checkFab);
-                checkFab.show();
-
-            }
-        };
-
         if(mQuizType == TEXT_TO_IMAGE_QUIZ) {
             View view = inflate(getContext(), R.layout.multiple_choice_quiz_image_view, null);
             addView(view);
-
-            ImageButton button0 = (ImageButton) findViewById(R.id.button0);
-            button0.setImageDrawable(mcq.answerUnits[0].getPictureDrawable(getContext()));
-            button0.setOnClickListener(onClickListener);
-            ImageButton button1 = (ImageButton) findViewById(R.id.button1);
-            button1.setImageDrawable(mcq.answerUnits[1].getPictureDrawable(getContext()));
-            button1.setOnClickListener(onClickListener);
-            ImageButton button2 = (ImageButton) findViewById(R.id.button2);
-            button2.setImageDrawable(mcq.answerUnits[2].getPictureDrawable(getContext()));
-            button2.setOnClickListener(onClickListener);
-            ImageButton button3 = (ImageButton) findViewById(R.id.button3);
-            button3.setImageDrawable(mcq.answerUnits[3].getPictureDrawable(getContext()));
-            button3.setOnClickListener(onClickListener);
+            setupButtons();
+            ((ImageButton)mButton0).setImageDrawable(mcq.answerUnits[0].getPictureDrawable(getContext()));
+            ((ImageButton)mButton1).setImageDrawable(mcq.answerUnits[1].getPictureDrawable(getContext()));
+            ((ImageButton)mButton2).setImageDrawable(mcq.answerUnits[2].getPictureDrawable(getContext()));
+            ((ImageButton)mButton3).setImageDrawable(mcq.answerUnits[3].getPictureDrawable(getContext()));
         } else if(mQuizType == TEXT_TO_SOUND_QUIZ) {
             View view = inflate(getContext(), R.layout.multiple_choice_quiz_image_view, null);
             addView(view);
-
-            ImageButton button0 = (ImageButton) findViewById(R.id.button0);
-            button0.setImageResource(R.drawable.ic_volume_up_black_24dp);
-            button0.setOnClickListener(onClickListener);
-            ImageButton button1 = (ImageButton) findViewById(R.id.button1);
-            button1.setImageResource(R.drawable.ic_volume_up_black_24dp);
-            button1.setOnClickListener(onClickListener);
-            ImageButton button2 = (ImageButton) findViewById(R.id.button2);
-            button2.setImageResource(R.drawable.ic_volume_up_black_24dp);
-            button2.setOnClickListener(onClickListener);
-            ImageButton button3 = (ImageButton) findViewById(R.id.button3);
-            button3.setImageResource(R.drawable.ic_volume_up_black_24dp);
-            button3.setOnClickListener(onClickListener);
+            setupButtons();
+            ((ImageButton)mButton0).setImageResource(R.drawable.ic_volume_up_black_24dp);
+            ((ImageButton)mButton1).setImageResource(R.drawable.ic_volume_up_black_24dp);
+            ((ImageButton)mButton2).setImageResource(R.drawable.ic_volume_up_black_24dp);
+            ((ImageButton)mButton3).setImageResource(R.drawable.ic_volume_up_black_24dp);
         } else {
             View view = inflate(getContext(), R.layout.multiple_choice_quiz_view, null);
             addView(view);
-
-            Button button0 = (Button) findViewById(R.id.button0);
-            button0.setText(mcq.answers[0]);
-            button0.setOnClickListener(onClickListener);
-            Button button1 = (Button) findViewById(R.id.button1);
-            button1.setText(mcq.answers[1]);
-            button1.setOnClickListener(onClickListener);
-            Button button2 = (Button) findViewById(R.id.button2);
-            button2.setText(mcq.answers[2]);
-            button2.setOnClickListener(onClickListener);
-            Button button3 = (Button) findViewById(R.id.button3);
-            button3.setText(mcq.answers[3]);
-            button3.setOnClickListener(onClickListener);
+            setupButtons();
+            ((Button)mButton0).setText(mcq.answers[0]);
+            ((Button)mButton1).setText(mcq.answers[1]);
+            ((Button)mButton2).setText(mcq.answers[2]);
+            ((Button)mButton3).setText(mcq.answers[3]);
         }
 
         CardView cardView = (CardView) findViewById(R.id.questionView);
@@ -180,7 +124,16 @@ public class MultipleChoiceQuizView extends FrameLayout {
             public void onClick(View view) {
                 view.setVisibility(INVISIBLE);
                 CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
-                cardStatusViewModel.viewed(CardStatusViewModel.SELECTED);
+                //TODO: Highlight correct in green and wrong in red
+                mButton0.setClickable(false);
+                mButton1.setClickable(false);
+                mButton2.setClickable(false);
+                mButton3.setClickable(false);
+                if(mCorrectView == mcurrentSelectedView) {
+                    cardStatusViewModel.viewed(CardStatusViewModel.CORRECT_CHOICE);
+                } else {
+                    cardStatusViewModel.viewed(CardStatusViewModel.INCORRECT_CHOICE);
+                }
             }
         };
 
@@ -215,6 +168,45 @@ public class MultipleChoiceQuizView extends FrameLayout {
         }
         int randIndex = ThreadLocalRandom.current().nextInt(possibleQuizTypes.size());
         return possibleQuizTypes.get(randIndex);
+    }
+
+    private void setupButtons() {
+        OnClickListener onClickListener = new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mcurrentSelectedView != null) {
+                    mcurrentSelectedView.setBackgroundColor(Color.WHITE);
+                }
+                view.setBackgroundColor(Color.BLUE);
+                mcurrentSelectedView = view;
+                FloatingActionButton checkFab = (FloatingActionButton) findViewById(R.id.checkFab);
+                checkFab.show();
+            }
+        };
+
+        mButton0 = findViewById(R.id.button0);
+        mButton0.setOnClickListener(onClickListener);
+        mButton1 = findViewById(R.id.button1);
+        mButton1.setOnClickListener(onClickListener);
+        mButton2 = findViewById(R.id.button2);
+        mButton2.setOnClickListener(onClickListener);
+        mButton3 = findViewById(R.id.button3);
+        mButton3.setOnClickListener(onClickListener);
+
+        switch (mMcq.correctAnswer) {
+            case 0:
+                mCorrectView = mButton0;
+                break;
+            case 1:
+                mCorrectView = mButton1;
+                break;
+            case 2:
+                mCorrectView = mButton2;
+                break;
+            case 3:
+                mCorrectView = mButton3;
+                break;
+        }
     }
 
     private LifecycleActivity getActivity() {

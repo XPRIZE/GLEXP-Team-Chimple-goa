@@ -18,6 +18,7 @@ package org.chimple.bali.repo;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -45,6 +46,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
+
+import static org.chimple.bali.provider.LessonContentProvider.COINS;
+import static org.chimple.bali.provider.LessonContentProvider.URI_COIN;
 
 public class LessonRepo {
     public static final int ANY_FORMAT = 0;
@@ -83,7 +87,7 @@ public class LessonRepo {
     }
 
     public static LiveData<Integer> rewardCoins(Context context, long lessonId, int percent) {
-        MutableLiveData<Integer> coins = ABSENT;
+        MutableLiveData<Integer> coinLiveData = ABSENT;
         new AsyncTask<Void, Void, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
@@ -121,11 +125,20 @@ public class LessonRepo {
                     coinsToGive = 2;
                 else if(percent >= 20)
                     coinsToGive = 1;
-                coins.postValue(coinsToGive);
+                ContentValues contentValues = new ContentValues(1);
+                contentValues.put(COINS, coinsToGive);
+                int coins = context.getContentResolver().update(
+                        URI_COIN,
+                        contentValues,
+                        null,
+                        null
+                );
+
+                coinLiveData.postValue(coinsToGive);
                 return null;
             }
         }.execute();
-        return coins;
+        return coinLiveData;
     }
 
     public static List<MultipleChoiceQuiz> getMultipleChoiceQuizes(Context context, int numQuizes

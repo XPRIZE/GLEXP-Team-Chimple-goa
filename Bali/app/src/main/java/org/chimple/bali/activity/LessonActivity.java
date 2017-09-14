@@ -7,28 +7,25 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.view.Display;
 import android.view.View;
 import android.widget.AdapterViewAnimator;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import org.chimple.bali.R;
 import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.repo.LessonRepo;
-import org.chimple.bali.repo.UserLessonRepo;
 import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.service.TollBroadcastReceiver;
 import org.chimple.bali.ui.FlashCardAdapter;
 import org.chimple.bali.viewmodel.CardStatusViewModel;
 import org.chimple.bali.viewmodel.FlashCardViewModel;
 
+import static org.chimple.bali.viewmodel.CardStatusViewModel.INCORRECT_CHOICE;
 import static org.chimple.bali.viewmodel.CardStatusViewModel.READY_TO_GO;
-import static org.chimple.bali.viewmodel.CardStatusViewModel.SELECTED;
+import static org.chimple.bali.viewmodel.CardStatusViewModel.CORRECT_CHOICE;
 
 public class LessonActivity extends LifecycleActivity {
     public static final String EXTRA_MESSAGE = "org.chimple.bali.MESSAGE";
@@ -37,6 +34,7 @@ public class LessonActivity extends LifecycleActivity {
     private int mCurrentCardIndex;
     private Long mLessonId;
     private int mScore;
+    private int mQuestions;
     private FloatingActionButton mFab;
 
     @Override
@@ -75,7 +73,11 @@ public class LessonActivity extends LifecycleActivity {
                     public void onClick(View view) {
                         if(++mCurrentCardIndex >= flashCardAdapter.getCount()) {
                             mFab.setClickable(false);
-                            LessonRepo.rewardCoins(LessonActivity.this, mLessonId, 80).observe(LessonActivity.this, coins -> {
+                            int percent = 0;
+                            if(mQuestions > 0) {
+                                percent = (int) Math.round(mScore * 100.0 / mQuestions);
+                            }
+                            LessonRepo.rewardCoins(LessonActivity.this, mLessonId, percent).observe(LessonActivity.this, coins -> {
                                 if(coins != null) {
                                     Intent intentCoin = new Intent(LessonActivity.this, CoinRewardActivity.class);
                                     startActivity(intentCoin);
@@ -96,8 +98,13 @@ public class LessonActivity extends LifecycleActivity {
         cardStatusViewModel.getViewed().observe(this, viewed -> {
             if(READY_TO_GO == viewed) {
                 mFab.show();
-            } else if(SELECTED == viewed) {
+            } else if(INCORRECT_CHOICE == viewed) {
                 mFab.show();
+                mQuestions++;
+            } else if(CORRECT_CHOICE == viewed) {
+                mFab.show();
+                mQuestions++;
+                mScore++;
             } else {
                 mFab.hide();
             }
