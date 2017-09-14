@@ -17,7 +17,6 @@ import android.widget.AdapterViewAnimator;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
-import org.chimple.bali.MainActivityUnused;
 import org.chimple.bali.R;
 import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.repo.LessonRepo;
@@ -62,7 +61,7 @@ public class LessonActivity extends LifecycleActivity {
                 .get(FlashCardViewModel.class);
         mFlashCardView.setVisibility(View.INVISIBLE);
         model.getFlashCards().observe(this, flashCards -> {
-            if(flashCards != null) {
+            if(flashCards != null && mFlashCardView.getVisibility() != View.VISIBLE) {
                 mFlashCardView.setVisibility(View.VISIBLE);
                 final FlashCardAdapter flashCardAdapter = new FlashCardAdapter(this, flashCards);
                 mFlashCardView.setAdapter(flashCardAdapter);
@@ -75,9 +74,13 @@ public class LessonActivity extends LifecycleActivity {
                     @Override
                     public void onClick(View view) {
                         if(++mCurrentCardIndex >= flashCardAdapter.getCount()) {
-                            LessonRepo.markNextLesson(LessonActivity.this, mLessonId);
-                            Intent intentCoin = new Intent(LessonActivity.this, CoinRewardActivity.class);
-                            startActivity(intentCoin);
+                            mFab.setClickable(false);
+                            LessonRepo.rewardCoins(LessonActivity.this, mLessonId, 80).observe(LessonActivity.this, coins -> {
+                                if(coins != null) {
+                                    Intent intentCoin = new Intent(LessonActivity.this, CoinRewardActivity.class);
+                                    startActivity(intentCoin);
+                                }
+                            });
                         } else {
                             mFlashCardView.advance();
                             mProgressBar.incrementProgressBy(1);
@@ -146,7 +149,6 @@ public class LessonActivity extends LifecycleActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        UserLessonRepo.createOrUpdateUserLesson(this, mLessonId, mScore);
         UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.STOP_EVENT);
     }
 }
