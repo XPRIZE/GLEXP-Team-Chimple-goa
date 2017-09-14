@@ -1,4 +1,4 @@
-//kifyonzavumbi
+//
 //  EndlessRunner.cpp 
 //  goa
 //
@@ -872,7 +872,7 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		auto label = CommonLabelTTF::create(str, "Helvetica",150);
 
 		auto fontSize = std::max(float(30.0), float(150 - (str.length() - 1) * 13));
-		if (fontSize < 30.0f || fontSize > 150.0f) {
+		if (fontSize <= 50.0f || fontSize > 150.0f) {
 			fontSize = 60.0f;
 		}
 
