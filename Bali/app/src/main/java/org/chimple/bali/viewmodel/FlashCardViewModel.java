@@ -45,7 +45,7 @@ public class FlashCardViewModel extends AndroidViewModel {
     public FlashCardViewModel(Application application, Long lessonId) {
         super(application);
         mLessonId = lessonId;
-        mFlashCards = FlashCardRepo.getFlashCards(application);
+        mFlashCards = FlashCardRepo.getFlashCards(application, lessonId);
     }
 
     public LiveData<List<FlashCard>> getFlashCards() {

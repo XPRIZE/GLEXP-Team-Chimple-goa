@@ -56,7 +56,7 @@ public class LessonRepo {
         ABSENT.setValue(null);
     }
 
-    public static void markNextLesson(Context context) {
+    public static void markNextLesson(Context context, long lessonId) {
         new AsyncTask<Context, Void, Void>() {
             @Override
             protected Void doInBackground(Context... params) {
@@ -64,8 +64,12 @@ public class LessonRepo {
                 AppDatabase db = AppDatabase.getInstance(context1);
                 User user = UserRepo.getCurrentUser(context1);
                     //TODO: Handle no user
-
-                Lesson lesson = db.lessonDao().getLessonById(user.currentLessonId);
+                Lesson lesson;
+                if(lessonId != 0) {
+                    lesson = db.lessonDao().getLessonById(lessonId);
+                } else {
+                    lesson = db.lessonDao().getLessonById(user.currentLessonId);
+                }
                 Lesson newLesson = db.lessonDao().getLessonBySeq(lesson.seq + 1);
                 if (newLesson != null) {
                     user.currentLessonId = newLesson.id;

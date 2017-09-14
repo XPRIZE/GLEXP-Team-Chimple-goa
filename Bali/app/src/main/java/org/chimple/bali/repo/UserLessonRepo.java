@@ -37,9 +37,13 @@ public class UserLessonRepo {
                 User user = UserRepo.getCurrentUser(context);
                 if (user != null) {
                     Long userId = user.id;
-                    UserLesson userLesson = db.userLessonDao().getUserLessonByUserIdAndLessonId(userId, lessonId);
+                    Long computedLessonId = lessonId;
+                    if(computedLessonId == 0) {
+                        computedLessonId = user.currentLessonId;
+                    }
+                    UserLesson userLesson = db.userLessonDao().getUserLessonByUserIdAndLessonId(userId, computedLessonId);
                     if (userLesson == null) {
-                        userLesson = new UserLesson(userId, lessonId, new Date(), 1, score == -1 ? 0 : score);
+                        userLesson = new UserLesson(userId, computedLessonId, new Date(), 1, score == -1 ? 0 : score);
                         db.userLessonDao().insertUserLesson(userLesson);
                     } else {
                         userLesson.seenCount++;

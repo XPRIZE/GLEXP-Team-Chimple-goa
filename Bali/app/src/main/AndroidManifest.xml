@@ -2,12 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.chimple.bali">
 
-    <permission android:name="org.chimple.bali.provider.READ_WRITE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <permission android:name="org.chimple.bali.provider.READ_WRITE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:name=".application.BaliApplication"
@@ -17,21 +18,24 @@
         android:roundIcon="@mipmap/learning"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".launcher.LauncherScreen"
-            android:launchMode="singleTask"
+        <activity
+            android:name=".launcher.LauncherScreen"
             android:clearTaskOnLaunch="true"
-            android:stateNotNeeded="true"
+            android:launchMode="singleTask"
             android:resumeWhilePausing="true"
+            android:stateNotNeeded="true"
             android:theme="@style/LauncherTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.HOME" />
                 <category android:name="android.intent.category.LAUNCHER" />
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.MONKEY"/>
+                <category android:name="android.intent.category.MONKEY" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -44,21 +48,26 @@
             android:label="Toll service"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 
-        <receiver android:name=".service.TollBroadcastReceiver"
-            android:exported="true"/>
+        <receiver
+            android:name=".service.TollBroadcastReceiver"
+            android:exported="true" />
+
         <activity android:name=".activity.LessonActivity" />
         <activity android:name=".activity.TestActivity" />
         <activity
             android:name=".activity.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
 
         <provider
             android:name=".provider.LessonContentProvider"
             android:authorities="org.chimple.bali.provider"
             android:exported="true"
-            android:permission="org.chimple.bali.provider.READ_WRITE"/>
+            android:permission="org.chimple.bali.provider.READ_WRITE" />
+
+        <activity android:name=".activity.CoinRewardActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
     </application>
 
 </manifest>
