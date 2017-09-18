@@ -22,8 +22,9 @@ import android.arch.lifecycle.ViewModel;
 
 public class CardStatusViewModel extends ViewModel {
     public static final int NONE = 0;
-    public static final int SELECTED = 1;
+    public static final int CORRECT_CHOICE = 1;
     public static final int READY_TO_GO = 2;
+    public static final int INCORRECT_CHOICE = 3;
 
     private final MutableLiveData<Integer> mViewed = new MutableLiveData<Integer>();
 

@@ -17,11 +17,7 @@
 package org.chimple.bali.launcher;
 
 import android.app.AlertDialog;
-import android.app.job.JobInfo;
-import android.app.job.JobScheduler;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
-import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
@@ -31,7 +27,6 @@ import org.chimple.bali.R;
 import org.chimple.bali.application.BaliApplication;
 import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.service.TollBroadcastReceiver;
-import org.chimple.bali.service.TollJobServiceUnused;
 
 public class LauncherScreen extends FragmentActivity {
 
