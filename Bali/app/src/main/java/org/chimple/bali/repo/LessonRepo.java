@@ -109,13 +109,13 @@ public class LessonRepo {
                     userLesson.lastSeenAt = new Date();
                     db.userLessonDao().updateUserLesson(userLesson);
                 }
-                if(percent >= 80 && userLesson.seenCount >= 3) {
+                //if(percent >= 80 && userLesson.seenCount >= 3) {
                     Lesson newLesson = db.lessonDao().getLessonBySeq(lesson.seq + 1);
                     if (newLesson != null) {
                         user.currentLessonId = newLesson.id;
                         db.userDao().updateUser(user);
                     }
-                }
+                //}
                 int coinsToGive = 0;
                 if(percent >= 80)
                     coinsToGive = 4;
