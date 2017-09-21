@@ -18,6 +18,7 @@ package org.chimple.bali.repo;
 
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
@@ -28,6 +29,7 @@ import org.chimple.bali.db.entity.Lesson;
 import org.chimple.bali.db.entity.Unit;
 import org.chimple.bali.db.entity.UnitPart;
 import org.chimple.bali.db.entity.User;
+import org.chimple.bali.db.entity.UserLesson;
 import org.chimple.bali.db.pojo.EagerUnitPart;
 import org.chimple.bali.db.pojo.FlashCard;
 import org.chimple.bali.model.BagOfChoiceQuiz;
@@ -35,6 +37,7 @@ import org.chimple.bali.model.MultipleChoiceQuiz;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -43,6 +46,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
+
+import static org.chimple.bali.provider.LessonContentProvider.COINS;
+import static org.chimple.bali.provider.LessonContentProvider.URI_COIN;
 
 public class LessonRepo {
     public static final int ANY_FORMAT = 0;
@@ -78,6 +84,61 @@ public class LessonRepo {
                 return null;
             }
         }.execute(context);
+    }
+
+    public static LiveData<Integer> rewardCoins(Context context, long lessonId, int percent) {
+        MutableLiveData<Integer> coinLiveData = ABSENT;
+        new AsyncTask<Void, Void, Void>() {
+            @Override
+            protected Void doInBackground(Void... voids) {
+                AppDatabase db = AppDatabase.getInstance(context);
+                User user = UserRepo.getCurrentUser(context);
+                //TODO: Handle no user
+                Lesson lesson;
+                if(lessonId != 0) {
+                    lesson = db.lessonDao().getLessonById(lessonId);
+                } else {
+                    lesson = db.lessonDao().getLessonById(user.currentLessonId);
+                }
+                UserLesson userLesson = db.userLessonDao().getUserLessonByUserIdAndLessonId(user.id, lesson.id);
+                if(userLesson == null) {
+                    userLesson = new UserLesson(user.id, lesson.id, new Date(), 1, percent);
+                    db.userLessonDao().insertUserLesson(userLesson);
+                } else {
+                    userLesson.seenCount++;
+                    userLesson.lastSeenAt = new Date();
+                    db.userLessonDao().updateUserLesson(userLesson);
+                }
+                if(percent >= 80 && userLesson.seenCount >= 3) {
+                    Lesson newLesson = db.lessonDao().getLessonBySeq(lesson.seq + 1);
+                    if (newLesson != null) {
+                        user.currentLessonId = newLesson.id;
+                        db.userDao().updateUser(user);
+                    }
+                }
+                int coinsToGive = 0;
+                if(percent >= 80)
+                    coinsToGive = 4;
+                else if(percent >= 60)
+                    coinsToGive = 3;
+                else if(percent >= 40)
+                    coinsToGive = 2;
+                else if(percent >= 20)
+                    coinsToGive = 1;
+                ContentValues contentValues = new ContentValues(1);
+                contentValues.put(COINS, coinsToGive);
+                int coins = context.getContentResolver().update(
+                        URI_COIN,
+                        contentValues,
+                        null,
+                        null
+                );
+
+                coinLiveData.postValue(coinsToGive);
+                return null;
+            }
+        }.execute();
+        return coinLiveData;
     }
 
     public static List<MultipleChoiceQuiz> getMultipleChoiceQuizes(Context context, int numQuizes

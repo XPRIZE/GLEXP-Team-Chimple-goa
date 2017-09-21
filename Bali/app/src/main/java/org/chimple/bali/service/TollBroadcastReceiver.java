@@ -28,8 +28,8 @@ import android.os.AsyncTask;
 import android.util.Log;
 import android.view.WindowManager;
 
-import org.chimple.bali.MainActivityUnused;
 import org.chimple.bali.R;
+import org.chimple.bali.launcher.LauncherScreen;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -72,7 +72,7 @@ public class TollBroadcastReceiver extends BroadcastReceiver {
                                 null
                         );
                         if(coins <= 0) {
-                            Intent i=new Intent(context.getApplicationContext(),MainActivityUnused.class);
+                            Intent i=new Intent(context.getApplicationContext(),LauncherScreen.class);
                             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             i.setAction(Intent.ACTION_SEND);
                             i.putExtra("test", "pop");
