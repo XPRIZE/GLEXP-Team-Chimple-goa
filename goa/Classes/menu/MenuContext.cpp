@@ -930,7 +930,7 @@ void MenuContext::launchGameFinally(std::string gameName) {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
     CCLOG("updateCoins");
     cocos2d::JniMethodInfo methodInfo;
-    if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "updateCoins", "(java/lang/String;III)V")) {
+    if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "updateCoins", "(Ljava/lang/String;III)V")) {
         return;
     }
     jstring gameNameArg = methodInfo.env->NewStringUTF(gameName.c_str());
@@ -1352,7 +1352,7 @@ void MenuContext::showScore() {
     if(stars >= 2) {
         CCLOG("updateCoins");
         cocos2d::JniMethodInfo methodInfo;
-        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "updateCoins", "(java/lang/String;III)V")) {
+        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "updateCoins", "(Ljava/lang/String;III)V")) {
             return;
         }
         CCLOG("calling updateCoins");

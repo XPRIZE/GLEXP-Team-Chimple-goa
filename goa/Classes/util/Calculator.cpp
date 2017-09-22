@@ -106,10 +106,14 @@ Node*  Calculator::createCalculator(Vec2 position, Vec2 anchor, float scaleX, fl
 //Call checkAnswer in update to check answer
 bool Calculator::checkAnswer(int value) {
 	if (_done == 1) {
-		if (_answer == value)
+		if (_answer == value) {
+			auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+			audioBg->playEffect("res/sounds/sfx/success.ogg", false);
 			return true;
-		else
+		}
+		else {
 			return false;
+		}
 	}
 	return false;
 
@@ -237,5 +241,7 @@ void Calculator::setMaxPoints(int points) {
 
 void Calculator::deductPoint() {
 
+	auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+	audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 	_maxPoints--;
 }
