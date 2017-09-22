@@ -133,7 +133,7 @@ public class LessonActivity extends LifecycleActivity {
         intent.putExtra("onPause", "org.chimple.bali");
         sendBroadcast(intent);
 
-        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.PAUSE_EVENT);
+        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.PAUSE_EVENT, null);
     }
 
     @Override
@@ -144,18 +144,18 @@ public class LessonActivity extends LifecycleActivity {
         intent.putExtra("onResume", "org.chimple.bali");
         sendBroadcast(intent);
 
-        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.RESUME_EVENT);
+        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.RESUME_EVENT, null);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.START_EVENT);
+        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.START_EVENT, null);
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.STOP_EVENT);
+        UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.STOP_EVENT, null);
     }
 }

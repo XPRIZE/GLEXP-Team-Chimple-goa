@@ -35,6 +35,9 @@ public class UserLog {
     public static final int UNIT_TYPE = 3;
 
     @Ignore
+    public static final int GAME_TYPE = 4;
+
+    @Ignore
     public static final int START_EVENT = 1;
 
     @Ignore
@@ -57,12 +60,15 @@ public class UserLog {
 
     public int event;
 
+    public String name;
+
     @Ignore
-    public UserLog(Date loggedAt, int entityType, Long entityId, int event) {
+    public UserLog(Date loggedAt, int entityType, Long entityId, int event, String name) {
         this.loggedAt = loggedAt;
         this.entityType = entityType;
         this.entityId = entityId;
         this.event = event;
+        this.name = name;
     }
 
     public UserLog() {
@@ -71,6 +77,6 @@ public class UserLog {
 
     @Override
     public String toString() {
-        return this.entityId + "," + this.event + "," + this.entityType + "," + this.loggedAt;
+        return this.entityType + "," + this.entityId + "," + this.event + "," + this.loggedAt + "," + this.name;
     }
 }

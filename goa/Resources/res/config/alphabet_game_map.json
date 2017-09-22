@@ -190,7 +190,6 @@
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
-    "unlock": true,
     "span": "5",
     "numLevels": "28",
     "autoLevel": true,
@@ -221,10 +220,6 @@
       },
       "25": {
         "badge": "g/flaming_hero"
-      },
-      "28": {
-        "unlockMin": "Kung Fu Alpha",
-        "min": "5"
       }
     },
     "lang": {
@@ -299,7 +294,7 @@
   {
     "name": "Alphamon Feed",
     "title": "Feed the Monsters",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/Alphamon Feed_pressed.png",
     "icon": "gameicons/Alphamon Feed.png",
     "multiPlayer": false,
@@ -409,7 +404,7 @@
   {
     "name": "book",
     "title": "Alphabet Fight",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/book_pressed.png",
     "icon": "gameicons/book.png",
     "multiPlayer": false,
@@ -471,7 +466,7 @@
   {
     "name": "alphamole",
     "title": "Whack a Monster",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/alphamole_pressed.png",
     "icon": "gameicons/alphamole.png",
     "multiPlayer": false,
@@ -581,7 +576,7 @@
   {
     "name": "Cross The Bridge",
     "title": "Cross the Bridge",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/Cross The Bridge_pressed.png",
     "icon": "gameicons/Cross The Bridge.png",
     "multiPlayer": false,
@@ -688,7 +683,7 @@
   {
     "name": "Cannon Ball",
     "title": "Cannon Ball",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/Cannon Ball_pressed.png",
     "icon": "gameicons/Cannon Ball.png",
     "multiPlayer": false,
@@ -732,7 +727,7 @@
   {
     "name": "bubble",
     "title": "Pop the Bubble",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/bubble_pressed.png",
     "icon": "gameicons/bubble.png",
     "multiPlayer": false,
@@ -818,7 +813,7 @@
   {
     "name": "Smash The Rock",
     "title": "Rock Smash",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/Smash The Rock_pressed.png",
     "icon": "gameicons/Smash The Rock.png",
     "multiPlayer": false,
@@ -928,7 +923,7 @@
   {
     "name": "dino",
     "title": "Alphabet",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/dino_pressed.png",
     "icon": "gameicons/dino.png",
     "multiPlayer": false,
@@ -960,7 +955,7 @@
   {
     "name": "Patch The Wall",
     "title": "Patch the Wall",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/Patch The Wall_pressed.png",
     "icon": "gameicons/Patch The Wall.png",
     "multiPlayer": false,
@@ -978,6 +973,9 @@
       },
       "4": {
         "badge": "p/great_wall"
+      },
+      "5": {
+        "unlock": "basiclettercase"
       },
       "6": {
         "badge": "g/exploding_brick"
@@ -1001,9 +999,55 @@
     "menuPng": "patchthewalllevel/patchthewalllevel.png"
   },
   {
+    "name": "basiclettercase",
+    "title": "icecream",
+    "cIcon": "gameicons/basiclettercase_pressed.png",
+    "icon": "gameicons/basiclettercase.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "unlock": false,
+    "span": "2",
+    "numLevels": "10",
+    "autoLevel": true,
+    "backgroundJson": "endlessrunner/Layer1.json",
+    "foregroundJson": "endlessrunner/Layer3.json",
+    "frontgroundJson": "endlessrunner/Layer4.json",
+    "maingroundJson": "endlessrunner/Layer2.json",
+    "menuPlist": "endlessrunner/endlessrunner_01.plist",
+    "menuPng": "endlessrunner/endlessrunner_01.png",
+    "rewards": {
+      "9": {
+        "unlock": "alphaarrange"
+      },
+      "5": {
+        "badge": "s/butterfly_net"
+      },
+      "10": {
+        "badge": "m/speed_runner"
+      },
+      "15": {
+        "badge": "p/cracked_egg"
+      },
+      "20": {
+        "badge": "c/shiny_goggles"
+      },
+      "23": {
+        "badge": "b/friendly_monster"
+      },
+      "25": {
+        "badge": "g/flaming_hero"
+      },
+      "28": {
+        "unlockMin": "Kung Fu Alpha",
+        "min": "5"
+      }
+    }
+  },
+  {
     "name": "alphaarrange",
     "title": "Alpha Arrange",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/AlphaArrange_pressed.png",
     "icon": "gameicons/AlphaArrange.png",
     "multiPlayer": false,
@@ -1037,51 +1081,5 @@
     "maingroundJson": "alphabetslevel/Layer2.json",
     "menuPlist": "icecreamlevel/icecreamlevel.plist",
     "menuPng": "icecreamlevel/icecreamlevel.png"
-  },
-  {
-    "name": "basiclettercase",
-    "title": "Letter Case",
-    "cIcon": "gameicons/basiclettercase_pressed.png",
-    "icon": "gameicons/basiclettercase.png",
-    "multiPlayer": false,
-    "isJSGame": false,
-    "script": "src/NonJSGameLauncher.js",
-    "unlock": true,
-    "span": "2",
-    "numLevels": "10",
-    "autoLevel": true,
-    "backgroundJson": "endlessrunner/Layer1.json",
-    "foregroundJson": "endlessrunner/Layer3.json",
-    "frontgroundJson": "endlessrunner/Layer4.json",
-    "maingroundJson": "endlessrunner/Layer2.json",
-    "menuPlist": "endlessrunner/endlessrunner_01.plist",
-    "menuPng": "endlessrunner/endlessrunner_01.png",
-    "rewards": {
-      "9": {
-        "unlock": "Cannon Ball"
-      },
-      "5": {
-        "badge": "s/butterfly_net"
-      },
-      "10": {
-        "badge": "m/speed_runner"
-      },
-      "15": {
-        "badge": "p/cracked_egg"
-      },
-      "20": {
-        "badge": "c/shiny_goggles"
-      },
-      "23": {
-        "badge": "b/friendly_monster"
-      },
-      "25": {
-        "badge": "g/flaming_hero"
-      },
-      "28": {
-        "unlockMin": "Kung Fu Alpha",
-        "min": "5"
-      }
-    }
   }
 ]

@@ -41,7 +41,7 @@
   {
     "name": "shape",
     "title": "Patch the Holes",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/shape_pressed.png",
     "icon": "gameicons/shape.png",
     "multiPlayer": false,
@@ -82,7 +82,7 @@
   {
     "name": "Dots",
     "title": "Number Dots",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/numberdot_pressed.png",
     "icon": "gameicons/numberdot.png",
     "multiPlayer": false,
@@ -122,7 +122,7 @@
   {
     "name": "popcount",
     "title": "Count the fish",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/popcount_pressed.png",
     "icon": "gameicons/popcount.png",
     "multiPlayer": false,
@@ -165,7 +165,7 @@
   {
     "name": "spot",
     "title": "Spot the Animals",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/spot_pressed.png",
     "icon": "gameicons/spot.png",
     "multiPlayer": false,
@@ -206,7 +206,7 @@
   {
     "name": "Item",
     "title": "Fill the Pond",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/item_pressed.png",
     "icon": "gameicons/item.png",
     "multiPlayer": false,
@@ -251,7 +251,7 @@
   {
     "name": "ConnectTheDots",
     "title": "Connect the Dots",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/coonectthedot_pressed.png",
     "icon": "gameicons/coonectthedot.png",
     "multiPlayer": false,
@@ -291,7 +291,7 @@
   {
     "name": "chocolateFactory",
     "title": "Milk Factory",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/chocolatefactory_pressed.png",
     "icon": "gameicons/chocolatefactory.png",
     "multiPlayer": false,
@@ -305,6 +305,9 @@
       },
       "6": {
         "badge": "c/cream_jug"
+      },
+      "9": {
+        "unlock": "step"
       },
       "10": {
         "badge": "g/sharp_drop"
@@ -331,95 +334,9 @@
     "menuPng": "plevelscreen2/plevelscreen2.png"
   },
   {
-    "name": "BasicMultiplication",
-    "title": "Basic Multiplication",
-    "unlock": true,
-    "cIcon": "gameicons/BasicMultiplication_pressed.png",
-    "icon": "gameicons/BasicMultiplication.png",
-    "multiPlayer": false,
-    "isJSGame": false,
-    "script": "src/NonJSGameLauncher.js",
-    "span": "2",
-    "numLevels": "6",
-    "rewards": {
-      "5": {
-        "unlock": "spot"
-      },
-      "2": {
-        "badge": "s/star_fish"
-      },
-      "4": {
-        "badge": "m/sandy_castle"
-      },
-      "6": {
-        "badge": "p/lifesaver_tube"
-      },
-      "8": {
-        "badge": "g/wide_umbrella"
-      },
-      "9": {
-        "badge": "b/sunny_beachball"
-      },
-      "10": {
-        "badge": "c/shiny_shell",
-        "unlockMin": "step",
-        "min": "4"
-      }
-    },
-    "backgroundJson": "basicmultiplicationlevel/background.json",
-    "foregroundJson": "basicmultiplicationlevel/foreground.json",
-    "frontgroundJson": "basicmultiplicationlevel/frontground.json",
-    "maingroundJson": "basicmultiplicationlevel/mainground.json",
-    "menuPlist": "basicmultiplicationlevel/basicmultiplicationlevel.plist",
-    "menuPng": "basicmultiplicationlevel/basicmultiplicationlevel.png"
-  },
-  {
-    "name": "mathlearning",
-    "title": "Addition Subtraction",
-    "unlock": true,
-    "cIcon": "gameicons/mathlearning_pressed.png",
-    "icon": "gameicons/mathlearning.png",
-    "multiPlayer": false,
-    "isJSGame": false,
-    "script": "src/NonJSGameLauncher.js",
-    "span": "2",
-    "numLevels": "10",
-    "rewards": {
-      "5": {
-        "unlock": "spot"
-      },
-      "2": {
-        "badge": "s/star_fish"
-      },
-      "4": {
-        "badge": "m/sandy_castle"
-      },
-      "6": {
-        "badge": "p/lifesaver_tube"
-      },
-      "8": {
-        "badge": "g/wide_umbrella"
-      },
-      "9": {
-        "badge": "b/sunny_beachball"
-      },
-      "10": {
-        "badge": "c/shiny_shell",
-        "unlockMin": "step",
-        "min": "4"
-      }
-    },
-    "backgroundJson": "mathlearninglevel/background.json",
-    "foregroundJson": "mathlearninglevel/foreground.json",
-    "frontgroundJson": "mathlearninglevel/frontground.json",
-    "maingroundJson": "mathlearninglevel/mainground.json",
-    "menuPlist": "mathlearninglevel/mathlearninglevel.plist",
-    "menuPng": "mathlearninglevel/mathlearninglevel.png"
-  },
-  {
     "name": "step",
     "title": "Arrange the Steps",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/step_pressed.png",
     "icon": "gameicons/step.png",
     "multiPlayer": false,
@@ -463,7 +380,7 @@
   {
     "name": "Line",
     "title": "Candy Line",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/line_pressed.png",
     "icon": "gameicons/line.png",
     "multiPlayer": false,
@@ -482,7 +399,7 @@
         "badge": "p/chocolate_toffee"
       },
       "10": {
-        "unlock": "balloonMath"
+        "unlock": "mathlearning"
       },
       "12": {
         "badge": "g/heart_gem"
@@ -502,9 +419,52 @@
     "menuPng": "linecandylevel/linecandylevel.png"
   },
   {
+    "name": "mathlearning",
+    "title": "Addition Subtraction",
+    "unlock": false,
+    "cIcon": "gameicons/mathlearning_pressed.png",
+    "icon": "gameicons/mathlearning.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "2",
+    "numLevels": "10",
+    "rewards": {
+      "5": {
+        "unlock": "balloonMath"
+      },
+      "2": {
+        "badge": "s/star_fish"
+      },
+      "4": {
+        "badge": "m/sandy_castle"
+      },
+      "6": {
+        "badge": "p/lifesaver_tube"
+      },
+      "8": {
+        "badge": "g/wide_umbrella"
+      },
+      "9": {
+        "badge": "b/sunny_beachball"
+      },
+      "10": {
+        "badge": "c/shiny_shell",
+        "unlockMin": "step",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "mathlearninglevel/background.json",
+    "foregroundJson": "mathlearninglevel/foreground.json",
+    "frontgroundJson": "mathlearninglevel/frontground.json",
+    "maingroundJson": "mathlearninglevel/mainground.json",
+    "menuPlist": "mathlearninglevel/mathlearninglevel.plist",
+    "menuPng": "mathlearninglevel/mathlearninglevel.png"
+  },
+  {
     "name": "balloonMath",
     "title": "Pop the Balloon",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/balloonpop_pressed.png",
     "icon": "gameicons/balloonpop.png",
     "multiPlayer": false,
@@ -545,7 +505,7 @@
   {
     "name": "shop",
     "title": "Grocery Shop",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/shopping_pressed.png",
     "icon": "gameicons/shopping.png",
     "multiPlayer": false,
@@ -586,7 +546,7 @@
   {
     "name": "Units",
     "title": "Make a Pizza",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/pizza_pressed.png",
     "icon": "gameicons/pizza.png",
     "multiPlayer": false,
@@ -627,7 +587,7 @@
   {
     "name": "atm",
     "title": "Money Machine",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/ATM_pressed.png",
     "icon": "gameicons/ATM.png",
     "multiPlayer": false,
@@ -668,7 +628,7 @@
   {
     "name": "jumpingNumbers",
     "title": "Stepping Stones",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/jumping numbers_pressed.png",
     "icon": "gameicons/jumping numbers.png",
     "multiPlayer": false,
@@ -709,7 +669,7 @@
   {
     "name": "card",
     "title": "Add the Cards",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/card_pressed.png",
     "icon": "gameicons/card.png",
     "multiPlayer": false,
@@ -750,7 +710,7 @@
   {
     "name": "Bounce",
     "title": "Drop the Icecream",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/icecream_pressed.png",
     "icon": "gameicons/icecream.png",
     "multiPlayer": false,
@@ -761,7 +721,7 @@
     "numLevels": "20",
     "rewards": {
       "10": {
-        "unlock": "table"
+        "unlock": "BasicMultiplication"
       },
       "5": {
         "badge": "s/golden_boot"
@@ -775,9 +735,52 @@
     "menuPng": "icecreamlevel/icecreamlevel.png"
   },
   {
+    "name": "BasicMultiplication",
+    "title": "Basic Multiplication",
+    "unlock": false,
+    "cIcon": "gameicons/BasicMultiplication_pressed.png",
+    "icon": "gameicons/BasicMultiplication.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "2",
+    "numLevels": "6",
+    "rewards": {
+      "5": {
+        "unlock": "table"
+      },
+      "2": {
+        "badge": "s/star_fish"
+      },
+      "4": {
+        "badge": "m/sandy_castle"
+      },
+      "6": {
+        "badge": "p/lifesaver_tube"
+      },
+      "8": {
+        "badge": "g/wide_umbrella"
+      },
+      "9": {
+        "badge": "b/sunny_beachball"
+      },
+      "10": {
+        "badge": "c/shiny_shell",
+        "unlockMin": "step",
+        "min": "4"
+      }
+    },
+    "backgroundJson": "basicmultiplicationlevel/background.json",
+    "foregroundJson": "basicmultiplicationlevel/foreground.json",
+    "frontgroundJson": "basicmultiplicationlevel/frontground.json",
+    "maingroundJson": "basicmultiplicationlevel/mainground.json",
+    "menuPlist": "basicmultiplicationlevel/basicmultiplicationlevel.plist",
+    "menuPng": "basicmultiplicationlevel/basicmultiplicationlevel.png"
+  },
+  {
     "name": "table",
     "title": "Multiply",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/table_pressed.png",
     "icon": "gameicons/table.png",
     "multiPlayer": false,

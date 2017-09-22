@@ -26,6 +26,8 @@ import android.view.View;
 import android.widget.GridView;
 
 import org.chimple.bali.activity.LessonActivity;
+import org.chimple.bali.db.entity.UserLog;
+import org.chimple.bali.repo.UserLogRepo;
 
 import java.util.ArrayList;
 
@@ -80,6 +82,7 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
                     intent = new Intent(getActivity(), LessonActivity.class);
                 } else {
                     intent = getActivity().getPackageManager().getLaunchIntentForPackage(app.getApplicationPackageName());
+                    UserLogRepo.logEntity(getContext(), UserLog.GAME_TYPE, (long) 0, UserLog.START_EVENT, app.getApplicationPackageName());
                 }
                 if (intent != null) {
                     startActivity(intent);
