@@ -16,15 +16,11 @@
 
 package org.chimple.bali.repo;
 
-import android.arch.core.util.Function;
 import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
-import android.arch.lifecycle.Transformations;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 
-import org.chimple.bali.R;
 import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.db.entity.Lesson;
 import org.chimple.bali.db.entity.User;
