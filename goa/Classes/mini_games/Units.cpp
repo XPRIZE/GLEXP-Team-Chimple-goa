@@ -195,6 +195,8 @@ void Units::update(float delta) {
 	if (_calculateFlag == 0 && _calculator->isEnterPressed() && !_calculator->checkAnswer(_answerValue)) {
 
 		_calculateFlag = 1;
+		auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+		audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 		_calculator->deductPoint();
 		_menuContext->pickNumber(_answerValue, _calculator->_answer, _menuContext->IDENTIFY);
 		auto openSequence = CallFunc::create([=] {
@@ -207,8 +209,10 @@ void Units::update(float delta) {
 
 	}
 	
-		if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
+	if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
 		
+		auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+		audioBg->playEffect("res/sounds/sfx/success.ogg", false);
 		CCLOG("correct answer");
 		_calculateFlag = 1;
 
