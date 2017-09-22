@@ -400,23 +400,27 @@ public class AppActivity extends Cocos2dxActivity {
     }
 
 	public static void updateCoins(String gameName, int gameLevel, int gameEvent, int coins) {
+		final String fGameName = gameName;
+		final int fGameLevel = gameLevel;
+		final int fGameEvent = gameEvent;
+		final int fCoins = coins;
     	new AsyncTask<Void, Void, Void>() {
 			@Override
 			protected Void doInBackground(Void... params) {
 				System.out.println("doInBackground");
 
 		        ContentValues contentValues = new ContentValues(4);
-		        contentValues.put(GAME_NAME, gameName);
-		        contentValues.put(GAME_LEVEL, gameLevel);
-		        contentValues.put(GAME_EVENT, gameEvent);
-		        contentValues.put(COINS, coins);
+		        contentValues.put(GAME_NAME, fGameName);
+		        contentValues.put(GAME_LEVEL, fGameLevel);
+		        contentValues.put(GAME_EVENT, fGameEvent);
+		        contentValues.put(COINS, fCoins);
 		        int coins = _context.getContentResolver().update(
 		                URI_COIN,
 		                contentValues,
 		                null,
 		                null
 		        );
-		        Log.d(COINS, String.valueOf(coins));
+		        Log.d(COINS, String.valueOf(fCoins));
 
 				return null;
 			}
