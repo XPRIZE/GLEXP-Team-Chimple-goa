@@ -253,6 +253,10 @@ public class AppActivity extends Cocos2dxActivity {
 
     public static final String MULTIPLE_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
     public static final String COINS = "COINS";
+    public static final String GAME_NAME = "GAME_NAME";
+    public static final String GAME_LEVEL = "GAME_LEVEL";
+    public static final String GAME_EVENT = "GAME_EVENT";
+
     public static final String BAG_OF_CHOICE_QUIZ = "BAG_OF_CHOICE_QUIZ";
 
     public static final String COL_HELP = "help";
@@ -395,15 +399,17 @@ public class AppActivity extends Cocos2dxActivity {
 
     }
 
-	public static void updateCoins(int coins) {
-    	new AsyncTask<Integer, Void, Void>() {
+	public static void updateCoins(String gameName, int gameLevel, int gameEvent, int coins) {
+    	new AsyncTask<Void, Void, Void>() {
 			@Override
-			protected Void doInBackground(Integer... params) {
-				Integer coins1 = params[0];
+			protected Void doInBackground(Void... params) {
 				System.out.println("doInBackground");
 
-		        ContentValues contentValues = new ContentValues(1);
-		        contentValues.put(COINS, coins1);
+		        ContentValues contentValues = new ContentValues(4);
+		        contentValues.put(GAME_NAME, gameName);
+		        contentValues.put(GAME_LEVEL, gameLevel);
+		        contentValues.put(GAME_EVENT, gameEvent);
+		        contentValues.put(COINS, coins);
 		        int coins = _context.getContentResolver().update(
 		                URI_COIN,
 		                contentValues,
@@ -414,7 +420,7 @@ public class AppActivity extends Cocos2dxActivity {
 
 				return null;
 			}
-		}.execute(coins);
+		}.execute();
 	}    
 
 	public static native boolean discoveredBluetoothDevices(String devices);

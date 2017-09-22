@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "79c615163967010079fc181ab8d9477f",
+    "identityHash": "79a03cb1dab81415c5bb4cb908ad2e42",
     "entities": [
       {
         "tableName": "Lesson",
@@ -511,7 +511,7 @@
       },
       {
         "tableName": "UserLog",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`entityId` INTEGER, `entityType` INTEGER NOT NULL, `event` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `loggedAt` INTEGER)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`entityId` INTEGER, `entityType` INTEGER NOT NULL, `event` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `loggedAt` INTEGER, `name` TEXT)",
         "fields": [
           {
             "fieldPath": "entityId",
@@ -542,6 +542,12 @@
             "columnName": "loggedAt",
             "affinity": "INTEGER",
             "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -556,7 +562,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"79c615163967010079fc181ab8d9477f\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"79a03cb1dab81415c5bb4cb908ad2e42\")"
     ]
   }
 }
