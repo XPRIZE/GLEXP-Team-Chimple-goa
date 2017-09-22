@@ -4,7 +4,9 @@ import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
@@ -129,9 +131,11 @@ public class MultipleChoiceQuizView extends FrameLayout {
                 mButton1.setClickable(false);
                 mButton2.setClickable(false);
                 mButton3.setClickable(false);
+                mCorrectView.setBackground(getResources().getDrawable(R.drawable.button_correct, null));
                 if(mCorrectView == mcurrentSelectedView) {
                     cardStatusViewModel.viewed(CardStatusViewModel.CORRECT_CHOICE);
                 } else {
+                    mcurrentSelectedView.setBackground(getResources().getDrawable(R.drawable.button_incorrect, null));
                     cardStatusViewModel.viewed(CardStatusViewModel.INCORRECT_CHOICE);
                 }
             }
@@ -175,9 +179,9 @@ public class MultipleChoiceQuizView extends FrameLayout {
             @Override
             public void onClick(View view) {
                 if(mcurrentSelectedView != null) {
-                    mcurrentSelectedView.setBackgroundColor(Color.WHITE);
+                    mcurrentSelectedView.setBackground(getResources().getDrawable(R.drawable.button_unselected, null));
                 }
-                view.setBackgroundColor(Color.BLUE);
+                view.setBackground(getResources().getDrawable(R.drawable.button_selected, null));
                 mcurrentSelectedView = view;
                 FloatingActionButton checkFab = (FloatingActionButton) findViewById(R.id.checkFab);
                 checkFab.show();

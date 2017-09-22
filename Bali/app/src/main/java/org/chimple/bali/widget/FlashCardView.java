@@ -24,8 +24,20 @@ import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.transition.ChangeBounds;
+import android.transition.Scene;
+import android.transition.Slide;
+import android.transition.Transition;
+import android.transition.TransitionListenerAdapter;
+import android.transition.TransitionManager;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import org.chimple.bali.R;
 import org.chimple.bali.db.entity.Unit;
@@ -35,9 +47,9 @@ import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.repo.UserUnitRepo;
 import org.chimple.bali.viewmodel.CardStatusViewModel;
 
-public class FlashCardView extends FrameLayout {
+public class FlashCardView extends LinearLayout {
     private FlashCard mFlashCard;
-    private View aView;
+    private ViewGroup aView;
     private View bView;
     private boolean isShowingAView = true;
 
@@ -45,38 +57,29 @@ public class FlashCardView extends FrameLayout {
         @Override
         public void onClick(View view) {
             setClickable(false);
-            AnimatorSet setOut = (AnimatorSet) AnimatorInflater.loadAnimator(view.getContext(),
-                    R.animator.card_flip_right_out);
-            AnimatorSet setIn = (AnimatorSet) AnimatorInflater.loadAnimator(view.getContext(),
-                    R.animator.card_flip_right_in);
-            AnimatorSet setFlip;
-            if(isShowingAView) {
-                setOut.setTarget(aView);
-                setIn.setTarget(bView);
-                setFlip = (AnimatorSet) AnimatorInflater.loadAnimator(view.getContext(),
-                        R.animator.card_flip_back);
-                isShowingAView = false;
-            } else {
-                setOut.setTarget(bView);
-                setIn.setTarget(aView);
-                setFlip = (AnimatorSet) AnimatorInflater.loadAnimator(view.getContext(),
-                        R.animator.card_flip_front);
-                isShowingAView = true;
-            }
 
-            setFlip.setTarget(FlashCardView.this);
-            AnimatorSet set = new AnimatorSet();
-            set.playTogether(setIn, setOut, setFlip);
-            set.addListener(new AnimatorListenerAdapter() {
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    setClickable(true);
-                    CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
-                    cardStatusViewModel.viewed(CardStatusViewModel.READY_TO_GO);
+            if(mFlashCard.objectUnit != null) {
+                TransitionManager.beginDelayedTransition(FlashCardView.this, new Slide());
 
+                Drawable d = mFlashCard.objectUnit.getPictureDrawable(getContext());
+                if(d != null) {
+                    ImageView imageView = new ImageView(getContext());
+                    imageView.setImageDrawable(d);
+                    LinearLayout.LayoutParams llLayoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 0);
+                    llLayoutParams.weight = 1;
+                    imageView.setLayoutParams(llLayoutParams);
+                    imageView.setBackgroundColor(Color.WHITE);
+                    addView(imageView);
                 }
-            });
-            set.start();
+                bView = getView(view.getContext(), mFlashCard.objectUnit);
+                LinearLayout.LayoutParams llLayoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 0);
+                llLayoutParams.weight = 1;
+                bView.setLayoutParams(llLayoutParams);
+                addView(bView);
+                UserLogRepo.logEntity(view.getContext(), UserLog.UNIT_TYPE, mFlashCard.objectUnit.id, UserLog.START_EVENT, null);
+            }
+            CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
+            cardStatusViewModel.viewed(CardStatusViewModel.READY_TO_GO);
         }
     };
 
@@ -102,31 +105,38 @@ public class FlashCardView extends FrameLayout {
     }
 
     private void initView(Context context, FlashCard flashCard) {
+        setOrientation(LinearLayout.VERTICAL);
+        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
+        setLayoutParams(layoutParams);
         mFlashCard = flashCard;
         UserLogRepo.logEntity(context, UserLog.LESSON_UNIT_TYPE, flashCard.lessonUnit.id, UserLog.START_EVENT, null);
 
         aView = getView(context, mFlashCard.subjectUnit);
+        LinearLayout.LayoutParams llLayoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 0);
+        llLayoutParams.weight = 1;
+        aView.setLayoutParams(llLayoutParams);
+
+//        Scene scene = Scene.getSceneForLayout(this, R.layout.word, context);
+//        Scene scene = new Scene(this, aView);
+//        scene.enter();
+//        TextView wordView = (TextView) findViewById(R.id.word);
+//        wordView.setText(Html.fromHtml("<b>"+word.name+"</b><i>h</i>"));
+//        wordView.setText(mFlashCard.subjectUnit.name);
+
         addView(aView);
         UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.subjectUnit.id, UserLog.START_EVENT, null);
         
-        if(mFlashCard.objectUnit != null) {
-            bView = getView(context, mFlashCard.objectUnit);
-            addView(bView);
-            bView.setAlpha(0);
-            bView.setRotationY(180);
-            UserLogRepo.logEntity(context, UserLog.UNIT_TYPE, flashCard.objectUnit.id, UserLog.START_EVENT, null);
-        }
         setOnClickListener(mOnClickListener);
     }
 
-    private View getView(Context context, Unit unit) {
-        if(unit.type == Unit.WORD_TYPE) {
-            WordView wordView = new WordView(context, unit);
-            return wordView;
-        } else if(unit.type == Unit.SENTENCE_TYPE) {
-            SentenceView sentenceView = new SentenceView(context, unit);
-            return sentenceView;
-        }
+    private ViewGroup getView(Context context, Unit unit) {
+//        if(unit.type == Unit.WORD_TYPE) {
+//            WordView wordView = new WordView(context, unit);
+//            return wordView;
+//        } else if(unit.type == Unit.SENTENCE_TYPE) {
+//            SentenceView sentenceView = new SentenceView(context, unit);
+//            return sentenceView;
+//        }
         LetterView letterView = new LetterView(context, unit);
         return letterView;
     }

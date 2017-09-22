@@ -18,6 +18,8 @@ package org.chimple.bali.widget;
 
 import android.content.Context;
 import android.content.res.AssetFileDescriptor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.MediaPlayer;
 import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
@@ -28,6 +30,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.chimple.bali.R;
@@ -37,26 +40,46 @@ import java.io.IOException;
 
 public class LetterView extends FrameLayout {
     private Unit mLetter;
-    private FloatingActionButton mSoundFab;
+    private View mSoundFab;
+    private TextView mTextView;
     private Context mContext;
 
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
-
         @Override
         public void onClick(View view) {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            try {
-                AssetFileDescriptor afd = mContext.getAssets().openFd(mLetter.sound);
-                mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(),
-                        afd.getLength());
-                afd.close();
-                mediaPlayer.prepare();
-                mediaPlayer.start();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            playSound();
         }
     };
+
+    private void playSound() {
+        mSoundFab.setEnabled(false);
+        mTextView.setEnabled(false);
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mSoundFab.setEnabled(true);
+                mTextView.setEnabled(true);
+                mediaPlayer.release();
+//                    CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
+//                    cardStatusViewModel.viewed(true);
+            }
+        });
+        try {
+            AssetFileDescriptor afd = mContext.getAssets().openFd(mLetter.sound);
+            mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(),
+                    afd.getLength());
+            afd.close();
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+            mediaPlayer.release();
+            mSoundFab.setEnabled(true);
+            mTextView.setEnabled(true);
+        }
+    }
+
     public LetterView(@NonNull Context context, Unit letter) {
         super(context);
         initView(context, letter);
@@ -82,9 +105,17 @@ public class LetterView extends FrameLayout {
         mLetter = letter;
         View view = inflate(getContext(), R.layout.letter, null);
         addView(view);
-        TextView letterView = (TextView) findViewById(R.id.letter);
-        letterView.setText(letter.name);
-        mSoundFab = (FloatingActionButton) findViewById(R.id.soundFab);
+        mTextView = (TextView) findViewById(R.id.letter);
+        mTextView.setText(letter.name);
+        mSoundFab = findViewById(R.id.soundFab);
         mSoundFab.setOnClickListener(mOnClickListener);
+        mTextView.setOnClickListener(mOnClickListener);
     }
+
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        playSound();
+    }
+
 }
