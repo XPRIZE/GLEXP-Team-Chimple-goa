@@ -28,15 +28,19 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 
 import org.chimple.bali.application.BaliApplication;
+import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.model.BagOfChoiceQuiz;
 import org.chimple.bali.model.MultipleChoiceQuiz;
 import org.chimple.bali.repo.LessonRepo;
+import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.repo.UserRepo;
 
 import java.util.List;
 
 public class LessonContentProvider extends ContentProvider {
-    /** The authority of this content provider. */
+    /**
+     * The authority of this content provider.
+     */
     public static final String AUTHORITY = "org.chimple.bali.provider";
 
     public static final String MULTIPLE_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
@@ -51,11 +55,15 @@ public class LessonContentProvider extends ContentProvider {
     public static final String COL_CORRECT_ANSWER = "correct_answer";
     public static final String COL_CHOICE = "choice_";
 
-    /** The URI for the Multiple Choice Quiz */
+    /**
+     * The URI for the Multiple Choice Quiz
+     */
     public static final Uri URI_MULTIPLE_CHOICE_QUIZ = Uri.parse(
             "content://" + AUTHORITY + "/" + MULTIPLE_CHOICE_QUIZ);
 
-    /** The match code for next quiz */
+    /**
+     * The match code for next quiz
+     */
     private static final int CODE_GET_MULTIPLE_CHOICE_QUIZ = 1;
 
 
@@ -77,15 +85,24 @@ public class LessonContentProvider extends ContentProvider {
     private static final int CODE_GET_BAG_OF_CHOICE_QUIZ = 3;
 
     public static final String COINS = "COINS";
+    public static final String GAME_NAME = "GAME_NAME";
+    public static final String GAME_LEVEL = "GAME_LEVEL";
+    public static final String GAME_EVENT = "GAME_EVENT";
 
-    /** The URI for the Coin */
+    /**
+     * The URI for the Coin
+     */
     public static final Uri URI_COIN = Uri.parse(
             "content://" + AUTHORITY + "/" + COINS);
 
-    /** The match code for next quiz */
+    /**
+     * The match code for next quiz
+     */
     private static final int CODE_ADD_COIN = 2;
 
-    /** The URI matcher. */
+    /**
+     * The URI matcher.
+     */
     private static final UriMatcher MATCHER = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
@@ -105,7 +122,7 @@ public class LessonContentProvider extends ContentProvider {
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection,
                         @Nullable String[] selectionArgs, @Nullable String sortOrder) {
         final int code = MATCHER.match(uri);
-        if(code == CODE_GET_MULTIPLE_CHOICE_QUIZ) {
+        if (code == CODE_GET_MULTIPLE_CHOICE_QUIZ) {
             final Context context = getContext();
             if (context == null) {
                 return null;
@@ -161,7 +178,7 @@ public class LessonContentProvider extends ContentProvider {
                 }
             }
             return matrixCursor;
-        } else if(code == CODE_GET_BAG_OF_CHOICE_QUIZ) {
+        } else if (code == CODE_GET_BAG_OF_CHOICE_QUIZ) {
             final Context context = getContext();
             if (context == null) {
                 return null;
@@ -225,10 +242,10 @@ public class LessonContentProvider extends ContentProvider {
             for (BagOfChoiceQuiz bcq : bcqList) {
                 MatrixCursor.RowBuilder rowBuilder = matrixCursor.newRow();
                 rowBuilder.add(bcq.help).add(bcq.answer).add(bcq.answers.length).add(bcq.otherChoices.length);
-                for (String a: bcq.answers) {
+                for (String a : bcq.answers) {
                     rowBuilder.add(a);
                 }
-                for (String c: bcq.otherChoices) {
+                for (String c : bcq.otherChoices) {
                     rowBuilder.add(c);
                 }
             }
@@ -270,20 +287,26 @@ public class LessonContentProvider extends ContentProvider {
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String s, @Nullable String[] strings) {
         switch (MATCHER.match(uri)) {
             case CODE_ADD_COIN:
+                String gameName = contentValues.getAsString(GAME_NAME);
+                int gameLevel = contentValues.getAsInteger(GAME_LEVEL);
+                int gameEvent = contentValues.getAsInteger(GAME_EVENT);
                 int coins = contentValues.getAsInteger(COINS);
-                int updatedCoins = UserRepo.updateCoins(getContext(), coins);
-                Log.d("LessonContentProvider", "adding coins: "
-                        + String.valueOf(coins)
-                        + " for total of: "
-                        + String.valueOf(updatedCoins));
-                //TODO: Display notification on coins
+                int updatedCoins = 0;
+                if (coins > 0) {
+                    updatedCoins = UserRepo.updateCoins(getContext(), coins);
+                    Log.d("LessonContentProvider", "adding coins: "
+                            + String.valueOf(coins)
+                            + " for total of: "
+                            + String.valueOf(updatedCoins));
+                    //TODO: Display notification on coins
 
-                String coinMessage = "Added Coins:" + String.valueOf(coins) + " for total of: "
-                        + String.valueOf(updatedCoins);
+                    String coinMessage = "Added Coins:" + String.valueOf(coins) + " for total of: "
+                            + String.valueOf(updatedCoins);
 
-                BaliApplication application = (BaliApplication) getContext().getApplicationContext();
-                application.updateCoinNotifications("Coins:", coinMessage, updatedCoins);
-
+                    BaliApplication application = (BaliApplication) getContext().getApplicationContext();
+                    application.updateCoinNotifications("Coins:", coinMessage, updatedCoins);
+                }
+                UserLogRepo.logEntity(getContext(), UserLog.GAME_TYPE, (long) gameLevel, gameEvent, gameName);
                 return updatedCoins;
             default:
                 throw new IllegalArgumentException("Unknown URI: " + uri);
