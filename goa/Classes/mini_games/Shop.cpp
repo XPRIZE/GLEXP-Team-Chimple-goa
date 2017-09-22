@@ -46,6 +46,12 @@ void Shop::onEnterTransitionDidFinish()
 		shopingBackground->setPositionX(myGameWidth);
 	}
 	
+	// Adding_Calculator
+		_calculator = new Calculator();
+		_calculator->createCalculator(Vec2(visibleSize.width*0.85, visibleSize.height*0.20), Vec2(0.5, 0.5), 1, 1);
+		this->addChild(_calculator, 10);
+		_calculator->setScale(0.001);
+
 	_vegetableNodeName = { "Pineapple", "corn", "carrot", "pumpkin", "capsico", "cabbage", "spinach", "tomato", "Brinjal" };
 	
 	customerEnter(shopingBackground, _vegetableNodeName);
@@ -182,7 +188,12 @@ void Shop::update(float dt)
 		if (visibleSize.width > 2560) {
 			myGameWidth = (visibleSize.width - 2560) / 2;
 		}
-		this->removeChild(_calculator, true);
+		
+		_calculator->setScale(0.001);
+		_calculator->resetCalculator();
+
+		CCLOG("------------CALCULATOR : REMOVED FROM SHOP -----------");
+
 		_isEnterPressedCounter++;
 		auto myBg = this->getChildByName("bg");
 		auto node1 = myBg->getChildByName("bag")->getChildren().at(1);
@@ -671,14 +682,13 @@ void Shop::addTouchEvents(Sprite* obj)
 		}
 		if (_labelCounter == (_oneOfThePairInt.second+ _oneOfThePairInt.first))
 		{
-			_calculator = new Calculator();
-		    _calculator->createCalculator(Vec2(visibleSize.width*0.85,visibleSize.height*0.20), Vec2(0.5, 0.5),0.5, 0.5);
-			 this->addChild(_calculator, 10);
+			
+			auto sequence_A = ScaleTo::create(2, 0.5);
+			EaseElasticOut *easeAction = EaseElasticOut::create(sequence_A);
+			_calculator->runAction(Sequence::create(DelayTime::create(0.5), easeAction, NULL));
 		    _calculateFlag = true;
-
-		/*	 auto sequence_A = ScaleTo::create(2, 0.5);
-			 EaseElasticOut *easeAction = EaseElasticOut::create(sequence_A);
-			 _calculator->runAction(Sequence::create(DelayTime::create(0.5), easeAction, NULL));*/
+			CCLOG("------------CALCULATOR : CREATED IN SHOP -----------");
+		
 		}
 		this->runAction(Sequence::create( DelayTime::create(0.7), CCCallFunc::create([=] { _touched = true; }), NULL));
 	};
