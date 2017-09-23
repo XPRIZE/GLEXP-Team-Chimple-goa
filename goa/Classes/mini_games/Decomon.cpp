@@ -1105,6 +1105,16 @@ void Decomon::createGameLayout(cocos2d::EventCustom *eventCustom)
 		CCLOG("onLessonReady to unmarshallMultiChoices");
 		vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
 
+		if (vmc.size() <= 0 || vmc[0].answers.size() <= 0) {
+			CCLOG("THE VMC DATA IS INCORRECT !!!!!! ");
+			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
+				Director::getInstance()->replaceScene(TransitionFade::create(2.0, MainMenuHome::createScene(), Color3B::BLACK));
+			}), NULL));
+		}
+		else {
+			CCLOG("VMC DATA SIZE IS GREATER THAN 0 ");
+		}
+
 		if ((currentLevel > 1) && (currentLevel < 54)) //28 
 		{
 			_myChar = vmc[0].question;
