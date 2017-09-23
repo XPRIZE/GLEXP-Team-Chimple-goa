@@ -4,9 +4,11 @@ import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.ContextWrapper;
+import android.content.res.AssetFileDescriptor;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.media.MediaPlayer;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
@@ -24,6 +26,7 @@ import org.chimple.bali.db.entity.Unit;
 import org.chimple.bali.model.MultipleChoiceQuiz;
 import org.chimple.bali.viewmodel.CardStatusViewModel;
 
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -45,6 +48,7 @@ public class MultipleChoiceQuizView extends FrameLayout {
     View mButton1;
     View mButton2;
     View mButton3;
+    CardView mQuestionView;
     private View mcurrentSelectedView;
     private View mCorrectView;
 
@@ -94,7 +98,7 @@ public class MultipleChoiceQuizView extends FrameLayout {
             ((Button)mButton3).setText(mcq.answers[3]);
         }
 
-        CardView cardView = (CardView) findViewById(R.id.questionView);
+        mQuestionView = findViewById(R.id.questionView);
         if(mQuizType == TEXT_TO_IMAGE_QUIZ
                 || mQuizType == TEXT_TO_SOUND_QUIZ
                 || mQuizType == TEXT_TO_TEXT_QUIZ) {
@@ -104,21 +108,29 @@ public class MultipleChoiceQuizView extends FrameLayout {
             LayoutParams lay = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             lay.gravity = Gravity.CENTER;
             textView.setLayoutParams(lay);
-            cardView.addView(textView);
+            mQuestionView.addView(textView);
         } else if(mQuizType == IMAGE_TO_TEXT_QUIZ) {
             ImageView imageView = new ImageView(getContext());
             imageView.setImageDrawable(mMcq.questionUnit.getPictureDrawable(getContext()));
             LayoutParams lay = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             lay.gravity = Gravity.CENTER;
             imageView.setLayoutParams(lay);
-            cardView.addView(imageView);
+            mQuestionView.addView(imageView);
         } else if(mQuizType == SOUND_TO_TEXT_QUIZ) {
             ImageView imageView = new ImageView(getContext());
             imageView.setImageResource(R.drawable.ic_volume_up_black_24dp);
             LayoutParams lay = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             lay.gravity = Gravity.CENTER;
             imageView.setLayoutParams(lay);
-            cardView.addView(imageView);
+            mQuestionView.addView(imageView);
+
+            OnClickListener soundOnClickListener = new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    playSound(view);
+                }
+            };
+            mQuestionView.setOnClickListener(soundOnClickListener);
         }
         
         OnClickListener checkOnClickListener = new OnClickListener() {
@@ -126,7 +138,6 @@ public class MultipleChoiceQuizView extends FrameLayout {
             public void onClick(View view) {
                 view.setVisibility(INVISIBLE);
                 CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
-                //TODO: Highlight correct in green and wrong in red
                 mButton0.setClickable(false);
                 mButton1.setClickable(false);
                 mButton2.setClickable(false);
@@ -145,22 +156,55 @@ public class MultipleChoiceQuizView extends FrameLayout {
         checkFab.setOnClickListener(checkOnClickListener);
     }
 
+    private void playSound(View view) {
+        Unit unit = null;
+        if(view.equals(mButton0)) {
+            unit = mMcq.answerUnits[0];
+        } else if(view.equals(mButton1)) {
+            unit = mMcq.answerUnits[1];
+        } else if(view.equals(mButton2)) {
+            unit = mMcq.answerUnits[2];
+        } else if(view.equals(mButton3)) {
+            unit = mMcq.answerUnits[3];
+        } else if(view.equals(mQuestionView)) {
+            unit = mMcq.questionUnit;
+        }
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.release();
+            }
+        });
+        try {
+            AssetFileDescriptor afd = getContext().getAssets().openFd(unit.sound);
+            mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(),
+                    afd.getLength());
+            afd.close();
+            mediaPlayer.prepare();
+            mediaPlayer.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+            mediaPlayer.release();
+        }
+    }
+
     private int decideQuizType() {
         List<Integer> possibleQuizTypes = new LinkedList<Integer>();
         possibleQuizTypes.add(TEXT_TO_TEXT_QUIZ);
-        if(mMcq.questionUnit.picture != null) {
+        if(mMcq.questionUnit.picture != null && !mMcq.questionUnit.picture.isEmpty()) {
             possibleQuizTypes.add(IMAGE_TO_TEXT_QUIZ);
         }
-        if(mMcq.questionUnit.sound != null) {
+        if(mMcq.questionUnit.sound != null && !mMcq.questionUnit.sound.isEmpty()) {
             possibleQuizTypes.add(SOUND_TO_TEXT_QUIZ);
         }
         boolean allContainImages = true;
         boolean allContainSounds = true;
         for(Unit unit: mMcq.answerUnits) {
-            if(unit.picture == null) {
+            if(unit.picture == null || unit.picture.isEmpty()) {
                 allContainImages = false;
             }
-            if(unit.sound == null) {
+            if(unit.sound == null || unit.sound.isEmpty()) {
                 allContainSounds = false;
             }
         }
@@ -178,6 +222,9 @@ public class MultipleChoiceQuizView extends FrameLayout {
         OnClickListener onClickListener = new OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(mQuizType == TEXT_TO_SOUND_QUIZ) {
+                    playSound(view);
+                }
                 if(mcurrentSelectedView != null) {
                     mcurrentSelectedView.setBackground(getResources().getDrawable(R.drawable.button_unselected, null));
                 }
@@ -222,6 +269,14 @@ public class MultipleChoiceQuizView extends FrameLayout {
             context = ((ContextWrapper)context).getBaseContext();
         }
         return null;
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if(mQuizType == SOUND_TO_TEXT_QUIZ) {
+            playSound(mQuestionView);
+        }
     }
 
 }
