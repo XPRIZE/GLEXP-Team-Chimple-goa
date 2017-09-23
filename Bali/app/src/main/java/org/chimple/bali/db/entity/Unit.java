@@ -92,10 +92,12 @@ public class Unit {
         Drawable d = null;
         try
         {
+            if(picture != null) {
 //            InputStream inputStream = mContext.getAssets().open(word.picture);
-            InputStream inputStream = context.getAssets().open("swa/image/apple.jpg");
-            d = Drawable.createFromStream(inputStream, null);
-            inputStream .close();
+                InputStream inputStream = context.getAssets().open("swa/image/apple.jpg");
+                d = Drawable.createFromStream(inputStream, null);
+                inputStream.close();
+            }
         }
         catch(IOException e)
         {
