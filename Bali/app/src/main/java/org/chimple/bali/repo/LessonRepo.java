@@ -30,6 +30,7 @@ import org.chimple.bali.db.entity.Unit;
 import org.chimple.bali.db.entity.UnitPart;
 import org.chimple.bali.db.entity.User;
 import org.chimple.bali.db.entity.UserLesson;
+import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.db.pojo.EagerUnitPart;
 import org.chimple.bali.db.pojo.FlashCard;
 import org.chimple.bali.model.BagOfChoiceQuiz;
@@ -48,6 +49,9 @@ import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 import static org.chimple.bali.provider.LessonContentProvider.COINS;
+import static org.chimple.bali.provider.LessonContentProvider.GAME_EVENT;
+import static org.chimple.bali.provider.LessonContentProvider.GAME_LEVEL;
+import static org.chimple.bali.provider.LessonContentProvider.GAME_NAME;
 import static org.chimple.bali.provider.LessonContentProvider.URI_COIN;
 
 public class LessonRepo {
@@ -126,6 +130,9 @@ public class LessonRepo {
                 else if(percent >= 20)
                     coinsToGive = 1;
                 ContentValues contentValues = new ContentValues(1);
+                contentValues.put(GAME_NAME, "Bali");
+                contentValues.put(GAME_LEVEL, lesson.seq);
+                contentValues.put(GAME_EVENT, UserLog.STOP_EVENT);
                 contentValues.put(COINS, coinsToGive);
                 int coins = context.getContentResolver().update(
                         URI_COIN,

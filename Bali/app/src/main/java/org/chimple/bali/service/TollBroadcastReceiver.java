@@ -29,12 +29,16 @@ import android.util.Log;
 import android.view.WindowManager;
 
 import org.chimple.bali.R;
+import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.launcher.LauncherScreen;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import static android.content.Context.ALARM_SERVICE;
 import static org.chimple.bali.provider.LessonContentProvider.COINS;
+import static org.chimple.bali.provider.LessonContentProvider.GAME_EVENT;
+import static org.chimple.bali.provider.LessonContentProvider.GAME_LEVEL;
+import static org.chimple.bali.provider.LessonContentProvider.GAME_NAME;
 import static org.chimple.bali.provider.LessonContentProvider.URI_COIN;
 
 public class TollBroadcastReceiver extends BroadcastReceiver {
@@ -65,6 +69,9 @@ public class TollBroadcastReceiver extends BroadcastReceiver {
                         Context context1 = contexts[0];
                         ContentValues contentValues = new ContentValues(1);
                         contentValues.put(COINS, -1);
+                        contentValues.put(GAME_NAME, "Bali");
+                        contentValues.put(GAME_LEVEL, -1);
+                        contentValues.put(GAME_EVENT, UserLog.PAUSE_EVENT);
                         int coins = context1.getContentResolver().update(
                                 URI_COIN,
                                 contentValues,
