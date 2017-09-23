@@ -159,6 +159,18 @@ void WordScene::onLessonReady(cocos2d::EventCustom *eventCustom) {
         std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
         CCLOG("onLessonReady to unmarshallBagOfChoices");
         vector<Lesson::Bag> vbag = Lesson::unmarshallBag(buf);
+
+		if (vbag.size() <= 0 || vbag[0].answers.size() <= 0 ) {
+			CCLOG("THE VMC DATA IS INCORRECT !!!!!! ");
+			this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
+				Director::getInstance()->replaceScene(TransitionFade::create(2.0, MainMenuHome::createScene(), Color3B::BLACK));
+			}), NULL));
+		}
+		else {
+			CCLOG("VMC DATA SIZE IS GREATER THAN 0 ");
+		}
+
+
         auto bag = vbag[0];
         _word = bag.answerString;
         _answerGraphemes = bag.answers;
