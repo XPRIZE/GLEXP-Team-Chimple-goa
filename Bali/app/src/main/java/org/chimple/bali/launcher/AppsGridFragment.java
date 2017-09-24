@@ -18,17 +18,21 @@
 
 package org.chimple.bali.launcher;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.view.View;
 import android.widget.GridView;
+import android.widget.ImageView;
 
 import org.chimple.bali.R;
 import org.chimple.bali.activity.LessonActivity;
@@ -64,6 +68,39 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        Activity activity = getActivity();
+        if (activity instanceof LauncherScreen) {
+            LauncherScreen launcherScreen = (LauncherScreen) activity;
+            for (int i = 0; i < mGrid.getChildCount(); i++) {
+                View view = mGrid.getChildAt(i);
+                ImageView imageView = (ImageView) view.findViewById(R.id.icon);
+                if (imageView != null) {
+                    if (launcherScreen.getCoins() <= 0) {
+                        setLocked(imageView);
+                    } else {
+                        setUnlocked(imageView);
+                    }
+                }
+            }
+        }
+    }
+
+    private void setLocked(ImageView imageView) {
+        ColorMatrix matrix = new ColorMatrix();
+        matrix.setSaturation(0);  //0 means grayscale
+        ColorMatrixColorFilter cf = new ColorMatrixColorFilter(matrix);
+        imageView.setColorFilter(cf);
+        imageView.setImageAlpha(128);   // 128 = 0.5
+    }
+
+    private void setUnlocked(ImageView imageView) {
+        imageView.clearColorFilter();
+        imageView.setImageAlpha(255);
+    }
+
+    @Override
     public Loader<ArrayList<AppModel>> onCreateLoader(int id, Bundle bundle) {
         return new AppsLoader(getActivity());
     }
@@ -88,7 +125,14 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
     public void onGridItemClick(GridView g, View v, int position, long id) {
         AppModel app = (AppModel) getGridAdapter().getItem(position);
         if (app != null) {
-            if(app.getEnabled()) {
+            boolean enabled = true;
+            Activity activity = getActivity();
+            if (activity instanceof LauncherScreen) {
+                if (((LauncherScreen) activity).getCoins() <= 0) {
+                    enabled = false;
+                }
+            }
+            if (enabled) {
                 new AlertDialog.Builder(getContext())
                         .setTitle("Launch application")
                         .setMessage("One coin will be subtracted. Is it OK?")
