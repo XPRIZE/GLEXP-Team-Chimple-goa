@@ -78,8 +78,40 @@ bool MainMenuHome::init()
 //        CCLOG("item: %s, hash: %ld", item.c_str(), generatedHash);
 //    }
     
+    cocos2d::ui::Button* backButton = createBackButton();
+
+    backButton->setPosition(Vec2(origin.x + 150, origin.y + visibleSize.height - 150));
+    this->addChild(backButton);
+
     return true;
 }
+
+cocos2d::ui::Button* MainMenuHome::createBackButton() {
+    
+    std::string buttonNormalIcon = "menu/back.png";
+    std::string buttonPressedIcon = buttonNormalIcon;
+    cocos2d::ui::Button* button = ui::Button::create();
+    std::string buttonDisabledIcon = buttonNormalIcon;
+    if(buttonDisabledIcon.find(".png") != std::string::npos) {
+        buttonDisabledIcon = buttonDisabledIcon.insert(buttonDisabledIcon.find(".png"), "_disabled");
+    }
+    
+    button->loadTextureNormal(buttonNormalIcon);
+    button->loadTexturePressed(buttonPressedIcon);
+    button->loadTextureDisabled(buttonDisabledIcon);
+    button->addTouchEventListener(CC_CALLBACK_2(MainMenuHome::backButtonPressed, this));
+    
+    return button;
+}
+
+void MainMenuHome::backButtonPressed(Ref* pSender, ui::Widget::TouchEventType eEventType)
+{
+    Director::getInstance()->end();
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+    exit(0);
+#endif
+}
+
 
 //cocos2d::ui::Button* MainMenuHome::createButton() {
 //    std::string ICONS = ICON_FOLDER;

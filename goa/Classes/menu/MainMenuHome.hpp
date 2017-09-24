@@ -63,8 +63,8 @@ protected:
     cocos2d::ui::Button* createButton();
     void storyTransition(float dt);
     void storySelected(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
-    
-    
+    cocos2d::ui::Button* createBackButton();
+    void backButtonPressed(cocos2d::Ref* pSender, cocos2d::ui::Widget::TouchEventType eEventType);
 };
 
 #endif /* MainMenuHome_hpp */
