@@ -22,8 +22,10 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.view.View;
 
 import org.chimple.bali.R;
+import org.chimple.bali.activity.LessonActivity;
 import org.chimple.bali.application.BaliApplication;
 import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.service.TollBroadcastReceiver;
@@ -71,6 +73,20 @@ public class LauncherScreen extends FragmentActivity {
         }
     }
 
+    public void startBali(View view) {
+        Intent intent = new Intent(this, LessonActivity.class);
+        if (intent != null) {
+            startActivity(intent);
+        }
+    }
+
+    public void startChimple(View view) {
+        Intent intent = getPackageManager().getLaunchIntentForPackage("org.chimple.goa");
+        if (intent != null) {
+            startActivity(intent);
+        }
+    }
+
     @Override
     public void onPause() {
         super.onPause();
@@ -78,6 +94,11 @@ public class LauncherScreen extends FragmentActivity {
         Intent intent = new Intent(this, TollBroadcastReceiver.class);
         intent.putExtra("onPause", "org.chimple.bali");
         sendBroadcast(intent);
+
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 

@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.support.v4.content.AsyncTaskLoader;
+import android.util.Log;
 
 import org.chimple.bali.db.entity.User;
 import org.chimple.bali.repo.UserRepo;
@@ -39,6 +40,22 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
     ArrayList<AppModel> mInstalledApps;
 
     final PackageManager mPm;
+
+    public static final String[] mPackages = {
+            "com.google.android.GoogleCamera",
+            "com.simplemobiletools.musicplayer",
+            "com.google.android.apps.photos",
+            "com.google.android.calculator",
+            "com.google.android.deskclock",
+            "org.bobstuff.bobball",
+            "com.alaskalinuxuser.criticalvelocity",
+            "com.simplemobiletools.draw",
+            "com.quchen.flappycow",
+            "com.snatik.matches",
+            "com.gunshippenguin.openflood",
+            "com.goodguygames.bubblegame.full",
+            "com.google.android.apps.wallpaper"
+    };
 //    PackageIntentReceiver mPackageObserver;
 
     public AppsLoader(Context context) {
@@ -50,48 +67,22 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
     @Override
     public ArrayList<AppModel> loadInBackground() {
         // retrieve the list of installed applications
-        List<ApplicationInfo> apps = mPm.getInstalledApplications(0);
         User user = UserRepo.getCurrentUser(getContext());
         boolean enableApps = (user.coins > 0);
-        if (apps == null) {
-            apps = new ArrayList<ApplicationInfo>();
-        }
-
         final Context context = getContext();
 
         // create corresponding apps and load their labels
-        ArrayList<AppModel> items = new ArrayList<AppModel>(apps.size());
-        AppModel bali = null;
-        AppModel goa = null;
-        for (int i = 0; i < apps.size(); i++) {
-            String pkg = apps.get(i).packageName;
-            // only apps which are launchable
-            if (context.getPackageManager().getLaunchIntentForPackage(pkg) != null) {
-                if(pkg.equals("org.chimple.bali")) {
-                    AppModel app = new AppModel(context, apps.get(i), true);
-                    app.loadLabel(context);
-                    bali = app;
-                } else if(pkg.equals("org.chimple.goa")) {
-                    AppModel app = new AppModel(context, apps.get(i), true);
-                    app.loadLabel(context);
-                    goa = app;
-                } else {
-                    AppModel app = new AppModel(context, apps.get(i), enableApps);
-                    app.loadLabel(context);
-                    items.add(app);
-                }
+        ArrayList<AppModel> items = new ArrayList<AppModel>(mPackages.length);
+        for (int i = 0; i < mPackages.length; i++) {
+            try {
+                ApplicationInfo applicationInfo = mPm.getApplicationInfo(mPackages[i], 0);
+                AppModel app = new AppModel(context, applicationInfo, enableApps);
+                app.loadLabel(context);
+                items.add(app);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
             }
         }
-        // sort the list
-        Collections.sort(items, ALPHA_COMPARATOR);
-
-        if(bali != null) {
-            items.add(0, bali);
-        }
-        if(goa != null) {
-            items.add(1, goa);
-        }
-
         return items;
     }
 

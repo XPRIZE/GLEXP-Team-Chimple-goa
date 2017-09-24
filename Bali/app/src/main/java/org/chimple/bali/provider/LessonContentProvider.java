@@ -292,20 +292,17 @@ public class LessonContentProvider extends ContentProvider {
                 int gameEvent = contentValues.getAsInteger(GAME_EVENT);
                 int coins = contentValues.getAsInteger(COINS);
                 int updatedCoins = 0;
-                if (coins > 0) {
                     updatedCoins = UserRepo.updateCoins(getContext(), coins);
                     Log.d("LessonContentProvider", "adding coins: "
                             + String.valueOf(coins)
                             + " for total of: "
                             + String.valueOf(updatedCoins));
-                    //TODO: Display notification on coins
 
                     String coinMessage = "Added Coins:" + String.valueOf(coins) + " for total of: "
                             + String.valueOf(updatedCoins);
 
                     BaliApplication application = (BaliApplication) getContext().getApplicationContext();
                     application.updateCoinNotifications("Coins:", coinMessage, updatedCoins);
-                }
                 UserLogRepo.logEntity(getContext(), UserLog.GAME_TYPE, (long) gameLevel, gameEvent, gameName);
                 return updatedCoins;
             default:
