@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.Display;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterViewAnimator;
 import android.widget.ProgressBar;
 
@@ -40,6 +42,7 @@ public class LessonActivity extends LifecycleActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_lesson);
         mFlashCardView = (AdapterViewAnimator) findViewById(R.id.flash_card_view);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -157,5 +160,19 @@ public class LessonActivity extends LifecycleActivity {
     protected void onStop() {
         super.onStop();
         UserLogRepo.logEntity(this, UserLog.LESSON_TYPE, mLessonId, UserLog.STOP_EVENT, null);
+    }
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
     }
 }

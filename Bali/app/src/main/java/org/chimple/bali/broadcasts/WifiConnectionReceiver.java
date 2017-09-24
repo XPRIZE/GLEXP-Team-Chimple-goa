@@ -39,51 +39,26 @@ public class WifiConnectionReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         try {
+            WifiConfiguration conf = new WifiConfiguration();
+            conf.SSID = "\"" + networkSSID + "\"";
 
-            WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
 
-            ConnectivityManager connectivityManager = (ConnectivityManager) context
-                    .getSystemService(Context.CONNECTIVITY_SERVICE);
-            NetworkInfo networkInfo = connectivityManager
-                    .getActiveNetworkInfo();
+            conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+            WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+            wifiManager.addNetwork(conf);
 
-            // Check internet connection and accrding to state change the
-            // text of activity by calling method
-            String getNetworkSSID = wifiManager.getConnectionInfo().getSSID().toString();
+            List<WifiConfiguration> list = wifiManager.getConfiguredNetworks();
+            for( WifiConfiguration i : list ) {
+                if(i.SSID != null && i.SSID.equals("\"" + networkSSID + "\"")) {
+//                    wifiManager.disconnect();
+                    wifiManager.enableNetwork(i.networkId, true);
+//                    wifiManager.reconnect();
 
-            if (networkInfo.isConnectedOrConnecting()) {
-                // Its is calling to stop reconnect or disconnect network
-            } else if (networkInfo != null && networkInfo.isConnected() && getNetworkSSID.equals(networkSSID)) {
-                Log.d("Network Status : ", "" + networkSSID + " connect successful");
-            } else if (wifiManager.isWifiEnabled()) {
-                connectToXPRIZE(context);
-                Log.d("Connect " + networkSSID + " network", "status true1-------------" + networkSSID);
+                    break;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }
-    }
-
-    private void connectToXPRIZE(Context context) {
-
-
-        WifiConfiguration conf = new WifiConfiguration();
-        conf.SSID = "\"" + networkSSID + "\"";
-
-
-        conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
-        WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-        wifiManager.addNetwork(conf);
-
-        List<WifiConfiguration> list = wifiManager.getConfiguredNetworks();
-        for (WifiConfiguration i : list) {
-            if (i.SSID != null && i.SSID.equals("\"" + networkSSID + "\"")) {
-                wifiManager.disconnect();
-                wifiManager.enableNetwork(i.networkId, true);
-                wifiManager.reconnect();
-
-                break;
-            }
         }
     }
 }

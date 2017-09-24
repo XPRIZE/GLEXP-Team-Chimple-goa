@@ -22,10 +22,13 @@ import android.arch.lifecycle.LiveData;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.chimple.bali.R;
@@ -74,6 +77,8 @@ public class LauncherScreen extends LifecycleActivity {
                 coinTextView.setText(Integer.toString(user.coins));
             }
         });
+
+
     }
 
     @Override
@@ -95,6 +100,11 @@ public class LauncherScreen extends LifecycleActivity {
                     .setPositiveButton(android.R.string.yes, null);
             AlertDialog alertDialog = Builder.create();
             alertDialog.show();
+        }
+        ImageView imageView = (ImageView) findViewById(R.id.imageView2);
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof Animatable) {
+            ((Animatable) drawable).start();
         }
     }
 
