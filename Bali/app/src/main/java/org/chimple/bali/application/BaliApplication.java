@@ -18,6 +18,7 @@ import org.acra.config.ConfigurationBuilder;
 import org.acra.sender.ReportSenderFactory;
 import org.chimple.bali.R;
 import org.chimple.bali.crash.FtpCrashSenderFactory;
+import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.ftp.FtpManager;
 import org.chimple.bali.launcher.LauncherScreen;
 import org.chimple.bali.repo.UserRepo;
@@ -82,6 +83,8 @@ public class BaliApplication extends Application {
             {
                 // Initialize all of the important frameworks and objects
                 BaliContext.getInstance().initialize(BaliApplication.this);
+                //TODO: for now force the creation here
+                AppDatabase.getInstance(BaliApplication.this);
 
                 initializationComplete();
             }
@@ -95,8 +98,6 @@ public class BaliApplication extends Application {
         Log.d(TAG, "Initialization complete...");
         ftpManager = BaliContext.getInstance().getFtpManager();
         threadManager = BaliContext.getInstance().getThreadManager();
-        BaliApplication.INITIAL_COIN = UserRepo.getCurrentUser(this.getApplicationContext()).coins;
-
     }
 
     @Override

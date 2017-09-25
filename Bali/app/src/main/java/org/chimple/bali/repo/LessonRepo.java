@@ -113,13 +113,13 @@ public class LessonRepo {
                     userLesson.lastSeenAt = new Date();
                     db.userLessonDao().updateUserLesson(userLesson);
                 }
-                //if(percent >= 80 && userLesson.seenCount >= 3) {
+                if(percent >= 65 && userLesson.seenCount >= 3) {
                     Lesson newLesson = db.lessonDao().getLessonBySeq(lesson.seq + 1);
                     if (newLesson != null) {
                         user.currentLessonId = newLesson.id;
                         db.userDao().updateUser(user);
                     }
-                //}
+                }
                 int coinsToGive = 0;
                 if(percent >= 80)
                     coinsToGive = 4;
@@ -237,7 +237,7 @@ public class LessonRepo {
                     choices[c].name = choices[c].name.substring(0, 1).toUpperCase() + choices[c].name.substring(1);
                 }
             }
-            MultipleChoiceQuiz mcq = new MultipleChoiceQuiz("TODO: Dummy Help",
+            MultipleChoiceQuiz mcq = new MultipleChoiceQuiz("Neno",
                     answer, choices, answerIndex);
             mcqs.add(mcq);
         }
@@ -300,7 +300,7 @@ public class LessonRepo {
                     choices[c] = choiceList.get(Math.min(c, choiceList.size() - 1));
                 }
 
-                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz("TODO: Dummy Help"
+                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz("Neno"
                         , answer
                         , answers
                         , choices);
@@ -338,7 +338,7 @@ public class LessonRepo {
                     choices[c] = choiceList.get(Math.min(c, choiceList.size() - 1));
                 }
 
-                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz("TODO: Dummy Help"
+                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz("Neno"
                         , luc.objectUnit.name
                         , answers
                         , choices);
@@ -375,7 +375,7 @@ public class LessonRepo {
                     choices.add(lucs[randIndex].subjectUnit.name);
                 }
 
-                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz("TODO: Dummy Help"
+                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz("Neno"
                         , luc.subjectUnit.name
                         , answers.toArray(new String[0])
                         , choices.toArray(new String[0]));

@@ -57,8 +57,6 @@ public class LauncherScreen extends LifecycleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
 
-        //TODO: for now force the creation here
-        AppDatabase.getInstance(this);
         IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
         filter.addAction(Intent.ACTION_SCREEN_OFF);
         BroadcastReceiver mReceiver = new TollBroadcastReceiver();
@@ -141,6 +139,15 @@ public class LauncherScreen extends LifecycleActivity {
             ((Animatable2) drawable).start();
         }
 
+    }
+
+    public void ticklePiggy(View view) {
+        ImageView imageView = (ImageView) findViewById(R.id.imageView4);
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof Animatable2) {
+            Animatable2 animatable2 = (Animatable2) drawable;
+            ((Animatable2) drawable).start();
+        }
     }
 
     @Override
