@@ -1312,6 +1312,7 @@
 				080E96DDFE201D6D7F000001 /* ios */,
 				503AE10617EB990700D1A890 /* mac */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				37B923AB1F77E3A60008F74F /* Recovered References */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -1341,6 +1342,14 @@
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		37B923AB1F77E3A60008F74F /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				F30968341F5815BB00311399 /* Speaker.cpp */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		46880B7519C43A67006E1F66 /* Resources */ = {

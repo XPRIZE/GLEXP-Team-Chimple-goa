@@ -17,18 +17,39 @@
 package org.chimple.bali.launcher;
 
 import android.app.AlertDialog;
+import android.arch.lifecycle.LifecycleActivity;
+import android.arch.lifecycle.LiveData;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import org.chimple.bali.R;
+import org.chimple.bali.activity.LessonActivity;
 import org.chimple.bali.application.BaliApplication;
 import org.chimple.bali.db.AppDatabase;
+import org.chimple.bali.db.entity.User;
+import org.chimple.bali.repo.UserRepo;
 import org.chimple.bali.service.TollBroadcastReceiver;
+import org.w3c.dom.Text;
 
-public class LauncherScreen extends FragmentActivity {
+public class LauncherScreen extends LifecycleActivity {
+    public int getCoins() {
+        return mCoins;
+    }
+
+    public void setCoins(int mCoins) {
+        this.mCoins = mCoins;
+    }
+
+    int mCoins;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +68,17 @@ public class LauncherScreen extends FragmentActivity {
                 + String.valueOf(BaliApplication.INITIAL_COIN);
 
         application.updateCoinNotifications("Coins:", coinMessage, 5);
+
+        LiveData<User> userLiveData = UserRepo.getCurrentLiveUser(this);
+        userLiveData.observe(this, user -> {
+            if(user != null) {
+                TextView coinTextView = (TextView) findViewById(R.id.coins);
+                setCoins(user.coins);
+                coinTextView.setText(Integer.toString(user.coins));
+            }
+        });
+
+
     }
 
     @Override
@@ -69,6 +101,25 @@ public class LauncherScreen extends FragmentActivity {
             AlertDialog alertDialog = Builder.create();
             alertDialog.show();
         }
+        ImageView imageView = (ImageView) findViewById(R.id.imageView2);
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof Animatable) {
+            ((Animatable) drawable).start();
+        }
+    }
+
+    public void startBali(View view) {
+        Intent intent = new Intent(this, LessonActivity.class);
+        if (intent != null) {
+            startActivity(intent);
+        }
+    }
+
+    public void startChimple(View view) {
+        Intent intent = getPackageManager().getLaunchIntentForPackage("org.chimple.goa");
+        if (intent != null) {
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -78,6 +129,11 @@ public class LauncherScreen extends FragmentActivity {
         Intent intent = new Intent(this, TollBroadcastReceiver.class);
         intent.putExtra("onPause", "org.chimple.bali");
         sendBroadcast(intent);
+
+    }
+
+    @Override
+    public void onBackPressed() {
 
     }
 

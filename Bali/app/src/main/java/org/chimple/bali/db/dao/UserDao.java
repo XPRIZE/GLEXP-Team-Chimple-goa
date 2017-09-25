@@ -16,6 +16,7 @@
 
 package org.chimple.bali.db.dao;
 
+import android.arch.lifecycle.LiveData;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -28,6 +29,9 @@ import org.chimple.bali.db.entity.User;
 public interface UserDao {
     @Query("SELECT * FROM User WHERE id = :id")
     public User getUserById(Long id);
+
+    @Query("SELECT * FROM User WHERE id = :id")
+    public LiveData<User> getLiveUserById(Long id);
 
     @Query("SELECT COUNT(*) FROM User")
     public int count();

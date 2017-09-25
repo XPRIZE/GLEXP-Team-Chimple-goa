@@ -20,6 +20,7 @@ import org.chimple.bali.R;
 import org.chimple.bali.crash.FtpCrashSenderFactory;
 import org.chimple.bali.ftp.FtpManager;
 import org.chimple.bali.launcher.LauncherScreen;
+import org.chimple.bali.repo.UserRepo;
 import org.chimple.bali.service.ThreadManager;
 
 
@@ -41,7 +42,7 @@ import org.chimple.bali.service.ThreadManager;
 public class BaliApplication extends Application {
     private static final String TAG = BaliApplication.class.getName();
     private static final int COIN_NOTIFICATION = 1;
-    public static final int INITIAL_COIN = 5;
+    public static int INITIAL_COIN = 0;
 
     private static final int COIN_NOTIFICATION_FIVE_RANGE = 5;
     private static final int COIN_NOTIFICATION_TWENTY_RANGE = 20;
@@ -94,6 +95,8 @@ public class BaliApplication extends Application {
         Log.d(TAG, "Initialization complete...");
         ftpManager = BaliContext.getInstance().getFtpManager();
         threadManager = BaliContext.getInstance().getThreadManager();
+        BaliApplication.INITIAL_COIN = UserRepo.getCurrentUser(this.getApplicationContext()).coins;
+
     }
 
     @Override

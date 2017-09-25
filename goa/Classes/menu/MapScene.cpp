@@ -199,12 +199,12 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
                             button->setEnabled(true);
                         } else {
                             button->setEnabled(true);
-//                            int cLevel = std::atoi(buttonLevel.c_str());
-//                            if(cLevel <= unlockLevel) {
-//                                button->setEnabled(true);
-//                            } else {
-//                                button->setEnabled(false);
-//                            }
+                            int cLevel = std::atoi(buttonLevel.c_str());
+                            if(cLevel <= unlockLevel) {
+                                button->setEnabled(true);
+                            } else {
+                                button->setEnabled(false);
+                            }
                         }
                     } else {
                         button->setEnabled(false);
