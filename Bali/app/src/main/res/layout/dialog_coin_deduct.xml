@@ -8,12 +8,12 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/primaryDarkColor"
         android:gravity="center"
         android:padding="8dp"
-        android:text="1 Coin will be deducted"
+        android:text="@string/_1_coin_will_be_deducted"
         android:textAppearance="@android:style/TextAppearance.Material.DialogWindowTitle"
         android:textColor="@color/primaryTextColor"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -33,5 +33,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/avd_anim" />
+        app:srcCompat="@drawable/avd_anim"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 </android.support.constraint.ConstraintLayout>

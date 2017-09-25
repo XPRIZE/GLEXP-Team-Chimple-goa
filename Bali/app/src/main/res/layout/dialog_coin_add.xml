@@ -13,7 +13,7 @@
         android:background="@color/primaryDarkColor"
         android:gravity="center"
         android:padding="8dp"
-        android:text="You have earned coins"
+        android:text="@string/you_have_earned_coins"
         android:textAppearance="@android:style/TextAppearance.Material.DialogWindowTitle"
         android:textColor="@color/primaryTextColor"
         app:layout_constraintLeft_toLeftOf="parent"

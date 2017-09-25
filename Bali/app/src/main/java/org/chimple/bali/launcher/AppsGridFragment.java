@@ -59,7 +59,7 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        setEmptyText("No Applications");
+        setEmptyText(getString(R.string.no_applications));
 
         mAdapter = new AppListAdapter(getActivity());
         setGridAdapter(mAdapter);
