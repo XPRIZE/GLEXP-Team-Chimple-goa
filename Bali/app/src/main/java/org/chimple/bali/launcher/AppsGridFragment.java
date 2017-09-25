@@ -26,11 +26,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 import android.widget.ImageView;
 
@@ -55,7 +59,7 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        setEmptyText("No Applications");
+        setEmptyText(getString(R.string.no_applications));
 
         mAdapter = new AppListAdapter(getActivity());
         setGridAdapter(mAdapter);
@@ -133,9 +137,9 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
                 }
             }
             if (enabled) {
-                new AlertDialog.Builder(getContext())
-                        .setTitle("Launch application")
-                        .setMessage("One coin will be subtracted. Is it OK?")
+                LayoutInflater inflater = getActivity().getLayoutInflater();
+                AlertDialog alertDialog = new AlertDialog.Builder(getContext())
+                        .setView(inflater.inflate(R.layout.dialog_coin_deduct, null))
                         .setNegativeButton(android.R.string.no, null)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface arg0, int arg1) {
@@ -164,7 +168,18 @@ public class AppsGridFragment extends GridFragment implements LoaderManager.Load
                                     startActivity(intent);
                                 }
                             }
-                        }).create().show();
+                        }).create();
+                alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                    @Override
+                    public void onShow(DialogInterface dialogInterface) {
+                        ImageView imageView = (ImageView) alertDialog.findViewById(R.id.piggy);
+                        final Drawable drawable = imageView.getDrawable();
+                        if (drawable instanceof Animatable) {
+                            ((Animatable) drawable).start();
+                        }
+                    }
+                });
+                alertDialog.show();
             }
         }
     }

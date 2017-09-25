@@ -94,8 +94,8 @@ public class LauncherScreen extends LifecycleActivity {
         String test = receivedIntent.getStringExtra("test");
         if (Intent.ACTION_SEND.equals(action)) {
             AlertDialog.Builder Builder = new AlertDialog.Builder(this)
-                    .setMessage("You do not have enough coins")
-                    .setTitle("Stop")
+                    .setMessage(R.string.not_enough_coins)
+                    .setTitle(R.string.stop)
                     .setIcon(android.R.drawable.ic_dialog_alert)
                     .setPositiveButton(android.R.string.yes, null);
             AlertDialog alertDialog = Builder.create();

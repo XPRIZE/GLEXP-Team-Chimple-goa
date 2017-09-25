@@ -4,20 +4,29 @@ import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.arch.lifecycle.LifecycleActivity;
 import android.arch.lifecycle.ViewModelProviders;
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
+import android.media.AudioManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.view.Display;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterViewAnimator;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import org.chimple.bali.R;
 import org.chimple.bali.db.entity.UserLog;
+import org.chimple.bali.launcher.LauncherScreen;
 import org.chimple.bali.repo.LessonRepo;
 import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.service.TollBroadcastReceiver;
@@ -25,6 +34,11 @@ import org.chimple.bali.ui.FlashCardAdapter;
 import org.chimple.bali.viewmodel.CardStatusViewModel;
 import org.chimple.bali.viewmodel.FlashCardViewModel;
 
+import static org.chimple.bali.provider.LessonContentProvider.COINS;
+import static org.chimple.bali.provider.LessonContentProvider.GAME_EVENT;
+import static org.chimple.bali.provider.LessonContentProvider.GAME_LEVEL;
+import static org.chimple.bali.provider.LessonContentProvider.GAME_NAME;
+import static org.chimple.bali.provider.LessonContentProvider.URI_COIN;
 import static org.chimple.bali.viewmodel.CardStatusViewModel.INCORRECT_CHOICE;
 import static org.chimple.bali.viewmodel.CardStatusViewModel.READY_TO_GO;
 import static org.chimple.bali.viewmodel.CardStatusViewModel.CORRECT_CHOICE;
@@ -43,6 +57,7 @@ public class LessonActivity extends LifecycleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
         setContentView(R.layout.activity_lesson);
         mFlashCardView = (AdapterViewAnimator) findViewById(R.id.flash_card_view);
         mProgressBar = (ProgressBar) findViewById(R.id.progressBar);
@@ -82,8 +97,26 @@ public class LessonActivity extends LifecycleActivity {
                             }
                             LessonRepo.rewardCoins(LessonActivity.this, mLessonId, percent).observe(LessonActivity.this, coins -> {
                                 if(coins != null) {
-                                    Intent intentCoin = new Intent(LessonActivity.this, CoinRewardActivity.class);
-                                    startActivity(intentCoin);
+                                    LayoutInflater inflater = LessonActivity.this.getLayoutInflater();
+                                    AlertDialog alertDialog = new AlertDialog.Builder(LessonActivity.this)
+                                            .setView(inflater.inflate(R.layout.dialog_coin_add, null))
+                                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                                public void onClick(DialogInterface arg0, int arg1) {
+                                                    Intent intent = new Intent(LessonActivity.this, LauncherScreen.class);
+                                                    startActivity(intent);
+                                                }
+                                            }).create();
+                                    alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
+                                        @Override
+                                        public void onShow(DialogInterface dialogInterface) {
+                                            ImageView imageView = (ImageView) alertDialog.findViewById(R.id.piggy);
+                                            final Drawable drawable = imageView.getDrawable();
+                                            if (drawable instanceof Animatable) {
+                                                ((Animatable) drawable).start();
+                                            }
+                                        }
+                                    });
+                                    alertDialog.show();
                                 }
                             });
                         } else {
