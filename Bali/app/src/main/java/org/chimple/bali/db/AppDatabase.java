@@ -28,6 +28,7 @@ import android.support.annotation.VisibleForTesting;
 import android.util.Log;
 
 import org.chimple.bali.R;
+import org.chimple.bali.application.BaliApplication;
 import org.chimple.bali.db.converter.DateConverter;
 import org.chimple.bali.db.dao.LessonDao;
 import org.chimple.bali.db.dao.LessonUnitDao;
@@ -45,6 +46,7 @@ import org.chimple.bali.db.entity.User;
 import org.chimple.bali.db.entity.UserLesson;
 import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.db.entity.UserUnit;
+import org.chimple.bali.repo.UserRepo;
 import org.xml.sax.InputSource;
 
 import java.io.BufferedReader;
@@ -157,6 +159,7 @@ public abstract class AppDatabase extends RoomDatabase {
                             }
                         }
                         setTransactionSuccessful();
+                        BaliApplication.INITIAL_COIN = UserRepo.getCurrentUser(context).coins;
                     } catch (IOException e) {
                         e.printStackTrace();
                     } finally {

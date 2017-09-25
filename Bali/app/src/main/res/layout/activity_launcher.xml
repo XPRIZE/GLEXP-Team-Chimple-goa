@@ -53,12 +53,15 @@
                 android:id="@+id/imageView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/coin_in_00022"
+                android:onClick="ticklePiggy"
+                android:scaleX="0.50"
+                android:scaleY="0.50"
+                android:src="@drawable/piggy_icon"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/coin_in_00022" />
+                app:srcCompat="@drawable/piggy_icon" />
 
             <TextView
                 android:id="@+id/coins"
@@ -68,6 +71,7 @@
                 android:layout_marginRight="8dp"
                 android:text="@string/coins"
                 android:textColor="@color/primaryTextColor"
+                android:textSize="36sp"
                 app:layout_constraintBottom_toBottomOf="@+id/imageView4"
                 app:layout_constraintLeft_toLeftOf="@+id/imageView4"
                 app:layout_constraintRight_toRightOf="@+id/imageView4"

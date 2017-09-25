@@ -105,7 +105,15 @@ public class LessonActivity extends LifecycleActivity {
                                                     Intent intent = new Intent(LessonActivity.this, LauncherScreen.class);
                                                     startActivity(intent);
                                                 }
-                                            }).create();
+                                            })
+                                            .setOnDismissListener(new DialogInterface.OnDismissListener() {
+                                                @Override
+                                                public void onDismiss(DialogInterface dialogInterface) {
+                                                    Intent intent = new Intent(LessonActivity.this, LauncherScreen.class);
+                                                    startActivity(intent);
+                                                }
+                                            })
+                                            .create();
                                     alertDialog.setOnShowListener(new DialogInterface.OnShowListener() {
                                         @Override
                                         public void onShow(DialogInterface dialogInterface) {
