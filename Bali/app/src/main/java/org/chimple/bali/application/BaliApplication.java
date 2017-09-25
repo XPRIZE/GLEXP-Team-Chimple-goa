@@ -56,7 +56,7 @@ public class BaliApplication extends Application {
     private FtpManager ftpManager;
     private ThreadManager threadManager;
 
-    public static final String ftpHost = "192.168.0.104";
+    public static final String ftpHost = "192.168.0.1";
     public static final int ftpPort = 21;
     public static final String ftpUser = "anonymous";
     public static final String ftpPassword = "nobody@chimple.in";
