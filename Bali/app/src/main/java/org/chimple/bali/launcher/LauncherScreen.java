@@ -23,6 +23,7 @@ import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -101,25 +102,45 @@ public class LauncherScreen extends LifecycleActivity {
             AlertDialog alertDialog = Builder.create();
             alertDialog.show();
         }
-        ImageView imageView = (ImageView) findViewById(R.id.imageView2);
-        Drawable drawable = imageView.getDrawable();
-        if (drawable instanceof Animatable) {
-            ((Animatable) drawable).start();
-        }
     }
 
     public void startBali(View view) {
-        Intent intent = new Intent(this, LessonActivity.class);
-        if (intent != null) {
-            startActivity(intent);
+        ImageView imageView = (ImageView) findViewById(R.id.imageView2);
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof Animatable2) {
+            Animatable2 animatable2 = (Animatable2) drawable;
+            animatable2.registerAnimationCallback(new Animatable2.AnimationCallback() {
+                @Override
+                public void onAnimationEnd(Drawable drawable) {
+                    super.onAnimationEnd(drawable);
+                    Intent intent = new Intent(LauncherScreen.this, LessonActivity.class);
+                    if (intent != null) {
+                        startActivity(intent);
+                    }
+                }
+            });
+            ((Animatable2) drawable).start();
         }
     }
 
     public void startChimple(View view) {
-        Intent intent = getPackageManager().getLaunchIntentForPackage("org.chimple.goa");
-        if (intent != null) {
-            startActivity(intent);
+        ImageView imageView = (ImageView) findViewById(R.id.imageView3);
+        Drawable drawable = imageView.getDrawable();
+        if (drawable instanceof Animatable2) {
+            Animatable2 animatable2 = (Animatable2) drawable;
+            animatable2.registerAnimationCallback(new Animatable2.AnimationCallback() {
+                @Override
+                public void onAnimationEnd(Drawable drawable) {
+                    super.onAnimationEnd(drawable);
+                    Intent intent = getPackageManager().getLaunchIntentForPackage("org.chimple.goa");
+                    if (intent != null) {
+                        startActivity(intent);
+                    }
+                }
+            });
+            ((Animatable2) drawable).start();
         }
+
     }
 
     @Override
