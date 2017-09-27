@@ -102,7 +102,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     AssetManager assetManager = context.getAssets();
                     InputStream inputStream = null;
                     try {
-                        inputStream = assetManager.open("swa/database.csv");
+                        inputStream = assetManager.open("eng/database.csv");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
