@@ -35,7 +35,8 @@
                     android:layout_height="0dp"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_unselected" />
+                    android:background="@drawable/button_unselected"
+                    android:scaleType="fitCenter" />
 
                 <ImageButton
                     android:id="@+id/button1"
@@ -43,7 +44,8 @@
                     android:layout_height="0dp"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_unselected" />
+                    android:background="@drawable/button_unselected"
+                    android:scaleType="fitCenter" />
             </LinearLayout>
 
             <LinearLayout
@@ -58,7 +60,8 @@
                     android:layout_height="0dp"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_unselected" />
+                    android:background="@drawable/button_unselected"
+                    android:scaleType="fitCenter" />
 
                 <ImageButton
                     android:id="@+id/button3"
@@ -66,7 +69,8 @@
                     android:layout_height="0dp"
                     android:layout_margin="8dp"
                     android:layout_weight="1"
-                    android:background="@drawable/button_unselected" />
+                    android:background="@drawable/button_unselected"
+                    android:scaleType="fitCenter" />
 
             </LinearLayout>
 

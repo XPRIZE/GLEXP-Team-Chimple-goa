@@ -25,6 +25,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.content.ContextWrapper;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.transition.ChangeBounds;
 import android.transition.Scene;
@@ -72,6 +73,7 @@ public class FlashCardView extends LinearLayout {
                     addView(imageView);
                 }
                 bView = getView(view.getContext(), mFlashCard.objectUnit);
+                bView.setBackground(new ColorDrawable(getResources().getColor(R.color.secondaryColor)));
                 LinearLayout.LayoutParams llLayoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 0);
                 llLayoutParams.weight = 1;
                 bView.setLayoutParams(llLayoutParams);
@@ -115,6 +117,7 @@ public class FlashCardView extends LinearLayout {
         LinearLayout.LayoutParams llLayoutParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, 0);
         llLayoutParams.weight = 1;
         aView.setLayoutParams(llLayoutParams);
+        aView.setBackground(new ColorDrawable(getResources().getColor(R.color.primaryColor)));
 
 //        Scene scene = Scene.getSceneForLayout(this, R.layout.word, context);
 //        Scene scene = new Scene(this, aView);

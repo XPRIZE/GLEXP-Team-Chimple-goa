@@ -84,19 +84,8 @@ public class AppListAdapter extends ArrayAdapter<AppModel> {
         AppModel item = getItem(position);
         ImageView imageView = (ImageView)view.findViewById(R.id.icon);
         imageView.setImageDrawable(item.getIcon());
-        if(!item.getEnabled()) {
-            setLocked(imageView);
-        }
         ((TextView)view.findViewById(R.id.text)).setText(item.getLabel());
 
         return view;
-    }
-
-    private void setLocked(ImageView imageView) {
-        ColorMatrix matrix = new ColorMatrix();
-        matrix.setSaturation(0);  //0 means grayscale
-        ColorMatrixColorFilter cf = new ColorMatrixColorFilter(matrix);
-        imageView.setColorFilter(cf);
-        imageView.setImageAlpha(128);   // 128 = 0.5
     }
 }

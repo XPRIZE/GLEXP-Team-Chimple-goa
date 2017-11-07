@@ -144,7 +144,7 @@ public class GridFragment extends Fragment {
         lv.setDrawSelectorOnTop(false);
         lv.setColumnWidth(convertDpToPixels(60, getActivity()));
         lv.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
-        lv.setNumColumns(GridView.AUTO_FIT);
+        lv.setNumColumns(5);
         lv.setHorizontalSpacing(convertDpToPixels(20, getActivity()));
         lv.setVerticalSpacing(convertDpToPixels(20, getActivity()));
         lv.setSmoothScrollbarEnabled(true);

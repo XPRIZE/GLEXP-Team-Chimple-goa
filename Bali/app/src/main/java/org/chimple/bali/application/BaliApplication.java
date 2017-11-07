@@ -18,8 +18,10 @@ import org.acra.config.ConfigurationBuilder;
 import org.acra.sender.ReportSenderFactory;
 import org.chimple.bali.R;
 import org.chimple.bali.crash.FtpCrashSenderFactory;
+import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.ftp.FtpManager;
 import org.chimple.bali.launcher.LauncherScreen;
+import org.chimple.bali.repo.UserRepo;
 import org.chimple.bali.service.ThreadManager;
 
 
@@ -41,7 +43,7 @@ import org.chimple.bali.service.ThreadManager;
 public class BaliApplication extends Application {
     private static final String TAG = BaliApplication.class.getName();
     private static final int COIN_NOTIFICATION = 1;
-    public static final int INITIAL_COIN = 5;
+    public static int INITIAL_COIN = 0;
 
     private static final int COIN_NOTIFICATION_FIVE_RANGE = 5;
     private static final int COIN_NOTIFICATION_TWENTY_RANGE = 20;
@@ -55,7 +57,7 @@ public class BaliApplication extends Application {
     private FtpManager ftpManager;
     private ThreadManager threadManager;
 
-    public static final String ftpHost = "192.168.0.104";
+    public static final String ftpHost = "192.168.0.1";
     public static final int ftpPort = 21;
     public static final String ftpUser = "anonymous";
     public static final String ftpPassword = "nobody@chimple.in";
@@ -81,6 +83,8 @@ public class BaliApplication extends Application {
             {
                 // Initialize all of the important frameworks and objects
                 BaliContext.getInstance().initialize(BaliApplication.this);
+                //TODO: for now force the creation here
+                AppDatabase.getInstance(BaliApplication.this);
 
                 initializationComplete();
             }

@@ -104,7 +104,7 @@ public class MultipleChoiceQuizView extends FrameLayout {
                 || mQuizType == TEXT_TO_TEXT_QUIZ) {
             TextView textView = new TextView(getContext());
             textView.setText(mcq.question);
-
+            textView.setTextAppearance(getContext(), R.style.fontForMCQ);
             LayoutParams lay = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             lay.gravity = Gravity.CENTER;
             textView.setLayoutParams(lay);
@@ -115,6 +115,7 @@ public class MultipleChoiceQuizView extends FrameLayout {
             LayoutParams lay = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
             lay.gravity = Gravity.CENTER;
             imageView.setLayoutParams(lay);
+            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
             mQuestionView.addView(imageView);
         } else if(mQuizType == SOUND_TO_TEXT_QUIZ) {
             ImageView imageView = new ImageView(getContext());
