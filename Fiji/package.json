@@ -12,15 +12,16 @@
     "react-native": "0.50.1"
   },
   "devDependencies": {
-    "babel-jest": "21.2.0",
-    "babel-preset-react-native": "4.0.0",
-    "jest": "21.2.1",
-    "react-test-renderer": "16.0.0",
-    "@storybook/react-native": "^3.2.14",
     "@storybook/addon-actions": "^3.2.14",
     "@storybook/addon-links": "^3.2.14",
+    "@storybook/react-native": "^3.2.14",
+    "babel-jest": "21.2.0",
+    "babel-preset-react-native": "4.0.0",
+    "flow-bin": "^0.58.0",
+    "jest": "21.2.1",
+    "prop-types": "^15.6.0",
     "react-dom": "16.0.0",
-    "prop-types": "^15.6.0"
+    "react-test-renderer": "16.0.0"
   },
   "jest": {
     "preset": "react-native"
