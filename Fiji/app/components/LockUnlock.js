@@ -6,11 +6,8 @@ class LockUnlock extends Component {
     render() {
          return (
                     <View style={styles.container}>
-                        <TouchableOpacity>
-                                <ImageBackground source={require('../assets/yellow.png')} style={styles.image}>
+                        <TouchableOpacity >
                                     <Text style={styles.text}> {this.props.levelNo} </Text>
-                                    <Image source={require('../assets/starImg.png')} style={[styles.starImg, { }]} />
-                                </ImageBackground>
                         </TouchableOpacity>
                     </View>
                );
@@ -24,7 +21,7 @@ LockUnlock.defaultProps = {
  };
   
 LockUnlock.propTypes = {
-            levelNo: PropTypes.int,
+            levelNo: PropTypes.number,
             isLock: PropTypes.bool,
             imgPath: PropTypes.string
   };
@@ -70,3 +67,11 @@ const styles = StyleSheet.create({
 });
 
 export default LockUnlock;
+
+
+//original content
+
+/*{ <ImageBackground source={require('../assets/yellow.png')} style={styles.image}>
+<Text style={styles.text}> {this.props.levelNo} </Text>
+<Image source={require('../assets/starImg.png')} style={[styles.starImg, { }]} />
+</ImageBackground> } */
