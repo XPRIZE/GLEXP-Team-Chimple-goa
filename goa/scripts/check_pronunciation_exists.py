@@ -13,5 +13,5 @@ f = open(word_file, 'r')
 all_pos = []
 for line in f:
   line = line.rstrip('\n')
-  if(not os.path.exists(audio_dir + "/" + line + ".ogg")):
+  if(os.path.exists(audio_dir + "/" + line + ".ogg")):
     print(line)

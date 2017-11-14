@@ -89,9 +89,9 @@ bool MemoryHero::init() {
 void MemoryHero::onEnterTransitionDidFinish() {
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(MemoryHero::gameBegin, this));
 
-	auto complexity = _lesson.getComplexity();
+	auto complexity = (float)_menuContext->getCurrentLevel() / 50.0f;
 	_finalGridIds.resize(0);
-	if (_lesson.getComplexity() >= 0.0f && _lesson.getComplexity() <= 0.15f) {
+	if (complexity >= 0.0f && complexity <= 0.15f) {
 		_gridTwoByTwoIds.resize(_gridTwoByTwoIds_Size);
 		_gridTwoByTwoIds = { 7, 9, 13, 15 };
 		_pairCount = 2;
@@ -102,7 +102,7 @@ void MemoryHero::onEnterTransitionDidFinish() {
 		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
-	if (_lesson.getComplexity() >= 0.16f && _lesson.getComplexity() <= 0.30f) {
+	if (complexity >= 0.16f && complexity <= 0.30f) {
 		_gridTwoByThreeIds.resize(_gridTwoByThreeIds_Size);
 		_gridTwoByThreeIds = { 8, 7, 9, 14, 13, 15 };
 		_pairCount = 3;
@@ -113,7 +113,7 @@ void MemoryHero::onEnterTransitionDidFinish() {
 		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
-	if (_lesson.getComplexity() >= 0.31f && _lesson.getComplexity() <= 0.45f) {
+	if (complexity >= 0.31f && complexity <= 0.45f) {
 		_gridThreeByFourIds.resize(_gridThreeByFourIds_Size);
 		_gridThreeByFourIds = { 8, 7, 9, 11, 14, 13, 15, 17, 20, 21, 22, 23 };
 		_pairCount = 6;
@@ -124,7 +124,7 @@ void MemoryHero::onEnterTransitionDidFinish() {
 		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
-	if (_lesson.getComplexity() >= 0.46f && _lesson.getComplexity() <= 0.60f) {
+	if (complexity >= 0.46f && complexity <= 0.60f) {
 		_gridThreeBySixIds.resize(_gridThreeBySixIds_Size);
 		_gridThreeBySixIds = { 10, 8, 7, 9, 11, 12, 16, 14, 13, 15, 17, 18, 19, 20, 21, 22, 23, 24 };
 		_pairCount = 9;
@@ -135,7 +135,7 @@ void MemoryHero::onEnterTransitionDidFinish() {
 		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
-	if (_lesson.getComplexity() >= 0.61f && _lesson.getComplexity() <= 0.80f) {
+	if (complexity >= 0.61f && complexity <= 0.80f) {
 		_gridFourByFiveIds.resize(_gridFourByFiveIds_Size);
 		_gridFourByFiveIds = { 1, 2, 3, 4, 5, 10, 8, 7, 9, 11, 16, 14, 13, 15, 17, 22, 20, 19, 21, 23 };
 		_pairCount = 10;
@@ -146,7 +146,7 @@ void MemoryHero::onEnterTransitionDidFinish() {
 		_lesson.getMultiChoices(_pairCount, 0);
 	}
 
-	if (_lesson.getComplexity() >= 0.81f && _lesson.getComplexity() <= 1.0f) {
+	if (complexity >= 0.81f && complexity <= 1.0f) {
 		_gridFourBySixIds.resize(_gridFourBySixIds_Size);
 		_gridFourBySixIds = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,  13, 14, 15, 16,  17, 18, 19, 20, 21, 22, 23, 24 };
 		_pairCount = 12;
@@ -166,7 +166,7 @@ void MemoryHero::gameBegin(cocos2d::EventCustom *eventCustom) {
 	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
-
+	_vmc = vmc;
 	for (int i = 0; i < vmc.size(); i++) {
 		CCLOG("vmc : %d question -> %s , correctAnswer index : %d  , correctAnswer value : %s", i, vmc[i].question.c_str(), vmc[i].correctAnswer, vmc[i].answers[vmc[i].correctAnswer].c_str());
 		for (int j = 0; j < vmc[i].answers.size(); j++) {
@@ -182,13 +182,15 @@ void MemoryHero::gameBegin(cocos2d::EventCustom *eventCustom) {
 
 	CCSpriteFrameCache::sharedSpriteFrameCache()->addSpriteFramesWithFile("memoryhero/memoryhero.plist");
 
-	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-		_data_key.push_back(it->first);
+
+	for (int i = 0; i < vmc.size(); i++) {
+		_data_key.push_back(vmc[i].question);
 	}
 
-	for (std::map<std::string, std::string>::iterator it = _data.begin(); it != _data.end(); ++it) {
-		_data_value.push_back(it->second);
+	for (int i = 0; i < vmc.size(); i++) {
+		_data_value.push_back(vmc[i].answers[vmc[i].correctAnswer]);
 	}
+
 
 	generateRandomNumbers();
 
@@ -509,17 +511,16 @@ bool MemoryHero::onTouchBegan(Touch* touch, Event* event) {
 
 							addGrid(visibleSize.width / 2, visibleSize.height, visibleSize.width / 2, visibleSize.height / 2);
 							auto heightpercent = 0.90;
-							for (auto& x : _data) {
+							for (int i = 0; i < _data_key.size(); i++) {
 								cocos2d::ui::Text * _label;
-
 
 								_label = CommonText::create();
 								_label->setFontName("fonts/BalooBhai-Regular.ttf");
 
-								auto first = x.first;
-								auto second = x.second;
+								auto first = _data_key[i];
+								auto second = _data_value[i];
 								if (first.length() != 0 && second.length() != 0) {
-									_label->setString(x.first + " ------- " + x.second);
+									_label->setString(first + " ------- " + second);
 									_label->setFontSize(60);
 
 									_label->setPosition(Vec2(visibleSize.width / 2, visibleSize.height * heightpercent));
@@ -722,14 +723,37 @@ bool MemoryHero::checkMatch() {
 	std::string str1 = _currentSelectedNestNames[0];
 	std::string str2 = _currentSelectedNestNames[1];
 
-	if (_data[str1] == str2 || _data[str2] == str1) {
-		
-		_level++;
-		return true;
+	int strStatus = 1;
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		if (str1 == _vmc[i].question) {
+			strStatus = 0;
+		}
+	}
+
+	if (strStatus == 0) {
+		return checkAnswer(str1,str2);
+	}
+	else { 
+		return checkAnswer(str2,str1);
+	}
+
+		return false;
+}
+
+
+bool MemoryHero::checkAnswer(string questionText, string answerText) {
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		if (_vmc[i].question.compare(questionText) == 0) {
+			if (_vmc[i].answers[_vmc[i].correctAnswer].compare(answerText) == 0) {
+				_level++;
+				return true;
+			}
+		}
 	}
 	return false;
 }
-
 
 
 void MemoryHero::chickenFly() {
@@ -792,10 +816,10 @@ void MemoryHero::removecurrentlabelsandlisteners() {
 
 void MemoryHero::generateRandomNumbers() {
 
-	int a = _data.size();
+	int a = _data_key.size();
 	//std::vector<int> randomIndex;
 	_randomIndex.clear();
-	while (_randomIndex.size() != _data.size()) {
+	while (_randomIndex.size() != _data_key.size()) {
 		bool duplicateCheck = true;
 		int numberPicker = RandomHelper::random_int(0, a - 1);
 		for (int i = 0; i < _randomIndex.size(); i++) {

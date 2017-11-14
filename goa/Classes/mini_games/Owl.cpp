@@ -7,7 +7,7 @@
 //
 
 #include "Owl.h"
-#include "../menu/HelpLayer.h"
+#include "../menu/HelpLayer.h"`
 #include "../util/CommonLabelTTF.h"
 #include "../util/MatrixUtil.h"
 #include "../util/Speaker.h"
@@ -131,48 +131,57 @@ void Owl::onEnterTransitionDidFinish()
 		}
 	};
 	
-	std::map<int, std::string> owlSceneMapping = {
-		{ 1,	"owlCity" },
-		{ 3,	"owlisland" },
-		{ 2,    "owljungle" }
-	};
+	
 
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
 
 	// Here we set the level of complexity and concept ....
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
-	string categoryTitle = "";
-
+	
 	// lesson word spelling ....
 	//_lesson.setConcept(Lesson::CONCEPT::WORD_SPELLING);
 
-	//The complexity level set According to the MenuContext-> currentLevel ...
-	auto complexityValue = _menuContext->getCurrentLevel();
-	if(complexityValue < 10)
-		_lesson.setComplexity(complexityValue);
-	else
-		_lesson.setComplexity(9);
+	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Owl::gameStart, this));
 
+	auto complexity = 3 + std::floor((((float)_menuContext->getCurrentLevel() / 50.0f) * 7.0f));
+	_lesson.getBag(5, 2, complexity, 24 , 24, true);
 
-	// Get the bag data wrt the level of complexity .... 
-	_vmcBag = _lesson.getBag(5, _lesson.getComplexity(), _lesson.getComplexity() + 1, 24 , 24, true);
+}
+
+void Owl::gameStart(cocos2d::EventCustom *eventCustom) {
+	auto visibleSize = Director::getInstance()->getVisibleSize();
+	auto origin = Director::getInstance()->getVisibleOrigin();
+
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallBagOfChoices");
+	vector<Lesson::Bag> vbag = Lesson::unmarshallBag(buf);
+
+	_vmcBag = vbag;
+
+	std::map<int, std::string> owlSceneMapping = {
+		{ 1,	"owlCity" },
+		{ 3,	"owlisland" },
+		{ 2,    "owljungle" }
+	};
+
 	_sentence = LangUtil::getInstance()->translateString(_vmcBag[0].help);
 	_sentenceShow = LangUtil::getInstance()->translateString("List of same words");
-	_owlCurrentTheme = owlSceneMapping.at(RandomHelper::random_int(1,3));
+	_owlCurrentTheme = owlSceneMapping.at(RandomHelper::random_int(1, 3));
 
 	// Here the bag question and answer set in vector<string> of _data_key and _data_value ....
 	for (size_t i = 0; i < _vmcBag.size(); i++) {
-		_data.insert(pair<string, string>(_vmcBag[i].answerString , getConvertVectorStringIntoString(_vmcBag[i].answers)));
+		_data.insert(pair<string, string>(_vmcBag[i].answerString, getConvertVectorStringIntoString(_vmcBag[i].answers)));
 		_data_key.push_back(_vmcBag[i].answerString);
 		_data_value.push_back(_vmcBag[i].answers);
 	}
-	
+
 	// Here the Scenes are decided by randomly ....
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	Node* bg = CSLoader::createNode(themeResourcePath.at("bg"));
 	addChild(bg);
-	bg->setName("bg");	
+	bg->setName("bg");
 	if (visibleSize.width > 2560) {
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
 		bg->setPositionX(myGameWidth);
@@ -186,15 +195,15 @@ void Owl::onEnterTransitionDidFinish()
 		}
 	}
 	_menuContext->setMaxPoints(totalPoints);
-	
-	
+
+
 	//Define Main character and to set the animation ...
 	auto timelinecharacter1 = CSLoader::createTimeline(themeResourcePath.at("character1"));
 	_sprite = (Sprite *)CSLoader::createNode(themeResourcePath.at("character1"));
-	_sprite-> runAction(timelinecharacter1);
+	_sprite->runAction(timelinecharacter1);
 	_sprite->setScaleX(-1.0f);
-	addChild(_sprite,3);
-	timelinecharacter1->play("fly",true);
+	addChild(_sprite, 3);
+	timelinecharacter1->play("fly", true);
 
 	// Define the opponent character and the set the animation ...
 	auto timelinecharacter2 = CSLoader::createTimeline(themeResourcePath.at("character2"));
@@ -214,15 +223,15 @@ void Owl::onEnterTransitionDidFinish()
 		auto timelinecharacter3 = CSLoader::createTimeline(themeResourcePath.at("bubble"));
 		auto bubbles = CSLoader::createNode(themeResourcePath.at("bubble"));
 		bubbles->runAction(timelinecharacter3);
-		bubbles->setPosition(Vec2(visibleSize.width * 0.04 , visibleSize.height * 0.4));
-		addChild(bubbles,1);
+		bubbles->setPosition(Vec2(visibleSize.width * 0.04, visibleSize.height * 0.4));
+		addChild(bubbles, 1);
 		timelinecharacter3->gotoFrameAndPlay(0, true);
 
 		auto timelinecharacter4 = CSLoader::createTimeline(themeResourcePath.at("bubble"));
 		auto bubble = CSLoader::createNode(themeResourcePath.at("bubble"));
 		bubble->runAction(timelinecharacter4);
 		bubble->setPosition(Vec2(visibleSize.width - visibleSize.width * 0.08, visibleSize.height * 0.4));
-		addChild(bubble,1);
+		addChild(bubble, 1);
 		timelinecharacter4->gotoFrameAndPlay(0, true);
 
 		_opponent->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard2"))->setVisible(false);
@@ -237,21 +246,21 @@ void Owl::onEnterTransitionDidFinish()
 	}
 	auto board = bg->getChildByName(themeResourcePath.at("topBoard"));
 	board->setName("topBoard");
-	
+
 
 	// Set the text value in Top Board .. ex: question 
-	std::ostringstream boardName;	
-	boardName << _sentence << " : "<<_data_key[_textBoard];
+	std::ostringstream boardName;
+	boardName << _sentence << " : " << _data_key[_textBoard];
 	_textLabel = CommonLabelTTF::create(boardName.str(), "Helvetica", board->getContentSize().height *0.5);
 	_textLabel->setAnchorPoint(Vec2(0.5, 0.5));
-	_textLabel->setPosition(Vec2(board->getContentSize().width/2, board->getContentSize().height/ 2));
+	_textLabel->setPosition(Vec2(board->getContentSize().width / 2, board->getContentSize().height / 2));
 	_textLabel->setName("text");
 	board->addChild(_textLabel);
 
 
 	// Create Label or Text in board which carried by bird ....
 	_textOwlBoard = CommonLabelTTF::create("", "Helvetica", _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height *0.8);
-	_textOwlBoard->setPosition(Vec2(_sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().width/2, _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height / 2));
+	_textOwlBoard->setPosition(Vec2(_sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().width / 2, _sprite->getChildByName(themeResourcePath.at("whiteBoard"))->getContentSize().height / 2));
 	_textOwlBoard->setName("owlBoard");
 	_textOwlBoard->setColor(Color3B::BLACK);
 	_sprite->getChildByName(themeResourcePath.at("whiteBoard"))->addChild(_textOwlBoard);
@@ -279,8 +288,9 @@ void Owl::onEnterTransitionDidFinish()
 	}
 
 	InitAnimation();
-	this->schedule(schedule_selector(Owl::autoPlayerController), RandomHelper::random_int(6,10));
+	this->schedule(schedule_selector(Owl::autoPlayerController), RandomHelper::random_int(16, 20));
 	scheduleUpdate();
+
 }
 
 // This is method to handle the opponent moving and all animations ...
@@ -377,12 +387,22 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, vector<string> displayWord) 
 
 	float xPosi = initSpace + letterbox->getContentSize().width/2;
 
+	int maxLengthText = 0;
+	for (int i = 0; i < displayWord.size(); i++) {
+
+		if (maxLengthText < displayWord[i].length()) {
+			maxLengthText = displayWord[i].length();
+		}
+	}
+
 	for (int i = 0; i <= (displayWord.size() - 1); i++) {
 		auto letterGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("gridOrange"));
 		auto hideGrid = Sprite::createWithSpriteFrameName(themeResourcePath.at("hideOrange"));
 
 		auto label = CommonLabelTTF::create(displayWord[i], "Helvetica", letterGrid->getContentSize().height*0.8);
 		letterGrid -> setPosition(Vec2(xPosi, blockObject->getContentSize().height *0.45));
+		label->setFontSize(std::max(float(20.0),  float(std::abs((letterGrid->getContentSize().height*0.8) - (maxLengthText - 1) * 17))));
+
 		label->setPosition(Vec2(letterGrid->getContentSize().width/2, letterGrid->getContentSize().height /2));
 		xPosi = xPosi + indiSpace + letterGrid->getContentSize().width;
 		std::ostringstream blockName;	blockName << "blockLevel1" << blockLevel; std::string blockNameInString = blockName.str();
@@ -461,6 +481,14 @@ void Owl::createGrid() {
 	auto getSize = gridObject->getContentSize().width;
 	int counter = 0;
 
+	int maxLengthText = 0;
+	for (int i = 0; i < bag.size(); i++) {
+
+		if (maxLengthText < bag[i].length()) {
+			maxLengthText = bag[i].length();
+		}
+	}
+
 	for (int row = 1; row <= 2; row++) {
 
 		int height = visibleSize.height * _owlPropertyMap.at(_owlCurrentTheme).at("rowFirst");
@@ -493,7 +521,10 @@ void Owl::createGrid() {
 
 				// Set Alphabet one by one in KEYBOARD ... 
 
-				auto label = CommonLabelTTF::create(bag[counter], "Helvetica", gridObject->getContentSize().width * 0.8);
+				auto textSize = gridObject->getContentSize().width * 0.8;
+
+				auto label = CommonLabelTTF::create(bag[counter], "Helvetica", textSize);
+				label->setFontSize(std::max(float(30.0), float(std::abs(textSize - (maxLengthText - 1) * 17))));
 				label->setPosition(Vec2(gridObject->getContentSize().width / 2, gridObject->getContentSize().height / 2));
 				label->setColor(Color3B::WHITE);
 				label->setName(bag[counter]);
@@ -819,6 +850,7 @@ void Owl::triggerTheOwlActivity(cocos2d::Touch* touch, cocos2d::Event* event) {
 // Destructor for OWL class
 Owl::~Owl(void)
 {
+	this->getEventDispatcher()->removeCustomEventListeners("bagOfChoiceQuiz");
 	this->removeAllChildrenWithCleanup(true);
 }
 

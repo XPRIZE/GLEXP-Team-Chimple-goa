@@ -12,6 +12,7 @@ Train::Train()
 
 Train::~Train()
 {
+	this->getEventDispatcher()->removeCustomEventListeners("bagOfChoiceQuiz");
 }
 
 cocos2d::Scene * Train::createScene()
@@ -36,8 +37,19 @@ bool Train::init()
 	return true;
 }
 
-void Train::onEnterTransitionDidFinish()
+void Train::onEnterTransitionDidFinish() {
+	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Train::startGame, this));
+	auto complexity = 4 + std::floor((((float)_menuContext->getCurrentLevel() / 50.0f) * 7.0f));
+	_lesson.getBag(1, 3, complexity, 10, 10);
+}
+
+void Train::startGame(cocos2d::EventCustom *eventCustom)
 {
+	CCLOG("onLessonReady begin");
+	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	CCLOG("onLessonReady to unmarshallBagOfChoices");
+	vector<Lesson::Bag> vbag = Lesson::unmarshallBag(buf);
+
 	visibleSize = Director::getInstance()->getVisibleSize();
 	origin = Director::getInstance()->getVisibleOrigin();
 
@@ -120,10 +132,10 @@ void Train::onEnterTransitionDidFinish()
 	if (complexity >= 10)
 		complexity = 9;
 
-	auto vmcBag = _lesson.getBag(complexity,1,1,0,0);
+	auto vmcBag = vbag;
 
-	for (size_t i = 0; i < vmcBag.size(); i++)
-		sentense.push_back(vmcBag[i].answers[0]);
+	for (size_t i = 0; i < vmcBag[0].answers.size(); i++)
+		sentense.push_back(vmcBag[0].answers[i]);
 
 	random = sentense.size();
 	_menuContext->setMaxPoints(random);
@@ -231,17 +243,30 @@ void Train::onEnterTransitionDidFinish()
 	layer1->setAnchorPoint(Vec2(.5, .5));
 	this->addChild(layer1, 3);
 	layer1->setVisible(true);
-
+	/*
 	auto increase = ScaleTo::create(1, 1.4);
 	auto decrease = ScaleTo::create(1, 1);
 	auto delay = DelayTime::create(3);
+
+	repeatForeverAction = RepeatForever::create(Sequence::create(increase, decrease, NULL));
+	randomLetter.at(0)._label->runAction(repeatForeverAction);
+
+	*/
 
 	this->runAction(Sequence::create(DelayTime::create(1), CallFunc::create([=] {
 		resetPosition();
 	}), NULL));
 
-	repeatForeverAction = RepeatForever::create(Sequence::create(increase, decrease, NULL));
-	randomLetter.at(0)._label->runAction(repeatForeverAction);
+	for (int i = 0; i < random; i++) {// changes done
+
+		auto increase = ScaleTo::create(1, 1.4);
+		auto decrease = ScaleTo::create(1, 1);
+		randomLetter.at(i)._label->stopAllActions();
+		auto repeatForeverAction = RepeatForever::create(Sequence::create(increase, decrease, NULL));
+		if (!randomLetter.at(i).id.compare(sentense.at(0)) && randomLetter.at(i).selected == 0) {
+			randomLetter.at(i)._label->runAction(repeatForeverAction);
+		}
+	}
 }
 
 void Train::addEvents(struct labelDet _labelDet)
@@ -258,10 +283,17 @@ void Train::addEvents(struct labelDet _labelDet)
 
 		if (rect.containsPoint(locationInNode))
 		{
-			if(sentense.at(wordPosition - 1) == randomLetter.at(_labelDet.index).id && randomLetter.at(_labelDet.index).selected == 0 && !(layer1->isVisible()) && randomLetter.at(wordPosition - 1).index == _labelDet.index)
+			if(sentense.at(wordPosition - 1) == randomLetter.at(_labelDet.index).id && randomLetter.at(_labelDet.index).selected == 0 && !(layer1->isVisible()) ) //&& randomLetter.at(wordPosition - 1).index == _labelDet.index) // changes done
 			{
 				layer1->setVisible(true);
-				randomLetter.at(_labelDet.index)._label->stopAction(repeatForeverAction);
+
+				// has been change
+				for (int i = 0; i < random; i++) {
+					randomLetter.at(i)._label->setScale(1);
+					randomLetter.at(i)._label->stopAllActions();
+				}
+
+				//randomLetter.at(_labelDet.index)._label->stopAction(repeatForeverAction);
 				randomLetter.at(_labelDet.index).selected = 1;
 				randomLetter.at(_labelDet.index)._label->setScale(1);
 				randomLetter.at(_labelDet.index)._label->setPosition(Vec2(randomLetter.at(_labelDet.index).xP, randomLetter.at(_labelDet.index).yP));
@@ -278,13 +310,25 @@ void Train::addEvents(struct labelDet _labelDet)
 							 auto train_Action = MoveTo::create(1, Vec2(tunnel->getPositionX() - tunnel->getContentSize().width * .70, train->getPositionY()));
 							 train->runAction(train_Action);
 						 }), delay, CallFunc::create([=] {
-							 auto increase = ScaleTo::create(1, 1.4);
-							 auto decrease = ScaleTo::create(1, 1);
-							 auto delay = DelayTime::create(3);
 
-							 repeatForeverAction = RepeatForever::create(Sequence::create(increase, decrease, NULL));
-							 randomLetter.at(wordPosition)._label->setPosition(Vec2(randomLetter.at(wordPosition).xP, randomLetter.at(wordPosition).yP));
-							 randomLetter.at(wordPosition)._label->runAction(repeatForeverAction);
+							 for (int i = 0; i < random; i++) {	// changes done
+							 
+								 auto increase = ScaleTo::create(1, 1.4);
+								 auto decrease = ScaleTo::create(1, 1);
+								 randomLetter.at(i)._label->stopAllActions();
+								 auto repeatForeverAction = RepeatForever::create(Sequence::create(increase, decrease, NULL));
+								 if (!randomLetter.at(i).id.compare(sentense.at(wordPosition)) && randomLetter.at(i).selected == 0) {
+									 randomLetter.at(i)._label->runAction(repeatForeverAction);
+								 }
+							 }
+
+							 //auto increase = ScaleTo::create(1, 1.4);
+							 //auto decrease = ScaleTo::create(1, 1);
+							 //auto delay = DelayTime::create(3);
+
+							 //repeatForeverAction = RepeatForever::create(Sequence::create(increase, decrease, NULL));
+							 //randomLetter.at(wordPosition)._label->setPosition(Vec2(randomLetter.at(wordPosition).xP, randomLetter.at(wordPosition).yP));	has been change
+							 //randomLetter.at(wordPosition)._label->runAction(repeatForeverAction);
 						     layer1->setVisible(false);
 							 wordPosition++;
 						 }), NULL);
@@ -318,12 +362,24 @@ void Train::addEvents(struct labelDet _labelDet)
 							auto train_newPos = MoveTo::create(1, Vec2(tunnel->getPositionX() - tunnel->getContentSize().width * .75, train->getPositionY()));
 							train->runAction(train_newPos);
 						}), delay, CallFunc::create([=] {
-							auto increase = ScaleTo::create(1, 1.4);
-							auto decrease = ScaleTo::create(1, 1);
-							auto delay = DelayTime::create(3);
-							randomLetter.at(wordPosition)._label->setPosition(randomLetter.at(wordPosition).xP, randomLetter.at(wordPosition).yP);
-							repeatForeverAction = RepeatForever::create(Sequence::create(increase, decrease, NULL));
-							randomLetter.at(wordPosition)._label->runAction(repeatForeverAction);
+
+							for (int i = 0; i < random; i++) {		// changes done
+
+								auto increase = ScaleTo::create(1, 1.4);
+								auto decrease = ScaleTo::create(1, 1);
+								randomLetter.at(i)._label->stopAllActions();
+								auto repeatForeverAction = RepeatForever::create(Sequence::create(increase, decrease, NULL));
+								if (!randomLetter.at(i).id.compare(sentense.at(wordPosition)) && randomLetter.at(i).selected == 0) {
+									randomLetter.at(i)._label->runAction(repeatForeverAction);
+								}
+							}
+
+							//auto increase = ScaleTo::create(1, 1.4);
+							//auto decrease = ScaleTo::create(1, 1);
+							//auto delay = DelayTime::create(3);
+							//randomLetter.at(wordPosition)._label->setPosition(randomLetter.at(wordPosition).xP, randomLetter.at(wordPosition).yP);	has been change
+							//repeatForeverAction = RepeatForever::create(Sequence::create(increase, decrease, NULL));
+							//randomLetter.at(wordPosition)._label->runAction(repeatForeverAction);
 							layer1->setVisible(false);
 							wordPosition++;
 						}), NULL);

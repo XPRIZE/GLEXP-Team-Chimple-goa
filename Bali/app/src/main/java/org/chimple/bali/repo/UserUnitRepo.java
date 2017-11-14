@@ -22,6 +22,7 @@ import android.os.AsyncTask;
 
 import org.chimple.bali.R;
 import org.chimple.bali.db.AppDatabase;
+import org.chimple.bali.db.entity.User;
 import org.chimple.bali.db.entity.UserUnit;
 
 import java.util.Date;
@@ -33,11 +34,9 @@ public class UserUnitRepo {
             protected Void doInBackground(Context... params) {
                 Context context1 = params[0];
                 final AppDatabase db = AppDatabase.getInstance(context1);
-                SharedPreferences sharedPref = context1.getSharedPreferences(
-                        context.getString(R.string.preference_file_key),
-                        Context.MODE_PRIVATE);
-                Long userId = sharedPref.getLong(context.getString(R.string.user_id), -1);
-                if (userId != -1) {
+                User user = UserRepo.getCurrentUser(context1);
+                if (user != null) {
+                    Long userId = user.id;
                     UserUnit userUnit = db.userUnitDao().getUserUnitByUserIdAndUnitId(userId, unitId);
                     if (userUnit == null) {
                         userUnit = new UserUnit(userId, unitId, new Date(), 1, score == -1 ? 0 : score);

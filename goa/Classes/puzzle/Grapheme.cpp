@@ -12,9 +12,9 @@
 
 USING_NS_CC;
 
-Grapheme* Grapheme::create(std::string graphemeString) {
+Grapheme* Grapheme::create(std::string graphemeString, float size) {
     Grapheme *grapheme = new (std::nothrow) Grapheme();
-    if(grapheme && grapheme->init(graphemeString)) {
+    if(grapheme && grapheme->init(graphemeString, size)) {
         grapheme->autorelease();
         return grapheme;
     }
@@ -22,13 +22,14 @@ Grapheme* Grapheme::create(std::string graphemeString) {
     return nullptr;
 }
 
-bool Grapheme::init(std::string graphemeString) {
+bool Grapheme::init(std::string graphemeString, float size) {
     if(!Node::init()) {
         return false;
     }
     _graphemeString = graphemeString;
+    _size = size;
     _text = ui::Text::create();
-    _text->setFontSize(200);
+    _text->setFontSize(_size);
 	_text->setTextColor(Color4B::BLUE);
     if(LangUtil::getInstance()->getLang() == "eng") {
         _text->setFontName("fonts/Roboto-Regular.ttf");

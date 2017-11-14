@@ -17,6 +17,10 @@ LETTER_CONCEPT = 1
 UPPER_CASE_TO_LOWER_CASE_CONCEPT = 2
 LETTER_TO_WORD_CONCEPT = 3
 SYLLABLE_TO_WORD_CONCEPT = 4
+UPPER_CASE_LETTER_TO_WORD_CONCEPT = 5
+
+I_DIR = "swa/image/"
+A_DIR = "swa/audio/"
 
 #mapping from letter to unit_id
 letter_dict = {}
@@ -58,19 +62,19 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 	for val in upper_case_letters:
 		unit_id = unit_id + 1
 		letter_dict[val] = unit_id
-		db_writer.writerow(['Unit', unit_id, val, LETTER_TYPE,'',val+'.mp3',val+'.mp3'])
+		db_writer.writerow(['Unit', unit_id, val, LETTER_TYPE,'',A_DIR+val.lower()+'.ogg',A_DIR+val.lower()+'.ogg'])
 	for val in lower_case_letters:
 		unit_id = unit_id + 1
 		letter_dict[val] = unit_id
-		db_writer.writerow(['Unit', unit_id, val, LETTER_TYPE,'',val+'.mp3',val+'.mp3'])
+		db_writer.writerow(['Unit', unit_id, val, LETTER_TYPE,'',A_DIR+val+'.ogg',A_DIR+val+'.ogg'])
 	for val in syllable_list:
 		unit_id = unit_id + 1
 		syllable_dict[val] = unit_id
-		db_writer.writerow(['Unit', unit_id, val, SYLLABLE_TYPE,'',val+'.mp3',val+'.mp3'])
+		db_writer.writerow(['Unit', unit_id, val, SYLLABLE_TYPE,'',A_DIR+val+'.ogg',A_DIR+val+'.ogg'])
 	for val in word_list:
 		unit_id = unit_id + 1
 		word_dict[val] = (unit_id, 0)
-		db_writer.writerow(['Unit', unit_id, val, WORD_TYPE,val+'.png',val+'.mp3',val+'.mp3'])
+		db_writer.writerow(['Unit', unit_id, val, WORD_TYPE, I_DIR+val+'.png',A_DIR+val+'.ogg',A_DIR+val+'.ogg'])
 	for val in word_list:
 		if len(word_syllable_dict[val]) > 1:
 			for i, syllable in enumerate(word_syllable_dict[val]):
@@ -98,7 +102,7 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 		lesson_id = lesson_id + 1
 		seq = 0
 		ll = len(upper_case_letters)
-		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)], LETTER_TO_WORD_CONCEPT, lesson_id])
+		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)], UPPER_CASE_LETTER_TO_WORD_CONCEPT, lesson_id])
 		for rep in range(3):
 			for i, val in enumerate(upper_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 				lesson_unit_id = lesson_unit_id + 1
@@ -129,7 +133,7 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 				word_dict[sorted_start_words[0][0]] = (sorted_start_words[0][1], sorted_start_words[0][2]+1)
 
 	# lessons for syllable -> word with syllable
-	nsplit = 40
+	nsplit = 120
 	for ir in range(nsplit):
 		lesson_id = lesson_id + 1
 		seq = 0
@@ -147,3 +151,6 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 				word_dict[sorted_start_words[0][0]] = (sorted_start_words[0][1], sorted_start_words[0][2]+1)
 
 	db_writer.writerow(['User',1,'test','test.png',1,5])
+unused = [w for (w,n) in word_dict.items() if n[1] == 0]
+print("Unused words:" + str(len(unused)))
+print(unused)

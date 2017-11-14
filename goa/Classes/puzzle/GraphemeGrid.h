@@ -33,8 +33,8 @@ CC_CONSTRUCTOR_ACCESS:
     void onTouchMoved(cocos2d::Touch* touch, cocos2d::Event* event);
 
 protected:
-	virtual Grapheme* createAndAddGrapheme(std::string graphemeString);
-	virtual Grapheme* createGrapheme(std::string graphemeString);
+	virtual Grapheme* createAndAddGrapheme(std::string graphemeString, float size = 200);
+	virtual Grapheme* createGrapheme(std::string graphemeString, float size = 200);
     int _numRows;
     int _numCols;
     GLfloat _width;

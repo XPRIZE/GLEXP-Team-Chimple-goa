@@ -14,11 +14,11 @@
 #include "../menu/MenuContext.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../puzzle/CharGenerator.h"
-#include "../puzzle/Alphabet.h"
 #include "../lang/LangUtil.h"
 #include "SimpleAudioEngine.h"
 #include "../menu/StartMenuScene.h"
 #include "../lang/Lesson.h"
+#include "../util/CommonLabelTTF.h"
 
 using namespace cocos2d;
 
@@ -35,8 +35,8 @@ protected:
 	std::vector<SpriteCreate*> allPathBlocks; // Vector Array Which Carries all Path Blocks
 	std::vector<Sprite*> allSceneObject,allBeforeStartBlocks, allMonster;
 	std::pair<float, float> position;
-	std::vector<Alphabet*> allLabels;
-	Alphabet *letterOnBoard;
+	std::vector<CommonLabelTTF*> allLabels;
+	CommonLabelTTF *letterOnBoard;
 	bool _caseSensitivity = false;
 	bool initBool = true, popUp = true, flagLifeDemo = true , startSecondFlag = true ,_resumeHelp = true, _flagHelp = true,_flagLetter = true;
 	//std::string _alphabets;

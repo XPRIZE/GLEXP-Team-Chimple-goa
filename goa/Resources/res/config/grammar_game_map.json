@@ -1,8 +1,238 @@
 [
   {
+    "name": "baja",
+    "title": "Drive",
+    "unlock": true,
+    "cIcon": "gameicons/baja_pressed.png",
+    "icon": "gameicons/baja.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "40",
+    "autoLevel": true,
+    "rewards": {
+      "10": {
+        "unlock": "jasmine"
+      },
+      "5": {
+        "badge": "s/emergency_fuel"
+      },
+      "12": {
+        "badge": "m/steady_steering"
+      },
+      "20": {
+        "badge": "p/long_road"
+      },
+      "28": {
+        "badge": "g/precious_oil"
+      },
+      "32": {
+        "badge": "b/riding_car"
+      },
+      "36": {
+        "badge": "c/minty_wheels"
+      },
+      "40": {
+        "unlockMin": "shoot",
+        "min": "3"
+      }
+    },
+    "backgroundJson": "plevelscreen2/bjlevelbg.json",
+    "foregroundJson": "plevelscreen2/bjlevelfrg.json",
+    "frontgroundJson": "plevelscreen2/bjlevelfng.json",
+    "maingroundJson": "plevelscreen2/bjlevelmng.json",
+    "menuPlist": "plevelscreen2/plevelscreen2.plist",
+    "menuPng": "plevelscreen2/plevelscreen2.png"
+  },
+  {
+    "name": "jasmine",
+    "title": "Grow the Plants",
+    "unlock": true,
+    "cIcon": "gameicons/jasmine_pressed.png",
+    "icon": "gameicons/jasmine.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "7",
+    "numLevels": "40",
+    "autoLevel": true,
+    "rewards": {
+      "10": {
+        "unlock": "chain"
+      },
+      "6": {
+        "badge": "s/blooming_flower"
+      },
+      "12": {
+        "badge": "m/smoking_pot"
+      },
+      "18": {
+        "badge": "p/fresh_sunflower"
+      },
+      "24": {
+        "badge": "g/pink_flower"
+      },
+      "30": {
+        "badge": "b/growing_leaves"
+      },
+      "36": {
+        "badge": "c/cocoa_beans"
+      },
+      "40": {
+        "unlockMin": "shoot",
+        "min": "3"
+      }
+    },
+    "backgroundJson": "jasminelevel/Layer1.json",
+    "foregroundJson": "jasminelevel/Layer3.json",
+    "frontgroundJson": "jasminelevel/Layer4.json",
+    "maingroundJson": "jasminelevel/Layer2.json",
+    "menuPlist": "jasminelevel/jasminelevel.plist",
+    "menuPng": "jasminelevel/jasminelevel.png"
+  },
+  {
+    "name": "chain",
+    "title": "Animal Chain",
+    "unlock": false,
+    "cIcon": "gameicons/chain_pressed.png",
+    "icon": "gameicons/chain.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "24",
+    "autoLevel": true,
+    "rewards": {
+      "10": {
+        "unlock": "wembley"
+      },
+      "4": {
+        "badge": "g/tall_tree"
+      },
+      "8": {
+        "badge": "c/banana_dip"
+      },
+      "12": {
+        "badge": "b/standing_flamingo"
+      },
+      "16": {
+        "badge": "p/huge_elephant"
+      },
+      "20": {
+        "badge": "m/floating_feather"
+      },
+      "22": {
+        "badge": "s/naughty_monkey"
+      },
+      "24": {
+        "unlockMin": "shoot",
+        "min": "3"
+      }
+    },
+    "backgroundJson": "chainlevel/chainbackground.json",
+    "foregroundJson": "chainlevel/chainforeground.json",
+    "frontgroundJson": "chainlevel/chainfrontground.json",
+    "maingroundJson": "chainlevel/chainmainground.json",
+    "menuPlist": "chainlevel/chainlevel.plist",
+    "menuPng": "chainlevel/chainlevel.png"
+  },
+  {
+    "name": "wembley",
+    "title": "Alphabet Football",
+    "unlock": false,
+    "cIcon": "gameicons/wembley_pressed.png",
+    "icon": "gameicons/wembley.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "40",
+    "autoLevel": true,
+    "rewards": {
+      "10": {
+        "unlock": "jazz"
+      },
+      "6": {
+        "badge": "s/golden_boot"
+      },
+      "12": {
+        "badge": "m/floating_feather"
+      },
+      "18": {
+        "badge": "p/huge_elephant"
+      },
+      "24": {
+        "badge": "g/tall_tree"
+      },
+      "30": {
+        "badge": "b/standing_flamingo"
+      },
+      "36": {
+        "badge": "c/banana_dip"
+      },
+      "40": {
+        "unlockMin": "shoot",
+        "min": "3"
+      }
+    },
+    "backgroundJson": "wembleylevel/layer1.json",
+    "foregroundJson": "wembleylevel/level3.json",
+    "frontgroundJson": "wembleylevel/level4.json",
+    "maingroundJson": "wembleylevel/level2.json",
+    "menuPlist": "wembleylevel/wembleylevel.plist",
+    "menuPng": "wembleylevel/wembleylevel.png"
+  },
+  {
+    "name": "jazz",
+    "title": "Drums",
+    "unlock": false,
+    "cIcon": "gameicons/jazz_pressed.png",
+    "icon": "gameicons/jazz.png",
+    "multiPlayer": false,
+    "isJSGame": false,
+    "script": "src/NonJSGameLauncher.js",
+    "span": "5",
+    "numLevels": "40",
+    "autoLevel": true,
+    "rewards": {
+      "10": {
+        "unlock": "shoot"
+      },
+      "7": {
+        "badge": "s/noise_maker"
+      },
+      "14": {
+        "badge": "m/crazy_monkey"
+      },
+      "21": {
+        "badge": "p/drum_stick"
+      },
+      "26": {
+        "badge": "g/music_jhunjhun"
+      },
+      "32": {
+        "badge": "b/musical_notes"
+      },
+      "38": {
+        "badge": "c/noisy_cymbal"
+      },
+      "40": {
+        "unlockMin": "shoot",
+        "min": "3"
+      }
+    },
+    "backgroundJson": "jazzlevel/background.json",
+    "foregroundJson": "jazzlevel/foreground.json",
+    "frontgroundJson": "jazzlevel/frontground.json",
+    "maingroundJson": "jazzlevel/mainground.json",
+    "menuPlist": "jazzlevel/jazzlevel.plist",
+    "menuPng": "jazzlevel/jazzlevel.png"
+  },
+  {
     "name": "shoot",
     "title": "Shoot",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/shoot_pressed.png",
     "icon": "gameicons/shoot.png",
     "multiPlayer": false,
@@ -10,8 +240,9 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "4",
     "numLevels": "30",
+    "autoLevel": true,
     "rewards": {
-      "12": {
+      "11": {
         "unlock": "owl"
       },
       "5": {
@@ -43,7 +274,7 @@
   {
     "name": "owl",
     "title": "Spelling Owl",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/owl_pressed.png",
     "icon": "gameicons/owl.png",
     "multiPlayer": false,
@@ -51,8 +282,9 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "7",
     "numLevels": "50",
+    "autoLevel": true,
     "rewards": {
-      "20": {
+      "10": {
         "unlock": "stack"
       },
       "8": {
@@ -88,7 +320,7 @@
   {
     "name": "stack",
     "title": "Stack the Words",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/stack_pressed.png",
     "icon": "gameicons/stack.png",
     "multiPlayer": false,
@@ -97,7 +329,7 @@
     "span": "9",
     "numLevels": "72",
     "rewards": {
-      "30": {
+      "10": {
         "unlock": "order"
       },
       "12": {
@@ -133,7 +365,7 @@
   {
     "name": "order",
     "title": "Arrange in Order",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/order_pressed.png",
     "icon": "gameicons/order.png",
     "multiPlayer": false,
@@ -178,7 +410,7 @@
   {
     "name": "dash",
     "title": "Dash",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/dash_pressed.png",
     "icon": "gameicons/dash.png",
     "multiPlayer": false,
@@ -186,8 +418,9 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "10",
     "numLevels": "75",
+    "autoLevel": true,
     "rewards": {
-      "30": {
+      "10": {
         "unlock": "bingo"
       },
       "13": {
@@ -224,7 +457,7 @@
   {
     "name": "bingo",
     "title": "Bingo",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/bingo_pressed.png",
     "icon": "gameicons/bingo.png",
     "multiPlayer": false,
@@ -232,8 +465,9 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "5",
     "numLevels": "36",
+    "autoLevel": true,
     "rewards": {
-      "20": {
+      "10": {
         "unlock": "drop"
       },
       "6": {
@@ -269,7 +503,7 @@
   {
     "name": "drop",
     "title": "Drop",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/drop_pressed.png",
     "icon": "gameicons/drop.png",
     "multiPlayer": false,
@@ -277,8 +511,9 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "8",
     "numLevels": "60",
+    "autoLevel": true,
     "rewards": {
-      "22": {
+      "9": {
         "unlock": "train"
       },
       "10": {
@@ -314,7 +549,7 @@
   {
     "name": "train",
     "title": "Train",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/train_pressed.png",
     "icon": "gameicons/train.png",
     "multiPlayer": false,
@@ -323,8 +558,9 @@
     "script": "src/start/train.js",
     "span": "6",
     "numLevels": "48",
+    "autoLevel": true,
     "rewards": {
-      "20": {
+      "10": {
         "unlock": "pop"
       },
       "8": {
@@ -360,7 +596,7 @@
   {
     "name": "pop",
     "title": "Fly Through Clouds",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/pop_pressed.png",
     "icon": "gameicons/pop.png",
     "multiPlayer": false,
@@ -369,8 +605,9 @@
     "script": "src/start/pop.js",
     "span": "6",
     "numLevels": "48",
+    "autoLevel": true,
     "rewards": {
-      "20": {
+      "10": {
         "unlock": "talk"
       },
       "8": {
@@ -406,16 +643,17 @@
   {
     "name": "talk",
     "title": "Feed the Words",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/talk_pressed.png",
     "icon": "gameicons/talk.png",
     "multiPlayer": false,
     "isJSGame": false,
     "script": "src/NonJSGameLauncher.js",
     "span": "9",
+    "autoLevel": true,
     "numLevels": "72",
     "rewards": {
-      "30": {
+      "10": {
         "unlock": "memory"
       },
       "12": {
@@ -451,7 +689,7 @@
   {
     "name": "memory",
     "title": "Memory",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/memory_pressed.png",
     "icon": "gameicons/memory.png",
     "multiPlayer": false,
@@ -459,9 +697,10 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "6",
     "numLevels": "36",
+    "autoLevel": true,
     "rewards": {
-      "1": {
-        "unlock": "balloon"
+      "10": {
+        "unlock": "circle"
       },
       "6": {
         "badge": "s/mama_hen"
@@ -496,7 +735,7 @@
   {
     "name": "circle",
     "title": "Catch",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/circle_pressed.png",
     "icon": "gameicons/circle.png",
     "multiPlayer": false,
@@ -504,8 +743,9 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "10",
     "numLevels": "75",
+    "autoLevel": true,
     "rewards": {
-      "30": {
+      "10": {
         "unlock": "pillar"
       },
       "13": {
@@ -541,7 +781,7 @@
   {
     "name": "pillar",
     "title": "Layer the Cake",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/pillar_pressed.png",
     "icon": "gameicons/pillar.png",
     "multiPlayer": false,
@@ -549,8 +789,9 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "10",
     "numLevels": "75",
+    "autoLevel": true,
     "rewards": {
-      "30": {
+      "10": {
         "unlock": "balloon"
       },
       "13": {
@@ -586,7 +827,7 @@
   {
     "name": "balloon",
     "title": "Fly",
-    "unlock": true,
+    "unlock": false,
     "cIcon": "gameicons/balloon_pressed.png",
     "icon": "gameicons/balloon.png",
     "multiPlayer": false,
@@ -594,6 +835,7 @@
     "script": "src/NonJSGameLauncher.js",
     "span": "9",
     "numLevels": "72",
+    "autoLevel": true,
     "rewards": {
       "12": {
         "badge": "s/life_saver"

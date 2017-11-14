@@ -1,19 +1,20 @@
 #include "Cannon_Ball_Main.h"
 #include "Cannon_Ball_Listener.h"
 #include "editor-support/cocostudio/CocoStudio.h"
+#include "../util/CommonLabelTTF.h"
 
 USING_NS_CC;
 
 std::vector<LabelClass*> MainGame::cannonLetter;
-std::vector<Alphabet*> MainGame::cannonLetter_actualImage;
+std::vector<LabelTTF*> MainGame::cannonLetter_actualImage;
 
 std::vector<LabelClass*> MainGame::bulletArray;
-std::vector<Alphabet*> MainGame::bulletArray_actualImage;
+std::vector<LabelTTF*> MainGame::bulletArray_actualImage;
 
 std::vector<EventListenerClass*> MainGame::cannon_ballArray;
 std::vector<EventListenerClass*> MainGame::cannonArray;
 
-std::vector<Alphabet*> MainGame::meteorArray_actualImage;
+std::vector<LabelTTF*> MainGame::meteorArray_actualImage;
 std::vector<EventListenerClass*> MainGame::letterArray;
 std::vector<LabelClass*> MainGame::meteorArray;
 std::vector<cocos2d::Node*> MainGame::bulletArray_Animation;
@@ -26,6 +27,7 @@ EventListenerClass* MainGame::cannon3;
 EventListenerClass* MainGame::cannon4;
 
 int MainGame::_totalHit;
+int MainGame::_maxLengthOfQuestion;
 float MainGame::height;
 float MainGame::width;
 float MainGame::originX;
@@ -158,7 +160,7 @@ void MainGame::onEnterTransitionDidFinish()
 	//startGame();
 
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(MainGame::startGame, this));
-	_lesson.getMultiChoices(10, 0);
+    _lesson.getMultiChoices(10, 0, UPPER_CASE_LETTER_FORMAT, UPPER_CASE_LETTER_FORMAT);
 	/*if (_menuContext->getCurrentLevel() == 1)
 	{
 		displayHelp();
@@ -175,7 +177,7 @@ void MainGame::onEnterTransitionDidFinish()
 void MainGame::displayHelp()
 {
 	std::string letterName;
-	std::vector<std::string> chars =_mainChars[0];
+	std::vector<std::string> chars =_mainQuestions[0];
 
 	letterName = chars[0];
 
@@ -187,7 +189,13 @@ void MainGame::displayHelp()
 	LabelClass *meteor = LabelClass::createSpt(letterName, MainGame::width * .10, MainGame::lettertmpPosition[val].y, letterName, self);
 	MainGame::meteorArray.push_back(meteor);
 
-	Alphabet *myLabel = Alphabet::createWithSize(letterName, 300);
+	//Alphabet *myLabel = Alphabet::createWithSize(letterName, 300); old code
+	LabelTTF  *myLabel = CommonLabelTTF::create(letterName, "Helvetica", 150);
+	float fontSize = std::max(float(50.0), float(150 - (_maxLengthOfQuestion - 1) * 10));
+	if (fontSize < 50 || fontSize > 150) {
+		fontSize = 50.0f;
+	}
+	myLabel->setFontSize(fontSize);
 	myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
 	lett->addChild(myLabel);
 	MainGame::meteorArray_actualImage.push_back(myLabel);
@@ -279,13 +287,21 @@ void MainGame::startGame(cocos2d::EventCustom *eventCustom)	// starting of game
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
 
-	_mainChars.clear();
+	_vmc = vmc;
+	_mainQuestions.clear();
 	int column = 10, row = 1;
-	_mainChars.resize(row);
-	_mainChars[0].resize(column);
+	_mainQuestions.resize(row);
+	_mainQuestions[0].resize(column);
+
+	//_mainQuestions.resize(row);
+	//_mainQuestions[0].resize(column);
+
+	//_maxLengthOfQuestion = getMaxWordLength(_mainQuestions[0]);
+	_maxLengthOfQuestion = getMaxWordLength(_mainQuestions[0]);
 
 	for (size_t i = 0; i < 10; i++) {
-		_mainChars[0][i] = vmc[i].question;
+		_mainQuestions[0][i] = vmc[i].question;
+		//_mainQuestions[0][i] = vmc[i].answers[vmc[i].correctAnswer];
 	}
 
 	//
@@ -366,7 +382,8 @@ void MainGame::letterCome(float d)
 		//wchar_t letterName;
 		//std::vector<wchar_t> chars = MainChars[0];
 		std::string letterName;
-		std::vector<std::string> chars = _mainChars[0];
+		//std::vector<std::string> chars = _mainQuestions[0]; Old Value
+		std::vector<std::string> chars = _mainQuestions[0];
 
 		while (flag == 0)
 		{
@@ -408,8 +425,16 @@ void MainGame::letterCome(float d)
 
 		LabelClass *meteor = LabelClass::createSpt(letterName, MainGame::lettertmpPosition[val].x, MainGame::lettertmpPosition[val].y, letterName, self);
 		MainGame::meteorArray.push_back(meteor);
+	
 
-		Alphabet *myLabel = Alphabet::createWithSize(letterName, 300);
+		//Alphabet *myLabel = Alphabet::createWithSize(letterName, 300); old code
+		LabelTTF  *myLabel = CommonLabelTTF::create(letterName, "Helvetica", 150);
+		
+		float fontSize = std::max(float(50.0), float(150 - (_maxLengthOfQuestion - 1) * 10));
+		if (fontSize < 50|| fontSize > 150) {
+			fontSize = 50.0f;
+		}
+		myLabel->setFontSize(fontSize);
 		myLabel->setPosition(lett->getBoundingBox().size.width / 2, lett->getBoundingBox().size.height / 2.2);
 		lett->addChild(myLabel);
 		MainGame::meteorArray_actualImage.push_back(myLabel);
@@ -449,7 +474,7 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 {
 	if (MainGame::cannonLetter.size() == 0)
 	{
-		std::vector<std::string> tmpMainChars = _mainChars[0];
+		std::vector<std::string> tmpMainChars = _mainQuestions[0];
 
 		MainGame::cannon_ballArray.clear();
 		for (int i = 0; i < position.size(); i++)
@@ -460,7 +485,13 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			MainGame::cannon_ballArray.push_back(e1);
 
 			// _chnage
-			Alphabet *myLabel = Alphabet::createWithSize(tmpMainChars[i], 200);
+			//Alphabet *myLabel = Alphabet::createWithSize(tmpMainChars[i], 200); old code
+			LabelTTF  *myLabel = CommonLabelTTF::create(tmpMainChars[i], "Helvetica", 100);
+			float fontSize = std::max(float(50.0), float(100 - (_maxLengthOfQuestion - 1) * 10));
+			if (fontSize < 50 || fontSize > 100) {
+				fontSize = 50.0f;
+			}
+			myLabel->setFontSize(fontSize);
 			myLabel->setPosition(e1->getBoundingBox().size.width/2 , e1->getBoundingBox().size.height/2);
 			e1->addChild(myLabel);			
 			MainGame::cannonLetter_actualImage.push_back(myLabel);
@@ -508,9 +539,9 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 					lett = CharGenerator::getInstance()->generateAnotherChar(MainChars[0], false);
 				}
 				else*/
-					lett = _mainChars[0][remcharPos];
+					lett = _mainQuestions[0][remcharPos];
 
-				_mainChars[0][remcharPos] = lett;
+				_mainQuestions[0][remcharPos] = lett;
 				letterName = lett;
 			}
 			else
@@ -520,7 +551,13 @@ void MainGame::cannonLetterCome()	//cannon letter will come which will be dragge
 			MainGame::cannon_ballArray[remcharPos] = letter;
 			self->addChild(letter);
 
-			Alphabet *myLabel = Alphabet::createWithSize(letterName, 200);
+			//Alphabet *myLabel = Alphabet::createWithSize(letterName, 200); old code
+			LabelTTF  *myLabel = CommonLabelTTF::create(letterName, "Helvetica", 100);
+			float fontSize = std::max(float(50.0), float(100 - (_maxLengthOfQuestion - 1) * 10));
+			if (fontSize < 50 || fontSize > 100) {
+				fontSize = 50.0f;
+			}
+			myLabel->setFontSize(fontSize);
 			myLabel->setPosition(letter->getBoundingBox().size.width / 2, letter->getBoundingBox().size.height / 2);
 			letter->addChild(myLabel);
 			MainGame::cannonLetter_actualImage[remcharPos] = myLabel;
@@ -592,7 +629,14 @@ void MainGame::startFire(EventListenerClass* letterObject, Node *mycannon)
 		LabelClass *fire = LabelClass::createSpt(letterObject->id, letterObject->getPositionX() - (letterObject->getContentSize().width * 2), letterObject->getPositionY(), letterObject->id, self);
 		MainGame::bulletArray.push_back(fire);
 
-		Alphabet *myLabel = Alphabet::createWithSize(letterObject->id, 200);
+		//Alphabet *myLabel = Alphabet::createWithSize(letterObject->id, 200);old code
+		LabelTTF  *myLabel = CommonLabelTTF::create(letterObject->id, "Helvetica", 100);
+		auto a = _maxLengthOfQuestion;
+		float fontSize = std::max(float(50.0), float(100.0 - (_maxLengthOfQuestion - 1) * 10));
+		if (fontSize < 50 || fontSize > 100) {
+			fontSize = 50.0f;
+		}
+		myLabel->setFontSize(fontSize);
 		myLabel->setPosition(letterObject->getPositionX() - (letterObject->getContentSize().width * 2.8), letterObject->getPositionY());
 		self->addChild(myLabel);
 		MainGame::bulletArray_actualImage.push_back(myLabel);
@@ -639,7 +683,7 @@ void MainGame::meteorBlast(Node *nd)
 	}
 }
 
-void MainGame::removeFire(EventListenerClass* letterObject, Alphabet* removableFire, Node *fireAnimation)
+void MainGame::removeFire(EventListenerClass* letterObject, LabelTTF* removableFire, Node *fireAnimation)
 {
 	self->removeChild(removableFire);
 	self->removeChild(fireAnimation);
@@ -796,8 +840,12 @@ void MainGame::update(float dt)
 			Rect targetRect = Rect(MainGame::bulletArray_Animation[j]->getBoundingBox().origin.x - (MainGame::bulletArray_Animation[j]->getChildByName("blaze")->getContentSize().width / 2) , MainGame::bulletArray_Animation[j]->getBoundingBox().origin.y, MainGame::bulletArray_Animation[j]->getChildByName("blaze")->getContentSize().width, MainGame::bulletArray_Animation[j]->getChildByName("blaze")->getContentSize().height);
 			if (targetRect.intersectsRect(MainGame::letterArray[i]->getBoundingBox()))
 			{
-				if (MainGame::letterArray[i]->id == MainGame::bulletArray[j]->id)
+
+				//if (checkAnswer(MainGame::bulletArray[j]->id, MainGame::letterArray[i]->id))
+				if(MainGame::letterArray[i]->id == MainGame::bulletArray[j]->id)
 				{
+					auto que = MainGame::letterArray[i]->id;
+					auto ans = MainGame::bulletArray[j]->id;
 					for (int k = 0; k < MainGame::cannonLetter.size(); k++)
 					{
 						if (MainGame::cannonLetter[k]->id == MainGame::bulletArray[j]->id)
@@ -862,6 +910,8 @@ void MainGame::update(float dt)
 				}
 				else
 				{
+					auto que = MainGame::letterArray[i]->id;
+					auto ans = MainGame::bulletArray[j]->id;
 					for (int k = 0; k < MainGame::cannonLetter.size(); k++)
 					{
 						if (MainGame::cannonLetter[k]->id == MainGame::bulletArray[j]->id)
@@ -910,4 +960,29 @@ void MainGame::update(float dt)
 			}
 		}
 	}
+}
+bool MainGame::checkAnswer(string boardText, string choiceText) {
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		if (_vmc[i].question.compare(boardText) == 0) {
+			if (_vmc[i].answers[_vmc[i].correctAnswer].compare(choiceText) == 0) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+int MainGame::getMaxWordLength(std::vector<string> wordVector)
+{
+	int maxSize = 1;
+	int index = 0;
+	while (index != (wordVector.size() - 1))
+	{
+		if (wordVector[index].length() > maxSize)
+		{
+			maxSize = wordVector[index].length();
+		}
+		index++;
+	}
+	return maxSize;
 }

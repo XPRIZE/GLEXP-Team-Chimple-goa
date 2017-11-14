@@ -241,6 +241,8 @@ void spot::update(float delta) {
 	if (_calculateFlag == 0 && !_calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
 
 		_calculateFlag = 1;
+		auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+		audioBg->playEffect("res/sounds/sfx/error.ogg", false);
 		_calculator->deductPoint();
 		auto deductPoints = CallFunc::create([=] {
 
@@ -253,6 +255,9 @@ void spot::update(float delta) {
 
 	//isEnterPressed
 	if (_calculateFlag == 0 && _calculator->checkAnswer(_answerValue) && _calculator->isEnterPressed()) {
+
+		auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
+		audioBg->playEffect("res/sounds/sfx/success.ogg", false);
 
 		CCLOG("correct answer");
 		_calculateFlag = 1;

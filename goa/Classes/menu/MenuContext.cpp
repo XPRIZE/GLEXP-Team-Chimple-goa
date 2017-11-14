@@ -920,6 +920,25 @@ void MenuContext::launchGameFromJS(std::string gameName) {
 
 void MenuContext::launchGameFinally(std::string gameName) {
     CCLOG("gameName %s", gameName.c_str());
+    
+    std::string currentLevelStr;
+    localStorageGetItem(gameName + CURRENT_LEVEL, &currentLevelStr);
+    int currentLevel = 0;
+    if(!currentLevelStr.empty()) {
+        currentLevel = std::atoi( currentLevelStr.c_str());
+    }
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CCLOG("updateCoins");
+    cocos2d::JniMethodInfo methodInfo;
+    if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "updateCoins", "(Ljava/lang/String;III)V")) {
+        return;
+    }
+    jstring gameNameArg = methodInfo.env->NewStringUTF(gameName.c_str());
+    methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, gameNameArg, currentLevel, 1, 0);
+    methodInfo.env->DeleteLocalRef(methodInfo.classID);
+    methodInfo.env->DeleteLocalRef(gameNameArg);
+#endif
+    
     Lesson* lesson = new Lesson();
     std::string currentTitleStr;
     localStorageGetItem(gameName + CURRENT_TITLE, &currentTitleStr);
@@ -1333,11 +1352,14 @@ void MenuContext::showScore() {
     if(stars >= 2) {
         CCLOG("updateCoins");
         cocos2d::JniMethodInfo methodInfo;
-        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "updateCoins", "(I)V")) {
+        if (! cocos2d::JniHelper::getStaticMethodInfo(methodInfo, "org/cocos2dx/cpp/AppActivity", "updateCoins", "(Ljava/lang/String;III)V")) {
+            return;
         }
         CCLOG("calling updateCoins");
-        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, 1);
+        jstring gameNameArg = methodInfo.env->NewStringUTF(gameName.c_str());
+        methodInfo.env->CallStaticVoidMethod(methodInfo.classID, methodInfo.methodID, gameNameArg, _currentLevel, 2, 1);
         methodInfo.env->DeleteLocalRef(methodInfo.classID);
+        methodInfo.env->DeleteLocalRef(gameNameArg);
     }
 #endif
     

@@ -15,6 +15,7 @@ package org.chimple.bali.repo;
  * limitations under the License.
  */
 
+import android.arch.lifecycle.LiveData;
 import android.content.Context;
 import android.content.SharedPreferences;
 
@@ -26,15 +27,33 @@ import org.chimple.bali.db.entity.User;
 public class UserRepo {
     public static int updateCoins(Context context, int coins) {
         AppDatabase db = AppDatabase.getInstance(context);
+        User user = getCurrentUser(context);
+        user.coins = Math.max(0, user.coins + coins);
+        db.userDao().updateUser(user);
+        return user.coins;
+    }
+
+    public static User getCurrentUser(Context context) {
+        AppDatabase db = AppDatabase.getInstance(context);
 
         // Get the current user
         SharedPreferences sharedPref = context.getSharedPreferences(
                 context.getString(R.string.preference_file_key),
                 Context.MODE_PRIVATE);
-        Long userId = sharedPref.getLong(context.getString(R.string.user_id), 0);
+        Long userId = sharedPref.getLong("user_id", 0);
         User user = db.userDao().getUserById(userId);
-        user.coins = Math.max(0, user.coins + coins);
-        db.userDao().updateUser(user);
-        return user.coins;
+        return user;
+    }
+
+    public static LiveData<User> getCurrentLiveUser(Context context) {
+        AppDatabase db = AppDatabase.getInstance(context);
+
+        // Get the current user
+        SharedPreferences sharedPref = context.getSharedPreferences(
+                context.getString(R.string.preference_file_key),
+                Context.MODE_PRIVATE);
+        Long userId = sharedPref.getLong("user_id", 0);
+        LiveData<User> user = db.userDao().getLiveUserById(userId);
+        return user;
     }
 }

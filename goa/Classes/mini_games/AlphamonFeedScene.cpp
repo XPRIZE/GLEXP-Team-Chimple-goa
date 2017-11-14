@@ -110,7 +110,7 @@ void AlphamonFeed::onEnterTransitionDidFinish() {
 												   //sprite1 = CSLoader::createNode(CCString::createWithFormat("english/%s.csb", alphaLevelString.c_str())->getCString());
 
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(AlphamonFeed::startGame, this));
-	_lesson.getMultiChoices(1, 0);
+	_lesson.getMultiChoices(1, 0, UPPER_CASE_LETTER_FORMAT, UPPER_CASE_LETTER_FORMAT);
 
 }
 
@@ -174,7 +174,7 @@ void AlphamonFeed::startGame(cocos2d::EventCustom *eventCustom) {
 void AlphamonFeed::callingFruits()
 {
 	listener = EventListenerTouchOneByOne::create();
-	listener->setSwallowTouches(true);
+	listener->setSwallowTouches(false);
 	listener->onTouchBegan = CC_CALLBACK_2(AlphamonFeed::onTouchBegan, this);
 	listener->onTouchMoved = CC_CALLBACK_2(AlphamonFeed::onTouchMoved, this);
 	listener->onTouchEnded = CC_CALLBACK_2(AlphamonFeed::onTouchEnded, this);

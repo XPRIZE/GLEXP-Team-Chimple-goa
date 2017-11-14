@@ -253,6 +253,10 @@ public class AppActivity extends Cocos2dxActivity {
 
     public static final String MULTIPLE_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
     public static final String COINS = "COINS";
+    public static final String GAME_NAME = "GAME_NAME";
+    public static final String GAME_LEVEL = "GAME_LEVEL";
+    public static final String GAME_EVENT = "GAME_EVENT";
+
     public static final String BAG_OF_CHOICE_QUIZ = "BAG_OF_CHOICE_QUIZ";
 
     public static final String COL_HELP = "help";
@@ -288,7 +292,7 @@ public class AppActivity extends Cocos2dxActivity {
 	                URI_MULTIPLE_CHOICE_QUIZ,
 	                null,
 	                null,
-	                new String[]{Integer.toString(numQuizes), Integer.toString(numChoices + 1)
+	                new String[]{Integer.toString(numQuizes), Integer.toString(numChoices + 1),
 	                			Integer.toString(answerFormat), Integer.toString(choiceFormat)},
 	                null
         		);
@@ -330,7 +334,7 @@ public class AppActivity extends Cocos2dxActivity {
 		        }
 				return null;
 			}
-		}.execute(new int[]{numQuizes, numChoices});
+		}.execute(new int[]{numQuizes, numChoices, answerFormat, choiceFormat});
 
     }
 
@@ -395,26 +399,32 @@ public class AppActivity extends Cocos2dxActivity {
 
     }
 
-	public static void updateCoins(int coins) {
-    	new AsyncTask<Integer, Void, Void>() {
+	public static void updateCoins(String gameName, int gameLevel, int gameEvent, int coins) {
+		final String fGameName = gameName;
+		final int fGameLevel = gameLevel;
+		final int fGameEvent = gameEvent;
+		final int fCoins = coins;
+    	new AsyncTask<Void, Void, Void>() {
 			@Override
-			protected Void doInBackground(Integer... params) {
-				Integer coins1 = params[0];
+			protected Void doInBackground(Void... params) {
 				System.out.println("doInBackground");
 
-		        ContentValues contentValues = new ContentValues(1);
-		        contentValues.put(COINS, coins1);
+		        ContentValues contentValues = new ContentValues(4);
+		        contentValues.put(GAME_NAME, fGameName);
+		        contentValues.put(GAME_LEVEL, fGameLevel);
+		        contentValues.put(GAME_EVENT, fGameEvent);
+		        contentValues.put(COINS, fCoins);
 		        int coins = _context.getContentResolver().update(
 		                URI_COIN,
 		                contentValues,
 		                null,
 		                null
 		        );
-		        Log.d(COINS, String.valueOf(coins));
+		        Log.d(COINS, String.valueOf(fCoins));
 
 				return null;
 			}
-		}.execute(coins);
+		}.execute();
 	}    
 
 	public static native boolean discoveredBluetoothDevices(String devices);

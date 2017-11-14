@@ -16,8 +16,14 @@
 
 package org.chimple.bali.widget;
 
+import android.animation.ObjectAnimator;
+import android.app.Activity;
+import android.arch.lifecycle.LifecycleActivity;
+import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.res.AssetFileDescriptor;
+import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.support.annotation.AttrRes;
@@ -25,14 +31,18 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.design.widget.FloatingActionButton;
+import android.text.Html;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.chimple.bali.R;
+import org.chimple.bali.activity.LessonActivity;
 import org.chimple.bali.db.entity.Unit;
+import org.chimple.bali.viewmodel.CardStatusViewModel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -47,8 +57,17 @@ public class WordView extends FrameLayout{
         @Override
         public void onClick(View view) {
             MediaPlayer mediaPlayer = new MediaPlayer();
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                    view.setEnabled(true);
+//                    CardStatusViewModel cardStatusViewModel = ViewModelProviders.of(getActivity()).get(CardStatusViewModel.class);
+//                    cardStatusViewModel.viewed(true);
+                }
+            });
             try {
-                AssetFileDescriptor afd = mContext.getAssets().openFd(mWord.sound);
+                //AssetFileDescriptor afd = mContext.getAssets().openFd(mWord.sound);
+                AssetFileDescriptor afd = mContext.getAssets().openFd("swa/audio/a.mp3");
                 mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(),
                         afd.getLength());
                 afd.close();
@@ -56,9 +75,12 @@ public class WordView extends FrameLayout{
                 mediaPlayer.start();
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                view.setEnabled(false);
             }
         }
     };
+
     public WordView(@NonNull Context context, Unit word) {
         super(context);
         initView(context, word);
@@ -85,23 +107,27 @@ public class WordView extends FrameLayout{
         View view = inflate(getContext(), R.layout.word, null);
         addView(view);
         TextView wordView = (TextView) findViewById(R.id.word);
+//        wordView.setText(Html.fromHtml("<b>"+word.name+"</b><i>h</i>"));
         wordView.setText(word.name);
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView);
-        try
-        {
-            InputStream inputStream = mContext.getAssets().open(word.picture);
-            Drawable d = Drawable.createFromStream(inputStream, null);
+        Drawable d = word.getPictureDrawable(context);
+        if(d != null) {
             imageView.setImageDrawable(d);
-            inputStream .close();
         }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-
         mSoundFab = (FloatingActionButton) findViewById(R.id.soundFab);
+        float x = mSoundFab.getX();
         mSoundFab.setOnClickListener(mOnClickListener);
     }
 
+    @Override
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
+        super.onLayout(changed, left, top, right, bottom);
+        float x = mSoundFab.getX();
+        float y = mSoundFab.getY();
+        ObjectAnimator animator = ObjectAnimator.ofFloat(mSoundFab, "x", -x, x);
+        animator.setDuration(250);
+        animator.start();
+
+    }
 }

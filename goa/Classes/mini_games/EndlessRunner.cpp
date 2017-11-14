@@ -63,6 +63,14 @@ void EndlessRunner::GameBegin(cocos2d::EventCustom *eventCustom) {
 
 	_vmc = vmc;
 
+	for (int i = 0; i < vmc.size(); i++) {
+		CCLOG("vmc[%d].question : %s and correctAnswer : %s ",i,vmc[i].question.c_str(),vmc[i].answers[vmc[i].correctAnswer].c_str());
+		for (int j = 0; j < vmc[i].answers.size(); j++) {
+			CCLOG("		answer[%d] : %s",j,vmc[i].answers[j].c_str());
+		}
+	}
+
+
 	_correctAnswerFromVmc = _vmc[letterBoardAlphaLength].answers[_vmc[letterBoardAlphaLength].correctAnswer];
 	tempChar = _vmc[letterBoardAlphaLength].question;
 
@@ -71,6 +79,11 @@ void EndlessRunner::GameBegin(cocos2d::EventCustom *eventCustom) {
 	_letterStream = multipleChoices[0];
 	std::random_shuffle(_letterStream.begin(), _letterStream.end());
 
+	CCLOG("Generate Matrix For Choosing ... line 82");
+
+	for (int i = 0; i < _letterStream.size(); i++) {
+		CCLOG("choices on egg %d : %s", i, _letterStream[i].c_str());
+	}
 
 	//end
 	auto bgLayerGradient = LayerGradient::create(Color4B(255, 255, 255, 255), Color4B(255, 255, 255, 255));
@@ -119,10 +132,15 @@ void EndlessRunner::GameBegin(cocos2d::EventCustom *eventCustom) {
 	boardDisplay->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
 	this->addChild(boardDisplay, 10);
 
-	letterOnBoard = Alphabet::createWithSize(tempChar, 300);
+	letterOnBoard = CommonLabelTTF::create(tempChar,"Helvetica" , 150);
+	float fontSize = std::max(float(50.0), float(150 - (tempChar.length() - 1) * 15));
+	if (fontSize < 50 || fontSize > 150) {
+		fontSize = 50.0f;
+	}
+	letterOnBoard->setFontSize(fontSize);
 	letterOnBoard->setName("mainBoard");
 	letterOnBoard->setPosition(Vec2((visibleSize.width / 2) + origin.x, (visibleSize.height + origin.y) - (visibleSize.height * 0.07)));
-	letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
+	//letterOnBoard->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 	this->addChild(letterOnBoard, 10);
 
 	EndlessRunner::beforeInitBackgroundScene();
@@ -339,6 +357,9 @@ void EndlessRunner::startingIntersectMode() {
 			Rect newLetterBox = Rect(letteBox.origin.x-30, letteBox.origin.y+(letteBox.size.height/2), letteBox.size.width,30);
 			letteBox = newLetterBox;
 		}
+
+		auto letterValueString = allLabels[i]->getString();
+
 		if (netBoxs.intersectsRect(letteBox))
 		{
 			if (allLabels[i]->getName() == _correctAnswerFromVmc) {
@@ -354,12 +375,12 @@ void EndlessRunner::startingIntersectMode() {
 				}
 
 				// If correct alphabet picked ......
-				_menuContext->pickWord(_correctAnswerFromVmc,allLabels[i]->getChar(), true);
+				_menuContext->pickWord(_correctAnswerFromVmc,allLabels[i]->getString(), true);
 				_menuContext->addPoints(1);
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getChar());
-				audio->playEffect(path.c_str(), false);
+				//auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getString());
+				//audio->playEffect(path.c_str(), false);
 
 				counterAlphabets = counterAlphabets + 2;
 				_totalCounterAlphabets++;
@@ -374,7 +395,7 @@ void EndlessRunner::startingIntersectMode() {
 						letterBoardAlphaLength++;
 						hpUiCatchAction->play("1", false);
 						tempChar = _vmc[letterBoardAlphaLength].question;
-						letterOnBoard->updateChar(tempChar);
+						letterOnBoard->setString(tempChar);
 						letterOnBoard->setString(tempChar);
 						counterAlphabets = 0;
 						//letters = CharGenerator::getInstance()->generateMatrixForChoosingAChar(tempChar, 1, 21, 70, _caseSensitivity);
@@ -387,6 +408,12 @@ void EndlessRunner::startingIntersectMode() {
 						_letterStream = multipleChoices[0];
 						std::random_shuffle(_letterStream.begin(), _letterStream.end());
 						
+						CCLOG("Generate Matrix For Choosing ... line 404");
+
+						for (int i = 0; i < _letterStream.size(); i++) {
+							CCLOG("choices on egg %d : %s", i, _letterStream[i].c_str());
+						}
+
 						counterLetter = 0;
 
 					}
@@ -424,7 +451,7 @@ void EndlessRunner::startingIntersectMode() {
 			}
 			else {
 				// If wrong alphabet picked ...
-				_menuContext->pickWord(_correctAnswerFromVmc, allLabels[i]->getChar(), true);
+				_menuContext->pickWord(_correctAnswerFromVmc, allLabels[i]->getString(), true);
 				_menuContext->addPoints(-1);
 
 				hpUi->getChildByName("happy_mad")->setScale(1);
@@ -440,8 +467,8 @@ void EndlessRunner::startingIntersectMode() {
 				}
 
 				auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
-				auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getChar());
-				audio->playEffect(path.c_str(), false);
+				//auto path = LangUtil::getInstance()->getAlphabetSoundFileNameForString(allLabels[i]->getString());
+				//audio->playEffect(path.c_str(), false);
 				if (popUp) {
 					auto highScale = CallFunc::create([=]() { happyManAction->play("change_happy_mad", false); });
 					auto smallScale = CallFunc::create([=]() {happyManAction->play("mad_idle", true); });
@@ -475,11 +502,14 @@ void EndlessRunner::startingIntersectMode() {
 
 			if (boxs.intersectsRect(allBeforeStartBlocks[i]->getBoundingBox())) {
 				flagLifeDemo = false;
-				counterLife = counterLife - 1;
-				std::ostringstream sstreamc; sstreamc << "life_" << counterLife; std::string counterLife = sstreamc.str();
-				hpUi->getChildByName(counterLife)->stopAllActions();
-				hpUi->getChildByName(counterLife)->getChildByName("life_on")->setVisible(false);
-				hpUi->getChildByName(counterLife)->getChildByName("life_off")->setVisible(true);
+
+				if (counterLife > 1) {
+					counterLife = counterLife - 1;
+					std::ostringstream sstreamc; sstreamc << "life_" << counterLife; std::string counterLifeString = sstreamc.str();
+					hpUi->getChildByName(counterLifeString)->stopAllActions();
+					hpUi->getChildByName(counterLifeString)->getChildByName("life_on")->setVisible(false);
+					hpUi->getChildByName(counterLifeString)->getChildByName("life_off")->setVisible(true);
+				}
 				auto upVisible = CallFunc::create([=]() {
 					Character.character->setVisible(false);
 				});
@@ -839,11 +869,20 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 			_flagLetter = false;
 		}
 
-		auto label = Alphabet::createWithSize(str, 300);
+		auto label = CommonLabelTTF::create(str, "Helvetica",150);
+
+		auto fontSize = std::max(float(30.0), float(150 - (str.length() - 1) * 13));
+		if (fontSize <= 50.0f || fontSize > 150.0f) {
+			fontSize = 60.0f;
+		}
+
+		label->setFontSize(fontSize);
 		label->setName(str);
-		label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
+		//label->enableShadow(Color4B::BLACK, Size(8, -6), 5);
 		label->setTag(Character.uniqueId);
 		monsterImage->setTag(Character.uniqueId);
+
+		CCLOG("NEW MONSTER WORD GENERATED : %s and FontSize : %f ", label->getString().c_str(), fontSize);
 
 		if (!startSecondFlag) {
 			startSecondFlag = true;
@@ -880,6 +919,8 @@ void EndlessRunner::CreateMonsterWithLetter(float dt) {
 		this->addChild(label, 9);
 		monsterImage->runAction(MoveTo::create((monsterImage->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, monsterImage->getPosition().y)));
 		label->runAction(MoveTo::create((label->getPosition().x + std::abs(leftBarrier->getPosition().x)) / LayerMode.PathMovingSpeed, Vec2(leftBarrier->getPosition().x + origin.x, label->getPosition().y)));
+
+		CCLOG("MONSTER GENERATED SUCCESSFULLY and TAG %d", monsterImage->getTag());
 
 		Character.uniqueId = Character.uniqueId + 1;
 		allMonster.push_back(monsterImage);

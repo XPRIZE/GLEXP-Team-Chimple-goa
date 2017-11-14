@@ -30,7 +30,7 @@ SmashTheRock::~SmashTheRock()
 }
 Scene* SmashTheRock::createScene()
 {
-	
+	CCLOG("---------------START  createScene   METHOD ----------------------");
 	// 'scene' is an autorelease object
 	auto scene = Scene::create();
 
@@ -43,7 +43,7 @@ Scene* SmashTheRock::createScene()
     layer->menu = MenuContext::create(layer, SmashTheRock::gameName());
     scene->addChild(layer->menu);
     
-
+	CCLOG("---------------END  createScene   METHOD ----------------------");
 	// return the scene
 	return scene;
 }
@@ -78,8 +78,10 @@ bool SmashTheRock::init()
 
 void SmashTheRock::onEnterTransitionDidFinish() {
 	
+	CCLOG("---------------START  onEnterTransitionDidFinish   METHOD ----------------------");
 	_eventDispatcher->addCustomEventListener("multipleChoiceQuiz", CC_CALLBACK_1(SmashTheRock::startGame, this));
-	_lesson.getMultiChoices(1, 5);
+	_lesson.getMultiChoices(1, 5, UPPER_CASE_LETTER_FORMAT, UPPER_CASE_LETTER_FORMAT);
+	CCLOG("---------------END  onEnterTransitionDidFinish   METHOD ----------------------");
 }
 
 void SmashTheRock::update(float dt)
@@ -90,10 +92,21 @@ void SmashTheRock::update(float dt)
 
 void SmashTheRock::startGame(cocos2d::EventCustom *eventCustom)
 {
+	CCLOG("---------------START  startGame   METHOD ----------------------");
 	CCLOG("onLessonReady begin");
 	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+
+	if (vmc.size() <= 0 || vmc[0].answers.size() <= 0) {
+		CCLOG("THE VMC DATA IS INCORRECT !!!!!! ");
+		this->runAction(Sequence::create(DelayTime::create(3), CallFunc::create([=]() {
+			Director::getInstance()->replaceScene(TransitionFade::create(2.0, MainMenuHome::createScene(), Color3B::BLACK));
+		}), NULL));
+	}
+	else {
+		CCLOG("VMC DATA SIZE IS GREATER THAN 0 ");
+	}
 
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
@@ -221,6 +234,7 @@ void SmashTheRock::startGame(cocos2d::EventCustom *eventCustom)
 	if (menu->getCurrentLevel() == 1 && click == 0) {
 		gameHelp();
 	}
+	CCLOG("---------------END  startGame   METHOD ----------------------");
 }
 void SmashTheRock::gameHelp()
 {
@@ -271,7 +285,7 @@ void SmashTheRock::jump()
 
 void SmashTheRock :: hit()
 {
-	
+	CCLOG("---------------START  hit   METHOD ----------------------");
 	auto boxLeft = centre->getChildByName("boxing_gloves_left");
 	auto action = MoveBy::create(0.25, Point(-250, 250));
 	auto rev = action->reverse();
@@ -287,12 +301,13 @@ void SmashTheRock :: hit()
 	boxLeft->runAction(seq);
 	//masking();
 	
-	
+	CCLOG("---------------END  hit   METHOD ----------------------");
 }
 
 
 void SmashTheRock::blast()
-{   
+{
+	CCLOG("---------------START  blast   METHOD ----------------------");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
@@ -317,10 +332,11 @@ void SmashTheRock::blast()
 		}
 		
 	}
-
+	CCLOG("---------------END  blast   METHOD ----------------------");
 }
 void SmashTheRock::masking()
 {
+	CCLOG("---------------START  masking   METHOD ----------------------");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Vec2 origin = Director::getInstance()->getVisibleOrigin();
     
@@ -368,7 +384,7 @@ void SmashTheRock::masking()
 		this->scheduleOnce(schedule_selector(SmashTheRock::change), 2.0f);
 		
 	}
-
+	CCLOG("---------------END  masking   METHOD ----------------------");
 }
 void SmashTheRock::change(float dt)
 {

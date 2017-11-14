@@ -33,6 +33,15 @@ map<string, string> MatrixUtil::questionToAnswerMapping(vector<Lesson::MultiChoi
     return mapping;
 }
 
+vector<pair<string, string>> MatrixUtil::questionToAnswerVector(vector<Lesson::MultiChoice> vmc) {
+    vector<pair<string, string>> ret;
+    int i = 0;
+    for(auto const& value: vmc) {
+        ret.insert(ret.begin() + i++ , pair<string, string>(value.question, value.answers[value.correctAnswer]));
+    }
+    return ret;
+}
+
 vector<vector<string>> MatrixUtil::generateMatrix(vector<string> answer, vector<string> choices, int numRows, int numCols) {
     int wordLength = answer.size();
     int matrixLength = numRows * numCols;

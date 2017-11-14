@@ -62,7 +62,7 @@ void PatchTheWall::gameBegin(cocos2d::EventCustom *eventCustom) {
 	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
-
+	_vmc = vmc;
 
 	vector<string> suffleVmcData;
 	int counterVmc = 0;
@@ -83,6 +83,19 @@ void PatchTheWall::gameBegin(cocos2d::EventCustom *eventCustom) {
 		}
 	}
 
+	int maxLengthWord = 0;
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		
+		if (maxLengthWord < _vmc[i].question.length()) {
+			maxLengthWord = _vmc[i].question.length();
+		}
+		if (maxLengthWord < _vmc[i].answers[_vmc[i].correctAnswer].length()) {
+			maxLengthWord = _vmc[i].answers[_vmc[i].correctAnswer].length();
+		}
+	}
+
+
 	float _gridY = visibleSize.height * .19;
 	for (int i = 0; i < 5; i++)
 	{
@@ -96,7 +109,12 @@ void PatchTheWall::gameBegin(cocos2d::EventCustom *eventCustom) {
 			this->addChild(SpriteDetails._sprite);
 			SpriteDetails._sprite->setColor(Color3B(205, 133, 63));
 
-			auto aplhabets = CommonLabel::createWithTTF(_matrix[j][i], "fonts/Roboto-Regular.ttf", 170);
+			auto aplhabets = CommonLabelTTF::create(_matrix[j][i], "fonts/Roboto-Regular.ttf", 120);
+			float fontSize = std::max(float(30.0), float(130 - (maxLengthWord - 1) * 18));
+			if (fontSize <= 30.0f) {
+				fontSize = 45.0f;
+			}
+			aplhabets->setFontSize(fontSize);
 			SpriteDetails._label = aplhabets;
 
 			SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
@@ -192,7 +210,7 @@ void PatchTheWall::addEvents(struct SpriteDetails sprite)
         {
             Rect _patchRect = _patchDetails.at(i)._label->getBoundingBox();
             
-            if (_patchRect.intersectsRect(_targetRect) && _spriteDetails.at(_index)._id == _patchDetails.at(i)._id)
+            if (_patchRect.intersectsRect(_targetRect) && checkAnswer(_spriteDetails.at(_index)._label->getString(), _patchDetails.at(i)._label->getString()))//(_spriteDetails.at(_index)._id == _patchDetails.at(i)._id))
             {
                 _spriteDetails.at(_index)._label->runAction(Sequence::create(MoveTo::create(.2, Vec2(_patchDetails.at(i)._label->getPositionX(), _patchDetails.at(i)._label->getPositionY())),
                                                                              CallFunc::create([=] {
@@ -293,15 +311,31 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
     
 	_position.erase(_position.begin() + _randomPosition);
 
-    int _randomRow = cocos2d::RandomHelper::random_int(0, 4);
-    int _randomCol = cocos2d::RandomHelper::random_int(0, 1);
+	auto randomIndex = cocos2d::RandomHelper::random_int(0, 9);
+	auto text = _vmc[randomIndex].answers[_vmc[randomIndex].correctAnswer];
 
-	auto aplhabets = CommonLabel::createWithTTF(_matrix[_randomCol][_randomRow], "fonts/Roboto-Regular.ttf", 170);
+	int maxLengthWord = 0;
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		if (maxLengthWord < _vmc[i].answers[_vmc[i].correctAnswer].length()) {
+			maxLengthWord = _vmc[i].answers[_vmc[i].correctAnswer].length();
+		}
+		if (maxLengthWord < _vmc[i].question.length()) {
+			maxLengthWord = _vmc[i].question.length();
+		}
+	}
+
+	auto aplhabets = CommonLabelTTF::create(text, "fonts/Roboto-Regular.ttf", 120);
+	float fontSize = std::max(float(30.0), float(130 - (maxLengthWord - 1) * 18));
+	if (fontSize <= 30.0f || fontSize > 150.0f) {
+		fontSize = 45.0f;
+	}
+	aplhabets->setFontSize(fontSize);
 	SpriteDetails._label = aplhabets;
 
     SpriteDetails._label->setPosition(Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
     this->addChild(SpriteDetails._label);
-    SpriteDetails._id = _matrix[_randomCol][_randomRow];
+    SpriteDetails._id = text;
     SpriteDetails.xP = SpriteDetails._sprite->getPositionX();
     SpriteDetails.yP = SpriteDetails._sprite->getPositionY();
     SpriteDetails._sequence = _randomPosition;
@@ -312,7 +346,7 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
     {
         for (int i = 0; i < _spriteDetails.size(); i++)
         {
-            if (SpriteDetails._id == _spriteDetails.at(i)._id)
+            if (checkAnswer(_spriteDetails.at(i)._id,SpriteDetails._id))
             {
                 _help = HelpLayer::create(Rect(_spriteDetails.at(i)._sprite->getPositionX(), _spriteDetails.at(i)._sprite->getPositionY(), _spriteDetails.at(i)._sprite->getContentSize().width, _spriteDetails.at(i)._sprite->getContentSize().height), Rect(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY(), SpriteDetails._sprite->getContentSize().width, SpriteDetails._sprite->getContentSize().height));
                 _help->clickAndDrag(Vec2(_spriteDetails.at(i)._sprite->getPositionX(), _spriteDetails.at(i)._sprite->getPositionY()), Vec2(SpriteDetails._sprite->getPositionX(), SpriteDetails._sprite->getPositionY()));
@@ -323,4 +357,17 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
             }
         }
     }
+}
+
+
+bool PatchTheWall::checkAnswer(string questionText, string answerText) {
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		if (_vmc[i].question.compare(questionText) == 0) {
+			if (_vmc[i].answers[_vmc[i].correctAnswer].compare(answerText) == 0) {
+				return true;
+			}
+		}
+	}
+	return false;
 }

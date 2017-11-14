@@ -72,7 +72,7 @@ void BasicLetterCase::setSpriteProperties(Node* ImageObject, float positionX, fl
 CommonLabelTTF* BasicLetterCase::createText(string text,string name,float positionX , float positionY) {
 	auto label = CommonLabelTTF::create(text, "Helvetica", 150);
 	label->setColor(Color3B::BLACK);
-	label->setScale(1);
+//	label->setFontSize(std::max(float(50.0), float(150 - (text.length() - 1) * 10)));
 	label->setPosition(Vec2(positionX , positionY));
 	label->setName(name);
 	return label;
@@ -83,12 +83,12 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
     CCLOG("onLessonReady begin");
     std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
     CCLOG("onLessonReady to unmarshallMultiChoices");
-    vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
+    _vmc = Lesson::unmarshallMultiChoices(buf);
 
-	for (int i = 0; i < vmc.size(); i++) {
-		CCLOG("vmc : %d question -> %s , correctAnswer index : %d  , correctAnswer value : %s",i,vmc[i].question.c_str(),vmc[i].correctAnswer,vmc[i].answers[vmc[i].correctAnswer].c_str());
-		for (int j = 0; j < vmc[i].answers.size(); j++) {
-			CCLOG("%d answerchoice -> %s\n", j, vmc[i].answers[j].c_str());
+	for (int i = 0; i < _vmc.size(); i++) {
+		CCLOG("vmc : %d question -> %s , correctAnswer index : %d  , correctAnswer value : %s",i, _vmc[i].question.c_str(),_vmc[i].correctAnswer,_vmc[i].answers[_vmc[i].correctAnswer].c_str());
+		for (int j = 0; j < _vmc[i].answers.size(); j++) {
+			CCLOG("%d answerchoice -> %s\n", j, _vmc[i].answers[j].c_str());
 		}
 	}
 
@@ -96,18 +96,22 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 	auto indexCream = getRandomValueRange(1, 9, 4);
 	float positionX[] = { 0.20 , 0.40 , 0.60 , 0.80};
 
-    auto mapping = MatrixUtil::questionToAnswerMapping(vmc);
     vector<string> coneLetter, creamLetter;
 	
-	
-	for (std::map<std::string, std::string>::iterator it = mapping.begin(); it != mapping.end(); ++it) {
-		CCLOG("map -> key :%s , value :%s",it->first.c_str(),it->second.c_str());
+	// Get all Upper and Lower Case from API ....
+	for (int i = 0; i < _vmc.size(); i++) {
+		coneLetter.push_back(_vmc[i].question);
+		creamLetter.push_back(_vmc[i].answers[_vmc[i].correctAnswer]);
 	}
 
-	// Get all Upper and Lower Case from API ....
-	for (int i = 0; i < vmc.size(); i++) {
-		coneLetter.push_back(vmc[i].question);
-		creamLetter.push_back(vmc[i].answers[vmc[i].correctAnswer]);
+	int maxLengthSize = 0;
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		auto text = _vmc[i].answers[_vmc[i].correctAnswer];
+
+		if (maxLengthSize < text.length()) {
+			maxLengthSize = text.length();
+		}
 	}
 
     std::random_shuffle(coneLetter.begin(),coneLetter.end());
@@ -123,8 +127,15 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 		addChild(cone);
 
 		// coneAlphabet and Text config ...
-		auto coneText = createText(coneLetter[i], mapping.at(coneLetter[i]) ,0,0);
-		cone->setName(mapping.at(coneLetter[i]));
+		auto coneText = createText(coneLetter[i], coneLetter[i],0,0);
+
+		float fontSize = std::max(float(50.0), float(150 - (maxLengthSize - 1) * 10));
+		if (fontSize < 40.0f || fontSize > 150.0f) {
+			fontSize = 60.0f;
+		}
+
+		coneText->setFontSize(fontSize);
+		cone->setName(coneLetter[i]);
 		cone->setTag( 100 + i);
 		cone->addChild(coneText);
 
@@ -138,10 +149,23 @@ void BasicLetterCase::createIceCreams(cocos2d::EventCustom *eventCustom) {
 
 		//cream alphabet and TextLabel config ...
 		auto creamText = createText(creamLetter[i], creamLetter[i] , 0, 20);
+		creamText->setFontSize(fontSize);
 		cream->addChild(creamText);
 		cream->setName(creamLetter[i]);
 		addEventsOnCream((Sprite*)cream->getChildByName("icecream"));
 	}
+}
+
+bool BasicLetterCase::checkAnswer(string creamText , string coneText) {
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		if (_vmc[i].question.compare(creamText) == 0) {
+				if (_vmc[i].answers[_vmc[i].correctAnswer].compare(coneText) == 0 ) {
+					return true;
+			}
+		}
+	}
+	return false;
 }
 
 vector<int> BasicLetterCase::getLettersAccordingToLevels() {
@@ -229,7 +253,7 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
 					_counterTotalHit++;
 					flag = false;
-					if (target->getParent()->getName().compare(cone->getName()) == 0) {
+					if (checkAnswer(cone->getName(), target->getParent()->getName()) && (cone->getTag() > 0)) {
 						CCLOG("CORRECT");
 
 						audio->playEffect("sounds/sfx/success.ogg", false);
@@ -237,6 +261,7 @@ void BasicLetterCase::addEventsOnCream(cocos2d::Sprite* callerObject)
 
 						_counterGameDone++;
 						target->getParent()->setTag(-1);
+						cone->setTag(-1);
 						target->getParent()->getChildByName("cherry")->setVisible(true);
 						auto y = cone->getChildByName("cone")->getContentSize().height*0.5;
 						target->getParent()->runAction(MoveTo::create(0.5, Vec2(cone->getPositionX(),cone->getPositionY()+ y)));

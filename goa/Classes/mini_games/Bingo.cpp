@@ -29,11 +29,13 @@ bool Bingo::init()
 
 void Bingo::onEnterTransitionDidFinish()
 {
-	if (_lesson.getComplexity() >= 0.0f && _lesson.getComplexity() <= 0.33f)
+	auto complexity = ((float)_menuContext->getCurrentLevel()) / 50.0f;
+
+	if (complexity >= 0.0f && complexity <= 0.33f)
 	{
 		_gridDimension = 0; _pairNo = 9;
 	}
-	else if (_lesson.getComplexity() >= 0.34f && _lesson.getComplexity() <= 0.66f)
+	else if (complexity >= 0.34f && complexity <= 0.66f)
 	{
 		_gridDimension = 1; _pairNo = 16;
 	}
@@ -258,7 +260,7 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 	std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
 	CCLOG("onLessonReady to unmarshallMultiChoices");
 	vector<Lesson::MultiChoice> vmc = Lesson::unmarshallMultiChoices(buf);
-
+	_vmc = vmc;
 	for (int i = 0; i < vmc.size(); i++) {
 		CCLOG("vmc : %d question -> %s , correctAnswer index : %d  , correctAnswer value : %s", i, vmc[i].question.c_str(), vmc[i].correctAnswer, vmc[i].answers[vmc[i].correctAnswer].c_str());
 		for (int j = 0; j < vmc[i].answers.size(); j++) {
@@ -267,7 +269,7 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 	}
 
 	// _data = MatrixUtil::questionToAnswerMapping(vmc);
-	auto dataMapping = MatrixUtil::questionToAnswerMapping(vmc);
+	auto dataMapping = MatrixUtil::questionToAnswerVector(vmc);
 	_labelPrefix = vmc[0].help + " : ";
 
 	/*	 for (int i = 0; i < _pairNo; i++)
@@ -376,16 +378,18 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 		auto myGameWidth = (visibleSize.width - 2560) / 2;
 		bingoBackground->setPositionX(myGameWidth);
 	}
-
-	for (std::map<std::string, std::string>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
-		_data_keys.push_back(it->first);
-	}
 	_data_values.clear();
 	_data_values.resize(0);
-	for (std::map<std::string, std::string>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
-		_data_values.push_back(it->second);
+	for (vector<pair<string, string>>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
+		_data_values.push_back(it->first);
 	}
-
+	_data_keys.clear();
+	_data_keys.resize(0);
+	for (vector<pair<string, string>>::iterator it = dataMapping.begin(); it != dataMapping.end(); ++it) {
+		_data_keys.push_back(it->second);
+	}
+	/*_data_keys = { "A", "A", "A", "A", "A", "A", "A", "A", "A" };
+	_data_values = { "App", "Apple", "Adog","Acat","Amat","AMCAT","Aball","Abat","Ahorse" };*/
 	std::vector<int> randomIndex;
 	int dataMapSizeValue = _data_keys.size() - 1;
 
@@ -494,7 +498,8 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 		addY = addY + box->getBoundingBox().size.height + _boxBoard->getBoundingBox().size.width *0.013;
 		addX = _boxBoard->getBoundingBox().size.width * _gridBasedValue.at("addXFactor");
 	}
-	if (_menuContext->getCurrentLevel() == 1)
+	bool flagForOut = false;
+	if (_menuContext->getCurrentLevel() == 1 )
 	{
 		for (int i = 0; i < _boxContainer.size(); i++)
 		{
@@ -505,8 +510,13 @@ void Bingo::createGameSetupAndLayout(cocos2d::EventCustom *eventCustom)
 				if (str.compare(str1) == 0)
 				{
 					creatHelp(_boxContainer[i][j], _helpBoard, i, j);
+					flagForOut = true;
 				}
+				if(flagForOut)
+					break;
 			}
+				if(flagForOut)
+					break;
 		}
 	}
 	/*Vector <Node*> children = bingoBackground->getChildren().at(0)->getChildren();
@@ -616,8 +626,8 @@ void Bingo::addEvents(Sprite* clickedObject)
 				_flagForSingleTouch = false;
 				bool bingo = false;
 				bool needLabel = false;
-				std::string helpLabelPair = target->getChildren().at(0)->getName();
-				if (helpLabelPair.compare(_label->getName()) == 0)
+				std::string helpLabelPair = ((CommonLabelTTF*)target->getChildren().at(0))->getString();
+				if (checkAnswer(_label->getName(), helpLabelPair))
 				{
 					auto answer = ((CommonLabelTTF*)target->getChildren().at(0))->getString();
 					_menuContext->wordPairList(_label->getName(), answer);
@@ -893,4 +903,16 @@ std::string Bingo::getConvertInUpperCase(std::string data)
 		i++;
 	}
 	return blockName.str();
+}
+
+bool Bingo::checkAnswer(string boardText, string choiceText) {
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		if (_vmc[i].question.compare(boardText) == 0) {
+			if (_vmc[i].answers[_vmc[i].correctAnswer].compare(choiceText) == 0) {
+				return true;
+			}
+		}
+	}
+	return false;
 }

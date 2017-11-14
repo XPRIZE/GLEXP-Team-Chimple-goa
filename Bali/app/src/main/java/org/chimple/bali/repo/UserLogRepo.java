@@ -30,16 +30,23 @@ import java.util.Date;
 
 public class UserLogRepo {
     //TODO: for now a hack to do wothout observe
-    public static void logEntity(Context context, int entityType, Long entityId, int event) {
+    public static void logEntity(Context context, int entityType, Long entityId, int event, String name) {
         new AsyncTask<Context, Void, Void>() {
             @Override
             protected Void doInBackground(Context... params) {
                 Context context1 = params[0];
-                UserLog userLog = new UserLog(new Date(), entityType, entityId, event);
+                UserLog userLog = new UserLog(new Date(), entityType, entityId, event, name);
                 AppDatabase.getInstance(context1).userLogDao().insertUserLog(userLog);
                 return null;
             }
         }.execute(context);
     }
 
+    public static UserLog[] getUserLogs(Context context) {
+        return AppDatabase.getInstance(context).userLogDao().getUserLogs();
+    }
+
+    public static void deleteAllUserLogs(Context context) {
+        AppDatabase.getInstance(context).userLogDao().deleteAllUserLogs();
+    }
 }

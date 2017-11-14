@@ -32,6 +32,7 @@ CC_CONSTRUCTOR_ACCESS:
 	void pauseAllActiveListeners();
 	void resumeAllActiveListeners();
 	bool checkMatch();
+	bool checkAnswer(string questionText, string answerText);
 	void chickenFly();
 	void removecurrentlabelsandlisteners();
 	void generateRandomNumbers();
@@ -49,6 +50,7 @@ protected:
 	void addGrid(float sizex, float sizey, float posx, float posy);
 	std::vector<std::string> _data_key;
 	std::vector<std::string> _data_value;
+	vector<Lesson::MultiChoice> _vmc;
 	Node *_background;
 	Node * _chicken;
 	Node * _mainground;

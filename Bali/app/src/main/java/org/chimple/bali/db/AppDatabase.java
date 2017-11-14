@@ -28,6 +28,7 @@ import android.support.annotation.VisibleForTesting;
 import android.util.Log;
 
 import org.chimple.bali.R;
+import org.chimple.bali.application.BaliApplication;
 import org.chimple.bali.db.converter.DateConverter;
 import org.chimple.bali.db.dao.LessonDao;
 import org.chimple.bali.db.dao.LessonUnitDao;
@@ -45,6 +46,7 @@ import org.chimple.bali.db.entity.User;
 import org.chimple.bali.db.entity.UserLesson;
 import org.chimple.bali.db.entity.UserLog;
 import org.chimple.bali.db.entity.UserUnit;
+import org.chimple.bali.repo.UserRepo;
 import org.xml.sax.InputSource;
 
 import java.io.BufferedReader;
@@ -100,7 +102,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     AssetManager assetManager = context.getAssets();
                     InputStream inputStream = null;
                     try {
-                        inputStream = assetManager.open("swa/database.csv");
+                        inputStream = assetManager.open("eng/database.csv");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -111,7 +113,7 @@ public abstract class AppDatabase extends RoomDatabase {
                     try {
                         while ((line = bufferedReader.readLine()) != null) {
                             String[] columns = line.split(",");
-                            if(columns.length < 1) {
+                            if (columns.length < 1) {
                                 Log.d("AppDatabase", "Skipping bad row");
                             }
                             switch (columns[0]) {
@@ -157,6 +159,7 @@ public abstract class AppDatabase extends RoomDatabase {
                             }
                         }
                         setTransactionSuccessful();
+                        BaliApplication.INITIAL_COIN = UserRepo.getCurrentUser(context).coins;
                     } catch (IOException e) {
                         e.printStackTrace();
                     } finally {
@@ -170,16 +173,14 @@ public abstract class AppDatabase extends RoomDatabase {
     }
 
 
-/**
- * Switches the internal implementation with an empty in-memory database.
- *
- * @param context The context.
- */
-@VisibleForTesting
-public static void switchToInMemory(Context context){
-        sInstance=Room.inMemoryDatabaseBuilder(context.getApplicationContext(),
-        AppDatabase.class).build();
-        }
-
-
-        }
+    /**
+     * Switches the internal implementation with an empty in-memory database.
+     *
+     * @param context The context.
+     */
+    @VisibleForTesting
+    public static void switchToInMemory(Context context) {
+        sInstance = Room.inMemoryDatabaseBuilder(context.getApplicationContext(),
+                AppDatabase.class).build();
+    }
+}

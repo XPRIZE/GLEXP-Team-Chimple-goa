@@ -22,6 +22,7 @@ import android.os.AsyncTask;
 
 import org.chimple.bali.R;
 import org.chimple.bali.db.AppDatabase;
+import org.chimple.bali.db.entity.User;
 import org.chimple.bali.db.entity.UserLesson;
 
 import java.util.Date;
@@ -33,14 +34,16 @@ public class UserLessonRepo {
             protected Void doInBackground(Context... params) {
                 Context context = params[0];
                 final AppDatabase db = AppDatabase.getInstance(context);
-                SharedPreferences sharedPref = context.getSharedPreferences(
-                        context.getString(R.string.preference_file_key),
-                        Context.MODE_PRIVATE);
-                Long userId = sharedPref.getLong(context.getString(R.string.user_id), -1);
-                if (userId != -1) {
-                    UserLesson userLesson = db.userLessonDao().getUserLessonByUserIdAndLessonId(userId, lessonId);
+                User user = UserRepo.getCurrentUser(context);
+                if (user != null) {
+                    Long userId = user.id;
+                    Long computedLessonId = lessonId;
+                    if(computedLessonId == 0) {
+                        computedLessonId = user.currentLessonId;
+                    }
+                    UserLesson userLesson = db.userLessonDao().getUserLessonByUserIdAndLessonId(userId, computedLessonId);
                     if (userLesson == null) {
-                        userLesson = new UserLesson(userId, lessonId, new Date(), 1, score == -1 ? 0 : score);
+                        userLesson = new UserLesson(userId, computedLessonId, new Date(), 1, score == -1 ? 0 : score);
                         db.userLessonDao().insertUserLesson(userLesson);
                     } else {
                         userLesson.seenCount++;

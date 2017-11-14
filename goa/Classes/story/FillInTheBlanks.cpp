@@ -94,6 +94,10 @@ void FillInTheBlanks::buttonSelected(cocos2d::Ref* pSender, cocos2d::ui::Widget:
                 CocosDenshion::SimpleAudioEngine::getInstance()->playEffect("sounds/sfx/success.ogg");
                 auto bg = getChildByName("bg");
                 auto qNode = bg->getChildByName<TextField*>("TextField_2");
+                auto soundButton = clickedButton->getParent()->getChildByName("sound_button");
+                if(soundButton != nullptr) {
+                    soundButton->removeFromParentAndCleanup(true);
+                }                
                 clickedButton->runAction(Spawn::createWithTwoActions(MoveTo::create(1.0f, qNode->getPosition()), FadeOut::create(1.0f)));
                 runAction(Sequence::create(DelayTime::create(1.0f), CallFunc::create([=]() {
                     auto bg = getChildByName("bg");

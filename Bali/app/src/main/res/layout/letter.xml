@@ -1,28 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:cardBackgroundColor="@android:color/holo_blue_light"
-    app:cardCornerRadius="5dp"
-    app:cardElevation="5dp"
-    app:cardUseCompatPadding="true">
+    android:elevation="20dp">
+
+    <ImageView
+        android:id="@+id/soundFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/letter"
+        app:layout_constraintTop_toTopOf="@+id/letter"
+        android:src="@android:drawable/ic_lock_silent_mode_off" />
+
     <TextView
         android:id="@+id/letter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginTop="0dp"
+        android:elevation="20dp"
+        android:fontFamily="sans-serif"
         android:text="A"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
-        android:textSize="144sp" />
+        android:textColor="@color/primaryTextColor"
+        android:textSize="72sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/soundFab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top|right"
-        android:layout_margin="@dimen/fab_margin"
-        android:clickable="true"
-        app:fabSize="normal"
-        app:srcCompat="@android:drawable/ic_lock_silent_mode_off" />
-</android.support.v7.widget.CardView>
+</android.support.constraint.ConstraintLayout>

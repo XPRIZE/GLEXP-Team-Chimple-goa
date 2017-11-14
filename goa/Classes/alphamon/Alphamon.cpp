@@ -10,6 +10,7 @@
 #include "../effects/FShake.h"
 #include "editor-support/cocostudio/CocoStudio.h"
 #include "../lang/LangUtil.h"
+#include "../menu/MenuContext.h"
 
 USING_NS_CC;
 
@@ -192,6 +193,7 @@ bool Alphamon::onTouchBegan(Touch* touch, Event* event){
     rect.setRect(rect.origin.x, rect.origin.y + rect.size.height / 3, rect.size.width, rect.size.height / 3);
     if(rect.containsPoint(n))
     {
+		MenuContext::pronounceWord(getAlphabet());
 //        CCLOG("onTouchBegan %c", _alphabet);
         return true; // to indicate that we have consumed it.
     }

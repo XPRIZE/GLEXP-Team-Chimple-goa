@@ -166,7 +166,7 @@ bool LevelMenu::initWithGame(std::string gameName) {
                 std::string _levelStatus;
                 localStorageGetItem(".unlock", &_levelStatus);
                 bool lockAll = true;
-                if (true || _levelStatus == "0") { // TODO: All levels unlocked for now
+                if (_levelStatus == "0") {
                     lockAll = false;
                 }
                 

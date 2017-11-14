@@ -4,72 +4,79 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primaryColor"
     android:columnCount="3"
     android:gravity="center"
     android:orientation="horizontal"
     android:rowCount="2"
     android:useDefaultMargins="false"
-    tools:context="org.chimple.bali.MainActivity"
+    tools:context="org.chimple.bali.MainActivityUnused"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="81dp">
 
     <ImageButton
         android:id="@+id/learnButton"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
         android:layout_gravity="center"
         android:layout_rowWeight="1"
         android:onClick="startActivity"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@mipmap/learning" />
 
     <ImageButton
         android:id="@+id/goaButton"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
         android:layout_gravity="center"
         android:layout_rowWeight="1"
         android:onClick="startActivity"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@mipmap/chimple" />
 
     <ImageButton
         android:id="@+id/gamesButton"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
         android:layout_gravity="center"
         android:layout_rowWeight="1"
         android:onClick="startActivity"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@mipmap/games" />
 
     <ImageButton
         android:id="@+id/cameraButton"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
         android:layout_gravity="center"
         android:layout_rowWeight="1"
         android:onClick="startActivity"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@mipmap/camera" />
 
     <ImageButton
         android:id="@+id/galleryButton"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
         android:layout_gravity="center"
         android:layout_rowWeight="1"
         android:onClick="startActivity"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@mipmap/gallery" />
 
     <ImageButton
         android:id="@+id/musicButton"
+        style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_columnWeight="1"
         android:layout_gravity="center"
         android:layout_rowWeight="1"
         android:onClick="startActivity"
-        app:srcCompat="@mipmap/ic_launcher" />
+        app:srcCompat="@mipmap/music" />
 </android.widget.GridLayout>

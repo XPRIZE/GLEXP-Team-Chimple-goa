@@ -19,6 +19,13 @@ Scene* Pop::createScene()
 
 void Pop::onEnterTransitionDidFinish()
 {
+	auto ceilValueForLevelSelection = std::floor((((float)_menuContext->getCurrentLevel() / 50.0f) * 7.0f));
+	int complexity = 4 + ceilValueForLevelSelection;
+	_eventDispatcher->addCustomEventListener("bagOfChoiceQuiz", CC_CALLBACK_1(Pop::gameStart, this));
+	_lesson.getBag(1, 3, complexity, 24, 24, true);
+}
+void Pop::gameStart(cocos2d::EventCustom *eventCustom)
+{
 	CCSpriteFrameCache* framecache1 = CCSpriteFrameCache::sharedSpriteFrameCache();
 	framecache1->addSpriteFramesWithFile("pop/pop.plist");
 
@@ -57,7 +64,7 @@ void Pop::onEnterTransitionDidFinish()
 	// int length = wordForSentanceArray.length();
 
 	 // _convertIntoLessonConcept
-	 std::vector<Lesson::Bag> vmc;
+	 /*std::vector<Lesson::Bag> vmc;
 	 if (_lesson.getComplexity() >= 0 && _lesson.getComplexity() <= 1)
 	 {
 		 auto noOfLesson = RandomHelper::random_int(3, 4);
@@ -83,11 +90,16 @@ void Pop::onEnterTransitionDidFinish()
 		 auto noOfLesson = RandomHelper::random_int(8, 9);
 		 vmc = _lesson.getBag(noOfLesson, 1, 1, 0, 0, false);
 	 }
+*/
+	 CCLOG("onLessonReady begin");
+	 std::string* buf = static_cast<std::string*>(eventCustom->getUserData());
+	 CCLOG("onLessonReady to unmarshallBagOfChoices");
+	 vector<Lesson::Bag> vBag = Lesson::unmarshallBag(buf);
 
 	 std::vector<std::string> sentanceBin;
-	 for (size_t i = 0; i < vmc.size(); i++)
+	 for (size_t i = 0; i < vBag[0].answers.size(); i++)
 	 {
-		 sentanceBin.push_back(vmc[i].answers[0]);
+		 sentanceBin.push_back(vBag[0].answers[i]);
 	 }
 	 auto sentanceToDisplay = getConvertVectorStringIntoString(sentanceBin);
 	// _menuContext->setMaxPoints(vect.length()*1);
@@ -209,7 +221,7 @@ void Pop::onEnterTransitionDidFinish()
 }
 Pop::~Pop()
 {
-
+	this->getEventDispatcher()->removeCustomEventListeners("bagOfChoiceQuiz");
 }
 
 void Pop::update(float dt)

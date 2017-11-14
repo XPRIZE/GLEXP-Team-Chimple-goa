@@ -20,6 +20,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
@@ -32,6 +33,9 @@ public class UserLog {
 
     @Ignore
     public static final int UNIT_TYPE = 3;
+
+    @Ignore
+    public static final int GAME_TYPE = 4;
 
     @Ignore
     public static final int START_EVENT = 1;
@@ -56,15 +60,23 @@ public class UserLog {
 
     public int event;
 
+    public String name;
+
     @Ignore
-    public UserLog(Date loggedAt, int entityType, Long entityId, int event) {
+    public UserLog(Date loggedAt, int entityType, Long entityId, int event, String name) {
         this.loggedAt = loggedAt;
         this.entityType = entityType;
         this.entityId = entityId;
         this.event = event;
+        this.name = name;
     }
 
     public UserLog() {
 
+    }
+
+    @Override
+    public String toString() {
+        return this.entityType + "," + this.entityId + "," + this.event + "," + this.loggedAt + "," + this.name;
     }
 }

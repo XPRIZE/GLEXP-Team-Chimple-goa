@@ -304,7 +304,7 @@ void Shoot::update(float dt) {
 }
 
 void Shoot::choosingListner() {
-
+	
 	auto classRefer = this;
 	auto listener = cocos2d::EventListenerTouchOneByOne::create();
 	listener->setSwallowTouches(false);
@@ -338,7 +338,7 @@ void Shoot::choosingListner() {
 			auto boardText = classRefer->getChildByName("bg")->getChildByName("board")->getChildByName("board");
 
 		//	auto stringmap = ((CommonLabelTTF *)boardText)->getString();
-			if (classRefer->_correctAnswerVmc == ((CommonLabelTTF *)target->getChildByName(target->getName()))->getString()) {
+			if (checkAnswer(mapKey,((CommonLabelTTF *)target->getChildByName(target->getName()))->getString())) {
 
 				auto targetA = classRefer->getChildByName("bg")->getChildByName("targeta");
 				auto targetB = classRefer->getChildByName("bg")->getChildByName("targetb");
@@ -442,6 +442,19 @@ void Shoot::choosingListner() {
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), classRefer->getChildByName("bg")->getChildByName("targetb"));
 	_eventDispatcher->addEventListenerWithSceneGraphPriority(listener->clone(), classRefer->getChildByName("bg")->getChildByName("targetc"));
 }
+
+bool Shoot::checkAnswer(string creamText, string coneText) {
+
+	for (int i = 0; i < _vmc.size(); i++) {
+		if (_vmc[i].question.compare(creamText) == 0) {
+			if (_vmc[i].answers[_vmc[i].correctAnswer].compare(coneText) == 0) {
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
 
 void Shoot::bgListner() {
 	auto classRefer = this;
@@ -959,5 +972,6 @@ void Shoot::addEventsOnSpeaker(cocos2d::Sprite* callerObject)
 }
 Shoot::~Shoot(void)
 {
+    _eventDispatcher->removeCustomEventListeners("multipleChoiceQuiz");
 	this->removeAllChildrenWithCleanup(true);
 }
