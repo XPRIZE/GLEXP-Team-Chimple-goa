@@ -8,7 +8,7 @@ class ScoreCard extends Component {
     render(){
         return(
             <View style={styles.levelContainer}>
-                    <Text>Stars</Text>
+                  <Image source={require('../assets/star1.png')} /> 
                     <Text style={styles.highScore}>ScoreCard</Text>
                     <Text style={styles.highScore}>Score: 00000</Text>
                 <View style={styles.container}>
@@ -42,16 +42,18 @@ const styles = {
         margin:10
     },
     buttonContainer:{
-        backgroundColor:'#ff4d4d',
+        backgroundColor:'#00ff7b',
         fontSize:40,
         marginLeft: 10,
         borderRadius:20,
         textAlign:'center',
-        borderColor:'#080707'
-    },
+        borderColor:'#080707'    },
     container:{
          flexDirection:'row',
          padding: 10     
+    },
+    imageWidth:{
+        width:20
     }
 }
 
