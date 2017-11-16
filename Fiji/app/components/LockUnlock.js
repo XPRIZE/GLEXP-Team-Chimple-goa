@@ -7,7 +7,10 @@ class LockUnlock extends Component {
          return (
                     <View style={styles.container}>
                         <TouchableOpacity >
-                                    <Text style={styles.text}> {this.props.levelNo} </Text>
+                            <ImageBackground source={this.props.backGroundImg} style={styles.image}>
+                                 <Text style={styles.text}> {this.props.levelNo} </Text>
+                                 <Image source={this.props.starImg} style={[styles.starImg, { }]} />
+                            </ImageBackground> 
                         </TouchableOpacity>
                     </View>
                );
