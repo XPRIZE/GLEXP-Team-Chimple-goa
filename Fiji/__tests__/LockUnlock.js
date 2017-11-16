@@ -1,4 +1,4 @@
-import { Text, TouchableOpacity } from 'react-native';
+import { Text, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import React from 'react';
 import LockUnlock from '../app/components/LockUnlock';
 
@@ -28,6 +28,12 @@ describe('<LockUnlock />', () => {
 
             // checking for text  ..
             expect(lockUnlock.find(Text)).toHaveLength(1);
+
+            // checking for image  ..
+            expect(lockUnlock.find(Image)).toHaveLength(1);
+
+            // checking for imageBackGround  ..
+            expect(lockUnlock.find(ImageBackground)).toHaveLength(1);
         });
 
     // checking component props value
