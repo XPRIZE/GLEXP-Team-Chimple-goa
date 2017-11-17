@@ -12,6 +12,7 @@ import {
   View
 } from 'react-native';
 
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',
@@ -55,3 +56,10 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 });
+
+
+// Component testing for LockUnlock add below line
+
+// <LockUnlock backGroundImg ={ images.backGroundImg} starImg = { images.starImg}/>
+//import LockUnlock from './app/components/LockUnlock';
+//import images from './app/assets/images';
