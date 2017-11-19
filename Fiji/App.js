@@ -57,3 +57,10 @@ const RootNavigator = StackNavigator({
 })
 
 export default RootNavigator
+
+
+// Component testing for LockUnlock add below line
+
+// <LockUnlock backGroundImg ={ images.backGroundImg} starImg = { images.starImg}/>
+//import LockUnlock from './app/components/LockUnlock';
+//import images from './app/assets/images';
