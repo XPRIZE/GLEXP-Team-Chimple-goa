@@ -17,6 +17,7 @@ import { StackNavigator } from 'react-navigation'
 
 import LevelScreenLayout from './app/components/LevelScreenLayout'
 import Lesson from './app/components/Lesson'
+import ScoreCard from './app/components/ScoreCard'
 
 const HomeScreen = ({ navigation }) => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -52,6 +53,13 @@ const RootNavigator = StackNavigator({
     navigationOptions: {
       mode: 'modal',
       header: null  
+    }
+  },
+  ScoreCard: {
+    screen: ScoreCard,
+    navigationOptions: {
+      mode: 'modal',
+      header: null
     }
   }
 })

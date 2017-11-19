@@ -6,6 +6,13 @@ import Sound from 'react-native-sound'
 import { Icon } from 'react-native-elements'
 
 class FlashCard extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      isPlayingSound: false
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -18,7 +25,7 @@ class FlashCard extends Component {
         </View>
         <View style={{flex: 10, justifyContent: 'center'}}>
           <Image
-            source={require('../assets/starImg.png')} 
+            source={require('../assets/img/starImgs.png')} 
             style={{width: 100, height: 100}} />
         </View>
       </View>
@@ -26,25 +33,30 @@ class FlashCard extends Component {
   }
 
   playSound = () => {
-    const callback = (error, sound) => {
-      if (error) {
-        Alert.alert('error', error.message)
-        return
+    if(!this.state.isPlayingSound) {
+      const callback = (error, sound) => {
+        if (error) {
+          Alert.alert('error', error.message)
+          this.setState({isPlayingSound: false})          
+          return
+        }
+        sound.play(() => {
+          sound.release()
+          this.setState({isPlayingSound: false})          
+        })
       }
-      sound.play(() => {
-        sound.release()
-      })
-    }
-  
-    const sound = new Sound(require('../assets/audio/jua.mp3'), error => callback(error, sound))
-    //const sound = new Sound(testInfo.url, testInfo.basePath, error => callback(error, sound));
+      this.setState({isPlayingSound: true})
+      const sound = new Sound(require('../assets/audio/jua.mp3'), 
+        error => callback(error, sound))
+      //const sound = new Sound(testInfo.url, testInfo.basePath, error => callback(error, sound));
+    }    
   }  
 }
 
 FlashCard.defaultProps = {
   title: 'Test',
   audio: '../assets/audio/jua.mp3',
-  image: '../assets/starImg.png'
+  image: '../assets/img/starImg.png'
 };
 
 FlashCard.propTypes = {

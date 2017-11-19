@@ -28,7 +28,7 @@ class Lesson extends Component {
   handleNext = () => {
     this.state.index + 1 < this.state.cards.length ?
       this.setState({index: this.state.index+1}) :
-      this.props.navigation.navigate('LessonList')
+      this.props.navigation.navigate('ScoreCard')
   }
 
   handleBack = () => {
