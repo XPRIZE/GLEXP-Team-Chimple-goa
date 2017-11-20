@@ -1,4 +1,4 @@
-import 'react-native';
+import { Text, TouchableOpacity, Image, ImageBackground } from 'react-native';
 import React from 'react';
 import App from '../App';
 
