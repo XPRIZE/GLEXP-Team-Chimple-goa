@@ -23,15 +23,9 @@ const HomeScreen = ({ navigation }) => (
   <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <Text>Home Screen</Text>
     <Button
-      onPress={() => navigation.navigate('Lesson')}
+      onPress={() => navigation.navigate('LessonList')}
       title="Go to Lessons"
     />
-  </View>
-)
-
-const DetailsScreen = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-    <Text>Details Screen</Text>
   </View>
 )
 
