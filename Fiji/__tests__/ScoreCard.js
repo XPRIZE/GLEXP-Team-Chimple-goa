@@ -1,6 +1,5 @@
 import { Text, View, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
-import App from '../App';
 
 import ScoreCard from '../app/components/ScoreCard';
 // Note: test renderer must be required after react-native.

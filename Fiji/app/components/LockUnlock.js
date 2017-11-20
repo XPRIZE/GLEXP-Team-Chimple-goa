@@ -3,10 +3,14 @@ import { Text, View, Image, StyleSheet, ImageBackground, TouchableOpacity } from
 import PropTypes from 'prop-types';
 
 class LockUnlock extends Component {
+        onPress = () => {
+                this.props.onGoToLesson();
+        }
+
     render() {
          return (
                     <View style={styles.container}>
-                        <TouchableOpacity >
+                        <TouchableOpacity onPress={this.onPress}>
                             <ImageBackground source={this.props.backGroundImg} style={styles.image}>
                                  <Text style={styles.text}> {this.props.levelNo} </Text>
                                  <Image source={this.props.starImg} style={[styles.starImg, { }]} />
@@ -17,6 +21,7 @@ class LockUnlock extends Component {
         }
 }
 
+
 LockUnlock.defaultProps = {
             levelNo: 5,
             isLock: true,
@@ -26,7 +31,8 @@ LockUnlock.defaultProps = {
 LockUnlock.propTypes = {
             levelNo: PropTypes.number,
             isLock: PropTypes.bool,
-            imgPath: PropTypes.string
+            imgPath: PropTypes.string,
+            onGoToLesson: PropTypes.func
   };
 
 const styles = StyleSheet.create({
