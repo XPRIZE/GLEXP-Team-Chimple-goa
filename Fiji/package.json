@@ -8,9 +8,17 @@
     "storybook": "storybook start -p 7007"
   },
   "dependencies": {
+    "lottie-react-native": "^2.2.7",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1",
-    "react-native": "0.50.1"
+    "react-native": "0.50.1",
+    "react-native-animatable": "^1.2.4",
+    "react-native-elements": "^0.18.2",
+    "react-native-progress": "^3.4.0",
+    "react-native-progress-bar": "^0.1.2",
+    "react-native-sound": "^0.10.4",
+    "react-native-vector-icons": "^4.4.2",
+    "react-native-viewpager": "^0.2.13",
+    "react-navigation": "^1.0.0-beta.19"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^3.2.14",
@@ -23,7 +31,7 @@
     "flow-bin": "^0.58.0",
     "jest": "21.2.1",
     "prop-types": "^15.6.0",
-    "react-dom": "16.0.0",
+    "react-dom": "^16.1.1",
     "react-test-renderer": "16.0.0"
   },
   "jest": {
