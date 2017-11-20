@@ -7,7 +7,8 @@ import {
 
 import PropTypes from 'prop-types'
 
-import * as Animatable from 'react-native-animatable'
+// import * as Animatable from 'react-native-animatable'
+import Animation from 'lottie-react-native'
 
 const DIRECTION = {
   'left': 'bounceInLeft',
@@ -17,17 +18,30 @@ const DIRECTION = {
 class PetGuide extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      animation: DIRECTION[props.direction],
-    }
+    // this.state = {
+    //   animation: DIRECTION[props.direction],
+    // }
   }
+
+  componentDidMount() {
+    this.animation.play()
+  }
+
   render() {
     const { style, ...other} = this.props
     return (
-      <Animatable.View
-        animation={this.state.animation}
-        style={{backgroundColor: 'red', ...style}}
+      <Animation
+        ref={animation => { this.animation = animation }}
+        style={{
+          width: 200,
+          height: 200,
+        }}
+        source={require('../assets/lottie/fish.json')}
       />
+      // <Animatable.View
+      //   animation={this.state.animation}
+      //   style={{backgroundColor: 'red', ...style}}
+      // />
     )
   }
 }
