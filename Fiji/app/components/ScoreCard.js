@@ -3,6 +3,7 @@ import { View,Text,Dimensions, TouchableOpacity, Image } from 'react-native';
 
 import PropTypes from 'prop-types';
 
+//Added a comment
 
 class ScoreCard extends Component {
     render(){
