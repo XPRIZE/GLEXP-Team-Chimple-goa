@@ -9,7 +9,13 @@ const TEST_LEVELS = [
     {levelNo: 3, text: 'speaking', backgroundColor: '#FFE6C2', isLock: false, imgPath: '../assets/starImg.png'},
     {levelNo: 4, text: 'games', backgroundColor: '#CFD1A1', isLock: false, imgPath: '../assets/starImg.png'},
     {levelNo: 5, text: 'musics', backgroundColor: '#B6F1FF', isLock: false, imgPath: '../assets/starImg.png'},
-    {levelNo: 6, text: 'listening', backgroundColor: '#FFC5AB', isLock: false, imgPath: '../assets/starImg.png'}
+    {levelNo: 6, text: 'listening', backgroundColor: '#FFC5AB', isLock: false, imgPath: '../assets/starImg.png'},
+    {levelNo: 7, text: 'writing', backgroundColor: '#FFABC3', isLock: false, imgPath: '../assets/starImg.png'},
+    {levelNo: 8, text: 'reading', backgroundColor: '#FFFFB8', isLock: false, imgPath: '../assets/starImg.png'},
+    {levelNo: 9, text: 'speaking', backgroundColor: '#FFE6C2', isLock: false, imgPath: '../assets/starImg.png'},
+    {levelNo: 10, text: 'games', backgroundColor: '#CFD1A1', isLock: false, imgPath: '../assets/starImg.png'},
+    {levelNo: 11, text: 'musics', backgroundColor: '#B6F1FF', isLock: false, imgPath: '../assets/starImg.png'},
+    {levelNo: 12, text: 'listening', backgroundColor: '#FFC5AB', isLock: false, imgPath: '../assets/starImg.png'}
     
 ]
   
@@ -50,7 +56,9 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         flexWrap: 'wrap',
-        backgroundColor: '#fff7ee'
+        backgroundColor: '#fff7ee',
+        justifyContent: 'center',
+        alignItems: 'center'
       }
 });
 

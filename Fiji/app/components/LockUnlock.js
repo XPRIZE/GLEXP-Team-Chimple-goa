@@ -22,10 +22,12 @@ class LockUnlock extends Component {
                         <TouchableOpacity onPress={this.onPress.bind(this)}>
                                 <View style ={[styles.container, {backgroundColor: this.props.backgroundColor}]}>
                                         <View style = {styles.iconContainer}>
-                                                <Image 
-                                                        style={styles.iconInnerItem}
-                                                        source={iconArray[this.props.levelNo%6]}
-                                                />
+                                                <View style= {styles.innerIconContainer}>
+                                                        <Image 
+                                                                style={styles.iconInnerItem}
+                                                                source={iconArray[this.props.levelNo%6]}
+                                                        />
+                                                </View>
                                         </View>
                                         <View style = {styles.textContainer}>
                                                 <Text style={styles.textInnerItem}>
@@ -66,24 +68,29 @@ const styles = StyleSheet.create({
                 margin: Dimensions.get('window').width*0.005
         },
         iconContainer: {
-                height: '60%',
+                height: '65%',
                 justifyContent: 'flex-end',
                 alignItems: 'center'
                 
         },
         textContainer: {
-                height: '40%',
+                height: '35%',
                 alignItems: 'center'
                
         },
         iconInnerItem: {
-                width: '50%',
-                height: '85%'
+                width: '70%',
+                height: '100%'
         },
         textInnerItem: {
                 fontSize: Dimensions.get('window').width * 0.05,
                 fontWeight: 'bold',
                 paddingTop: 10
+        },
+        innerIconContainer: {
+                width: '50%',
+                height: '50%',
+                alignItems: 'center'
         }
 });
 
