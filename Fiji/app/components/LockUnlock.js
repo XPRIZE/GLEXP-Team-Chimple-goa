@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
+import { Text, View, Image, StyleSheet, ImageBackground, TouchableOpacity, Dimensions, TouchableWithoutFeedback } from 'react-native';
 import PropTypes from 'prop-types';
 
 class LockUnlock extends Component {
@@ -7,80 +7,91 @@ class LockUnlock extends Component {
                 this.props.onGoToLesson();
         }
 
-    render() {
-         return (
-                    <View style={styles.container}>
-                        <TouchableOpacity onPress={this.onPress}>
-                            <ImageBackground source={this.props.backGroundImg} style={styles.image}>
-                                 <Text style={styles.text}> {this.props.levelNo} </Text>
-                                 <Image source={this.props.starImg} style={[styles.starImg, { }]} />
-                            </ImageBackground> 
+        render() {
+
+                const iconArray = [
+                        require('../assets/img/page.png'),
+                        require('../assets/img/studying.png'),
+                        require('../assets/img/time.png'),
+                        require('../assets/img/writing.png'),
+                        require('../assets/img/page.png'),
+                        require('../assets/img/studying.png')
+                ];
+
+                return (
+                        <TouchableOpacity onPress={this.onPress.bind(this)}>
+                                <View style ={[styles.container, {backgroundColor: this.props.backgroundColor}]}>
+                                        <View style = {styles.iconContainer}>
+                                                <View style= {styles.innerIconContainer}>
+                                                        <Image 
+                                                                style={styles.iconInnerItem}
+                                                                source={iconArray[this.props.levelNo%6]}
+                                                        />
+                                                </View>
+                                        </View>
+                                        <View style = {styles.textContainer}>
+                                                <Text style={styles.textInnerItem}>
+                                                        {this.props.text}
+                                                </Text>
+                                        </View>
+                                </View>
                         </TouchableOpacity>
-                    </View>
-               );
+                );
         }
 }
 
 
 LockUnlock.defaultProps = {
-            levelNo: 5,
-            isLock: true,
-            imgPath: '../yellow.png'
+        levelNo: 6,
+        text: 'default',
+        isLock: true,
+        imgPath: '../yellow.png',
+        backgroundColor: '#f7dcdc'
  };
   
 LockUnlock.propTypes = {
-            levelNo: PropTypes.number,
-            isLock: PropTypes.bool,
-            imgPath: PropTypes.string,
-            onGoToLesson: PropTypes.func
+        levelNo: PropTypes.number,
+        text: PropTypes.string,
+        isLock: PropTypes.bool,
+        imgPath: PropTypes.string,
+        onGoToLesson: PropTypes.func,
+        backgroundColor: PropTypes.string
   };
 
 const styles = StyleSheet.create({
-            image: {
-                    justifyContent: 'center',
-                    borderColor: '#ddd',
-                    position: 'relative',
-                    width: 100,
-                    height: 100,
-                    alignItems: 'center'
-            },
-            container: {
-                    justifyContent: 'space-around',
-                    alignItems: 'center',
-                    borderWidth: 1,
-                    borderRadius: 2,
-                    borderColor: '#EF4563',
-                    borderBottomWidth: 0,
-                    shadowColor: '#000',
-                    marginLeft: 5,
-                    marginRight: 5,
-                    marginTop: 10,
-                    marginBottom: 10,
-                    width: 100,
-                    height: 100
-            },
-            starImg: {
-                    justifyContent: 'center',
-                    height: 30,
-                    width: 80,
-                    alignItems: 'center',
-                    marginBottom: 1
-            },
-            text: {
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    fontSize: 40,
-                    marginBottom: 6 
-            }
-
+        container: {
+                width: Dimensions.get('window').width*0.47,
+                height: Dimensions.get('window').height*0.33,
+                borderRadius: 10,
+                borderWidth: 3,
+                borderColor: '#f7f7f7',
+                margin: Dimensions.get('window').width*0.005
+        },
+        iconContainer: {
+                height: '65%',
+                justifyContent: 'flex-end',
+                alignItems: 'center'
+                
+        },
+        textContainer: {
+                height: '35%',
+                alignItems: 'center'
+               
+        },
+        iconInnerItem: {
+                width: '70%',
+                height: '100%'
+        },
+        textInnerItem: {
+                fontSize: Dimensions.get('window').width * 0.05,
+                fontWeight: 'bold',
+                paddingTop: 10
+        },
+        innerIconContainer: {
+                width: '50%',
+                height: '50%',
+                alignItems: 'center'
+        }
 });
 
 export default LockUnlock;
-
-
-//original content
-
-/*{ <ImageBackground source={require('../assets/yellow.png')} style={styles.image}>
-<Text style={styles.text}> {this.props.levelNo} </Text>
-<Image source={require('../assets/starImg.png')} style={[styles.starImg, { }]} />
-</ImageBackground> } */
