@@ -4,26 +4,13 @@ import { StyleSheet, View, ScrollView } from 'react-native';
 import LockUnlock from './LockUnlock'
 
 const TEST_LEVELS = [
-    {levelNo: 1, isLock: false, imgPath: '../assets/starImg.png'},
-    {levelNo: 2, isLock: false, imgPath: '../assets/starImg.png'},
-    {levelNo: 3, isLock: true, imgPath: '../assets/starImg.png'},
-    {levelNo: 4, isLock: true, imgPath: '../assets/starImg.png'},
-    {levelNo: 5, isLock: true, imgPath: '../assets/starImg.png'},
-    {levelNo: 6, isLock: false, imgPath: '../assets/starImg.png'},
-    {levelNo: 7, isLock: false, imgPath: '../assets/starImg.png'},
-    {levelNo: 8, isLock: true, imgPath: '../assets/starImg.png'},
-    {levelNo: 9, isLock: true, imgPath: '../assets/starImg.png'},
-    {levelNo: 10, isLock: true, imgPath: '../assets/starImg.png'},
-    {levelNo: 11, isLock: false, imgPath: '../assets/starImg.png'},
-    {levelNo: 12, isLock: false, imgPath: '../assets/starImg.png'},
-    {levelNo: 13, isLock: true, imgPath: '../assets/starImg.png'},
-    {levelNo: 14, isLock: true, imgPath: '../assets/starImg.png'},
-    {levelNo: 15, isLock: true, imgPath: '../assets/starImg.png'},
-    {levelNo: 16, isLock: false, imgPath: '../assets/starImg.png'},
-    {levelNo: 17, isLock: false, imgPath: '../assets/starImg.png'},
-    {levelNo: 18, isLock: true, imgPath: '../assets/starImg.png'},
-    {levelNo: 19, isLock: true, imgPath: '../assets/starImg.png'},
-    {levelNo: 20, isLock: true, imgPath: '../assets/starImg.png'},
+    {levelNo: 1, text: 'writing', backgroundColor: '#FFABC3', isLock: false, imgPath: '../assets/starImg.png'},
+    {levelNo: 2, text: 'reading', backgroundColor: '#FFFFB8', isLock: false, imgPath: '../assets/starImg.png'},
+    {levelNo: 3, text: 'speaking', backgroundColor: '#FFE6C2', isLock: false, imgPath: '../assets/starImg.png'},
+    {levelNo: 4, text: 'games', backgroundColor: '#CFD1A1', isLock: false, imgPath: '../assets/starImg.png'},
+    {levelNo: 5, text: 'musics', backgroundColor: '#B6F1FF', isLock: false, imgPath: '../assets/starImg.png'},
+    {levelNo: 6, text: 'listening', backgroundColor: '#FFC5AB', isLock: false, imgPath: '../assets/starImg.png'}
+    
 ]
   
 class LevelScreenLayout extends Component {
@@ -45,6 +32,8 @@ class LevelScreenLayout extends Component {
                     {this.state.levels.map((element, i) => 
                        <LockUnlock
                        levelNo={element.levelNo}
+                       text={element.text}
+                       backgroundColor={element.backgroundColor}
                        isLock={element.isLock}
                        imgPath={element.imgPath}
                        key={element.levelNo}
