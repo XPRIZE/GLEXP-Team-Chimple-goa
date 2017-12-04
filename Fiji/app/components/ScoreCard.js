@@ -6,13 +6,31 @@ import { StackNavigator } from 'react-navigation'
 import Animation from 'lottie-react-native'
 
 
-const ScoreCard = ({navigation})=> {
-  
+class ScoreCard extends Component{
+    constructor(props) {
+        super(props)
+        // this.state = {
+        //   animation: DIRECTION[props.direction],
+        // }
+      }
+    
+      componentDidMount() {
+        this.animation.play()
+      }
+  render(){
+    const { navigate } = this.props.navigation;
     return(
         <View style={styles.topLevelContainer}>
             <View style={styles.container}>
                 <View style={styles.imageContainer}>
-                    <Image style={styles.images} source={require('../assets/img/star1.png')} />
+                    <Animation
+                            ref={animation => { this.animation = animation }}
+                            style={{
+                            width: 200,
+                            height: 200,
+                            }}
+                            source={require('../assets/lottie/reward.json')}
+                        />
                 </View>
                 <View style={styles.bottomContainer}>
                     <View style={styles.topInnerContainer}>
@@ -20,14 +38,15 @@ const ScoreCard = ({navigation})=> {
                     </View>
                     <View style={styles.bottomInnerContainer}>
                         <View style={styles.buttonContainer}>
-                            <Text style={styles.text}>Next</Text>
+                            <Text style={{color:'#ffffff'}}>Next</Text>
                         </View>
                         <Icon 
                             raised
                             reverse
+                            size={Dimensions.get('window').width* 0.04}
                             name='arrow-forward' 
                             color='#f78e6a' 
-                            onPress={() => navigation.navigate('Home')}
+                            onPress={() => navigate('Home')}
                         /> 
                     </View>
                 </View>
@@ -35,6 +54,7 @@ const ScoreCard = ({navigation})=> {
         </View>
     );
 };
+}
 
 const styles = StyleSheet.create({
     topLevelContainer: {
@@ -44,18 +64,18 @@ const styles = StyleSheet.create({
         paddingTop: Dimensions.get('window').height * 0.05
     },
     container: {
-        backgroundColor: '#faf1d9',
+        backgroundColor: '#fbfaff',
         width: '85%',
         height: '90%'
     },
     imageContainer: {
-        backgroundColor: '#c5fc38',
+        backgroundColor: '#fbfaff',
         height: '65%',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         alignItems: 'center'
     },
     bottomContainer: {
-        backgroundColor: '#7df5f1',
+        backgroundColor: '#fbfaff',
         height: '35%'
     },
     images: {
@@ -63,15 +83,15 @@ const styles = StyleSheet.create({
     },
     topInnerContainer: {
         alignItems: 'center',
-        backgroundColor: 'green',
+        backgroundColor: '#fbfaff',
         height: Dimensions.get('window').height* 0.07
     },
     bottomInnerContainer: {
         alignItems: 'center',
-        backgroundColor: 'pink',
+        backgroundColor: '#fbfaff',
         height: '40%',
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'center'
     },
     text: {
         fontSize: Dimensions.get('window').height* 0.05,
@@ -82,7 +102,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#f78e6a',
         borderRadius: 30,
         width: '50%',
-        height: '70%',
+        height: Dimensions.get('window').height* 0.06,
         justifyContent: 'center',
         alignItems: 'center'
     }
