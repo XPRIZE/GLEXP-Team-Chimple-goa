@@ -451,7 +451,7 @@ void ScrollableCatalogue::createBook(int i, int j, int numRows, int numCols, ui:
                         titleText = QuestionHandler::wrapString(titleText, 10);
                         chooseLabel->setString(titleText);
                         chooseLabel->setFontSize(40);
-                        chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
+                        chooseLabel->setFontName(LangUtil::getInstance()->getFontFile());
                         chooseLabel->setTextColor(Color4B::WHITE);
                     }
                 }

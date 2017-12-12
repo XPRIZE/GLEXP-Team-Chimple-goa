@@ -188,14 +188,14 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
             auto rewardCard = CSLoader::createNode("scoreboard/rewardcard.csb");
             auto rewardUnlocked = rewardCard->getChildByName("reward_unlocked");
             if(rewardUnlocked != nullptr) {
-                auto label = Label::createWithTTF(titleStr, "fonts/Roboto-Regular.ttf", 48);
+                auto label = Label::createWithTTF(titleStr, LangUtil::getInstance()->getFontFile(), 48);
                 label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
                 label->setColor(Color3B(210.0, 76.0, 74.0));
                 rewardUnlocked->addChild(label);
             }
             auto rewardName = rewardCard->getChildByName("reward_name");
             if(rewardName != nullptr) {
-                auto label = Label::createWithTTF(LangUtil::getInstance()->translateString(gameIcons[_gameToUnlock]["title"]), "fonts/Roboto-Regular.ttf", 48);
+                auto label = Label::createWithTTF(LangUtil::getInstance()->translateString(gameIcons[_gameToUnlock]["title"]), LangUtil::getInstance()->getFontFile(), 48);
                 label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
                 label->setColor(Color3B(210.0, 76.0, 74.0));
                 rewardName->addChild(label);
@@ -222,14 +222,14 @@ bool ScoreBoardContext::init(int stars, std::string gameName, std::string sceneN
                     auto rewardCard = CSLoader::createNode("scoreboard/rewardcard.csb");
                     auto rewardUnlocked = rewardCard->getChildByName("reward_unlocked");
                     if(rewardUnlocked != nullptr) {
-                        auto label = Label::createWithTTF(titleStr, "fonts/Roboto-Regular.ttf", 48);
+                        auto label = Label::createWithTTF(titleStr, LangUtil::getInstance()->getFontFile(), 48);
                         label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
                         label->setColor(Color3B(210.0, 76.0, 74.0));
                         rewardUnlocked->addChild(label);
                     }
                     auto rewardName = rewardCard->getChildByName("reward_name");
                     if(rewardName != nullptr) {
-                        auto label = Label::createWithTTF(LangUtil::getInstance()->translateString(badge.substr(2)), "fonts/Roboto-Regular.ttf", 48);
+                        auto label = Label::createWithTTF(LangUtil::getInstance()->translateString(badge.substr(2)), LangUtil::getInstance()->getFontFile(), 48);
                         label->setAlignment(TextHAlignment::CENTER, TextVAlignment::CENTER);
                         label->setColor(Color3B(210.0, 76.0, 74.0));
                         rewardName->addChild(label);

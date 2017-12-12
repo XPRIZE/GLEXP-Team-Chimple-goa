@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 
 import PropTypes from 'prop-types'
-
+import { Animated } from 'react-native'
 // import * as Animatable from 'react-native-animatable'
 import Animation from 'lottie-react-native'
 
@@ -18,26 +18,35 @@ const DIRECTION = {
 class PetGuide extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      progress: new Animated.Value(0.0),
+    }
+
     // this.state = {
     //   animation: DIRECTION[props.direction],
     // }
   }
 
   componentDidMount() {
-    this.animation.play()
+    Animated.timing(this.state.progress, {
+      toValue: 1.0,
+      duration: 6190,
+    }).start()
   }
 
   render() {
     const { style, ...other} = this.props
     return (
+      <View>
       <Animation
-        ref={animation => { this.animation = animation }}
         style={{
           width: 200,
           height: 200,
         }}
-        source={require('../assets/lottie/fish.json')}
+        source={require('../assets/lottie/fish2.json')}
+        progress={this.state.progress}
       />
+      </View>
       // <Animatable.View
       //   animation={this.state.animation}
       //   style={{backgroundColor: 'red', ...style}}
@@ -46,7 +55,7 @@ class PetGuide extends Component {
   }
 }
 
-PetGuide.defaulProps = {
+PetGuide.defaultProps = {
   direction: 'left',
 }
 

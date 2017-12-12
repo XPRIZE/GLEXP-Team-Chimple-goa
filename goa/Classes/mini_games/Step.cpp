@@ -97,8 +97,8 @@ void Step::onEnterTransitionDidFinish()
 			LoadingBarDetails._loadingBar->setPercent(0);
 			LoadingBarDetails._id = _loadingBarDetails.size() + 1;
 			LoadingBarDetails._answer = _answer[_level - 1][_loadingBarDetails.size()];
-			LoadingBarDetails._label = CommonLabelTTF::create("?", "fonts/Roboto-Regular.ttf", 120);
-			LoadingBarDetails._upLabel = CommonLabelTTF::create("?", "fonts/Roboto-Regular.ttf", 120);
+			LoadingBarDetails._label = CommonLabelTTF::create("?", LangUtil::getInstance()->getFontFile(), 120);
+			LoadingBarDetails._upLabel = CommonLabelTTF::create("?", LangUtil::getInstance()->getFontFile(), 120);
 			LoadingBarDetails._upLabel->setColor(Color3B::BLACK);
 			LoadingBarDetails._label->setPosition(Vec2(_position.at(i).x, _stepBar->getPositionY() - LoadingBarDetails._loadingBar->getContentSize().height / 2));
 			LoadingBarDetails._upLabel->setPosition(Vec2(_position.at(i).x, _stepBar->getPositionY() + LoadingBarDetails._loadingBar->getContentSize().height));
@@ -117,7 +117,7 @@ void Step::onEnterTransitionDidFinish()
 			cocos2d::ui::LoadingBar *_loadingBar = (cocos2d::ui::LoadingBar*)_stepBar->getChildByName("LoadingBar_2");
 			_loadingBar->setPercent(_startPercent);
 
-			LabelTTF *_label = CommonLabelTTF::create(_labelText.str(), "fonts/Roboto-Regular.ttf", 120);
+			LabelTTF *_label = CommonLabelTTF::create(_labelText.str(), LangUtil::getInstance()->getFontFile(), 120);
 			_label->setPosition(Vec2(_position.at(i).x, _stepBar->getPositionY() - _loadingBar->getContentSize().height / 2));
 			this->addChild(_label);
 

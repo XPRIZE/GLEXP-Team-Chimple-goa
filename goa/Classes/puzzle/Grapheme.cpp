@@ -32,7 +32,7 @@ bool Grapheme::init(std::string graphemeString, float size) {
     _text->setFontSize(_size);
 	_text->setTextColor(Color4B::BLUE);
     if(LangUtil::getInstance()->getLang() == "eng") {
-        _text->setFontName("fonts/Roboto-Regular.ttf");
+        _text->setFontName(LangUtil::getInstance()->getFontFile());
        
     }
     _text->setString(graphemeString);

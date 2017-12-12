@@ -100,7 +100,7 @@ void Card::onEnterTransitionDidFinish()
 	_boardTextName << _pairSum;
 
 	Node *_board = _CardBg->getChildByName("board_6");
-	LabelTTF *_boardText = CommonLabelTTF::create(_boardTextName.str(), "fonts/Roboto-Regular.ttf", 120);
+	LabelTTF *_boardText = CommonLabelTTF::create(_boardTextName.str(), LangUtil::getInstance()->getFontFile(), 120);
 	_boardText->setPosition(Vec2(_board->getPositionX(), _board->getPositionY() - _board->getContentSize().height / 2));
 	this->addChild(_boardText);
 
@@ -116,13 +116,13 @@ void Card::onEnterTransitionDidFinish()
 
 		if (i < _pairCard - 1)
 		{
-			LabelTTF *_boardText = CommonLabelTTF::create("+", "fonts/Roboto-Regular.ttf", 120);
+			LabelTTF *_boardText = CommonLabelTTF::create("+", LangUtil::getInstance()->getFontFile(), 120);
 			_boardText->setPosition(Vec2(ToDoDetails._sprite->getPositionX() + ToDoDetails._sprite->getContentSize().width, ToDoDetails._sprite->getPositionY()));
 			this->addChild(_boardText);
 		}
 		else
 		{
-			LabelTTF *_boardText = CommonLabelTTF::create("=", "fonts/Roboto-Regular.ttf", 120);
+			LabelTTF *_boardText = CommonLabelTTF::create("=", LangUtil::getInstance()->getFontFile(), 120);
 			_boardText->setPosition(Vec2(ToDoDetails._sprite->getPositionX() + ToDoDetails._sprite->getContentSize().width, ToDoDetails._sprite->getPositionY()));
 			this->addChild(_boardText);
 		}
@@ -194,7 +194,7 @@ void Card::addEvents(struct SpriteDetails sprite)
 							std::ostringstream _digit;
 							_digit << sprite._id;
 
-							LabelTTF *_boardText = CommonLabelTTF::create(_digit.str(), "fonts/Roboto-Regular.ttf", 120);
+							LabelTTF *_boardText = CommonLabelTTF::create(_digit.str(), LangUtil::getInstance()->getFontFile(), 120);
 							_boardText->setPosition(Vec2(_toDoDetails.at(i)._sprite->getContentSize().width / 2, _toDoDetails.at(i)._sprite->getContentSize().height / 2));
 							_toDoDetails.at(i)._sprite->addChild(_boardText);
 							_toDoDetails.at(i)._child = 1;

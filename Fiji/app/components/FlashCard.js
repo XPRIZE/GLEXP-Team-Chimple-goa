@@ -60,9 +60,9 @@ FlashCard.defaultProps = {
 };
 
 FlashCard.propTypes = {
-  title: PropTypes.string,
-  audio: PropTypes.string,
-  image: PropTypes.string
+  title: PropTypes.string.isRequired,
+  audio: PropTypes.string.isRequired,
+  image: PropTypes.string.isRequired
 }
 
 const styles = StyleSheet.create({

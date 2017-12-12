@@ -722,7 +722,7 @@ void BalloonHero::gameStart(cocos2d::EventCustom *eventCustom) {
 
 	//_hint = "Catch the antonyms";
 	_label = CommonText::create();
-	_label->setFontName("fonts/BalooBhai-Regular.ttf");
+	_label->setFontName(LangUtil::getInstance()->getFontFile());
 	_label->setString(_hint);
 	_label->setFontSize(100);
 	
@@ -993,7 +993,7 @@ void BalloonHero::generateObjectsAndMove() {
 				_cloud1->setTag(2);
 			}
 			label->setFontSize(_labelFontSize);
-			label->setFontName("fonts/BalooBhai-Regular.ttf");
+			label->setFontName(LangUtil::getInstance()->getFontFile());
 			
 
 			if (_sceneNumber == 1) {
@@ -1062,7 +1062,7 @@ void BalloonHero::generateObjectsAndMove() {
 				_cloud2->setTag(2);
 			}
 			label->setFontSize(_labelFontSize);
-			label->setFontName("fonts/BalooBhai-Regular.ttf");
+			label->setFontName(LangUtil::getInstance()->getFontFile());
 
 
 			if (_sceneNumber == 1) {
@@ -1131,7 +1131,7 @@ void BalloonHero::generateObjectsAndMove() {
 				_cloud3->setTag(2);
 			}
 			label->setFontSize(_labelFontSize);
-			label->setFontName("fonts/BalooBhai-Regular.ttf");
+			label->setFontName(LangUtil::getInstance()->getFontFile());
 
 			if (_sceneNumber == 1) {
 				label->setPosition(Vec2(visibleSize.width * 0.079, visibleSize.height * 0.05));
@@ -1203,7 +1203,7 @@ void BalloonHero::generateObjectsAndMove() {
 				_cloud1->setTag(2);
 			}
 			label->setFontSize(_labelFontSize);
-			label->setFontName("fonts/BalooBhai-Regular.ttf");
+			label->setFontName(LangUtil::getInstance()->getFontFile());
 
 			if (_sceneNumber == 1) {
 				label->setPosition(Vec2(visibleSize.width * 0.079, visibleSize.height * 0.05));

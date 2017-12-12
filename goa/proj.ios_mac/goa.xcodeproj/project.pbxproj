@@ -551,6 +551,8 @@
 		F38DFA681ECEF06500B04635 /* BasicMultiplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DFA631ECEF06500B04635 /* BasicMultiplication.cpp */; };
 		F38DFA691ECEF06500B04635 /* MathLearning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DFA651ECEF06500B04635 /* MathLearning.cpp */; };
 		F38DFA6A1ECEF06500B04635 /* MathLearning.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F38DFA651ECEF06500B04635 /* MathLearning.cpp */; };
+		F39F288F1FDED1A60058BBC5 /* TeluguUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39F288E1FDED1A60058BBC5 /* TeluguUtil.cpp */; };
+		F39F28901FDED1A60058BBC5 /* TeluguUtil.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F39F288E1FDED1A60058BBC5 /* TeluguUtil.cpp */; };
 		F3E3AC0A1E8E6CEA00AD906E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC081E8E6CEA00AD906E /* Dot.cpp */; };
 		F3E3AC0B1E8E6CEA00AD906E /* Dot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC081E8E6CEA00AD906E /* Dot.cpp */; };
 		F3E3AC0E1E8FC5A900AD906E /* DotNum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */; };
@@ -1214,6 +1216,8 @@
 		F38DFA641ECEF06500B04635 /* BasicMultiplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BasicMultiplication.h; sourceTree = "<group>"; };
 		F38DFA651ECEF06500B04635 /* MathLearning.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MathLearning.cpp; sourceTree = "<group>"; };
 		F38DFA661ECEF06500B04635 /* MathLearning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathLearning.h; sourceTree = "<group>"; };
+		F39F288C1FDEBD9E0058BBC5 /* TeluguUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TeluguUtil.h; sourceTree = "<group>"; };
+		F39F288E1FDED1A60058BBC5 /* TeluguUtil.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TeluguUtil.cpp; sourceTree = "<group>"; };
 		F3E3AC081E8E6CEA00AD906E /* Dot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dot.cpp; sourceTree = "<group>"; };
 		F3E3AC091E8E6CEA00AD906E /* Dot.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Dot.hpp; sourceTree = "<group>"; };
 		F3E3AC0C1E8FC5A900AD906E /* DotNum.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DotNum.cpp; sourceTree = "<group>"; };
@@ -2040,6 +2044,8 @@
 				F33C90F51F2F3D6900E71364 /* Lesson.h */,
 				F371657F1F3D85D30062FA25 /* StudySession.cpp */,
 				F37165801F3D85D30062FA25 /* StudySession.h */,
+				F39F288C1FDEBD9E0058BBC5 /* TeluguUtil.h */,
+				F39F288E1FDED1A60058BBC5 /* TeluguUtil.cpp */,
 			);
 			path = lang;
 			sourceTree = "<group>";
@@ -2646,6 +2652,7 @@
 				F350437F1E3219A00005DF8D /* Shop.cpp in Sources */,
 				F350429D1E32199F0005DF8D /* LTKImageWriter.cpp in Sources */,
 				F35042F31E32199F0005DF8D /* LanguageManager.cpp in Sources */,
+				F39F288F1FDED1A60058BBC5 /* TeluguUtil.cpp in Sources */,
 				F35042D31E32199F0005DF8D /* AlphamonSprite.cpp in Sources */,
 				F350435F1E3219A00005DF8D /* Item.cpp in Sources */,
 				F33C90F61F2F3D6900E71364 /* Lesson.cpp in Sources */,
@@ -2906,6 +2913,7 @@
 				F350429C1E32199F0005DF8D /* LTKErrors.cpp in Sources */,
 				F35042BC1E32199F0005DF8D /* ExternalSkeletonCharacter.cpp in Sources */,
 				F350433C1E3219A00005DF8D /* Cannon_Ball_Main.cpp in Sources */,
+				F39F28901FDED1A60058BBC5 /* TeluguUtil.cpp in Sources */,
 				F3E3AC0B1E8E6CEA00AD906E /* Dot.cpp in Sources */,
 				F33C90B91F2AFCF900E71364 /* AnimationState.cpp in Sources */,
 				F35042DA1E32199F0005DF8D /* WordSprite.cpp in Sources */,

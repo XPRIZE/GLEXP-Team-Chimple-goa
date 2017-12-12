@@ -73,7 +73,7 @@ void Shoot::gameBegin(cocos2d::EventCustom *eventCustom) {
 	addChild(topBoard, 4);
 	topBoard->setName("topBoard");
 
-	auto upText = CommonLabelTTF::create(TextGenerator::getInstance()->translateString("choose same sounding word"), "res/fonts/BalooBhai-Regular.ttf", topBoard->getContentSize().height * 0.5);
+	auto upText = CommonLabelTTF::create(TextGenerator::getInstance()->translateString("choose same sounding word"), LangUtil::getInstance()->getFontFile(), topBoard->getContentSize().height * 0.5);
 	upText->setPosition(topBoard->getContentSize().width / 2, topBoard->getContentSize().height / 2);
 	topBoard->addChild(upText);
 
@@ -133,7 +133,7 @@ void Shoot::gameBegin(cocos2d::EventCustom *eventCustom) {
 	}
 
 	auto board = this->getChildByName("bg")->getChildByName("board");
-	auto boardText = CommonLabelTTF::create(mapKey, "res/fonts/BalooBhai-Regular.ttf", 120);
+	auto boardText = CommonLabelTTF::create(mapKey, LangUtil::getInstance()->getFontFile(), 120);
 	boardText->setName(board->getName());
 	boardText->setPosition(Vec2(board->getContentSize().width / 2, board->getContentSize().height / 2));
 	board->addChild(boardText);
@@ -141,7 +141,7 @@ void Shoot::gameBegin(cocos2d::EventCustom *eventCustom) {
 	if (gameTheme.compare("pinatacity") == 0) { boardText->setColor(Color3B(0, 0, 0)); }
 
 	auto targetA = this->getChildByName("bg")->getChildByName("targeta");
-	auto targetAText = CommonLabelTTF::create(_vmc[counterlevelStatus].answers[a], "res/fonts/BalooBhai-Regular.ttf", 80);
+	auto targetAText = CommonLabelTTF::create(_vmc[counterlevelStatus].answers[a], LangUtil::getInstance()->getFontFile(), 80);
 	if (gameTheme.compare("pinatajungle") == 0) targetAText->setFontSize(80);
 	if (gameTheme.compare("pinatacity") == 0) { targetAText->setColor(Color3B(0, 0, 0)); }
 	targetAText->setName(targetA->getName());
@@ -150,7 +150,7 @@ void Shoot::gameBegin(cocos2d::EventCustom *eventCustom) {
 	targetA->setTag(0);
 
 	auto targetB = this->getChildByName("bg")->getChildByName("targetb");
-	auto targetBText = CommonLabelTTF::create(_vmc[counterlevelStatus].answers[b], "res/fonts/BalooBhai-Regular.ttf", 80);
+	auto targetBText = CommonLabelTTF::create(_vmc[counterlevelStatus].answers[b], LangUtil::getInstance()->getFontFile(), 80);
 	if (gameTheme.compare("pinatajungle") == 0) targetBText->setFontSize(80);
 	if (gameTheme.compare("pinatacity") == 0) { targetBText->setColor(Color3B(0, 0, 0)); }
 	targetBText->setName(targetB->getName());
@@ -159,7 +159,7 @@ void Shoot::gameBegin(cocos2d::EventCustom *eventCustom) {
 	targetB->setTag(0);
 
 	auto targetC = this->getChildByName("bg")->getChildByName("targetc");
-	auto targetCText = CommonLabelTTF::create(_vmc[counterlevelStatus].answers[c], "res/fonts/BalooBhai-Regular.ttf", 80);
+	auto targetCText = CommonLabelTTF::create(_vmc[counterlevelStatus].answers[c], LangUtil::getInstance()->getFontFile(), 80);
 	if (gameTheme.compare("pinatajungle") == 0) targetCText->setFontSize(80);
 	if (gameTheme.compare("pinatacity") == 0) { targetCText->setColor(Color3B(0, 0, 0)); }
 	targetCText->setName(targetC->getName());
@@ -855,7 +855,7 @@ void Shoot::dummyTextLabelPopUp() {
 		((CommonLabelTTF*)getChildByName("dummy"))->setString(this->mapKey);
 	}
 	else {
-		auto textLabel = CommonLabelTTF::create(this->mapKey, "res/fonts/BalooBhai-Regular.ttf", 120);
+		auto textLabel = CommonLabelTTF::create(this->mapKey, LangUtil::getInstance()->getFontFile(), 120);
 		textLabel->setPosition(board->getPositionX(), board->getPositionY());
 		textLabel->setColor(board->getChildByName("board")->getColor());
 		this->addChild(textLabel);

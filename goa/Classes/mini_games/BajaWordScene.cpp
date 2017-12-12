@@ -36,7 +36,7 @@ void BajaWordScene::createAnswer() {
 	label->setFontSize(std::max(float(50.0), float(200 - (_word.length() - 1) * 10)));
 
     if(LangUtil::getInstance()->getLang() == "eng") {
-        label->setFontName("fonts/Roboto-Regular.ttf");
+        label->setFontName(LangUtil::getInstance()->getFontFile());
     }
     label->setTextColor(Color4B::RED);
 	_answer = Node::create();

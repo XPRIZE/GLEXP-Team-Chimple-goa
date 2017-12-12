@@ -798,7 +798,7 @@ void Decomon::wordGenerate()
 			sprite->setColor(Color3B(colorR, colorG, colorB));
 			this->addChild(sprite);
 			sprite->setScale(0.5, 0.5);
-			auto myLabel = CommonLabel::createWithTTF(word, "fonts/Roboto-Regular.ttf", 200);
+			auto myLabel = CommonLabel::createWithTTF(word, LangUtil::getInstance()->getFontFile(), 200);
 			myLabel->setPositionX(sprite->getContentSize().width / 2);
 			myLabel->setPositionY(sprite->getContentSize().height / 2);
 			myLabel->setColor(Color3B(0, 0, 0));

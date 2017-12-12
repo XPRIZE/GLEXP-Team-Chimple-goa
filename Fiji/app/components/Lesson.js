@@ -20,13 +20,12 @@ class Lesson extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      cards: TEST_LESSONS,
       index: 0
     }
   }
 
   handleNext = () => {
-    this.state.index + 1 < this.state.cards.length ?
+    this.state.index + 1 < this.props.cards.length ?
       this.setState({index: this.state.index+1}) :
       this.props.navigation.navigate('ScoreCard')
   }
@@ -36,11 +35,11 @@ class Lesson extends Component {
   }
 
   render() {
-    let card = this.state.cards[this.state.index];
+    let card = this.props.cards[this.state.index];
     return (
       <View style={{flex: 1, flexDirection: 'column'}}>
         <ProgressControl 
-          progress={this.state.index / this.state.cards.length}
+          progress={this.state.index / this.props.cards.length}
           onNext={this.handleNext}
           onBack={this.handleBack}
           style={{flex: 1}}
@@ -77,6 +76,11 @@ const styles = StyleSheet.create({
   page: {
   }
 })
+
+Lesson.propTypes = {
+  cards: PropTypes.array.isRequired,
+  navigation: PropTypes.object.isRequired
+}
 
 export default Lesson
 

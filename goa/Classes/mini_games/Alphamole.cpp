@@ -119,7 +119,7 @@ void Alphamole::startGame(cocos2d::EventCustom *eventCustom)
 	std::stringstream ss;
 	ss << _score;
 	std::string str = ss.str();
-	_score_label = Label::createWithTTF("  Score: " + str, "fonts/Roboto-Regular.ttf", 90);
+	_score_label = Label::createWithTTF("  Score: " + str, LangUtil::getInstance()->getFontFile(), 90);
 	/*_score_label->setPositionX(20);
 	_score_label->setPositionY(visibleSize.height - _score_label->getContentSize().height/2);*/
 	_score_label->setAnchorPoint(Vec2(0, 0));

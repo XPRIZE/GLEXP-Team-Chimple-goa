@@ -134,7 +134,7 @@ void MainMenuHome::backButtonPressed(Ref* pSender, ui::Widget::TouchEventType eE
 //    button->setName(gameName);
 ////    button->setTitleText(LangUtil::getInstance()->translateString(gameTitle));
 ////    button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
-////    button->setTitleFontName("fonts/Roboto-Regular.ttf");
+////    button->setTitleFontName(LangUtil::getInstance()->getFontFile());
 ////    button->setTitleColor(Color3B(0xFF, 0xF2, 0x00));
 ////    button->setTitleFontSize(48);
 ////    auto label = button->getTitleRenderer();
@@ -188,7 +188,7 @@ void MainMenuHome::bindEvents(cocos2d::Node *rootNode) {
                     textTitle->setEnabled(false);
                     textTitle->setTouchEnabled(false);
                     textTitle->setFocusEnabled(false);
-                    textTitle->setFontName("fonts/BalooBhai-Regular.ttf");
+                    textTitle->setFontName(LangUtil::getInstance()->getFontFile());
                     textTitle->setTextColor(Color4B(Color3B::WHITE));
                     textTitle->setFontSize(72);
                 }

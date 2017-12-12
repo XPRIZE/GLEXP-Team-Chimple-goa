@@ -160,7 +160,7 @@ void spot::onEnterTransitionDidFinish() {
 	
 
 	_label1 = CommonText::create();
-	_label1->setFontName("fonts/Roboto-Regular.ttf");
+	_label1->setFontName(LangUtil::getInstance()->getFontFile());
 	_label1->setString(LangUtil::getInstance()->translateString("How many"));
 	_label1->setFontSize(100);
 	_label1->setPosition(Vec2((visibleSize.width * 0.20), (visibleSize.height * 0.03)));
@@ -174,7 +174,7 @@ void spot::onEnterTransitionDidFinish() {
 	///label 2
 
 	_label2 = CommonText::create();
-	_label2->setFontName("fonts/Roboto-Regular.ttf");
+	_label2->setFontName(LangUtil::getInstance()->getFontFile());
 _label2->setString(LangUtil::getInstance()->translateString("are there?"));
 	_label2->setFontSize(100);
 	//_label2->setPosition(Vec2((visibleSize.width * 0.24), (visibleSize.height * 0.04)));

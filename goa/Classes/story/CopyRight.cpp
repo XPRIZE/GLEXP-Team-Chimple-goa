@@ -141,7 +141,7 @@ void CopyRight::configureCopyRightText() {
                     cocos2d::ui::TextField* sTextField = dynamic_cast<cocos2d::ui::TextField*>(textNode);
                     if(sTextField != NULL) {
                         sTextField->setString(copyrightText);
-                        sTextField->setFontName("fonts/Roboto-Regular.ttf");
+                        sTextField->setFontName(LangUtil::getInstance()->getFontFile());
                         sTextField->setFontSize(50);
                         sTextField->setTextColor(Color4B::BLACK);
                         sTextField->setTextHorizontalAlignment(TextHAlignment::LEFT);

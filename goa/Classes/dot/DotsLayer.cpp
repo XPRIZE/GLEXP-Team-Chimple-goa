@@ -10,6 +10,7 @@
 #include "DotsQuizLayer.hpp"
 #include "../menu/GameScene.h"
 #include "../lang/TextGenerator.h"
+#include "../lang/LangUtil.h"
 
 USING_NS_CC;
 
@@ -111,7 +112,7 @@ void DotsLayer::showFinger(DotNum *dotNum) {
         _nextButton->addTouchEventListener(CC_CALLBACK_2(DotsLayer::showNext, this));
         }), NULL));
 
-    _text = Label::createWithTTF(MenuContext::to_string(_currentNumber), "fonts/Roboto-Regular.ttf", 512);
+    _text = Label::createWithTTF(MenuContext::to_string(_currentNumber), LangUtil::getInstance()->getFontFile(), 512);
     _text->setTextColor(Color4B(255, 255, 255, 255));
     _text->setPosition(Vec2(1920, 2400));
     addChild(_text);

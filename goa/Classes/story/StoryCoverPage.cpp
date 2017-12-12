@@ -255,7 +255,7 @@ void StoryCoverPage::renderStoryText(Node* parentNode, Node* storyTextNode) {
         whichToken++;
         label->setString(token);
         label->setFontSize(130);
-        label->setFontName("fonts/Roboto-Regular.ttf");
+        label->setFontName(LangUtil::getInstance()->getFontFile());
         label->setTextColor(Color4B(128, 64, 0, 255));
         if(firstPassFinished)
         {

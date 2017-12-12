@@ -269,7 +269,7 @@ void LevelHelpScene::onEnterTransitionDidFinish() {
         }
     }
 
-    _text = Text::create(videoText, "fonts/Roboto-Regular.ttf", 64);
+    _text = Text::create(videoText, LangUtil::getInstance()->getFontFile(), 64);
     _text->setTextColor(Color4B::BLACK);
     auto pos = textField->getPosition();
     auto wpos = bg->convertToWorldSpace(pos);

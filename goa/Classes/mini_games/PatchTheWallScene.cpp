@@ -109,7 +109,7 @@ void PatchTheWall::gameBegin(cocos2d::EventCustom *eventCustom) {
 			this->addChild(SpriteDetails._sprite);
 			SpriteDetails._sprite->setColor(Color3B(205, 133, 63));
 
-			auto aplhabets = CommonLabelTTF::create(_matrix[j][i], "fonts/Roboto-Regular.ttf", 120);
+			auto aplhabets = CommonLabelTTF::create(_matrix[j][i], LangUtil::getInstance()->getFontFile(), 120);
 			float fontSize = std::max(float(30.0), float(130 - (maxLengthWord - 1) * 18));
 			if (fontSize <= 30.0f) {
 				fontSize = 45.0f;
@@ -325,7 +325,7 @@ void PatchTheWall::letterCome(Node *blastNode, int _randomPosition)
 		}
 	}
 
-	auto aplhabets = CommonLabelTTF::create(text, "fonts/Roboto-Regular.ttf", 120);
+	auto aplhabets = CommonLabelTTF::create(text, LangUtil::getInstance()->getFontFile(), 120);
 	float fontSize = std::max(float(30.0), float(130 - (maxLengthWord - 1) * 18));
 	if (fontSize <= 30.0f || fontSize > 150.0f) {
 		fontSize = 45.0f;

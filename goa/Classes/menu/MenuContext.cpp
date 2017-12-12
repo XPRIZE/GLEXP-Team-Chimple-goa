@@ -1766,7 +1766,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 	headerBlock->setPositionY(visibleSize.height - headerBlock->getContentSize().height / 1.5);
 	headerBlock->setAnchorPoint(Vec2(0.5, 0.5));
 	_showAnswerLayer->addChild(headerBlock);
-	auto label1 = CommonLabel::createWithTTF(header.c_str(), "fonts/Roboto-Regular.ttf", 100);
+	auto label1 = CommonLabel::createWithTTF(header.c_str(), LangUtil::getInstance()->getFontFile(), 100);
 	label1->setColor(Color3B(0, 0, 0));
 	label1->setPosition(Vec2(headerBlock->getContentSize().width / 2, headerBlock->getContentSize().height / 2));
 	label1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -1798,9 +1798,9 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			labelBase1->setAnchorPoint(Vec2(0, 0));
 			duplicatNode->addChild(labelBase1);
 
-			auto label1 = CommonLabel::createWithTTF(wordPair->first.c_str(), "fonts/Roboto-Regular.ttf", 100);
+			auto label1 = CommonLabel::createWithTTF(wordPair->first.c_str(), LangUtil::getInstance()->getFontFile(), 100);
 			if (wordPair->first.length() > 8) {
-				label1 = CommonLabel::createWithTTF(wordPair->first.c_str(), "fonts/Roboto-Regular.ttf", 80);
+				label1 = CommonLabel::createWithTTF(wordPair->first.c_str(), LangUtil::getInstance()->getFontFile(), 80);
 			}
 			label1->setColor(Color3B(0, 0, 0));
 			label1->setPosition(Vec2(labelBase1->getContentSize().width / 2, labelBase1->getContentSize().height / 2));
@@ -1820,9 +1820,9 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			labelBase3->setAnchorPoint(Vec2(1, 0));
 			duplicatNode->addChild(labelBase3);
 
-			auto label3 = CommonLabel::createWithTTF(wordPair->second.c_str(), "fonts/Roboto-Regular.ttf", 100);
+			auto label3 = CommonLabel::createWithTTF(wordPair->second.c_str(), LangUtil::getInstance()->getFontFile(), 100);
 			if (wordPair->second.length() > 8) {
-				label3 = CommonLabel::createWithTTF(wordPair->second.c_str(), "fonts/Roboto-Regular.ttf", 80);
+				label3 = CommonLabel::createWithTTF(wordPair->second.c_str(), LangUtil::getInstance()->getFontFile(), 80);
 			}
 			label3->setColor(Color3B(0, 0, 0));
 			label3->setPosition(Vec2(labelBase3->getContentSize().width / 2, labelBase3->getContentSize().height / 2));
@@ -1855,7 +1855,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			obj1->setPositionY(y);
 			obj1->setAnchorPoint(Vec2(0.5, 0.5));
 			_showAnswerLayer->addChild(obj1);
-			auto label1 = CommonLabel::createWithTTF(_listOfWords.at(index).c_str(), "fonts/Roboto-Regular.ttf", 100);
+			auto label1 = CommonLabel::createWithTTF(_listOfWords.at(index).c_str(), LangUtil::getInstance()->getFontFile(), 100);
 			label1->setColor(Color3B(0, 0, 0));
 			label1->setPosition(Vec2(obj1->getContentSize().width / 2, obj1->getContentSize().height / 2));
 			label1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -1895,7 +1895,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 					str1 += configs.at(num) + " ";
 					num++;
 				}
-				auto sentencelabel1 = CommonLabel::createWithTTF(str1.c_str(), "fonts/Roboto-Regular.ttf", 75);
+				auto sentencelabel1 = CommonLabel::createWithTTF(str1.c_str(), LangUtil::getInstance()->getFontFile(), 75);
 				sentencelabel1->setColor(Color3B(0, 0, 0));
 				sentencelabel1->setPosition(Vec2(sentenceBlock->getContentSize().width/2 , sentenceBlock->getContentSize().height * 0.75 ));
 				sentencelabel1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -1908,7 +1908,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 					secondStr += configs.at(i) + " ";
 				}
 
-				auto sentencelabel2 = CommonLabel::createWithTTF(secondStr.c_str(), "fonts/Roboto-Regular.ttf", 75);
+				auto sentencelabel2 = CommonLabel::createWithTTF(secondStr.c_str(), LangUtil::getInstance()->getFontFile(), 75);
 				sentencelabel2->setColor(Color3B(0, 0, 0));
 				sentencelabel2->setPosition(Vec2(sentenceBlock->getContentSize().width /2, sentenceBlock->getContentSize().height * 0.25));
 				sentencelabel2->setAnchorPoint(Vec2(0.5, 0.5));
@@ -1916,7 +1916,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 			}
 			else
 			{
-				auto sentencelabel1 = CommonLabel::createWithTTF(wordPair->first.c_str(), "fonts/Roboto-Regular.ttf", 100);
+				auto sentencelabel1 = CommonLabel::createWithTTF(wordPair->first.c_str(), LangUtil::getInstance()->getFontFile(), 100);
 				sentencelabel1->setColor(Color3B(0, 0, 0));
 				sentencelabel1->setPosition(Vec2(sentenceBlock->getContentSize().width / 2, sentenceBlock->getContentSize().height / 2));
 				sentencelabel1->setAnchorPoint(Vec2(0.5, 0.5));
@@ -1947,7 +1947,7 @@ void MenuContext::showAnswer(std::string type, std::string header)
 				labelBase1->setScaleY(0.75);
 				labelBase1->setAnchorPoint(Vec2(0.5, 0.5));
 				_showAnswerLayer->addChild(labelBase1);
-				auto label3 = CommonLabel::createWithTTF(listOfAnswers.at(i).c_str(), "fonts/Roboto-Regular.ttf", 100);
+				auto label3 = CommonLabel::createWithTTF(listOfAnswers.at(i).c_str(), LangUtil::getInstance()->getFontFile(), 100);
 				label3->setColor(Color3B(255, 255, 255));
 				label3->setPosition(Vec2(labelBase1->getContentSize().width / 2, labelBase1->getContentSize().height / 2));
 				label3->setAnchorPoint(Vec2(0.5, 0.5));

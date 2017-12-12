@@ -10,6 +10,7 @@
 #include "EnglishUtil.h"
 #include "KannadaUtil.h"
 #include "SwahiliUtil.h"
+#include "TeluguUtil.h"
 #include "cocos2d.h"
 
 USING_NS_CC;
@@ -25,8 +26,9 @@ LangUtil::~LangUtil() {
 
 LangUtil* LangUtil::getInstance() {
     if(!_instance) {
-         _instance = new EnglishUtil();
+//         _instance = new EnglishUtil();
 //        _instance = new SwahiliUtil();
+        _instance = new TeluguUtil();
     }
     return _instance;
 }
@@ -79,12 +81,12 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
             I18N::I18nUtils::getInstance()->addMO(kannadaMoData.getBytes());
             break;
         }
-        case SupportedLanguages::GERMAN:
+        case SupportedLanguages::TELUGU:
         {
-            LangUtil::_instance = new KannadaUtil();
-            Data germanMoData = FileUtils::getInstance()->getDataFromFile("res/de.mo");
+            LangUtil::_instance = new EnglishUtil();
+            Data moData = FileUtils::getInstance()->getDataFromFile("res/lang/swa/swa.mo");
             I18N::I18nUtils::getInstance()->removeAllMO();
-            I18N::I18nUtils::getInstance()->addMO(germanMoData.getBytes());
+            I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
             break;
         }
 
@@ -109,4 +111,9 @@ std::string LangUtil::translateTwoParameterizedString(std::string parameterizedS
 WordInfo* LangUtil::loadLanguageSpecificWordMappingForAWord(const char* word) {
     return this->wordManager->loadLanguageSpecificWordMappingForAWord(word);
 }
+
+std::string LangUtil::getFontFile() {
+    return "fonts/Roboto-Regular.ttf";
+}
+
 

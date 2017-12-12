@@ -216,7 +216,7 @@ void AlphaArrange::createBox() {
 
 	label->setString(LangUtil::getInstance()->translateString(_alphabets[_currentAlphabet]));
 	label->setFontSize(_labelFontSize);
-	label->setFontName("fonts/BalooBhai-Regular.ttf");
+	label->setFontName(LangUtil::getInstance()->getFontFile());
 	label->setName(_alphabets[_currentAlphabet]);
 	label->setTag(101);
 
@@ -549,7 +549,7 @@ void AlphaArrange::addHelpTrace() {
 
 	label->setString(LangUtil::getInstance()->translateString(_alphabets[_currentAlphabet]));
 	label->setFontSize(_labelFontSize);
-	label->setFontName("fonts/BalooBhai-Regular.ttf");
+	label->setFontName(LangUtil::getInstance()->getFontFile());
 
 
 	//label->setPosition(Vec2(visibleSize.width * 0.079, visibleSize.height * 0.05));

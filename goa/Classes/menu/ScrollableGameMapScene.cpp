@@ -412,7 +412,7 @@ cocos2d::ui::Button* ScrollableGameMapScene::createButton(const rapidjson::Value
         button->setName(gameJson["name"].GetString());
         button->setTitleText(LangUtil::getInstance()->translateString(gameJson["title"].GetString()));
         button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
-        button->setTitleFontName("fonts/Roboto-Regular.ttf");
+        button->setTitleFontName(LangUtil::getInstance()->getFontFile());
         auto titleColor = Color3B(0xFF, 0xF2, 0x00);
         if(!_subGameMenuToNavigate.empty()) {
             auto it = BUTTON_TEXT_COLOR_MAP.find(_subGameMenuToNavigate);

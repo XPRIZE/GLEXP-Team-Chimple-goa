@@ -260,7 +260,7 @@ void MemoryHero::gameBegin(cocos2d::EventCustom *eventCustom) {
 		auto label = CommonText::create();
 		label->setString(labelName);
 		label->setFontSize(50);
-		label->setFontName("fonts/Roboto-Regular.ttf");
+		label->setFontName(LangUtil::getInstance()->getFontFile());
 		label->setPosition(Vec2(nestWidth * 0.48, nestHeight * 0.25));
 		label->setAnchorPoint(Vec2(0.5, 0.5));
 		label->setColor(Color3B::BLUE);
@@ -341,7 +341,7 @@ void MemoryHero::gameBegin(cocos2d::EventCustom *eventCustom) {
 
 	//_hint = "Catch the antonyms";
 	_label = CommonText::create();
-	_label->setFontName("fonts/BalooBhai-Regular.ttf");
+	_label->setFontName(LangUtil::getInstance()->getFontFile());
 	_label->setString(_hint);
 	_label->setFontSize(70);
 
@@ -515,7 +515,7 @@ bool MemoryHero::onTouchBegan(Touch* touch, Event* event) {
 								cocos2d::ui::Text * _label;
 
 								_label = CommonText::create();
-								_label->setFontName("fonts/BalooBhai-Regular.ttf");
+								_label->setFontName(LangUtil::getInstance()->getFontFile());
 
 								auto first = _data_key[i];
 								auto second = _data_value[i];

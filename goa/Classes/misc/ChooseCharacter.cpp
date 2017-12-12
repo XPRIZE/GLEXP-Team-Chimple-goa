@@ -95,7 +95,7 @@ void ChooseCharacter::processChildNodes(cocos2d::Node *rootNode) {
             std::string chooseText = LangUtil::getInstance()->translateString(CHOOSE_CHARACTER_TEXT);
             chooseLabel->setString(chooseText);
             chooseLabel->setFontSize(150);
-            chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
+            chooseLabel->setFontName(LangUtil::getInstance()->getFontFile());
             chooseLabel->setTextColor(Color4B::WHITE);
         }
     }
@@ -124,7 +124,7 @@ void ChooseCharacter::processChildNodes(cocos2d::Node *rootNode) {
             std::string boyText = LangUtil::getInstance()->translateString(BOY_LABEL_TEXT);
             boyLabel->setString(boyText);
             boyLabel->setFontSize(100);
-            boyLabel->setFontName("fonts/Roboto-Regular.ttf");
+            boyLabel->setFontName(LangUtil::getInstance()->getFontFile());
             boyLabel->setTextColor(Color4B::WHITE);
             
         }
@@ -137,7 +137,7 @@ void ChooseCharacter::processChildNodes(cocos2d::Node *rootNode) {
             std::string girlText = LangUtil::getInstance()->translateString(GIRL_LABEL_TEXT);
             girlLabel->setString(girlText);
             girlLabel->setFontSize(100);
-            girlLabel->setFontName("fonts/Roboto-Regular.ttf");
+            girlLabel->setFontName(LangUtil::getInstance()->getFontFile());
             girlLabel->setTextColor(Color4B::WHITE);
             
         }

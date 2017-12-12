@@ -272,7 +272,7 @@ void Table::createGrid()
 				endNumber = 1;
 			}
 			fish->setName(str);
-			auto number_label = CommonLabel::createWithTTF(str, "fonts/Roboto-Regular.ttf", 90);
+			auto number_label = CommonLabel::createWithTTF(str, LangUtil::getInstance()->getFontFile(), 90);
 			number_label->setColor(Color3B(0, 0, 0));
 			fish->addChild(number_label);
 		}

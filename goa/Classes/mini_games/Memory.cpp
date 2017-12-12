@@ -246,7 +246,7 @@ void Memory::gameBegin(cocos2d::EventCustom *eventCustom) {
 		auto label = CommonText::create();
 		label->setString(labelName);
 		label->setFontSize(100);
-		label->setFontName("fonts/Roboto-Regular.ttf");
+		label->setFontName(LangUtil::getInstance()->getFontFile());
 		label->setPosition(Vec2(nestWidth * 0.47, nestHeight * 0.48));
 		label->setAnchorPoint(Vec2(0.5, 0.5));
 		label->setTextColor(Color4B::BLUE);
@@ -335,7 +335,7 @@ void Memory::gameBegin(cocos2d::EventCustom *eventCustom) {
 
 	//_hint = "Catch the antonyms";
 	_label = CommonText::create();
-	_label->setFontName("fonts/BalooBhai-Regular.ttf");
+	_label->setFontName(LangUtil::getInstance()->getFontFile());
 	_label->setString(_hint);
 	_label->setFontSize(70);
 
@@ -530,7 +530,7 @@ bool Memory::onTouchBegan(Touch* touch, Event* event) {
 
 							
 							_label = CommonText::create();
-							_label->setFontName("fonts/BalooBhai-Regular.ttf");
+							_label->setFontName(LangUtil::getInstance()->getFontFile());
 
 							auto first = _data_key[i];
 							auto second = _data_value[i];

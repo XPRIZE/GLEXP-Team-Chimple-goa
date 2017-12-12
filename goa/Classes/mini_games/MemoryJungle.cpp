@@ -273,7 +273,7 @@ void MemoryJungle::gameBegin(cocos2d::EventCustom *eventCustom) {
 		auto label = CommonText::create();
 		label->setString(labelName);
 		label->setFontSize(100);
-		label->setFontName("fonts/Roboto-Regular.ttf");
+		label->setFontName(LangUtil::getInstance()->getFontFile());
 		label->setPosition(Vec2(nestWidth * 0.48, nestHeight * 0.53));
 		label->setAnchorPoint(Vec2(0.5, 0.5));
 		label->setTextColor(Color4B::BLUE);
@@ -356,7 +356,7 @@ void MemoryJungle::gameBegin(cocos2d::EventCustom *eventCustom) {
 
 	//_hint = "Catch the antonyms";
 	_label = CommonText::create();
-	_label->setFontName("fonts/BalooBhai-Regular.ttf");
+	_label->setFontName(LangUtil::getInstance()->getFontFile());
 	_label->setString(_hint);
 	_label->setFontSize(70);
 
@@ -535,7 +535,7 @@ bool MemoryJungle::onTouchBegan(Touch* touch, Event* event) {
 
 
 									_label = CommonText::create();
-									_label->setFontName("fonts/BalooBhai-Regular.ttf");
+									_label->setFontName(LangUtil::getInstance()->getFontFile());
 
 									auto first = _data_key[i];
 									auto second = _data_value[i];

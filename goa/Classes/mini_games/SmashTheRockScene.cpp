@@ -187,7 +187,7 @@ void SmashTheRock::startGame(cocos2d::EventCustom *eventCustom)
 			auto str1 = _charkey.at(i ).at(j );
 			//std::string ttttt(&str1,1) ;
 			//label = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), ttttt);
-			//label = Label::createWithTTF(ttttt, "fonts/BalooBhai-Regular.ttf", 256);
+			//label = Label::createWithTTF(ttttt, LangUtil::getInstance()->getFontFile(), 256);
 			//CCLOG("alpha = %s",str.c_str());
             auto mystr = str1;
 			Alphabet *label = Alphabet::createWithSize(mystr, 350);
@@ -342,7 +342,7 @@ void SmashTheRock::masking()
     
 	_label1 = Alphabet::createWithSize(mychar, 1300);
 //	label1 = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), Alphabets.at(key).c_str());
-//	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), "fonts/BalooBhai-Regular.ttf", 256);
+//	label1 = Label::createWithTTF(Alphabets.at(key).c_str(), LangUtil::getInstance()->getFontFile(), 256);
 	//_label1->setScale(1.5);
 
 	

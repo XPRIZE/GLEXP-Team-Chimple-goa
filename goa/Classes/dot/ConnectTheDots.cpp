@@ -102,7 +102,7 @@ void ConnectTheDots::onEnterTransitionDidFinish() {
     auto fBoard = Sprite::create("help/whiteboard.png");
     fBoard->setScale((w - h - 3 * WHITEBOARD_PADDING) / WHITEBOARD_HEIGHT);
     _numNode->addChild(fBoard);
-    _num = Label::createWithTTF(MenuContext::to_string(_targetNum), "fonts/Roboto-Regular.ttf", 512);
+    _num = Label::createWithTTF(MenuContext::to_string(_targetNum), LangUtil::getInstance()->getFontFile(), 512);
     _num->setColor(Color3B(255, 192, 203));
     _numNode->addChild(_num);
     addChild(_numNode);

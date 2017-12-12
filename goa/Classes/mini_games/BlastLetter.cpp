@@ -145,7 +145,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		addChild(letterBoardSprite);
 
 //		auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), LangUtil::convertUTF16CharToString(_data_value[coordIndex]));
-		auto myLabel = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(_data_value[coordIndex]), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
+		auto myLabel = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(_data_value[coordIndex]), LangUtil::getInstance()->getFontFile(), letterBoardSprite->getContentSize().height);
 		myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
 		myLabel->setScale(1);
 		myLabel->setColor(Color3B::GRAY);
@@ -361,7 +361,7 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			std::ostringstream nameLetterBoards;
 			nameLetterBoards << _data_value[_counterLetter];
 
-			auto myLabel = CommonLabelTTF::create(nameLetterBoards.str(), "res/fonts/BalooBhai-Regular.ttf", letterBoardSprite->getContentSize().height);
+			auto myLabel = CommonLabelTTF::create(nameLetterBoards.str(), LangUtil::getInstance()->getFontFile(), letterBoardSprite->getContentSize().height);
 			myLabel->setColor(Color3B::GRAY);
 			myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
 			myLabel->setScale(1);

@@ -256,7 +256,7 @@ void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, s
 
 					//number of times
 
-					auto targetLabel = Label::createWithTTF(mycharString, "fonts/Roboto-Regular.ttf", 30);
+					auto targetLabel = Label::createWithTTF(mycharString, LangUtil::getInstance()->getFontFile(), 30);
 					targetLabel->setColor(Color3B(0, 0, 0));
 					targetLabel->setPositionX(child->getContentSize().width);
 					targetLabel->setPositionY(child->getContentSize().height);
@@ -265,7 +265,7 @@ void Award::objectsAddInTabContainer(cocos2d::Node * parent, std::string tile, s
 					// reward name
 
 					std::replace(imagePath.at(numberOfRewards).begin(), imagePath.at(numberOfRewards).end(), '_', ' ');
-					auto rewardLabel = Label::createWithTTF(LangUtil::getInstance()->translateString(imagePath.at(numberOfRewards).substr(2)), "fonts/Roboto-Regular.ttf", 50);
+					auto rewardLabel = Label::createWithTTF(LangUtil::getInstance()->translateString(imagePath.at(numberOfRewards).substr(2)), LangUtil::getInstance()->getFontFile(), 50);
 					rewardLabel->setColor(color);
 					rewardLabel->setPositionX(child->getContentSize().width/2);
 					child->addChild(rewardLabel);
@@ -293,7 +293,7 @@ void Award::rewardsBackground(cocos2d::Node * parent, std::string tile, cocos2d:
 	scrollView6->addChild(backgroundSpriteMapTile);
 	scrollView6->setInnerContainerSize(Size(visibleSize.width, visibleSize.height* 0.8));
 	std::string headLabel = LangUtil::getInstance()->translateString("You have not yet earned any rewards");
-	auto targetLabel = Label::createWithTTF(headLabel, "fonts/Roboto-Regular.ttf", 150);
+	auto targetLabel = Label::createWithTTF(headLabel, LangUtil::getInstance()->getFontFile(), 150);
 	targetLabel->setColor(color);
 	targetLabel->setPositionX(visibleSize.width/2);
 	targetLabel->setPositionY(visibleSize.height/2);

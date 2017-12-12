@@ -379,7 +379,7 @@ void Shape::onEnterTransitionDidFinish()
 		addEvents(RealSpriteDetails);
 	}
 
-	_shapeName = CommonLabel::createWithSystemFont("", "fonts/Roboto-Regular.ttf", 50);
+	_shapeName = CommonLabel::createWithSystemFont("", LangUtil::getInstance()->getFontFile(), 50);
 	_shapeName->setPositionX(_ShapeBg->getChildByName("alphabet_board_4")->getContentSize().width /2);
 	_shapeName->setPositionY(_ShapeBg->getChildByName("alphabet_board_4")->getContentSize().height / 2.5);
 //	_shapeName->setAnchorPoint(Vec2(.3, 1));

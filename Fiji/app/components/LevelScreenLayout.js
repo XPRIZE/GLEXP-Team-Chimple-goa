@@ -23,12 +23,12 @@ class LevelScreenLayout extends Component {
     constructor(props) {
         super(props)
         this.state = {
-          levels: TEST_LEVELS,
+          levels: this.props.lessons,
         }        
     }
 
     handleGoToLesson = () => {
-        this.props.navigation.navigate('Lesson')
+        this.props.navigation.navigate('Lesson', {lessonId: 'Mesa'})
     }
 
     render() {

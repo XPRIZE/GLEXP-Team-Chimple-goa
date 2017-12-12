@@ -46,6 +46,7 @@ public:
     
     virtual std::string getPronounciationFileNameForWord(std::string word) = 0;
     virtual bool isTextToSpeechSupported() = 0;
+    virtual std::string getFontFile();
     
 protected:
     LangUtil();

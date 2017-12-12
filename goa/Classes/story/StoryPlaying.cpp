@@ -930,7 +930,7 @@ void StoryPlaying::renderStoryText(Node* parentNode, Node* storyTextNode) {
         whichToken++;
         label->setString(token);
         label->setFontSize(75);
-        label->setFontName("fonts/Roboto-Regular.ttf");
+        label->setFontName(LangUtil::getInstance()->getFontFile());
         label->setTextColor(Color4B::BLACK);
         if(firstPassFinished)
         {
@@ -1281,7 +1281,7 @@ void StoryPlaying::processPixelPerfectNodes(Node* parent) {
                 _displayTextNode->setFontSize(100);
                 _displayTextNode->setTextHorizontalAlignment(TextHAlignment::CENTER);
                 _displayTextNode->setTextVerticalAlignment(TextVAlignment::CENTER);
-                _displayTextNode->setFontName("fonts/Roboto-Regular.ttf");
+                _displayTextNode->setFontName(LangUtil::getInstance()->getFontFile());
                 _displayTextNode->setTextColor(Color4B::BLACK);
             }
             
@@ -1505,7 +1505,7 @@ bool StoryPlaying::translatedText(std::string text) {
                     chooseLabel->setFontSize(100);
                     chooseLabel->setTextHorizontalAlignment(TextHAlignment::CENTER);
                     chooseLabel->setTextVerticalAlignment(TextVAlignment::CENTER);
-                    chooseLabel->setFontName("fonts/Roboto-Regular.ttf");
+                    chooseLabel->setFontName(LangUtil::getInstance()->getFontFile());
                     chooseLabel->setTextColor(Color4B::BLACK);
                 }
             }
