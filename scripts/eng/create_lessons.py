@@ -85,14 +85,14 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 	for ir in range(nsplit):
 		lesson_id = lesson_id + 1
 		ll = len(upper_case_letters)
-		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)], LETTER_CONCEPT, lesson_id])
+		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)] + '-' + upper_case_letters[int((ir+1)*ll/nsplit-1)], LETTER_CONCEPT, lesson_id])
 		for i, val in enumerate(upper_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 			lesson_unit_id = lesson_unit_id + 1
 			db_writer.writerow(['LessonUnit', lesson_unit_id, lesson_id, i + 1, letter_dict[val], letter_dict[val], '#', val])
 	for ir in range(nsplit):
 		lesson_id = lesson_id + 1
 		ll = len(lower_case_letters)
-		db_writer.writerow(['Lesson', lesson_id, lower_case_letters[int(ir*ll/nsplit)], LETTER_CONCEPT, lesson_id])
+		db_writer.writerow(['Lesson', lesson_id, lower_case_letters[int(ir*ll/nsplit)] + '-' + lower_case_letters[int((ir+1)*ll/nsplit-1)], LETTER_CONCEPT, lesson_id])
 		for i, val in enumerate(lower_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 			lesson_unit_id = lesson_unit_id + 1
 			db_writer.writerow(['LessonUnit', lesson_unit_id, lesson_id, i + 1, letter_dict[val], letter_dict[val], '#', val])
@@ -102,7 +102,7 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 		lesson_id = lesson_id + 1
 		seq = 0
 		ll = len(upper_case_letters)
-		db_writer.writerow(['Lesson', lesson_id, upper_case_letters[int(ir*ll/nsplit)], UPPER_CASE_LETTER_TO_WORD_CONCEPT, lesson_id])
+		db_writer.writerow(['Lesson', lesson_id, 'Words ' + upper_case_letters[int(ir*ll/nsplit)] + '-' + upper_case_letters[int((ir+1)*ll/nsplit-1)], UPPER_CASE_LETTER_TO_WORD_CONCEPT, lesson_id])
 		for rep in range(3):
 			for i, val in enumerate(upper_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 				lesson_unit_id = lesson_unit_id + 1
@@ -120,7 +120,7 @@ with open(word_file + '.db.csv', 'w') as csvfile:
 		lesson_id = lesson_id + 1
 		seq = 0
 		ll = len(upper_case_letters)
-		db_writer.writerow(['Lesson', lesson_id, lower_case_letters[int(ir*ll/nsplit)], LETTER_TO_WORD_CONCEPT, lesson_id])
+		db_writer.writerow(['Lesson', lesson_id, 'Words ' + lower_case_letters[int(ir*ll/nsplit)] + '-' + lower_case_letters[int((ir+1)*ll/nsplit-1)], LETTER_TO_WORD_CONCEPT, lesson_id])
 		for rep in range(3):
 			for i, val in enumerate(lower_case_letters[int(ir*ll/nsplit):int((ir+1)*ll/nsplit)]):
 				lesson_unit_id = lesson_unit_id + 1

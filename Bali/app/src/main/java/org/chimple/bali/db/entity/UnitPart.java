@@ -21,6 +21,7 @@ import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.ForeignKey;
 import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.Index;
+import android.support.annotation.NonNull;
 
 @Entity(primaryKeys = {"unitId", "type", "seq"},
         foreignKeys = {
@@ -37,12 +38,15 @@ import android.arch.persistence.room.Index;
 )
 public class UnitPart {
     @ColumnInfo(name = "unitId")
+    @NonNull
     public Long unitId;
 
     public Long partUnitId;
 
+    @NonNull
     public int type;
 
+    @NonNull
     public int seq;
 
     @Ignore

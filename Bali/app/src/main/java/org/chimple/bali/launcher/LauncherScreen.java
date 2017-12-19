@@ -34,6 +34,7 @@ import android.widget.TextView;
 
 import org.chimple.bali.R;
 import org.chimple.bali.activity.LessonActivity;
+import org.chimple.bali.activity.LessonListActivity;
 import org.chimple.bali.application.BaliApplication;
 import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.db.entity.User;
@@ -111,7 +112,7 @@ public class LauncherScreen extends LifecycleActivity {
                 @Override
                 public void onAnimationEnd(Drawable drawable) {
                     super.onAnimationEnd(drawable);
-                    Intent intent = new Intent(LauncherScreen.this, LessonActivity.class);
+                    Intent intent = new Intent(LauncherScreen.this, LessonListActivity.class);
                     if (intent != null) {
                         startActivity(intent);
                     }

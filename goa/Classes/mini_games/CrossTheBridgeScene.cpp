@@ -325,7 +325,7 @@ else {
 	if (_gameCurrentLevel == 1 && _flagForHelpLayer)
 	{
 		_flagForHelpLayer = false;
-		alphabetName = "B";
+		alphabetName = _choices[1];
 	}
 	else
 	{

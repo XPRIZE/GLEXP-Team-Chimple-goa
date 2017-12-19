@@ -153,7 +153,7 @@ const std::vector<int> TeluguUtil::getNumCharsInRows() {
 
 std::string TeluguUtil::getMonsterAnimationFileName(std::string alpha) {
     
-    return std::string("lang/tel/") + alpha +".csb";
+    return std::string("lang/tel/") + stringLangMap.at(alpha) +".csb";
 }
 
 std::string TeluguUtil::getSpecialAnimationFileName(wchar_t alpha, std::string suffix) {
@@ -173,14 +173,16 @@ std::string TeluguUtil::getAlphabetSoundFileName(wchar_t alpha) {
 }
 
 std::string TeluguUtil::getPhoneticSoundFileName(wchar_t alpha) {
-    auto fileName = std::string("lang/tel/sounds/") + convertUTF16CharToString(tolower(alpha)) + audioExt;
+    auto fileName = std::string("lang/tel/sounds/") + langMap.at(alpha) + audioExt;
     return fileName;
 }
 
 std::string TeluguUtil::getAlphabetSoundFileNameForString(std::string alpha) {
-    std::transform(alpha.begin(), alpha.end(), alpha.begin(), ::tolower);
-    auto fileName = std::string("lang/tel/sounds/") + alpha + audioExt;
-    return fileName;
+    if(stringLangMap.find(alpha) != stringLangMap.end()) {
+        auto fileName = std::string("lang/tel/sounds/") + stringLangMap.at(alpha) + audioExt;
+        return fileName;
+    }
+    return "";
 }
 
 std::string TeluguUtil::getPhoneticSoundFileNameForString(std::string alpha) {

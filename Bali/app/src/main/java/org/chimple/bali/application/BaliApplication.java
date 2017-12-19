@@ -42,6 +42,7 @@ import org.chimple.bali.service.ThreadManager;
 )
 public class BaliApplication extends Application {
     private static final String TAG = BaliApplication.class.getName();
+    private static Context context;
     private static final int COIN_NOTIFICATION = 1;
     public static int INITIAL_COIN = 0;
 
@@ -70,6 +71,7 @@ public class BaliApplication extends Application {
             Log.d(TAG, "Created...");
             initialize();
         }
+        context = this;
     }
 
     private void initialize()
@@ -98,6 +100,10 @@ public class BaliApplication extends Application {
         Log.d(TAG, "Initialization complete...");
         ftpManager = BaliContext.getInstance().getFtpManager();
         threadManager = BaliContext.getInstance().getThreadManager();
+    }
+
+    public static Context getContext() {
+        return context;
     }
 
     @Override

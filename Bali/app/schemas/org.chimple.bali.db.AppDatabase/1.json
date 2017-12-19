@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "79a03cb1dab81415c5bb4cb908ad2e42",
+    "identityHash": "90cb590a538f1563714179b0575045a1",
     "entities": [
       {
         "tableName": "Lesson",
@@ -197,7 +197,7 @@
       },
       {
         "tableName": "UnitPart",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`partUnitId` INTEGER, `seq` INTEGER NOT NULL, `type` INTEGER NOT NULL, `unitId` INTEGER, PRIMARY KEY(`unitId`, `type`, `seq`), FOREIGN KEY(`unitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`partUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`partUnitId` INTEGER, `seq` INTEGER NOT NULL, `type` INTEGER NOT NULL, `unitId` INTEGER NOT NULL, PRIMARY KEY(`unitId`, `type`, `seq`), FOREIGN KEY(`unitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`partUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "partUnitId",
@@ -221,7 +221,7 @@
             "fieldPath": "unitId",
             "columnName": "unitId",
             "affinity": "INTEGER",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -562,7 +562,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"79a03cb1dab81415c5bb4cb908ad2e42\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"90cb590a538f1563714179b0575045a1\")"
     ]
   }
 }

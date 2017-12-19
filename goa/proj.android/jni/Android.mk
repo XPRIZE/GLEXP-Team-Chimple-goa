@@ -114,6 +114,7 @@ LOCAL_SRC_FILES := hellocpp/main.cpp \
          ../../Classes/i18n/MO.cpp \
          ../../Classes/lang/EnglishUtil.cpp \
          ../../Classes/lang/KannadaUtil.cpp \
+         ../../Classes/lang/TeluguUtil.cpp \
          ../../Classes/lang/LanguageManager.cpp \
          ../../Classes/lang/LangUtil.cpp \
          ../../Classes/lang/SafariAnalyticsManager.cpp \

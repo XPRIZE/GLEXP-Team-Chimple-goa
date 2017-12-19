@@ -16,6 +16,7 @@
 
 package org.chimple.bali.db.dao;
 
+import android.arch.paging.DataSource;
 import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.OnConflictStrategy;
@@ -41,6 +42,9 @@ public interface LessonDao {
 
     @Query("SELECT COUNT(*) FROM Lesson")
     public int count();
+
+    @Query("SELECT * FROM Lesson ORDER BY seq ASC")
+    public abstract DataSource.Factory<Integer, Lesson> lessonsBySeq();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     public Long insertLesson(Lesson lesson);

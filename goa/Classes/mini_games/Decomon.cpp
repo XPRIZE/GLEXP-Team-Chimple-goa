@@ -1161,9 +1161,10 @@ void Decomon::createGameLayout(cocos2d::EventCustom *eventCustom)
 		_width = my->getContentSize().width;
 		_myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), _myChar);
 
-		if (LangUtil::getInstance()->getLang() == "kan") {
-			_myLabel->setAnchorPoint(Vec2(0.5, 0.65));
-		}
+//        if (LangUtil::getInstance()->getLang() == "kan" ||
+//            LangUtil::getInstance()->getLang() == "tel") {
+//            _myLabel->setAnchorPoint(Vec2(0.5, 0.65));
+//        }
 		_myLabel->setColor(Color3B(222, 232, 121));
 		_myLabel->setContentSize(Size(sssize.width * 2.5, 1000));
 		_myLabel->setScale(3);
@@ -1172,6 +1173,7 @@ void Decomon::createGameLayout(cocos2d::EventCustom *eventCustom)
 
 		_alphaNode = Node::create();
 		_alphaNode->setPositionX(visibleSize.width / 2);
+        //For tel change this to 1
 		_alphaNode->setPositionY(visibleSize.height / 1.75);
 		_alphaNode->setContentSize(Size(sssize.width * 2.5, 1000));
 
