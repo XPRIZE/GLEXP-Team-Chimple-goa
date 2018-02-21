@@ -113,7 +113,8 @@ public class LessonRepo {
                     userLesson.lastSeenAt = new Date();
                     db.userLessonDao().updateUserLesson(userLesson);
                 }
-                if(percent >= 65 && userLesson.seenCount >= 3) {
+//                if(percent >= 65 && userLesson.seenCount >= 3) {
+                if(percent >= 0 && userLesson.seenCount >= 1) {
                     Lesson newLesson = db.lessonDao().getLessonBySeq(lesson.seq + 1);
                     if (newLesson != null) {
                         user.currentLessonId = newLesson.id;

@@ -25,6 +25,7 @@ import android.content.IntentFilter;
 import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -63,7 +64,7 @@ public class LauncherScreen extends LifecycleActivity {
         BroadcastReceiver mReceiver = new TollBroadcastReceiver();
         registerReceiver(mReceiver, filter);
 
-        BaliApplication application = (BaliApplication)getApplication();
+        BaliApplication application = (BaliApplication) getApplication();
         String coinMessage = "Total Coins: "
                 + String.valueOf(BaliApplication.INITIAL_COIN);
 
@@ -71,7 +72,7 @@ public class LauncherScreen extends LifecycleActivity {
 
         LiveData<User> userLiveData = UserRepo.getCurrentLiveUser(this);
         userLiveData.observe(this, user -> {
-            if(user != null) {
+            if (user != null) {
                 TextView coinTextView = (TextView) findViewById(R.id.coins);
                 setCoins(user.coins);
                 coinTextView.setText(Integer.toString(user.coins));
@@ -104,50 +105,66 @@ public class LauncherScreen extends LifecycleActivity {
     }
 
     public void startBali(View view) {
-        ImageView imageView = (ImageView) findViewById(R.id.imageView2);
-        Drawable drawable = imageView.getDrawable();
-        if (drawable instanceof Animatable2) {
-            Animatable2 animatable2 = (Animatable2) drawable;
-            animatable2.registerAnimationCallback(new Animatable2.AnimationCallback() {
-                @Override
-                public void onAnimationEnd(Drawable drawable) {
-                    super.onAnimationEnd(drawable);
-                    Intent intent = new Intent(LauncherScreen.this, LessonListActivity.class);
-                    if (intent != null) {
-                        startActivity(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ImageView imageView = (ImageView) findViewById(R.id.imageView2);
+            Drawable drawable = imageView.getDrawable();
+            if (drawable instanceof Animatable2) {
+                Animatable2 animatable2 = (Animatable2) drawable;
+                animatable2.registerAnimationCallback(new Animatable2.AnimationCallback() {
+                    @Override
+                    public void onAnimationEnd(Drawable drawable) {
+                        super.onAnimationEnd(drawable);
+                        Intent intent = new Intent(LauncherScreen.this, LessonListActivity.class);
+                        if (intent != null) {
+                            startActivity(intent);
+                        }
                     }
-                }
-            });
+                });
+            }
             ((Animatable2) drawable).start();
+        } else {
+            Intent intent = new Intent(LauncherScreen.this, LessonListActivity.class);
+            if (intent != null) {
+                startActivity(intent);
+            }
         }
     }
 
     public void startChimple(View view) {
-        ImageView imageView = (ImageView) findViewById(R.id.imageView3);
-        Drawable drawable = imageView.getDrawable();
-        if (drawable instanceof Animatable2) {
-            Animatable2 animatable2 = (Animatable2) drawable;
-            animatable2.registerAnimationCallback(new Animatable2.AnimationCallback() {
-                @Override
-                public void onAnimationEnd(Drawable drawable) {
-                    super.onAnimationEnd(drawable);
-                    Intent intent = getPackageManager().getLaunchIntentForPackage("org.chimple.goa");
-                    if (intent != null) {
-                        startActivity(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ImageView imageView = (ImageView) findViewById(R.id.imageView3);
+            Drawable drawable = imageView.getDrawable();
+            if (drawable instanceof Animatable2) {
+                Animatable2 animatable2 = (Animatable2) drawable;
+                animatable2.registerAnimationCallback(new Animatable2.AnimationCallback() {
+                    @Override
+                    public void onAnimationEnd(Drawable drawable) {
+                        super.onAnimationEnd(drawable);
+                        Intent intent = getPackageManager().getLaunchIntentForPackage("org.chimple.goa");
+                        if (intent != null) {
+                            startActivity(intent);
+                        }
                     }
-                }
-            });
+                });
+            }
             ((Animatable2) drawable).start();
+        } else {
+            Intent intent = getPackageManager().getLaunchIntentForPackage("org.chimple.goa");
+            if (intent != null) {
+                startActivity(intent);
+            }
         }
 
     }
 
     public void ticklePiggy(View view) {
-        ImageView imageView = (ImageView) findViewById(R.id.imageView4);
-        Drawable drawable = imageView.getDrawable();
-        if (drawable instanceof Animatable2) {
-            Animatable2 animatable2 = (Animatable2) drawable;
-            ((Animatable2) drawable).start();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ImageView imageView = (ImageView) findViewById(R.id.imageView4);
+            Drawable drawable = imageView.getDrawable();
+            if (drawable instanceof Animatable2) {
+                Animatable2 animatable2 = (Animatable2) drawable;
+                ((Animatable2) drawable).start();
+            }
         }
     }
 
