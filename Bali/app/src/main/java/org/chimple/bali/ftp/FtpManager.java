@@ -2,6 +2,7 @@ package org.chimple.bali.ftp;
 
 import android.content.Context;
 import android.os.Build;
+import android.os.Environment;
 import android.util.Log;
 
 import com.opencsv.CSVWriter;
@@ -18,13 +19,17 @@ import org.chimple.bali.service.ThreadManager;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
+
+import static android.os.Environment.DIRECTORY_DOWNLOADS;
 
 /**
  * Created by shyamalupadhyaya on 08/09/17.
@@ -79,10 +84,60 @@ public class FtpManager {
         }
     }
 
+    public List<String> findMauiLogs() {
+        List<String> filePaths = new ArrayList<String>();
+        String maui_extension = ".maui.csv";
+        File mauiFileFolder = Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS);
+        boolean isMauiLogsAvailable = mauiFileFolder.exists();
+
+        if (isMauiLogsAvailable) {
+            File[] listOfFiles = mauiFileFolder.listFiles(new MauiFilter(maui_extension));
+            if (listOfFiles != null) {
+                for (int i = 0; i < listOfFiles.length; i++) {
+                    if (listOfFiles[i].isFile()) {
+                        filePaths.add(listOfFiles[i].getAbsolutePath());
+                    }
+                }
+            }
+        }
+        return filePaths;
+    }
+
+    public void uploadMauiLogs(final FtpManagerListener listener) {
+        String destDirectory = Build.SERIAL;
+        List<String> mauiFiles = findMauiLogs();
+        if (mauiFiles != null) {
+            Iterator<String> iMauiLogs = mauiFiles.iterator();
+            while (iMauiLogs.hasNext()) {
+                String mauiFileName = (String) iMauiLogs.next();
+                ftpUpload(mauiFileName, mauiFileName, destDirectory, listener);
+            }
+        }
+    }
+
+    public static class MauiFilter implements FilenameFilter {
+
+        private String ext;
+
+        public MauiFilter(String ext) {
+            this.ext = ext.toLowerCase();
+        }
+
+        @Override
+        public boolean accept(File dir, String name) {
+            return name.toLowerCase().endsWith(ext);
+        }
+
+    }
+
+
     public void uploadToFtp(final String ftpHost, String user, String password, int port, final FtpManagerListener listener) {
         try {
             createFtpConnection(ftpHost, user, password, port, listener);
             String destDirectory = Build.SERIAL;
+
+            uploadMauiLogs(listener);
+
             String extension = ".csv";
             String filename = "userlog" + "." + new Date().getTime() + extension;
             String fullyFilePath = this.context.getFilesDir() + File.separator + filename;
@@ -99,11 +154,12 @@ public class FtpManager {
             writer.flush();
             writer.close();
 
-            boolean fileUploadStatus = ftpUpload(filename, filename, destDirectory, listener);
+            boolean fileUploadStatus = ftpUpload(null, filename, destDirectory, listener);
 
             if (fileUploadStatus) {
                 listener.onFtpUploadSuccess();
             }
+
         } catch (Exception ex) {
             listener.onFtpUploadFailed("Ftp Error" + ex.getMessage());
         } finally {
@@ -184,8 +240,13 @@ public class FtpManager {
                     isRemoteDirectoryExists = true;
                 }
             }
+            File srcDir = null;
+            if(srcFilePath != null) {
+                srcDir = Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS);
+            } else  {
+                srcDir = new File(context.getFilesDir() + File.separator);
+            }
 
-            File srcDir = new File(context.getFilesDir() + File.separator);
             if(!isRemoteDirectoryExists) {
                 ftpClient.makeDirectory(remoteDir);
             }

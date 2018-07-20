@@ -69,6 +69,7 @@ public class LessonActivity extends LifecycleActivity {
         mFlashCardView.setOutAnimation(ObjectAnimator.ofFloat(mFlashCardView, "translationX", 0, -point.x));
         Intent intent = getIntent();
         mLessonId = intent.getLongExtra(EXTRA_MESSAGE, 0);
+        LessonRepo.rewardCoins(LessonActivity.this, mLessonId, 0);
         FlashCardViewModel.Factory factory =
                 new FlashCardViewModel.Factory(
                         getApplication(), mLessonId

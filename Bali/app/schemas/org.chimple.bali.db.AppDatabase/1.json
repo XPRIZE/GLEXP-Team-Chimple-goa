@@ -2,18 +2,12 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "90cb590a538f1563714179b0575045a1",
+    "identityHash": "3e40c690de2d6d86ec3f1cd8b1770b17",
     "entities": [
       {
         "tableName": "Lesson",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`concept` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `seq` INTEGER NOT NULL, `title` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `title` TEXT, `concept` INTEGER NOT NULL, `seq` INTEGER NOT NULL)",
         "fields": [
-          {
-            "fieldPath": "concept",
-            "columnName": "concept",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
           {
             "fieldPath": "id",
             "columnName": "id",
@@ -21,16 +15,22 @@
             "notNull": false
           },
           {
-            "fieldPath": "seq",
-            "columnName": "seq",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
             "fieldPath": "title",
             "columnName": "title",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "concept",
+            "columnName": "concept",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "seq",
+            "columnName": "seq",
+            "affinity": "INTEGER",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -53,14 +53,8 @@
       },
       {
         "tableName": "LessonUnit",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`highlight` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `lessonId` INTEGER, `objectUnitId` INTEGER, `seq` INTEGER NOT NULL, `subjectUnitId` INTEGER, FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`subjectUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`objectUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `lessonId` INTEGER, `seq` INTEGER NOT NULL, `subjectUnitId` INTEGER, `objectUnitId` INTEGER, `highlight` TEXT, FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`subjectUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`objectUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
-          {
-            "fieldPath": "highlight",
-            "columnName": "highlight",
-            "affinity": "TEXT",
-            "notNull": false
-          },
           {
             "fieldPath": "id",
             "columnName": "id",
@@ -74,12 +68,6 @@
             "notNull": false
           },
           {
-            "fieldPath": "objectUnitId",
-            "columnName": "objectUnitId",
-            "affinity": "INTEGER",
-            "notNull": false
-          },
-          {
             "fieldPath": "seq",
             "columnName": "seq",
             "affinity": "INTEGER",
@@ -89,6 +77,18 @@
             "fieldPath": "subjectUnitId",
             "columnName": "subjectUnitId",
             "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "objectUnitId",
+            "columnName": "objectUnitId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "highlight",
+            "columnName": "highlight",
+            "affinity": "TEXT",
             "notNull": false
           }
         ],
@@ -147,7 +147,7 @@
       },
       {
         "tableName": "Unit",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `phonemeSound` TEXT, `picture` TEXT, `sound` TEXT, `type` INTEGER NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `type` INTEGER NOT NULL, `picture` TEXT, `sound` TEXT, `phonemeSound` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -162,10 +162,10 @@
             "notNull": false
           },
           {
-            "fieldPath": "phonemeSound",
-            "columnName": "phonemeSound",
-            "affinity": "TEXT",
-            "notNull": false
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
             "fieldPath": "picture",
@@ -180,10 +180,10 @@
             "notNull": false
           },
           {
-            "fieldPath": "type",
-            "columnName": "type",
-            "affinity": "INTEGER",
-            "notNull": true
+            "fieldPath": "phonemeSound",
+            "columnName": "phonemeSound",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -197,19 +197,19 @@
       },
       {
         "tableName": "UnitPart",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`partUnitId` INTEGER, `seq` INTEGER NOT NULL, `type` INTEGER NOT NULL, `unitId` INTEGER NOT NULL, PRIMARY KEY(`unitId`, `type`, `seq`), FOREIGN KEY(`unitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`partUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`unitId` INTEGER NOT NULL, `partUnitId` INTEGER, `type` INTEGER NOT NULL, `seq` INTEGER NOT NULL, PRIMARY KEY(`unitId`, `type`, `seq`), FOREIGN KEY(`unitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`partUnitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
+          {
+            "fieldPath": "unitId",
+            "columnName": "unitId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
           {
             "fieldPath": "partUnitId",
             "columnName": "partUnitId",
             "affinity": "INTEGER",
             "notNull": false
-          },
-          {
-            "fieldPath": "seq",
-            "columnName": "seq",
-            "affinity": "INTEGER",
-            "notNull": true
           },
           {
             "fieldPath": "type",
@@ -218,8 +218,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "unitId",
-            "columnName": "unitId",
+            "fieldPath": "seq",
+            "columnName": "seq",
             "affinity": "INTEGER",
             "notNull": true
           }
@@ -269,20 +269,8 @@
       },
       {
         "tableName": "User",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`coins` INTEGER NOT NULL, `currentLessonId` INTEGER, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `photo` TEXT, `uuid` TEXT, FOREIGN KEY(`currentLessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `photo` TEXT, `currentLessonId` INTEGER, `coins` INTEGER NOT NULL, `uuid` TEXT, FOREIGN KEY(`currentLessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
-          {
-            "fieldPath": "coins",
-            "columnName": "coins",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "currentLessonId",
-            "columnName": "currentLessonId",
-            "affinity": "INTEGER",
-            "notNull": false
-          },
           {
             "fieldPath": "id",
             "columnName": "id",
@@ -300,6 +288,18 @@
             "columnName": "photo",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "currentLessonId",
+            "columnName": "currentLessonId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "coins",
+            "columnName": "coins",
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
             "fieldPath": "uuid",
@@ -331,7 +331,7 @@
       },
       {
         "tableName": "UserLesson",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `lastSeenAt` INTEGER, `lessonId` INTEGER, `score` INTEGER NOT NULL, `seenCount` INTEGER NOT NULL, `userId` INTEGER, FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `userId` INTEGER, `lessonId` INTEGER, `lastSeenAt` INTEGER, `seenCount` INTEGER NOT NULL, `score` INTEGER NOT NULL, FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`lessonId`) REFERENCES `Lesson`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -340,8 +340,8 @@
             "notNull": false
           },
           {
-            "fieldPath": "lastSeenAt",
-            "columnName": "lastSeenAt",
+            "fieldPath": "userId",
+            "columnName": "userId",
             "affinity": "INTEGER",
             "notNull": false
           },
@@ -352,10 +352,10 @@
             "notNull": false
           },
           {
-            "fieldPath": "score",
-            "columnName": "score",
+            "fieldPath": "lastSeenAt",
+            "columnName": "lastSeenAt",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "seenCount",
@@ -364,10 +364,10 @@
             "notNull": true
           },
           {
-            "fieldPath": "userId",
-            "columnName": "userId",
+            "fieldPath": "score",
+            "columnName": "score",
             "affinity": "INTEGER",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -421,7 +421,7 @@
       },
       {
         "tableName": "UserUnit",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `score` INTEGER NOT NULL, `seenAt` INTEGER, `seenCount` INTEGER NOT NULL, `unitId` INTEGER, `userId` INTEGER, FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`unitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `userId` INTEGER, `unitId` INTEGER, `seenAt` INTEGER, `seenCount` INTEGER NOT NULL, `score` INTEGER NOT NULL, FOREIGN KEY(`userId`) REFERENCES `User`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`unitId`) REFERENCES `Unit`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -430,10 +430,16 @@
             "notNull": false
           },
           {
-            "fieldPath": "score",
-            "columnName": "score",
+            "fieldPath": "userId",
+            "columnName": "userId",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
+          },
+          {
+            "fieldPath": "unitId",
+            "columnName": "unitId",
+            "affinity": "INTEGER",
+            "notNull": false
           },
           {
             "fieldPath": "seenAt",
@@ -448,16 +454,10 @@
             "notNull": true
           },
           {
-            "fieldPath": "unitId",
-            "columnName": "unitId",
+            "fieldPath": "score",
+            "columnName": "score",
             "affinity": "INTEGER",
-            "notNull": false
-          },
-          {
-            "fieldPath": "userId",
-            "columnName": "userId",
-            "affinity": "INTEGER",
-            "notNull": false
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -511,26 +511,8 @@
       },
       {
         "tableName": "UserLog",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`entityId` INTEGER, `entityType` INTEGER NOT NULL, `event` INTEGER NOT NULL, `id` INTEGER PRIMARY KEY AUTOINCREMENT, `loggedAt` INTEGER, `name` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `loggedAt` INTEGER, `entityType` INTEGER NOT NULL, `entityId` INTEGER, `event` INTEGER NOT NULL, `name` TEXT)",
         "fields": [
-          {
-            "fieldPath": "entityId",
-            "columnName": "entityId",
-            "affinity": "INTEGER",
-            "notNull": false
-          },
-          {
-            "fieldPath": "entityType",
-            "columnName": "entityType",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "event",
-            "columnName": "event",
-            "affinity": "INTEGER",
-            "notNull": true
-          },
           {
             "fieldPath": "id",
             "columnName": "id",
@@ -542,6 +524,24 @@
             "columnName": "loggedAt",
             "affinity": "INTEGER",
             "notNull": false
+          },
+          {
+            "fieldPath": "entityType",
+            "columnName": "entityType",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "entityId",
+            "columnName": "entityId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "event",
+            "columnName": "event",
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
             "fieldPath": "name",
@@ -562,7 +562,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"90cb590a538f1563714179b0575045a1\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"3e40c690de2d6d86ec3f1cd8b1770b17\")"
     ]
   }
 }

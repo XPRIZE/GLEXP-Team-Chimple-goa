@@ -157,6 +157,33 @@ public class LauncherScreen extends LifecycleActivity {
 
     }
 
+    public void startMaui(View view) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            ImageView imageView = (ImageView) findViewById(R.id.imageView5);
+            Drawable drawable = imageView.getDrawable();
+            if (drawable instanceof Animatable2) {
+                Animatable2 animatable2 = (Animatable2) drawable;
+                animatable2.registerAnimationCallback(new Animatable2.AnimationCallback() {
+                    @Override
+                    public void onAnimationEnd(Drawable drawable) {
+                        super.onAnimationEnd(drawable);
+                        Intent intent = getPackageManager().getLaunchIntentForPackage("sutara.org.maui");
+                        if (intent != null) {
+                            startActivity(intent);
+                        }
+                    }
+                });
+            }
+            ((Animatable2) drawable).start();
+        } else {
+            Intent intent = getPackageManager().getLaunchIntentForPackage("sutara.org.maui");
+            if (intent != null) {
+                startActivity(intent);
+            }
+        }
+
+    }
+
     public void ticklePiggy(View view) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             ImageView imageView = (ImageView) findViewById(R.id.imageView4);
