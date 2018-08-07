@@ -38,27 +38,27 @@ public class WifiConnectionReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        try {
-            WifiConfiguration conf = new WifiConfiguration();
-            conf.SSID = "\"" + networkSSID + "\"";
-
-
-            conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
-            WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
-            wifiManager.addNetwork(conf);
-
-            List<WifiConfiguration> list = wifiManager.getConfiguredNetworks();
-            for( WifiConfiguration i : list ) {
-                if(i.SSID != null && i.SSID.equals("\"" + networkSSID + "\"")) {
-//                    wifiManager.disconnect();
-                    wifiManager.enableNetwork(i.networkId, true);
-//                    wifiManager.reconnect();
-
-                    break;
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            WifiConfiguration conf = new WifiConfiguration();
+//            conf.SSID = "\"" + networkSSID + "\"";
+//
+//
+//            conf.allowedKeyManagement.set(WifiConfiguration.KeyMgmt.NONE);
+//            WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+//            wifiManager.addNetwork(conf);
+//
+//            List<WifiConfiguration> list = wifiManager.getConfiguredNetworks();
+//            for( WifiConfiguration i : list ) {
+//                if(i.SSID != null && i.SSID.equals("\"" + networkSSID + "\"")) {
+////                    wifiManager.disconnect();
+//                    wifiManager.enableNetwork(i.networkId, true);
+////                    wifiManager.reconnect();
+//
+//                    break;
+//                }
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
     }
 }
