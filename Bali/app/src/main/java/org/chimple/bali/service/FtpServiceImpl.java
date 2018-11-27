@@ -42,6 +42,7 @@ public class FtpServiceImpl extends BaseService {
         runInBackground(new ServiceRunnable() {
             @Override
             public void execute() throws Exception {
+
                 getFtpManager().uploadToFtp(host, user, password, port, new FtpManagerListener() {
                     @Override
                     public void onFtpUploadSuccess() {
@@ -59,6 +60,26 @@ public class FtpServiceImpl extends BaseService {
                             @Override
                             public void run() {
                                 listener.onFailure();
+                            }
+                        });
+                    }
+                });
+
+                getFtpManager().downloadBluetoothAddresses(host, user, password, port, new FtpManagerListener() {
+                    @Override
+                    public void onFtpUploadSuccess() {
+                        runOnMainThread(new Runnable() {
+                            @Override
+                            public void run() {
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onFtpUploadFailed(String message) {
+                        runOnMainThread(new Runnable() {
+                            @Override
+                            public void run() {
                             }
                         });
                     }

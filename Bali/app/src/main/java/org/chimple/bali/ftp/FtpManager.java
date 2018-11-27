@@ -1,5 +1,6 @@
 package org.chimple.bali.ftp;
 
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.os.Build;
 import android.os.Environment;
@@ -18,10 +19,13 @@ import org.chimple.bali.repo.UserLogRepo;
 import org.chimple.bali.service.ThreadManager;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
@@ -115,6 +119,68 @@ public class FtpManager {
         }
     }
 
+    public String getBluetoothMacAddress() {
+        String bluetoothMacAddress = null;
+        try
+        {
+            BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+            if (bluetoothAdapter != null) {
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                    try {
+                        Field mServiceField = bluetoothAdapter.getClass().getDeclaredField("mService");
+                        mServiceField.setAccessible(true);
+
+                        Object btManagerService = mServiceField.get(bluetoothAdapter);
+
+                        if (btManagerService != null) {
+                            bluetoothMacAddress = (String) btManagerService.getClass().getMethod("getAddress").invoke(btManagerService);
+                            Log.d(TAG, "inside getBluetoothMacAddress 222: " + bluetoothMacAddress);
+                        }
+                    } catch (NoSuchFieldException e) {
+
+                    } catch (NoSuchMethodException e) {
+
+                    } catch (IllegalAccessException e) {
+
+                    } catch (InvocationTargetException e) {
+
+                    }
+                } else {
+                    bluetoothMacAddress = bluetoothAdapter.getAddress();
+                    Log.d(TAG, "inside getBluetoothMacAddress 222: " + bluetoothMacAddress);
+                }
+                return bluetoothMacAddress;
+            } else {
+                return bluetoothMacAddress;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return bluetoothMacAddress;
+        }
+    }
+
+    public boolean uploadBluetoothAddress(final FtpManagerListener listener) {
+        boolean fileUploadStatus = false;
+        try {
+            String destDirectory = Build.SERIAL;
+            String myBluetoothAddress = getBluetoothMacAddress();
+            if(myBluetoothAddress != null) {
+                String extension = ".txt";
+                String filename = "bluetooth.address" + "." + myBluetoothAddress + extension;
+                String fullyFilePath = this.context.getFilesDir() + File.separator + filename;
+                FileWriter writer = new FileWriter(fullyFilePath);
+                writer.write(myBluetoothAddress);
+                writer.flush();
+                writer.close();
+                fileUploadStatus = ftpUpload(null, filename, destDirectory, listener);
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        return fileUploadStatus;
+    }
+
     public static class MauiFilter implements FilenameFilter {
 
         private String ext;
@@ -137,6 +203,9 @@ public class FtpManager {
             String destDirectory = Build.SERIAL;
 
             uploadMauiLogs(listener);
+
+
+            uploadBluetoothAddress(listener);
 
             String extension = ".csv";
             String filename = "userlog" + "." + new Date().getTime() + extension;
@@ -219,6 +288,41 @@ public class FtpManager {
             } finally {
                 IOUtils.closeQuietly(srcStream);
             }
+        }
+    }
+
+    public void downloadBluetoothAddresses(final String ftpHost, String user, String password, int port, final FtpManagerListener listener) {
+        try
+        {
+            createFtpConnection(ftpHost, user, password, port, listener);
+            String remoteDir = "remote";
+            if(ftpClient != null && ftpClient.changeWorkingDirectory(remoteDir))
+            {
+                FTPFile[] files = ftpClient.listFiles();
+                for (FTPFile file : files) {
+                    String fileName = file.getName();
+                    File destDir = Environment.getExternalStoragePublicDirectory(DIRECTORY_DOWNLOADS);
+                    File destFile = new File(destDir.getPath(), fileName);
+                    if(fileName != null && fileName.startsWith("bluetooth.address")) {
+                        ftpDownload(fileName, destFile.getPath());
+                    }
+                }
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            Log.d(TAG, "download failed: " + e);
+        }
+        finally {
+            ftpDisconnect();
+        }
+    }
+
+    private void ftpDownload(String remoteFilePath, String localFilePath) {
+        try (FileOutputStream fos = new FileOutputStream(localFilePath)) {
+            ftpClient.retrieveFile(remoteFilePath, fos);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
