@@ -1,5 +1,8 @@
 package org.chimple.bali.service;
 
+import android.util.Log;
+
+import org.chimple.bali.broadcasts.ConnectivityBroadcastReceiver;
 import org.chimple.bali.ftp.FtpManagerListener;
 import org.chimple.bali.operation.OpState;
 
@@ -7,7 +10,8 @@ import org.chimple.bali.operation.OpState;
  * Created by shyamalupadhyaya on 08/09/17.
  */
 
-public class FtpServdownloadBluetoothAddressesiceImpl extends BaseService {
+public class FtpServiceImpl extends BaseService {
+    private static final String TAG = FtpServiceImpl.class.getName();
     public static final int DO_FTP_TRANSFER = 1;
     String host = null;
     int port = 21;
@@ -46,6 +50,17 @@ public class FtpServdownloadBluetoothAddressesiceImpl extends BaseService {
                 getFtpManager().uploadToFtp(host, user, password, port, new FtpManagerListener() {
                     @Override
                     public void onFtpUploadSuccess() {
+                        Log.d(TAG, "ftp upload success");
+                        getFtpManager().downloadBluetoothAddresses(host, user, password, port, new FtpManagerListener() {
+                            @Override
+                            public void onFtpUploadSuccess() {
+                            }
+
+                            @Override
+                            public void onFtpUploadFailed(String message) {
+                            }
+                        });
+
                         runOnMainThread(new Runnable() {
                             @Override
                             public void run() {
@@ -60,26 +75,6 @@ public class FtpServdownloadBluetoothAddressesiceImpl extends BaseService {
                             @Override
                             public void run() {
                                 listener.onFailure();
-                            }
-                        });
-                    }
-                });
-
-                getFtpManager().downloadBluetoothAddresses(host, user, password, port, new FtpManagerListener() {
-                    @Override
-                    public void onFtpUploadSuccess() {
-                        runOnMainThread(new Runnable() {
-                            @Override
-                            public void run() {
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onFtpUploadFailed(String message) {
-                        runOnMainThread(new Runnable() {
-                            @Override
-                            public void run() {
                             }
                         });
                     }

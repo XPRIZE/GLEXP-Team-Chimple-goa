@@ -295,20 +295,29 @@ public class FtpManager {
 
     public void downloadBluetoothAddresses(final String ftpHost, String user, String password, int port, final FtpManagerListener listener) {
         try {
+            Log.d(TAG, " in downloadBluetoothAddresses");
             createFtpConnection(ftpHost, user, password, port, listener);
             String remoteDir = "remote/bluetooth";
             if (ftpClient != null && ftpClient.changeWorkingDirectory(remoteDir)) {
+                Log.d(TAG, "changeWorkingDirectory" + remoteDir);
                 FTPFile[] files = ftpClient.listFiles();
                 for (FTPFile file : files) {
                     String fileName = file.getName();
                     if (fileName != null && fileName.contains("bluetooth.address")) {
+                        Log.d(TAG, "file found:" + fileName);
                         File downlodDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);// or DIRECTORY_PICTURES
-                        File dir = new File (downlodDir.getAbsolutePath() + "/bluetoothAdr");
-                        dir.mkdirs();
+                        File dir = new File (downlodDir.getCanonicalPath() + "/" + "bluetoothAdr");
+                        Log.d(TAG, "dir:" + dir);
+                        if(!dir.exists()) {
+                            Log.d(TAG, "created dir:" + dir);
+                            dir.mkdirs();
+                        }
                         boolean canWrite = dir.canWrite();
+                        Log.d(TAG, "have permission to canWrite:" + canWrite);
                         if(canWrite) {
                             File destFile = new File(dir, fileName);
-                            ftpDownload(fileName, destFile.getAbsolutePath());
+                            Log.d(TAG, "saving to:" + destFile.getCanonicalPath());
+                            ftpDownload(fileName, destFile.getCanonicalPath());
                         }
                     }
                 }
