@@ -17,13 +17,8 @@
 package org.chimple.bali.widget;
 
 import android.animation.ObjectAnimator;
-import android.app.Activity;
-import android.arch.lifecycle.LifecycleActivity;
-import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.res.AssetFileDescriptor;
-import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.support.annotation.AttrRes;
@@ -31,21 +26,16 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.support.design.widget.FloatingActionButton;
-import android.text.Html;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.chimple.bali.R;
-import org.chimple.bali.activity.LessonActivity;
 import org.chimple.bali.db.entity.Unit;
-import org.chimple.bali.viewmodel.CardStatusViewModel;
 
 import java.io.IOException;
-import java.io.InputStream;
 
 public class LetterWordView extends FrameLayout{
     private Unit mLetter;

@@ -22,26 +22,20 @@ import android.arch.lifecycle.LiveData;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Animatable2;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.chimple.bali.R;
-import org.chimple.bali.activity.LessonActivity;
 import org.chimple.bali.activity.LessonListActivity;
 import org.chimple.bali.application.BaliApplication;
-import org.chimple.bali.db.AppDatabase;
 import org.chimple.bali.db.entity.User;
 import org.chimple.bali.repo.UserRepo;
 import org.chimple.bali.service.TollBroadcastReceiver;
-import org.w3c.dom.Text;
 
 public class LauncherScreen extends LifecycleActivity {
     public int getCoins() {
