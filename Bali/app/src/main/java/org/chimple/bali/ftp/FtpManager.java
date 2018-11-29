@@ -233,8 +233,6 @@ public class FtpManager {
 
         } catch (Exception ex) {
             listener.onFtpUploadFailed("Ftp Error" + ex.getMessage());
-        } finally {
-            ftpDisconnect();
         }
     }
 
