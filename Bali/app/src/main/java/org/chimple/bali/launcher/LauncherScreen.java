@@ -100,7 +100,7 @@ public class LauncherScreen extends LifecycleActivity {
 
     public void startBali(View view) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ImageView imageView = (ImageView) findViewById(R.id.imageView2);
+            ImageView imageView = (ImageView) findViewById(R.id.imageView5);
             Drawable drawable = imageView.getDrawable();
             if (drawable instanceof Animatable2) {
                 Animatable2 animatable2 = (Animatable2) drawable;
@@ -153,7 +153,7 @@ public class LauncherScreen extends LifecycleActivity {
 
     public void startMaui(View view) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            ImageView imageView = (ImageView) findViewById(R.id.imageView5);
+            ImageView imageView = (ImageView) findViewById(R.id.imageView2);
             Drawable drawable = imageView.getDrawable();
             if (drawable instanceof Animatable2) {
                 Animatable2 animatable2 = (Animatable2) drawable;
