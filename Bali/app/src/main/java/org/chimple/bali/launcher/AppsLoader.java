@@ -48,7 +48,7 @@ public class AppsLoader extends AsyncTaskLoader<ArrayList<AppModel>> {
             "com.google.android.calculator",
             "com.google.android.deskclock",
             "org.godotengine.alphajump",
-            "org.bobstuff.bobball",
+            "org.godotengine.alphaworld",
             "com.alaskalinuxuser.criticalvelocity",
             "com.simplemobiletools.draw",
             "com.quchen.flappycow",
