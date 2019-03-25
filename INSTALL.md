@@ -8,7 +8,7 @@ Below are the steps for building the Chimple application on a Windows computer. 
     3. In the **SDK Tools** tab, choose the latest Android SDK Platform-Tools and Android SDK Tools. Also choose cmake version as 3.6.4111459
     4. Note down the Android SDK Location at the top of the window
 2. Install [Java Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-    1. Open Control Panel->System->Advanced System Settings->Environment Variables and set a new variable JAVA_HOME to the directory where JDK is installed. Please provide the JDK directory and not the JRE directory.
+    1. Open Control Panel->Sysetm and Security->System->Advanced System Settings->Environment Variables and set a new variable JAVA_HOME to the directory where JDK is installed. Please provide the JDK directory and not the JRE directory.
 3. Install [Python 2](https://www.python.org/downloads/release/python-2716/). *Do not install Python 3*
 4. Download [Ant](https://ant.apache.org/bindownload.cgi) and unzip it to C:\ant
 5. Download [NDK R12b](https://dl.google.com/android/repository/android-ndk-r12b-windows-x86_64.zip) and unzip it to C:\ndk
