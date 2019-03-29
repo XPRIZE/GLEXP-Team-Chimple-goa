@@ -1,4 +1,4 @@
-## List of files that require changes in order to localize the Goa application.
+## List of files that require changes in order to localize the Goa application
 ```
 GLEXP-Team-Chimple-goa
 |---goa
@@ -76,7 +76,7 @@ GLEXP-Team-Chimple-goa
 |   |   |   |   |   menu.js
 ```
 ____
-#### Note : One needs to replace the currently available font with a font that supports local language and update the following files accordingly.
+#### Note: One needs to replace the currently available font with a font that supports local language and update the following files accordingly
 
 * Item.cpp
 * ATM.cpp
