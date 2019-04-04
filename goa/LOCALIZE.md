@@ -75,7 +75,7 @@ GLEXP-Team-Chimple-goa
 |   |   |   |---|jump
 |   |   |   |   |   menu.js
 ```
-The edited .po file must be converted to .mo file.
+The edited .po file must be converted to .mo file using any utility like [this](https://po2mo.net/).
 ____
 #### Note: One needs to replace the currently available font with a font that supports local language and update the following files accordingly
 
