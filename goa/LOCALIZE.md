@@ -8,7 +8,6 @@ GLEXP-Team-Chimple-goa
 |   |   |   |   Lesson.cpp
 |   |   |   |   TextGenerator.cpp 
 |   |   |---menu
-|   |   |   |   MainMenuHome.cpp
 |   |   |   |   Setting.cpp
 |   |   |---mini_games
 |   |   |   |   AlphaArrange.cpp
@@ -56,6 +55,7 @@ GLEXP-Team-Chimple-goa
 |   |   |   |   |   |   |   |   *.wav
 |   |   |   |   |   |   *.csv
 |   |   |   |   |   |   *.json
+|   |   |   |   |   |   .po
 |   |   |   |---story
 |   |   |   |   |---eng
 |   |   |   |   |   |---|*
