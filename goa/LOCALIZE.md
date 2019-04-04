@@ -32,7 +32,7 @@
 |   |   |---<b><i>res</i></b>
 |   |   |   |---<b><i>config</i></b>
 |   |   |   |   |   <b><i>*.json:</i></b> Contains the text that is getting displayed inside the title tags.
-|   |   |   |---<b><i>lang:</b> Contains language specific content like alphabets, homonyms, plurals, sentences, parts of speech and so on.
+|   |   |   |---<b><i>lang:</i></b> Contains language specific content like alphabets, homonyms, plurals, sentences, parts of speech and so on.
 |   |   |   |   |---<b><i>eng:</i></b> Create a .mo file from the .po file using some utility like [this](https://po2mo.net/).
 |   |   |   |---<b><i>story:</i></b> Contains audio and json files for each story.
 |   |---<b><i>scripts:</i></b> Contais question related to stories.
