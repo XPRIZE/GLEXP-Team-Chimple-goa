@@ -48,17 +48,4 @@
 |   |   |   |   |   <b><i>menu.js:</i></b> Contains code to create labels from the alphabets of the local language.
 </pre>
 ____
-#### Note: One needs to replace the currently available font with a font that supports local language and update the following files accordingly
-
-* Item.cpp
-* ATM.cpp
-* Calculator.cpp
-* Table.cpp
-* LangUtil.cpp
-* UIRichText.cpp
-* Door.cpp
-* TreasureHunt.cpp
-* Units.cpp
-* QuestionHandler.cpp
-* Bubble_Numbers.js
-* Bubble_Puzzle.js
+#### Note: One needs to replace the currently available font with a font that supports local language. In order to support a new language a new <Language>Util.cpp class needs to be made. For example in order to support Hindi language create a HindiUtil.cpp class similar to the TeluguUtil.cpp class and then replace the font filenames specified in the getFontFile() and getBMFontFileName() functions. 
