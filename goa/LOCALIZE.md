@@ -6,7 +6,7 @@
 * The ***[mini-games](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes/mini_games)*** folder contains a class for each mini-game. Few classes inside the ***mini-games*** folder have the code to create the game levels, sprite and other similar content based on the alphabets present in the local language. Also, in the ***[BlastLetter.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/mini_games/BlastLetter.cpp)*** file the instructions are getting translated from English to the local language. 
 * The ***[sqlite3](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes/sqlite3)*** folder contains code to insert local language content into a database using local language instance and it is defined in the `findAllHints()` and `findAllDialogs()` functions. 
 
-The files inside the ***Classes*** folder that require change are listed below.
+The files inside the ***Classes*** folder that require changes are listed below.
 <pre>
 <b><i>Classes</i></b>
    |---<b><i>lang</i></b> 
