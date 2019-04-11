@@ -4,14 +4,13 @@
 The Goa application comprises of many games which helps a child to get educated.
 
 1. **Analysis of game content**: Make a complete list of the content in the local language which can be taught to a child with these games.
-2. **Dialogue creation**: Create basic dialogues in the local language required for a child to learn and effectively communicate in day to day life.
+2. **Dialogue creation**: Create basic dialogues in the local language required for a child to learn and effectively communicate in day-to-day life.
 3. **Image creation**: Creation of new images containing objects that a child comes across in day-to-day life.
 4. **Recording**: Recordings of all audio and video material required in local language.
 5. **Final build**: With all assets prepared and added to the project, build the Goa application.
 
-
 ## Key components:
-The changes required to be made in order to localize the Goa application are of two kinds:
+The changes that are required in order to localize the Goa application are as follows:
 1. **Content Changes**: In order to make content level changes one needs to make changes to ***[Resources/res](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res)*** and ***[scripts](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/scripts)*** folder.
 2. **Code Changes**: In order to make code level changes one needs to make changes to ***[.cocos-project.json](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/.cocos-project.json)*** file, ***[Classes](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes)*** folder and ***[src](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/src)*** folder.
 
@@ -19,7 +18,7 @@ The changes required to be made in order to localize the Goa application are of 
 ___
 
 #### Resources/res:
-The ***[Resources](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources)*** folder contains assets for the application.
+
 * The ***[lang](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/lang)*** folder inside the ***[res](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res)*** folder contains one folder for each supported language, named ***{lang}*** henceforth. The ***{lang}*** folder contains language specific content like alphabets, words, homonyms, antonyms, synonyms, plurals, sentences, parts of speech and such other things in the form of JSON, CSV, CSB, audio and video files that need to be changed in order to localize the application.
 * In order to add language specific instructions and help videos change the content of the ***[help](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/lang/eng/help)*** folder.
 * The ***{lang}*** folder also contains ***{lang}.po*** file which contains strings in the `msgstr` tags which needs to be edited as per the local language. After editing ***{lang}.po*** file a ***{lang}.mo*** file must be generated using some utility like [this](https://po2mo.net/).
@@ -62,7 +61,7 @@ ___
 
 
 ***[Classes](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes)*** folder contains language utility classes for each language that is supported by the application and the classes useful to switch between these languages. 
-* The ***[lang](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes/lang)*** folder contains ***[LangUtil.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/lang/LangUtil.cpp)*** class which contains code to create an instance of local language in the `getInstance()` function. One needs to create a class {Language}Util.cpp for a local language and create instance of that class.
+* The ***[lang](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes/lang)*** folder contains ***[LangUtil.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/lang/LangUtil.cpp)*** class which contains code to create an instance of local language in the `getInstance()` function. One needs to create a class ***{Language}Util.cpp*** for a local language and create instance of that class. The code in the neewly created ***{Language}Util.cpp*** class should be similar to the code present in the ***[TeluguUtil.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/lang/TeluguUtil.cpp)*** class.
 
   ```cpp
   LangUtil* LangUtil::getInstance() {
@@ -72,6 +71,7 @@ ___
       return _instance;
   }
   ```
+   ***Note***: In the new {Language}Util.cpp class that was created, replace the font filenames specified in the getFontFile() and getBMFontFileName() functions. 
   Additionally one needs to change ***[Lesson.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/lang/Lesson.cpp)*** and ***[TextGenerator.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/lang/TextGenerator.cpp)***.
   
 * The ***[menu](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes/menu)*** folder contains classes required for navigation between sections and mini-games.
@@ -109,6 +109,3 @@ The ***[src](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/sr
    |   |---<b><i>jump</i></b>
    |   |   |   <b><i>menu.js</i></b>
 </pre>
-
-___
-#### Note: One needs to replace the currently available font with a font that supports local language. In order to support a new language a new {Lang}Util.cpp class needs to be made. For example in order to support Hindi language create a HindiUtil.cpp class similar to the TeluguUtil.cpp class and then replace the font filenames specified in the getFontFile() and getBMFontFileName() functions. 
