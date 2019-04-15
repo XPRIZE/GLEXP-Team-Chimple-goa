@@ -58,6 +58,10 @@ In `goa/.cocos-project.json`:
     "chimple_lang": "eng"
 }
 ```
+In `Bali/app/src/main/java/org/chimple/bali/db/AppDatabase.java`:
+```
+                        inputStream = assetManager.open("eng/database.csv");
+```
 
 ### To create a Swahili version of the software:
 In `goa/Classes/lang/LangUtil.cpp`:
@@ -74,4 +78,8 @@ In `goa/.cocos-project.json`:
     "chimple_res": "HDR",
     "chimple_lang": "swa"
 }
+```
+In `Bali/app/src/main/java/org/chimple/bali/db/AppDatabase.java`:
+```
+                        inputStream = assetManager.open("swa/database.csv");
 ```
