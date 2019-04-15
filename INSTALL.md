@@ -36,3 +36,42 @@ Goa is an application which has lots of games for the child to play while learni
 2. Overwrite the directory *tools* in ANDROID_SDK_ROOT with C:\tools
 3. `cd goa`
 4. `cocos run -p android`
+## Activate/Deactivate Kiosk Mode
+By default, the Kiosk mode is enabled. So all games are open. To disable Kiosk mode, set the KIOSK variable in 
+`goa/Classes/menu/ScrollableGameMapScene.cpp` to false
+
+``static const bool KIOSK = false;``
+## Switch between English and Swahili version
+### To create an English version of the software:
+In `goa/Classes/lang/LangUtil.cpp`:
+```
+        _instance = new EnglishUtil();
+        // _instance = new SwahiliUtil();
+```
+In `goa/.cocos-project.json`:
+```
+{
+    "engine_version": "cocos2d-x-3.14.1", 
+    "project_type": "cpp",
+        "custom_step_script": "./scripts/custom_script.py",
+    "chimple_res": "HDR",
+    "chimple_lang": "eng"
+}
+```
+
+### To create a Swahili version of the software:
+In `goa/Classes/lang/LangUtil.cpp`:
+```
+        // _instance = new EnglishUtil();
+        _instance = new SwahiliUtil();
+```
+In `goa/.cocos-project.json`:
+```
+{
+    "engine_version": "cocos2d-x-3.14.1", 
+    "project_type": "cpp",
+        "custom_step_script": "./scripts/custom_script.py",
+    "chimple_res": "HDR",
+    "chimple_lang": "swa"
+}
+```
