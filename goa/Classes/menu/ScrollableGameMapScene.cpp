@@ -66,6 +66,7 @@
 
 
 USING_NS_CC;
+static const bool KIOSK = false;
 
 std::map<std::string, cocos2d::Color3B> ScrollableGameMapScene::BUTTON_TEXT_COLOR_MAP = {
     {"alphabet", Color3B(0xFF, 0xC0, 0xC0)},
@@ -252,10 +253,10 @@ bool ScrollableGameMapScene::init(std::string subGameMenuName) {
 
         std::string unlockStr;
         localStorageGetItem(".unlock", &unlockStr);
-        bool lockAll = false;
-        if (unlockStr.empty() || unlockStr == "1") {
-            lockAll = true;
-        }
+        bool lockAll = !KIOSK;
+//        if (unlockStr.empty() || unlockStr == "1") {
+//            lockAll = true;
+//        }
         std::vector<int> orderedGameIndexes;
         int unlockPosition = 0;
         for (int dIndex = 0; dIndex < d.Size(); dIndex++) {
