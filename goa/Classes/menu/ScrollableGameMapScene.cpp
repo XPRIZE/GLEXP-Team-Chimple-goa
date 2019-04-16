@@ -66,7 +66,7 @@
 
 
 USING_NS_CC;
-static const bool KIOSK = false;
+static const bool KIOSK = true;
 
 std::map<std::string, cocos2d::Color3B> ScrollableGameMapScene::BUTTON_TEXT_COLOR_MAP = {
     {"alphabet", Color3B(0xFF, 0xC0, 0xC0)},
