@@ -4,7 +4,7 @@ ___
 1. Clone the GitHub repository on your local machine. Henceforth, root folder of the cloned GitHub repository mapped in your local machine will be referenced as __~\\__.
 2. Install the latest [Android Studio](https://developer.android.com/studio)
     1. Open Android Studio->Tools->SDK Manager
-    2. In the __SDK Platforms__ tab, choose Android 4.4(KitKat)
+    2. In the __SDK Platforms__ tab, choose Android 4.4 (KitKat)
     3. In the __SDK Tools__ tab, choose the latest Android SDK Platform-Tools, Android SDK Tools and CMake.
     4. Note down the Android SDK Location at the top of the window.
   3. Install JDK 8 and add Java path as an enviroment variable.
@@ -58,7 +58,7 @@ ___
 	  
           Uncomment the following line:  
           `// _instance = new EnglishUtil();`  
-  4. Run the following command from Windows PowerShell or Windows Command Prompt:
+  4. Run the following command from root directory of project using Windows PowerShell or Windows Command Prompt:
 		
         `cd goa`
 		
@@ -73,5 +73,5 @@ ___
         > 1. Create a lib folder in parent directory of the concerned project repository
     	> 2. Copy _flutter.jar_ file from the _FLUTTER_SDK_ROOT_DIR\bin\cache\artifacts\engine\android-arm_ folder into _lib_ folder
     	> 3. From Android Studio right click the newly added jar file and then select "Add as library" option
-  3. "setup.py" throwing error while installing cocos
+  3. "setup.py" throws error while installing cocos
         > Uninstall Python 3 temporarily and try running setup.py again
