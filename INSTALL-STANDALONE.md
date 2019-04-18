@@ -13,7 +13,7 @@ ___
   7. Download [NDK R12b](https://dl.google.com/android/repository/android-ndk-r12b-windows-x86_64.zip) and unzip it to _C:\ndk_.
   8. Download [Cocos2d-x 3.14.1](https://digitalocean.cocos2d-x.org/Cocos2D-X/cocos2d-x-3.14.1.zip) and unzip it to _C:\cocos_.
   9. Download [Android SDK tools 25.2.5](https://dl.google.com/android/repository/tools_r25.2.5-windows.zip) and unzip it to _C:\tools_.
-  10. Install cocos command line tool.
+  10. Set up cocos command line tool.
       1. Run `cd C:\cocos`
       2. Run `python setup.py` command with Python 2
       3. It will prompt for the following variables:
@@ -64,7 +64,7 @@ ___
 		
         `cocos run -p android`
 
-### __Common issues and their solutions__
+### __Common issues and resolutions__
 ___
   1. "Not a git repository" error while executing `git packages get` command in any one of the repositories
   		> Delete _C:\Users\USERNAME\AppData\Roaming\Pub\Cache\git\cache_ folder and rerun the above command
