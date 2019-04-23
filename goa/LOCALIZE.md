@@ -14,8 +14,7 @@ The changes that are required in order to localize the Goa application are as fo
 1. **Content Changes**: In order to make content level changes one needs to make changes to ***[Resources/res](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res)*** and ***[scripts](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/scripts)*** folder.
 2. **Code Changes**: In order to make code level changes one needs to make changes to ***[.cocos-project.json](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/.cocos-project.json)*** file, ***[Classes](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes)*** folder and ***[src](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/src)*** folder.
 
-### 1. Content Changes:
-___
+## Content Changes
 
 #### Resources/res:
 
@@ -44,8 +43,7 @@ ___
 #### Scripts:
 The ***[scripts](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/scripts)*** folder contains questions related to the stories in the ***[questions.csv](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/scripts/questions.csv)*** file and so this file needs to be modified.
 
-### 2. Code Changes:
-___
+## Code Changes
 #### .cocos-project.json file:
  Change the value of the `chimple_lang` tag to the local language.
 ```json
