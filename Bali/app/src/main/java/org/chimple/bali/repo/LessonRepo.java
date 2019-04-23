@@ -238,7 +238,7 @@ public class LessonRepo {
                     choices[c].name = choices[c].name.substring(0, 1).toUpperCase() + choices[c].name.substring(1);
                 }
             }
-            MultipleChoiceQuiz mcq = new MultipleChoiceQuiz("Neno",
+            MultipleChoiceQuiz mcq = new MultipleChoiceQuiz(context.getResources().getString(R.string.word),
                     answer, choices, answerIndex);
             mcqs.add(mcq);
         }
@@ -301,7 +301,7 @@ public class LessonRepo {
                     choices[c] = choiceList.get(Math.min(c, choiceList.size() - 1));
                 }
 
-                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz("Neno"
+                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz(context.getResources().getString(R.string.word)
                         , answer
                         , answers
                         , choices);
@@ -339,7 +339,7 @@ public class LessonRepo {
                     choices[c] = choiceList.get(Math.min(c, choiceList.size() - 1));
                 }
 
-                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz("Neno"
+                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz(context.getResources().getString(R.string.word)
                         , luc.objectUnit.name
                         , answers
                         , choices);
