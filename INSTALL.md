@@ -95,4 +95,4 @@ In `Bali/app/src/main/java/org/chimple/bali/db/AppDatabase.java`:
    > 3. From Android Studio right click the newly added jar file and then select "Add as library" option.
 3. How to resolve the error which is encountered after running "setup.py" script while installing cocos?
 
-    > Uninstall Python 3 temporarily and try running setup.py again.
+    > In case you have Python 3 installed, uninstall it and try running setup.py again.
