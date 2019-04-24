@@ -1,6 +1,6 @@
 # Compilation and installation instructions for building the Chimple application
-Below are the steps for building the Chimple application on a Windows computer. For MacOS or Linux, similar steps can be followed
-*Please do not create any directories with spaces in them*
+Below are the steps for building the Chimple application on a Windows computer. For MacOS or Linux, similar steps can be followed.
+*Please do not create any directories with spaces in them.*
 ## Pre-requisites
 1. Install the latest [Android Studio](https://developer.android.com/studio)
     1. Open Android Studio->Tools->SDK Manager
@@ -83,3 +83,16 @@ In `Bali/app/src/main/java/org/chimple/bali/db/AppDatabase.java`:
 ```
                         inputStream = assetManager.open("swa/database.csv");
 ```
+
+## FAQs
+1. How to resolve the "Not a git repository" error which is encountered after executing `git packages get` command?
+
+  	> Delete _C:\Users\USERNAME\AppData\Roaming\Pub\Cache\git\cache_ folder and rerun the `git packages get` command.
+2. How to resolve the plugin import dependency error?
+	
+   > 1. Create a lib folder in parent directory of the concerned project repository.
+   > 2. Copy _flutter.jar_ file from the _FLUTTER_SDK_ROOT_DIR\bin\cache\artifacts\engine\android-arm_ folder into _lib_ folder.
+   > 3. From Android Studio right click the newly added jar file and then select "Add as library" option.
+3. How to resolve the error which is encountered after running "setup.py" script while installing cocos?
+
+    > Uninstall Python 3 temporarily and try running setup.py again.
