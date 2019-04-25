@@ -1,9 +1,9 @@
 # Localization of Goa application
 ## Process
 
-The Goa application comprises of many games that help a child to get educated.
+We propose the below steps in order to streamline the process of localization.
 
-1. **Analysis of game content**: Make a complete list of the content in the local language which can be taught to a child with the games.
+1. **Analysis of game content**: Make a complete list of content which needs to be localized.
 2. **Dialogue creation**: Create basic dialogues in the local language required for a child to learn and effectively communicate in day-to-day life.
 3. **Image creation**: Creation of new images containing objects that a child would come across in day-to-day life.
 4. **Recording**: Recordings of all audio and video material required in local the language.
@@ -18,16 +18,16 @@ The changes that are required in order to localize the Goa application are as fo
 
 #### Resources/res:
 
-* The ***[lang](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/lang)*** folder inside the ***[res](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res)*** folder contains one folder for each supported language, named ***{lang}*** henceforth. The ***{lang}*** folder contains language specific content like alphabets, words, homonyms, antonyms, synonyms, plurals, sentences, parts of speech and similar other things in the form of JSON, CSV, CSB, audio and video files that need to be changed in order to localize the application.
-* In order to add language specific instructions and help videos change the content of the ***[help](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/lang/eng/help)*** folder.
-* The ***{lang}*** folder also contains ***{lang}.po*** file which contains strings in the `msgstr` tags that needs to be edited as per the local language. After editing ***{lang}.po*** file a ***{lang}.mo*** file must be generated using some utility like [this](https://po2mo.net/).
+* The ***[lang](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/lang)*** folder contains locale specific content for all the currently supported languages. It contains language specific content like alphabets, words, homonyms, antonyms, synonyms, plurals, sentences, parts of speech, and similar things in the form of JSON, CSV, CSB, audio and video files.
+* Language specific instructions and _help videos_ are present in ***[help](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/lang/eng/help)*** folder.
+* The language folder also contains ***.po*** file which contains strings in the `msgstr` tags that needs to be replaced as per the locale language. After editing ***.po*** file, a ***.mo*** file should be generated using an external utility ([sample](https://po2mo.net/)).
 
   ```
   msgid "text"
   msgstr "text in local language"
   ```
-* Inside the ***[res](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res)*** folder, there is a ***[config](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/config)*** folder which contains one JSON file corresponding to each section. The JSON files contain names of the minigames inside the `title` tag. The ***[config](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/config)*** folder also contains mapping information for the game and contains `lang` tag which contains labels for the required language.
-* The help for each section can be localized by changing the content present in the `help` tags in the ***[game_level.json](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Resources/res/config/game_levels.json)*** file.
+* In the ***[config](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/config)*** folder there are JSON files that contain names of the minigames with `title` as their key. The ***[config](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/config)*** folder also contains mapping information for the game and contains `lang` key for labels.
+* The help instruction is contained in ***[game_level.json](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Resources/res/config/game_levels.json)*** file with `help` as the key for each section.
   ```json
   "miningbg": [
       {
@@ -41,24 +41,24 @@ The changes that are required in order to localize the Goa application are as fo
   ```
 
 #### Scripts:
-The ***[scripts](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/scripts)*** folder contains questions related to the stories in the ***[questions.csv](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/scripts/questions.csv)*** file and so this file needs to be modified.
+The ***[scripts](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/scripts)*** folder contains questions related to the stories in the ***[questions.csv](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/scripts/questions.csv)*** file.
 
 ## Code Changes
 #### .cocos-project.json file:
- Change the value of the `chimple_lang` tag to the local language.
+ Change the value of the `chimple_lang` key in the file to a desired language.
 ```json
 {
     "engine_version": "cocos2d-x-3.14.1", 
     "project_type": "cpp",
     "custom_step_script": "./scripts/custom_script.py",
     "chimple_res": "HDR",
-    "chimple_lang": "{lan}"
+    "chimple_lang": "{lang}"
 }
 ```
 #### Classes:
 
 
-***[Classes](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes)*** folder contains language utility classes for each language that is supported by the application.These classes are useful to switch between supported languages. 
+***[Classes](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes)*** folder contains utility classes for each language that are supported by the application. These classes are useful to switch between languages. 
 * The ***[lang](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes/lang)*** folder contains ***[LangUtil.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/lang/LangUtil.cpp)*** class which contains code to create an instance of local language in the `getInstance()` function. One needs to create a class ***{Language}Util.cpp*** for a local language and create an instance of that class. The code in the newly created ***{Language}Util.cpp*** class should be similar to the code present in the ***[TeluguUtil.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/lang/TeluguUtil.cpp)*** class.
 
   ```cpp
@@ -69,11 +69,11 @@ The ***[scripts](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/go
       return _instance;
   }
   ```
-   ***Note***: In the new {Language}Util.cpp class that was created, replace the font filenames specified in the getFontFile() and getBMFontFileName() functions. 
-  Additionally, one needs to change ***[Lesson.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/lang/Lesson.cpp)*** and ***[TextGenerator.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/lang/TextGenerator.cpp)***.
+   ***Note***: Font related code is present in {Language}Util.cpp class in _getFontFile()_ and_ getBMFontFileName()_ functions. 
+  Additionally, one needs to change locale specific content in ***[Lesson.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/lang/Lesson.cpp)*** and ***[TextGenerator.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/lang/TextGenerator.cpp)*** files.
   
-* The ***[menu](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes/menu)*** folder contains classes required for navigation between sections and minigames.
-* The ***[minigames](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes/mini_games)*** folder contains a class for each mini-game. Few classes inside the ***minigames*** folder have the code to create the game levels, sprite and other similar content based on the alphabets present in the local language. Also, in the ***[BlastLetter.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/mini_games/BlastLetter.cpp)*** file, the instructions are getting translated from English to the local language. The following list of files requires changes:
+* The ***[menu](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes/menu)*** folder contains classes required for navigating between sections and minigames.
+* The ***[minigames](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Classes/mini_games)*** folder contains a class for each minigame. Few classes inside the ***minigames*** folder have the code to create the game levels, sprite and other similar content based on the alphabet present in local language. Also, in the ***[BlastLetter.cpp](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Classes/mini_games/BlastLetter.cpp)*** file, the instructions are getting translated from English to local language. The following is a list of files that requires changes:
 
   <pre>
   <b><i>mini_games</i></b> 
