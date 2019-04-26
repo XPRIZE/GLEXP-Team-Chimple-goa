@@ -27,7 +27,7 @@ The changes that are required in order to localize the Goa application are as fo
   msgstr "text in local language"
   ```
   After editing ***.po*** file, a ***.mo*** file should be generated using an external utility ([sample](https://po2mo.net/)).
-* In the ***[config](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/config)*** folder, there are JSON files that contain names of the minigames with `title` as their key. This folder contains JSON files that have `lang` as the key for labels for mapping game names.
+* In the ***[config](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/tree/master/goa/Resources/res/config)*** folder, there are JSON files that contains names of the minigames with `title` as their key. This folder also contains JSON files in which the values of `lang` key are a combination of letters/numbers that represent different levels of games. These combination of letters/numbers can be localized.
 * The help instruction is contained in ***[game_level.json](https://github.com/XPRIZE/GLEXP-Team-Chimple-goa/blob/master/goa/Resources/res/config/game_levels.json)*** file with `help` as the key for each section.
   ```json
   "miningbg": [
