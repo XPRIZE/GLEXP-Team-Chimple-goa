@@ -38,6 +38,8 @@ import org.chimple.bali.repo.UserRepo;
 import org.chimple.bali.service.TollBroadcastReceiver;
 
 public class LauncherScreen extends LifecycleActivity {
+    public static final boolean POPUP = false;
+
     public int getCoins() {
         return mCoins;
     }
@@ -53,10 +55,12 @@ public class LauncherScreen extends LifecycleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
 
-        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
-        filter.addAction(Intent.ACTION_SCREEN_OFF);
-        BroadcastReceiver mReceiver = new TollBroadcastReceiver();
-        registerReceiver(mReceiver, filter);
+        if(POPUP) {
+            IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
+            filter.addAction(Intent.ACTION_SCREEN_OFF);
+            BroadcastReceiver mReceiver = new TollBroadcastReceiver();
+            registerReceiver(mReceiver, filter);
+        }
 
         BaliApplication application = (BaliApplication) getApplication();
         String coinMessage = "Total Coins: "
@@ -87,7 +91,7 @@ public class LauncherScreen extends LifecycleActivity {
         Intent receivedIntent = getIntent();
         String action = receivedIntent.getAction();
         String test = receivedIntent.getStringExtra("test");
-        if (Intent.ACTION_SEND.equals(action)) {
+        if (POPUP && Intent.ACTION_SEND.equals(action)) {
             AlertDialog.Builder Builder = new AlertDialog.Builder(this)
                     .setMessage(R.string.not_enough_coins)
                     .setTitle(R.string.stop)

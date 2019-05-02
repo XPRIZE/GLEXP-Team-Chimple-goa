@@ -41,6 +41,11 @@ By default, the Kiosk mode is enabled. So all games are open. To disable Kiosk m
 `goa/Classes/menu/ScrollableGameMapScene.cpp` to false
 
 ``static const bool KIOSK = false;``
+
+The custom Android Launcher screen (part of Bali) will cover the screen every minute if enough coins are not there. This is useful to encourage children to learn and earn coins which they can use to buy camera time or other game time. By default, (as part of Kiosk mode) this is disabled. To enable this functionality, in `Bali/app/src/main/java/org/chimple/bali/launcher/LauncherScreen.java` set the POPUP variable to true
+
+``public static final boolean POPUP = true;``
+
 ## Switch between English and Swahili version
 ### To create an English version of the software:
 In `goa/Classes/lang/LangUtil.cpp`:
