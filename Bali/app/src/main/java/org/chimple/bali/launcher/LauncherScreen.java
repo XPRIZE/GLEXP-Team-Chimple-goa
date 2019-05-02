@@ -55,10 +55,12 @@ public class LauncherScreen extends LifecycleActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
 
-        IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
-        filter.addAction(Intent.ACTION_SCREEN_OFF);
-        BroadcastReceiver mReceiver = new TollBroadcastReceiver();
-        registerReceiver(mReceiver, filter);
+        if(POPUP) {
+            IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
+            filter.addAction(Intent.ACTION_SCREEN_OFF);
+            BroadcastReceiver mReceiver = new TollBroadcastReceiver();
+            registerReceiver(mReceiver, filter);
+        }
 
         BaliApplication application = (BaliApplication) getApplication();
         String coinMessage = "Total Coins: "
