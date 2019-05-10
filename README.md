@@ -1,29 +1,12 @@
-# Building the image on a Google Pixel C tablet
-## Prerequisites:
-* Install cocos2d-x according to the procedure listed at http://www.cocos2d-x.org/docs/installation/Android-terminal/
-* In the Android SDK:
-  * Edit sdk/tools/ant/build.xml
-  * Uncomment the below line:
-  
-    `<!--<nocompress extension="xml" />-->`
-    
-    and change it to
-    
-    `<nocompress extension="webm" />`
-* Prepare a Google Pixel C tablet with 6.0.1 Android version and unlocked boot loader
+This repository consits of two applications
+- Bali
 
-## Build steps
-* `cd goa`
-* `cocos run -p android -m release`
+  This is a teaching app built using Java/Android programming language. This app performs the following
+  - Create a launcher that replaces the stock Android launcher.
+  - Allow the child to earn points by learning. These points can be redeemed to use fun applications such as Photos, Camera, Music, Videos. If enough coins are not earned by learning, the child cannot use these fun applications
+  - Log data to the XPRIZE ftp server
+  - Learning application that helps the child learn reading using flash cards.
+  - Provide the same data from flash cards to any other application installed on the tablet. This is to make sure the child is always learning the same concept from multiple activities or games
+- Goa
 
-The apk will be generated at goa/publish
-
-## Generating the userdata.img for flashing to Google Pixel C tablet
-* In a shell on a Mac or Linux PC, in a user writeable directory, create a directory called my_userdata, with a subdirectory called app. 
-* Copy your APK(s) to the app directory
-* sudo make_ext4fs -l 30720M -s -a userdata ./userdata.img my_userdata
-
-    ...where 10240M is the size you want your partition to be.
-    
-    NOTE: Do not include directories other than the "app" directory.
-* fastboot flash userdata userdata.img
+  This is a game built using [Cocos2dx](https://cocos2d-x.org/cocos2dx) in the C++ programming language. It contains numerous activities and games for reading, writing and maths along with tons of stories. It derives the literacy data from *Bali*
