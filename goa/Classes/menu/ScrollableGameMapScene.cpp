@@ -66,7 +66,6 @@
 
 
 USING_NS_CC;
-static const bool KIOSK = true;
 
 std::map<std::string, cocos2d::Color3B> ScrollableGameMapScene::BUTTON_TEXT_COLOR_MAP = {
     {"alphabet", Color3B(0xFF, 0xC0, 0xC0)},
@@ -253,10 +252,10 @@ bool ScrollableGameMapScene::init(std::string subGameMenuName) {
 
         std::string unlockStr;
         localStorageGetItem(".unlock", &unlockStr);
-        bool lockAll = !KIOSK;
-//        if (unlockStr.empty() || unlockStr == "1") {
-//            lockAll = true;
-//        }
+        bool lockAll = false;
+        if (unlockStr.empty() || unlockStr == "1") {
+            lockAll = true;
+        }
         std::vector<int> orderedGameIndexes;
         int unlockPosition = 0;
         for (int dIndex = 0; dIndex < d.Size(); dIndex++) {
@@ -413,7 +412,7 @@ cocos2d::ui::Button* ScrollableGameMapScene::createButton(const rapidjson::Value
         button->setName(gameJson["name"].GetString());
         button->setTitleText(LangUtil::getInstance()->translateString(gameJson["title"].GetString()));
         button->setTitleAlignment(TextHAlignment::CENTER, TextVAlignment::BOTTOM);
-        button->setTitleFontName(LangUtil::getInstance()->getFontFile());
+        button->setTitleFontName("fonts/Chanakya.ttf");
         auto titleColor = Color3B(0xFF, 0xF2, 0x00);
         if(!_subGameMenuToNavigate.empty()) {
             auto it = BUTTON_TEXT_COLOR_MAP.find(_subGameMenuToNavigate);

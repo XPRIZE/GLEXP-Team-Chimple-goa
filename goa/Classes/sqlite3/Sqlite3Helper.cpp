@@ -368,7 +368,7 @@ std::vector<MessageContent*> Sqlite3Helper::findALLHints() {
         std::string hint( reinterpret_cast< char const* >(sqlite3_column_text(res, 0))) ;
         content->setHint(hint);
         
-        LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
+        LangUtil::getInstance()->changeLanguage(SupportedLanguages::ENGLISH);
         std::string convertedHint = LangUtil::getInstance()->translateString(hint);
         
 //        CCLOG("hints: %s, %s", hint.c_str(), convertedHint.c_str());
@@ -413,7 +413,7 @@ std::vector<MessageContent*> Sqlite3Helper::findALLDialogs() {
         std::string dialog( reinterpret_cast< char const* >(sqlite3_column_text(res, 0))) ;
         content->setDialog(dialog);
         
-        LangUtil::getInstance()->changeLanguage(SupportedLanguages::SWAHILI);
+        LangUtil::getInstance()->changeLanguage(SupportedLanguages::ENGLISH);
         std::string convertedString = LangUtil::getInstance()->translateString(dialog);
         
 //        CCLOG("dialog: %s, %s", dialog.c_str(), convertedString.c_str());

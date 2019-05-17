@@ -164,6 +164,12 @@ bool AppDelegate::applicationDidFinishLaunching()
     }
     
     director->setContentScaleFactor(scaleFactor);
+
+    //#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+        //string devicePath = "/storage/emulated/0/Chimple/";
+        //FileUtils::getInstance()->setDefaultResourceRootPath(devicePath);
+    //#endif
+
     FileUtils::getInstance()->setSearchPaths(searchPaths);
     
     FileUtils::getInstance()->addSearchPath("res");

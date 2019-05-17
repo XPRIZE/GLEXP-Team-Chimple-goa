@@ -30,7 +30,7 @@ public class TestActivity extends AppCompatActivity {
 
     public void sendMessage(View view) {
         // Do something in response to button
-        ComponentName componentName = new ComponentName("org.chimple.goa", "org.cocos2dx.cpp.AppActivity");
+        ComponentName componentName = new ComponentName("org.chimple.goa_hindi", "org.cocos2dx.cpp.AppActivity");
         Intent intent = new Intent();
         intent.setComponent(componentName);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

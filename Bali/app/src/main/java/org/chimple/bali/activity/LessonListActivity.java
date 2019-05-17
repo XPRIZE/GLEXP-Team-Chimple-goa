@@ -16,16 +16,12 @@ package org.chimple.bali.activity;
  */
 
 import android.arch.lifecycle.ViewModelProviders;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import org.chimple.bali.R;
-import org.chimple.bali.db.entity.UserLog;
-import org.chimple.bali.repo.UserLogRepo;
-import org.chimple.bali.service.TollBroadcastReceiver;
 import org.chimple.bali.ui.LessonAdapter;
 import org.chimple.bali.viewmodel.LessonViewModel;
 
@@ -45,23 +41,4 @@ public class LessonListActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-
-        Intent intent = new Intent(this, TollBroadcastReceiver.class);
-        intent.putExtra("onPause", "org.chimple.bali");
-        sendBroadcast(intent);
-
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        Intent intent = new Intent(this, TollBroadcastReceiver.class);
-        intent.putExtra("onResume", "org.chimple.bali");
-        sendBroadcast(intent);
-
-    }
 }

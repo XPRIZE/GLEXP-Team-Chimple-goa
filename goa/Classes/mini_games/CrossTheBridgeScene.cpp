@@ -305,7 +305,7 @@ void CrossTheBridge::letterDisplayCombinationMethod(cocos2d::EventCustom *eventC
 }
 
 void CrossTheBridge::alphabetAndMonsterGeneration(float dt)
-{  
+{
 	if (enemyCreateCounter % 4 == 0)
 	{
 		cocostudio::timeline::ActionTimeline *enemy_walk = CSLoader::createTimeline("crossthebridge/enemy_01.csb");
@@ -321,7 +321,7 @@ void CrossTheBridge::alphabetAndMonsterGeneration(float dt)
     }
 else {
 	std::string alphabetName;
-	
+
 	if (_gameCurrentLevel == 1 && _flagForHelpLayer)
 	{
 		_flagForHelpLayer = false;
@@ -340,8 +340,8 @@ else {
 			    std::random_shuffle(_choices.begin(), _choices.end());
 				alphabetCounter = 0;
 			}
-	
-		
+
+
 		Alphamon* alphaMon = Alphamon::createWithAlphabet(alphabetName);
 		alphaMon->setPosition(Vec2((barrierRight->getPosition().x + origin.x), (visibleSize.height*0.47) + origin.y));
 		this->addChild(alphaMon, 1);
@@ -374,7 +374,7 @@ void CrossTheBridge::alphaDeletion()
 			//if (alphaContainer[i]->getAlphabet() == LangUtil::convertUTF16CharToString(letterToDisplay))//_answer
 			if (alphaContainer[i]->getAlphabet() == _answer)
 			{
-				
+
 				if (letterDisplayCounter < 8 && pointGenerater)
 				{
 					auto audio = CocosDenshion::SimpleAudioEngine::getInstance();
@@ -516,7 +516,7 @@ void CrossTheBridge::checkIntersectWithAlpha()
 				auto main_sequence = Sequence::create(sequence_A, NULL);
 				alphaContainer[i]->runAction(main_sequence);
 			}
-			
+
 		}
 	}
 }

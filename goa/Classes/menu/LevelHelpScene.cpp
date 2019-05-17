@@ -261,15 +261,23 @@ void LevelHelpScene::onEnterTransitionDidFinish() {
     if(_currentVideo + 1 == _videos.size()) {
         videoText = LangUtil::getInstance()->translateString(_helpText);
     } else {
+		std::size_t fileFound = _videos[_currentVideo].find_last_of("/\\");
         if(_videoNames.size() > 0)
         {
-            videoText = LangUtil::getInstance()->translateString(_videoNames[_currentVideo]);
-        } else {
+            CCLOG("Reached Level screen: %s", _videos[_currentVideo].c_str());
+            if(_videos[_currentVideo].substr(fileFound+1).size() < 9 && _videos[_currentVideo].find("pos.webm") == std::string::npos){
+                videoText = "ß‡æü×æÜæ";
+            }
+            else{
+                videoText = LangUtil::getInstance()->translateString(_videoNames[_currentVideo]);
+            }
+        }
+        else {
             videoText = "";
         }
     }
-
-    _text = Text::create(videoText, LangUtil::getInstance()->getFontFile(), 64);
+	
+	_text = Text::create(videoText, "fonts/Chanakya.ttf", 64);
     _text->setTextColor(Color4B::BLACK);
     auto pos = textField->getPosition();
     auto wpos = bg->convertToWorldSpace(pos);

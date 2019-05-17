@@ -70,7 +70,8 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			namemyLabel << _data_key;
 		}
 		_data_value = namemyLabel.str();
-		_sentence = LangUtil::getInstance()->translateString("Write letter : ");
+		//_sentence = LangUtil::getInstance()->translateString("Write letter : ");
+		_sentence = "अक्षर लिखें : ";
 	}else if (currentLevel >= 27 && currentLevel <= 36) {
 		auto allNumbers = LangUtil::getInstance()->getAllNumbers();
 		std::ostringstream namemyLabel;
@@ -79,7 +80,8 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			namemyLabel << _data_key;
 		}
 		_data_value = namemyLabel.str();
-		_sentence = LangUtil::getInstance()->translateString("Write number : ");
+		//_sentence = LangUtil::getInstance()->translateString("Write number : ");
+		_sentence = "संख्या लिखें : ";
 	}else if (currentLevel >= 37 && currentLevel <= 46) {
 		auto level = (_menuContext->getCurrentLevel() - 36);
 		if (level >= 4) {
@@ -93,7 +95,8 @@ void BlastLetter::onEnterTransitionDidFinish() {
 			_data_key = TextGenerator::getInstance()->generateAWord(level);
 			_data_value = _data_key;
 		}
-		_sentence = LangUtil::getInstance()->translateString("Write word : ");
+		//_sentence = LangUtil::getInstance()->translateString("Write word : ");
+		_sentence = "शब्द लिखें : ";
 	}else if (currentLevel >= 47 && currentLevel <= 56) {
 		auto level = (_menuContext->getCurrentLevel() - 46);
 		if (level >= 3) {
@@ -101,7 +104,8 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		}
 		_data = TextGenerator::getInstance()->getSingularPlurals(1, level);
 		checkWordLength();
-		_sentence = LangUtil::getInstance()->translateString("Write plural of : ");
+		//_sentence = LangUtil::getInstance()->translateString("Write plural of : ");
+		_sentence = "बहुवचन लिखें: ";
 	}else if (currentLevel >= 57 && currentLevel <= 66) {
 		auto level = (_menuContext->getCurrentLevel() - 56);
 		if (level >= 3) {
@@ -109,7 +113,8 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		}
 		_data = TextGenerator::getInstance()->getAntonyms(1, level);
 		checkWordLength();
-		_sentence = LangUtil::getInstance()->translateString("Write opposite of : ");
+		//_sentence = LangUtil::getInstance()->translateString("Write opposite of : ");
+		_sentence = "विपरीत लिखें : ";
 	}else if (currentLevel >= 67 && currentLevel <= 76) {
 		auto level = (_menuContext->getCurrentLevel() - 66);
 		if (level >= 3) {
@@ -117,7 +122,8 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		}
 		_data = TextGenerator::getInstance()->getSynonyms(1, level);
 		checkWordLength();
-		_sentence = LangUtil::getInstance()->translateString("Write word of same meaning as : ");
+		//_sentence = LangUtil::getInstance()->translateString("Write word of same meaning as : ");
+		_sentence = "एक ही अर्थ का शब्द लिखें : ";
 	}else if (currentLevel >= 77 && currentLevel <= 86) {
 		auto level = (_menuContext->getCurrentLevel() - 76);
 		if (level >= 3) {
@@ -125,7 +131,8 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		}
 		_data = TextGenerator::getInstance()->getHomonyms(1, level);
 		checkWordLength();
-		_sentence = LangUtil::getInstance()->translateString("Write same sounding word as : ");
+		//_sentence = LangUtil::getInstance()->translateString("Write same sounding word as : ");
+		_sentence = "एक ही ध्वनि वाला शब्द लिखें : ";
 	}else{
 		CCLOG("ERROR : Level code error !!!!!! ");
 	}
@@ -145,7 +152,7 @@ void BlastLetter::onEnterTransitionDidFinish() {
 		addChild(letterBoardSprite);
 
 //		auto myLabel = Label::createWithBMFont(LangUtil::getInstance()->getBMFontFileName(), LangUtil::convertUTF16CharToString(_data_value[coordIndex]));
-		auto myLabel = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(_data_value[coordIndex]), LangUtil::getInstance()->getFontFile(), letterBoardSprite->getContentSize().height);
+		auto myLabel = CommonLabelTTF::create(LangUtil::convertUTF16CharToString(_data_value[coordIndex]), "res/lang/eng/NotoSans-Regular.ttf" , letterBoardSprite->getContentSize().height);
 		myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
 		myLabel->setScale(1);
 		myLabel->setColor(Color3B::GRAY);
@@ -361,7 +368,7 @@ void BlastLetter::addEventsOnGrid(cocos2d::Sprite* callerObject)
 			std::ostringstream nameLetterBoards;
 			nameLetterBoards << _data_value[_counterLetter];
 
-			auto myLabel = CommonLabelTTF::create(nameLetterBoards.str(), LangUtil::getInstance()->getFontFile(), letterBoardSprite->getContentSize().height);
+			auto myLabel = CommonLabelTTF::create(nameLetterBoards.str(), "res/lang/eng/NotoSans-Regular.ttf" , letterBoardSprite->getContentSize().height);
 			myLabel->setColor(Color3B::GRAY);
 			myLabel->setPosition(Vec2(letterBoardSprite->getContentSize().width * 0.5, letterBoardSprite->getContentSize().height * 0.45));
 			myLabel->setScale(1);

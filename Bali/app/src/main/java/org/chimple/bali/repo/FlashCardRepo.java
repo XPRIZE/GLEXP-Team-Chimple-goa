@@ -36,8 +36,7 @@ public class FlashCardRepo {
     }
 
     public static LiveData<List<FlashCard>> getFlashCards(Context context, long lessonId) {
-        MutableLiveData<List<FlashCard>> flashCards = new MutableLiveData();
-        flashCards.setValue(null);
+        MutableLiveData<List<FlashCard>> flashCards = ABSENT;
         new AsyncTask<Context, Void, Void>() {
             @Override
             protected Void doInBackground(Context... params) {
