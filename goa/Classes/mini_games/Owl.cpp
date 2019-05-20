@@ -47,7 +47,7 @@ void Owl::onEnterTransitionDidFinish()
 					{"hideBlack","owlcity/dash_black.png"},
 					{ "hideGreen","owlcity/dash_green.png" },
 					{ "hideOrange","owlcity/dash_orange.png" }
-				} 
+				}
 			},
 			{ "owlisland",
 				{
@@ -130,15 +130,15 @@ void Owl::onEnterTransitionDidFinish()
 			}
 		}
 	};
-	
-	
+
+
 
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto origin = Director::getInstance()->getVisibleOrigin();
 
 	// Here we set the level of complexity and concept ....
 	int gameCurrentLevel = _menuContext->getCurrentLevel();
-	
+
 	// lesson word spelling ....
 	//_lesson.setConcept(Lesson::CONCEPT::WORD_SPELLING);
 
@@ -239,7 +239,7 @@ void Owl::gameStart(cocos2d::EventCustom *eventCustom) {
 
 
 
-	//Here in jungle scene , the bird white-board is set as visible ... 
+	//Here in jungle scene , the bird white-board is set as visible ...
 	if (_owlCurrentTheme == "owljungle") {
 		_opponent->setScaleX(-_owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));
 		_opponent->getChildByName(_sceneMap.at(_owlCurrentTheme).at("whiteBoard2"))->setVisible(false);
@@ -248,7 +248,7 @@ void Owl::gameStart(cocos2d::EventCustom *eventCustom) {
 	board->setName("topBoard");
 
 
-	// Set the text value in Top Board .. ex: question 
+	// Set the text value in Top Board .. ex: question
 	std::ostringstream boardName;
 	boardName << _sentence << " : " << _data_key[_textBoard];
 	_textLabel = CommonLabelTTF::create(boardName.str(), "Helvetica", board->getContentSize().height *0.5);
@@ -408,7 +408,7 @@ void Owl::crateLetterGridOnBuilding(int blockLevel, vector<string> displayWord) 
 		std::ostringstream blockName;	blockName << "blockLevel1" << blockLevel; std::string blockNameInString = blockName.str();
 		this->getChildByName(blockNameInString)->addChild(letterGrid);
 		letterGrid->addChild(label);
-		
+
 		hideGrid->setPosition(Vec2(letterGrid->getContentSize().width / 2, letterGrid->getContentSize().height / 2));
 		letterGrid->addChild(hideGrid);
 		hideGrid->setName("hideBoard");
@@ -459,11 +459,11 @@ void Owl::createGrid() {
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	auto alpha = LangUtil::getInstance()->getAllCharacters();
-	
+
 	// matrixValue is API which gives number of choices and answerString ...
-	
+
 	auto matrixValue = MatrixUtil::generateMatrix(_vmcBag[_blockLevel1].answers, _vmcBag[_blockLevel1].otherChoices, 1, 24);
-	
+
 	std::random_shuffle(matrixValue[0].begin(), matrixValue[0].end());
 
 	auto bag = matrixValue[0];
@@ -498,7 +498,7 @@ void Owl::createGrid() {
 		}
 
 		for (int column = 1; column <= keyboardAllLetters/2; column++) {
-			
+
 			CCLOG("ROW: %d  COLUMN: %d   letter : %s",row,column,bag[counter].c_str());
 
 			if (_lesson.getConcept() == Lesson::CONCEPT::WORD_SOUND) {
@@ -515,11 +515,11 @@ void Owl::createGrid() {
 			else {
 				auto gridObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("smallbar"));
 				setSpriteProperties(gridObject, xPosi, height, 1, 1, 0.5, 0.5, 0, 1);
-				
+
 				xPosi = xPosi + IndiSpace + gridObject->getContentSize().width;
 				addEventsOnGrid((Sprite*)gridObject);
 
-				// Set Alphabet one by one in KEYBOARD ... 
+				// Set Alphabet one by one in KEYBOARD ...
 
 				auto textSize = gridObject->getContentSize().width * 0.8;
 
@@ -549,8 +549,8 @@ void Owl::setBuildingBlock(int blockLevel) {
 	int height = 0;
 
 	if (blockLevel == 1)
-	{ 
-		_heightBlock1 = visibleSize.height * _owlPropertyMap.at(_owlCurrentTheme).at("blockY1"); 
+	{
+		_heightBlock1 = visibleSize.height * _owlPropertyMap.at(_owlCurrentTheme).at("blockY1");
 	}
 	else {
 		_heightBlock1 = _heightBlock1 + blockObject->getContentSize().height - (blockObject->getContentSize().height *0.05);
@@ -558,10 +558,10 @@ void Owl::setBuildingBlock(int blockLevel) {
 	height = _heightBlock1;
 
 	setSpriteProperties(blockObject, (visibleSize.width * _owlPropertyMap.at(_owlCurrentTheme).at("blockX1")) + (blockObject->getContentSize().width/2), _heightBlock1, 1, 1, 0.5, 0.5, 0, 1);
-	
+
 	std::ostringstream blockName;	blockName << "blockLevel1"<<blockLevel; std::string blockNameInString = blockName.str();
 	blockObject->setName(blockNameInString);
-	
+
 }
 
 
@@ -571,7 +571,7 @@ void Owl::setBuildingBlockSecond(int blockLevel) {
 	auto visibleSize = Director::getInstance()->getVisibleSize();
 	auto themeResourcePath = _sceneMap.at(_owlCurrentTheme);
 	auto blockObject = Sprite::createWithSpriteFrameName(themeResourcePath.at("greenbase"));
-	
+
 	if (blockLevel == 1)
 	{
 		_heightBlock2 = visibleSize.height * _owlPropertyMap.at(_owlCurrentTheme).at("blockY2");
@@ -599,9 +599,9 @@ void Owl::addEventsOnGrid(cocos2d::Sprite* callerObject)
 		Size s = target->getContentSize();
 		Rect rect = Rect(target->getPositionX() - s.width/2, target->getPositionY() - s.height / 2, s.width, s.height);
 		if (rect.containsPoint(touch->getLocation())) {
-			
+
 			target->setColor(Color3B::GRAY);
-			
+
 			return true;
 		}
 		return false;
@@ -633,8 +633,8 @@ void Owl::triggerTheOwlActivity(cocos2d::Touch* touch, cocos2d::Event* event) {
 	if(_lesson.getConcept() == Lesson::CONCEPT::WORD_SOUND){
 		rect = Rect(target->getPositionX() - s.width / 2, target->getPositionY() - s.height / 2, s.width, s.height);
 
-		// Speaker for Listner and reset the speakers ... 
-		auto speaker = ((Speaker*)target);	
+		// Speaker for Listner and reset the speakers ...
+		auto speaker = ((Speaker*)target);
 		resetSpeakerCheckboxStatus(target);
 		isCheckBoxSelected = ((Speaker*)target)->getCheckBoxStatus();
 	}
@@ -648,7 +648,7 @@ void Owl::triggerTheOwlActivity(cocos2d::Touch* touch, cocos2d::Event* event) {
 
 			if (blockChild.at(_textCounter)->getName() == target->getName() && _flagToControlMuiltipleTouch) {
 				_flagToControlMuiltipleTouch = false;
-				
+
 				if (_flagTurnHelp && (_menuContext->getCurrentLevel() == 1)) {
 					this->removeChildByName("helpLayer");
 					_flagTurnHelp = false;
@@ -722,7 +722,7 @@ void Owl::triggerTheOwlActivity(cocos2d::Touch* touch, cocos2d::Event* event) {
 							this->addChild(_particle, 5);
 							auto audioBg = CocosDenshion::SimpleAudioEngine::getInstance();
 							audioBg->playEffect("res/sounds/sfx/success.ogg", false);
-							
+
 						}),
 							DelayTime::create(3),
 							CallFunc::create([=]() {this->removeChildByName("celebration");  _menuContext->showAnswer("wordPairs", _sentenceShow); }), NULL));
@@ -890,7 +890,7 @@ void Owl::UpdateAnimation(float dt)
 		double Y_HEIGHT = 80;
 		double _xSpeed = (_xStop - _xStart) / DURATION;
 		double seconds = _ticks*SECONDS_PER_TICK;
-		
+
 		double xPos = _xStart + seconds*_xSpeed;
 		double yPos = _yStart + Y_HEIGHT*sin(seconds * 2 * M_PI / 1.5); // (/1) Seconds for y cycle.
 		_sprite->setPosition(Vec2(xPos,yPos));
@@ -966,7 +966,7 @@ void Owl::UpdateAnimationSecond(float dt)
 		if (counter2 % 2 == 0) {
 			if (_owlCurrentTheme == "owljungle")
 			_opponent->setScaleX(-_owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));
-			
+
 			_xStartSecond = block->getPositionX() - (block->getContentSize().width / 2 * _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));      // Pixels
 			_xStopSecond = block->getPositionX() + (block->getContentSize().width / 2 * _owlPropertyMap.at(_owlCurrentTheme).at("scaleSecond"));    // Pixels
 		}
@@ -986,7 +986,7 @@ void Owl::UpdateAnimationSecond(float dt)
 string Owl::getConvertVectorStringIntoString(vector<string> value) {
 
 	std::ostringstream convertedString;
-	
+
 	for (size_t i = 0; i < value.size(); i++) {
 		convertedString << value[i];
 	}
@@ -1007,7 +1007,7 @@ void Owl::recreateKeyboardLetters() {
 
 	for (int i = 0; i <= 1; i++) {
 		for (int j = 0; j < bag.size() / 2; j++) {
-		
+
 			auto labelOnKeyboardGrid = this->getChildByTag(800 + counter);
 			if (labelOnKeyboardGrid) {
 				labelOnKeyboardGrid->setName(bag[counter]);

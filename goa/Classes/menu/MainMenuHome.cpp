@@ -188,7 +188,7 @@ void MainMenuHome::bindEvents(cocos2d::Node *rootNode) {
                     textTitle->setEnabled(false);
                     textTitle->setTouchEnabled(false);
                     textTitle->setFocusEnabled(false);
-                    textTitle->setFontName(LangUtil::getInstance()->getFontFile());
+                    textTitle->setFontName("fonts/Chanakya.ttf");
                     textTitle->setTextColor(Color4B(Color3B::WHITE));
                     textTitle->setFontSize(72);
                 }

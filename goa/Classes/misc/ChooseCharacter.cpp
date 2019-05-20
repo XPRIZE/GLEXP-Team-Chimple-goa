@@ -95,7 +95,7 @@ void ChooseCharacter::processChildNodes(cocos2d::Node *rootNode) {
             std::string chooseText = LangUtil::getInstance()->translateString(CHOOSE_CHARACTER_TEXT);
             chooseLabel->setString(chooseText);
             chooseLabel->setFontSize(150);
-            chooseLabel->setFontName(LangUtil::getInstance()->getFontFile());
+            chooseLabel->setFontName("fonts/Chanakya.ttf");
             chooseLabel->setTextColor(Color4B::WHITE);
         }
     }
@@ -121,10 +121,10 @@ void ChooseCharacter::processChildNodes(cocos2d::Node *rootNode) {
     if(boyText != NULL) {
         cocos2d::ui::Text* boyLabel = dynamic_cast<cocos2d::ui::Text *>(boyText);
         if(boyLabel != NULL) {
-            std::string boyText = LangUtil::getInstance()->translateString(BOY_LABEL_TEXT);
+            std::string boyText = "ÜÇ¸·UUUæ";
             boyLabel->setString(boyText);
             boyLabel->setFontSize(100);
-            boyLabel->setFontName(LangUtil::getInstance()->getFontFile());
+            boyLabel->setFontName("fonts/Chanakya.ttf");
             boyLabel->setTextColor(Color4B::WHITE);
             
         }
@@ -134,10 +134,10 @@ void ChooseCharacter::processChildNodes(cocos2d::Node *rootNode) {
     if(boyText != NULL) {
         cocos2d::ui::Text* girlLabel = dynamic_cast<cocos2d::ui::Text *>(girlText);
         if(girlLabel != NULL) {
-            std::string girlText = LangUtil::getInstance()->translateString(GIRL_LABEL_TEXT);
+            std::string girlText = "ÜÇ¸·UUUè";
             girlLabel->setString(girlText);
             girlLabel->setFontSize(100);
-            girlLabel->setFontName(LangUtil::getInstance()->getFontFile());
+            girlLabel->setFontName("fonts/Chanakya.ttf");
             girlLabel->setTextColor(Color4B::WHITE);
             
         }

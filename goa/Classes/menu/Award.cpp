@@ -292,8 +292,8 @@ void Award::rewardsBackground(cocos2d::Node * parent, std::string tile, cocos2d:
 	backgroundSpriteMapTile->setPosition(Vec2(3 * visibleSize.width / 2, visibleSize.height / 2));
 	scrollView6->addChild(backgroundSpriteMapTile);
 	scrollView6->setInnerContainerSize(Size(visibleSize.width, visibleSize.height* 0.8));
-	std::string headLabel = LangUtil::getInstance()->translateString("You have not yet earned any rewards");
-	auto targetLabel = Label::createWithTTF(headLabel, LangUtil::getInstance()->getFontFile(), 150);
+	std::string headLabel = LangUtil::getInstance()->translateString("¥æÂÙð ¥Öè Ì·UUUU ·UUUUô§ü ÂéÚS·UUUæÚ ¥çÁüÌ Ùãè¢ ç·UUUUØæ ãñ");
+	auto targetLabel = Label::createWithTTF(headLabel, "fonts/Chanakya.ttf", 150);
 	targetLabel->setColor(color);
 	targetLabel->setPositionX(visibleSize.width/2);
 	targetLabel->setPositionY(visibleSize.height/2);

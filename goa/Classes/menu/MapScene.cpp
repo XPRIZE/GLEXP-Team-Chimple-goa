@@ -157,21 +157,27 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
                 if(it->first.compare("text") == 0) {
                     std::string lName = node->getName();
                     if(lName.compare("City1") == 0) {
-                        lName = "Bengaluru";
+                        lName = "Õð¢»ÜéLUUUU"; //Bengaluru
                     } else if(lName.compare("City2") == 0) {
-                        lName = "Los Angeles";
+                        lName = "Üæòâ °¢ÁðçÜâ";//Los Angeles
                     } else if(lName.compare("City3") == 0) {
-                        lName = "Houston";
+                        lName = "sêSÅÙ";//Houston
                     } else if(lName.compare("city4") == 0) {
-                        lName = "London";
+                        lName = "Ü¢ÇÙ";//London
                     } else if(lName.compare("City5") == 0) {
-                        lName = "Dar es Salaam";
-                    }
+                        lName = "ÇæÚ °â âÜæ×";//Dar es Salaam
+                    } else if(lName.compare("Camp") == 0){
+						lName = "·ñ¢UUUÂ";//Camp
+					} else if(lName.compare("Farm House") == 0){
+						lName ="ÈUUUæ×ü ãæ©â";//Farm House
+					} else if(lName.compare("Mining Town") == 0){
+						lName ="¹ÙÙ àæãÚ";//Mining Town
+					}
 
 
                     std::string mapText = this->currentLangUtil->translateString(lName);
                     
-                    cocos2d::Label* label = Label::createWithTTF(mapText, LangUtil::getInstance()->getFontFile(), 50);
+                    cocos2d::Label* label = Label::createWithTTF(mapText,"fonts/Chanakya.ttf", 50);
                     label->setPosition(Vec2(node->getPosition().x, node->getPosition().y));
                     label->setColor(Color3B(128, 64, 0));
                     mainLayer->addChild(label);

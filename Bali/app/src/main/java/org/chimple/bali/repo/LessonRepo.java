@@ -376,7 +376,7 @@ public class LessonRepo {
                     choices.add(lucs[randIndex].subjectUnit.name);
                 }
 
-                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz("Neno"
+                BagOfChoiceQuiz bcq = new BagOfChoiceQuiz(context.getResources().getString(R.string.word)
                         , luc.subjectUnit.name
                         , answers.toArray(new String[0])
                         , choices.toArray(new String[0]));

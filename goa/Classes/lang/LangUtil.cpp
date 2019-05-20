@@ -1,3 +1,4 @@
+
 //
 //  LangUtil.cpp
 //  safari
@@ -21,13 +22,13 @@ LangUtil::LangUtil() {
 }
 
 LangUtil::~LangUtil() {
-    
+
 }
 
 LangUtil* LangUtil::getInstance() {
     if(!_instance) {
-        // _instance = new EnglishUtil();
-        _instance = new SwahiliUtil();
+         _instance = new EnglishUtil();
+        //_instance = new SwahiliUtil();
        // _instance = new TeluguUtil();
     }
     return _instance;
@@ -49,12 +50,12 @@ std::string LangUtil::translateString(std::string input) {
 }
 
 void LangUtil::changeLanguage(SupportedLanguages lang) {
-    
+
     if(this->wordManager != NULL) {
         delete this->wordManager;
         WordManager::destroyInstance();
     }
-    
+
     switch (lang) {
         case SupportedLanguages::ENGLISH:
         {
@@ -72,7 +73,7 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
             I18N::I18nUtils::getInstance()->addMO(moData.getBytes());
             break;
         }
-            
+
         case SupportedLanguages::KANNADA:
         {
             LangUtil::_instance = new KannadaUtil();
@@ -90,7 +91,7 @@ void LangUtil::changeLanguage(SupportedLanguages lang) {
             break;
         }
 
-            
+
         default:
             break;
     }
@@ -104,7 +105,7 @@ std::string LangUtil::translateParameterizedString(std::string parameterizedStri
 
 //"There are birds %s1 in the %s2."
 std::string LangUtil::translateTwoParameterizedString(std::string parameterizedString, std::string substituteString1, std::string substituteString2) {
-    
+
     return I18N::i18nFormatStr(translateString(parameterizedString), translateString(substituteString1).c_str(), translateString(substituteString2).c_str());
 }
 
@@ -115,5 +116,3 @@ WordInfo* LangUtil::loadLanguageSpecificWordMappingForAWord(const char* word) {
 std::string LangUtil::getFontFile() {
     return "fonts/Roboto-Regular.ttf";
 }
-
-

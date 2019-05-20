@@ -73,7 +73,7 @@ void Shoot::gameBegin(cocos2d::EventCustom *eventCustom) {
 	addChild(topBoard, 4);
 	topBoard->setName("topBoard");
 
-	auto upText = CommonLabelTTF::create(TextGenerator::getInstance()->translateString("choose same sounding word"), LangUtil::getInstance()->getFontFile(), topBoard->getContentSize().height * 0.5);
+	auto upText = CommonLabelTTF::create(TextGenerator::getInstance()->translateString("समान ध्वनि वाला शब्द चुनें"), "res/lang/eng/NotoSans-Regular.ttf", topBoard->getContentSize().height * 0.5);
 	upText->setPosition(topBoard->getContentSize().width / 2, topBoard->getContentSize().height / 2);
 	topBoard->addChild(upText);
 
