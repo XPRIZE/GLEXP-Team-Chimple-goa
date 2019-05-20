@@ -61,7 +61,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import org.chimple.goa.R;
+import com.maq.xprize.goa.hindi.R;
 import android.graphics.drawable.ColorDrawable;
 import android.bluetooth.BluetoothAdapter;
 
@@ -511,7 +511,7 @@ public class AppActivity extends Cocos2dxActivity {
         super.onResume();
         Intent intent = new Intent();
         intent.setClassName("org.chimple.bali", "org.chimple.bali.service.TollBroadcastReceiver");
-        intent.putExtra("onResume", "org.chimple.goa");
+        intent.putExtra("onResume", "com.maq.xprize.goa.hindi");
         sendBroadcast(intent);
     }
 
@@ -520,7 +520,7 @@ public class AppActivity extends Cocos2dxActivity {
         super.onPause();
         Intent intent = new Intent();
         intent.setClassName("org.chimple.bali", "org.chimple.bali.service.TollBroadcastReceiver");
-        intent.putExtra("onPause", "org.chimple.goa");
+        intent.putExtra("onPause", "com.maq.xprize.goa.hindi");
         sendBroadcast(intent);
     }
 

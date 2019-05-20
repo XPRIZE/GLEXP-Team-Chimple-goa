@@ -48,47 +48,49 @@ public class TollBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d("TollBroadcastReceiver", "onReceive");
-        if (Intent.ACTION_SCREEN_OFF.equals(intent.getAction())) {
-            cancelAlarm(context);
-        } else if (Intent.ACTION_SCREEN_ON.equals(intent.getAction())) {
-            scheduleAlarm(context);
-        } else if(intent.getStringExtra("onResume") != null) {
-            Log.d("TollBroadcastReceiver", "onResume" + intent.getStringExtra("onResume"));
-            mIsLearning.set(true);
-            cancelAlarm(context);
-        } else if(intent.getStringExtra("onPause") != null) {
-            mIsLearning.set(false);
-            scheduleAlarm(context);
-            Log.d("TollBroadcastReceiver", "onPause" + intent.getStringExtra("onPause"));
-        } else {
-            if(!mIsLearning.get()) {
-                Log.d("TollBroadcastReceiver", "deductCoin");
-                new AsyncTask<Context, Void, Void>() {
-                    @Override
-                    protected Void doInBackground(Context... contexts) {
-                        Context context1 = contexts[0];
-                        ContentValues contentValues = new ContentValues(1);
-                        contentValues.put(COINS, -1);
-                        contentValues.put(GAME_NAME, "Bali");
-                        contentValues.put(GAME_LEVEL, -1);
-                        contentValues.put(GAME_EVENT, UserLog.PAUSE_EVENT);
-                        int coins = context1.getContentResolver().update(
-                                URI_COIN,
-                                contentValues,
-                                null,
-                                null
-                        );
-                        if(coins <= 0) {
-                            Intent i=new Intent(context.getApplicationContext(),LauncherScreen.class);
-                            i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            i.setAction(Intent.ACTION_SEND);
-                            i.putExtra("test", "pop");
-                            context.startActivity(i);
+        if(LauncherScreen.POPUP) {
+            if (Intent.ACTION_SCREEN_OFF.equals(intent.getAction())) {
+                cancelAlarm(context);
+            } else if (Intent.ACTION_SCREEN_ON.equals(intent.getAction())) {
+                scheduleAlarm(context);
+            } else if (intent.getStringExtra("onResume") != null) {
+                Log.d("TollBroadcastReceiver", "onResume" + intent.getStringExtra("onResume"));
+                mIsLearning.set(true);
+                cancelAlarm(context);
+            } else if (intent.getStringExtra("onPause") != null) {
+                mIsLearning.set(false);
+                scheduleAlarm(context);
+                Log.d("TollBroadcastReceiver", "onPause" + intent.getStringExtra("onPause"));
+            } else {
+                if (!mIsLearning.get()) {
+                    Log.d("TollBroadcastReceiver", "deductCoin");
+                    new AsyncTask<Context, Void, Void>() {
+                        @Override
+                        protected Void doInBackground(Context... contexts) {
+                            Context context1 = contexts[0];
+                            ContentValues contentValues = new ContentValues(1);
+                            contentValues.put(COINS, -1);
+                            contentValues.put(GAME_NAME, "Bali");
+                            contentValues.put(GAME_LEVEL, -1);
+                            contentValues.put(GAME_EVENT, UserLog.PAUSE_EVENT);
+                            int coins = context1.getContentResolver().update(
+                                    URI_COIN,
+                                    contentValues,
+                                    null,
+                                    null
+                            );
+                            if (coins <= 0) {
+                                Intent i = new Intent(context.getApplicationContext(), LauncherScreen.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                i.setAction(Intent.ACTION_SEND);
+                                i.putExtra("test", "pop");
+                                context.startActivity(i);
 
+                            }
+                            return null;
                         }
-                        return null;
-                    }
-                }.execute(context);
+                    }.execute(context);
+                }
             }
         }
     }

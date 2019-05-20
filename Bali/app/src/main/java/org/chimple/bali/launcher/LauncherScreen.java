@@ -38,6 +38,8 @@ import org.chimple.bali.repo.UserRepo;
 import org.chimple.bali.service.TollBroadcastReceiver;
 
 public class LauncherScreen extends LifecycleActivity {
+    public static final boolean POPUP = false;
+
     public int getCoins() {
         return mCoins;
     }
@@ -87,7 +89,7 @@ public class LauncherScreen extends LifecycleActivity {
         Intent receivedIntent = getIntent();
         String action = receivedIntent.getAction();
         String test = receivedIntent.getStringExtra("test");
-        if (Intent.ACTION_SEND.equals(action)) {
+        if (POPUP && Intent.ACTION_SEND.equals(action)) {
             AlertDialog.Builder Builder = new AlertDialog.Builder(this)
                     .setMessage(R.string.not_enough_coins)
                     .setTitle(R.string.stop)
