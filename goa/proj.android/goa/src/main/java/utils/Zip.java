@@ -22,6 +22,7 @@ public class Zip {
     private ZipFile _zipFile;
     private TextView percentText;
     private Activity zipActivity;
+    private static int percent = 0;
 
     public Zip(ZipFile zipFile, Activity _activity) {
         this._zipFile = zipFile;
@@ -40,7 +41,6 @@ public class Zip {
         File targetDir = new File(extractPath);
         int zipSize = _zipFile.size();
         int count = 0;
-        int percent = 0;
         ProgressBar progressBar = zipActivity.findViewById(R.id.extraction_progress_bar);
         percentText = zipActivity.findViewById(R.id.mPercentText);
         String path;

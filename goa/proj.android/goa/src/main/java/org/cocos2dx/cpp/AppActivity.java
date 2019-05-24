@@ -26,63 +26,34 @@
  ****************************************************************************/
 package org.cocos2dx.cpp;
 
-import org.cocos2dx.lib.Cocos2dxActivity;
-
-import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.content.pm.ActivityInfo;
-import android.net.wifi.WifiManager;
-import android.net.wifi.p2p.WifiP2pGroup;
-import android.net.wifi.p2p.nsd.WifiP2pServiceInfo;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-
-import java.io.File;
-import java.io.IOException;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.bluetooth.BluetoothAdapter;
+import android.content.ContentValues;
 import android.content.Context;
-import android.graphics.Color;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Handler;
 import android.os.Vibrator;
 import android.speech.tts.TextToSpeech;
-import android.speech.tts.TextToSpeech.OnInitListener;
-import java.util.Locale;
-import android.view.Display;
-import android.view.Gravity;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.maq.xprize.goa.hindi.R;
-import android.graphics.drawable.ColorDrawable;
-import android.bluetooth.BluetoothAdapter;
-
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.IntentFilter;
-import android.os.Message;
 import android.util.Log;
-import android.content.ContentValues;
-
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.UUID;
+import android.view.Display;
+import android.view.WindowManager;
 import android.widget.Toast;
-import android.net.Uri;
-import android.database.Cursor;
+
+import com.maq.xprize.goa.hindi.R;
+
+import org.cocos2dx.lib.Cocos2dxActivity;
+
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class AppActivity extends Cocos2dxActivity {
 	static {
@@ -135,6 +106,7 @@ public class AppActivity extends Cocos2dxActivity {
 		if (!flagFile.exists()) {
 			Intent intent = new Intent(AppActivity.this, SplashScreenActivity.class);
 			startActivity(intent);
+			finish();
 		}
 
 		super.onCreate(savedInstanceState);
@@ -172,11 +144,7 @@ public class AppActivity extends Cocos2dxActivity {
         blueToothSupport.setBluetoothChatService();
 
         // Get local Bluetooth adapter
-        if(blueToothSupport.getBluetoothAdapter() == null) {
-            isBlueToothAvailable = false;
-		} else {
-			isBlueToothAvailable = true;
-		}	
+		isBlueToothAvailable = blueToothSupport.getBluetoothAdapter() != null;
 
         // If BT is not on, request that it be enabled.
         // setupChat() will then be called during onActivityResult
@@ -185,9 +153,9 @@ public class AppActivity extends Cocos2dxActivity {
                 BluetoothAdapter.getDefaultAdapter().isEnabled()) {
             blueToothSupport = BlueToothSupport.getInstance(this, null);
             blueToothSupport.setBluetoothChatService();
-        }		
+        }
 
-		mOutStringBuffer = new StringBuffer("");
+		mOutStringBuffer = new StringBuffer();
 	}
 
 	@Override
@@ -466,7 +434,7 @@ public class AppActivity extends Cocos2dxActivity {
 
 	public static void pronounceWord(String word) {
 		System.out.println("word for pronounciation:" + word);
-		if(_appActivity.supportForTTSEnabled && _appActivity.textToSpeechInstance != null) {
+		if (supportForTTSEnabled && _appActivity.textToSpeechInstance != null) {
 			System.out.println("TTS supported for pronounciation:" + word);
 			_appActivity.textToSpeechInstance.speak(word, TextToSpeech.QUEUE_FLUSH, null);
 		}		        
@@ -544,11 +512,11 @@ public class AppActivity extends Cocos2dxActivity {
 
 	public static boolean launchGameNotification() {
 		boolean result = false;
-		if(_appActivity.currentGameName != null) {
-			Log.d(TAG, "launchGameNotification WIFi-Direct:" + _appActivity.currentGameName);
-			String gameName = _appActivity.currentGameName;
+		if (currentGameName != null) {
+			Log.d(TAG, "launchGameNotification WIFi-Direct:" + currentGameName);
+			String gameName = currentGameName;
 			result = launchGame(gameName);
-			_appActivity.currentGameName = null; 
+			currentGameName = null;
 		}
 		return result;
 	}
