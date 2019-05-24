@@ -435,8 +435,9 @@ public class AppActivity extends Cocos2dxActivity {
             // Redirect to play store to download Bali application
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details/?id=" + baliPackageName)));
             // Render large font size in toast message to download Bali application
-            SpannableStringBuilder largerText = new SpannableStringBuilder("चिम्पल के लिए बाली एप डाउनलोड करो");
-            largerText.setSpan(new RelativeSizeSpan(2.0f), 0, "चिम्पल के लिए बाली एप डाउनलोड करो".length(), 0);
+            String baliInstallMessage = _context.getResources().getString(R.string.bali_install_message);
+            SpannableStringBuilder largerText = new SpannableStringBuilder(baliInstallMessage);
+            largerText.setSpan(new RelativeSizeSpan(2.0f), 0, baliInstallMessage.length(), 0);
             Toast downloadToast = Toast.makeText(getApplicationContext(), largerText, Toast.LENGTH_LONG);
             downloadToast.show();
         }
