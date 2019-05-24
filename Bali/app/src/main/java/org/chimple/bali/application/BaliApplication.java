@@ -69,7 +69,7 @@ public class BaliApplication extends Application {
         super.onCreate();
         if (!ACRA.isACRASenderServiceProcess()) {
             Log.d(TAG, "Created...");
-            initialize();
+//            initialize();
         }
         context = this;
     }

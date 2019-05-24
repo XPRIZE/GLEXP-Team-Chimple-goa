@@ -10,11 +10,16 @@
 *.pyc
 .gradle
 .idea
+
+# Generated files #
 bin/
 gen/
 build/
 obj/
-local.properties
+libs/
+*.iml
+.settings
+.project
 
 # Packages #
 ############
@@ -103,6 +108,7 @@ proj.android/libraries/*/bin/*
 proj.android/libraries/*/.idea/*
 proj.android/libraries/*/*.iml
 proj.android/libraries/*/local.properties
+local.properties
 
 **/platform/android/java/bin/*
 **/platform/android/java/gen/*
@@ -120,6 +126,10 @@ proj.android/libraries/*/local.properties
 proj.win32/*.db
 proj.win32/*.opendb
 **/*.vssettings
+
+# Keystore files
+*.jks
+*.keystore
 
 # Generated documentation, it can be regenerated using doxygen #
 ######################
