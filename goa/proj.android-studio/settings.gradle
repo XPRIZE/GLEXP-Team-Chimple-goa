@@ -1,4 +1,5 @@
 include ':libcocos2dx'
-project(':libcocos2dx').projectDir = new File(settingsDir, '../cocos2d/cocos/platform/android/libcocos2dx')
 include ':goa'
-project(':goa').projectDir = new File(settingsDir, 'app')
+include ':play_licensing'
+include ':downloader_library'
+include ':zip_file'
