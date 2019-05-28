@@ -166,7 +166,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     director->setContentScaleFactor(scaleFactor);
 
     #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        string devicePath = "/storage/emulated/0/Android/data/com.maq.xprize.goa.hindi/files/";
+        string devicePath = "/storage/emulated/0/Android/data/com.maq.xprize.chimple.hindi/files/";
         FileUtils::getInstance()->setDefaultResourceRootPath(devicePath);
     #endif
 

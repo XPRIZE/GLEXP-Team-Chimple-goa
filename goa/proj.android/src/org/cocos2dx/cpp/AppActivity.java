@@ -61,7 +61,7 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import com.maq.xprize.goa.hindi.R;
+import com.maq.xprize.chimple.hindi.R;
 import android.graphics.drawable.ColorDrawable;
 import android.bluetooth.BluetoothAdapter;
 
@@ -249,7 +249,7 @@ public class AppActivity extends Cocos2dxActivity {
 
 	public static native void setBagOfChoiceQuiz(String[] jsonInfo);
 
-    public static final String AUTHORITY = "org.chimple.bali.provider";
+    public static final String AUTHORITY = "com.maq.xprize.bali.provider";
 
     public static final String MULTIPLE_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
     public static final String COINS = "COINS";
@@ -510,8 +510,8 @@ public class AppActivity extends Cocos2dxActivity {
     protected void onResume() {
         super.onResume();
         Intent intent = new Intent();
-        intent.setClassName("org.chimple.bali", "org.chimple.bali.service.TollBroadcastReceiver");
-        intent.putExtra("onResume", "com.maq.xprize.goa.hindi");
+        intent.setClassName("com.maq.xprize.bali", "com.maq.xprize.bali.service.TollBroadcastReceiver");
+        intent.putExtra("onResume", "com.maq.xprize.chimple.hindi");
         sendBroadcast(intent);
     }
 
@@ -519,8 +519,8 @@ public class AppActivity extends Cocos2dxActivity {
     protected void onPause() {
         super.onPause();
         Intent intent = new Intent();
-        intent.setClassName("org.chimple.bali", "org.chimple.bali.service.TollBroadcastReceiver");
-        intent.putExtra("onPause", "com.maq.xprize.goa.hindi");
+        intent.setClassName("com.maq.xprize.bali", "com.maq.xprize.bali.service.TollBroadcastReceiver");
+        intent.putExtra("onPause", "com.maq.xprize.chimple.hindi");
         sendBroadcast(intent);
     }
 
