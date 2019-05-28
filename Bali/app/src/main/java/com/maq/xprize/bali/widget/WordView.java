@@ -67,7 +67,7 @@ public class WordView extends FrameLayout{
             });
             try {
                 //AssetFileDescriptor afd = mContext.getAssets().openFd(mWord.sound);
-                AssetFileDescriptor afd = mContext.getAssets().openFd("swa/audio/a.mp3");
+                AssetFileDescriptor afd = mContext.getAssets().openFd("eng/audio/a.mp3");
                 mediaPlayer.setDataSource(afd.getFileDescriptor(), afd.getStartOffset(),
                         afd.getLength());
                 afd.close();

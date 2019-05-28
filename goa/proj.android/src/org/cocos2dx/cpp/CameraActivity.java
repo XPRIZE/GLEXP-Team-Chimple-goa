@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.maq.xprize.goa.hindi.R;
+import com.maq.xprize.chimple.hindi.R;
 
 import android.app.Activity;
 import android.content.Intent;

@@ -22,7 +22,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Toast;
-import com.maq.xprize.goa.hindi.R;
+import com.maq.xprize.chimple.hindi.R;
 import org.cocos2dx.lib.Cocos2dxActivity;
 /**
  * This Activity appears as a dialog. It lists any paired devices and

@@ -336,7 +336,7 @@ public class AppActivity extends Cocos2dxActivity {
 	/**
 	 * Sends a message.
 	 *
-	 * @param message A string of text to send.
+	 * @param data A string of text to send.
 	 */
 	public static void sendMessage(String data) {
 		// Check that we're actually connected before trying anything
@@ -426,7 +426,6 @@ public class AppActivity extends Cocos2dxActivity {
 
 		mOutStringBuffer = new StringBuffer();
 
-		// TODO: 24-May-19 AnkitK Change the package name later
 		String baliPackageName = "com.maq.xprize.bali";
 		PackageManager packageManager = _context.getPackageManager();
 		try {

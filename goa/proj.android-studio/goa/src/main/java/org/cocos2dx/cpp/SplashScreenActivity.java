@@ -40,7 +40,9 @@ public class SplashScreenActivity extends Activity {
             case 1: {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                        && grantResults[1] == PackageManager.PERMISSION_GRANTED
+                        && grantResults[2] == PackageManager.PERMISSION_GRANTED) {
                     new DownloadFile().execute(null, null, null);
                 } else {
                     Toast.makeText(this, "Permission required!", Toast.LENGTH_LONG).show();
@@ -57,9 +59,7 @@ public class SplashScreenActivity extends Activity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         if (Build.VERSION.SDK_INT < 19) { // lower api
             View v = this.getWindow().getDecorView();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                v.setSystemUiVisibility(View.GONE);
-            }
+            v.setSystemUiVisibility(View.GONE);
         } else {
             //for new api versions.
             View decorView = this.getWindow().getDecorView();

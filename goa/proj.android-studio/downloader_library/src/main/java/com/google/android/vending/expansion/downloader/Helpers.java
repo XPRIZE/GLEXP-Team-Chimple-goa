@@ -47,9 +47,6 @@ public class Helpers {
     private Helpers() {
     }
 
-    public static String getPackageName(Context c) {
-        return c.getPackageName();
-    }
     /*
      * Parse the Content-Disposition HTTP Header. The format of the header is
      * defined here: http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html This
@@ -306,4 +303,7 @@ public class Helpers {
         }
     }
 
+    public static String getPackageName(Context c) {
+        return c.getPackageName();
+    }
 }

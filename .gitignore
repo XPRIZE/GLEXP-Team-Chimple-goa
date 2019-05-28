@@ -101,6 +101,8 @@ proj.android-studio/app/project.properties
 proj.android-studio/build.gradle
 proj.android-studio/gradle/wrapper/gradle-wrapper.properties
 proj.android-studio/gradlew
+proj.android-studio/goa/release
+output.json
 
 proj.android/libraries/*/build/
 proj.android/libraries/*/gen/*
@@ -117,6 +119,7 @@ local.properties
 **/proguard-project.txt
 
 *.apk
+*.aab
 **/Debug.win32/*
 **/.vs/*
 *.obj

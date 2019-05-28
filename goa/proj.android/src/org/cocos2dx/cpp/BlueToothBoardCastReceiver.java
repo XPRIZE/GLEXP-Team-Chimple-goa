@@ -7,7 +7,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import com.maq.xprize.goa.hindi.R;
+import com.maq.xprize.chimple.hindi.R;
 import org.cocos2dx.cpp.AppActivity;
 /**
  * Created by Shyamal.Upadhyaya on 28/09/16.

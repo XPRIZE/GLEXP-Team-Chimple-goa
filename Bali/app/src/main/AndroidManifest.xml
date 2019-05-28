@@ -30,13 +30,11 @@
             android:theme="@style/LauncherTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.SEND" />
 
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.MONKEY" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
