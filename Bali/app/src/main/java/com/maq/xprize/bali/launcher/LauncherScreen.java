@@ -54,7 +54,6 @@ public class LauncherScreen extends LifecycleActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
-        String x = this.getPackageName();
 
         if(POPUP) {
             IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
