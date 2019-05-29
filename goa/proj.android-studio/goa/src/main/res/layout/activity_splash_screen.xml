@@ -27,13 +27,13 @@
         android:id="@+id/one_time_extraction_text"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginBottom="60dp"
         android:gravity="center_vertical"
         android:text="@string/content_extraction"
-        android:textSize="30sp"
         android:textColor="@android:color/black"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/mPercentText"
         app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="@+id/imageView" />
 
     <ProgressBar

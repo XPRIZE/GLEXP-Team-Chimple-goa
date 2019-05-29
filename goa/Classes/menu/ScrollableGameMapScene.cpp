@@ -422,7 +422,7 @@ cocos2d::ui::Button* ScrollableGameMapScene::createButton(const rapidjson::Value
             }
         }
         button->setTitleColor(titleColor);
-        button->setTitleFontSize(72);
+        button->setTitleFontSize(150);
         auto label = button->getTitleRenderer();
         label->setPosition(Vec2(label->getPositionX(), label->getPositionY()- 300));
         button->setScale(0.5);

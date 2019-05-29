@@ -177,7 +177,7 @@ void MapScene::processChildNodes(cocos2d::Node *rootNode) {
 
                     std::string mapText = this->currentLangUtil->translateString(lName);
                     
-                    cocos2d::Label* label = Label::createWithTTF(mapText,"fonts/Chanakya.ttf", 50);
+                    cocos2d::Label* label = Label::createWithTTF(mapText,"fonts/Chanakya.ttf", 150);
                     label->setPosition(Vec2(node->getPosition().x, node->getPosition().y));
                     label->setColor(Color3B(128, 64, 0));
                     mainLayer->addChild(label);

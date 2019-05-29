@@ -155,7 +155,7 @@ bool MenuContext::init(Node* main) {
     }
     addChild(_menuButton, 1);
     
-//    _label = Label::createWithTTF("Points: 0", "fonts/Chanakya.ttf", 50);
+//    _label = Label::createWithTTF("Points: 0", "fonts/Chanakya.ttf", 150);
 //    _label->setPosition(Vec2(125, 125));
 //    _menuButton->addChild(_label);
     
