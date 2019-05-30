@@ -44,57 +44,44 @@ public class LessonContentProvider extends ContentProvider {
     public static final String AUTHORITY = "com.maq.xprize.bali.provider";
 
     public static final String MULTIPLE_CHOICE_QUIZ = "MULTIPLE_CHOICE_QUIZ";
-
-    private static final int DEFAULT_NUM_QUIZES = 1;
-    private static final int DEFAULT_NUM_CHOICES = 4;
-    private static final int DEFAULT_ANSWER_FORMAT = LessonRepo.ANY_FORMAT;
-    private static final int DEFAULT_CHOICE_FORMAT = LessonRepo.ANY_FORMAT;
-
     public static final String COL_HELP = "help";
     public static final String COL_QUESTION = "question";
     public static final String COL_CORRECT_ANSWER = "correct_answer";
     public static final String COL_CHOICE = "choice_";
-
     /**
      * The URI for the Multiple Choice Quiz
      */
     public static final Uri URI_MULTIPLE_CHOICE_QUIZ = Uri.parse(
             "content://" + AUTHORITY + "/" + MULTIPLE_CHOICE_QUIZ);
-
-    /**
-     * The match code for next quiz
-     */
-    private static final int CODE_GET_MULTIPLE_CHOICE_QUIZ = 1;
-
-
     public static final String BAG_OF_CHOICE_QUIZ = "BAG_OF_CHOICE_QUIZ";
-
-    private static final int DEFAULT_MIN_ANSWERS = 3;
-    private static final int DEFAULT_MAX_ANSWERS = 6;
-    private static final int DEFAULT_MIN_CHOICES = 6;
-    private static final int DEFAULT_MAX_CHOICES = 10;
-    private static final boolean DEFAULT_ORDER = true;
-
     public static final String COL_ANSWER = "answer";
     public static final String COL_NUM_ANSWERS = "num_answers";
     public static final String COL_NUM_OTHER_CHOICES = "num_other_choices";
-
     public static final Uri URI_BAG_OF_CHOICE_QUIZ = Uri.parse(
             "content://" + AUTHORITY + "/" + BAG_OF_CHOICE_QUIZ);
-
-    private static final int CODE_GET_BAG_OF_CHOICE_QUIZ = 3;
-
     public static final String COINS = "COINS";
     public static final String GAME_NAME = "GAME_NAME";
     public static final String GAME_LEVEL = "GAME_LEVEL";
     public static final String GAME_EVENT = "GAME_EVENT";
-
     /**
      * The URI for the Coin
      */
     public static final Uri URI_COIN = Uri.parse(
             "content://" + AUTHORITY + "/" + COINS);
-
+    private static final int DEFAULT_NUM_QUIZES = 1;
+    private static final int DEFAULT_NUM_CHOICES = 4;
+    private static final int DEFAULT_ANSWER_FORMAT = LessonRepo.ANY_FORMAT;
+    private static final int DEFAULT_CHOICE_FORMAT = LessonRepo.ANY_FORMAT;
+    /**
+     * The match code for next quiz
+     */
+    private static final int CODE_GET_MULTIPLE_CHOICE_QUIZ = 1;
+    private static final int DEFAULT_MIN_ANSWERS = 3;
+    private static final int DEFAULT_MAX_ANSWERS = 6;
+    private static final int DEFAULT_MIN_CHOICES = 6;
+    private static final int DEFAULT_MAX_CHOICES = 10;
+    private static final boolean DEFAULT_ORDER = true;
+    private static final int CODE_GET_BAG_OF_CHOICE_QUIZ = 3;
     /**
      * The match code for next quiz
      */
@@ -292,17 +279,25 @@ public class LessonContentProvider extends ContentProvider {
                 int gameEvent = contentValues.getAsInteger(GAME_EVENT);
                 int coins = contentValues.getAsInteger(COINS);
                 int updatedCoins = 0;
+
+                /*Following try-catch block is a patch for Chimple application crash when launched for the first time*/
+                try {
                     updatedCoins = UserRepo.updateCoins(getContext(), coins);
-                    Log.d("LessonContentProvider", "adding coins: "
-                            + String.valueOf(coins)
-                            + " for total of: "
-                            + String.valueOf(updatedCoins));
 
-                    String coinMessage = "Added Coins:" + String.valueOf(coins) + " for total of: "
-                            + String.valueOf(updatedCoins);
+                } catch (NullPointerException npe) {
+                    UserRepo.getCurrentLiveUser(getContext());
+                    update(uri, contentValues, s, strings);
+                }
+                Log.d("LessonContentProvider", "adding coins: "
+                        + coins
+                        + " for total of: "
+                        + updatedCoins);
 
-                    BaliApplication application = (BaliApplication) getContext().getApplicationContext();
-                    application.updateCoinNotifications("Coins:", coinMessage, updatedCoins);
+                String coinMessage = "Added Coins:" + coins + " for total of: "
+                        + updatedCoins;
+
+                BaliApplication application = (BaliApplication) getContext().getApplicationContext();
+                application.updateCoinNotifications("Coins:", coinMessage, updatedCoins);
                 UserLogRepo.logEntity(getContext(), UserLog.GAME_TYPE, (long) gameLevel, gameEvent, gameName);
                 return updatedCoins;
             default:
