@@ -18,52 +18,51 @@ using namespace CocosDenshion;
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
 extern "C"
 {
-    jboolean Java_org_cocos2dx_javascript_AppActivity_updateInformation(JNIEnv* env, jobject thiz, jstring jsonStr)
+    jboolean Java_org_cocos2dx_javascript_AppActivity_updateInformation(JNIEnv *env, jobject thiz, jstring jsonStr)
     {
-        const char* cjsonStr = env->GetStringUTFChars(jsonStr, NULL);
+        const char *cjsonStr = env->GetStringUTFChars(jsonStr, NULL);
         std::string inputStr(cjsonStr);
-        
+
         CCLOG("enemy information %s", cjsonStr);
-        
-        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("enemy_information_received_event", static_cast<void*>(&inputStr));
-        
-        
+
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("enemy_information_received_event", static_cast<void *>(&inputStr));
+
         return true;
     }
-    
-    jboolean Java_org_cocos2dx_javascript_AppActivity_launchGameWithPeer(JNIEnv* env, jobject thiz,jstring jsonStr)
+
+    jboolean Java_org_cocos2dx_javascript_AppActivity_launchGameWithPeer(JNIEnv *env, jobject thiz, jstring jsonStr)
     {
-        const char* cjsonStr = env->GetStringUTFChars(jsonStr, NULL);
+        const char *cjsonStr = env->GetStringUTFChars(jsonStr, NULL);
         std::string inputStr(cjsonStr);
         localStorageSetItem("connectionResult", inputStr);
-        
+
         Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("launch_game_with_peer_event");
         return true;
     }
-    
 
-    jboolean Java_org_cocos2dx_javascript_AppActivity_discoveredBluetoothDevices(JNIEnv* env, jobject thiz, jstring jsonStr)
+    jboolean Java_org_cocos2dx_javascript_AppActivity_discoveredBluetoothDevices(JNIEnv *env, jobject thiz, jstring jsonStr)
     {
-        const char* cjsonStr = env->GetStringUTFChars(jsonStr, NULL);
+        const char *cjsonStr = env->GetStringUTFChars(jsonStr, NULL);
         std::string inputStr(cjsonStr);
-        
+
         CCLOG("discovered information %s", inputStr.c_str());
         localStorageSetItem("discoveredBluetoothDevices", inputStr);
-        
+
         EventCustom event("peer_information_received_event");
         //event.setUserData(static_cast<void*>(&inputStr));
         Director::getInstance()->getEventDispatcher()->dispatchEvent(&event);
-        
+
         return true;
     }
-    
-    jboolean Java_org_cocos2dx_cpp_AppActivity_setMultipleChoiceQuiz(JNIEnv* env, jobject thiz, jobjectArray stringArray)
+
+    jboolean Java_org_cocos2dx_cpp_AppActivity_setMultipleChoiceQuiz(JNIEnv *env, jobject thiz, jobjectArray stringArray)
     {
         int stringCount = env->GetArrayLength(stringArray);
         CCLOG("stringCount %d", stringCount);
         std::string *mcqStrings = new std::string[stringCount];
-        for (int i=0; i<stringCount; i++) {
-            jstring string = (jstring) (env->GetObjectArrayElement(stringArray, i));
+        for (int i = 0; i < stringCount; i++)
+        {
+            jstring string = (jstring)(env->GetObjectArrayElement(stringArray, i));
             const char *rawString = env->GetStringUTFChars(string, 0);
             // Don't forget to call `ReleaseStringUTFChars` when you're done.
             CCLOG("mcq information %s", rawString);
@@ -72,16 +71,17 @@ extern "C"
             //env->ReleaseStringUTFChars(string, rawString);
         }
         CCLOG("dispatching multipleChoiceQuiz");
-        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("multipleChoiceQuiz", static_cast<void*>(mcqStrings));        
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("multipleChoiceQuiz", static_cast<void *>(mcqStrings));
     }
 
-    jboolean Java_org_cocos2dx_cpp_AppActivity_setBagOfChoiceQuiz(JNIEnv* env, jobject thiz, jobjectArray stringArray)
+    jboolean Java_org_cocos2dx_cpp_AppActivity_setBagOfChoiceQuiz(JNIEnv *env, jobject thiz, jobjectArray stringArray)
     {
         int stringCount = env->GetArrayLength(stringArray);
         CCLOG("stringCount %d", stringCount);
         std::string *bagStrings = new std::string[stringCount];
-        for (int i=0; i<stringCount; i++) {
-            jstring string = (jstring) (env->GetObjectArrayElement(stringArray, i));
+        for (int i = 0; i < stringCount; i++)
+        {
+            jstring string = (jstring)(env->GetObjectArrayElement(stringArray, i));
             const char *rawString = env->GetStringUTFChars(string, 0);
             // Don't forget to call `ReleaseStringUTFChars` when you're done.
             CCLOG("bag information %s", rawString);
@@ -90,9 +90,8 @@ extern "C"
             //env->ReleaseStringUTFChars(string, rawString);
         }
         CCLOG("dispatching bagOfChoiceQuiz");
-        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("bagOfChoiceQuiz", static_cast<void*>(bagStrings));
+        Director::getInstance()->getEventDispatcher()->dispatchCustomEvent("bagOfChoiceQuiz", static_cast<void *>(bagStrings));
     }
-
 }
 #endif
 
@@ -123,7 +122,8 @@ bool AppDelegate::applicationDidFinishLaunching()
     auto console = director->getConsole()->listenOnTCP(1234);
     director->getConsole()->addCommand({"xscenegraph", "Print the extended scene graph", CC_CALLBACK_2(AppDelegate::commandExtendedSceneGraph, this)});
     auto glview = director->getOpenGLView();
-    if(!glview) {
+    if (!glview)
+    {
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
         glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 960, 675));
 //        glview = GLViewImpl::createWithRect("goa", cocos2d::Rect(0, 0, 640, 450));
@@ -133,94 +133,95 @@ bool AppDelegate::applicationDidFinishLaunching()
 #endif
 
         director->setOpenGLView(glview);
-}
+    }
 #if (CC_TARGET_PLATFORM == CC_PLATFORM_WIN32) || (CC_TARGET_PLATFORM == CC_PLATFORM_MAC) || (CC_TARGET_PLATFORM == CC_PLATFORM_LINUX)
-    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
+    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::EXACT_FIT);
 #else
-    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::FIXED_HEIGHT);
+    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::EXACT_FIT);
 #endif
-    srand (time(NULL));
+    srand(time(NULL));
     std::vector<std::string> searchPaths;
     float scaleFactor = 1.0f;
     Size frameSize = glview->getFrameSize();
-    
+
     if (frameSize.height > mediumResolutionSize.height)
     {
         CCLOG("resolution %s", "HDR");
         searchPaths.push_back("res/HDR");
-        scaleFactor = largeResolutionSize.height/designResolutionSize.height;
+        scaleFactor = largeResolutionSize.height / designResolutionSize.height;
     }
     else if (frameSize.height > smallResolutionSize.height)
     {
         CCLOG("resolution %s", "HD");
         searchPaths.push_back("res/HD");
-        scaleFactor = mediumResolutionSize.height/designResolutionSize.height;
+        scaleFactor = mediumResolutionSize.height / designResolutionSize.height;
     }
     else
     {
         CCLOG("resolution %s", "SD");
         searchPaths.push_back("res/SD");
-        scaleFactor = smallResolutionSize.height/designResolutionSize.height;
+        scaleFactor = smallResolutionSize.height / designResolutionSize.height;
     }
-    
+
     director->setContentScaleFactor(scaleFactor);
 
-    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
-        string devicePath = "/storage/emulated/0/Android/data/com.maq.xprize.chimple.hindi/files/";
-        FileUtils::getInstance()->setDefaultResourceRootPath(devicePath);
-    #endif
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    string devicePath = "/storage/emulated/0/Android/data/com.maq.xprize.chimple.hindi/files/";
+    FileUtils::getInstance()->setDefaultResourceRootPath(devicePath);
+#endif
 
     FileUtils::getInstance()->setSearchPaths(searchPaths);
-    
+
     FileUtils::getInstance()->addSearchPath("res");
 
     director->setDisplayStats(false);
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0f / 60);
     director->runWithScene(SplashScene::createScene());
-//    director->runWithScene(HelloDragonBones::createScene());
-    
+    //    director->runWithScene(HelloDragonBones::createScene());
+
     Application::getInstance()->getCurrentLanguage();
     return true;
 }
 
-void AppDelegate::commandExtendedSceneGraph(int fd, const std::string& /*args*/)
+void AppDelegate::commandExtendedSceneGraph(int fd, const std::string & /*args*/)
 {
     Scheduler *sched = Director::getInstance()->getScheduler();
-    sched->performFunctionInCocosThread( std::bind(&AppDelegate::printExtendedSceneGraphBoot, this, fd) );
+    sched->performFunctionInCocosThread(std::bind(&AppDelegate::printExtendedSceneGraphBoot, this, fd));
 }
 
-int AppDelegate::printExtendedSceneGraph(int fd, Node* node, int level)
+int AppDelegate::printExtendedSceneGraph(int fd, Node *node, int level)
 {
     int total = 1;
-//    for(int i=0; i<level; ++i)
-//        Console::Utility::sendToConsole(fd, "-", 1);
+    //    for(int i=0; i<level; ++i)
+    //        Console::Utility::sendToConsole(fd, "-", 1);
     float x = 0.0;
     float y = 0.0;
-    if(node->getParent()!=nullptr) {
+    if (node->getParent() != nullptr)
+    {
         auto nodeInWorld = node->getParent()->convertToWorldSpace(node->getPosition());
         x = nodeInWorld.x;
         y = nodeInWorld.y;
     }
-//    Console::Utility::mydprintf(fd, " %s x=%f y=%f\n", node->getDescription().c_str(), x, y);
-    
-    for(const auto& child: node->getChildren())
-        total += printExtendedSceneGraph(fd, child, level+1);
-    
+    //    Console::Utility::mydprintf(fd, " %s x=%f y=%f\n", node->getDescription().c_str(), x, y);
+
+    for (const auto &child : node->getChildren())
+        total += printExtendedSceneGraph(fd, child, level + 1);
+
     return total;
 }
 
 void AppDelegate::printExtendedSceneGraphBoot(int fd)
 {
-//    Console::Utility::sendToConsole(fd,"\n",1);
+    //    Console::Utility::sendToConsole(fd,"\n",1);
     auto scene = Director::getInstance()->getRunningScene();
     int total = printExtendedSceneGraph(fd, scene, 0);
-//    Console::Utility::mydprintf(fd, "Total Nodes: %d\n", total);
-//    Console::Utility::sendPrompt(fd);
+    //    Console::Utility::mydprintf(fd, "Total Nodes: %d\n", total);
+    //    Console::Utility::sendPrompt(fd);
 }
 
-
-bool AppDelegate::findCachedCharacterConfiguration(std::string* cachedCharacterInformation) {
+bool AppDelegate::findCachedCharacterConfiguration(std::string *cachedCharacterInformation)
+{
     return localStorageGetItem("cachedCharacterConfig", cachedCharacterInformation);
 }
 

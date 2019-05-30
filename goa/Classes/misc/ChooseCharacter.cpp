@@ -123,7 +123,7 @@ void ChooseCharacter::processChildNodes(cocos2d::Node *rootNode) {
         if(boyLabel != NULL) {
             std::string boyText = "ÜÇ¸·UUUæ";
             boyLabel->setString(boyText);
-            boyLabel->setFontSize(100);
+            boyLabel->setFontSize(150);
             boyLabel->setFontName("fonts/Chanakya.ttf");
             boyLabel->setTextColor(Color4B::WHITE);
             
@@ -136,7 +136,7 @@ void ChooseCharacter::processChildNodes(cocos2d::Node *rootNode) {
         if(girlLabel != NULL) {
             std::string girlText = "ÜÇ¸·UUUè";
             girlLabel->setString(girlText);
-            girlLabel->setFontSize(100);
+            girlLabel->setFontSize(150);
             girlLabel->setFontName("fonts/Chanakya.ttf");
             girlLabel->setTextColor(Color4B::WHITE);
             

@@ -16,7 +16,6 @@ bin/
 gen/
 build/
 obj/
-libs/
 *.iml
 .settings
 .project
@@ -92,7 +91,7 @@ proj.android/libraries/*/bin/*
 proj.android/libraries/*/.idea/*
 proj.android/libraries/*/*.iml
 proj.android/libraries/*/local.properties
-
+gdb.setup
 
 # Generated files in the Android studio project #
 proj.android-studio/**/*
