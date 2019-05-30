@@ -39,6 +39,7 @@ import com.maq.xprize.bali.service.TollBroadcastReceiver;
 
 public class LauncherScreen extends LifecycleActivity {
     public static final boolean POPUP = false;
+    int mCoins;
 
     public int getCoins() {
         return mCoins;
@@ -48,14 +49,12 @@ public class LauncherScreen extends LifecycleActivity {
         this.mCoins = mCoins;
     }
 
-    int mCoins;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
 
-        if(POPUP) {
+        if (POPUP) {
             IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_ON);
             filter.addAction(Intent.ACTION_SCREEN_OFF);
             BroadcastReceiver mReceiver = new TollBroadcastReceiver();
@@ -76,8 +75,6 @@ public class LauncherScreen extends LifecycleActivity {
                 coinTextView.setText(Integer.toString(user.coins));
             }
         });
-
-
     }
 
     @Override

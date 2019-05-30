@@ -20,14 +20,12 @@ import android.arch.lifecycle.LiveData;
 import android.arch.lifecycle.MutableLiveData;
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 
 import com.maq.xprize.bali.R;
 import com.maq.xprize.bali.db.AppDatabase;
 import com.maq.xprize.bali.db.entity.Lesson;
 import com.maq.xprize.bali.db.entity.Unit;
-import com.maq.xprize.bali.db.entity.UnitPart;
 import com.maq.xprize.bali.db.entity.User;
 import com.maq.xprize.bali.db.entity.UserLesson;
 import com.maq.xprize.bali.db.entity.UserLog;
@@ -73,9 +71,9 @@ public class LessonRepo {
                 Context context1 = params[0];
                 AppDatabase db = AppDatabase.getInstance(context1);
                 User user = UserRepo.getCurrentUser(context1);
-                    //TODO: Handle no user
+                //TODO: Handle no user
                 Lesson lesson;
-                if(lessonId != 0) {
+                if (lessonId != 0) {
                     lesson = db.lessonDao().getLessonById(lessonId);
                 } else {
                     lesson = db.lessonDao().getLessonById(user.currentLessonId);
@@ -99,13 +97,13 @@ public class LessonRepo {
                 User user = UserRepo.getCurrentUser(context);
                 //TODO: Handle no user
                 Lesson lesson;
-                if(lessonId != 0) {
+                if (lessonId != 0) {
                     lesson = db.lessonDao().getLessonById(lessonId);
                 } else {
                     lesson = db.lessonDao().getLessonById(user.currentLessonId);
                 }
                 UserLesson userLesson = db.userLessonDao().getUserLessonByUserIdAndLessonId(user.id, lesson.id);
-                if(userLesson == null) {
+                if (userLesson == null) {
                     userLesson = new UserLesson(user.id, lesson.id, new Date(), 1, percent);
                     db.userLessonDao().insertUserLesson(userLesson);
                 } else {
@@ -114,7 +112,7 @@ public class LessonRepo {
                     db.userLessonDao().updateUserLesson(userLesson);
                 }
 //                if(percent >= 65 && userLesson.seenCount >= 3) {
-                if(percent >= 0 && userLesson.seenCount >= 1) {
+                if (percent >= 0 && userLesson.seenCount >= 1) {
                     Lesson newLesson = db.lessonDao().getLessonBySeq(lesson.seq + 1);
                     if (newLesson != null) {
                         user.currentLessonId = newLesson.id;
@@ -122,13 +120,13 @@ public class LessonRepo {
                     }
                 }
                 int coinsToGive = 0;
-                if(percent >= 80)
+                if (percent >= 80)
                     coinsToGive = 4;
-                else if(percent >= 60)
+                else if (percent >= 60)
                     coinsToGive = 3;
-                else if(percent >= 40)
+                else if (percent >= 40)
                     coinsToGive = 2;
-                else if(percent >= 20)
+                else if (percent >= 20)
                     coinsToGive = 1;
                 ContentValues contentValues = new ContentValues(1);
                 contentValues.put(GAME_NAME, "Bali");
@@ -153,23 +151,24 @@ public class LessonRepo {
             , int numChoices, int answerFormat, int choiceFormat) {
         AppDatabase db = AppDatabase.getInstance(context);
         User user = UserRepo.getCurrentUser(context);
-        Lesson currentLesson = db.lessonDao().getLessonById(user.currentLessonId);
+        Lesson currentLesson = null;
+        currentLesson = db.lessonDao().getLessonById(user.currentLessonId);
         int concept = currentLesson.concept;
         List<FlashCard> lucs = null;
         boolean answerCaseParticular = (answerFormat == UPPER_CASE_LETTER_FORMAT);
-        if((answerFormat == ANY_FORMAT
+        if ((answerFormat == ANY_FORMAT
                 || (answerFormat == UPPER_CASE_LETTER_FORMAT
-                    && (currentLesson.concept == Lesson.LETTER_CONCEPT
-                        || currentLesson.concept == Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT
-                        || currentLesson.concept == Lesson.LETTER_TO_WORD_CONCEPT
-                        || currentLesson.concept == Lesson.UPPER_CASE_LETTER_TO_WORD_CONCEPT)))
-            &&(choiceFormat == ANY_FORMAT
+                && (currentLesson.concept == Lesson.LETTER_CONCEPT
+                || currentLesson.concept == Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT
+                || currentLesson.concept == Lesson.LETTER_TO_WORD_CONCEPT
+                || currentLesson.concept == Lesson.UPPER_CASE_LETTER_TO_WORD_CONCEPT)))
+                && (choiceFormat == ANY_FORMAT
                 || (choiceFormat == UPPER_CASE_LETTER_FORMAT
-                    && (currentLesson.concept == Lesson.LETTER_CONCEPT
-                        || currentLesson.concept == Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT)))) {
+                && (currentLesson.concept == Lesson.LETTER_CONCEPT
+                || currentLesson.concept == Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT)))) {
             lucs = db.lessonUnitDao().getFlashCardsByLessonId(currentLesson.id);
             convertToUniqueSubjects(lucs, answerCaseParticular);
-            if(lucs.size() < numQuizes) {
+            if (lucs.size() < numQuizes) {
                 lucs = db.lessonUnitDao().getFlashCardArrayBelowSeqAndByConcept(currentLesson.seq, currentLesson.concept);
                 convertToUniqueSubjects(lucs, answerCaseParticular);
             }
@@ -177,7 +176,7 @@ public class LessonRepo {
             List<Integer> formats = new LinkedList<Integer>();
             formats.add(Lesson.LETTER_CONCEPT);
             formats.add(Lesson.UPPER_CASE_TO_LOWER_CASE_CONCEPT);
-            if(choiceFormat == ANY_FORMAT) {
+            if (choiceFormat == ANY_FORMAT) {
                 formats.add(Lesson.LETTER_TO_WORD_CONCEPT);
                 formats.add(Lesson.UPPER_CASE_LETTER_TO_WORD_CONCEPT);
             }
@@ -186,7 +185,7 @@ public class LessonRepo {
             lucs = db.lessonUnitDao().getFlashCardsByLessonId(lessons[lessonIndex].id);
             concept = lessons[lessonIndex].concept;
             convertToUniqueSubjects(lucs, answerCaseParticular);
-            if(lucs.size() < numQuizes) {
+            if (lucs.size() < numQuizes) {
                 lucs = db.lessonUnitDao().getFlashCardArrayBelowSeqAndByConcept(currentLesson.seq, concept);
                 convertToUniqueSubjects(lucs, answerCaseParticular);
             }
@@ -223,17 +222,17 @@ public class LessonRepo {
                 }
             }
             Unit answer = luc.subjectUnit;
-            if(answerFormat == UPPER_CASE_LETTER_FORMAT) {
+            if (answerFormat == UPPER_CASE_LETTER_FORMAT) {
                 answer.name = answer.name.toUpperCase();
             }
-            if(choiceFormat == UPPER_CASE_LETTER_FORMAT) {
-                for(int c = 0; c < choices.length; c++) {
+            if (choiceFormat == UPPER_CASE_LETTER_FORMAT) {
+                for (int c = 0; c < choices.length; c++) {
                     //TODO: Handle unicode
                     choices[c].name = choices[c].name.substring(0, 1).toUpperCase();
                 }
             }
-            if(concept == Lesson.UPPER_CASE_LETTER_TO_WORD_CONCEPT) {
-                for(int c = 0; c < choices.length; c++) {
+            if (concept == Lesson.UPPER_CASE_LETTER_TO_WORD_CONCEPT) {
+                for (int c = 0; c < choices.length; c++) {
                     //TODO: Handle unicode
                     choices[c].name = choices[c].name.substring(0, 1).toUpperCase() + choices[c].name.substring(1);
                 }
@@ -247,13 +246,13 @@ public class LessonRepo {
 
     private static void convertToUniqueSubjects(List<FlashCard> lucs, boolean caseInvariant) {
         Set<String> subjectSet = new HashSet<String>(lucs.size());
-        for(Iterator<FlashCard> iter = lucs.iterator(); iter.hasNext(); ) {
+        for (Iterator<FlashCard> iter = lucs.iterator(); iter.hasNext(); ) {
             FlashCard luc = iter.next();
             String compareStr = luc.subjectUnit.name;
-            if(caseInvariant) {
+            if (caseInvariant) {
                 compareStr = compareStr.toUpperCase();
             }
-            if(!subjectSet.contains(compareStr)) {
+            if (!subjectSet.contains(compareStr)) {
                 subjectSet.add(compareStr);
             } else {
                 iter.remove();
@@ -276,10 +275,10 @@ public class LessonRepo {
             Set<String> choiceSet = new HashSet<String>(lucs.length);
             Map<String, String[]> wordMap = new HashMap<String, String[]>(lucs.length);
             fillChoicesWithWords(minAnswers, maxAnswers, lucs, quizList, choiceSet, wordMap);
-            if(quizList.size() == 0) {
+            if (quizList.size() == 0) {
                 fillChoicesWithWords(minAnswers, maxChoices, lucs, quizList, choiceSet, wordMap);
             }
-            if(quizList.size() == 0) {
+            if (quizList.size() == 0) {
                 fillChoicesWithWords(minChoices, maxChoices, lucs, quizList, choiceSet, wordMap);
             }
             Collections.shuffle(quizList);
@@ -313,10 +312,10 @@ public class LessonRepo {
             Map<Unit, EagerUnitPart[]> unitMap = new HashMap<Unit, EagerUnitPart[]>(lucs.length);
             Set<String> choiceSet = new HashSet<String>(lucs.length);
             fillChoicesWithSyllables(minAnswers, maxAnswers, db, lucs, quizList, unitMap, choiceSet);
-            if(quizList.size() == 0) {
+            if (quizList.size() == 0) {
                 fillChoicesWithSyllables(minAnswers, maxChoices, db, lucs, quizList, unitMap, choiceSet);
             }
-            if(quizList.size() == 0) {
+            if (quizList.size() == 0) {
                 fillChoicesWithSyllables(minChoices, maxChoices, db, lucs, quizList, unitMap, choiceSet);
             }
             Collections.shuffle(quizList);
@@ -408,7 +407,7 @@ public class LessonRepo {
             String[] letters = new String[word.length()];
             for (int s = 0; s < word.length(); s++) {
                 //TODO: handle unicode and code points
-                String letter = word.substring(s, s+1);
+                String letter = word.substring(s, s + 1);
                 choiceSet.add(letter);
                 letters[s] = letter;
             }
