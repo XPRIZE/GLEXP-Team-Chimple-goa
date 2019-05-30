@@ -151,8 +151,7 @@ public class LessonRepo {
             , int numChoices, int answerFormat, int choiceFormat) {
         AppDatabase db = AppDatabase.getInstance(context);
         User user = UserRepo.getCurrentUser(context);
-        Lesson currentLesson = null;
-        currentLesson = db.lessonDao().getLessonById(user.currentLessonId);
+        Lesson currentLesson = db.lessonDao().getLessonById(user.currentLessonId);
         int concept = currentLesson.concept;
         List<FlashCard> lucs = null;
         boolean answerCaseParticular = (answerFormat == UPPER_CASE_LETTER_FORMAT);
