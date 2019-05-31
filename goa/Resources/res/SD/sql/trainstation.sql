@@ -1,9 +1,0 @@
-insert into NODE_WORD_MAPPING(WORD_IN_ENGLISH, NODE_NAME, SCENE_NAME) values ('floor_1_0','floor','trainstation');
-insert into NODE_WORD_MAPPING(WORD_IN_ENGLISH, NODE_NAME, SCENE_NAME) values ('doorback','door','trainstation');
-insert into NODE_WORD_MAPPING(WORD_IN_ENGLISH, NODE_NAME, SCENE_NAME) values ('ticketsand_17','stand','trainstation');
-insert into NODE_WORD_MAPPING(WORD_IN_ENGLISH, NODE_NAME, SCENE_NAME) values ('plant_21','plant','trainstation');
-insert into NODE_WORD_MAPPING(WORD_IN_ENGLISH, NODE_NAME, SCENE_NAME) values ('ticketsand_27','stand','trainstation');
-insert into NODE_WORD_MAPPING(WORD_IN_ENGLISH, NODE_NAME, SCENE_NAME) values ('waterstand_32','waterstand','trainstation');
-insert into NODE_WORD_MAPPING(WORD_IN_ENGLISH, NODE_NAME, SCENE_NAME) values ('clock_34','clock','trainstation');
-insert into NODE_WORD_MAPPING(WORD_IN_ENGLISH, NODE_NAME, SCENE_NAME) values ('seat1_39','chair','trainstation');
-insert into NODE_WORD_MAPPING(WORD_IN_ENGLISH, NODE_NAME, SCENE_NAME) values ('board','board','trainstation');
