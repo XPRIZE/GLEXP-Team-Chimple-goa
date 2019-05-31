@@ -33,6 +33,7 @@ import android.bluetooth.BluetoothAdapter;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -58,6 +59,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import static chimple.DownloadExpansionFile.xAPK;
+
 public class AppActivity extends Cocos2dxActivity {
     public static final String TAG = "GOA";
     public static final int BLUETOOTH_REQUEST_DISCOVERABLE_CODE = 42;
@@ -72,6 +75,7 @@ public class AppActivity extends Cocos2dxActivity {
     public static final String COL_QUESTION = "question";
     public static final String COL_CORRECT_ANSWER = "correct_answer";
     public static final String COL_CHOICE = "choice_";
+    public static final String googlePlayUrl = "https://play.google.com/store/apps/details/?id=";
     /**
      * The URI for the Multiple Choice Quiz
      */
@@ -92,6 +96,7 @@ public class AppActivity extends Cocos2dxActivity {
     public static String bluetoothDeviceName = null;
     // Return Intent extra
     public static String EXTRA_DEVICE_ADDRESS = "device_address";
+    public static SharedPreferences sharedPref;
     private static Activity _activity;
     private static AppActivity _appActivity;
     private static Context _context;
@@ -369,11 +374,17 @@ public class AppActivity extends Cocos2dxActivity {
 
     public static native void launchGameWithPeer(String connectionInfo);
 
+    public static void redirectToPlayStore(Activity context, String appUrl) {
+        context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(appUrl)));
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        String flagFilePath = "/storage/emulated/0/Android/data/com.maq.xprize.chimple.hindi/files/.success.txt";
+        sharedPref = getSharedPreferences("ExpansionFile", MODE_PRIVATE);
+        String flagFilePath = "/storage/emulated/0/Android/data/" + getPackageName() + "/files/.success.txt";
+        int currentVersionObb = sharedPref.getInt(String.valueOf(R.string.mainFileVersion), 0);
         File flagFile = new File(flagFilePath);
-        if (!flagFile.exists()) {
+        if (!flagFile.exists() || currentVersionObb != xAPK.mFileVersion) {
             Intent intent = new Intent(AppActivity.this, SplashScreenActivity.class);
             startActivity(intent);
             finish();
@@ -432,7 +443,7 @@ public class AppActivity extends Cocos2dxActivity {
             packageManager.getPackageInfo(baliPackageName, 0);
         } catch (PackageManager.NameNotFoundException pnf) {
             // Redirect to play store to download Bali application
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details/?id=" + baliPackageName)));
+            redirectToPlayStore(AppActivity.this, googlePlayUrl + baliPackageName);
             // Render large font size in toast message to download Bali application
             String baliInstallMessage = _context.getResources().getString(R.string.bali_install_message);
             SpannableStringBuilder largerText = new SpannableStringBuilder(baliInstallMessage);
