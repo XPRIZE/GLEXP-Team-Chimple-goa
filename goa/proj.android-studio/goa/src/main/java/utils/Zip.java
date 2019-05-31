@@ -1,12 +1,11 @@
 package utils;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.maq.xprize.chimple.hindi.R;
-
-import org.cocos2dx.cpp.SplashScreenActivity;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -17,12 +16,15 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
+import static chimple.DownloadExpansionFile.xAPK;
+import static org.cocos2dx.cpp.AppActivity.sharedPref;
+
 public class Zip {
 
+    private static int percent = 0;
     private ZipFile _zipFile;
     private TextView percentText;
     private Activity zipActivity;
-    private static int percent = 0;
 
     public Zip(ZipFile zipFile, Activity _activity) {
         this._zipFile = zipFile;
@@ -117,6 +119,9 @@ public class Zip {
         if (isExtractionSuccessful) {
             flagFile = new File(extractPath + ".success.txt");
             flagFile.createNewFile();
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putInt(String.valueOf(R.string.mainFileVersion), xAPK.mFileVersion);
+            editor.apply();
         }
     }
 }
