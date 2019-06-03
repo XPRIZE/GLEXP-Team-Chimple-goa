@@ -6,13 +6,9 @@
 //
 //
 
-#define COCOS2D_DEBUG 1
 #include "LipiTKNode.h"
 #include "../lang/LangUtil.h"
 #include <algorithm>
-#include <string.h>
-// #include <utils/log.h>
-using namespace std;
 
 USING_NS_CC;
 
