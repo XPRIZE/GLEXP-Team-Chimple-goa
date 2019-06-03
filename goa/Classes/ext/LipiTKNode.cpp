@@ -6,9 +6,13 @@
 //
 //
 
+#define COCOS2D_DEBUG 1
 #include "LipiTKNode.h"
 #include "../lang/LangUtil.h"
 #include <algorithm>
+#include <string.h>
+// #include <utils/log.h>
+using namespace std;
 
 USING_NS_CC;
 
@@ -92,8 +96,11 @@ bool LipiTKNode::initialize(int width, int height, Point position) {
             //initialize lipiTK
              path = FileUtils::getInstance()->getWritablePath().c_str();
         #endif
-    
-        _lipiTKInterface = LipiTKInterface::getInstance(path);
+
+        string lipiTkPath = "/storage/emulated/0/Android/data/com.maq.xprize.chimple.hindi/files/res/android-lipitk";
+        const char* lipiTkPathParameter = path2.c_str();
+        
+        _lipiTKInterface = LipiTKInterface::getInstance(path3);
         _canvasWidth = width;
         _canvasHeight = height;
     
