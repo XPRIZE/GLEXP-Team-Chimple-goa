@@ -3,6 +3,7 @@ package org.cocos2dx.cpp;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -25,9 +26,22 @@ import java.util.zip.ZipFile;
 import chimple.DownloadExpansionFile;
 import utils.Zip;
 
+import static chimple.DownloadExpansionFile.xAPK;
+
 public class SplashScreenActivity extends Activity {
 
     Intent intent = null;
+    String expansionFilePath;
+    File expansionFile;
+    ZipFile expansionZipFile;
+    Zip _zip;
+    String unzipFilePath;
+    File packageNameDir;
+    SharedPreferences sharedPref;
+    int defaultFileVersion = 0;
+    int mainFileVersion;
+    int patchFileVersion;
+    boolean ExtractionRequired = false;
 
     public static String getUnzippedExpansionFilePath() {
         return "/storage/emulated/0/Android/data/com.maq.xprize.chimple.hindi/files/";
@@ -70,7 +84,23 @@ public class SplashScreenActivity extends Activity {
             // Permission is not granted
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         } else {
-            new DownloadFile().execute(null, null, null);
+            sharedPref = getSharedPreferences("ExpansionFile", MODE_PRIVATE);
+            // Retrieve the stored values of main and patch file version
+            mainFileVersion = sharedPref.getInt(getString(R.string.mainFileVersion), defaultFileVersion);
+            patchFileVersion = sharedPref.getInt(getString(R.string.patchFileVersion), defaultFileVersion);
+            for (DownloadExpansionFile.XAPKFile xf : xAPK) {
+                // If main or patch file is updated set isExtractionRequired to true
+                if (xf.mIsMain && xf.mFileVersion != mainFileVersion || !xf.mIsMain && xf.mFileVersion != patchFileVersion) {
+                    ExtractionRequired = true;
+                    break;
+                }
+                // If main or patch file is updated, the extraction process needs to be
+                // performed again
+                if (ExtractionRequired) {
+                    System.out.println("Splash onCreate: isExtractionRequired = " + true);
+                    new DownloadFile().execute(null, null, null);
+                }
+            }
         }
     }
 
@@ -82,29 +112,41 @@ public class SplashScreenActivity extends Activity {
     }
 
     public void unzipFile() {
+        SharedPreferences.Editor editor = sharedPref.edit();
         try {
-            String filePath = getExpansionFilePath();
-            File file = new File(filePath);
-            ZipFile zipFile = new ZipFile(file);
-            Zip _zip = new Zip(zipFile, this);
-            String unzipFilePath = getUnzippedExpansionFilePath();
-            File packageNameDir = new File(unzipFilePath);
-            if (packageNameDir.exists()) {
-                DownloadExpansionFile.deleteDir(packageNameDir);
+            for (DownloadExpansionFile.XAPKFile xf : xAPK) {
+                expansionFilePath = getExpansionFilePath(xf.mIsMain, xf.mFileVersion);
+                expansionFile = new File(expansionFilePath);
+                expansionZipFile = new ZipFile(expansionFile);
+                _zip = new Zip(expansionZipFile, this);
+                unzipFilePath = getUnzippedExpansionFilePath();
+                packageNameDir = new File(unzipFilePath);
+                if (xf.mIsMain) {
+                    if (packageNameDir.exists()) {
+                        DownloadExpansionFile.deleteDir(packageNameDir);
+                    }
+                    packageNameDir.mkdir();
+                }
+                _zip.unzip(unzipFilePath);
+                _zip.close();
+                if (xf.mIsMain) {
+                    editor.putInt(getString(R.string.mainFileVersion), xf.mFileVersion);
+                    editor.commit();
+                } else {
+                    editor.putInt(getString(R.string.patchFileVersion), xf.mFileVersion);
+                    editor.commit();
+                }
             }
-            packageNameDir.mkdir();
-            _zip.unzip(unzipFilePath);
-            _zip.close();
             toCallApplication();
-        } catch (IOException ie) {
-            System.out.println(ie);
+        } catch (IOException e) {
+            System.out.println("Could not extract assets");
+            System.out.println("Stack trace:" + e);
         }
-        return;
     }
 
-    public String getExpansionFilePath() {
+    public String getExpansionFilePath(boolean isMain, int fileVersion) {
         return Environment.getExternalStorageDirectory().toString() + "/Android/obb/" + Helpers.getPackageName(this) + File.separator +
-                Helpers.getExpansionAPKFileName(this, DownloadExpansionFile.xAPK.mIsMain, DownloadExpansionFile.xAPK.mFileVersion);
+                Helpers.getExpansionAPKFileName(this, isMain, fileVersion);
     }
 
     private class DownloadFile extends AsyncTask<String, Integer, String> {

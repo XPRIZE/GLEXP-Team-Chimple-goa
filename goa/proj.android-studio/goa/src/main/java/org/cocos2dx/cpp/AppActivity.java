@@ -59,6 +59,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import chimple.DownloadExpansionFile;
+
 import static chimple.DownloadExpansionFile.xAPK;
 
 public class AppActivity extends Cocos2dxActivity {
@@ -380,14 +382,35 @@ public class AppActivity extends Cocos2dxActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        sharedPref = getSharedPreferences("ExpansionFile", MODE_PRIVATE);
-        String flagFilePath = "/storage/emulated/0/Android/data/" + getPackageName() + "/files/.success.txt";
-        int currentVersionObb = sharedPref.getInt(String.valueOf(R.string.mainFileVersion), 0);
+        SharedPreferences sharedPref = getSharedPreferences("ExpansionFile", MODE_PRIVATE);
+        String flagFilePath = "/storage/emulated/0/Android/data/com.maq.xprize.chimple.hindi/files/.success.txt";
         File flagFile = new File(flagFilePath);
-        if (!flagFile.exists() || currentVersionObb != xAPK.mFileVersion) {
+        int defaultfileVersion = 0;
+        if (!flagFile.exists()) {
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putInt(getString(R.string.mainFileVersion), 0);
+            editor.putInt(getString(R.string.patchFileVersion), 0);
+            editor.commit();
             Intent intent = new Intent(AppActivity.this, SplashScreenActivity.class);
             startActivity(intent);
             finish();
+        }
+
+        else{
+            int mainFileVersion = sharedPref.getInt(getString(R.string.mainFileVersion), defaultfileVersion);
+            int patchFileVersion = sharedPref.getInt(getString(R.string.patchFileVersion), defaultfileVersion);
+            boolean ExtractionRequired = false;
+            for (DownloadExpansionFile.XAPKFile xf : xAPK){
+                if(xf.mIsMain && xf.mFileVersion != mainFileVersion || !xf.mIsMain && xf.mFileVersion != patchFileVersion){
+                    ExtractionRequired = true;
+                    break;
+                }
+            }
+            if(ExtractionRequired){
+                Intent intent = new Intent(AppActivity.this, SplashScreenActivity.class);
+                startActivity(intent);
+                finish();
+            }
         }
         super.onCreate(savedInstanceState);
         _appActivity = this;

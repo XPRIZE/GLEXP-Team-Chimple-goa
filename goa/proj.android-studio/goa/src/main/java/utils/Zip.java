@@ -119,9 +119,7 @@ public class Zip {
         if (isExtractionSuccessful) {
             flagFile = new File(extractPath + ".success.txt");
             flagFile.createNewFile();
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putInt(String.valueOf(R.string.mainFileVersion), xAPK.mFileVersion);
-            editor.apply();
+            
         }
     }
 }
