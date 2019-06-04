@@ -16,7 +16,7 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
-import static chimple.DownloadExpansionFile.xAPK;
+import static chimple.DownloadExpansionFile.xAPKS;
 import static org.cocos2dx.cpp.AppActivity.sharedPref;
 
 public class Zip {
@@ -25,6 +25,7 @@ public class Zip {
     private ZipFile _zipFile;
     private TextView percentText;
     private Activity zipActivity;
+    private static int count = 0;
 
     public Zip(ZipFile zipFile, Activity _activity) {
         this._zipFile = zipFile;
@@ -39,10 +40,9 @@ public class Zip {
         _zipFile.close();
     }
 
-    public void unzip(String extractPath) throws IOException {
+    public void unzip(String extractPath, int totalZipSize) throws IOException {
         File targetDir = new File(extractPath);
-        int zipSize = _zipFile.size();
-        int count = 0;
+        int percent;
         ProgressBar progressBar = zipActivity.findViewById(R.id.extraction_progress_bar);
         percentText = zipActivity.findViewById(R.id.mPercentText);
         String path;
@@ -68,7 +68,7 @@ public class Zip {
         while (zipEntries.hasMoreElements()) {
             ++count;
             // Calculate the percentage of extracted content
-            percent = (count * 100) / zipSize;
+            percent = (count * 100) / totalZipSize;
             // Sync the progress bar with percentage value
             progressBar.setProgress(percent);
             final int finalPercent = percent;

@@ -1,6 +1,5 @@
 package chimple;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -54,13 +53,13 @@ public class DownloadExpansionFile extends Activity implements IDownloaderClient
      * application is using LVL for licensing, it may make sense to eliminate
      * these checks and to just rely on the server.
      */
-    public static final XAPKFile[] xAPK = {
+    public static final XAPKFile[] xAPKS = {
             new XAPKFile(
             true, // true signifies a main file
-            4, // the version of the APK that the file was uploaded
+            5, // the version of the APK that the file was uploaded
             // against
-//            2871253495L // the length of the file in bytes
-                    1721206904L // the length of the file in bytes
+//          2871253495L // the length of the file in bytes
+            1721206904L  // the length of the file in bytes
         )
     };
     /* expansion service*/
@@ -277,7 +276,7 @@ public class DownloadExpansionFile extends Activity implements IDownloaderClient
      * @return true if they are present.
      */
     boolean expansionFilesDelivered() {
-        for (XAPKFile xf : xAPK) {
+        for (XAPKFile xf : xAPKS) {
             String fileName = Helpers.getExpansionAPKFileName(this, xf.mIsMain, xf.mFileVersion);
             if (Helpers.doesFileExist(this, fileName, xf.mFileSize, false)) {
                 return true;
@@ -382,15 +381,15 @@ public class DownloadExpansionFile extends Activity implements IDownloaderClient
      * @return true if XAPKZipFile is successful
      */
     void validateXAPKZipFiles() {
-        @SuppressLint("StaticFieldLeak") AsyncTask<Object, DownloadProgressInfo, Boolean> validationTask = new AsyncTask<Object, DownloadProgressInfo, Boolean>() {
+         AsyncTask<Object, DownloadProgressInfo, Boolean> validationTask = new AsyncTask<Object, DownloadProgressInfo, Boolean>() {
 
             @Override
             protected Boolean doInBackground(Object... params) {
-                for (XAPKFile xf : xAPK) {
-                    String fileName = Helpers.getExpansionAPKFileName(DownloadExpansionFile.this, xf.mIsMain,
-                            xf.mFileVersion);
-                    if (!Helpers.doesFileExist(DownloadExpansionFile.this, fileName, xf.mFileSize, false))
+                for (XAPKFile xf : xAPKS) {
+                    String fileName = Helpers.getExpansionAPKFileName(DownloadExpansionFile.this, xf.mIsMain, xf.mFileVersion);
+                    if (!Helpers.doesFileExist(DownloadExpansionFile.this, fileName, xf.mFileSize, false)){
                         return false;
+                    } 
                     fileName = Helpers.generateSaveFileName(DownloadExpansionFile.this, fileName);
                     ZipResourceFile zrf;
                     byte[] buf = new byte[1024 * 256];

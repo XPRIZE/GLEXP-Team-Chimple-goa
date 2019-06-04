@@ -47,6 +47,7 @@ import android.text.SpannableStringBuilder;
 import android.text.style.RelativeSizeSpan;
 import android.util.Log;
 import android.view.Display;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
@@ -61,7 +62,7 @@ import java.util.Locale;
 
 import chimple.DownloadExpansionFile;
 
-import static chimple.DownloadExpansionFile.xAPK;
+import static chimple.DownloadExpansionFile.xAPKS;
 
 public class AppActivity extends Cocos2dxActivity {
     public static final String TAG = "GOA";
@@ -400,8 +401,8 @@ public class AppActivity extends Cocos2dxActivity {
             int mainFileVersion = sharedPref.getInt(getString(R.string.mainFileVersion), defaultfileVersion);
             int patchFileVersion = sharedPref.getInt(getString(R.string.patchFileVersion), defaultfileVersion);
             boolean ExtractionRequired = false;
-            for (DownloadExpansionFile.XAPKFile xf : xAPK){
-                if(xf.mIsMain && xf.mFileVersion != mainFileVersion || !xf.mIsMain && xf.mFileVersion != patchFileVersion){
+            for (DownloadExpansionFile.XAPKFile xf : xAPKS){
+                if((xf.mIsMain && (xf.mFileVersion != mainFileVersion)) || (!xf.mIsMain && (xf.mFileVersion != patchFileVersion))){
                     ExtractionRequired = true;
                     break;
                 }
@@ -412,7 +413,10 @@ public class AppActivity extends Cocos2dxActivity {
                 finish();
             }
         }
+
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
+
         _appActivity = this;
         _activity = this;
         _context = this;
@@ -421,7 +425,7 @@ public class AppActivity extends Cocos2dxActivity {
         getGLSurfaceView().setMultipleTouchEnabled(false);
         Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         width = (int) (display.getWidth() * 0.5);
-        height = (int) (display.getHeight() * 0.5);
+        height = (int)(display.getHeight() * 0.5);
 
         v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 

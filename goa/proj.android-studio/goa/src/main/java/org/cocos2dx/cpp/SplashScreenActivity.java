@@ -26,7 +26,7 @@ import java.util.zip.ZipFile;
 import chimple.DownloadExpansionFile;
 import utils.Zip;
 
-import static chimple.DownloadExpansionFile.xAPK;
+import static chimple.DownloadExpansionFile.xAPKS;
 
 public class SplashScreenActivity extends Activity {
 
@@ -88,9 +88,9 @@ public class SplashScreenActivity extends Activity {
             // Retrieve the stored values of main and patch file version
             mainFileVersion = sharedPref.getInt(getString(R.string.mainFileVersion), defaultFileVersion);
             patchFileVersion = sharedPref.getInt(getString(R.string.patchFileVersion), defaultFileVersion);
-            for (DownloadExpansionFile.XAPKFile xf : xAPK) {
+            for (DownloadExpansionFile.XAPKFile xf : xAPKS) {
                 // If main or patch file is updated set isExtractionRequired to true
-                if (xf.mIsMain && xf.mFileVersion != mainFileVersion || !xf.mIsMain && xf.mFileVersion != patchFileVersion) {
+                if ((xf.mIsMain && (xf.mFileVersion != mainFileVersion)) || (!xf.mIsMain && (xf.mFileVersion != patchFileVersion))) {
                     ExtractionRequired = true;
                     break;
                 }
@@ -112,9 +112,11 @@ public class SplashScreenActivity extends Activity {
     }
 
     public void unzipFile() {
+
+        int totalZipSize = getTotalExpansionFileSize();
         SharedPreferences.Editor editor = sharedPref.edit();
         try {
-            for (DownloadExpansionFile.XAPKFile xf : xAPK) {
+            for (DownloadExpansionFile.XAPKFile xf : xAPKS) {
                 expansionFilePath = getExpansionFilePath(xf.mIsMain, xf.mFileVersion);
                 expansionFile = new File(expansionFilePath);
                 expansionZipFile = new ZipFile(expansionFile);
@@ -127,12 +129,13 @@ public class SplashScreenActivity extends Activity {
                     }
                     packageNameDir.mkdir();
                 }
-                _zip.unzip(unzipFilePath);
+                _zip.unzip(unzipFilePath, totalZipSize);
                 _zip.close();
                 if (xf.mIsMain) {
                     editor.putInt(getString(R.string.mainFileVersion), xf.mFileVersion);
                     editor.commit();
-                } else {
+                } 
+                else {
                     editor.putInt(getString(R.string.patchFileVersion), xf.mFileVersion);
                     editor.commit();
                 }
@@ -142,6 +145,25 @@ public class SplashScreenActivity extends Activity {
             System.out.println("Could not extract assets");
             System.out.println("Stack trace:" + e);
         }
+    }
+
+    public int getTotalExpansionFileSize() {
+        int totalExpansionFileSize = 0;
+        ZipFile zipFile;
+        try {
+            for (DownloadExpansionFile.XAPKFile xf : xAPKS) {
+                expansionFilePath = getExpansionFilePath(xf.mIsMain, xf.mFileVersion);
+                ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.WRITE_EXTERNAL_STORAGE },
+                        99);
+                expansionFile = new File(expansionFilePath);
+                zipFile = new ZipFile(expansionFile);
+                totalExpansionFileSize += zipFile.size();
+            }
+        } catch (IOException ie) {
+            System.out.println("Couldn't get total expansion file size");
+            System.out.println("Stacktrace: " + ie);
+        }
+        return totalExpansionFileSize;
     }
 
     public String getExpansionFilePath(boolean isMain, int fileVersion) {
@@ -157,3 +179,4 @@ public class SplashScreenActivity extends Activity {
         }
     }
 }
+
