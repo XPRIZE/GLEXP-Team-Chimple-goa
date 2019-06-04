@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.maq.xprize.bali">
 
-    <permission android:name="com.maq.xprize.bali.provider.READ_WRITE" />
+    <permission
+        android:name="com.maq.xprize.bali.provider.READ_WRITE"
+        android:protectionLevel="signature" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
