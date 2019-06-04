@@ -396,7 +396,6 @@ public class AppActivity extends Cocos2dxActivity {
             startActivity(intent);
             finish();
         }
-
         else{
             int mainFileVersion = sharedPref.getInt(getString(R.string.mainFileVersion), defaultfileVersion);
             int patchFileVersion = sharedPref.getInt(getString(R.string.patchFileVersion), defaultfileVersion);
@@ -414,7 +413,6 @@ public class AppActivity extends Cocos2dxActivity {
             }
         }
 
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
 
         _appActivity = this;

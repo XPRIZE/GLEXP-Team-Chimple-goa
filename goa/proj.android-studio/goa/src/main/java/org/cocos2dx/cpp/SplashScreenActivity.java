@@ -94,12 +94,12 @@ public class SplashScreenActivity extends Activity {
                     ExtractionRequired = true;
                     break;
                 }
+            }
                 // If main or patch file is updated, the extraction process needs to be
                 // performed again
-                if (ExtractionRequired) {
-                    System.out.println("Splash onCreate: isExtractionRequired = " + true);
-                    new DownloadFile().execute(null, null, null);
-                }
+            if (ExtractionRequired) {
+                System.out.println("Splash onCreate: isExtractionRequired = " + true);
+                new DownloadFile().execute(null, null, null);
             }
         }
     }
@@ -112,7 +112,6 @@ public class SplashScreenActivity extends Activity {
     }
 
     public void unzipFile() {
-
         int totalZipSize = getTotalExpansionFileSize();
         SharedPreferences.Editor editor = sharedPref.edit();
         try {
@@ -134,8 +133,7 @@ public class SplashScreenActivity extends Activity {
                 if (xf.mIsMain) {
                     editor.putInt(getString(R.string.mainFileVersion), xf.mFileVersion);
                     editor.commit();
-                } 
-                else {
+                } else {
                     editor.putInt(getString(R.string.patchFileVersion), xf.mFileVersion);
                     editor.commit();
                 }

@@ -116,10 +116,11 @@ public class Zip {
                 }
             }
         }
+        boolean extraction = isExtractionSuccessful;
         if (isExtractionSuccessful) {
             flagFile = new File(extractPath + ".success.txt");
             flagFile.createNewFile();
-            
+
         }
     }
 }
