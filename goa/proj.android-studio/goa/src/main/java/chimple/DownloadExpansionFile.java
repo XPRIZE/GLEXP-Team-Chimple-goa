@@ -54,20 +54,16 @@ public class DownloadExpansionFile extends Activity implements IDownloaderClient
      * these checks and to just rely on the server.
      */
     public static final XAPKFile[] xAPKS = {
-            new XAPKFile(
-            true, // true signifies a main file
-            5, // the version of the APK that the file was uploaded
-            // against
-//          2871253495L // the length of the file in bytes
-            1721206904L  // the length of the file in bytes
+        new XAPKFile(
+        true, // true signifies a main file
+        5, // the version of the APK that the file was uploaded
+        1721206904L  // the length of the file in bytes
         ),
-            new XAPKFile(
-                    false, // true signifies a main file
-                    5, // the version of the APK that the file was uploaded
-                    // against
-//          2871253495L // the length of the file in bytes
-                    1721206904L  // the length of the file in bytes
-            )
+        new XAPKFile(
+       false, // false signifies a patch file
+       9, // the version of the patch that is being uploaded
+       528657L  // the length of the file in bytes
+        )
     };
     /* expansion service*/
     private static final String LOG_TAG = "LVLDownloader";

@@ -399,14 +399,14 @@ public class AppActivity extends Cocos2dxActivity {
         else{
             int mainFileVersion = sharedPref.getInt(getString(R.string.mainFileVersion), defaultfileVersion);
             int patchFileVersion = sharedPref.getInt(getString(R.string.patchFileVersion), defaultfileVersion);
-            boolean ExtractionRequired = false;
+            boolean extractionRequired = false;
             for (DownloadExpansionFile.XAPKFile xf : xAPKS){
                 if((xf.mIsMain && (xf.mFileVersion != mainFileVersion)) || (!xf.mIsMain && (xf.mFileVersion != patchFileVersion))){
-                    ExtractionRequired = true;
+                    extractionRequired = true;
                     break;
                 }
             }
-            if(ExtractionRequired){
+            if(extractionRequired){
                 Intent intent = new Intent(AppActivity.this, SplashScreenActivity.class);
                 startActivity(intent);
                 finish();

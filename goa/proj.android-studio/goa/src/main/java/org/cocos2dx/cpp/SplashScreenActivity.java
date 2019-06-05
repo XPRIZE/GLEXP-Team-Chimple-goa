@@ -41,7 +41,7 @@ public class SplashScreenActivity extends Activity {
     int defaultFileVersion = 0;
     int mainFileVersion;
     int patchFileVersion;
-    boolean ExtractionRequired = false;
+    boolean extractionRequired = false;
 
     public static String getUnzippedExpansionFilePath() {
         return "/storage/emulated/0/Android/data/com.maq.xprize.chimple.hindi/files/";
@@ -91,14 +91,13 @@ public class SplashScreenActivity extends Activity {
             for (DownloadExpansionFile.XAPKFile xf : xAPKS) {
                 // If main or patch file is updated set isExtractionRequired to true
                 if ((xf.mIsMain && (xf.mFileVersion != mainFileVersion)) || (!xf.mIsMain && (xf.mFileVersion != patchFileVersion))) {
-                    ExtractionRequired = true;
+                    extractionRequired = true;
                     break;
                 }
             }
                 // If main or patch file is updated, the extraction process needs to be
                 // performed again
-            if (ExtractionRequired) {
-                System.out.println("Splash onCreate: isExtractionRequired = " + true);
+            if (extractionRequired) {
                 new DownloadFile().execute(null, null, null);
             }
         }
@@ -114,28 +113,33 @@ public class SplashScreenActivity extends Activity {
     public void unzipFile() {
         int totalZipSize = getTotalExpansionFileSize();
         SharedPreferences.Editor editor = sharedPref.edit();
+        mainFileVersion = sharedPref.getInt(getString(R.string.mainFileVersion), defaultFileVersion);
+        patchFileVersion = sharedPref.getInt(getString(R.string.patchFileVersion), defaultFileVersion);
         try {
             for (DownloadExpansionFile.XAPKFile xf : xAPKS) {
-                expansionFilePath = getExpansionFilePath(xf.mIsMain, xf.mFileVersion);
-                expansionFile = new File(expansionFilePath);
-                expansionZipFile = new ZipFile(expansionFile);
-                _zip = new Zip(expansionZipFile, this);
-                unzipFilePath = getUnzippedExpansionFilePath();
-                packageNameDir = new File(unzipFilePath);
-                if (xf.mIsMain) {
-                    if (packageNameDir.exists()) {
-                        DownloadExpansionFile.deleteDir(packageNameDir);
+                if ((xf.mIsMain && (xf.mFileVersion != mainFileVersion)) || (!xf.mIsMain && (xf.mFileVersion != patchFileVersion))) {
+
+                    expansionFilePath = getExpansionFilePath(xf.mIsMain, xf.mFileVersion);
+                    expansionFile = new File(expansionFilePath);
+                    expansionZipFile = new ZipFile(expansionFile);
+                    _zip = new Zip(expansionZipFile, this);
+                    unzipFilePath = getUnzippedExpansionFilePath();
+                    packageNameDir = new File(unzipFilePath);
+                    if (xf.mIsMain) {
+                        if (packageNameDir.exists()) {
+                            DownloadExpansionFile.deleteDir(packageNameDir);
+                        }
+                        packageNameDir.mkdir();
                     }
-                    packageNameDir.mkdir();
-                }
-                _zip.unzip(unzipFilePath, totalZipSize);
-                _zip.close();
-                if (xf.mIsMain) {
-                    editor.putInt(getString(R.string.mainFileVersion), xf.mFileVersion);
-                    editor.commit();
-                } else {
-                    editor.putInt(getString(R.string.patchFileVersion), xf.mFileVersion);
-                    editor.commit();
+                    _zip.unzip(unzipFilePath, totalZipSize);
+                    _zip.close();
+                    if (xf.mIsMain) {
+                        editor.putInt(getString(R.string.mainFileVersion), xf.mFileVersion);
+                        editor.commit();
+                    } else {
+                        editor.putInt(getString(R.string.patchFileVersion), xf.mFileVersion);
+                        editor.commit();
+                    }
                 }
             }
             toCallApplication();
