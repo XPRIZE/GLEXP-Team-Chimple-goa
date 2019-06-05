@@ -290,7 +290,7 @@ public class DownloadExpansionFile extends Activity implements IDownloaderClient
             }
         }
         return false;
-    }
+   }
 
     @Override
     public void onServiceConnected(Messenger m) {

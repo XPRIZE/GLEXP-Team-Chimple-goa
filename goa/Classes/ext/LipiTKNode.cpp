@@ -90,9 +90,10 @@ bool LipiTKNode::initialize(int width, int height, Point position) {
     
         #elif (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
             //initialize lipiTK
-             path = FileUtils::getInstance()->getWritablePath().c_str();
+             path = "/storage/emulated/0/Android/data/com.maq.xprize.chimple.hindi/files/res/android-lipitk";
         #endif
-    
+
+        
         _lipiTKInterface = LipiTKInterface::getInstance(path);
         _canvasWidth = width;
         _canvasHeight = height;
