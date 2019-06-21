@@ -10,3 +10,8 @@ This repository consits of two applications
 - Goa
 
   This is a game built using [Cocos2dx](https://cocos2d-x.org/cocos2dx) in the C++ programming language. It contains numerous activities and games for reading, writing and maths along with tons of stories. It derives the literacy data from *Bali*
+
+
+# Questions?
+
+Do you have questions about the code, content or data? Please reach out to the [Global Learning XPRIZE Community](http://community.xprize.org/learning).
